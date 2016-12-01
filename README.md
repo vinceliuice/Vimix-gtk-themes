@@ -9,7 +9,6 @@ Flat-Plat gtk theme: https://github.com/nana-4/Flat-Plat.
 
 ## Info
 
------------------------------
 GTK2 engines requirment
 - GTK2 engine Murrine 0.98.1.1 or later.
 - GTK2 pixbuf engine or the gtk(2)-engines package.
@@ -25,7 +24,6 @@ pacman -S gtk-engine-murrine gtk-engines
 
 Other:
 Search for the engines in your distributions repository or install the engines from source.
-----------------------------
 
 ## Install Or Uninstall
 

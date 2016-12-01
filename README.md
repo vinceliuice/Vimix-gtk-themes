@@ -33,7 +33,7 @@ Search for the engines in your distributions repository or install the engines f
 
 Run
 
-    ./VimixDark-installer.sh
+    ./VimixTheme-installer.sh
 
 Or double-click to open VimixDark-installer.sh and select "run at the terminal" at nautilus.
 

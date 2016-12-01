@@ -5,7 +5,9 @@ Vimix is a flat Material Design theme for GTK 3, GTK 2 and Gnome-Shell which sup
 
 
 This theme is based on Flat-Plat gtk theme of nana-4. Thanks nana-4 sincerely for his great job! 
-Flat-Plat gtk theme: https://github.com/nana-4/Flat-Plat.
+Flat-Plat gtk theme:
+
+     https://github.com/nana-4/Flat-Plat.
 
 ## Info
 
@@ -15,19 +17,15 @@ GTK2 engines requirment
 
 Fedora/RedHat distros:
 
-Run
-
-  yum install gtk-murrine-engine gtk2-engines
+    yum install gtk-murrine-engine gtk2-engines
 
 Ubuntu/Mint/Debian distros:
 
-Run
-
-  sudo apt-get install gtk2-engines-murrine gtk2-engines-pixbuf
+    sudo apt-get install gtk2-engines-murrine gtk2-engines-pixbuf
 
 ArchLinux:
 
-  pacman -S gtk-engine-murrine gtk-engines
+    pacman -S gtk-engine-murrine gtk-engines
 
 Other:
 Search for the engines in your distributions repository or install the engines from source.

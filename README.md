@@ -5,9 +5,8 @@ Vimix is a flat Material Design theme for GTK 3, GTK 2 and Gnome-Shell which sup
 
 
 This theme is based on Flat-Plat gtk theme of nana-4. Thanks nana-4 sincerely for his great job! 
-Flat-Plat gtk theme:
 
-     https://github.com/nana-4/Flat-Plat.
+Flat-Plat gtk theme: https://github.com/nana-4/Flat-Plat
 
 ## Info
 

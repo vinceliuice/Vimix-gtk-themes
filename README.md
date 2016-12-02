@@ -32,12 +32,17 @@ Search for the engines in your distributions repository or install the engines f
 ## Install Or Uninstall
 
 Open the terminal at current directory.
-
 Run (VimixDark-Gtk-Themes)
-./VimixDark-installer.sh
+
+
+    ./VimixDark-installer.sh
+    
 
 And (VimixLight-Gtk-Themes)
+
+
     ./VimixLight-installer.sh
+    
 
 Or double-click to open that script files and select "run at the terminal" at nautilus.
 

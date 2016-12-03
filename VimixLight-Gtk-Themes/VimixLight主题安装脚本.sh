@@ -49,7 +49,7 @@ setup() {
 
 themes() {
   show_question "\n+------------------------------------------------------------------+
-  请输入数字选择主题：（提示：笔记本用户推荐Laptop版，板式更紧凑。）
+  请输入数字选择主题：（提示：笔记本用户推荐Laptop版，版式更紧凑。）
               (1)  VimixLight
               (2)  VimixLight-Doder
               (3)  VimixLight-Ruby

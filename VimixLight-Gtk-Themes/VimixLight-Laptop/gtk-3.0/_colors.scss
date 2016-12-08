@@ -69,6 +69,7 @@ $row_track_color: gtkalpha(currentColor, 0.05);
 $borders_color: if($variant == 'light', scale-alpha(#000000, 0.1), scale-alpha(#000000, 0.2));
 $highlight_color: if($variant == 'light', scale-alpha(#FFFFFF, 0.4), scale-alpha(#FFFFFF, 0.1));
 $secondary_highlight_color: scale-alpha(#FFFFFF, 0.2);
+$headerbar_highlight_color: if($variant =='light', scale-alpha(#ffffff, 0.5), scale-alpha(#666666, 0.5));
 
 $placeholder_text_color: mix($fg_color, $base_color, percentage($hint_opacity));
 

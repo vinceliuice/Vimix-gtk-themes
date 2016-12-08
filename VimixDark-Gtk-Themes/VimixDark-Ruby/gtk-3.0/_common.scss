@@ -1080,7 +1080,7 @@ headerbar {
   }
 
   &.selection-mode {
-    transition: background-color 0 $longer_duration;
+    transition: background-color 0.00001s $longer_duration;
     animation: header_ripple_effect $longer_duration $deceleration_curve;
     // box-shadow: $z-depth-1, inset 0 1px $secondary_highlight_color;
     background-color: $primary_color;
@@ -1955,7 +1955,6 @@ switch {
   &:hover slider { @include entry(focus); }
 
   &:checked slider {
-    transition: $longer_transition, $shadow_transition, margin 0, background-image 0, background-color 0 $longer_duration;
     animation: needs_attention $longer_duration $deceleration_curve;
     margin: -4px -4px -4px 0;
     background-color: $accent_color;

@@ -31,7 +31,7 @@ replace() {
   show_question "\n     发现你以前安装过这个主题，需要替换掉吗? 替换：（ Y ）， 不用：（ N ） :\n" 
   read INPUT
   case $INPUT in
-    [Yy]* ) rm -rf "$@/VimixDark*" 2>/dev/null; rm -rf "$@/VimixLight*" 2>/dev/null;;
+    [Yy]* ) rm -rf "$@/Vimix*" 2>/dev/null;;
     [Nn]* ) ;;
     * ) show_error "\n     不好意思，再试一次吧！"; replace $@;;
   esac
@@ -268,8 +268,7 @@ remove() {
 
   # Removing files
 
-  rm -rf $DEST_DIR/VimixDark*
-  rm -rf $DEST_DIR/VimixLight*
+  rm -rf $DEST_DIR/Vimix*
 
   echo "     删除成功！"
   echo "     看来你并不喜欢这个主题，可能我这个主题还做得不够好！."

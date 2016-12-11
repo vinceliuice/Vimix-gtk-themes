@@ -31,7 +31,7 @@ replace() {
   show_question "\nFound an existing installation. Replace it? (Y)es, (N)o :\n" 
   read INPUT
   case $INPUT in
-    [Yy]* ) rm -rf "$@/VimixDark*" 2>/dev/null; rm -rf "$@/VimixLight*" 2>/dev/null;;
+    [Yy]* ) rm -rf "$@/Vimix*" 2>/dev/null;;
     [Nn]* ) ;;
     * ) show_error "\nSorry, try again."; replace $@;;
   esac
@@ -268,8 +268,7 @@ remove() {
 
   # Removing files
 
-  rm -rf $DEST_DIR/VimixDark*
-  rm -rf $DEST_DIR/VimixLight*
+  rm -rf $DEST_DIR/Vimix*
 
   echo "Removing complete!"
   echo "I hope to see you soon."

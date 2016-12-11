@@ -31,7 +31,7 @@ replace() {
   show_question "\n     发现你以前安装过这个主题，需要替换掉吗? 替换：（ Y ）， 不用：（ N ） :\n" 
   read INPUT
   case $INPUT in
-    [Yy]* ) rm -rf "$@/Vimix*" 2>/dev/null;;
+    [Yy]* ) rm -rf $DEST_DIR/Vimix*;;
     [Nn]* ) ;;
     * ) show_error "\n     不好意思，再试一次吧！"; replace $@;;
   esac

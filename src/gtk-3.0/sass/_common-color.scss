@@ -1105,6 +1105,17 @@ headerbar {
         > label { color: inherit; }
       }
 
+      &:hover {
+        border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    gtkalpha($dark_contrast_color, 0.8) 100%,
+                                    transparent 0%)
+                                    0 0 2 / 0 0 2px;
+        background: none;
+        color: gtkalpha($dark_contrast_color, 0.8);
+
+          &, &:disabled { background-color: transparent; }
+          }
+
       &:checked {
         border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                       currentColor 100%,
@@ -3374,7 +3385,7 @@ button.circular { // FIXME: aggregate to buttons
   border-radius: 100px;
   -gtk-outline-radius: 100px;
 
-  label { padding: 0; }
+  // label { padding: 0; }
 }
 
 %small_button {

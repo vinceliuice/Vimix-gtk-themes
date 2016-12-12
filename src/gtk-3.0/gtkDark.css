@@ -927,6 +927,15 @@ headerbar {
         .selection-mode.titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action):disabled > label,
         headerbar.selection-mode button:not(.suggested-action):not(.destructive-action):disabled > label {
           color: inherit; }
+      .selection-mode.titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action):hover,
+      headerbar.selection-mode button:not(.suggested-action):not(.destructive-action):hover {
+        border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), alpha(#FFFFFF, 0.8) 100%, transparent 0%) 0 0 2/0 0 2px;
+        background: none;
+        color: alpha(#FFFFFF, 0.8); }
+        .selection-mode.titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action):hover, .selection-mode.titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action):hover:disabled,
+        headerbar.selection-mode button:not(.suggested-action):not(.destructive-action):hover,
+        headerbar.selection-mode button:not(.suggested-action):not(.destructive-action):hover:disabled {
+          background-color: transparent; }
       .selection-mode.titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action):checked,
       headerbar.selection-mode button:not(.suggested-action):not(.destructive-action):checked {
         border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), currentColor 100%, transparent 0%) 0 0 2/0 0 2px;

@@ -930,6 +930,15 @@ headerbar {
         .selection-mode.titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action):disabled > label,
         headerbar.selection-mode button:not(.suggested-action):not(.destructive-action):disabled > label {
           color: inherit; }
+      .selection-mode.titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action):hover,
+      headerbar.selection-mode button:not(.suggested-action):not(.destructive-action):hover {
+        border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), alpha(#FFFFFF, 0.8) 100%, transparent 0%) 0 0 2/0 0 2px;
+        background: none;
+        color: alpha(#FFFFFF, 0.8); }
+        .selection-mode.titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action):hover, .selection-mode.titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action):hover:disabled,
+        headerbar.selection-mode button:not(.suggested-action):not(.destructive-action):hover,
+        headerbar.selection-mode button:not(.suggested-action):not(.destructive-action):hover:disabled {
+          background-color: transparent; }
       .selection-mode.titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action):checked,
       headerbar.selection-mode button:not(.suggested-action):not(.destructive-action):checked {
         border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), currentColor 100%, transparent 0%) 0 0 2/0 0 2px;
@@ -2779,10 +2788,6 @@ radio, .nautilus-window headerbar > revealer > button, .raven .expander-button,
 button.circular {
   border-radius: 100px;
   -gtk-outline-radius: 100px; }
-  check label,
-  radio label, .nautilus-window headerbar > revealer > button label, .raven .expander-button label,
-  button.circular label {
-    padding: 0; }
 
 spinbutton:not(.vertical) button, notebook > header tab button.flat, button.sidebar-button, .nautilus-window .floating-bar button, .gedit-document-panel row button.flat, .pluma-window paned.horizontal box.vertical box.horizontal button.flat {
   min-height: 20px;

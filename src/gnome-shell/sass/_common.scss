@@ -1364,13 +1364,13 @@ StScrollBar {
     padding: 0 8px;
     border-radius: 20px;
     color: $entry_color;
-    background-color: scale-alpha($primary_fg_color, 0.8);
+    background-color: scale-alpha($primary_fg_color, 0.1);
 
     &:focus {
       padding: 0 8px;
       border-width: 0;
       color: $entry_hover_color;
-      background-color: $primary_fg_color;
+      background-color: scale-alpha($primary_fg_color, 0.2);
       box-shadow: 0 1px 3px 0 rgba(0,0,0,0.5);
     }
 
@@ -1379,7 +1379,7 @@ StScrollBar {
     &:hover {
       .search-entry-icon { color: $entry_hover_color; }
       box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5);
-      background-color: $primary_fg_color;
+      background-color: scale-alpha($primary_fg_color, 0.2);
     }
   }
 

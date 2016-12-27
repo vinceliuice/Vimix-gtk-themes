@@ -257,7 +257,7 @@ remove() {
     continue
   
   else
-    show_error "\n     VimixDark 主题没有安装 in:\n"
+    show_error "\n     Vimix 主题没有安装在:\n"
     show_dir "\t$DEST_DIR\n"
     end
   fi

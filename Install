@@ -27,7 +27,7 @@ for variant in 'Dark' 'Light' ; do
 		# Install index.theme
 		cd ${srcdir}
 		cp -ur \
-			index${size}${color}.theme \
+			index-${variant}${size}${color}.theme \
 			${themedir}/index.theme
 
 		# Install GNOME Shell Theme

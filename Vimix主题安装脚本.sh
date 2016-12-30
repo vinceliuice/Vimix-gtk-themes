@@ -86,7 +86,7 @@ themes() {
 
 VimixDark() {
 
-# Set VimixDark Gtk Themes
+# Set VimixDark Gtk Theme
   echo "     正在设置VimixDark主题为默认主题..."
   gsettings set org.gnome.desktop.interface gtk-theme VimixDark
   gsettings set org.gnome.desktop.wm.preferences theme VimixDark
@@ -96,7 +96,7 @@ VimixDark() {
 
 VimixDark-Doder() {
 
-# Set VimixDark-Doder Gtk Themes
+# Set VimixDark-Doder Gtk Theme
   echo "     正在设置VimixDark-Doder主题为默认主题..."
   gsettings set org.gnome.desktop.interface gtk-theme VimixDark-Doder
   gsettings set org.gnome.desktop.wm.preferences theme VimixDark-Doder
@@ -106,7 +106,7 @@ VimixDark-Doder() {
 
 VimixDark-Ruby() {
 
-# Set VimixDark-Ruby Gtk Themes
+# Set VimixDark-Ruby Gtk Theme
   echo "     正在设置VimixDark-Ruby主题为默认主题..."
   gsettings set org.gnome.desktop.interface gtk-theme VimixDark-Ruby
   gsettings set org.gnome.desktop.wm.preferences theme VimixDark-Ruby
@@ -116,7 +116,7 @@ VimixDark-Ruby() {
 
 VimixDark-Laptop() {
 
-# Set VimixDark-Laptop Gtk Themes
+# Set VimixDark-Laptop Gtk Theme
   echo "     正在设置VimixDark-Laptop主题为默认主题..."
   gsettings set org.gnome.desktop.interface gtk-theme VimixDark-Laptop
   gsettings set org.gnome.desktop.wm.preferences theme VimixDark-Laptop
@@ -126,7 +126,7 @@ VimixDark-Laptop() {
 
 VimixDark-Laptop-Doder() {
 
-# Set VimixDark-Laptop-Doder Gtk Themes
+# Set VimixDark-Laptop-Doder Gtk Theme
   echo "     正在设置VimixDark-Laptop-Doder主题为默认主题..."
   gsettings set org.gnome.desktop.interface gtk-theme VimixDark-Laptop-Doder
   gsettings set org.gnome.desktop.wm.preferences theme VimixDark-Laptop-Doder
@@ -136,7 +136,7 @@ VimixDark-Laptop-Doder() {
 
 VimixDark-Laptop-Ruby() {
 
-# Set VimixDark-Laptop-Ruby Gtk Themes
+# Set VimixDark-Laptop-Ruby Gtk Theme
   echo "     正在设置VimixDark-Laptop-Ruby主题为默认主题..."
   gsettings set org.gnome.desktop.interface gtk-theme VimixDark-Laptop-Ruby
   gsettings set org.gnome.desktop.wm.preferences theme VimixDark-Laptop-Ruby
@@ -146,7 +146,7 @@ VimixDark-Laptop-Ruby() {
 
 VimixLight() {
 
-# Set VimixLight Gtk Themes
+# Set VimixLight Gtk Theme
   echo "     正在设置VimixLight主题为默认主题..."
   gsettings set org.gnome.desktop.interface gtk-theme VimixLight
   gsettings set org.gnome.desktop.wm.preferences theme VimixLight
@@ -156,7 +156,7 @@ VimixLight() {
 
 VimixLight-Doder() {
 
-# Set VimixLight-Doder Gtk Themes
+# Set VimixLight-Doder Gtk Theme
   echo "     正在设置VimixLight-Doder主题为默认主题..."
   gsettings set org.gnome.desktop.interface gtk-theme VimixLight-Doder
   gsettings set org.gnome.desktop.wm.preferences theme VimixLight-Doder
@@ -166,7 +166,7 @@ VimixLight-Doder() {
 
 VimixLight-Ruby() {
 
-# Set VimixLight-Ruby Gtk Themes
+# Set VimixLight-Ruby Gtk Theme
   echo "     正在设置VimixLight-Ruby主题为默认主题..."
   gsettings set org.gnome.desktop.interface gtk-theme VimixLight-Ruby
   gsettings set org.gnome.desktop.wm.preferences theme VimixLight-Ruby
@@ -176,7 +176,7 @@ VimixLight-Ruby() {
 
 VimixLight-Laptop() {
 
-# Set VimixLight-Laptop Gtk Themes
+# Set VimixLight-Laptop Gtk Theme
   echo "     正在设置VimixLight-Laptop主题为默认主题..."
   gsettings set org.gnome.desktop.interface gtk-theme VimixLight-Laptop
   gsettings set org.gnome.desktop.wm.preferences theme VimixLight-Laptop
@@ -186,7 +186,7 @@ VimixLight-Laptop() {
 
 VimixLight-Laptop-Doder() {
 
-# Set VimixLight-Laptop-Doder Gtk Themes
+# Set VimixLight-Laptop-Doder Gtk Theme
   echo "     正在设置VimixLight-Laptop-Doder主题为默认主题..."
   gsettings set org.gnome.desktop.interface gtk-theme VimixLight-Laptop-Doder
   gsettings set org.gnome.desktop.wm.preferences theme VimixLight-Laptop-Doder
@@ -196,7 +196,7 @@ VimixLight-Laptop-Doder() {
 
 VimixLight-Laptop-Ruby() {
 
-# Set VimixLight-Laptop-Ruby Gtk Themes
+# Set VimixLight-Laptop-Ruby Gtk Theme
   echo "     正在设置VimixLight-Laptop-Ruby主题为默认主题..."
   gsettings set org.gnome.desktop.interface gtk-theme VimixLight-Laptop-Ruby
   gsettings set org.gnome.desktop.wm.preferences theme VimixLight-Laptop-Ruby

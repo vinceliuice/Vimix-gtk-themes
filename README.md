@@ -14,7 +14,9 @@ You can download from here: https://github.com/vinceliuice/vimix-gtk-themes/rele
 
 ## Info
 
-GTK2 engines requirment
+###GTK+ 3.20 or later.
+
+###GTK2 engines requirment
 - GTK2 engine Murrine 0.98.1.1 or later.
 - GTK2 pixbuf engine or the gtk(2)-engines package.
 

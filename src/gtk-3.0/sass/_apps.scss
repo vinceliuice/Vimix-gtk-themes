@@ -822,11 +822,11 @@ UnityDecoration .top {
   border-radius: 2px 2px 0px 0px;
 //  box-shadow: inset 0 1px $secondary_highlight_color; //
   background-color: $headerbar_bg_color;
-  color: $dark_contrast_color;
+  color: $headerbar_fg_color;
 }
 
 UnityDecoration .top:backdrop {
-  color: $darker_contrast_color;
+  color: gtkalpha($headerbar_fg_color, 0.9);
 }
 
 UnityDecoration .left,
@@ -864,12 +864,12 @@ UnityPanelWidget,
 .unity-panel {
   background-color: $topbar_color;
   background-image: image($topbar_color);
-  color: $inversed_fg_color;
+  color: $headerbar_fg_color;
 }
 
 UnityPanelWidget:backdrop,
 .unity-panel:backdrop {
-  color: $secondary_inversed_fg_color;
+  color: $secondary_headerbar_fg_color;
 }
 
 .unity-panel.menubar,
@@ -883,7 +883,7 @@ UnityPanelWidget:backdrop,
 
 .unity-panel.menubar.menuitem:hover,
 .unity-panel.menubar .menuitem *:hover {
-  box-shadow: inset 0 -2px $primary_color;
+  box-shadow: inset 0 -2px $topbar_fg_color;
   background-color: transparent;
   color: currentColor;
 }
@@ -906,7 +906,7 @@ menuitem calendar .header,
 menuitem calendar .view {
     background-color: $headerbar_bg_color;
     padding: 5px;
-    color: $inversed_fg_color;
+    color: $headerbar_fg_color;
 }
 
 // Unity Music Control Button //

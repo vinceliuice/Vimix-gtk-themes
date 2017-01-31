@@ -3360,10 +3360,10 @@ UnityDecoration .top {
   padding: 3px 8px 3px 8px;
   border-radius: 2px 2px 0px 0px;
   background-color: #EEEEEE;
-  color: #FFFFFF; }
+  color: rgba(0, 0, 0, 0.8); }
 
 UnityDecoration .top:backdrop {
-  color: #E0E0E0; }
+  color: alpha(rgba(0, 0, 0, 0.8), 0.9); }
 
 UnityDecoration.menuitem,
 UnityDecoration .menuitem {
@@ -3383,13 +3383,13 @@ UnityDecoration.menubar .menuitem *:hover {
 
 UnityPanelWidget,
 .unity-panel {
-  background-color: #444851;
-  background-image: image(#444851);
-  color: #FFFFFF; }
+  background-color: #EEEEEE;
+  background-image: image(#EEEEEE);
+  color: rgba(0, 0, 0, 0.8); }
 
 UnityPanelWidget:backdrop,
 .unity-panel:backdrop {
-  color: rgba(255, 255, 255, 0.75); }
+  color: rgba(0, 0, 0, 0.6); }
 
 .unity-panel.menuitem,
 .unity-panel .menuitem {
@@ -3416,7 +3416,7 @@ menuitem calendar .view,
 menuitem calendar iconview {
   background-color: #EEEEEE;
   padding: 5px;
-  color: #FFFFFF; }
+  color: rgba(0, 0, 0, 0.8); }
 
 /**************
  * Mate-Panel *
@@ -3427,7 +3427,7 @@ menuitem calendar iconview {
 
 #PanelPlug,
 PanelToplevel.background {
-  background-color: #444851;
+  background-color: #EEEEEE;
   color: #FFFFFF;
   font-weight: 500; }
 
@@ -3619,7 +3619,7 @@ button.raven-trigger {
   padding-right: 2px; }
 
 .budgie-panel {
-  background-color: #444851;
+  background-color: #EEEEEE;
   color: #FFFFFF;
   font-weight: 500; }
   .budgie-panel button {

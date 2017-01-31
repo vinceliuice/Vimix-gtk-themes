@@ -68,7 +68,8 @@ $accent_color: if($color == 'ruby', #FF626C, #0CAAF0);
 
 $tab_color: $primary_color;
 $secondary_titlebar_color: $primary_color;
-$topbar_color: if($color == 'ruby', #444444, #444851);
+$topbar_color: $headerbar_bg_color;
+$topbar_fg_color: $primary_color;
 
 // Misc colors
 $track_color: gtkalpha(currentColor, $lower_opacity);

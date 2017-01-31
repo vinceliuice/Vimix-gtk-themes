@@ -55,7 +55,6 @@ $darker_fg_color: if($variant =='light', #202020, #DDDDDD);
 $progress_color: if($variant =='light', #444444, #EEEEEE);
 $tab_color: if($variant =='light', #505050, #FFFFFF);
 $secondary_titlebar_color: #333333;
-$topbar_color: #444444;
 
 // Headerbar colors
 $menu_bg_color: if($headerbar =='dark', #444444, #FFFFFF);
@@ -67,6 +66,8 @@ $disabled_headerbar_fg_color: if($headerbar =='dark', $disabled_secondary_invers
 $primary_color: #666666;
 $alt_primary_color: #888888;
 $accent_color: if($variant =='light', #666666, #FAFAFA);
+$topbar_color: $headerbar_bg_color;
+$topbar_fg_color: $headerbar_fg_color;
 
 // Misc colors
 $track_color: gtkalpha(currentColor, $lower_opacity);

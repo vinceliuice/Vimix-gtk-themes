@@ -48,11 +48,12 @@ Run
 
 Or double-click to open that script files and select "run at the terminal" at nautilus.
 
+
 When running the installer script in ubuntu16.04, if you had this error:
 
     XMLLINT not set and xmllint not found in path; skipping xml preprocessing.
 
-To fix it you had to install libxml2-utils
+To fix it you have to install libxml2-utils
 
     sudo apt install libxml2-utils
 

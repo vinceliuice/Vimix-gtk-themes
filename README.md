@@ -39,8 +39,7 @@ Search for the engines in your distributions repository or install the engines f
 
 Vimix icon theme is based on Paper-Icon-Theme: https://github.com/snwh/paper-icon-theme
 
-#### You can download here: https://github.com/vinceliuice/vimix-gtk-themes/releases
-
+#### You can download here: https://github.com/vinceliuice/vimix-gtk-themes/tree/images
 #### ScreenShots
 
 ![01](https://github.com/vinceliuice/vimix-gtk-themes/blob/images/vimix-icon-theme.png?raw=true)

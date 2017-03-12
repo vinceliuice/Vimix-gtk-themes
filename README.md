@@ -14,9 +14,9 @@ You can download from here: https://github.com/vinceliuice/vimix-gtk-themes/rele
 
 ## Info
 
-###GTK+ 3.20 or later.
+### GTK+ 3.20 or later
 
-###GTK2 engines requirment
+### GTK2 engines requirment
 - GTK2 engine Murrine 0.98.1.1 or later.
 - GTK2 pixbuf engine or the gtk(2)-engines package.
 
@@ -34,6 +34,16 @@ ArchLinux:
 
 Other:
 Search for the engines in your distributions repository or install the engines from source.
+
+### Icon
+
+Vimix icon theme is based on Paper-Icon-Theme: https://github.com/snwh/paper-icon-theme
+
+        You can download here: https://github.com/vinceliuice/vimix-gtk-themes/releases
+
+#### ScreenShots
+
+![01](https://github.com/vinceliuice/vimix-gtk-themes/blob/images/vimix-icon-theme.png?raw=true)
 
 ## Install Or Uninstall
 

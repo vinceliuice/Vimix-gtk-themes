@@ -18,7 +18,7 @@ echo
 
 for variant in 'Dark' 'Light' ; do
   for size in '' '-Laptop' ; do
-	for color in '' '-Ruby' '-Doder'; do
+	for color in '' '-Ruby' '-Doder' '-Beryl'; do
 		echo -e "   Installing Vimix${variant}${size}${color} ..."
 
 		themedir=$DEST_DIR/Vimix${variant}${size}${color}
@@ -75,7 +75,7 @@ for variant in 'Dark' 'Light' ; do
 		cd ${srcdir}/gtk-3.0
 		cp -ur \
 			assets${color}/assets \
-			${themedir}/gtk-3.0/assets
+			${themedir}/gtk-3.0/
 		cp -ur \
 			gtk${variant}${size}${color}.css \
 			${themedir}/gtk-3.0/gtk.css

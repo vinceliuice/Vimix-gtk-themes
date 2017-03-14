@@ -34,16 +34,6 @@ ArchLinux:
 
 Other:
 Search for the engines in your distributions repository or install the engines from source.
-
-### Icon
-
-Vimix icon theme is based on Paper-Icon-Theme: https://github.com/snwh/paper-icon-theme
-
-#### You can download here: https://github.com/vinceliuice/vimix-gtk-themes/tree/images
-#### ScreenShots
-
-![01](https://github.com/vinceliuice/vimix-gtk-themes/blob/images/vimix-icon-theme.png?raw=true)
-
 ## Install Or Uninstall
 
 Open the terminal at current directory.
@@ -69,7 +59,17 @@ To fix it you have to install libxml2-utils
 ## Screenshots
 
 ### GNOME Shell
-![GNOME Shell 3.20](https://cn.pling.com/img/f/7/e/b/bd499935bebd7e7702844c32b7f59a91dd1d.jpg?raw=true)
+![GNOME Shell 3.20](https://cn.pling.com/img/f/7/e/b/bd499935bebd7e7702844c32b7f59a91dd1d.jpg?raw=true) 
 
 
+## Icon 
+Vimix icon theme is based on Paper-Icon-Theme: https://github.com/snwh/paper-icon-theme 
+
+
+#### You can download here: https://github.com/vinceliuice/vimix-gtk-themes/tree/image
+
+
+### ScreenShots 
+![01](https://github.com/vinceliuice/vimix-gtk-themes/blob/images/vimix-icon-theme.png?raw=true)
+ 
 

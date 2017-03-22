@@ -18,7 +18,7 @@ end() {
 }
 
 continue() {
-  show_question "\n     继续？  是的：（ Y ）， 不用：（ N ）： \n"
+  show_question "\n     继续？  是的：（ Y/y ）， 不用：（ N/n ）： \n"
   read INPUT
   case $INPUT in
     [Yy]* ) ;;
@@ -28,7 +28,7 @@ continue() {
 }
 
 replace() {
-  show_question "\n     发现你以前安装过这个主题，需要替换掉吗? 替换：（ Y ）， 不用：（ N ） :\n" 
+  show_question "\n     发现你以前安装过这个主题，需要替换掉吗? 替换：（ Y/y ）， 不用：（ N/n ） :\n" 
   read INPUT
   case $INPUT in
     [Yy]* ) rm -rf $DEST_DIR/Vimix*;;
@@ -38,7 +38,7 @@ replace() {
 }
 
 setup() {
-  show_question "\n     现在要设置主题吗？  是的：（ Y ）， 不用：（ N ） \n"
+  show_question "\n     现在要设置主题吗？  是的：（ Y/y ）， 不用：（ N/n ） \n"
   read INPUT
   case $INPUT in
     [Yy]* ) themes;;
@@ -285,7 +285,7 @@ else
 fi
 
 main() {
-  show_question "     你是想安装，还是卸载？  安装：（ I ）  卸载：（ R ）： \n"
+  show_question "     你是想安装，还是卸载？  安装：（ I/i ）  卸载：（ R/r ）： \n"
   read INPUT
   case $INPUT in
     [Ii]* ) install;;

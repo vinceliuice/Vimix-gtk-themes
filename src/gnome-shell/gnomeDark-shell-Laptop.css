@@ -802,7 +802,13 @@ StScrollBar {
   margin: 0 8px; }
 
 .datemenu-calendar-column {
-  spacing: 8px; }
+  spacing: 8px;
+  border-style: solid;
+  border-color: transparent; }
+  .datemenu-calendar-column:ltr {
+    border-left-width: 1px; }
+  .datemenu-calendar-column:rtl {
+    border-right-width: 1px; }
 
 .datemenu-displays-section {
   padding-bottom: 0; }

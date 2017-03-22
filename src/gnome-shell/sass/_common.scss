@@ -928,7 +928,16 @@ StScrollBar {
       margin: 0 8px;
     }
 
-    .datemenu-calendar-column { spacing: 8px; }
+    // pane-separator between messages and calendar
+    .datemenu-calendar-column {
+      spacing: 8px;
+      border-style: solid;
+      border-color: transparent;
+
+      &:ltr { border-left-width: 1px; }
+      &:rtl { border-right-width: 1px; }
+    }
+
     .datemenu-displays-section { padding-bottom: 0; }
 
     .datemenu-today-button,

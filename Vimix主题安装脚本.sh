@@ -54,39 +54,47 @@ themes() {
 
               (a)  VimixDark
               (b)  VimixDark-Doder
-              (c)  VimixDark-Ruby
-              (d)  VimixDark-Laptop
-              (e)  VimixDark-Laptop-Doder
-              (f)  VimixDark-Laptop-Ruby
-              (g)  VimixLight
-              (h)  VimixLight-Doder
-              (i)  VimixLight-Ruby
-              (j)  VimixLight-Laptop
-              (k)  VimixLight-Laptop-Doder
-              (l)  VimixLight-Laptop-Ruby
+              (c)  VimixDark-Beryl
+              (d)  VimixDark-Ruby
+              (e)  VimixDark-Laptop
+              (f)  VimixDark-Laptop-Doder
+              (g)  VimixDark-Laptop-Beryl
+              (h)  VimixDark-Laptop-Ruby
+              (i)  VimixLight
+              (j)  VimixLight-Doder
+              (k)  VimixLight-Beryl
+              (l)  VimixLight-Ruby
+              (m)  VimixLight-Laptop
+              (n)  VimixLight-Laptop-Doder
+              (o)  VimixLight-Laptop-Beryl
+              (p)  VimixLight-Laptop-Ruby
 
 +------------------------------------------------------------------+\n"
   read INPUT
   case $INPUT in
-    [a]* )  VimixDark;;
-    [b]* )  VimixDark-Doder;;
-    [c]* )  VimixDark-Ruby;;
-    [d]* )  VimixDark-Laptop;;
-    [e]* )  VimixDark-Laptop-Doder;;
-    [f]* )  VimixDark-Laptop-Ruby;;
-    [g]* )  VimixLight;;
-    [h]* )  VimixLight-Doder;;
-    [i]* )  VimixLight-Ruby;;
-    [j]* )  VimixLight-Laptop;;
-    [k]* )  VimixLight-Laptop-Doder;;
-    [l]* )  VimixLight-Laptop-Ruby;;
+    [Aa]* )  VimixDark;;
+    [Bb]* )  VimixDark-Doder;;
+    [Cc]* )  VimixDark-Beryl;;
+    [Dd]* )  VimixDark-Ruby;;
+    [Ee]* )  VimixDark-Laptop;;
+    [Ff]* )  VimixDark-Laptop-Doder;;
+    [Gg]* )  VimixDark-Laptop-Beryl;;
+    [Hh]* )  VimixDark-Laptop-Ruby;;
+    [Ii]* )  VimixLight;;
+    [Jj]* )  VimixLight-Doder;;
+    [Kk]* )  VimixLight-Beryl;;
+    [Ll]* )  VimixLight-Ruby;;
+    [Mm]* )  VimixLight-Laptop;;
+    [Nn]* )  VimixLight-Laptop-Doder;;
+    [Oo]* )  VimixLight-Laptop-Beryl;;
+    [Pp]* )  VimixLight-Laptop-Ruby;;
     * ) show_error "\n     不好意思，再试一次吧！"; themes;;
   esac
 }
 
 VimixDark() {
 
-# Set VimixDark Gtk Theme
+# 设置VimixDark主题
   echo "     正在设置VimixDark主题为默认主题..."
   gsettings set org.gnome.desktop.interface gtk-theme VimixDark
   gsettings set org.gnome.desktop.wm.preferences theme VimixDark
@@ -96,7 +104,7 @@ VimixDark() {
 
 VimixDark-Doder() {
 
-# Set VimixDark-Doder Gtk Theme
+# 正在设置VimixDark-Doder主题
   echo "     正在设置VimixDark-Doder主题为默认主题..."
   gsettings set org.gnome.desktop.interface gtk-theme VimixDark-Doder
   gsettings set org.gnome.desktop.wm.preferences theme VimixDark-Doder
@@ -104,9 +112,20 @@ VimixDark-Doder() {
 
 }
 
+VimixDark-Beryl() {
+
+# 设置VimixDark-Beryl主题
+  echo "     正在设置VimixDark-Beryl主题为默认主题..."
+  gsettings set org.gnome.desktop.interface gtk-theme VimixDark-Beryl
+  gsettings set org.gnome.desktop.wm.preferences theme VimixDark-Beryl
+  echo "     设置完成！"
+
+}
+
+
 VimixDark-Ruby() {
 
-# Set VimixDark-Ruby Gtk Theme
+# 设置VimixDark-Ruby主题
   echo "     正在设置VimixDark-Ruby主题为默认主题..."
   gsettings set org.gnome.desktop.interface gtk-theme VimixDark-Ruby
   gsettings set org.gnome.desktop.wm.preferences theme VimixDark-Ruby
@@ -116,7 +135,7 @@ VimixDark-Ruby() {
 
 VimixDark-Laptop() {
 
-# Set VimixDark-Laptop Gtk Theme
+# 设置VimixDark-Laptop主题
   echo "     正在设置VimixDark-Laptop主题为默认主题..."
   gsettings set org.gnome.desktop.interface gtk-theme VimixDark-Laptop
   gsettings set org.gnome.desktop.wm.preferences theme VimixDark-Laptop
@@ -126,7 +145,7 @@ VimixDark-Laptop() {
 
 VimixDark-Laptop-Doder() {
 
-# Set VimixDark-Laptop-Doder Gtk Theme
+# 设置VimixDark-Laptop-Doder主题
   echo "     正在设置VimixDark-Laptop-Doder主题为默认主题..."
   gsettings set org.gnome.desktop.interface gtk-theme VimixDark-Laptop-Doder
   gsettings set org.gnome.desktop.wm.preferences theme VimixDark-Laptop-Doder
@@ -134,9 +153,19 @@ VimixDark-Laptop-Doder() {
 
 }
 
+VimixDark-Laptop-Doder() {
+
+# 设置VimixDark-Laptop-Beryl主题
+  echo "     正在设置VimixDark-Laptop-Beryl主题为默认主题..."
+  gsettings set org.gnome.desktop.interface gtk-theme VimixDark-Laptop-Beryl
+  gsettings set org.gnome.desktop.wm.preferences theme VimixDark-Laptop-Beryl
+  echo "     设置完成！"
+
+}
+
 VimixDark-Laptop-Ruby() {
 
-# Set VimixDark-Laptop-Ruby Gtk Theme
+# 设置VimixDark-Laptop-Ruby主题
   echo "     正在设置VimixDark-Laptop-Ruby主题为默认主题..."
   gsettings set org.gnome.desktop.interface gtk-theme VimixDark-Laptop-Ruby
   gsettings set org.gnome.desktop.wm.preferences theme VimixDark-Laptop-Ruby
@@ -146,7 +175,7 @@ VimixDark-Laptop-Ruby() {
 
 VimixLight() {
 
-# Set VimixLight Gtk Theme
+# 设置VimixLight主题
   echo "     正在设置VimixLight主题为默认主题..."
   gsettings set org.gnome.desktop.interface gtk-theme VimixLight
   gsettings set org.gnome.desktop.wm.preferences theme VimixLight
@@ -156,7 +185,7 @@ VimixLight() {
 
 VimixLight-Doder() {
 
-# Set VimixLight-Doder Gtk Theme
+# 设置VimixLight-Doder主题
   echo "     正在设置VimixLight-Doder主题为默认主题..."
   gsettings set org.gnome.desktop.interface gtk-theme VimixLight-Doder
   gsettings set org.gnome.desktop.wm.preferences theme VimixLight-Doder
@@ -164,9 +193,19 @@ VimixLight-Doder() {
 
 }
 
+VimixLight-Beryl() {
+
+# 设置VimixLight-Doder主题
+  echo "     正在设置VimixLight-Beryl主题为默认主题..."
+  gsettings set org.gnome.desktop.interface gtk-theme VimixLight-Beryl
+  gsettings set org.gnome.desktop.wm.preferences theme VimixLight-Beryl
+  echo "     设置完成！"
+
+}
+
 VimixLight-Ruby() {
 
-# Set VimixLight-Ruby Gtk Theme
+# 设置VimixLight-Ruby主题
   echo "     正在设置VimixLight-Ruby主题为默认主题..."
   gsettings set org.gnome.desktop.interface gtk-theme VimixLight-Ruby
   gsettings set org.gnome.desktop.wm.preferences theme VimixLight-Ruby
@@ -176,7 +215,7 @@ VimixLight-Ruby() {
 
 VimixLight-Laptop() {
 
-# Set VimixLight-Laptop Gtk Theme
+# 设置VimixLight-Laptop主题
   echo "     正在设置VimixLight-Laptop主题为默认主题..."
   gsettings set org.gnome.desktop.interface gtk-theme VimixLight-Laptop
   gsettings set org.gnome.desktop.wm.preferences theme VimixLight-Laptop
@@ -186,7 +225,7 @@ VimixLight-Laptop() {
 
 VimixLight-Laptop-Doder() {
 
-# Set VimixLight-Laptop-Doder Gtk Theme
+# 设置VimixLight-Laptop-Doder主题
   echo "     正在设置VimixLight-Laptop-Doder主题为默认主题..."
   gsettings set org.gnome.desktop.interface gtk-theme VimixLight-Laptop-Doder
   gsettings set org.gnome.desktop.wm.preferences theme VimixLight-Laptop-Doder
@@ -194,9 +233,20 @@ VimixLight-Laptop-Doder() {
 
 }
 
+VimixLight-Laptop-Doder() {
+
+# 设置VimixLight-Laptop-Beryl主题
+  echo "     正在设置VimixLight-Laptop-Beryl主题为默认主题..."
+  gsettings set org.gnome.desktop.interface gtk-theme VimixLight-Laptop-Beryl
+  gsettings set org.gnome.desktop.wm.preferences theme VimixLight-Laptop-Beryl
+  echo "     设置完成！"
+
+}
+
+
 VimixLight-Laptop-Ruby() {
 
-# Set VimixLight-Laptop-Ruby Gtk Theme
+# 设置VimixLight-Laptop-Ruby主题
   echo "     正在设置VimixLight-Laptop-Ruby主题为默认主题..."
   gsettings set org.gnome.desktop.interface gtk-theme VimixLight-Laptop-Ruby
   gsettings set org.gnome.desktop.wm.preferences theme VimixLight-Laptop-Ruby
@@ -206,9 +256,8 @@ VimixLight-Laptop-Ruby() {
 
 install() {
 
-  # PREVIEW
-
-  # Show destination directory
+  # 预览
+  # 显示主题目录
   echo -e "\n     Vimix 主题会安装在:\n"
   show_dir "\t$DEST_DIR"
   if [ "$UID" -eq "$ROOT_UID" ]; then
@@ -219,18 +268,18 @@ install() {
 
   continue
 
-  # INSTALL
+  # 安装
 
-  # Check destination directory
+  # 检测主题目录
   if [ ! -d $DEST_DIR ]; then
     mkdir -p $DEST_DIR
-  elif [[ -d $DEST_DIR/VimixDark && -d $DEST_DIR/VimixDark-Doder && -d $DEST_DIR/VimixDark-Ruby && -d $DEST_DIR/VimixDark-Laptop && -d $DEST_DIR/VimixDark-Laptop-Doder && -d $DEST_DIR/VimixDark-Laptop-Ruby && -d $DEST_DIR/VimixLight && -d $DEST_DIR/VimixLight-Doder && -d $DEST_DIR/VimixLight-Ruby && -d $DEST_DIR/VimixLight-Laptop && -d $DEST_DIR/VimixLight-Laptop-Doder && -d $DEST_DIR/VimixLight-Laptop-Ruby ]]; then
+  elif [[ -d $DEST_DIR/VimixDark && -d $DEST_DIR/VimixDark-Doder && -d $DEST_DIR/VimixDark-Beryl && -d $DEST_DIR/VimixDark-Ruby && -d $DEST_DIR/VimixDark-Laptop && -d $DEST_DIR/VimixDark-Laptop-Doder && -d $DEST_DIR/VimixDark-Laptop-Beryl && -d $DEST_DIR/VimixDark-Laptop-Ruby && -d $DEST_DIR/VimixLight && -d $DEST_DIR/VimixLight-Doder && -d $DEST_DIR/VimixLight-Beryl && -d $DEST_DIR/VimixLight-Ruby && -d $DEST_DIR/VimixLight-Laptop && -d $DEST_DIR/VimixLight-Laptop-Doder && -d $DEST_DIR/VimixLight-Laptop-Beryl && -d $DEST_DIR/VimixLight-Laptop-Ruby ]]; then
     replace $DEST_DIR
   fi
 
   echo -e "\n     正在安装 Vimix..."
   
-  # Copying files
+  # 复制文件
 
   ./Install
 
@@ -242,10 +291,10 @@ install() {
 
 remove() {
 
-  # PREVIEW
+  # 预览
 
-  # Show installation directory
-  if [[ -d $DEST_DIR/VimixDark && -d $DEST_DIR/VimixDark-Doder && -d $DEST_DIR/VimixDark-Ruby && -d $DEST_DIR/VimixDark-Laptop && -d $DEST_DIR/VimixDark-Laptop-Doder && -d $DEST_DIR/VimixDark-Laptop-Ruby && -d $DEST_DIR/VimixLight && -d $DEST_DIR/VimixLight-Doder && -d $DEST_DIR/VimixLight-Ruby && -d $DEST_DIR/VimixLight-Laptop && -d $DEST_DIR/VimixLight-Laptop-Doder && -d $DEST_DIR/VimixLight-Laptop-Ruby ]]; then
+  # 显示安装目录
+  if [[ -d $DEST_DIR/VimixDark && -d $DEST_DIR/VimixDark-Doder && -d $DEST_DIR/VimixDark-Beryl && -d $DEST_DIR/VimixDark-Ruby && -d $DEST_DIR/VimixDark-Laptop && -d $DEST_DIR/VimixDark-Laptop-Doder && -d $DEST_DIR/VimixDark-Laptop-Beryl && -d $DEST_DIR/VimixDark-Laptop-Ruby && -d $DEST_DIR/VimixLight && -d $DEST_DIR/VimixLight-Doder && -d $DEST_DIR/VimixLight-Beryl && -d $DEST_DIR/VimixLight-Ruby && -d $DEST_DIR/VimixLight-Laptop && -d $DEST_DIR/VimixLight-Laptop-Doder && -d $DEST_DIR/VimixLight-Laptop-Beryl && -d $DEST_DIR/VimixLight-Laptop-Ruby ]]; then
     echo -e "\n    Vimix主题 安装在了：\n"
     show_dir "\t$DEST_DIR"
     if [ "$UID" -eq "$ROOT_UID" ]; then
@@ -262,11 +311,11 @@ remove() {
     end
   fi
 
-  # REMOVE
+  # 卸载
 
   echo -e "\n     正在删除 Vimix主题 ..."
 
-  # Removing files
+  # 卸载文件
 
   rm -rf $DEST_DIR/Vimix*
 
@@ -277,7 +326,7 @@ remove() {
 ROOT_UID=0
 DEST_DIR=
 
-# Destination directory
+# 主题目录
 if [ "$UID" -eq "$ROOT_UID" ]; then
   DEST_DIR="/usr/share/themes"
 else

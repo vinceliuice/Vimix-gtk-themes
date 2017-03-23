@@ -54,32 +54,40 @@ themes() {
 
               (a)  VimixDark
               (b)  VimixDark-Doder
-              (c)  VimixDark-Ruby
-              (d)  VimixDark-Laptop
-              (e)  VimixDark-Laptop-Doder
-              (f)  VimixDark-Laptop-Ruby
-              (g)  VimixLight
-              (h)  VimixLight-Doder
-              (i)  VimixLight-Ruby
-              (j)  VimixLight-Laptop
-              (k)  VimixLight-Laptop-Doder
-              (l)  VimixLight-Laptop-Ruby
+              (c)  VimixDark-Beryl
+              (d)  VimixDark-Ruby
+              (e)  VimixDark-Laptop
+              (f)  VimixDark-Laptop-Doder
+              (g)  VimixDark-Laptop-Beryl
+              (h)  VimixDark-Laptop-Ruby
+              (i)  VimixLight
+              (j)  VimixLight-Doder
+              (k)  VimixLight-Beryl
+              (l)  VimixLight-Ruby
+              (m)  VimixLight-Laptop
+              (n)  VimixLight-Laptop-Doder
+              (o)  VimixLight-Laptop-Beryl
+              (p)  VimixLight-Laptop-Ruby
 
 +------------------------------------------------------------------+\n"
   read INPUT
   case $INPUT in
-    [a]* )  VimixDark;;
-    [b]* )  VimixDark-Doder;;
-    [c]* )  VimixDark-Ruby;;
-    [d]* )  VimixDark-Laptop;;
-    [e]* )  VimixDark-Laptop-Doder;;
-    [f]* )  VimixDark-Laptop-Ruby;;
-    [g]* )  VimixLight;;
-    [h]* )  VimixLight-Doder;;
-    [i]* )  VimixLight-Ruby;;
-    [j]* )  VimixLight-Laptop;;
-    [k]* )  VimixLight-Laptop-Doder;;
-    [l]* )  VimixLight-Laptop-Ruby;;
+    [Aa]* )  VimixDark;;
+    [Bb]* )  VimixDark-Doder;;
+    [Cc]* )  VimixDark-Beryl;;
+    [Dd]* )  VimixDark-Ruby;;
+    [Ee]* )  VimixDark-Laptop;;
+    [Ff]* )  VimixDark-Laptop-Doder;;
+    [Gg]* )  VimixDark-Laptop-Beryl;;
+    [Hh]* )  VimixDark-Laptop-Ruby;;
+    [Ii]* )  VimixLight;;
+    [Jj]* )  VimixLight-Doder;;
+    [Kk]* )  VimixLight-Beryl;;
+    [Ll]* )  VimixLight-Ruby;;
+    [Mm]* )  VimixLight-Laptop;;
+    [Nn]* )  VimixLight-Laptop-Doder;;
+    [Oo]* )  VimixLight-Laptop-Beryl;;
+    [Pp]* )  VimixLight-Laptop-Ruby;;
     * ) show_error "\nSorry, try again."; themes;;
   esac
 }
@@ -100,6 +108,16 @@ VimixDark-Doder() {
   echo "Setting the theme..."
   gsettings set org.gnome.desktop.interface gtk-theme VimixDark-Doder
   gsettings set org.gnome.desktop.wm.preferences theme VimixDark-Doder
+  echo "Done!"
+
+}
+
+VimixDark-Beryl() {
+
+# Set VimixDark-Beryl Gtk Themes
+  echo "Setting the theme..."
+  gsettings set org.gnome.desktop.interface gtk-theme VimixDark-Beryl
+  gsettings set org.gnome.desktop.wm.preferences theme VimixDark-Beryl
   echo "Done!"
 
 }
@@ -134,6 +152,16 @@ VimixDark-Laptop-Doder() {
 
 }
 
+VimixDark-Laptop-Beryl() {
+
+# Set VimixDark-Laptop-Beryl Gtk Themes
+  echo "Setting the theme..."
+  gsettings set org.gnome.desktop.interface gtk-theme VimixDark-Laptop-Beryl
+  gsettings set org.gnome.desktop.wm.preferences theme VimixDark-Laptop-Beryl
+  echo "Done!"
+
+}
+
 VimixDark-Laptop-Ruby() {
 
 # Set VimixDark-Laptop-Ruby Gtk Themes
@@ -160,6 +188,16 @@ VimixLight-Doder() {
   echo "Setting the theme..."
   gsettings set org.gnome.desktop.interface gtk-theme VimixLight-Doder
   gsettings set org.gnome.desktop.wm.preferences theme VimixLight-Doder
+  echo "Done!"
+
+}
+
+VimixLight-Beryl() {
+
+# Set VimixLight-Beryl Gtk Themes
+  echo "Setting the theme..."
+  gsettings set org.gnome.desktop.interface gtk-theme VimixLight-Beryl
+  gsettings set org.gnome.desktop.wm.preferences theme VimixLight-Beryl
   echo "Done!"
 
 }
@@ -194,6 +232,17 @@ VimixLight-Laptop-Doder() {
 
 }
 
+VimixLight-Laptop-Beryl() {
+
+# Set VimixLight-Laptop-Beryl Gtk Themes
+  echo "Setting the theme..."
+  gsettings set org.gnome.desktop.interface gtk-theme VimixLight-Laptop-Beryl
+  gsettings set org.gnome.desktop.wm.preferences theme VimixLight-Laptop-Beryl
+  echo "Done!"
+
+}
+
+
 VimixLight-Laptop-Ruby() {
 
 # Set VimixLight-Laptop-Ruby Gtk Themes
@@ -224,7 +273,7 @@ install() {
   # Check destination directory
   if [ ! -d $DEST_DIR ]; then
     mkdir -p $DEST_DIR
-  elif [[ -d $DEST_DIR/VimixDark && -d $DEST_DIR/VimixDark-Doder && -d $DEST_DIR/VimixDark-Ruby && -d $DEST_DIR/VimixDark-Laptop && -d $DEST_DIR/VimixDark-Laptop-Doder && -d $DEST_DIR/VimixDark-Laptop-Ruby && -d $DEST_DIR/VimixLight && -d $DEST_DIR/VimixLight-Doder && -d $DEST_DIR/VimixLight-Ruby && -d $DEST_DIR/VimixLight-Laptop && -d $DEST_DIR/VimixLight-Laptop-Doder && -d $DEST_DIR/VimixLight-Laptop-Ruby ]]; then
+  elif [[ -d $DEST_DIR/VimixDark && -d $DEST_DIR/VimixDark-Doder && -d $DEST_DIR/VimixDark-Beryl && -d $DEST_DIR/VimixDark-Ruby && -d $DEST_DIR/VimixDark-Laptop && -d $DEST_DIR/VimixDark-Laptop-Doder && -d $DEST_DIR/VimixDark-Laptop-Beryl && -d $DEST_DIR/VimixDark-Laptop-Ruby && -d $DEST_DIR/VimixLight && -d $DEST_DIR/VimixLight-Doder && -d $DEST_DIR/VimixLight-Beryl && -d $DEST_DIR/VimixLight-Ruby && -d $DEST_DIR/VimixLight-Laptop && -d $DEST_DIR/VimixLight-Laptop-Doder && -d $DEST_DIR/VimixLight-Laptop-Beryl && -d $DEST_DIR/VimixLight-Laptop-Ruby ]]; then
     replace $DEST_DIR
   fi
 
@@ -245,7 +294,7 @@ remove() {
   # PREVIEW
 
   # Show installation directory
-  if [[ -d $DEST_DIR/VimixDark && -d $DEST_DIR/VimixDark-Doder && -d $DEST_DIR/VimixDark-Ruby && -d $DEST_DIR/VimixDark-Laptop && -d $DEST_DIR/VimixDark-Laptop-Doder && -d $DEST_DIR/VimixDark-Laptop-Ruby && -d $DEST_DIR/VimixLight && -d $DEST_DIR/VimixLight-Doder && -d $DEST_DIR/VimixLight-Ruby && -d $DEST_DIR/VimixLight-Laptop && -d $DEST_DIR/VimixLight-Laptop-Doder && -d $DEST_DIR/VimixLight-Laptop-Ruby ]]; then
+  if [[ -d $DEST_DIR/VimixDark && -d $DEST_DIR/VimixDark-Doder && -d $DEST_DIR/VimixDark-Beryl && -d $DEST_DIR/VimixDark-Ruby && -d $DEST_DIR/VimixDark-Laptop && -d $DEST_DIR/VimixDark-Laptop-Doder && -d $DEST_DIR/VimixDark-Laptop-Beryl && -d $DEST_DIR/VimixDark-Laptop-Ruby && -d $DEST_DIR/VimixLight && -d $DEST_DIR/VimixLight-Doder && -d $DEST_DIR/VimixLight-Beryl && -d $DEST_DIR/VimixLight-Ruby && -d $DEST_DIR/VimixLight-Laptop && -d $DEST_DIR/VimixLight-Laptop-Doder && -d $DEST_DIR/VimixLight-Laptop-Beryl && -d $DEST_DIR/VimixLight-Laptop-Ruby ]]; then
     echo -e "\nVimix Gtk Themes installed in:\n"
     show_dir "\t$DEST_DIR"
     if [ "$UID" -eq "$ROOT_UID" ]; then

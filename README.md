@@ -66,7 +66,7 @@ To fix it you have to install libxml2-utils
 Vimix icon theme is based on Paper-Icon-Theme: https://github.com/snwh/paper-icon-theme 
 
 
-#### You can download here: https://github.com/vinceliuice/vimix-gtk-themes/tree/image
+#### You can download here: https://github.com/vinceliuice/vimix-gtk-themes/tree/images
 
 
 ### ScreenShots 

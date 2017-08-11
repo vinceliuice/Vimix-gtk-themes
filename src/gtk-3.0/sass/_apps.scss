@@ -845,6 +845,12 @@ window.background > widget > radiobutton > radio {
   padding: 0;
 }
 
+window.background > menu > menuitem > radio:checked {
+  -gtk-icon-source: image(-gtk-recolor(url("assets/radio-checked-symbolic.svg")),
+                          -gtk-recolor(url("assets/radio-checked-symbolic.png")));
+  border-image: none;
+}
+
 window.background > widget > radiobutton > radio:checked {
   -gtk-icon-source: image(-gtk-recolor(url("assets/radio-checked-symbolic.svg")),
                           -gtk-recolor(url("assets/radio-checked-symbolic.png")));

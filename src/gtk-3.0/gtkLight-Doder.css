@@ -3314,14 +3314,52 @@ window.background > box.vertical > scrolledwindow > widget toolbar {
 /***********
  * Firefox *
  ***********/
+window.background:not(.csd) > widget > separator {
+  color: rgba(0, 0, 0, 0.2); }
+window.background:not(.csd) > widget > scrollbar {
+  background-clip: border-box; }
+window.background:not(.csd) > widget > scrollbar,
+window.background:not(.csd) > widget > frame > border {
+  border-color: rgba(0, 0, 0, 0.2); }
+window.background:not(.csd) > widget > entry,
+window.background:not(.csd) > widget > button > button {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  box-shadow: none; }
+window.background:not(.csd) > widget > entry {
+  min-height: 30px; }
+  window.background:not(.csd) > widget > entry:focus {
+    border-color: #4586D8; }
+window.background:not(.csd) > widget > button > button {
+  padding: 4px 8px;
+  background-size: auto; }
+  window.background:not(.csd) > widget > button > button:hover {
+    background-image: image(alpha(currentColor, 0.05)); }
+  window.background:not(.csd) > widget > button > button:active {
+    background-image: image(alpha(currentColor, 0.1)); }
+window.background:not(.csd) > widget text:selected {
+  background-color: #4586D8; }
+  row:selected label, label:selected, window.background:not(.csd) > widget text:selected {
+    color: #FFFFFF; }
+    row:selected label:disabled, label:disabled:selected, window.background:not(.csd) > widget text:selected:disabled {
+      color: rgba(255, 255, 255, 0.4); }
+window.background:not(.csd) > widget window.background:not(.csd) > widget > menubar {
+  color: rgba(0, 0, 0, 0.6); }
+  window.background:not(.csd) > widget window.background:not(.csd) > widget > menubar:hover {
+    color: rgba(0, 0, 0, 0.8); }
+  window.background:not(.csd) > widget window.background:not(.csd) > widget > menubar:disabled {
+    color: rgba(0, 0, 0, 0.32); }
+window.background:not(.csd) > widget window.background:not(.csd) > widget > frame {
+  color: rgba(0, 0, 0, 0.2); }
+window.background:not(.csd) > widget window.background:not(.csd) > widget > checkbutton > check,
+window.background:not(.csd) > widget window.background:not(.csd) > widget > radiobutton > radio {
+  margin: 0;
+  padding: 0; }
+window.background:not(.csd) > widget window.background:not(.csd) > window.background > menu > separator {
+  color: rgba(0, 0, 0, 0.2); }
+
 window.background > menu > menuitem > label:disabled {
   color: #868686; }
-
-window.background > window.background > menu > separator {
-  color: alpha(rgba(0, 0, 0, 0.1), 0.5); }
-
-window.background > widget > frame {
-  color: rgba(0, 0, 0, 0.2); }
 
 window.background > widget > checkbutton > check,
 window.background > widget > radiobutton > radio {

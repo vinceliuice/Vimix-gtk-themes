@@ -62,11 +62,11 @@ $headerbar_fg_color: if($headerbar =='dark', $dark_contrast_color, $fg_color);
 $secondary_headerbar_fg_color: if($headerbar =='dark', $secondary_inversed_fg_color, $secondary_fg_color);
 $disabled_headerbar_fg_color: if($headerbar =='dark', $disabled_secondary_inversed_fg_color, $disabled_fg_color);
 
-$secondary_primary_color: if($color == 'doder', #4586D8, #00C971);
+$secondary_primary_color: if($color == 'doder', #4586D8, #2EB398);
 $primary_color: if($color == 'ruby', #F0544C, $secondary_primary_color);
-$secondary_alt_primary_color: if($color == 'doder', #03a9f4, #00D971);
+$secondary_alt_primary_color: if($color == 'doder', #03a9f4, #1eba9b);
 $alt_primary_color: if($color == 'ruby', #FF615A, $secondary_alt_primary_color);
-$secondary_accent_color: if($color == 'doder', #0CAAF0, #00E971);
+$secondary_accent_color: if($color == 'doder', #0CAAF0, #0fd1ab);
 $accent_color: if($color == 'ruby', #FF626C, $secondary_accent_color);
 
 $menu_bg_color: if($color == 'ruby', #444444, #444851);

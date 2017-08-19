@@ -46,11 +46,11 @@ $disabled_tertiary_inversed_fg_color: scale-alpha($tertiary_inversed_fg_color, $
 $disabled_menu_fg_color: #868686;
 
 // Background colors
-$bg_color: if($variant == 'light', #F5F5F5, #484848);
+$bg_color: if($variant == 'light', #F5F5F5, #333333);
 $base_color: if($variant == 'light', #FFFFFF, #404040);
 $alt_base_color: mix($base_color, $bg_color, 50%);
 $lighter_bg_color: if($variant =='light', #FAFAFA, #444444);
-$darker_bg_color: if($variant =='light', #EEEEEE, #333333);
+$darker_bg_color: if($variant =='light', #EEEEEE, #303030);
 $darker_fg_color: if($variant =='light', #202020, #DDDDDD);
 $progress_color: if($variant =='light', #444444, #EEEEEE);
 $tab_color: if($variant =='light', #505050, #FFFFFF);

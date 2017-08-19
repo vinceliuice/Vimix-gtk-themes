@@ -47,7 +47,7 @@
  * Base States *
  ***************/
 .background {
-  background-color: #444851;
+  background-color: #343943;
   color: #FFFFFF; }
 
 /*
@@ -60,16 +60,16 @@
   -gtk-icon-effect: dim; }
 
 .gtkstyle-fallback {
-  background-color: #444851;
+  background-color: #343943;
   color: #FFFFFF; }
   .gtkstyle-fallback:hover {
-    background-color: #383c43;
+    background-color: #292d35;
     color: #FFFFFF; }
   .gtkstyle-fallback:active {
-    background-color: #2d2f35;
+    background-color: #1e2126;
     color: #FFFFFF; }
   .gtkstyle-fallback:disabled {
-    background-color: #444851;
+    background-color: #343943;
     color: rgba(255, 255, 255, 0.4); }
   .gtkstyle-fallback:selected {
     background-color: #4586D8;
@@ -92,7 +92,7 @@ textview text {
     color: rgba(255, 255, 255, 0.4); }
 
 textview border {
-  background-color: #424750;
+  background-color: #3a3f49;
   color: rgba(255, 255, 255, 0.6); }
 
 .rubberband,
@@ -193,7 +193,7 @@ entry {
   notebook > stack:not(:only-child) revealer spinbutton:disabled:not(.vertical),
   entry:disabled {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    background-color: #424750;
+    background-color: #3a3f49;
     color: rgba(255, 255, 255, 0.4); }
   spinbutton.flat:not(.vertical), notebook > stack:not(:only-child) entry,
   notebook > stack:not(:only-child) spinbutton:not(.vertical), notebook > stack:not(:only-child) revealer entry.flat,
@@ -279,7 +279,7 @@ entry {
     spinbutton.error:disabled:not(.vertical), notebook > stack:not(:only-child) revealer entry.error:disabled,
     entry.error:disabled {
       box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-      background-color: #424750;
+      background-color: #3a3f49;
       color: rgba(255, 255, 255, 0.4); }
     spinbutton.error.flat:not(.vertical), notebook > stack:not(:only-child) entry.error,
     notebook > stack:not(:only-child) spinbutton.error:not(.vertical), colorchooser .popover.osd spinbutton.error:not(.vertical), layoutpane entry.error.search, editortweak entry.error.search, #login_window entry.error,
@@ -315,7 +315,7 @@ entry {
     spinbutton.warning:disabled:not(.vertical), notebook > stack:not(:only-child) revealer entry.warning:disabled,
     entry.warning:disabled {
       box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-      background-color: #424750;
+      background-color: #3a3f49;
       color: rgba(255, 255, 255, 0.4); }
     spinbutton.warning.flat:not(.vertical), notebook > stack:not(:only-child) entry.warning,
     notebook > stack:not(:only-child) spinbutton.warning:not(.vertical), colorchooser .popover.osd spinbutton.warning:not(.vertical), layoutpane entry.warning.search, editortweak entry.warning.search, #login_window entry.warning,
@@ -809,7 +809,7 @@ combobox:drop(active) {
 toolbar {
   -GtkWidget-window-dragging: true;
   padding: 3px;
-  background-color: #444851; }
+  background-color: #343943; }
   .osd toolbar {
     background-color: transparent; }
   toolbar.osd, .app-notification, frame.documents-dropdown {
@@ -847,7 +847,7 @@ toolbar {
   border-style: solid;
   border-width: 0 1px 1px;
   border-color: rgba(0, 0, 0, 0.2);
-  background-color: #424750; }
+  background-color: #3a3f49; }
 
 searchbar,
 .location-bar {
@@ -855,7 +855,7 @@ searchbar,
   border-style: solid;
   border-width: 0 0 1px;
   border-color: rgba(0, 0, 0, 0.2);
-  background-color: #444851;
+  background-color: #343943;
   background-clip: border-box; }
 
 /***************
@@ -1182,6 +1182,10 @@ menu,
       transition: none;
       color: #FFFFFF;
       background-color: #4586D8; }
+    menu menuitem:disabled,
+    .menu menuitem:disabled,
+    .context-menu menuitem:disabled {
+      color: rgba(255, 255, 255, 0.3); }
     menu menuitem arrow,
     .menu menuitem arrow,
     .context-menu menuitem arrow {
@@ -1301,7 +1305,7 @@ popover.background {
 notebook > header {
   border-width: 1px;
   border-color: rgba(0, 0, 0, 0.2);
-  background-color: #444851;
+  background-color: #343943;
   background-clip: border-box; }
   notebook > header.top {
     border-bottom-style: solid; }
@@ -1379,7 +1383,7 @@ notebook > header {
       color: #FFFFFF; }
       notebook > header tab:hover.reorderable-page {
         border-color: rgba(0, 0, 0, 0.2);
-        background-color: #424750; }
+        background-color: #3a3f49; }
     notebook > header tab:disabled {
       color: rgba(255, 255, 255, 0.3); }
     notebook > header tab:checked {
@@ -1546,7 +1550,7 @@ switch {
     color: #FFFFFF; }
   switch:disabled slider {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    background-color: #424750;
+    background-color: #3a3f49;
     color: rgba(255, 255, 255, 0.4); }
   switch:checked:disabled slider {
     animation: none; }
@@ -2233,7 +2237,7 @@ levelbar trough {
   color: #FFFFFF; }
   levelbar trough:disabled {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    background-color: #424750;
+    background-color: #3a3f49;
     color: rgba(255, 255, 255, 0.4); }
 levelbar.horizontal.discrete block {
   margin: 0 1px; }
@@ -2462,7 +2466,7 @@ filechooser .dialog-action-box {
   border-top: 1px solid rgba(0, 0, 0, 0.2); }
 filechooser #pathbarbox {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  background-color: #444851; }
+  background-color: #343943; }
 
 filechooserbutton:drop(active) {
   box-shadow: none; }
@@ -2570,7 +2574,7 @@ paned > separator {
   paned > separator.wide {
     min-width: 6px;
     min-height: 6px;
-    background-color: #444851;
+    background-color: #343943;
     background-image: image(rgba(0, 0, 0, 0.2)), image(rgba(0, 0, 0, 0.2));
     background-size: 1px 1px, 1px 1px; }
 paned.horizontal > separator {
@@ -2709,7 +2713,7 @@ colorchooser .popover.osd {
  * Misc *
  ********/
 .content-view {
-  background-color: #444851; }
+  background-color: #343943; }
 
 /**********************
  * Window Decorations *
@@ -3019,14 +3023,14 @@ workbench:not(.tiled):not(.maximized):not(.fullscreen) stack.titlebar headerbar 
   border-radius: 2px 2px 0 0; }
 
 perspectiveswitcher {
-  background-color: #444851; }
+  background-color: #343943; }
 
 perspectiveswitcher button:checked {
   color: #4586D8; }
 
 layouttabbar {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  background-color: #444851; }
+  background-color: #343943; }
 
 layouttabbar > box > button {
   margin: 4px 0; }
@@ -3074,12 +3078,12 @@ dockpaned {
 eggsearchbar box.search-bar {
   padding: 0 8px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  background-color: #444851; }
+  background-color: #343943; }
 
 docktabstrip {
   padding: 0 8px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  background-color: #444851; }
+  background-color: #343943; }
 
 docktab {
   transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
@@ -3101,7 +3105,7 @@ docktab {
     color: #FFFFFF; }
 
 dockoverlayedge {
-  background-color: #444851; }
+  background-color: #343943; }
 
 dockoverlayedge docktabstrip {
   padding: 0;
@@ -3118,7 +3122,7 @@ dockoverlayedge.right-edge docktab:checked {
   box-shadow: inset 2px 0 #4586D8; }
 
 pillbox {
-  background-color: #444851;
+  background-color: #343943;
   border-radius: 2px; }
 
 buildperspective row {
@@ -3528,7 +3532,7 @@ na-tray-applet {
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 3px;
     box-shadow: inset 0 1px rgba(255, 255, 255, 0.3);
-    background-color: #444851; }
+    background-color: #343943; }
     .mate-panel-applet-slider frame frame {
       all: unset; }
     .mate-panel-applet-slider frame > border {
@@ -3569,7 +3573,7 @@ na-tray-applet {
 
 #caja-extra-view-widget {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  background-color: #444851; }
+  background-color: #343943; }
   #caja-extra-view-widget > box > box > label {
     font-weight: bold; }
 
@@ -3895,7 +3899,7 @@ text color for entries, views and content in general */
 @define-color theme_text_color #FFFFFF;
 /*
 widget base background color */
-@define-color theme_bg_color #444851;
+@define-color theme_bg_color #343943;
 /*
 text widgets and the like base background color */
 @define-color theme_base_color #40454F;
@@ -3907,13 +3911,13 @@ text/foreground color of selections */
 @define-color theme_selected_fg_color #FFFFFF;
 /*
 base background color of insensitive widgets */
-@define-color insensitive_bg_color #444851;
+@define-color insensitive_bg_color #343943;
 /*
 text foreground color of insensitive widgets */
 @define-color insensitive_fg_color rgba(255, 255, 255, 0.4);
 /*
 insensitive text widgets and the like base background color */
-@define-color insensitive_base_color #424750;
+@define-color insensitive_base_color #3a3f49;
 /*
 widget text/foreground color on backdrop windows */
 @define-color theme_unfocused_fg_color #FFFFFF;
@@ -3922,7 +3926,7 @@ text color for entries, views and content in general on backdrop windows */
 @define-color theme_unfocused_text_color #FFFFFF;
 /*
 widget base background color on backdrop windows */
-@define-color theme_unfocused_bg_color #444851;
+@define-color theme_unfocused_bg_color #343943;
 /*
 text widgets and the like base background color on backdrop windows */
 @define-color theme_unfocused_base_color #40454F;

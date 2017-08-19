@@ -1182,6 +1182,10 @@ menu,
       transition: none;
       color: #FFFFFF;
       background-color: #4586D8; }
+    menu menuitem:disabled,
+    .menu menuitem:disabled,
+    .context-menu menuitem:disabled {
+      color: rgba(255, 255, 255, 0.3); }
     menu menuitem arrow,
     .menu menuitem arrow,
     .context-menu menuitem arrow {

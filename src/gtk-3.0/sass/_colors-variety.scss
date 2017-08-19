@@ -46,12 +46,12 @@ $disabled_tertiary_inversed_fg_color: scale-alpha($tertiary_inversed_fg_color, $
 $disabled_menu_fg_color: #868686;
 
 // Background colors
-$bg_color: if($variant =='dark', if($color == 'ruby', #444444, #444851), #F5F5F5);
+$bg_color: if($variant =='dark', if($color == 'ruby', #333333, #343943), #F5F5F5);
 $base_color: if($variant =='dark', if($color == 'ruby', #404040, #40454F), #FFFFFF);
 $alt_base_color: mix($base_color, $bg_color, 50%);
 
 $lighter_bg_color: if($variant =='dark', if($color == 'ruby', #444444, #444851), #FAFAFA);
-$darker_bg_color: if($variant =='dark', if($color == 'ruby', #333333, #31353E), #EEEEEE);
+$darker_bg_color: if($variant =='dark', if($color == 'ruby', #303030, #31353E), #EEEEEE);
 $darker_fg_color: if($variant =='light', if($color == 'ruby', #222222, #191D29), #DDDDDD);
 
 // Headerbar colors

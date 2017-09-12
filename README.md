@@ -8,10 +8,6 @@ This theme is based on Flat-Plat gtk theme of nana-4. Thanks nana-4 sincerely fo
 
 Flat-Plat gtk theme: https://github.com/nana-4/Flat-Plat
 
-## Installation package
-
-You can download from here: https://github.com/vinceliuice/vimix-gtk-themes/releases
-
 ## Info
 
 ### GTK+ 3.20 or later

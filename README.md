@@ -57,7 +57,7 @@ Run
     ./update-vimix-online
 
 
-Or double-click to open the launcher ####"update vimix online".
+Or double-click to open the launcher "update vimix online".
 When running the installer script in ubuntu16.04 or later, if you had this error:
 
     XMLLINT not set and xmllint not found in path; skipping xml preprocessing.
@@ -73,17 +73,15 @@ When running the installer script in Fedora 24 or later, you need to install 'gl
 ## Screenshots
 
 ### GNOME Shell
-![GNOME Shell 3.20](https://cn.pling.com/img/f/7/e/b/bd499935bebd7e7702844c32b7f59a91dd1d.jpg?raw=true) 
-
-
+![1](https://cn.pling.com/img/5/b/b/f/f5bc03455d89246214cbf49d53f134ad8048.png?raw=true) 
+![2](https://cn.pling.com/img/f/1/4/1/72ec62aff6edc8243a12f8a8db57a6468804.png?raw=true) 
+![3](https://cn.pling.com/img/9/1/d/b/e37013349e0f0bd76b9a0afc8e98222f8504.png?raw=true) 
+![4](https://cn.pling.com/img/4/b/7/9/6f4bf294ae650b3a70f571e89077014d4007.png?raw=true) 
+![5](https://cn.pling.com/img/5/9/6/2/a71edf571bd7b8ba46c6a7440ada75b2eced.png?raw=true) 
 ## Icon 
 Vimix icon theme is based on Paper-Icon-Theme: https://github.com/snwh/paper-icon-theme 
 
+#### You can download here: https://github.com/vinceliuice/vimix-icon-theme
 
-#### You can download here: https://github.com/vinceliuice/vimix-gtk-themes/tree/images
-
-
-### ScreenShots 
-![01](https://github.com/vinceliuice/vimix-gtk-themes/blob/images/vimix-icon-theme.png?raw=true)
  
 

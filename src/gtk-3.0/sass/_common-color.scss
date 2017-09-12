@@ -11,8 +11,9 @@ $bar_size: 4px;
 $menuitem_size: 28px;
 
 $md_radius: 2px;
-$circular_radius: 2px;
+$circular_radius: 100px;
 
+$shortest_duration: 0.1s;
 $shorter_duration: 0.2s;
 $longer_duration: 0.3s;
 
@@ -21,6 +22,7 @@ $deceleration_curve: cubic-bezier(0.0, 0.0, 0.2, 1);
 $acceleration_curve: cubic-bezier(0.4, 0.0, 1, 1);
 $sharp_curve: cubic-bezier(0.4, 0.0, 0.6, 1);
 
+$shortest_transition: all $shortest_duration $deceleration_curve;
 $shorter_transition: all $shorter_duration $deceleration_curve;
 $longer_transition: all $longer_duration $deceleration_curve;
 $shadow_transition: box-shadow $shorter_duration $deceleration_curve;
@@ -273,8 +275,8 @@ entry {
 
       min-height: $small_size;
       min-width: $small_size;
-      border-radius: $circular_radius;
-      -gtk-outline-radius: $circular_radius;
+      border-radius: $md_radius;
+      -gtk-outline-radius: $md_radius;
       color: gtkalpha(currentColor, $enabled_opacity);
 
       &:hover, &:active { color: currentColor; }
@@ -388,7 +390,6 @@ button {
     padding: ($medium_size - 24px) / 2 ($medium_size - 16px) / 2;
     border-radius: 2px;
     font-weight: 500;
-    box-shadow: none;
 
     @include button(normal);
 
@@ -426,8 +427,8 @@ button {
     &.image-button {
       min-width: 24px;
       padding: ($medium_size - 24px) / 2;
-      border-radius: $circular_radius;
-      -gtk-outline-radius: $circular_radius;
+      border-radius: $md_radius;
+      -gtk-outline-radius: $md_radius;
     }
 
     &.text-button.image-button {
@@ -467,8 +468,8 @@ button {
       border-radius: 2px;
 
       &.image-button {
-        border-radius: $circular_radius;
-        -gtk-outline-radius: $circular_radius;
+        border-radius: $md_radius;
+        -gtk-outline-radius: $md_radius;
       }
 
       &.text-button.image-button {
@@ -507,11 +508,15 @@ button {
       background-color: $b_color;
       color: $inversed_fg_color;
 
-      // @include button(normal, $b_color, $inversed_fg_color);
+       @include button(normal, $b_color, $inversed_fg_color);
 
-      // &:hover { @include button(hover, $b_color, $inversed_fg_color); }
+       &:hover { @include button(hover, $b_color, $inversed_fg_color);
+           background-color: lighten($b_color, 5%);
+           color: $inversed_fg_color; }
 
-      // &:active, &:checked { @include button(active, $b_color, $inversed_fg_color); }
+//       &:active, &:checked { @include button(active, $b_color, $inversed_fg_color);
+//           background-color: $b_color;
+//           color: $inversed_fg_color; }
 
       &:disabled { @include button(disabled, $b_color, $inversed_fg_color); }
 
@@ -521,11 +526,11 @@ button {
         background-color: transparent;
         color: $b_color;
 
-        // @include button(flat-normal, $b_color, $inversed_fg_color);
+         @include button(flat-normal, $b_color, $inversed_fg_color);
 
-        // &:hover { @include button(flat-hover, $b_color, $inversed_fg_color); }
+         &:hover { @include button(flat-hover, $b_color, $inversed_fg_color); }
 
-        // &:active, &:checked { @include button(flat-active, $b_color, $inversed_fg_color); }
+         &:active, &:checked { @include button(flat-active, $b_color, $inversed_fg_color); }
 
         &:disabled { @include button(flat-disabled, $b_color, $inversed_fg_color); }
       }
@@ -1041,40 +1046,25 @@ headerbar {
     @extend .dim-label;
   }
 
-  button:not(.suggested-action):not(.destructive-action) {
-    @extend %button_basic.flat;
-
-    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                  $primary_color 0%,
-                                  transparent 0%)
-                                  0 0 0 / 0 0 0px;
-
-    &:hover {
-      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    $accent_color 100%,
-                                    transparent 0%)
-                                    0 0 2 / 0 0 2px;
-      background: none;
-      color: $accent_color;
-
-      &, &:disabled { background-color: transparent; }
+   @at-root %header_button {
+      @include header_button(header-normal);
+      &:hover { @include header_button(header-hover); }
+      &:active { @include header_button(header-active); }
+      &:disabled { @include header_button(header-disabled); }
+      &:checked { @include header_button(header-checked); }
+      &:checked:disabled { @include header_button(header-checked-disabled); }
     }
 
-    &:checked {
-      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    $primary_color 100%,
-                                    transparent 0%)
-                                    0 0 2 / 0 0 2px;
-      color: $primary_color;
-
-      &, &:disabled { background-color: transparent; }
-    }
+  button {
+      @extend %header_button;
+      &:hover { color: $accent_color; background-color: gtkalpha($primary_color, 0.3); }
+      &:active { background-color: $primary_color; color: $dark_contrast_color; }
+      &:checked { background-color: $primary_color; color: $dark_contrast_color; }
   }
 
   button.suggested-action, button.destructive-action {
     &:disabled {
       color: gtkalpha(currentColor, $disabled_opacity);
-
       > label { color: inherit; }
     }
   }
@@ -1090,7 +1080,7 @@ headerbar {
       color: $secondary_inversed_fg_color;
     }
 
-    .subtitle:link { @extend *:link:selected;  }
+    .subtitle:link { @extend *:link:selected; }
 
     button:not(.suggested-action):not(.destructive-action) {
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
@@ -1148,26 +1138,6 @@ headerbar {
 
   }
 
-  &.default-decoration {
-    min-height: $small_size;
-    padding: $container_padding;
-    border-width: 0;
-
-    button.titlebutton {
-      min-height: $small_size;
-      min-width: $small_size;
-      margin: 0;
-      padding: 0;
-
-      &:active { // add fallback
-        background-image: radial-gradient(circle farthest-corner at center,
-                                          gtkalpha(currentColor, $lower_opacity / 2) 100%,
-                                          transparent 0%),
-                          image(gtkalpha(currentColor, $lower_opacity / 2));
-      }
-    }
-  }
-
   .solid-csd & {
     &:dir(rtl), &:dir(ltr) { // specificity bump
       margin-left: -2px;
@@ -1210,11 +1180,10 @@ headerbar {
 .titlebar:not(headerbar) {
   window.csd > & {
     // in csd we assume every titlebar is a headerbar so reset anything, this is needed for split toolbars cases
-    padding: 0;
-    background-color: transparent;
-    background-image: none;
-    border-style: none;
-    box-shadow: none;
+      padding: 0;
+      background: none;
+      border: none;
+      box-shadow: none;
   }
 
   > separator {
@@ -1224,6 +1193,35 @@ headerbar {
   @extend %titlebar;
 }
 
+  // special case for path-bars and stack-switchers
+  .linked:not(.vertical):not(.path-bar).stack-switcher,
+  .linked:not(.vertical).path-bar {
+
+    > button {
+    margin: 0 0 0 0;
+
+    &:hover {
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    $accent_color 100%,
+                                    transparent 0%)
+                                    0 0 2 / 0 0 2px;
+      background: none;
+      color: $accent_color;
+
+      &, &:disabled { background-color: transparent; }
+    }
+
+    &:checked {
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    $primary_color 100%,
+                                    transparent 0%)
+                                    0 0 2 / 0 0 2px;
+      background: none;
+      color: $primary_color;
+
+     }
+  }
+}
 
 /************
  * Pathbars *
@@ -1396,8 +1394,7 @@ menubar,
     color: $headerbar_fg_color;
 
     &:hover { //Seems like it :hover even with keyboard focus
-      transition: none;
-      border-radius: 2px;
+      border-radius: 2px 2px 0 0;
       background-color: $primary_color;
       color: $dark_contrast_color;
     }
@@ -1422,7 +1419,7 @@ menu,
   }
 
   menuitem {
-    transition: none;
+    transition: $shortest_transition;
     min-height: 20px;
     min-width: 40px;
     padding: 4px 8px;
@@ -1436,8 +1433,8 @@ menu,
       background-color: $primary_color;
     }
 
-    &:disabled { color: $disabled_secondary_inversed_fg_color; }
-      
+   &:disabled { color: $disabled_secondary_inversed_fg_color; }
+
     // submenu indicators
     arrow {
       min-height: 16px;
@@ -1542,18 +1539,21 @@ popover.background {
     &.osd { @extend %osd; }
   }
 
-   //entry { @extend %entry.flat; }
+   entry { @extend %entry.flat; }
 
-   //button:not(.suggested-action):not(.destructive-action) { @extend %button_basic.flat; }
+   button:not(.suggested-action):not(.destructive-action) {
+       margin: 0 4px 7px 0;
+//       &:hover { background-color: $primary_color; color: $inversed_fg_color; }
+    }
 
-   //%simple_flat_button { transition: none; &:hover { background-color: $primary_color; color: $inversed_fg_color; } }
+//   %simple_flat_button { transition: none; &:hover { background-color: $primary_color; color: $inversed_fg_color; } }
 
   &.menu button,
   button.model {
     @extend %simple_flat_button;
 
     min-height: 32px;
-    padding: 0 8px;
+    padding: 0 6px;
     border-radius: 2px;
 
     &:hover {
@@ -2039,7 +2039,6 @@ radio {
     &:disabled { color: gtkalpha(currentColor, $enabled_opacity * $disabled_opacity); }
   }
 
-
   menu menuitem & {
     transition: none;
     margin: -16px; // this is a workaround for a menu check/radio size allocation issue
@@ -2056,14 +2055,14 @@ radio {
 
 %check,
 check {
-  & { -gtk-icon-source: image(-gtk-recolor(url("assets/check-unchecked-symbolic.svg")),
-                              -gtk-recolor(url("assets/check-unchecked-symbolic.png"))); }
+  & { -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/check-unchecked-symbolic.svg")),
+                              -gtk-recolor(url("assets/scalable/check-unchecked-symbolic.png"))); }
 
-  &:checked { -gtk-icon-source: image(-gtk-recolor(url("assets/check-checked-symbolic.svg")),
-                                      -gtk-recolor(url("assets/check-checked-symbolic.png"))); }
+  &:checked { -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/check-checked-symbolic.svg")),
+                                      -gtk-recolor(url("assets/scalable/check-checked-symbolic.png"))); }
 
-  &:indeterminate { -gtk-icon-source: image(-gtk-recolor(url("assets/check-dash-symbolic.svg")),
-                                            -gtk-recolor(url("assets/check-dash-symbolic.png"))); }
+  &:indeterminate { -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/check-dash-symbolic.svg")),
+                                            -gtk-recolor(url("assets/scalable/check-dash-symbolic.png"))); }
 }
 
 $radio_indicator: 10 / ($large_size / 1px) / 2;
@@ -2072,14 +2071,14 @@ $radio_radius_width: #{$large_size / 2};
 
 %radio,
 radio {
-  & { -gtk-icon-source: image(-gtk-recolor(url("assets/radio-unchecked-symbolic.svg")),
-                              -gtk-recolor(url("assets/radio-unchecked-symbolic.png"))); }
+  & { -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-unchecked-symbolic.svg")),
+                              -gtk-recolor(url("assets/scalable/radio-unchecked-symbolic.png"))); }
 
-  // &:checked { -gtk-icon-source: image(-gtk-recolor(url("assets/radio-checked-symbolic.svg")),
-  //                                     -gtk-recolor(url("assets/radio-checked-symbolic.png"))); }
+  // &:checked { -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-checked-symbolic.svg")),
+  //                                     -gtk-recolor(url("assets/scalable/radio-checked-symbolic.png"))); }
 
-  &:indeterminate { -gtk-icon-source: image(-gtk-recolor(url("assets/radio-dash-symbolic.svg")),
-                                            -gtk-recolor(url("assets/radio-dash-symbolic.png"))); }
+  &:indeterminate { -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-dash-symbolic.svg")),
+                                            -gtk-recolor(url("assets/scalable/radio-dash-symbolic.png"))); }
 
   border-image: -gtk-gradient(radial,
                               center center, 0,
@@ -2247,8 +2246,8 @@ treeview.view radio {
 }
 
 treeview.view radio:checked {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/radio-checked-symbolic.svg")),
-                          -gtk-recolor(url("assets/radio-checked-symbolic.png")));
+  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-checked-symbolic.svg")),
+                          -gtk-recolor(url("assets/scalable/radio-checked-symbolic.png")));
   border-image: none;
 }
 
@@ -3325,17 +3324,59 @@ decoration {
   }
 }
 
-// Window Close button
-button.titlebutton {
-   @extend %simple_flat_button;
+//
+// Titlebuttons
+//
 
-  // @extend %circular_button;
+$asset_suffix: if($variant=='dark', '-dark', ''); // use dark assets in dark variant
+$darker_asset_suffix: if($headerbar=='dark', '-dark', $asset_suffix);
 
-  .selection-mode & {
+headerbar,
+.titlebar {
+
+  &.default-decoration button.titlebutton { // no vertical padding for ssd buttons
+    margin: 0;
+    padding: 0;                        // already handled by the titlebar-padding
+    min-width: 16px;
+    min-height: 16px;
+  }
+
+  button.titlebutton {
+    margin: 0;
+    padding: 0;
+    min-width: 32px;
+    min-height: 32px;
+
+    &:hover {
+      @include button(flat-hover);
+    }
+    &:active, &:checked {
+      @include button(flat-active);
+      transition: none;
+      animation: none;
+      box-shadow: none;
+      border: none;
+    }
+
+    &.close, &.maximize, &.minimize {
+      color: transparent;
+      background-color: transparent;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-width: 0;
+      &:backdrop { opacity: 1; }
+
+    }
+    // Load png assets for each button
+    @each $k in ('close','maximize', 'minimize') {
+      @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
+
+        &.#{$k}#{$l} { background-image: -gtk-scaled(url('windows-assets/titlebutton-#{$k}#{$m}#{$darker_asset_suffix}.png'),
+                                                        url('windows-assets/titlebutton-#{$k}#{$m}#{$darker_asset_suffix}@2.png')); }
+      }
+    }
   }
 }
-
-
 // catch all extend :)
 
 %selected_items {

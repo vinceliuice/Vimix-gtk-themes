@@ -14,7 +14,9 @@ fi
 repodir=$(cd $(dirname $0) && pwd)
 srcdir=${repodir}/src
 
-echo
+ rm -rf $DEST_DIR/Vimix*
+
+ echo
 
 for variant in 'Dark' 'Light' ; do
   for size in '' '-Laptop' ; do
@@ -74,8 +76,14 @@ for variant in 'Dark' 'Light' ; do
 		install -d ${themedir}/gtk-3.0
 		cd ${srcdir}/gtk-3.0
 		cp -ur \
+			windows-assets/windows-assets \
+			${themedir}/gtk-3.0/
+		cp -ur \
 			assets${color}/assets \
 			${themedir}/gtk-3.0/
+		cp -ur \
+			scalable \
+			${themedir}/gtk-3.0/assets/scalable
 		cp -ur \
 			gtk${variant}${size}${color}.css \
 			${themedir}/gtk-3.0/gtk.css
@@ -96,7 +104,6 @@ for variant in 'Dark' 'Light' ; do
 		cp -ur \
 			metacity-theme${color}-3.xml \
 			${themedir}/metacity-1/metacity-theme-3.xml
-
 
 		# Install Unity Theme
 		install -d ${themedir}/unity

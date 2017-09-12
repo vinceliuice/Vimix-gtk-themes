@@ -12,7 +12,9 @@
 // https://bugzilla.gnome.org/show_bug.cgi?id=738484
 // $z-depth-1: 0 1px 1.5px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.24);
 
-$z-depth-1: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+$z-depth-light: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
+$z-depth-dark: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+$z-depth-1: if($headerbar =='light', $z-depth-light, $z-depth-dark);
 $z-depth-2: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
 $z-depth-3: 0 10px 10px rgba(0, 0, 0, 0.19), 0 6px 3px rgba(0, 0, 0, 0.23);
 $z-depth-4: 0 14px 14px rgba(0, 0, 0, 0.25), 0 10px 5px rgba(0, 0, 0, 0.22);
@@ -181,7 +183,7 @@ $z-depth-5: 0 19px 19px rgba(0, 0, 0, 0.30), 0 15px 6px rgba(0, 0, 0, 0.22);
                                       $zero_track_color 100%,
                                       transparent 0%),
                       image($zero_track_color);
-    color: $secondary_fg_color;
+//    color: $secondary_fg_color;
   }
 
   @if $t == hover {
@@ -190,14 +192,14 @@ $z-depth-5: 0 19px 19px rgba(0, 0, 0, 0.30), 0 15px 6px rgba(0, 0, 0, 0.22);
                                       $zero_track_color 100%,
                                       transparent 0%),
                       image($zero_track_color);
-    color: $fg_color;
+//    color: $fg_color;
   }
 
   @if $t == active {
     transition: $longer_transition, $shadow_transition, background-image 0;
     animation: ripple_effect $longer_duration $deceleration_curve forwards;
     box-shadow: $z-depth-2;
-    color: $fg_color;
+//    color: $fg_color;
   }
 
   @if $t == disabled {
@@ -255,6 +257,55 @@ $z-depth-5: 0 19px 19px rgba(0, 0, 0, 0.30), 0 15px 6px rgba(0, 0, 0, 0.22);
   }
 
   @if $t == flat-checked-disabled {
+    background-color: $track_color;
+    color: gtkalpha(currentColor, $disabled_opacity);
+  }
+}
+
+@mixin header_button($t, $c:$lighter_bg_color, $tc:$fg_color) {
+//
+// Button drawing function
+//
+// $t:    button type,
+// $c:    base button color for colored* types
+// $tc:   optional text color for colored* types
+//
+// possible $t values:
+// normal, hover, active, disabled, checked, checked-disabled,
+// flat-normal, flat-hover, flat-active, flat-disabled, flat-checked, flat-checked-disabled;
+//
+
+  @if $t == header-normal {
+    transition: $longer_transition;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: radial-gradient(circle farthest-corner at center,
+                                      $zero_track_color 100%,
+                                      transparent 0%),
+                      image($zero_track_color);
+    color: gtkalpha(currentColor, $enabled_opacity);
+  }
+
+  @if $t == header-hover {
+    box-shadow: none;
+  }
+
+  @if $t == header-active {
+    transition: $longer_transition, background-image 0;
+    animation: flat_ripple_effect $longer_duration $deceleration_curve forwards;
+    box-shadow: none;
+  }
+
+  @if $t == header-disabled {
+    box-shadow: none;
+    background-color: transparent;
+    color: if($tc != $fg_color, gtkalpha(currentColor, $disabled_opacity), gtkalpha(currentColor, $enabled_opacity * $disabled_opacity));
+  }
+
+  @if $t == header-checked {
+  }
+
+  @if $t == header-checked-disabled {
     background-color: $track_color;
     color: gtkalpha(currentColor, $disabled_opacity);
   }

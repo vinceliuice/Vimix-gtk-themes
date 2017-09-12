@@ -183,7 +183,7 @@ $z-depth-5: 0 19px 19px rgba(0, 0, 0, 0.30), 0 15px 6px rgba(0, 0, 0, 0.22);
                                       $zero_track_color 100%,
                                       transparent 0%),
                       image($zero_track_color);
-//    color: $secondary_fg_color;
+    color: $secondary_fg_color;
   }
 
   @if $t == hover {
@@ -192,14 +192,14 @@ $z-depth-5: 0 19px 19px rgba(0, 0, 0, 0.30), 0 15px 6px rgba(0, 0, 0, 0.22);
                                       $zero_track_color 100%,
                                       transparent 0%),
                       image($zero_track_color);
-//    color: $fg_color;
+    color: $fg_color;
   }
 
   @if $t == active {
     transition: $longer_transition, $shadow_transition, background-image 0;
     animation: ripple_effect $longer_duration $deceleration_curve forwards;
     box-shadow: $z-depth-2;
-//    color: $fg_color;
+    color: $fg_color;
   }
 
   @if $t == disabled {

@@ -507,8 +507,8 @@ button {
     &.#{$b_type} {
       background-color: $b_color;
       color: $inversed_fg_color;
-
-       @include button(normal, $b_color, $inversed_fg_color);
+      box-shadow: $z-depth-1;
+//       @include button(normal, $b_color, $inversed_fg_color);
 
        &:hover { @include button(hover, $b_color, $inversed_fg_color);
            background-color: lighten($b_color, 5%);

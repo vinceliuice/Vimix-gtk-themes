@@ -72,7 +72,7 @@ When running the installer script in Fedora 24 or later, you need to install 'gl
 
 ## Screenshots
 
-### GNOME Shell
+#### GNOME Shell
 ![1](https://cn.pling.com/img/5/b/b/f/f5bc03455d89246214cbf49d53f134ad8048.png?raw=true) 
 ![2](https://cn.pling.com/img/f/1/4/1/72ec62aff6edc8243a12f8a8db57a6468804.png?raw=true) 
 ![3](https://cn.pling.com/img/9/1/d/b/e37013349e0f0bd76b9a0afc8e98222f8504.png?raw=true) 

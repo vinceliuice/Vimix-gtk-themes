@@ -58,6 +58,7 @@ Run
 
 
 Or double-click to open the launcher "update vimix online".
+
 When running the installer script in ubuntu16.04 or later, if you had this error:
 
     XMLLINT not set and xmllint not found in path; skipping xml preprocessing.

@@ -897,7 +897,7 @@ headerbar {
   transition: background-color 0.2s cubic-bezier(0, 0, 0.2, 1);
   min-height: 48px;
   padding: 0 6px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24), inset 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24), inset 0 1px rgba(255, 255, 255, 0.1), inset 0 -1px rgba(0, 0, 0, 0.1);
   background-color: #444851;
   color: #FFFFFF; }
   .titlebar:backdrop:not(headerbar),
@@ -1197,6 +1197,7 @@ menubar,
 .menubar {
   -GtkWidget-window-dragging: true;
   padding: 0;
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.09);
   background-color: #444851; }
   menubar > menuitem,
   .menubar > menuitem {

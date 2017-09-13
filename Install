@@ -76,6 +76,9 @@ for variant in 'Dark' 'Light' ; do
 		install -d ${themedir}/gtk-3.0
 		cd ${srcdir}/gtk-3.0
 		cp -ur \
+			thumbnail.png \
+			${themedir}/gtk-3.0/
+		cp -ur \
 			windows-assets/windows-assets \
 			${themedir}/gtk-3.0/
 		cp -ur \

@@ -1147,6 +1147,23 @@ headerbar {
       box-shadow: inset 0 1px $secondary_highlight_color;
     }
   }
+
+  separator.titlebutton { @extend %header_separator; }
+
+}
+
+%header_separator {
+  min-width: 0;
+  min-height: 0;
+  background: none;
+  border-width: 0 0;
+  border-image: linear-gradient(to bottom,
+                                transparentize($secondary_highlight_color, 1) 25%,
+                                transparentize($secondary_highlight_color, 0.65) 25%,
+                                transparentize($secondary_highlight_color, 0.65) 75%,
+                                transparentize($secondary_highlight_color, 1) 75%) 0 1/0 0 stretch;
+
+  &:backdrop { opacity: 0.6; }
 }
 
 headerbar {
@@ -3338,7 +3355,7 @@ headerbar,
     margin: 0;
     padding: 0;                        // already handled by the titlebar-padding
     min-width: 32px;
-    min-height: 16px;
+    min-height: 22px;
   }
 
   button.titlebutton {

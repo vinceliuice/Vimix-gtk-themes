@@ -1753,9 +1753,12 @@ notebook {
         }
       }
 
+      // close button
       // colors the button like the label, overridden otherwise
       button.flat {
-        @extend %small_button;
+        border-radius: 100px;
+        min-height: 16px;
+        min-width: 16px;
 
         &:last-child {
           margin-left: $container_padding;

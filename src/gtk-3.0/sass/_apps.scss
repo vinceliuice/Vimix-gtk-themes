@@ -811,7 +811,6 @@ window.background:not(.csd) {
   > window > menu,
   > menu > menu { border: none; }
 
-
 // Firefox now uses this for selected items
 text:selected { 
       background-color: $primary_color; 
@@ -842,14 +841,15 @@ window.background:not(.csd) {
     }
   }
 
-  > window.background > menu > separator { color: $firefox_border_color; }
+  > window.background > menu > separator { color: $borders_color; }
     }
   }
 }
 
 window.background > menu > menuitem > label:disabled { color: $disabled_menu_fg_color; }
 
-%small_check {
+%small_check,
+menu menuitem check {
   & {
     border-radius: 2px;
     -gtk-outline-radius: 2px;
@@ -868,7 +868,8 @@ window.background > menu > menuitem > label:disabled { color: $disabled_menu_fg_
   }
 }
 
-%small_radio {
+%small_radio,
+menu menuitem radio {
   & {
     border-image: none;
     -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.svg")),

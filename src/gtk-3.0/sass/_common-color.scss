@@ -2012,6 +2012,19 @@ switch {
 // all assets are rendered from assets.svg. never add pngs directly
 
 //selection-mode
+.view.content-view.check:not(list),
+.content-view .tile check:not(list) {
+  min-height: 40px;
+  min-width: 40px;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none;
+  -gtk-icon-shadow: $z-depth-1;
+
+  &:hover, &:active { -gtk-icon-shadow: $z-depth-2; }
+
 @each $s, $as in ('', '-selectionmode'),
                 (':hover', '-hover-selectionmode'),
                 (':checked', '-checked-selectionmode'),
@@ -2022,6 +2035,7 @@ switch {
                                   url("assets/checkbox#{$as}#{$asset_suffix}@2.png"));
     margin: 8px;
     background-color: transparent;
+    }
   }
 }
 
@@ -2059,16 +2073,42 @@ radio {
     &:disabled { color: gtkalpha(currentColor, $enabled_opacity * $disabled_opacity); }
   }
 
+  popover & {
+    &, &:hover, &:disabled {
+      box-shadow: none;
+      background-image: none;
+    }
+
+    &:not(:checked):not(:indeterminate):not(:disabled) { color: $secondary_fg_color; }
+
+    &.left:dir(rtl) {
+      margin-left: -16px;
+      margin-right: -8px;
+    }
+
+    &.right:dir(ltr) {
+      margin-left: -8px;
+      margin-right: -16px;
+    }
+  }
+
   menu menuitem & {
     transition: none;
-    margin: -16px; // this is a workaround for a menu check/radio size allocation issue
+    min-height: 16px;
+    min-width: 16px;
+    margin: 0; // this is a workaround for a menu check/radio size allocation issue
+    padding: 0 0 0 16px;
+
+    &:dir(ltr) { margin-right: 8px; }
+
+    &:dir(rtl) { margin-left: 8px; }
 
     &:not(:checked):not(:indeterminate) { color: gtkalpha(currentColor, $hint_opacity); }
 
     &, &:hover, &:disabled {
+      box-shadow: none;
       background-image: none;
       // color: inherit;
-      // animation: none;
     }
   }
 }
@@ -2178,9 +2218,48 @@ radio {
     menu menuitem #{$w}#{$s} {
         color: $dark_contrast_color;
         -gtk-icon-shadow: none;
-      }
+        border-image: none;
     }
+  }
+}
 
+%small_check,
+menu menuitem check {
+  & {
+    border-radius: 2px;
+    -gtk-outline-radius: 2px;
+    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.svg")),
+                            -gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.symbolic.png")));
+  }
+
+  &:checked {
+    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-checked-symbolic.svg")),
+                            -gtk-recolor(url("assets/scalable/small-checkbox-checked-symbolic.symbolic.png")));
+  }
+
+  &:indeterminate {
+    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-mixed-symbolic.svg")),
+                            -gtk-recolor(url("assets/scalable/small-checkbox-mixed-symbolic.symbolic.png")));
+  }
+}
+
+%small_radio,
+menu menuitem radio {
+  & {
+    border-image: none;
+    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.svg")),
+                            -gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.symbolic.png")));
+  }
+
+  &:checked {
+    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-checked-symbolic.svg")),
+                            -gtk-recolor(url("assets/scalable/small-radio-checked-symbolic.symbolic.png")));
+  }
+
+  &:indeterminate {
+    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic.svg")),
+                            -gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic.symbolic.png")));
+  }
 }
 
 // let's animate things
@@ -2235,7 +2314,7 @@ menu menuitem {
   check:not(:indeterminate):checked,
   radio:not(:indeterminate):checked,
   check:indeterminate:checked,
-  radio:indeterminate:checked { animation: none; }
+  radio:indeterminate:checked { animation: none; border-image: none;}
 }
 
 treeview.view check,

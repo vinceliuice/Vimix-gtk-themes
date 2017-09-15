@@ -367,9 +367,9 @@ treeview entry.flat, treeview entry {
  ***********/
 @keyframes needs_attention {
   from {
-    background-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(#0CAAF0), to(transparent)); }
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(#18b8ff), to(transparent)); }
   to {
-    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(#0CAAF0), to(transparent)); } }
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(#18b8ff), to(transparent)); } }
 button {
   min-height: 24px;
   min-width: 16px;
@@ -939,7 +939,7 @@ headerbar {
       color: alpha(currentColor, 0.4); }
   .titlebar:not(headerbar) button:hover,
   headerbar button:hover {
-    color: #0CAAF0;
+    color: #18b8ff;
     background-color: alpha(#4586D8, 0.3); }
   .titlebar:not(headerbar) button:active,
   headerbar button:active {
@@ -1061,18 +1061,18 @@ window.csd > .titlebar:not(headerbar) {
   margin: 0 0 0 0; }
   .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover,
   .linked:not(.vertical).path-bar > button:hover {
-    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #0CAAF0 100%, transparent 0%) 0 0 2/0 0 2px;
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), alpha(#18b8ff, 0.8) 100%, transparent 0%) 0 0 2/0 0 2px;
     background: none;
-    color: #0CAAF0; }
+    color: alpha(#18b8ff, 0.8); }
     .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover, .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover:disabled,
     .linked:not(.vertical).path-bar > button:hover,
     .linked:not(.vertical).path-bar > button:hover:disabled {
       background-color: transparent; }
   .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked,
   .linked:not(.vertical).path-bar > button:checked {
-    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4586D8 100%, transparent 0%) 0 0 2/0 0 2px;
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #18b8ff 100%, transparent 0%) 0 0 2/0 0 2px;
     background: none;
-    color: #4586D8; }
+    color: #18b8ff; }
 
 /************
  * Pathbars *
@@ -1124,7 +1124,7 @@ treeview.view {
   treeview.view:drop(active) {
     border-style: solid none;
     border-width: 1px;
-    border-color: #0CAAF0; }
+    border-color: #18b8ff; }
     treeview.view:drop(active).after {
       border-top-style: none; }
     treeview.view:drop(active).before {
@@ -1591,9 +1591,9 @@ switch {
   switch:disabled {
     color: alpha(currentColor, 0.4); }
   switch:checked {
-    background-color: rgba(12, 170, 240, 0.5); }
+    background-color: rgba(24, 184, 255, 0.5); }
     switch:checked:disabled {
-      background-color: rgba(12, 170, 240, 0.2);
+      background-color: rgba(24, 184, 255, 0.2);
       color: rgba(0, 0, 0, 0.32); }
   switch slider {
     transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
@@ -1613,7 +1613,7 @@ switch {
   switch:checked slider {
     animation: needs_attention 0.3s cubic-bezier(0, 0, 0.2, 1);
     margin: -4px -4px -4px 0;
-    background-color: #0CAAF0;
+    background-color: #18b8ff;
     color: #FFFFFF; }
   switch:disabled slider {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -1685,11 +1685,11 @@ radio {
   check:checked, check:indeterminate,
   radio:checked,
   radio:indeterminate {
-    color: #0CAAF0; }
+    color: #18b8ff; }
   check:checked:disabled, check:indeterminate:disabled,
   radio:checked:disabled,
   radio:indeterminate:disabled {
-    color: rgba(12, 170, 240, 0.4); }
+    color: rgba(24, 184, 255, 0.4); }
   row check:not(:checked):not(:indeterminate), row
   radio:not(:checked):not(:indeterminate) {
     color: alpha(currentColor, 0.75); }
@@ -1748,17 +1748,17 @@ check:indeterminate {
   -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/check-dash-symbolic.svg")), -gtk-recolor(url("assets/scalable/check-dash-symbolic.png"))); }
 
 radio {
-  border-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(#0CAAF0), to(transparent)) 24/24px; }
+  border-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(#18b8ff), to(transparent)) 24/24px; }
   radio {
     -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-unchecked-symbolic.svg")), -gtk-recolor(url("assets/scalable/radio-unchecked-symbolic.png"))); }
   radio:indeterminate {
     -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-dash-symbolic.svg")), -gtk-recolor(url("assets/scalable/radio-dash-symbolic.png"))); }
   radio:checked {
-    border-image: -gtk-gradient(radial, center center, 0, center center, 0.10417, to(#0CAAF0), to(transparent)) 24/24px; }
+    border-image: -gtk-gradient(radial, center center, 0, center center, 0.10417, to(#18b8ff), to(transparent)) 24/24px; }
   radio:checked:disabled {
-    border-image: -gtk-gradient(radial, center center, 0, center center, 0.10417, to(rgba(12, 170, 240, 0.4)), to(transparent)) 24/24px; }
+    border-image: -gtk-gradient(radial, center center, 0, center center, 0.10417, to(rgba(24, 184, 255, 0.4)), to(transparent)) 24/24px; }
   radio:indeterminate:checked {
-    border-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(#0CAAF0), to(transparent)) 24/24px; }
+    border-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(#18b8ff), to(transparent)) 24/24px; }
 
 treeview.view check:selected,
 treeview.view check:selected:focus,
@@ -2132,9 +2132,9 @@ menu menuitem radio:indeterminate {
     -gtk-icon-transform: unset; } }
 @keyframes check_radio {
   from {
-    border-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(#0CAAF0), to(transparent)) 24/24px; }
+    border-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(#18b8ff), to(transparent)) 24/24px; }
   to {
-    border-image: -gtk-gradient(radial, center center, 0, center center, 0.10417, to(#0CAAF0), to(transparent)) 24/24px; } }
+    border-image: -gtk-gradient(radial, center center, 0, center center, 0.10417, to(#18b8ff), to(transparent)) 24/24px; } }
 @keyframes check_indeterminate {
   from {
     -gtk-icon-transform: unset; }
@@ -2192,11 +2192,11 @@ treeview.view radio {
     treeview.view check:checked, treeview.view check:indeterminate,
     treeview.view radio:checked,
     treeview.view radio:indeterminate {
-      color: #0CAAF0; }
+      color: #18b8ff; }
     treeview.view check:checked:disabled, treeview.view check:indeterminate:disabled,
     treeview.view radio:checked:disabled,
     treeview.view radio:indeterminate:disabled {
-      color: rgba(12, 170, 240, 0.4); }
+      color: rgba(24, 184, 255, 0.4); }
 
 treeview.view radio:checked {
   -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-checked-symbolic.svg")), -gtk-recolor(url("assets/scalable/radio-checked-symbolic.png")));
@@ -2221,7 +2221,7 @@ scale {
     scale trough:disabled {
       color: rgba(0, 0, 0, 0.32); }
   scale highlight {
-    background-color: #0CAAF0; }
+    background-color: #18b8ff; }
     scale highlight:disabled {
       background-color: transparent; }
   scale fill {
@@ -2688,12 +2688,12 @@ placessidebar row {
   placessidebar row.sidebar-placeholder-row {
     min-height: 2px;
     padding: 0 8px;
-    background-image: image(#0CAAF0);
+    background-image: image(#18b8ff);
     background-clip: content-box; }
   placessidebar row.sidebar-new-bookmark-row {
-    color: #0CAAF0; }
+    color: #18b8ff; }
   placessidebar row:drop(active):not(:disabled) {
-    box-shadow: inset 0 0 0 2px #0CAAF0; }
+    box-shadow: inset 0 0 0 2px #18b8ff; }
 
 placesview .server-list-button > image {
   -gtk-icon-transform: rotate(0turn); }
@@ -2819,9 +2819,9 @@ colorswatch.light {
 colorswatch:drop(active) {
   box-shadow: none; }
   colorswatch:drop(active).light overlay {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24), 0 0 0 2px #0CAAF0; }
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24), 0 0 0 2px #18b8ff; }
   colorswatch:drop(active).dark overlay {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24), 0 0 0 2px #0CAAF0; }
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24), 0 0 0 2px #18b8ff; }
 colorswatch overlay {
   transition: box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
@@ -2993,7 +2993,7 @@ entry selection, modelbutton.flat:selected,
  *********************/
 cursor-handle {
   border-radius: 100px;
-  background-color: #0CAAF0;
+  background-color: #18b8ff;
   background-image: none; }
   cursor-handle.top:dir(ltr), cursor-handle.bottom:dir(rtl) {
     padding-left: 6px;
@@ -3038,8 +3038,8 @@ spinbutton:not(.vertical) button, button.sidebar-button, .nautilus-window .float
 
 *:drop(active) {
   transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24), inset 0 0 0 2px #0CAAF0;
-  caret-color: #0CAAF0; }
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24), inset 0 0 0 2px #18b8ff;
+  caret-color: #18b8ff; }
 
 stackswitcher button.text-button {
   min-width: 100px; }
@@ -3081,11 +3081,11 @@ stackswitcher button.text-button.circular {
   to {
     background-color: alpha(currentColor, 0.3); } }
 .nautilus-operations-button-needs-attention {
-  color: #0CAAF0;
+  color: #18b8ff;
   animation: needs_attention_keyframes 0.3s cubic-bezier(0.4, 0, 0.2, 1) 2 alternate; }
 
 .nautilus-operations-button-needs-attention-multiple {
-  color: #0CAAF0;
+  color: #18b8ff;
   animation: needs_attention_keyframes 0.3s cubic-bezier(0.4, 0, 0.2, 1) 4 alternate; }
 
 .nautilus-window .floating-bar {
@@ -3382,7 +3382,7 @@ GdMainIconView.content-view {
   margin: 8px;
   border-radius: 100px;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
-  background-color: #0CAAF0;
+  background-color: #18b8ff;
   color: #FFFFFF;
   font-weight: bold; }
 

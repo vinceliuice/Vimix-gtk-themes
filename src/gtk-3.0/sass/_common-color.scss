@@ -1210,6 +1210,18 @@ headerbar {
   @extend %titlebar;
 }
 
+$border_image-light: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    $primary_color 100%,
+                                    transparent 0%)
+                                    0 0 2 / 0 0 2px;
+
+$border_image-dark: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    $accent_color 100%,
+                                    transparent 0%)
+                                    0 0 2 / 0 0 2px;
+
+$header_button_boder-checked: if($headerbar == 'light', $border_image-light, $border_image-dark);
+
   // special case for path-bars and stack-switchers
   .linked:not(.vertical):not(.path-bar).stack-switcher,
   .linked:not(.vertical).path-bar {
@@ -1219,22 +1231,19 @@ headerbar {
 
     &:hover {
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    $accent_color 100%,
+                                    gtkalpha($accent_color, 0.8) 100%,
                                     transparent 0%)
                                     0 0 2 / 0 0 2px;
       background: none;
-      color: $accent_color;
+      color: gtkalpha($accent_color, 0.8);
 
       &, &:disabled { background-color: transparent; }
     }
 
     &:checked {
-      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    $primary_color 100%,
-                                    transparent 0%)
-                                    0 0 2 / 0 0 2px;
+      border-image: $header_button_boder-checked;
       background: none;
-      color: $primary_color;
+      color: if($headerbar == 'light', $primary_color, $accent_color);
 
      }
   }

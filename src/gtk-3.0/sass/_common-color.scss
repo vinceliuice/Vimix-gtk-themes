@@ -1216,7 +1216,7 @@ $border_image-light: radial-gradient(circle closest-corner at center calc(100% -
                                     0 0 2 / 0 0 2px;
 
 $border_image-dark: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    $accent_color 100%,
+                                    lighten($primary_color, 5%) 100%,
                                     transparent 0%)
                                     0 0 2 / 0 0 2px;
 
@@ -1231,11 +1231,11 @@ $header_button_boder-checked: if($headerbar == 'light', $border_image-light, $bo
 
     &:hover {
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    gtkalpha($accent_color, 0.8) 100%,
+                                    gtkalpha($primary_color, 0.8) 100%,
                                     transparent 0%)
                                     0 0 2 / 0 0 2px;
       background: none;
-      color: gtkalpha($accent_color, 0.8);
+      color: gtkalpha($primary_color, 0.8);
 
       &, &:disabled { background-color: transparent; }
     }
@@ -1243,7 +1243,7 @@ $header_button_boder-checked: if($headerbar == 'light', $border_image-light, $bo
     &:checked {
       border-image: $header_button_boder-checked;
       background: none;
-      color: if($headerbar == 'light', $primary_color, $accent_color);
+      color: if($headerbar == 'light', $primary_color, lighten($primary_color, 5%));
 
      }
   }

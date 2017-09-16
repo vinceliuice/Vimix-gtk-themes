@@ -1567,31 +1567,63 @@ popover.background {
 
    entry { @extend %entry.flat; }
 
-   button:not(.suggested-action):not(.destructive-action) {
-       margin: 0 4px 7px 0;
-//       &:hover { background-color: $primary_color; color: $inversed_fg_color; }
-    }
+%linked_middle {
+    border-radius: 0;
+    border-style: none;
+}
 
-//   %simple_flat_button { transition: none; &:hover { background-color: $primary_color; color: $inversed_fg_color; } }
+%linked {
+  @extend %linked_middle;
+  &:first-child {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-right-style: none;
+  }
+  &:last-child {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-left-style: none;
+  }
+  &:only-child {
+    border-radius: 3px;
+    border-style: solid;
+  }
+}
+
+   button:not(.suggested-action):not(.destructive-action) {
+//       @extend %button.flat;
+       box-shadow: none;
+
+       border: 1px solid darken($lighter_bg_color, 10%);
+       &:hover {
+           background-color: gtkalpha($primary_color, 0.8);
+           color: $inversed_fg_color;
+           border-color: gtkalpha($primary_color, 0.8);
+       }
+       &:checked {
+           background-color: $primary_color;
+           color: $inversed_fg_color;
+           border-color: $primary_color;
+       }
+       &:disabled {
+           background-color: $lighter_bg_color;
+           color: $disabled_fg_color;
+       }
+       &:checked:disabled {
+           background-color: lighten($primary_color, 10%);
+           color: $inversed_fg_color;
+           border-color: lighten($primary_color, 10%);
+       }
+    }
 
   &.menu button,
   button.model {
-    @extend %simple_flat_button;
-
+//    @extend %button.flat;
+    @extend %linked;
+    margin: 0 -1px 0 -1px;
     min-height: 32px;
     padding: 0 6px;
-    border-radius: 2px;
-
-    &:hover {
-      background-color: $primary_color;
-      color: $inversed_fg_color;
-    }
-
-    &:checked {
-      background-color: $primary_color;
-      color: $inversed_fg_color;
-    }
-
+    box-shadow: none;
   }
 
   separator { margin: 4px 0; }

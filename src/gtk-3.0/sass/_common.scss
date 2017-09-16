@@ -1556,30 +1556,39 @@ popover.background {
    entry { @extend %entry.flat; }
 
    button:not(.suggested-action):not(.destructive-action) {
-       margin: 0 4px 7px 0;
-//       &:hover { background-color: $primary_color; color: $inversed_fg_color; }
-    }
+//       @extend %button.flat;
+       box-shadow: none;
 
-//   %simple_flat_button { transition: none; &:hover { background-color: $primary_color; color: $inversed_fg_color; } }
+       border: 1px solid darken($lighter_bg_color, 10%);
+       &:hover {
+           background-color: gtkalpha($accent_color, 0.8);
+           color: $inversed_fg_color;
+           border-color: gtkalpha($accent_color, 0.8);
+       }
+       &:checked {
+           background-color: $accent_color;
+           color: $inversed_fg_color;
+           border-color: $accent_color;
+       }
+       &:disabled {
+           background-color: $lighter_bg_color;
+           color: $disabled_fg_color;
+       }
+       &:checked:disabled {
+           background-color: lighten($accent_color, 10%);
+           color: $inversed_fg_color;
+           border-color: lighten($accent_color, 10%);
+       }
+    }
 
   &.menu button,
   button.model {
-    @extend %simple_flat_button;
-
+//    @extend %button.flat;
+    @extend %linked;
+    margin: 0 -1px 0 -1px;
     min-height: 32px;
     padding: 0 6px;
-    border-radius: 2px;
-
-    &:hover {
-      background-color: $primary_color;
-      color: $inversed_fg_color;
-    }
-
-    &:checked {
-      background-color: $primary_color;
-      color: $inversed_fg_color;
-    }
-
+    box-shadow: none;
   }
 
   separator { margin: 4px 0; }

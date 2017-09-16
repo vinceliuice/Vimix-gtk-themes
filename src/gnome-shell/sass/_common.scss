@@ -1016,10 +1016,12 @@ StScrollBar {
     }
 
       .calendar-change-month-back { //arrow back
+        padding: 0 2px;
         background-image: url("assets/calendar-arrow-left.svg");
         &:rtl { background-image: url("assets/calendar-arrow-right.svg"); }
       }
       .calendar-change-month-forward { //arrow foreward
+        padding: 0 2px;
         background-image: url("assets/calendar-arrow-right.svg");
         &:rtl { background-image: url("assets/calendar-arrow-left.svg"); }
       }

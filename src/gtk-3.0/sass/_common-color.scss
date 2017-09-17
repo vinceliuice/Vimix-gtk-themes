@@ -1,7 +1,7 @@
 $asset_suffix: if($variant=='dark', '-dark', '');
 $extra_background_clip: if($variant == 'light', padding-box, border-box);
 
-$small_size: if($laptop == 'true', 20px, 24px);
+$small_size: if($laptop == 'true', 20px, 22px);
 $medium_size: if($laptop == 'true', 32px, 36px);
 $large_size: if($laptop == 'true', 44px, 48px);
 
@@ -878,6 +878,7 @@ combobox {
     min-width: 16px;
   }
 
+  decoration,
   button.combo:checked { transition: none; } // workaround for menuitem selection
 
   button.combo cellview {
@@ -1136,6 +1137,22 @@ headerbar {
   .maximized & {
     border-radius: 0; // squared corners when the window is fullscreen, maximized or tiled
 
+  }
+
+  &.default-decoration {
+    min-height: $small_size;
+    padding: $container_padding;
+
+    .tiled &,
+    .maximized &,
+    .fullscreen & { box-shadow: none; }
+
+    button.titlebutton {
+      min-height: $small_size;
+      min-width: 32px;
+      margin: 0;
+      padding: 0;
+    }
   }
 
   .solid-csd & {
@@ -1795,19 +1812,11 @@ notebook {
       // close button
       // colors the button like the label, overridden otherwise
       button.flat {
-        border-radius: 100px;
-        min-height: 16px;
-        min-width: 16px;
-
-        &:last-child {
-          margin-left: $container_padding;
-          margin-right: $container_padding - 12px;
-        }
-
-        &:first-child {
-          margin-left: $container_padding - 12px;
-          margin-right: $container_padding;
-        }
+           min-height: 24px;
+           min-width: 24px;
+           padding: 0;
+           border-radius: $circular_radius;
+           -gtk-outline-radius: $circular_radius;
       }
     }
 
@@ -3472,13 +3481,6 @@ $darker_asset_suffix: if($headerbar=='dark', '-dark', $asset_suffix);
 headerbar,
 .titlebar {
 
-  &.default-decoration button.titlebutton { // no vertical padding for ssd buttons
-    margin: 0;
-    padding: 0;                        // already handled by the titlebar-padding
-    min-width: 32px;
-    min-height: 22px;
-  }
-
   button.titlebutton {
     margin: 0;
     padding: 0;
@@ -3607,4 +3609,63 @@ stackswitcher button.text-button.circular { // FIXME aggregate with buttons
   min-width: $medium_size;
   min-height: $medium_size;
   padding: 0;
+}
+
+
+/*********
+ * Emoji *
+ *********/
+popover.emoji-picker {
+  padding: 0;
+
+  entry {
+    border-bottom: 1px solid $borders_color;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: none;
+  }
+
+  scrolledwindow { border-bottom: 1px solid $borders_color; }
+}
+
+// mimic tab style
+button.emoji-section {
+  margin-top: -1px;
+  padding: 0 8px;
+  min-width: 24px;
+  min-height: $medium_size;
+  border-radius: 0;
+  outline-offset: -6px;
+  box-shadow: none;
+
+  &:hover { box-shadow: inset 0 2px $track_color; }
+
+  &:active {
+    box-shadow: inset 0 2px $primary_color;
+    background-image: radial-gradient(circle farthest-corner at center,
+                                      rgba($primary_color, 0.7) 10%,
+                                      transparent 0%);
+  }
+
+  &:checked {
+    box-shadow: inset 0 2px $primary_color;
+    background-color: transparent;
+  }
+
+  &:first-child { margin-left: 4px; }
+
+  &:last-child { margin-right: 4px; }
+}
+
+.emoji {
+  min-width: 3em;
+  min-height: 3em;
+  padding: 0;
+  // font-size: large;
+
+  widget {
+    transition: $shorter_transition;
+
+    &:hover { font-size: larger; }
+  }
 }

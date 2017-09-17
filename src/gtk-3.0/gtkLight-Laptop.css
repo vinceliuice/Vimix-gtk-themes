@@ -804,6 +804,7 @@ combobox arrow {
   -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
   min-height: 16px;
   min-width: 16px; }
+combobox decoration,
 combobox button.combo:checked {
   transition: none; }
 combobox button.combo cellview:dir(ltr) {
@@ -1011,6 +1012,21 @@ headerbar {
   headerbar, .maximized
   headerbar {
     border-radius: 0; }
+  .default-decoration.titlebar:not(headerbar),
+  headerbar.default-decoration {
+    min-height: 20px;
+    padding: 6px; }
+    .tiled .default-decoration.titlebar:not(headerbar), .maximized .default-decoration.titlebar:not(headerbar), .fullscreen .default-decoration.titlebar:not(headerbar), .tiled
+    headerbar.default-decoration, .maximized
+    headerbar.default-decoration, .fullscreen
+    headerbar.default-decoration {
+      box-shadow: none; }
+    .default-decoration.titlebar:not(headerbar) button.titlebutton,
+    headerbar.default-decoration button.titlebutton {
+      min-height: 20px;
+      min-width: 32px;
+      margin: 0;
+      padding: 0; }
   .solid-csd .titlebar:dir(rtl):not(headerbar), .solid-csd .titlebar:dir(ltr):not(headerbar), .solid-csd
   headerbar:dir(rtl), .solid-csd
   headerbar:dir(ltr) {
@@ -1318,9 +1334,9 @@ menuitem radio:dir(rtl) {
 .csd.popup {
   border-radius: 2px; }
 
-/***************
- * Popovers   *
- ***************/
+/************
+ * Popovers *
+ ************/
 popover.background {
   transition: box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
   padding: 0;
@@ -1464,15 +1480,11 @@ notebook > header {
         border-color: rgba(0, 0, 0, 0.1);
         background-color: #FFFFFF; }
     notebook > header tab button.flat {
+      min-height: 24px;
+      min-width: 24px;
+      padding: 0;
       border-radius: 100px;
-      min-height: 16px;
-      min-width: 16px; }
-      notebook > header tab button.flat:last-child {
-        margin-left: 6px;
-        margin-right: -6px; }
-      notebook > header tab button.flat:first-child {
-        margin-left: -6px;
-        margin-right: 6px; }
+      -gtk-outline-radius: 100px; }
   notebook > header.top tabs, notebook > header.bottom tabs {
     padding-left: 8px;
     padding-right: 8px; }
@@ -2569,7 +2581,7 @@ expander arrow {
 
 /************
  * Calendar *
- ***********/
+ ************/
 calendar {
   padding: 1px;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -2867,7 +2879,7 @@ colorchooser .popover.osd {
 
 /**********************
  * Window Decorations *
- *********************/
+ **********************/
 decoration {
   transition: box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
   border-radius: 2px 2px 0 0;
@@ -2894,12 +2906,6 @@ decoration {
     padding: 4px;
     box-shadow: inset 0 0 0 4px #EEEEEE; }
 
-headerbar.default-decoration button.titlebutton,
-.titlebar.default-decoration button.titlebutton {
-  padding: 0;
-  min-width: 32px;
-  min-height: 22px;
-  margin: 0; }
 headerbar button.titlebutton,
 .titlebar button.titlebutton {
   margin: 0;
@@ -3057,6 +3063,49 @@ stackswitcher button.text-button.circular {
   min-height: 32px;
   padding: 0; }
 
+/*********
+ * Emoji *
+ *********/
+popover.emoji-picker {
+  padding: 0; }
+  popover.emoji-picker entry {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: none; }
+  popover.emoji-picker scrolledwindow {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+
+button.emoji-section {
+  margin-top: -1px;
+  padding: 0 8px;
+  min-width: 24px;
+  min-height: 32px;
+  border-radius: 0;
+  outline-offset: -6px;
+  box-shadow: none; }
+  button.emoji-section:hover {
+    box-shadow: inset 0 2px alpha(currentColor, 0.3); }
+  button.emoji-section:active {
+    box-shadow: inset 0 2px #666666;
+    background-image: radial-gradient(circle farthest-corner at center, rgba(102, 102, 102, 0.7) 10%, transparent 0%); }
+  button.emoji-section:checked {
+    box-shadow: inset 0 2px #666666;
+    background-color: transparent; }
+  button.emoji-section:first-child {
+    margin-left: 4px; }
+  button.emoji-section:last-child {
+    margin-right: 4px; }
+
+.emoji {
+  min-width: 3em;
+  min-height: 3em;
+  padding: 0; }
+  .emoji widget {
+    transition: all 0.2s cubic-bezier(0, 0, 0.2, 1); }
+    .emoji widget:hover {
+      font-size: larger; }
+
 /************
  * Nautilus *
  ************/
@@ -3175,10 +3224,6 @@ stackswitcher button.text-button.circular {
   border-top: 0px; }
 
 /* Try to look as the notebook tab close button */
-.gedit-document-panel row button.flat {
-  margin-top: 8px;
-  margin-bottom: 8px; }
-
 .gedit-side-panel-paned statusbar {
   border-top: 1px solid rgba(0, 0, 0, 0.1); }
 

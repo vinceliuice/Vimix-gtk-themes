@@ -1072,23 +1072,24 @@ window.csd > .titlebar:not(headerbar) {
 .titlebar:not(headerbar) > separator {
   background-color: #444851; }
 
-.linked:not(.vertical):not(.path-bar).stack-switcher > button,
 .linked:not(.vertical).path-bar > button {
   margin: 0 0 0 0; }
-  .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover,
   .linked:not(.vertical).path-bar > button:hover {
     border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), alpha(#4285F4, 0.8) 100%, transparent 0%) 0 0 2/0 0 2px;
     background: none;
     color: alpha(#4285F4, 0.8); }
-    .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover, .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover:disabled,
-    .linked:not(.vertical).path-bar > button:hover,
-    .linked:not(.vertical).path-bar > button:hover:disabled {
+    .linked:not(.vertical).path-bar > button:hover, .linked:not(.vertical).path-bar > button:hover:disabled {
       background-color: transparent; }
-  .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked,
   .linked:not(.vertical).path-bar > button:checked {
     border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #5a95f5 100%, transparent 0%) 0 0 2/0 0 2px;
     background: none;
     color: #5a95f5; }
+
+.linked:not(.vertical):not(.path-bar).stack-switcher button {
+  box-shadow: none; }
+  .linked:not(.vertical):not(.path-bar).stack-switcher button:hover {
+    background-color: #5b616d;
+    color: #FFFFFF; }
 
 /************
  * Pathbars *

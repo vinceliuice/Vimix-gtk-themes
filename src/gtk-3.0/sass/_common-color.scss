@@ -1240,7 +1240,6 @@ $border_image-dark: radial-gradient(circle closest-corner at center calc(100% - 
 $header_button_boder-checked: if($headerbar == 'light', $border_image-light, $border_image-dark);
 
   // special case for path-bars and stack-switchers
-  .linked:not(.vertical):not(.path-bar).stack-switcher,
   .linked:not(.vertical).path-bar {
 
     > button {
@@ -1264,6 +1263,17 @@ $header_button_boder-checked: if($headerbar == 'light', $border_image-light, $bo
 
      }
   }
+}
+
+.linked:not(.vertical):not(.path-bar).stack-switcher {
+    button {
+        box-shadow: none;
+
+        &:hover {
+            background-color: lighten($headerbar_bg_color, 10%);
+            color: $dark_contrast_color;
+        }
+    }
 }
 
 /************

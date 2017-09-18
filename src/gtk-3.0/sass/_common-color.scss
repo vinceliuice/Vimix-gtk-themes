@@ -10,7 +10,7 @@ $container_padding: 6px;
 $bar_size: 4px;
 $menuitem_size: 28px;
 
-$md_radius: 2px;
+$md_radius: 3px;
 $circular_radius: 100px;
 
 $shortest_duration: 0.1s;
@@ -57,7 +57,7 @@ $shadow_transition: box-shadow $shorter_duration $deceleration_curve;
   outline-width: 0;
   outline-color: $track_color;
   outline-offset: -4px;
-  -gtk-outline-radius: 2px;
+  -gtk-outline-radius: $md_radius;
 
   -gtk-secondary-caret-color: $primary_color;
 }
@@ -388,7 +388,7 @@ button {
     min-height: 24px;
     min-width: 16px;
     padding: ($medium_size - 24px) / 2 ($medium_size - 16px) / 2;
-    border-radius: 2px;
+    border-radius: $md_radius;
     font-weight: 500;
 
     @include button(normal);
@@ -432,8 +432,8 @@ button {
     }
 
     &.text-button.image-button {
-      border-radius: 2px;
-      -gtk-outline-radius: 2px;
+      border-radius: $md_radius;
+      -gtk-outline-radius: $md_radius;
 
       label {
         &:first-child {
@@ -465,7 +465,7 @@ button {
 
     .linked > &.flat,
     .linked.vertical > &.flat {
-      border-radius: 2px;
+      border-radius: $md_radius;
 
       &.image-button {
         border-radius: $md_radius;
@@ -473,8 +473,8 @@ button {
       }
 
       &.text-button.image-button {
-        border-radius: 2px;
-        -gtk-outline-radius: 2px;
+        border-radius: $md_radius;
+        -gtk-outline-radius: $md_radius;
       }
     }
 
@@ -636,47 +636,47 @@ toolbar.inline-toolbar toolbutton {
 
 %linked_middle {
   border-radius: 0;
-  -gtk-outline-radius: 2px;
+  -gtk-outline-radius: $md_radius;
 }
 
 %linked {
   @extend %linked_middle;
 
   &:first-child {
-    border-top-left-radius: 2px;
-    border-bottom-left-radius: 2px;
+    border-top-left-radius: $md_radius;
+    border-bottom-left-radius: $md_radius;
   }
 
   &:last-child {
-    border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;
+    border-top-right-radius: $md_radius;
+    border-bottom-right-radius: $md_radius;
   }
 
   &:only-child {
-    border-radius: 2px;
+    border-radius: $md_radius;
   }
 }
 
 %linked_vertical_middle {
   border-radius: 0;
-  -gtk-outline-radius: 2px;
+  -gtk-outline-radius: $md_radius
 }
 
 %linked_vertical{
   @extend %linked_vertical_middle;
 
   &:first-child {
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
+    border-top-left-radius: $md_radius;
+    border-top-right-radius: $md_radius;
   }
 
   &:last-child {
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: $md_radius;
+    border-bottom-right-radius: $md_radius;
   }
 
   &:only-child {
-    border-radius: 2px;
+    border-radius: $md_radius;
   }
 }
 
@@ -685,7 +685,7 @@ modelbutton.flat,
 .menuitem.button.flat {
   min-height: $menuitem_size;
   padding: 0 8px;
-  border-radius: 2px;
+  border-radius: $md_radius;
   color: inherit;
 
   @extend %simple_flat_button;
@@ -1265,16 +1265,16 @@ $header_button_boder-checked: if($headerbar == 'light', $border_image-light, $bo
   }
 }
 
-.linked:not(.vertical):not(.path-bar).stack-switcher {
-    button {
-        box-shadow: none;
-
-        &:hover {
-            background-color: lighten($headerbar_bg_color, 10%);
-            color: $dark_contrast_color;
-        }
-    }
-}
+//.linked:not(.vertical):not(.path-bar).stack-switcher {
+//    button {
+//        box-shadow: none;
+//
+//        &:hover {
+//            background-color: lighten($headerbar_bg_color, 10%);
+//            color: $dark_contrast_color;
+//        }
+//    }
+//}
 
 /************
  * Pathbars *
@@ -1594,29 +1594,6 @@ popover.background {
 
    entry { @extend %entry.flat; }
 
-%linked_middle {
-    border-radius: 0;
-    border-style: none;
-}
-
-%linked {
-  @extend %linked_middle;
-  &:first-child {
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
-    border-right-style: none;
-  }
-  &:last-child {
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    border-left-style: none;
-  }
-  &:only-child {
-    border-radius: 3px;
-    border-style: solid;
-  }
-}
-
    button:not(.suggested-action):not(.destructive-action) {
 //       @extend %button.flat;
        box-shadow: none;
@@ -1645,7 +1622,7 @@ popover.background {
   button.model {
 //    @extend %button.flat;
     @extend %linked;
-    margin: 0 -1px 0 -1px;
+    margin: 0;
     min-height: 32px;
     padding: 0 6px;
     box-shadow: none;

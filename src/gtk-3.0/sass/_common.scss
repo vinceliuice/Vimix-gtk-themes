@@ -10,7 +10,7 @@ $container_padding: 6px;
 $bar_size: 4px;
 $menuitem_size: 28px;
 
-$md_radius: 2px;
+$md_radius: 3px;
 $circular_radius: 100px;
 
 $shortest_duration: 0.1s;
@@ -388,7 +388,7 @@ button {
     min-height: 24px;
     min-width: 16px;
     padding: ($medium_size - 24px) / 2 ($medium_size - 16px) / 2;
-    border-radius: 2px;
+    border-radius: $md_radius;
     font-weight: 500;
 
     @include button(normal);
@@ -432,8 +432,8 @@ button {
     }
 
     &.text-button.image-button {
-      border-radius: 2px;
-      -gtk-outline-radius: 2px;
+      border-radius: $md_radius;
+      -gtk-outline-radius: $md_radius;
 
       label {
         &:first-child {
@@ -465,7 +465,7 @@ button {
 
     .linked > &.flat,
     .linked.vertical > &.flat {
-      border-radius: 2px;
+      border-radius: $md_radius;
 
       &.image-button {
         border-radius: $md_radius;
@@ -473,8 +473,8 @@ button {
       }
 
       &.text-button.image-button {
-        border-radius: 2px;
-        -gtk-outline-radius: 2px;
+        border-radius: $md_radius;
+        -gtk-outline-radius: $md_radius;
       }
     }
 
@@ -636,47 +636,47 @@ toolbar.inline-toolbar toolbutton {
 
 %linked_middle {
   border-radius: 0;
-  -gtk-outline-radius: 2px;
+  -gtk-outline-radius: $md_radius;
 }
 
 %linked {
   @extend %linked_middle;
 
   &:first-child {
-    border-top-left-radius: 2px;
-    border-bottom-left-radius: 2px;
+    border-top-left-radius: $md_radius;
+    border-bottom-left-radius: $md_radius;
   }
 
   &:last-child {
-    border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;
+    border-top-right-radius: $md_radius;
+    border-bottom-right-radius: $md_radius;
   }
 
   &:only-child {
-    border-radius: 2px;
+    border-radius: $md_radius;
   }
 }
 
 %linked_vertical_middle {
   border-radius: 0;
-  -gtk-outline-radius: 2px;
+  -gtk-outline-radius: $md_radius;
 }
 
 %linked_vertical{
   @extend %linked_vertical_middle;
 
   &:first-child {
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
+    border-top-left-radius: $md_radius;
+    border-top-right-radius: $md_radius;
   }
 
   &:last-child {
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: $md_radius;
+    border-bottom-right-radius: $md_radius;
   }
 
   &:only-child {
-    border-radius: 2px;
+    border-radius: $md_radius;
   }
 }
 
@@ -685,7 +685,7 @@ modelbutton.flat,
 .menuitem.button.flat {
   min-height: $menuitem_size;
   padding: 0 8px;
-  border-radius: 2px;
+  border-radius: $md_radius;
   color: inherit;
 
   @extend %simple_flat_button;
@@ -1235,37 +1235,37 @@ headerbar {
 
     &:hover {
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    gtkalpha($primary_color, 0.8) 100%,
+                                    gtkalpha($headerbar_fg_color, 0.8) 100%,
                                     transparent 0%)
                                     0 0 2 / 0 0 2px;
       background: none;
-      color: gtkalpha($primary_color, 0.8);
+      color: gtkalpha($headerbar_fg_color, 0.8);
 
       &, &:disabled { background-color: transparent; }
     }
 
     &:checked {
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    $primary_color 100%,
+                                    $headerbar_fg_color 100%,
                                     transparent 0%)
                                     0 0 2 / 0 0 2px;
       background: none;
-      color: if($headerbar == 'light', $primary_color, lighten($primary_color, 5%));
+      color: $headerbar_fg_color;
 
      }
   }
 }
 
-.linked:not(.vertical):not(.path-bar).stack-switcher {
-    button {
-        box-shadow: none;
-        @extend %button.flat;
-        &:hover {
-            background-color: lighten($headerbar_bg_color, 10%);
-            color: $dark_contrast_color;
-        }
-    }
-}
+//.linked:not(.vertical):not(.path-bar).stack-switcher {
+//    button {
+//        box-shadow: none;
+//        @extend %button.flat;
+//        &:hover {
+//            background-color: lighten($headerbar_bg_color, 10%);
+//            color: $dark_contrast_color;
+//        }
+//    }
+//}
 
 /************
  * Pathbars *

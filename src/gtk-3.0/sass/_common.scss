@@ -1167,6 +1167,35 @@ headerbar {
 
   separator.titlebutton { @extend %header_separator; }
 
+
+  // special case for stack-switchers
+   %path-bar,
+  .linked:not(.vertical):not(.path-bar).stack-switcher {
+    > button {
+    margin: 0 0 0 0;
+
+    &:hover {
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    gtkalpha($headerbar_fg_color, 0.8) 100%,
+                                    transparent 0%)
+                                    0 0 2 / 0 0 2px;
+      background: none;
+      color: gtkalpha($headerbar_fg_color, 0.8);
+
+      &, &:disabled { background-color: transparent; }
+    }
+
+    &:checked {
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    $headerbar_fg_color 100%,
+                                    transparent 0%)
+                                    0 0 2 / 0 0 2px;
+      background: none;
+      color: $headerbar_fg_color;
+
+     }
+  }
+ }
 }
 
 %header_separator {
@@ -1227,45 +1256,8 @@ headerbar {
   @extend %titlebar;
 }
 
-  // special case for path-bars and stack-switchers
-  .linked:not(.vertical).path-bar {
-
-    > button {
-    margin: 0 0 0 0;
-
-    &:hover {
-      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    gtkalpha($headerbar_fg_color, 0.8) 100%,
-                                    transparent 0%)
-                                    0 0 2 / 0 0 2px;
-      background: none;
-      color: gtkalpha($headerbar_fg_color, 0.8);
-
-      &, &:disabled { background-color: transparent; }
-    }
-
-    &:checked {
-      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    $headerbar_fg_color 100%,
-                                    transparent 0%)
-                                    0 0 2 / 0 0 2px;
-      background: none;
-      color: $headerbar_fg_color;
-
-     }
-  }
-}
-
-//.linked:not(.vertical):not(.path-bar).stack-switcher {
-//    button {
-//        box-shadow: none;
-//        @extend %button.flat;
-//        &:hover {
-//            background-color: lighten($headerbar_bg_color, 10%);
-//            color: $dark_contrast_color;
-//        }
-//    }
-//}
+  // some case as headerbar stack-switcher for headerbar path-bars
+.linked:not(.vertical).path-bar { @extend %path-bar; }
 
 /************
  * Pathbars *

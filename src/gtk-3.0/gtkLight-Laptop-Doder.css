@@ -181,7 +181,7 @@ entry {
   border-radius: 2px;
   transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
   border-image: none;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
   background-color: #FFFFFF;
   color: rgba(0, 0, 0, 0.8); }
   spinbutton:focus:not(.vertical), notebook > stack:not(:only-child) revealer entry:focus,
@@ -192,7 +192,7 @@ entry {
   spinbutton:disabled:not(.vertical), notebook > stack:not(:only-child) revealer entry:disabled,
   notebook > stack:not(:only-child) revealer spinbutton:disabled:not(.vertical),
   entry:disabled {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
     background-color: #fafafa;
     color: rgba(0, 0, 0, 0.32); }
   spinbutton.flat:not(.vertical), popover.background entry, notebook > stack:not(:only-child) entry,
@@ -269,7 +269,7 @@ entry {
   entry.error {
     transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
     border-image: none;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
     background-color: #DD2C00;
     color: #FFFFFF; }
     spinbutton.error:focus:not(.vertical), notebook > stack:not(:only-child) revealer entry.error:focus,
@@ -278,7 +278,7 @@ entry {
       box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23); }
     spinbutton.error:disabled:not(.vertical), notebook > stack:not(:only-child) revealer entry.error:disabled,
     entry.error:disabled {
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
       background-color: #fafafa;
       color: rgba(0, 0, 0, 0.32); }
     spinbutton.error.flat:not(.vertical), popover.background entry.error, notebook > stack:not(:only-child) entry.error,
@@ -305,7 +305,7 @@ entry {
   entry.warning {
     transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
     border-image: none;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
     background-color: #FF6D00;
     color: #FFFFFF; }
     spinbutton.warning:focus:not(.vertical), notebook > stack:not(:only-child) revealer entry.warning:focus,
@@ -314,7 +314,7 @@ entry {
       box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23); }
     spinbutton.warning:disabled:not(.vertical), notebook > stack:not(:only-child) revealer entry.warning:disabled,
     entry.warning:disabled {
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
       background-color: #fafafa;
       color: rgba(0, 0, 0, 0.32); }
     spinbutton.warning.flat:not(.vertical), popover.background entry.warning, notebook > stack:not(:only-child) entry.warning,
@@ -377,7 +377,7 @@ button {
   border-radius: 3px;
   font-weight: 500;
   transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
   background-color: #FAFAFA;
   background-image: radial-gradient(circle farthest-corner at center, alpha(currentColor, 0) 100%, transparent 0%), image(alpha(currentColor, 0));
   color: rgba(0, 0, 0, 0.6); }
@@ -499,7 +499,7 @@ button.osd {
 button.suggested-action {
   background-color: #4CAF50;
   color: #FFFFFF;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2); }
   button.suggested-action:hover {
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
     background-image: radial-gradient(circle farthest-corner at center, alpha(currentColor, 0) 100%, transparent 0%), image(alpha(currentColor, 0));
@@ -537,7 +537,7 @@ button.suggested-action {
 button.destructive-action {
   background-color: #FF5252;
   color: #FFFFFF;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2); }
   button.destructive-action:hover {
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
     background-image: radial-gradient(circle farthest-corner at center, alpha(currentColor, 0) 100%, transparent 0%), image(alpha(currentColor, 0));
@@ -851,7 +851,7 @@ toolbar {
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23), inset 0 1px rgba(255, 255, 255, 0.4);
     background-color: #FFFFFF; }
     toolbar.osd:backdrop, .app-notification:backdrop, frame.documents-dropdown:backdrop {
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16), inset 0 1px rgba(255, 255, 255, 0.4); }
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.4); }
     toolbar.osd.left, .left.app-notification, frame.left.documents-dropdown, toolbar.osd.right, .right.app-notification, frame.right.documents-dropdown, toolbar.osd.top, .top.app-notification, frame.top.documents-dropdown, toolbar.osd.bottom, .bottom.app-notification, frame.bottom.documents-dropdown {
       border-radius: 0; }
   toolbar.horizontal separator {
@@ -898,7 +898,7 @@ headerbar {
   transition: background-color 0.2s cubic-bezier(0, 0, 0.2, 1);
   min-height: 44px;
   padding: 0 6px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16), inset 0 1px rgba(255, 255, 255, 0.1), inset 0 -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.1);
   background-color: #EEEEEE;
   color: rgba(0, 0, 0, 0.8); }
   .titlebar:backdrop:not(headerbar),
@@ -962,7 +962,7 @@ headerbar {
   headerbar.selection-mode {
     transition: background-color 0.00001s 0.3s;
     animation: header_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16), inset 0 1px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.1);
     background-color: #4285F4;
     color: #FFFFFF; }
     .selection-mode.titlebar:backdrop:not(headerbar),
@@ -1222,7 +1222,6 @@ menubar,
 .menubar {
   -GtkWidget-window-dragging: true;
   padding: 0;
-  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.09);
   background-color: #EEEEEE; }
   menubar > menuitem,
   .menubar > menuitem {
@@ -1354,7 +1353,7 @@ popover.background {
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
   background-color: #FAFAFA; }
   popover.background:backdrop {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2); }
   popover.background, .csd popover.background {
     border-style: solid;
     border-width: 1px;
@@ -1627,7 +1626,7 @@ switch {
   switch slider {
     transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
     border-image: none;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
     background-color: #FFFFFF;
     color: rgba(0, 0, 0, 0.8);
     transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1), margin 0;
@@ -1645,7 +1644,7 @@ switch {
     background-color: #18b8ff;
     color: #FFFFFF; }
   switch:disabled slider {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
     background-color: #fafafa;
     color: rgba(0, 0, 0, 0.32); }
   switch:checked:disabled slider {
@@ -1663,7 +1662,7 @@ switch {
   box-shadow: none;
   background-color: transparent;
   background-image: none;
-  -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
+  -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2); }
   .view.content-view.check:not(list):hover, iconview.content-view.check:not(list):hover, .view.content-view.check:not(list):active, iconview.content-view.check:not(list):active,
   .content-view .tile check:not(list):hover,
   .content-view .tile check:not(list):active {
@@ -1671,28 +1670,28 @@ switch {
   .view.content-view.check:not(list) .view.content-view.check:not(list), iconview.content-view.check:not(list) .view.content-view.check:not(list), .view.content-view.check:not(list) iconview.content-view.check:not(list), iconview.content-view.check:not(list) iconview.content-view.check:not(list),
   .content-view .tile check:not(list) .view.content-view.check:not(list),
   .content-view .tile check:not(list) iconview.content-view.check:not(list) {
-    -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
+    -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
     -gtk-icon-source: -gtk-scaled(url("assets/checkbox-selectionmode.png"), url("assets/checkbox-selectionmode@2.png"));
     margin: 8px;
     background-color: transparent; }
   .view.content-view.check:not(list) .view.content-view.check:hover:not(list), iconview.content-view.check:not(list) .view.content-view.check:hover:not(list), .view.content-view.check:not(list) iconview.content-view.check:hover:not(list), iconview.content-view.check:not(list) iconview.content-view.check:hover:not(list),
   .content-view .tile check:not(list) .view.content-view.check:hover:not(list),
   .content-view .tile check:not(list) iconview.content-view.check:hover:not(list) {
-    -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
+    -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
     -gtk-icon-source: -gtk-scaled(url("assets/checkbox-hover-selectionmode.png"), url("assets/checkbox-hover-selectionmode@2.png"));
     margin: 8px;
     background-color: transparent; }
   .view.content-view.check:not(list) .view.content-view.check:checked:not(list), iconview.content-view.check:not(list) .view.content-view.check:checked:not(list), .view.content-view.check:not(list) iconview.content-view.check:checked:not(list), iconview.content-view.check:not(list) iconview.content-view.check:checked:not(list),
   .content-view .tile check:not(list) .view.content-view.check:checked:not(list),
   .content-view .tile check:not(list) iconview.content-view.check:checked:not(list) {
-    -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
+    -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
     -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-selectionmode.png"), url("assets/checkbox-checked-selectionmode@2.png"));
     margin: 8px;
     background-color: transparent; }
   .view.content-view.check:not(list) .view.content-view.check:checked:hover:not(list), iconview.content-view.check:not(list) .view.content-view.check:checked:hover:not(list), .view.content-view.check:not(list) iconview.content-view.check:checked:hover:not(list), iconview.content-view.check:not(list) iconview.content-view.check:checked:hover:not(list),
   .content-view .tile check:not(list) .view.content-view.check:checked:hover:not(list),
   .content-view .tile check:not(list) iconview.content-view.check:checked:hover:not(list) {
-    -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
+    -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
     -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-hover-selectionmode.png"), url("assets/checkbox-checked-hover-selectionmode@2.png"));
     margin: 8px;
     background-color: transparent; }
@@ -2404,11 +2403,11 @@ levelbar trough {
   border-radius: 2px;
   transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
   border-image: none;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
   background-color: #FFFFFF;
   color: rgba(0, 0, 0, 0.8); }
   levelbar trough:disabled {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
     background-color: #fafafa;
     color: rgba(0, 0, 0, 0.32); }
 levelbar.horizontal.discrete block {
@@ -2848,12 +2847,12 @@ colorswatch.light {
 colorswatch:drop(active) {
   box-shadow: none; }
   colorswatch:drop(active).light overlay {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16), 0 0 0 2px #18b8ff; }
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 0 2px #18b8ff; }
   colorswatch:drop(active).dark overlay {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16), 0 0 0 2px #18b8ff; }
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 0 2px #18b8ff; }
 colorswatch overlay {
   transition: box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2); }
   colorswatch overlay:hover {
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23); }
 colorswatch#add-color-button {
@@ -2879,7 +2878,7 @@ colorchooser .popover.osd {
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23), inset 0 1px rgba(255, 255, 255, 0.4);
   background-color: #FFFFFF; }
   colorchooser .popover.osd:backdrop {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16), inset 0 1px rgba(255, 255, 255, 0.4); }
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.4); }
 
 /********
  * Misc *
@@ -3061,7 +3060,7 @@ spinbutton:not(.vertical) button, button.sidebar-button, .nautilus-window .float
 
 *:drop(active) {
   transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16), inset 0 0 0 2px #18b8ff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 0 0 2px #18b8ff;
   caret-color: #18b8ff; }
 
 stackswitcher button.text-button {
@@ -3136,7 +3135,7 @@ button.emoji-section {
 
 .nautilus-desktop.nautilus-canvas-item, .caja-desktop.caja-canvas-item {
   color: #FFFFFF;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2); }
 
 .nautilus-desktop.nautilus-canvas-item:selected, .caja-desktop.caja-canvas-item:selected {
   text-shadow: none; }
@@ -3193,7 +3192,7 @@ button.emoji-section {
   background-color: #4285F4;
   color: #FFFFFF; }
   .documents-entry-tag:hover, .photos-entry-tag:hover {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16); }
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2); }
 
 .documents-entry-tag.button, .button.photos-entry-tag {
   margin: 0 -2px;
@@ -3223,7 +3222,8 @@ button.emoji-section {
   font-size: smaller; }
 
 .gedit-document-panel {
-  background-color: #FAFAFA; }
+  background-color: #FAFAFA;
+  box-shadow: inset 1px 0 rgba(0, 0, 0, 0.1); }
 
 .gedit-document-panel-group-row,
 .gedit-document-panel-group-row:hover {

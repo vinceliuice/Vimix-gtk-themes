@@ -898,7 +898,7 @@ headerbar {
   transition: background-color 0.2s cubic-bezier(0, 0, 0.2, 1);
   min-height: 44px;
   padding: 0 6px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24), inset 0 1px rgba(255, 255, 255, 0.1), inset 0 -1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24), inset 0 1px rgba(255, 255, 255, 0.1);
   background-color: #444444;
   color: #FFFFFF; }
   .titlebar:backdrop:not(headerbar),
@@ -1222,7 +1222,6 @@ menubar,
 .menubar {
   -GtkWidget-window-dragging: true;
   padding: 0;
-  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.18);
   background-color: #444444; }
   menubar > menuitem,
   .menubar > menuitem {
@@ -3223,7 +3222,8 @@ button.emoji-section {
   font-size: smaller; }
 
 .gedit-document-panel {
-  background-color: #444444; }
+  background-color: #444444;
+  box-shadow: inset 1px 0 rgba(0, 0, 0, 0.2); }
 
 .gedit-document-panel-group-row,
 .gedit-document-panel-group-row:hover {

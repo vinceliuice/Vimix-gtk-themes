@@ -12,7 +12,7 @@
 // https://bugzilla.gnome.org/show_bug.cgi?id=738484
 // $z-depth-1: 0 1px 1.5px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.24);
 
-$z-depth-light: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
+$z-depth-light: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.20);
 $z-depth-dark: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 $z-depth-1: if($headerbar =='light', $z-depth-light, $z-depth-dark);
 $z-depth-2: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
@@ -20,7 +20,7 @@ $z-depth-3: 0 10px 10px rgba(0, 0, 0, 0.19), 0 6px 3px rgba(0, 0, 0, 0.23);
 $z-depth-4: 0 14px 14px rgba(0, 0, 0, 0.25), 0 10px 5px rgba(0, 0, 0, 0.22);
 $z-depth-5: 0 19px 19px rgba(0, 0, 0, 0.30), 0 15px 6px rgba(0, 0, 0, 0.22);
 
-$depth_light: 0 1px 2px rgba(0, 0, 0, 0.16);
+$depth_light: 0 1px 1px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.20);
 
 $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
 

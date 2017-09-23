@@ -1358,21 +1358,21 @@ StScrollBar {
   }
 
   .window-clone-border {
-    border: 4px solid $selected_track_color;
+    border: 4px solid scale-alpha($selected_bg_color, 0.7);
     border-radius: 2px;
     // For window decorations with round corners we can't match
     // the exact shape when the window is scaled. So apply a shadow
     // to fix that case
-    box-shadow: inset 0 0 0 1px $selected_track_color;
+    box-shadow: inset 0 0 0 1px scale-alpha($selected_bg_color, 0.7);
   }
   .window-caption {
     spacing: 25px;
     color: $selected_fg_color;
-    background-color: transparent;
+    background-color: scale-alpha(#000000, 0.5);
     border-radius: 2px;
     padding: 4px 8px;
     -shell-caption-spacing: 12px;
-    &:hover { background-color: $selected_track_color; color: $selected_fg_color; }
+    &:hover { background-color: scale-alpha($selected_bg_color, 0.8); color: $selected_fg_color; }
   }
 
   //search entry

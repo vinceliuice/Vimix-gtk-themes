@@ -1367,22 +1367,20 @@ StScrollBar {
   .app-view-control:active {
     color: #FFFFFF;
     background-color: #2EB398;
-    border-radius: 2px;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.3); }
   .app-view-control:checked {
     color: #FFFFFF;
     background-color: #2EB398;
-    border-radius: 2px;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.3); }
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.35); }
   .app-view-control:first-child {
     border-right-width: 0;
-    border-radius: 2px; }
+    border-radius: 2px 0 0 2px; }
     .app-view-control:first-child:checked {
-      border-radius: 0; }
+      border-radius: 2px 0 0 2px; }
   .app-view-control:last-child {
-    border-radius: 2px; }
+    border-radius: 0 2px 2px 0; }
     .app-view-control:last-child:checked {
-      border-radius: 0; }
+      border-radius: 0 2px 2px 0; }
 
 .search-provider-icon:focus, .search-provider-icon:selected, .search-provider-icon:hover,
 .list-search-result:focus,

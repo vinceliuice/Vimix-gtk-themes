@@ -2609,6 +2609,14 @@ progressbar {
   }
 }
 
+// headerbar progressbar
+headerbar {
+  progressbar {
+    trough { background-color: if($variant=='light' and $headerbar=='light', scale-alpha($progress_color, $lower_opacity), scale-alpha(#EEE, $lower_opacity)); }
+    progress { background-color: if($variant=='light' and $headerbar=='light', $progress_color, #EEE); }
+    &:backdrop { opacity: 0.75; }
+  }
+}
 
 /*************
  * Level Bar *

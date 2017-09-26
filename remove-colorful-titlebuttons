@@ -1,0 +1,56 @@
+#!/bin/bash
+
+OLD_TITLE="@extend %titlebuttons;" 
+NEW_TITLE=""
+
+repodir=$(cd $(dirname $0) && pwd)
+srcdir=${repodir}/src
+
+# check command avalibility
+function has_command() {
+    command -v $1 > /dev/null
+}
+
+# change titlebutton style
+cd $srcdir/gtk-3.0/sass
+sed -i "s/$OLD_TITLE/$NEW_TITLE/g" _common.scss _common-color.scss
+
+# Install Packages
+echo 'Installing ruby, gem, sass & bundle for your system... Please type in your password if requested'
+if has_command zypper; then
+
+# openSUSE
+sudo zypper in rubygems && gem install bundle && bundle install
+elif has_command apt-get; then
+
+# Debian or Debian-like
+sudo apt-get install ruby-sass ruby-bundler
+elif has_command dnf; then
+
+# Fedora
+sudo dnf install glib2-devel rubygems && gem install bundle && bundle install
+elif has_command yum; then
+
+# RedHat
+sudo yum install rubygems && gem install bundle && bundle install
+elif has_command pacman; then
+
+# ArchLinux
+sudo pacman -S --noconfirm rubygems && gem install bundle && bundle install
+fi
+
+# compile scss to css
+echo "Start Compile..."
+cd $repodir
+./parse-sass.sh
+echo 
+echo "Compile finished!"
+notify-send "Compile finished!" -i face-smile
+
+# install
+echo "Start Install..."
+./Install
+echo 
+echo "Install finished!"
+notify-send "Install finished!" "Enjoy the removed colorful titlebutton version of Vimix!" -i face-smile
+

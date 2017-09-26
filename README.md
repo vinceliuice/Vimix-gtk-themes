@@ -67,6 +67,18 @@ When running the installer script in Fedora 24 or later, you need to install 'gl
 
     sudo dnf install glib2-devel
 
+### Remove colorful titlebuttons
+
+Maybe you don't like the new title button style, now you can remove it:
+
+Run
+
+
+    ./remove-colorful-titlebuttons
+
+
+Or double-click to open that script files and select "run at the terminal" at nautilus.
+
 ## Screenshots
 
 #### GNOME Shell

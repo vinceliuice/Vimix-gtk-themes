@@ -3419,15 +3419,28 @@ decoration {
   }
 }
 
-//
-// Titlebuttons
-//
+// catch all extend :)
+
+%selected_items {
+  background-color: $primary_color;
+
+  @at-root %nobg_selected_items, & {
+    color: $inversed_fg_color;
+
+    &:disabled { color: $disabled_inversed_fg_color; }
+  }
+}
+
+.monospace { font-family: monospace; }
+
+/*****************
+ * Title buttons *
+ *****************/
 
 $asset_suffix: if($variant=='dark', '-dark', ''); // use dark assets in dark variant
 $darker_asset_suffix: if($headerbar=='dark', '-dark', $asset_suffix);
 
-headerbar,
-.titlebar {
+%titlebuttons {
 
   button.titlebutton {
     margin: 0;
@@ -3465,20 +3478,9 @@ headerbar,
     }
   }
 }
-// catch all extend :)
 
-%selected_items {
-  background-color: $primary_color;
-
-  @at-root %nobg_selected_items, & {
-    color: $inversed_fg_color;
-
-    &:disabled { color: $disabled_inversed_fg_color; }
-  }
-}
-
-.monospace { font-family: monospace; }
-
+headerbar,
+.titlebar { @extend %titlebuttons; }
 
 /**********************
  * Touch Copy & Paste *

@@ -2915,6 +2915,31 @@ decoration {
     padding: 4px;
     box-shadow: inset 0 0 0 4px #424242; }
 
+.view:selected, iconview:selected, .view text selection, iconview text selection,
+textview text selection, flowbox flowboxchild:selected, spinbutton:not(.vertical) selection, notebook > stack:not(:only-child) revealer entry selection,
+notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) selection,
+entry selection, modelbutton.flat:selected,
+.menuitem.button.flat:selected, row:selected, calendar:selected, .budgie-menu button:checked {
+  background-color: #F0544C; }
+  row:selected label, label:selected, .view:selected, iconview:selected, .view text selection, iconview text selection,
+  textview text selection, flowbox flowboxchild:selected, spinbutton:not(.vertical) selection, notebook > stack:not(:only-child) revealer entry selection,
+  notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) selection,
+  entry selection, modelbutton.flat:selected,
+  .menuitem.button.flat:selected, row:selected, calendar:selected, .budgie-menu button:checked {
+    color: #FFFFFF; }
+    row:selected label:disabled, label:disabled:selected, .view:disabled:selected, iconview:disabled:selected, .view text selection:disabled, iconview text selection:disabled,
+    textview text selection:disabled, flowbox flowboxchild:disabled:selected, label:disabled selection, spinbutton:not(.vertical) selection:disabled, notebook > stack:not(:only-child) revealer entry selection:disabled,
+    notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) selection:disabled,
+    entry selection:disabled, modelbutton.flat:disabled:selected,
+    .menuitem.button.flat:disabled:selected, row:disabled:selected, calendar:disabled:selected, .budgie-menu button:disabled:checked {
+      color: rgba(255, 255, 255, 0.4); }
+
+.monospace {
+  font-family: monospace; }
+
+/*****************
+ * Title buttons *
+ *****************/
 headerbar button.titlebutton,
 .titlebar button.titlebutton {
   margin: 0;
@@ -2926,8 +2951,8 @@ headerbar button.titlebutton,
     box-shadow: none;
     background-image: radial-gradient(circle farthest-corner at center, alpha(currentColor, 0) 100%, transparent 0%), image(alpha(currentColor, 0.15));
     color: currentColor; }
-  headerbar button.titlebutton:active, headerbar button.titlebutton:checked,
-  .titlebar button.titlebutton:active,
+  headerbar button.titlebutton:active,
+  .titlebar button.titlebutton:active, headerbar button.titlebutton:checked,
   .titlebar button.titlebutton:checked {
     transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), background-image 0;
     animation: flat_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
@@ -2937,18 +2962,18 @@ headerbar button.titlebutton,
     animation: none;
     box-shadow: none;
     border: none; }
-  headerbar button.titlebutton.close, headerbar button.titlebutton.maximize, headerbar button.titlebutton.minimize,
-  .titlebar button.titlebutton.close,
-  .titlebar button.titlebutton.maximize,
+  headerbar button.titlebutton.close,
+  .titlebar button.titlebutton.close, headerbar button.titlebutton.maximize,
+  .titlebar button.titlebutton.maximize, headerbar button.titlebutton.minimize,
   .titlebar button.titlebutton.minimize {
     color: transparent;
     background-color: transparent;
     background-position: center;
     background-repeat: no-repeat;
     border-width: 0; }
-    headerbar button.titlebutton.close:backdrop, headerbar button.titlebutton.maximize:backdrop, headerbar button.titlebutton.minimize:backdrop,
-    .titlebar button.titlebutton.close:backdrop,
-    .titlebar button.titlebutton.maximize:backdrop,
+    headerbar button.titlebutton.close:backdrop,
+    .titlebar button.titlebutton.close:backdrop, headerbar button.titlebutton.maximize:backdrop,
+    .titlebar button.titlebutton.maximize:backdrop, headerbar button.titlebutton.minimize:backdrop,
     .titlebar button.titlebutton.minimize:backdrop {
       opacity: 1; }
   headerbar button.titlebutton.close,
@@ -2987,28 +3012,6 @@ headerbar button.titlebutton,
   headerbar button.titlebutton.minimize:active,
   .titlebar button.titlebutton.minimize:active {
     background-image: -gtk-scaled(url("windows-assets/titlebutton-minimize-active-dark.png"), url("windows-assets/titlebutton-minimize-active-dark@2.png")); }
-
-.view:selected, iconview:selected, .view text selection, iconview text selection,
-textview text selection, flowbox flowboxchild:selected, spinbutton:not(.vertical) selection, notebook > stack:not(:only-child) revealer entry selection,
-notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) selection,
-entry selection, modelbutton.flat:selected,
-.menuitem.button.flat:selected, row:selected, calendar:selected, .budgie-menu button:checked {
-  background-color: #F0544C; }
-  row:selected label, label:selected, .view:selected, iconview:selected, .view text selection, iconview text selection,
-  textview text selection, flowbox flowboxchild:selected, spinbutton:not(.vertical) selection, notebook > stack:not(:only-child) revealer entry selection,
-  notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) selection,
-  entry selection, modelbutton.flat:selected,
-  .menuitem.button.flat:selected, row:selected, calendar:selected, .budgie-menu button:checked {
-    color: #FFFFFF; }
-    row:selected label:disabled, label:disabled:selected, .view:disabled:selected, iconview:disabled:selected, .view text selection:disabled, iconview text selection:disabled,
-    textview text selection:disabled, flowbox flowboxchild:disabled:selected, label:disabled selection, spinbutton:not(.vertical) selection:disabled, notebook > stack:not(:only-child) revealer entry selection:disabled,
-    notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) selection:disabled,
-    entry selection:disabled, modelbutton.flat:disabled:selected,
-    .menuitem.button.flat:disabled:selected, row:disabled:selected, calendar:disabled:selected, .budgie-menu button:disabled:checked {
-      color: rgba(255, 255, 255, 0.4); }
-
-.monospace {
-  font-family: monospace; }
 
 /**********************
  * Touch Copy & Paste *

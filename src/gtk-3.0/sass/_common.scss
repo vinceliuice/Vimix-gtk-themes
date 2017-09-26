@@ -7,6 +7,7 @@ $large_size: if($laptop == 'true', 44px, 48px);
 
 $container_padding: 6px;
 
+$line_size: if($laptop == 'true', 0 0 2 / 0 0 2px, 0 0 3 / 0 0 3px);
 $bar_size: 4px;
 $menuitem_size: 28px;
 
@@ -1178,7 +1179,7 @@ headerbar {
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                     gtkalpha($headerbar_fg_color, 0.8) 100%,
                                     transparent 0%)
-                                    0 0 2 / 0 0 2px;
+                                    $line_size;
       background: none;
       color: gtkalpha($headerbar_fg_color, 0.8);
 
@@ -1189,7 +1190,7 @@ headerbar {
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                     $headerbar_fg_color 100%,
                                     transparent 0%)
-                                    0 0 2 / 0 0 2px;
+                                    $line_size;
       background: none;
       color: $headerbar_fg_color;
 

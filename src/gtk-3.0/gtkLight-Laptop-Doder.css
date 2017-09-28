@@ -491,9 +491,9 @@ infobar.info button:disabled, infobar.question button:disabled, infobar.warning 
 button:disabled {
   color: rgba(255, 255, 255, 0.3); }
 button.osd {
-  padding: 10px 14px; }
+  padding: 9px 13px; }
   button.osd.image-button {
-    padding: 10px; }
+    padding: 9px; }
   button.osd:disabled {
     opacity: 0; }
 button.suggested-action {
@@ -761,7 +761,7 @@ spinbutton:not(.vertical) {
   padding: 0; }
   notebook > stack:not(:only-child) spinbutton:not(.vertical) entry,
   spinbutton:not(.vertical) entry {
-    min-width: 28px;
+    min-width: 26px;
     margin: 0;
     border-image: none;
     border-radius: 0;
@@ -779,11 +779,11 @@ spinbutton.vertical:drop(active) {
   box-shadow: none; }
 spinbutton.vertical entry {
   min-height: 32px;
-  min-width: 44px;
+  min-width: 42px;
   padding: 0; }
 spinbutton.vertical button {
   min-height: 32px;
-  min-width: 44px;
+  min-width: 42px;
   padding: 0; }
   spinbutton.vertical button.up {
     border-radius: 2px 2px 0 0; }
@@ -896,7 +896,7 @@ searchbar,
 .titlebar:not(headerbar),
 headerbar {
   transition: background-color 0.2s cubic-bezier(0, 0, 0.2, 1);
-  min-height: 44px;
+  min-height: 42px;
   padding: 0 6px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.1);
   background-color: #EEEEEE;
@@ -1708,8 +1708,8 @@ check,
 radio {
   min-height: 24px;
   min-width: 24px;
-  margin: -10px;
-  padding: 10px; }
+  margin: -9px;
+  padding: 9px; }
   check:checked, check:indeterminate,
   radio:checked,
   radio:indeterminate {
@@ -1776,17 +1776,17 @@ check:indeterminate {
   -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/check-dash-symbolic.svg")), -gtk-recolor(url("assets/scalable/check-dash-symbolic.png"))); }
 
 radio {
-  border-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(#18b8ff), to(transparent)) 22/22px; }
+  border-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(#18b8ff), to(transparent)) 21/21px; }
   radio {
     -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-unchecked-symbolic.svg")), -gtk-recolor(url("assets/scalable/radio-unchecked-symbolic.png"))); }
   radio:indeterminate {
     -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-dash-symbolic.svg")), -gtk-recolor(url("assets/scalable/radio-dash-symbolic.png"))); }
   radio:checked {
-    border-image: -gtk-gradient(radial, center center, 0, center center, 0.11364, to(#18b8ff), to(transparent)) 22/22px; }
+    border-image: -gtk-gradient(radial, center center, 0, center center, 0.11905, to(#18b8ff), to(transparent)) 21/21px; }
   radio:checked:disabled {
-    border-image: -gtk-gradient(radial, center center, 0, center center, 0.11364, to(rgba(24, 184, 255, 0.4)), to(transparent)) 22/22px; }
+    border-image: -gtk-gradient(radial, center center, 0, center center, 0.11905, to(rgba(24, 184, 255, 0.4)), to(transparent)) 21/21px; }
   radio:indeterminate:checked {
-    border-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(#18b8ff), to(transparent)) 22/22px; }
+    border-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(#18b8ff), to(transparent)) 21/21px; }
 
 treeview.view check:selected,
 treeview.view check:selected:focus,
@@ -2160,9 +2160,9 @@ menu menuitem radio:indeterminate {
     -gtk-icon-transform: unset; } }
 @keyframes check_radio {
   from {
-    border-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(#18b8ff), to(transparent)) 22/22px; }
+    border-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(#18b8ff), to(transparent)) 21/21px; }
   to {
-    border-image: -gtk-gradient(radial, center center, 0, center center, 0.11364, to(#18b8ff), to(transparent)) 22/22px; } }
+    border-image: -gtk-gradient(radial, center center, 0, center center, 0.11905, to(#18b8ff), to(transparent)) 21/21px; } }
 @keyframes check_indeterminate {
   from {
     -gtk-icon-transform: unset; }
@@ -4084,7 +4084,7 @@ frame.raven-frame > border {
       margin: -4px 0; }
   .raven .powerstrip button {
     margin: 2px 0 1px;
-    padding: 10px; }
+    padding: 9px; }
   .raven .option-subtitle {
     font-size: smaller; }
 
@@ -4101,7 +4101,7 @@ calendar.raven-calendar {
   .raven-mpris label {
     min-height: 24px; }
   .raven-mpris button.image-button {
-    padding: 10px; }
+    padding: 9px; }
 
 .budgie-notification-window, .budgie-osd-window {
   background-color: transparent; }

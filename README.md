@@ -38,7 +38,7 @@ Open the terminal at current directory.
 Run
 
 
-    ./Vimix-installer.sh
+    ./Vimix-installer
 
 
 Or double-click to open that script files and select "run at the terminal" at nautilus.

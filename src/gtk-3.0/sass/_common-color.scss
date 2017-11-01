@@ -3483,7 +3483,7 @@ $darker_asset_suffix: if($headerbar=='dark', '-dark', $asset_suffix);
       border: none;
     }
 
-    &.close, &.maximize, &.minimize {
+    &.close, &.maximize, &.minimize, &.restore {
       color: transparent;
       background-color: transparent;
       background-position: center;
@@ -3492,8 +3492,8 @@ $darker_asset_suffix: if($headerbar=='dark', '-dark', $asset_suffix);
       &:backdrop { opacity: 1; }
 
     }
-    // Load png assets for each button
-    @each $k in ('close','maximize', 'minimize') {
+    // Load png assets for each button, Fix the Chrome window restore button bug
+    @each $k in ('close', 'maximize', 'minimize', 'restore') {
       @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
 
         &.#{$k}#{$l} { background-image: -gtk-scaled(url('windows-assets/titlebutton-#{$k}#{$m}#{$darker_asset_suffix}.png'),

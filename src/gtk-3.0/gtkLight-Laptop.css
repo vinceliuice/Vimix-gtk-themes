@@ -2972,7 +2972,8 @@ headerbar button.titlebutton,
   headerbar button.titlebutton.close,
   .titlebar button.titlebutton.close, headerbar button.titlebutton.maximize,
   .titlebar button.titlebutton.maximize, headerbar button.titlebutton.minimize,
-  .titlebar button.titlebutton.minimize {
+  .titlebar button.titlebutton.minimize, headerbar button.titlebutton.restore,
+  .titlebar button.titlebutton.restore {
     color: transparent;
     background-color: transparent;
     background-position: center;
@@ -2981,7 +2982,8 @@ headerbar button.titlebutton,
     headerbar button.titlebutton.close:backdrop,
     .titlebar button.titlebutton.close:backdrop, headerbar button.titlebutton.maximize:backdrop,
     .titlebar button.titlebutton.maximize:backdrop, headerbar button.titlebutton.minimize:backdrop,
-    .titlebar button.titlebutton.minimize:backdrop {
+    .titlebar button.titlebutton.minimize:backdrop, headerbar button.titlebutton.restore:backdrop,
+    .titlebar button.titlebutton.restore:backdrop {
       opacity: 1; }
   headerbar button.titlebutton.close,
   .titlebar button.titlebutton.close {
@@ -3019,6 +3021,18 @@ headerbar button.titlebutton,
   headerbar button.titlebutton.minimize:active,
   .titlebar button.titlebutton.minimize:active {
     background-image: -gtk-scaled(url("windows-assets/titlebutton-minimize-active.png"), url("windows-assets/titlebutton-minimize-active@2.png")); }
+  headerbar button.titlebutton.restore,
+  .titlebar button.titlebutton.restore {
+    background-image: -gtk-scaled(url("windows-assets/titlebutton-restore.png"), url("windows-assets/titlebutton-restore@2.png")); }
+  headerbar button.titlebutton.restore:backdrop,
+  .titlebar button.titlebutton.restore:backdrop {
+    background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-backdrop.png"), url("windows-assets/titlebutton-restore-backdrop@2.png")); }
+  headerbar button.titlebutton.restore:hover,
+  .titlebar button.titlebutton.restore:hover {
+    background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-hover.png"), url("windows-assets/titlebutton-restore-hover@2.png")); }
+  headerbar button.titlebutton.restore:active,
+  .titlebar button.titlebutton.restore:active {
+    background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-active.png"), url("windows-assets/titlebutton-restore-active@2.png")); }
 
 /**********************
  * Touch Copy & Paste *

@@ -27,24 +27,46 @@ for variant in 'Dark' 'Light' ; do
 		install -d ${themedir}
 
 		# Install index.theme
-		cd ${srcdir}
-		cp -ur \
-			index-${variant}${size}${color}.theme \
-			${themedir}/index.theme
+		echo "[Desktop Entry]" >> ${themedir}/index.theme
+		echo "Type=X-GNOME-Metatheme" >> ${themedir}/index.theme
+		echo "Name=Vimix${variant}${size}${color}" >> ${themedir}/index.theme
+		echo "Comment=An Flat Gtk+ theme based on Material Design" >> ${themedir}/index.theme
+		echo "Encoding=UTF-8" >> ${themedir}/index.theme
+		echo "" >> ${themedir}/index.theme
+		echo "[X-GNOME-Metatheme]" >> ${themedir}/index.theme
+		echo "GtkTheme=Vimix${variant}${size}${color}" >> ${themedir}/index.theme
+		echo "MetacityTheme=Vimix${variant}${size}${color}" >> ${themedir}/index.theme
+		echo "IconTheme=Adwaita" >> ${themedir}/index.theme
+		echo "CursorTheme=Adwaita" >> ${themedir}/index.theme
+		echo "ButtonLayout=menu:minimize,maximize,close" >> ${themedir}/index.theme
 
 		# Install GNOME Shell Theme
 		install -d ${themedir}/gnome-shell
 		cd ${srcdir}/gnome-shell
 		cp -ur \
 			extensions \
-			no-events.svg \
-			no-notifications.svg \
 			process-working.svg \
 			${themedir}/gnome-shell
 
 		cp -ur \
+			no-events-${variant}.svg \
+			${themedir}/gnome-shell/no-events.svg
+
+		cp -ur \
+			no-notifications-${variant}.svg \
+			${themedir}/gnome-shell/no-notifications.svg
+
+		cp -ur \
 			assets${color} \
 			${themedir}/gnome-shell/assets
+
+		cp -ur \
+			calendar-arrow-left-${variant}.svg \
+			${themedir}/gnome-shell/assets/calendar-arrow-left.svg
+
+		cp -ur \
+			calendar-arrow-right-${variant}.svg \
+			${themedir}/gnome-shell/assets/calendar-arrow-right.svg
 
 		cp -ur \
 			gnome${variant}-shell${size}${color}.css \

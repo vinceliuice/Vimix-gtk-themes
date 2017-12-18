@@ -1170,16 +1170,14 @@ headerbar {
   separator.titlebutton { @extend %header_separator; }
 
   // special case for stack-switchers
-   %path-bar,
   .linked:not(.vertical):not(.path-bar).stack-switcher {
     > button {
-    margin: 0 0 0 0;
 
     &:hover {
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                     gtkalpha($primary_color, 0.8) 100%,
                                     transparent 0%)
-                                    $line_size;
+                                    0 0 2 / 0 0 2px;
       background: none;
       color: gtkalpha($primary_color, 0.8);
 
@@ -1190,7 +1188,7 @@ headerbar {
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                     $primary_color 100%,
                                     transparent 0%)
-                                    $line_size;
+                                    0 0 2 / 0 0 2px;
       background: none;
       color: if($headerbar == 'light', $primary_color, lighten($primary_color, 5%));
 
@@ -1258,8 +1256,33 @@ headerbar {
   @extend %titlebar;
 }
 
-  // some case as headerbar stack-switcher for headerbar path-bars
-.linked:not(.vertical).path-bar { @extend %path-bar; }
+  // Some case for headerbar path-bars
+.linked:not(.vertical).path-bar {
+    > button {
+    margin: 0 0 0 0;
+
+    &:hover {
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    gtkalpha($primary_color, 0.8) 100%,
+                                    transparent 0%)
+                                    $line_size;
+      background: none;
+      color: gtkalpha($primary_color, 0.8);
+
+      &, &:disabled { background-color: transparent; }
+    }
+
+    &:checked {
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    $primary_color 100%,
+                                    transparent 0%)
+                                    $line_size;
+      background: none;
+      color: if($headerbar == 'light', $primary_color, lighten($primary_color, 5%));
+
+     }
+  }
+ }
 
 /************
  * Pathbars *
@@ -1619,7 +1642,6 @@ popover.background {
 }
 
 
-
 /*************
  * Notebooks *
  *************/
@@ -1843,6 +1865,7 @@ notebook {
     revealer spinbutton:not(.vertical) { @extend %entry; }
 
     spinbutton:not(.vertical) entry { @extend %spinbutton_entry; }
+    button.combo { @extend %combo_flat; }
   }
 }
 
@@ -2204,12 +2227,15 @@ radio {
   @each $s in (''),
               (':active',),
               (':backdrop',),
+              (':disabled',),
               (':indeterminate'),
               (':indeterminate:backdrop'),
               (':indeterminate:active'),
+              (':indeterminate:disabled'),
               (':checked'),
               (':checked:backdrop'),
-              (':checked:active') {
+              (':checked:active'),
+              (':checked:disabled') {
 
     treeview.view,
     row,
@@ -2217,6 +2243,22 @@ radio {
       #{$w}:selected#{$s},
       #{$w}:selected:focus#{$s} {
         color: $dark_contrast_color;
+        -gtk-icon-shadow: none;
+      }
+    }
+
+  }
+
+  @each $t in (':disabled',),
+              (':indeterminate:disabled'),
+              (':checked:disabled') {
+
+    treeview.view,
+    row,
+    row.activatable {
+      #{$w}:selected#{$t},
+      #{$w}:selected:focus#{$t} {
+        color: gtkalpha($dark_contrast_color, 0.5);
         -gtk-icon-shadow: none;
       }
     }

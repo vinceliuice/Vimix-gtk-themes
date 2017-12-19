@@ -18,7 +18,7 @@ $fg_color: if($variant == 'light', scale-alpha(#000000, 0.8), #FFFFFF);
 $secondary_fg_color: scale-alpha($fg_color, $enabled_opacity);
 $tertiary_fg_color: scale-alpha($fg_color, $hint_opacity);
 
-$selected_fg_color: #FFFFFF;
+$selected_fg_color: if($variant == 'light', #FFFFFF, #eeeeee);
 $secondary_selected_fg_color: scale-alpha($selected_fg_color, $enabled_opacity);
 $tertiary_selected_fg_color: scale-alpha($selected_fg_color, $hint_opacity);
 
@@ -41,11 +41,11 @@ $topbar_fg_color: #FFFFFF;
 $topbar_secondary_fg_color: #F0F0F0;
 $topbar_overview_color: scale-alpha(#000, 0.01);
 
-$selected_bg_color: #444444;
-$secondary_selected_bg_color: #666666;
-$accent_bg_color: #555555;
+$selected_bg_color: if($variant == 'light', #666666, #555555);
+$secondary_selected_bg_color: if($variant == 'light', #666666, #EFEFEF);
+$accent_bg_color: if($variant == 'light', #555555, #FEFEFE);
 $primary_color: $selected_fg_color;
-$primary_fg_color: #FFFFFF;
+$primary_fg_color: if($variant == 'light', #ffffff, #eeeeee);
 
 // Bash colors
 $entry_color: #FAFAFA;

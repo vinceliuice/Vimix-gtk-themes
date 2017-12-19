@@ -947,6 +947,20 @@ combobox {
   &:disabled { color: $disabled_fg_color; }
 }
 
+// workaround for LibreOffice with fallback-mode liked-buttons
+@each $order, $radius, $edge in (first-child, 2px 0 0 2px, right),
+                                (last-child, 0 2px 2px 0, left) {
+  .linked:not(combobox) > button.combo:#{$order} {
+    border-radius: #{$radius};
+    border-#{$edge}-width: 0;
+
+    &:only-child {
+      border-radius: 2px;
+      border-width: 1px;
+      border-color: $borders_color;
+    }
+  }
+}
 
 /************
  * Toolbars *
@@ -1156,6 +1170,11 @@ headerbar {
       padding: 0;
     }
   }
+
+  &.default-decoration,
+  .csd &.default-decoration,             // needed under wayland, since all gtk3 windows are csd windows
+  &.default-decoration:backdrop,
+  .csd &.default-decoration:backdrop { box-shadow: none; }
 
   .solid-csd & {
     &:dir(rtl), &:dir(ltr) { // specificity bump
@@ -2227,15 +2246,12 @@ radio {
   @each $s in (''),
               (':active',),
               (':backdrop',),
-              (':disabled',),
               (':indeterminate'),
               (':indeterminate:backdrop'),
               (':indeterminate:active'),
-              (':indeterminate:disabled'),
               (':checked'),
               (':checked:backdrop'),
-              (':checked:active'),
-              (':checked:disabled') {
+              (':checked:active') {
 
     treeview.view,
     row,

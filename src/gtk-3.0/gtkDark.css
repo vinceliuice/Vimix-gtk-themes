@@ -1027,6 +1027,12 @@ headerbar {
       min-width: 32px;
       margin: 0;
       padding: 0; }
+  .default-decoration.titlebar:not(headerbar), .csd .default-decoration.titlebar:not(headerbar), .default-decoration.titlebar:backdrop:not(headerbar), .csd .default-decoration.titlebar:backdrop:not(headerbar),
+  headerbar.default-decoration, .csd
+  headerbar.default-decoration,
+  headerbar.default-decoration:backdrop, .csd
+  headerbar.default-decoration:backdrop {
+    box-shadow: none; }
   .solid-csd .titlebar:dir(rtl):not(headerbar), .solid-csd .titlebar:dir(ltr):not(headerbar), .solid-csd
   headerbar:dir(rtl), .solid-csd
   headerbar:dir(ltr) {
@@ -1086,16 +1092,18 @@ window.csd > .titlebar:not(headerbar) {
 .titlebar:not(headerbar) > separator {
   background-color: #444444; }
 
-.linked:not(.vertical).path-bar > button:hover {
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), alpha(#FFFFFF, 0.8) 100%, transparent 0%) 0 0 3/0 0 3px;
-  background: none;
-  color: alpha(#FFFFFF, 0.8); }
-  .linked:not(.vertical).path-bar > button:hover, .linked:not(.vertical).path-bar > button:hover:disabled {
-    background-color: transparent; }
-.linked:not(.vertical).path-bar > button:checked {
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FFFFFF 100%, transparent 0%) 0 0 3/0 0 3px;
-  background: none;
-  color: #FFFFFF; }
+.linked:not(.vertical).path-bar > button {
+  margin: 0; }
+  .linked:not(.vertical).path-bar > button:hover {
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), alpha(#FFFFFF, 0.8) 100%, transparent 0%) 0 0 3/0 0 3px;
+    background: none;
+    color: alpha(#FFFFFF, 0.8); }
+    .linked:not(.vertical).path-bar > button:hover, .linked:not(.vertical).path-bar > button:hover:disabled {
+      background-color: transparent; }
+  .linked:not(.vertical).path-bar > button:checked {
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FFFFFF 100%, transparent 0%) 0 0 3/0 0 3px;
+    background: none;
+    color: #FFFFFF; }
 
 /************
  * Pathbars *
@@ -3702,6 +3710,25 @@ menu menuitem radio:indeterminate {
  ***********/
 window.background > box.vertical > widget > widget:selected {
   background-color: #666666; }
+
+/****************
+ * Libre-Office *
+ ****************/
+window.background > grid.horizontal > grid.horizontal {
+  background-color: #444444; }
+  window.background > grid.horizontal > grid.horizontal > button.flat.small-button {
+    color: #FFFFFF; }
+    window.background > grid.horizontal > grid.horizontal > button.flat.small-button:hover, window.background > grid.horizontal > grid.horizontal > button.flat.small-button:active, window.background > grid.horizontal > grid.horizontal > button.flat.small-button:checked {
+      color: rgba(255, 255, 255, 0.75); }
+    window.background > grid.horizontal > grid.horizontal > button.flat.small-button:disabled {
+      color: rgba(255, 255, 255, 0.3); }
+
+window.background:not(.solid-csd) > notebook:not(.frame) {
+  border: 0 none transparent;
+  background-color: #FFFFFF; }
+  window.background:not(.solid-csd) > notebook:not(.frame) > stack {
+    border: none;
+    box-shadow: none; }
 
 /*********
  * Unity *

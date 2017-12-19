@@ -891,6 +891,39 @@ menu menuitem radio {
  ***********/
 window.background > box.vertical > widget > widget:selected { background-color: $primary_color; }
 
+
+/****************
+ * Libre-Office *
+ ****************/
+
+window.background {
+// reserved area at the most-right side of GtkMenuBar
+  > grid.horizontal > grid.horizontal {
+    background-color: $headerbar_bg_color;
+
+    > button.flat.small-button { // 'close' button
+      color: $headerbar_fg_color;
+      &:hover,
+      &:active,
+      &:checked { color: $secondary_headerbar_fg_color; }
+      &:disabled { color: $disabled_headerbar_fg_color; }
+    }
+  }
+}
+
+window.background:not(.solid-csd) {
+  // for 'Notebookbar' toolbar
+  > notebook:not(.frame) {
+    border: 0 none transparent; // unset borders
+    background-color: $base_color;
+
+    > stack {
+      border: none;
+      box-shadow: none;
+    }
+  }
+}
+
 /*********
  * Unity *
  *********/

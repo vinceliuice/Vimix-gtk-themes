@@ -835,6 +835,22 @@ notebook > stack:not(:only-child) button.combo, #login_window #user_combobox but
   notebook > stack:not(:only-child) button.combo:disabled, #login_window #user_combobox button:disabled {
     color: rgba(255, 255, 255, 0.4); }
 
+.linked:not(combobox) > button.combo:first-child {
+  border-radius: 2px 0 0 2px;
+  border-right-width: 0; }
+  .linked:not(combobox) > button.combo:first-child:only-child {
+    border-radius: 2px;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.2); }
+
+.linked:not(combobox) > button.combo:last-child {
+  border-radius: 0 2px 2px 0;
+  border-left-width: 0; }
+  .linked:not(combobox) > button.combo:last-child:only-child {
+    border-radius: 2px;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.2); }
+
 /************
  * Toolbars *
  ************/
@@ -1027,6 +1043,12 @@ headerbar {
       min-width: 32px;
       margin: 0;
       padding: 0; }
+  .default-decoration.titlebar:not(headerbar), .csd .default-decoration.titlebar:not(headerbar), .default-decoration.titlebar:backdrop:not(headerbar), .csd .default-decoration.titlebar:backdrop:not(headerbar),
+  headerbar.default-decoration, .csd
+  headerbar.default-decoration,
+  headerbar.default-decoration:backdrop, .csd
+  headerbar.default-decoration:backdrop {
+    box-shadow: none; }
   .solid-csd .titlebar:dir(rtl):not(headerbar), .solid-csd .titlebar:dir(ltr):not(headerbar), .solid-csd
   headerbar:dir(rtl), .solid-csd
   headerbar:dir(ltr) {
@@ -1839,23 +1861,6 @@ treeview.view header button check:selected:focus:backdrop,
   color: #FFFFFF;
   -gtk-icon-shadow: none; }
 
-treeview.view check:selected:disabled,
-treeview.view check:selected:focus:disabled,
-row check:selected:disabled,
-row check:selected:focus:disabled,
-row.activatable check:selected:disabled,
-.view check:selected:disabled,
-iconview check:selected:disabled,
-treeview.view header button check:selected:disabled,
-.budgie-menu button check:selected:disabled,
-row.activatable check:selected:focus:disabled,
-.view check:selected:focus:disabled,
-iconview check:selected:focus:disabled,
-treeview.view header button check:selected:focus:disabled,
-.budgie-menu button check:selected:focus:disabled {
-  color: #FFFFFF;
-  -gtk-icon-shadow: none; }
-
 treeview.view check:selected:indeterminate,
 treeview.view check:selected:focus:indeterminate,
 row check:selected:indeterminate,
@@ -1907,23 +1912,6 @@ treeview.view header button check:selected:focus:indeterminate:active,
   color: #FFFFFF;
   -gtk-icon-shadow: none; }
 
-treeview.view check:selected:indeterminate:disabled,
-treeview.view check:selected:focus:indeterminate:disabled,
-row check:selected:indeterminate:disabled,
-row check:selected:focus:indeterminate:disabled,
-row.activatable check:selected:indeterminate:disabled,
-.view check:selected:indeterminate:disabled,
-iconview check:selected:indeterminate:disabled,
-treeview.view header button check:selected:indeterminate:disabled,
-.budgie-menu button check:selected:indeterminate:disabled,
-row.activatable check:selected:focus:indeterminate:disabled,
-.view check:selected:focus:indeterminate:disabled,
-iconview check:selected:focus:indeterminate:disabled,
-treeview.view header button check:selected:focus:indeterminate:disabled,
-.budgie-menu button check:selected:focus:indeterminate:disabled {
-  color: #FFFFFF;
-  -gtk-icon-shadow: none; }
-
 treeview.view check:selected:checked,
 treeview.view check:selected:focus:checked,
 row check:selected:checked,
@@ -1972,23 +1960,6 @@ row.activatable check:selected:focus:checked:active,
 iconview check:selected:focus:checked:active,
 treeview.view header button check:selected:focus:checked:active,
 .budgie-menu button check:selected:focus:checked:active {
-  color: #FFFFFF;
-  -gtk-icon-shadow: none; }
-
-treeview.view check:selected:checked:disabled,
-treeview.view check:selected:focus:checked:disabled,
-row check:selected:checked:disabled,
-row check:selected:focus:checked:disabled,
-row.activatable check:selected:checked:disabled,
-.view check:selected:checked:disabled,
-iconview check:selected:checked:disabled,
-treeview.view header button check:selected:checked:disabled,
-.budgie-menu button check:selected:checked:disabled,
-row.activatable check:selected:focus:checked:disabled,
-.view check:selected:focus:checked:disabled,
-iconview check:selected:focus:checked:disabled,
-treeview.view header button check:selected:focus:checked:disabled,
-.budgie-menu button check:selected:focus:checked:disabled {
   color: #FFFFFF;
   -gtk-icon-shadow: none; }
 
@@ -2094,23 +2065,6 @@ treeview.view header button radio:selected:focus:backdrop,
   color: #FFFFFF;
   -gtk-icon-shadow: none; }
 
-treeview.view radio:selected:disabled,
-treeview.view radio:selected:focus:disabled,
-row radio:selected:disabled,
-row radio:selected:focus:disabled,
-row.activatable radio:selected:disabled,
-.view radio:selected:disabled,
-iconview radio:selected:disabled,
-treeview.view header button radio:selected:disabled,
-.budgie-menu button radio:selected:disabled,
-row.activatable radio:selected:focus:disabled,
-.view radio:selected:focus:disabled,
-iconview radio:selected:focus:disabled,
-treeview.view header button radio:selected:focus:disabled,
-.budgie-menu button radio:selected:focus:disabled {
-  color: #FFFFFF;
-  -gtk-icon-shadow: none; }
-
 treeview.view radio:selected:indeterminate,
 treeview.view radio:selected:focus:indeterminate,
 row radio:selected:indeterminate,
@@ -2162,23 +2116,6 @@ treeview.view header button radio:selected:focus:indeterminate:active,
   color: #FFFFFF;
   -gtk-icon-shadow: none; }
 
-treeview.view radio:selected:indeterminate:disabled,
-treeview.view radio:selected:focus:indeterminate:disabled,
-row radio:selected:indeterminate:disabled,
-row radio:selected:focus:indeterminate:disabled,
-row.activatable radio:selected:indeterminate:disabled,
-.view radio:selected:indeterminate:disabled,
-iconview radio:selected:indeterminate:disabled,
-treeview.view header button radio:selected:indeterminate:disabled,
-.budgie-menu button radio:selected:indeterminate:disabled,
-row.activatable radio:selected:focus:indeterminate:disabled,
-.view radio:selected:focus:indeterminate:disabled,
-iconview radio:selected:focus:indeterminate:disabled,
-treeview.view header button radio:selected:focus:indeterminate:disabled,
-.budgie-menu button radio:selected:focus:indeterminate:disabled {
-  color: #FFFFFF;
-  -gtk-icon-shadow: none; }
-
 treeview.view radio:selected:checked,
 treeview.view radio:selected:focus:checked,
 row radio:selected:checked,
@@ -2227,23 +2164,6 @@ row.activatable radio:selected:focus:checked:active,
 iconview radio:selected:focus:checked:active,
 treeview.view header button radio:selected:focus:checked:active,
 .budgie-menu button radio:selected:focus:checked:active {
-  color: #FFFFFF;
-  -gtk-icon-shadow: none; }
-
-treeview.view radio:selected:checked:disabled,
-treeview.view radio:selected:focus:checked:disabled,
-row radio:selected:checked:disabled,
-row radio:selected:focus:checked:disabled,
-row.activatable radio:selected:checked:disabled,
-.view radio:selected:checked:disabled,
-iconview radio:selected:checked:disabled,
-treeview.view header button radio:selected:checked:disabled,
-.budgie-menu button radio:selected:checked:disabled,
-row.activatable radio:selected:focus:checked:disabled,
-.view radio:selected:focus:checked:disabled,
-iconview radio:selected:focus:checked:disabled,
-treeview.view header button radio:selected:focus:checked:disabled,
-.budgie-menu button radio:selected:focus:checked:disabled {
   color: #FFFFFF;
   -gtk-icon-shadow: none; }
 
@@ -3901,6 +3821,25 @@ menu menuitem radio:indeterminate {
  ***********/
 window.background > box.vertical > widget > widget:selected {
   background-color: #2EB398; }
+
+/****************
+ * Libre-Office *
+ ****************/
+window.background > grid.horizontal > grid.horizontal {
+  background-color: #3F444D; }
+  window.background > grid.horizontal > grid.horizontal > button.flat.small-button {
+    color: #FFFFFF; }
+    window.background > grid.horizontal > grid.horizontal > button.flat.small-button:hover, window.background > grid.horizontal > grid.horizontal > button.flat.small-button:active, window.background > grid.horizontal > grid.horizontal > button.flat.small-button:checked {
+      color: rgba(255, 255, 255, 0.75); }
+    window.background > grid.horizontal > grid.horizontal > button.flat.small-button:disabled {
+      color: rgba(255, 255, 255, 0.3); }
+
+window.background:not(.solid-csd) > notebook:not(.frame) {
+  border: 0 none transparent;
+  background-color: #40454F; }
+  window.background:not(.solid-csd) > notebook:not(.frame) > stack {
+    border: none;
+    box-shadow: none; }
 
 /*********
  * Unity *

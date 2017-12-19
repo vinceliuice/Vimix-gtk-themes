@@ -1801,6 +1801,8 @@ radio {
   border-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(#18b8ff), to(transparent)) 23/23px; }
   radio {
     -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-unchecked-symbolic.svg")), -gtk-recolor(url("assets/scalable/radio-unchecked-symbolic.png"))); }
+  radio:checked {
+    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-checked-symbolic.svg")), -gtk-recolor(url("assets/scalable/radio-checked-symbolic.png"))); }
   radio:indeterminate {
     -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-dash-symbolic.svg")), -gtk-recolor(url("assets/scalable/radio-dash-symbolic.png"))); }
   radio:checked {
@@ -2301,6 +2303,14 @@ check:not(:indeterminate):checked {
 
 check:not(:indeterminate):checked:active {
   animation: check_check 0.3s cubic-bezier(0.4, 0, 0.2, 1), flat_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1) forwards; }
+
+radio:not(:indeterminate):checked {
+  border-image: none;
+  animation: check_radio 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+
+radio:not(:indeterminate):checked:active {
+  border-image: none;
+  animation: check_radio 0.3s cubic-bezier(0.4, 0, 0.2, 1), flat_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1) forwards; }
 
 modelbutton.flat check:indeterminate:checked, modelbutton.flat radio:indeterminate:checked,
 .menuitem.button.flat check:indeterminate:checked,
@@ -3807,6 +3817,7 @@ menu menuitem check:indeterminate {
 
 window.background:not(.csd) > widget > radiobutton > radio,
 menu menuitem radio {
+  -gtk-icon-shadow: none;
   border-image: none;
   -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.svg")), -gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.symbolic.png"))); }
 window.background:not(.csd) > widget > radiobutton > radio:checked,

@@ -2196,8 +2196,8 @@ radio {
   & { -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-unchecked-symbolic.svg")),
                               -gtk-recolor(url("assets/scalable/radio-unchecked-symbolic.png"))); }
 
-  // &:checked { -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-checked-symbolic.svg")),
-  //                                     -gtk-recolor(url("assets/scalable/radio-checked-symbolic.png"))); }
+   &:checked { -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-checked-symbolic.svg")),
+                                       -gtk-recolor(url("assets/scalable/radio-checked-symbolic.png"))); }
 
   &:indeterminate { -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-dash-symbolic.svg")),
                                             -gtk-recolor(url("assets/scalable/radio-dash-symbolic.png"))); }
@@ -2377,10 +2377,10 @@ check:not(:indeterminate):checked { animation: check_check $longer_duration $sta
 
 check:not(:indeterminate):checked:active { animation: check_check $longer_duration $standard_curve, flat_ripple_effect $longer_duration $deceleration_curve forwards; }
 
-// %radio_checked,
-// radio:not(:indeterminate):checked { animation: check_radio $longer_duration $standard_curve; }
+ %radio_checked,
+ radio:not(:indeterminate):checked { border-image: none; animation: check_radio $longer_duration $standard_curve; }
 
-// radio:not(:indeterminate):checked:active { animation: check_radio $longer_duration $standard_curve, flat_ripple_effect $longer_duration $deceleration_curve forwards; }
+ radio:not(:indeterminate):checked:active { border-image: none; animation: check_radio $longer_duration $standard_curve, flat_ripple_effect $longer_duration $deceleration_curve forwards; }
 
 %indeterminate_checked,
 check:indeterminate:checked, radio:indeterminate:checked { animation: check_indeterminate $longer_duration $standard_curve; }

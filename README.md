@@ -1,8 +1,8 @@
-
-## Vimix Themes
+<img src="https://github.com/vinceliuice/vimix-gtk-themes/blob/images/vimix-logo.svg" alt="Logo" align="left" /> Vimix-gtk-theme
+======
 
 Vimix is a flat Material Design theme for GTK 3, GTK 2 and Gnome-Shell which supports GTK 3 and GTK 2 based desktop environments like Gnome, Unity, Budgie, Pantheon, XFCE, Mate, etc.
-
+-------------------
 
 This theme is based on Flat-Plat gtk theme of nana-4. Thanks nana-4 sincerely for his great job! 
 

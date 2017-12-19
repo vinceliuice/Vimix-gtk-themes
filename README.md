@@ -9,7 +9,8 @@ Flat-Plat gtk theme: https://github.com/nana-4/Flat-Plat
 Donations
 ======
 [![paypal](https://www.paypalobjects.com/webstatic/paypalme/images/pp_logo_small.png "Donations")](https://www.paypal.me/vinceliuice) 
-Thanks for your donations! 
+
+Thanks for your donations! https://www.paypal.me/vinceliuice
 
 ## Info
 

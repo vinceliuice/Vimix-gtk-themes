@@ -45,20 +45,33 @@ for variant in 'Dark' 'Light' ; do
 		cd ${srcdir}/gnome-shell
 		cp -ur \
 			extensions \
-			process-working.svg \
+			pad-osd.css \
+			message-indicator-symbolic.svg \
 			${themedir}/gnome-shell
 
 		cp -ur \
+			gnome${variant}-shell${size}${color}.css \
+			${themedir}/gnome-shell/gnome-shell.css
+
+		install -d ${themedir}/gnome-shell/assets
+		cd ${srcdir}/gnome-shell/assets
+
+		cp -ur \
+			dash \
+			dash-placeholder.svg \
+			noise-texture.svg \
+			process-working.svg \
+			window-close.svg \
+			window-close-active.svg \
+			${themedir}/gnome-shell/assets
+
+		cp -ur \
 			no-events-${variant}.svg \
-			${themedir}/gnome-shell/no-events.svg
+			${themedir}/gnome-shell/assets/no-events.svg
 
 		cp -ur \
 			no-notifications-${variant}.svg \
-			${themedir}/gnome-shell/no-notifications.svg
-
-		cp -ur \
-			assets${color} \
-			${themedir}/gnome-shell/assets
+			${themedir}/gnome-shell/assets/no-notifications.svg 
 
 		cp -ur \
 			calendar-arrow-left-${variant}.svg \
@@ -69,9 +82,35 @@ for variant in 'Dark' 'Light' ; do
 			${themedir}/gnome-shell/assets/calendar-arrow-right.svg
 
 		cp -ur \
-			gnome${variant}-shell${size}${color}.css \
-			${themedir}/gnome-shell/gnome-shell.css
+			checkbox${color}.svg \
+			${themedir}/gnome-shell/assets/checkbox.svg
 
+		cp -ur \
+			checkbox-off-${variant}.svg \
+			${themedir}/gnome-shell/assets/checkbox-off.svg
+
+		cp -ur \
+			close-${variant}.svg \
+			${themedir}/gnome-shell/assets/close.svg
+
+		cp -ur \
+			more-results${color}.svg \
+			${themedir}/gnome-shell/assets/more-results.svg
+
+		cp -ur \
+			toggle-off-${variant}.svg \
+			${themedir}/gnome-shell/assets/toggle-off.svg
+
+		cp -ur \
+			toggle-on${color}.svg \
+			${themedir}/gnome-shell/assets/toggle-on.svg
+
+		cd ${themedir}/gnome-shell
+		ln -s assets/no-events.svg no-events.svg
+		ln -s assets/process-working.svg process-working.svg
+		ln -s assets/no-notifications.svg no-notifications.svg
+
+		cd ${srcdir}/gnome-shell
 		glib-compile-resources \
 			--sourcedir=${themedir}/gnome-shell \
 			--target=${themedir}/gnome-shell/gnome-shell-theme.gresource \
@@ -98,8 +137,8 @@ for variant in 'Dark' 'Light' ; do
 		install -d ${themedir}/gtk-3.0
 		cd ${srcdir}/gtk-3.0
 		cp -ur \
-			thumbnail.png \
-			${themedir}/gtk-3.0/
+			thumbnail-${variant}${color}.png \
+			${themedir}/gtk-3.0/thumbnail.png
 		cp -ur \
 			windows-assets/windows-assets \
 			${themedir}/gtk-3.0/

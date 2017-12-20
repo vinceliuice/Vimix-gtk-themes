@@ -1,81 +1,76 @@
 // When color definition differs for dark and light variant,
 // it gets @if ed depending on $variant
 
-$higher_opacity: 0.9;
-$middle_opacity: 0.6;
-$lower_opacity: 0.3;
+@import 'color-palette';
 
-$enabled_opacity: 0.75;
-$hint_opacity: 0.6;
-$disabled_opacity: 0.4;
-
-@function scale-alpha($c, $a) {
-  @return scale-color($c, $alpha: percentage(-1 + $a));
+@function fade($c) {
+  @return mix($c, $grey_900, 50%);
 }
 
 // Foreground colors
-$fg_color: if($variant == 'light', scale-alpha(#000000, 0.8), #FFFFFF);
-$secondary_fg_color: scale-alpha($fg_color, $enabled_opacity);
-$tertiary_fg_color: scale-alpha($fg_color, $hint_opacity);
+$dark_fg_color:   rgba($black, 0.87);
+$light_fg_color:  $white;
+$button_fg_color: if($variant == 'light', rgba($black, 0.62), rgba($white, 0.8)); // extra fg color for raised buttons
 
-$selected_fg_color: if($variant == 'light', #FFFFFF, #eeeeee);
-$secondary_selected_fg_color: scale-alpha($selected_fg_color, $enabled_opacity);
-$tertiary_selected_fg_color: scale-alpha($selected_fg_color, $hint_opacity);
+$fg_color:                    if($variant == 'light', rgba($black, 0.87), $white);
+$secondary_fg_color:          if($variant == 'light', rgba($black, 0.54), rgba($white, 0.7));
+$hint_fg_color:               if($variant == 'light', rgba($black, 0.38), rgba($white, 0.5));
+$disabled_fg_color:           if($variant == 'light', rgba($black, 0.38), rgba($white, 0.5));
+$disabled_secondary_fg_color: if($variant == 'light', rgba($black, 0.26), rgba($white, 0.3));
+$track_color:                 if($variant == 'light', rgba($black, 0.26), rgba($white, 0.3));
+$divider_color:               if($variant == 'light', rgba($black, 0.12), rgba($white, 0.12));
 
-$insensitive_fg_color: scale-alpha($fg_color, $disabled_opacity);
-$insensitive_secondary_fg_color: scale-alpha($secondary_fg_color, $disabled_opacity);
-$insensitive_tertiary_fg_color: scale-alpha($tertiary_fg_color, $disabled_opacity);
+$titlebar_fg_color:                    if($panel == 'light', rgba($black, 0.87), $white);
+$titlebar_secondary_fg_color:          if($panel == 'light', rgba($black, 0.54), rgba($white, 0.7));
+$titlebar_hint_fg_color:               if($panel == 'light', rgba($black, 0.38), rgba($white, 0.5));
+$titlebar_disabled_fg_color:           if($panel == 'light', rgba($black, 0.38), rgba($white, 0.5));
+$titlebar_disabled_secondary_fg_color: if($panel == 'light', rgba($black, 0.26), rgba($white, 0.3));
+$titlebar_track_color:                 if($panel == 'light', rgba($black, 0.26), rgba($white, 0.3));
+$titlebar_divider_color:               if($panel == 'light', rgba($black, 0.12), rgba($white, 0.12));
 
-$insensitive_selected_fg_color: scale-alpha($selected_fg_color, $disabled_opacity);
-$insensitive_secondary_selected_fg_color: scale-alpha($secondary_selected_fg_color, $disabled_opacity);
-$insensitive_tertiary_selected_fg_color: scale-alpha($tertiary_selected_fg_color, $disabled_opacity);
+$inverse_fg_color:                    $white;
+$inverse_secondary_fg_color:          rgba($white, 0.7);
+$inverse_hint_fg_color:               rgba($white, 0.5);
+$inverse_disabled_fg_color:           rgba($white, 0.5);
+$inverse_disabled_secondary_fg_color: rgba($white, 0.3);
+$inverse_track_color:                 rgba($white, 0.3);
+$inverse_divider_color:               rgba($white, 0.12);
 
 // Background colors
-$base_color: if($variant =='light', #FAFAFA, #333333);
-$secondary_base_color: scale-alpha($fg_color, 0.05);
-$bg_color: scale-alpha(#000000, $middle_opacity);
-$osd_bg_color: scale-alpha(#000000, $lower_opacity);
-$overview_bg_color: scale-alpha(#FFFFFF, 0.1);
-$topbar_color: if($topbar =='dark', scale-alpha(#000, 0.5), scale-alpha(#000, 0.4));
-$topbar_fg_color: #FFFFFF;
-$topbar_secondary_fg_color: #F0F0F0;
-$topbar_overview_color: scale-alpha(#000, 0.01);
+$base_color:     if($variant =='dark', if($color =='doder' or $color =='beryl', #333333, #2b2d33), #FAFAFA);
+$alt_base_color: if($variant =='dark', darken($base_color, 3%), darken($base_color, 6%));
 
-$selected_bg_color: if($variant == 'light', #666666, #555555);
-$secondary_selected_bg_color: if($variant == 'light', #666666, #EFEFEF);
-$accent_bg_color: if($variant == 'light', #555555, #FEFEFE);
-$primary_color: $selected_fg_color;
-$primary_fg_color: if($variant == 'light', #ffffff, #eeeeee);
-
-// Bash colors
-$entry_color: #FAFAFA;
-$entry_hover_color: #FFFFFF;
+$bg_color:         rgba($black, $middle_opacity);
+$alt_bg_color:     rgba($black, $lower_opacity);
+$inverse_bg_color: rgba($inverse_fg_color, 0.1);
+$panel_bg_color:   if($panel =='dark', scale-alpha($black, 0.5), scale-alpha($black, 0.4));
 
 // Misc colors
-$track_color: scale-alpha($fg_color, $lower_opacity);
-$semi_track_color: scale-alpha($fg_color, $lower_opacity / 2);
-$insensitive_track_color: scale-alpha($insensitive_fg_color, $lower_opacity);
 
-$selected_track_color: scale-alpha($selected_fg_color, $lower_opacity);
-$selected_semi_track_color: scale-alpha($selected_fg_color, $lower_opacity / 2);
-$selected_insensitive_track_color: scale-alpha($insensitive_selected_fg_color, $lower_opacity);
+$primary_color: #555555;
+$alt_primary_color: #666666;
+$accent_color: #444444;
 
-$borders_color: if($variant == 'light', scale-alpha(#000000, 0.1), scale-alpha(#000000, 0.2));
-$highlight_color: if($variant == 'light', scale-alpha(#FFFFFF, 0.4), scale-alpha(#FFFFFF, 0.1));
-$secondary_highlight_color: scale-alpha(#FFFFFF, 0.2);
+@if $color =='ruby' { $primary_color: #F0544C; $alt_primary_color: #FF615A; $accent_color: #FF626C; }
+@if $color =='doder' { $primary_color: #4586D8; $alt_primary_color: #03a9f4; $accent_color: #0CAAF0; }
+@if $color =='beryl' { $primary_color: #2EB398; $alt_primary_color: #1eba9b; $accent_color: #0fd1ab; }
+@if $color =='black' { $primary_color: #555555; $alt_primary_color: #666666; $accent_color: #EEEEEE; }
 
-$link_color: $selected_bg_color;
-$link_visited_color: #E040FB;
+$link_color:         $primary_color;
+$visited_link_color: $purple_A200;
 
-$warning_color: #FF6D00;
-$error_color: #DD2C00;
-$success_color: #00C853;
+$warning_color: $orange_A700;
+$error_color:   $deep_orange_A700;
+$success_color: $green_A700;
 
-$suggested_color: $accent_bg_color;
-$destructive_color: #FF5252;
+$suggested_color:   $accent_color;
+$destructive_color: $red_A200;
 
-$info_bg_color: #66BB6A;
-$question_bg_color: #42A5F5;
-$warning_bg_color: #FFA726;
-$error_bg_color: #EF5350;
+$info_bg_color:     $green_400;
+$question_bg_color: $blue_400;
+$warning_bg_color:  $orange_400;
+$error_bg_color:    $red_400;
 
+$border_color:        if($variant == 'light', rgba($black, 0.12), rgba($black, 0.26));
+$highlight_color:     if($variant == 'light', rgba($white, 0.4),  rgba($white, 0.1));
+$alt_highlight_color: rgba($white, 0.2);

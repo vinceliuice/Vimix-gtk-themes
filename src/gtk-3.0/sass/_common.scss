@@ -3439,12 +3439,12 @@ decoration {
   }
 
   .solid-csd & {
-    margin: 0;
-    padding: 4px;
-    // border: solid 1px $borders_color;
-    // border-radius: 0;
-    box-shadow: inset 0 0 0 4px $headerbar_bg_color;
-    // background-color: $borders_color;
+    margin: -1px;
+    padding: 0;
+    border: solid 1px darken($darker_bg_color, 10%);
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
   }
 }
 

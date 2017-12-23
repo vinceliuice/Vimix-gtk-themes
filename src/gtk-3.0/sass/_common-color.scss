@@ -2181,10 +2181,6 @@ check {
                                             -gtk-recolor(url("assets/scalable/check-dash-symbolic.png"))); }
 }
 
-$radio_indicator: 10 / ($large_size / 1px) / 2;
-$radio_radius_slice: #{$large_size / 2 / 1px};
-$radio_radius_width: #{$large_size / 2};
-
 %radio,
 radio {
   & { -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-unchecked-symbolic.svg")),

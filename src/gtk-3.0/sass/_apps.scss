@@ -928,11 +928,13 @@ window.background:not(.solid-csd) {
 checkbutton > check:not(:checked):not(:indeterminate) {
     color: $secondary_fg_color;
     &:hover { color: $fg_color; }
+    &:disabled { color: $disabled_fg_color; }
   }
 
 radiobutton > radio:not(:checked):not(:indeterminate) {
     color: $secondary_fg_color;
-    &:hover { color: $fg_color; }
+    &:hover { color: $disabled_fg_color; }
+    &:disabled { color: $disabled_fg_color; }
   }
 
 /*********

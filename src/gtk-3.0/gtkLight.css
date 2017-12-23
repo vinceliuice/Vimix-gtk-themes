@@ -3691,11 +3691,15 @@ checkbutton > check:not(:checked):not(:indeterminate) {
   color: rgba(0, 0, 0, 0.6); }
   checkbutton > check:not(:checked):not(:indeterminate):hover {
     color: rgba(0, 0, 0, 0.8); }
+  checkbutton > check:not(:checked):not(:indeterminate):disabled {
+    color: rgba(0, 0, 0, 0.32); }
 
 radiobutton > radio:not(:checked):not(:indeterminate) {
   color: rgba(0, 0, 0, 0.6); }
   radiobutton > radio:not(:checked):not(:indeterminate):hover {
-    color: rgba(0, 0, 0, 0.8); }
+    color: rgba(0, 0, 0, 0.32); }
+  radiobutton > radio:not(:checked):not(:indeterminate):disabled {
+    color: rgba(0, 0, 0, 0.32); }
 
 /*********
  * Unity *

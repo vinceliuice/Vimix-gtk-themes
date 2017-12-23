@@ -17,6 +17,7 @@ $circular_radius: 100px;
 $shortest_duration: 0.1s;
 $shorter_duration: 0.2s;
 $longer_duration: 0.3s;
+$ripple_duration: 0.45s;
 
 $standard_curve: cubic-bezier(0.4, 0.0, 0.2, 1);
 $deceleration_curve: cubic-bezier(0.0, 0.0, 0.2, 1);
@@ -705,12 +706,6 @@ modelbutton.flat,
 
     &:first-child { margin-left: -16px; margin-right: -8px; }
   }
-
-  check:not(:indeterminate):checked { @extend %check_checked; }
-
-  // radio:not(:indeterminate):checked { @extend %radio_checked; }
-
-  check:indeterminate:checked, radio:indeterminate:checked { @extend %indeterminate_checked; }
 }
 
 modelbutton.flat arrow {
@@ -732,7 +727,6 @@ button.color {
     // &, overlay { border-radius: 0; }
   }
 }
-
 
 /*********
  * Links *
@@ -2201,40 +2195,6 @@ radio {
 
   &:indeterminate { -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-dash-symbolic.svg")),
                                             -gtk-recolor(url("assets/scalable/radio-dash-symbolic.png"))); }
-
-  border-image: -gtk-gradient(radial,
-                              center center, 0,
-                              center center, 0.001,
-                              to($accent_color),
-                              to(transparent))
-                              $radio_radius_slice / $radio_radius_width;
-
-  &:checked {
-    border-image: -gtk-gradient(radial,
-                                center center, 0,
-                                center center, $radio_indicator,
-                                to($accent_color),
-                                to(transparent))
-                                $radio_radius_slice / $radio_radius_width;
- }
-
-  &:checked:disabled {
-    border-image: -gtk-gradient(radial,
-                                center center, 0,
-                                center center, $radio_indicator,
-                                to(scale-alpha($accent_color, $disabled_opacity)),
-                                to(transparent))
-                                $radio_radius_slice / $radio_radius_width;
- }
-
-  &:indeterminate:checked {
-    border-image: -gtk-gradient(radial,
-                                center center, 0,
-                                center center, 0.001,
-                                to($accent_color),
-                                to(transparent))
-                                $radio_radius_slice / $radio_radius_width;
- }
 }
 
 
@@ -2301,98 +2261,33 @@ radio {
   }
 }
 
-%small_check,
-menu menuitem check {
+// ANIMATION:
+// this is made with those pretty convoluted transitions, since checks and radios have to animate only on state changes,
+// the transformation is set on the active state and it get reset on the checked state.
+check:not(:checked):active { -gtk-icon-transform: rotate(90deg); }
+
+// radio:not(:checked):active { -gtk-icon-transform: scale(0); }
+
+check:not(:checked):indeterminate:active,
+radio:not(:checked):indeterminate:active { -gtk-icon-transform: scaleX(-1); } // instead of rotateY(180deg)
+
+check:not(:checked),
+radio:not(:checked) {
   & {
-    border-radius: 2px;
-    -gtk-outline-radius: 2px;
-    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.svg")),
-                            -gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.symbolic.png")));
+    transition: $longer_transition,
+                background-size $ripple_duration $deceleration_curve,
+                background-image $ripple_duration * 2 $deceleration_curve,
+                -gtk-icon-transform 0;
   }
 
-  &:checked {
-    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-checked-symbolic.svg")),
-                            -gtk-recolor(url("assets/scalable/small-checkbox-checked-symbolic.symbolic.png")));
+  &:active {
+    transition: $longer_transition,
+                background-size 0,
+                background-image 0,
+                -gtk-icon-transform 0;
   }
 
-  &:indeterminate {
-    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-mixed-symbolic.svg")),
-                            -gtk-recolor(url("assets/scalable/small-checkbox-mixed-symbolic.symbolic.png")));
-  }
-}
-
-%small_radio,
-menu menuitem radio {
-  & {
-    border-image: none;
-    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.svg")),
-                            -gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.symbolic.png")));
-  }
-
-  &:checked {
-    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-checked-symbolic.svg")),
-                            -gtk-recolor(url("assets/scalable/small-radio-checked-symbolic.symbolic.png")));
-  }
-
-  &:indeterminate {
-    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic.svg")),
-                            -gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic.symbolic.png")));
-  }
-}
-
-// let's animate things
-@keyframes check_check {
-  from { -gtk-icon-transform: rotate(90deg); }
-  to { -gtk-icon-transform: unset; }
-}
-
-@keyframes check_radio { // FIXME: cannot animate border-image
-  from {
-    border-image: -gtk-gradient(radial,
-                                center center, 0,
-                                center center, 0.001,
-                                to($accent_color),
-                                to(transparent))
-                                $radio_radius_slice / $radio_radius_width;
-  }
-
-  to {
-    border-image: -gtk-gradient(radial,
-                                center center, 0,
-                                center center, $radio_indicator,
-                                to($accent_color),
-                                to(transparent))
-                                $radio_radius_slice / $radio_radius_width;
-  }
-}
-
-@keyframes check_indeterminate {
-  from { -gtk-icon-transform: unset; }
-  50% { -gtk-icon-transform: scale(0, 1); }
-  to { -gtk-icon-transform: unset; }
-}
-
-%check_checked,
-check:not(:indeterminate):checked { animation: check_check $longer_duration $standard_curve; }
-
-check:not(:indeterminate):checked:active { animation: check_check $longer_duration $standard_curve, flat_ripple_effect $longer_duration $deceleration_curve forwards; }
-
- %radio_checked,
- radio:not(:indeterminate):checked { border-image: none; animation: check_radio $longer_duration $standard_curve; }
-
- radio:not(:indeterminate):checked:active { border-image: none; animation: check_radio $longer_duration $standard_curve, flat_ripple_effect $longer_duration $deceleration_curve forwards; }
-
-%indeterminate_checked,
-check:indeterminate:checked, radio:indeterminate:checked { animation: check_indeterminate $longer_duration $standard_curve; }
-
-check:indeterminate:checked:active, radio:indeterminate:checked:active { animation: check_indeterminate $longer_duration $standard_curve, flat_ripple_effect $longer_duration $deceleration_curve forwards; }
-
-// no animations in menus
-menu menuitem {
-  check:not(:indeterminate):checked,
-  radio:not(:indeterminate):checked,
-  check:indeterminate:checked,
-  radio:indeterminate:checked { animation: none; border-image: none;}
+  menu menuitem & { transition: none; }
 }
 
 treeview.view check,

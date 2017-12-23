@@ -1781,19 +1781,11 @@ check:indeterminate {
   -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/check-dash-symbolic.svg")), -gtk-recolor(url("assets/scalable/check-dash-symbolic.png"))); }
 
 radio {
-  border-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(#666666), to(transparent)) 23/23px; }
-  radio {
-    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-unchecked-symbolic.svg")), -gtk-recolor(url("assets/scalable/radio-unchecked-symbolic.png"))); }
-  radio:checked {
-    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-checked-symbolic.svg")), -gtk-recolor(url("assets/scalable/radio-checked-symbolic.png"))); }
-  radio:indeterminate {
-    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-dash-symbolic.svg")), -gtk-recolor(url("assets/scalable/radio-dash-symbolic.png"))); }
-  radio:checked {
-    border-image: -gtk-gradient(radial, center center, 0, center center, 0.1087, to(#666666), to(transparent)) 23/23px; }
-  radio:checked:disabled {
-    border-image: -gtk-gradient(radial, center center, 0, center center, 0.1087, to(rgba(102, 102, 102, 0.4)), to(transparent)) 23/23px; }
-  radio:indeterminate:checked {
-    border-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(#666666), to(transparent)) 23/23px; }
+  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-unchecked-symbolic.svg")), -gtk-recolor(url("assets/scalable/radio-unchecked-symbolic.png"))); }
+radio:checked {
+  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-checked-symbolic.svg")), -gtk-recolor(url("assets/scalable/radio-checked-symbolic.png"))); }
+radio:indeterminate {
+  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-dash-symbolic.svg")), -gtk-recolor(url("assets/scalable/radio-dash-symbolic.png"))); }
 
 treeview.view check:selected,
 treeview.view check:selected:focus,
@@ -2160,55 +2152,6 @@ menu menuitem.radio:checked:hover,
 menu menuitem radio:checked:hover {
   color: rgba(255, 255, 255, 0.75);
   -gtk-icon-shadow: none; }
-
-@keyframes check_check {
-  from {
-    -gtk-icon-transform: rotate(90deg); }
-  to {
-    -gtk-icon-transform: unset; } }
-@keyframes check_radio {
-  from {
-    border-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(#666666), to(transparent)) 23/23px; }
-  to {
-    border-image: -gtk-gradient(radial, center center, 0, center center, 0.1087, to(#666666), to(transparent)) 23/23px; } }
-@keyframes check_indeterminate {
-  from {
-    -gtk-icon-transform: unset; }
-  50% {
-    -gtk-icon-transform: scale(0, 1); }
-  to {
-    -gtk-icon-transform: unset; } }
-modelbutton.flat check:not(:indeterminate):checked,
-.menuitem.button.flat check:not(:indeterminate):checked,
-check:not(:indeterminate):checked {
-  animation: check_check 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-
-check:not(:indeterminate):checked:active {
-  animation: check_check 0.3s cubic-bezier(0.4, 0, 0.2, 1), flat_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1) forwards; }
-
-radio:not(:indeterminate):checked {
-  border-image: none;
-  animation: check_radio 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-
-radio:not(:indeterminate):checked:active {
-  border-image: none;
-  animation: check_radio 0.3s cubic-bezier(0.4, 0, 0.2, 1), flat_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1) forwards; }
-
-modelbutton.flat check:indeterminate:checked, modelbutton.flat radio:indeterminate:checked,
-.menuitem.button.flat check:indeterminate:checked,
-.menuitem.button.flat radio:indeterminate:checked,
-check:indeterminate:checked, radio:indeterminate:checked {
-  animation: check_indeterminate 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-
-check:indeterminate:checked:active, radio:indeterminate:checked:active {
-  animation: check_indeterminate 0.3s cubic-bezier(0.4, 0, 0.2, 1), flat_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1) forwards; }
-
-menu menuitem check:not(:indeterminate):checked,
-menu menuitem radio:not(:indeterminate):checked,
-menu menuitem check:indeterminate:checked,
-menu menuitem radio:indeterminate:checked {
-  animation: none;
-  border-image: none; }
 
 treeview.view check,
 treeview.view radio {
@@ -3743,6 +3686,16 @@ window.background:not(.solid-csd) > notebook:not(.frame) {
   window.background:not(.solid-csd) > notebook:not(.frame) > stack {
     border: none;
     box-shadow: none; }
+
+checkbutton > check:not(:checked):not(:indeterminate) {
+  color: rgba(0, 0, 0, 0.6); }
+  checkbutton > check:not(:checked):not(:indeterminate):hover {
+    color: rgba(0, 0, 0, 0.8); }
+
+radiobutton > radio:not(:checked):not(:indeterminate) {
+  color: rgba(0, 0, 0, 0.6); }
+  radiobutton > radio:not(:checked):not(:indeterminate):hover {
+    color: rgba(0, 0, 0, 0.8); }
 
 /*********
  * Unity *

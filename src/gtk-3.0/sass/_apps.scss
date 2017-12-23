@@ -925,6 +925,16 @@ window.background:not(.solid-csd) {
   }
 }
 
+checkbutton > check:not(:checked):not(:indeterminate) {
+    color: $secondary_fg_color;
+    &:hover { color: $fg_color; }
+  }
+
+radiobutton > radio:not(:checked):not(:indeterminate) {
+    color: $secondary_fg_color;
+    &:hover { color: $fg_color; }
+  }
+
 /*********
  * Unity *
  *********/

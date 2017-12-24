@@ -16,27 +16,29 @@ cd $srcdir/gtk-3.0/sass
 sed -i "s/$OLD_TITLE/$NEW_TITLE/g" _common.scss _common-color.scss
 
 # Install Packages
-echo 'Installing ruby, gem, sass & bundle for your system... Please type in your password if requested'
-if has_command zypper; then
+if ! bundle exec sass --update --sourcemap=none . > /dev/null; then
+  echo 'Installing ruby, gem, sass & bundle for your system... Please type in your password if requested'
+    if has_command zypper; then
 
-# openSUSE
-sudo zypper in rubygems && gem install bundle && bundle install
-elif has_command apt-get; then
+    # openSUSE
+    sudo zypper in rubygems && gem install bundle && bundle install
+      elif has_command apt-get; then
 
-# Debian or Debian-like
-sudo apt-get install ruby-sass ruby-bundler
-elif has_command dnf; then
+    # Debian or Debian-like
+    sudo apt-get install ruby-sass ruby-bundler
+      elif has_command dnf; then
 
-# Fedora
-sudo dnf install glib2-devel rubygems && gem install bundle && bundle install
-elif has_command yum; then
+    # Fedora
+    sudo dnf install glib2-devel rubygems && gem install bundle && bundle install
+      elif has_command yum; then
 
-# RedHat
-sudo yum install rubygems && gem install bundle && bundle install
-elif has_command pacman; then
+    # RedHat
+    sudo yum install rubygems && gem install bundle && bundle install
+      elif has_command pacman; then
 
-# ArchLinux
-sudo pacman -S --noconfirm rubygems && gem install bundle && bundle install
+    # ArchLinux
+    sudo pacman -S --noconfirm rubygems && gem install bundle && bundle install
+    fi
 fi
 
 # compile scss to css

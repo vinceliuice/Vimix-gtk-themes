@@ -1056,6 +1056,14 @@ headerbar {
     margin-right: -2px;
     margin-top: -2px;
     box-shadow: inset 0 1px rgba(255, 255, 255, 0.1); }
+  .titlebar:not(headerbar) .linked:not(.vertical):not(.path-bar) > button, .titlebar:not(headerbar) .linked:not(.vertical):not(.path-bar) > button:hover, .titlebar:not(headerbar) .linked:not(.vertical):not(.path-bar) > button:active, .titlebar:not(headerbar) .linked:not(.vertical):not(.path-bar) > button:checked, .titlebar:not(headerbar) .linked:not(.vertical):not(.path-bar) > button:disabled,
+  headerbar .linked:not(.vertical):not(.path-bar) > button,
+  headerbar .linked:not(.vertical):not(.path-bar) > button:hover,
+  headerbar .linked:not(.vertical):not(.path-bar) > button:active,
+  headerbar .linked:not(.vertical):not(.path-bar) > button:checked,
+  headerbar .linked:not(.vertical):not(.path-bar) > button:disabled {
+    border-radius: 3px;
+    border-style: solid; }
   .titlebar:not(headerbar) .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover,
   headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover {
     border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), alpha(#2EB398, 0.8) 100%, transparent 0%) 0 0 2/0 0 2px;
@@ -1070,6 +1078,23 @@ headerbar {
     border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #2EB398 100%, transparent 0%) 0 0 2/0 0 2px;
     background: none;
     color: #33c7a9; }
+  .titlebar:not(headerbar) .linked:not(.vertical).path-bar > button,
+  headerbar .linked:not(.vertical).path-bar > button {
+    margin: 0 0 0 0; }
+    .titlebar:not(headerbar) .linked:not(.vertical).path-bar > button:hover,
+    headerbar .linked:not(.vertical).path-bar > button:hover {
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), alpha(#2EB398, 0.8) 100%, transparent 0%) 0 0 3/0 0 3px;
+      background: none;
+      color: alpha(#2EB398, 0.8); }
+      .titlebar:not(headerbar) .linked:not(.vertical).path-bar > button:hover, .titlebar:not(headerbar) .linked:not(.vertical).path-bar > button:hover:disabled,
+      headerbar .linked:not(.vertical).path-bar > button:hover,
+      headerbar .linked:not(.vertical).path-bar > button:hover:disabled {
+        background-color: transparent; }
+    .titlebar:not(headerbar) .linked:not(.vertical).path-bar > button:checked,
+    headerbar .linked:not(.vertical).path-bar > button:checked {
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #2EB398 100%, transparent 0%) 0 0 3/0 0 3px;
+      background: none;
+      color: #33c7a9; }
 
 .titlebar:not(headerbar) separator.titlebutton,
 headerbar separator.titlebutton {
@@ -1107,19 +1132,6 @@ window.csd > .titlebar:not(headerbar) {
   box-shadow: none; }
 .titlebar:not(headerbar) > separator {
   background-color: #444851; }
-
-.linked:not(.vertical).path-bar > button {
-  margin: 0 0 0 0; }
-  .linked:not(.vertical).path-bar > button:hover {
-    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), alpha(#2EB398, 0.8) 100%, transparent 0%) 0 0 3/0 0 3px;
-    background: none;
-    color: alpha(#2EB398, 0.8); }
-    .linked:not(.vertical).path-bar > button:hover, .linked:not(.vertical).path-bar > button:hover:disabled {
-      background-color: transparent; }
-  .linked:not(.vertical).path-bar > button:checked {
-    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #2EB398 100%, transparent 0%) 0 0 3/0 0 3px;
-    background: none;
-    color: #33c7a9; }
 
 /************
  * Pathbars *

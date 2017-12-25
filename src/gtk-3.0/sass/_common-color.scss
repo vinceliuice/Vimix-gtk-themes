@@ -1182,6 +1182,14 @@ headerbar {
 
   separator.titlebutton { @extend %header_separator; }
 
+  // Reset buttons
+  .linked:not(.vertical):not(.path-bar) > button {
+    &, &:hover, &:active, &:checked, &:disabled {
+      border-radius: $md_radius;
+      border-style: solid;
+    }
+  }
+
   // special case for stack-switchers
   .linked:not(.vertical):not(.path-bar).stack-switcher {
     > button {
@@ -1202,6 +1210,34 @@ headerbar {
                                     $primary_color 100%,
                                     transparent 0%)
                                     0 0 2 / 0 0 2px;
+      background: none;
+      color: if($headerbar == 'light', $primary_color, lighten($primary_color, 5%));
+
+     }
+  }
+ }
+
+  // Some case for headerbar path-bars
+.linked:not(.vertical).path-bar {
+    > button {
+    margin: 0 0 0 0;
+
+    &:hover {
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    gtkalpha($primary_color, 0.8) 100%,
+                                    transparent 0%)
+                                    $line_size;
+      background: none;
+      color: gtkalpha($primary_color, 0.8);
+
+      &, &:disabled { background-color: transparent; }
+    }
+
+    &:checked {
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    $primary_color 100%,
+                                    transparent 0%)
+                                    $line_size;
       background: none;
       color: if($headerbar == 'light', $primary_color, lighten($primary_color, 5%));
 
@@ -1268,34 +1304,6 @@ headerbar {
 
   @extend %titlebar;
 }
-
-  // Some case for headerbar path-bars
-.linked:not(.vertical).path-bar {
-    > button {
-    margin: 0 0 0 0;
-
-    &:hover {
-      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    gtkalpha($primary_color, 0.8) 100%,
-                                    transparent 0%)
-                                    $line_size;
-      background: none;
-      color: gtkalpha($primary_color, 0.8);
-
-      &, &:disabled { background-color: transparent; }
-    }
-
-    &:checked {
-      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    $primary_color 100%,
-                                    transparent 0%)
-                                    $line_size;
-      background: none;
-      color: if($headerbar == 'light', $primary_color, lighten($primary_color, 5%));
-
-     }
-  }
- }
 
 /************
  * Pathbars *

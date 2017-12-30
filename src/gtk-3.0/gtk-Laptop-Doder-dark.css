@@ -1077,7 +1077,7 @@ headerbar {
   headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked {
     border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 100%, transparent 0%) 0 0 2/0 0 2px;
     background: none;
-    color: #5a95f5; }
+    color: #4285F4; }
   .titlebar:not(headerbar) .linked:not(.vertical).path-bar > button,
   headerbar .linked:not(.vertical).path-bar > button {
     margin: 0 0 0 0; }
@@ -1094,7 +1094,7 @@ headerbar {
     headerbar .linked:not(.vertical).path-bar > button:checked {
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 100%, transparent 0%) 0 0 3/0 0 3px;
       background: none;
-      color: #5a95f5; }
+      color: #4285F4; }
 
 .titlebar:not(headerbar) separator.titlebutton,
 headerbar separator.titlebutton {
@@ -1284,11 +1284,11 @@ menu,
   .menu, .csd
   .context-menu {
     border: none;
-    border-radius: 0; }
+    border-radius: 2px; }
   menu menuitem,
   .menu menuitem,
   .context-menu menuitem {
-    transition: all 0.1s cubic-bezier(0, 0, 0.2, 1);
+    transition: background-color 0.2s cubic-bezier(0, 0, 0.2, 1);
     min-height: 20px;
     min-width: 40px;
     padding: 4px 8px;
@@ -1366,14 +1366,6 @@ menu,
 
 menuitem accelerator {
   color: alpha(currentColor, 0.6); }
-menuitem check:dir(ltr),
-menuitem radio:dir(ltr) {
-  margin-right: -8px;
-  margin-left: -16px; }
-menuitem check:dir(rtl),
-menuitem radio:dir(rtl) {
-  margin-right: -16px;
-  margin-left: -8px; }
 
 .csd.popup {
   border-radius: 2px; }
@@ -1782,10 +1774,8 @@ radio {
   menu menuitem check, menu menuitem
   radio {
     transition: none;
-    min-height: 16px;
-    min-width: 16px;
     margin: 0;
-    padding: 0 0 0 16px; }
+    padding: 0; }
     menu menuitem check:dir(ltr), menu menuitem
     radio:dir(ltr) {
       margin-right: 8px; }
@@ -1799,8 +1789,7 @@ radio {
     radio, menu menuitem
     radio:hover, menu menuitem
     radio:disabled {
-      box-shadow: none;
-      background-image: none; }
+      box-shadow: none; }
 
 check {
   -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/check-unchecked-symbolic.svg")), -gtk-recolor(url("assets/scalable/check-unchecked-symbolic.png"))); }
@@ -3702,82 +3691,132 @@ window.background > box.vertical > scrolledwindow > widget toolbar {
   window.background > box.vertical > scrolledwindow > widget toolbar button {
     border-radius: 2px; }
 
-/***********
- * Firefox *
- ***********/
-window.background:not(.csd) > widget > separator {
-  color: rgba(0, 0, 0, 0.2); }
-window.background:not(.csd) > widget > scrollbar {
-  background-clip: border-box; }
-window.background:not(.csd) > widget > scrollbar,
-window.background:not(.csd) > widget > frame > border {
-  border-color: rgba(0, 0, 0, 0.2); }
-window.background:not(.csd) > widget > entry,
-window.background:not(.csd) > widget > button > button {
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
-  box-shadow: none; }
-window.background:not(.csd) > widget > entry {
-  min-height: 30px; }
-  window.background:not(.csd) > widget > entry:focus {
-    border-color: #4285F4; }
-window.background:not(.csd) > widget > button > button {
-  padding: 4px 8px;
-  background-size: auto; }
-  window.background:not(.csd) > widget > button > button:hover {
-    background-image: image(alpha(currentColor, 0.05)); }
-  window.background:not(.csd) > widget > button > button:active {
-    background-image: image(alpha(currentColor, 0.1)); }
-window.background:not(.csd) > widget > window > menu,
-window.background:not(.csd) > widget > menu > menu {
-  border: none; }
-window.background:not(.csd) > widget text:selected {
-  background-color: #4285F4; }
-  row:selected label, label:selected, window.background:not(.csd) > widget text:selected {
-    color: #FFFFFF; }
-    row:selected label:disabled, label:disabled:selected, window.background:not(.csd) > widget text:selected:disabled {
-      color: rgba(255, 255, 255, 0.4); }
-window.background:not(.csd) > widget window.background:not(.csd) > widget > menubar {
-  color: rgba(255, 255, 255, 0.75); }
-  window.background:not(.csd) > widget window.background:not(.csd) > widget > menubar:hover {
-    color: #FFFFFF; }
-  window.background:not(.csd) > widget window.background:not(.csd) > widget > menubar:disabled {
-    color: rgba(255, 255, 255, 0.3); }
-window.background:not(.csd) > widget window.background:not(.csd) > widget > frame {
-  color: rgba(0, 0, 0, 0.2); }
-window.background:not(.csd) > widget window.background:not(.csd) > widget > checkbutton > check,
-window.background:not(.csd) > widget window.background:not(.csd) > widget > radiobutton > radio {
-  margin: 0;
-  padding: 0; }
-window.background:not(.csd) > widget window.background:not(.csd) > window.background > menu > separator {
-  color: rgba(0, 0, 0, 0.2); }
+/***************************
+ * Firefox and Thunderbird *
+ ***************************
 
-window.background > menu > menuitem > label:disabled {
-  color: #868686; }
+$firefox_border_color: scale-alpha(#000000, 0.1);
 
-window.background:not(.csd) > widget > checkbutton > check,
+window.background:not(.csd) {
+  > widget {
+    // for the bookmark toolbar's separators
+    > separator { color: $firefox_border_color; }
+
+    // avoid black border
+    > scrollbar { background-clip: border-box; }
+
+    // emphasize borders color
+    > scrollbar,
+    > frame > border { border-color: $firefox_border_color; }
+
+    > entry,
+    > button > button {
+      border: 1px solid $firefox_border_color;
+      border-radius: 2px + 1px;
+      box-shadow: none;
+    }
+
+    > entry {
+      min-height: 32px - 2px;
+
+      &:focus { border-color: $primary_color; }
+    }
+
+    > button > button {
+      padding: 4px 8px;
+      background-size: auto;
+      // color: $fg_color;
+
+      &:hover { background-image: image(gtkalpha(currentColor, 0.1 / 2)); }
+
+      &:active { background-image: image(gtkalpha(currentColor, 0.1)); }
+    }
+
+    // use 16px assets for hard-coded sizing
+    > checkbutton > check { @extend %small_check; }
+
+    > radiobutton > radio { @extend %small_radio; }
+
+  // remove ugly border around the menus
+  > window > menu,
+  > menu > menu { border: none; }
+
+// Firefox now uses this for selected items
+text:selected { @extend %selected_items; }
+
+// for backwards compatibility
+window.background:not(.csd) {
+  > widget {
+    > menubar {
+      color: $secondary_headerbar_fg_color;
+
+      &:hover { color: $headerbar_fg_color; }
+
+      &:disabled { color: $disabled_headerbar_fg_color; }
+    }
+
+    > frame { color: $firefox_border_color; }
+
+    > checkbutton > check,
+    > radiobutton > radio {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  > menu > separator { color: $borders_color; }
+    }
+  }
+}
+
+window.background > menu > menuitem > label:disabled { color: $disabled_menu_fg_color; }
+window.background > menu > separator { color: $borders_color; }
+
+%small_check,
 menu menuitem check {
-  border-radius: 2px;
-  -gtk-outline-radius: 2px;
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.svg")), -gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.symbolic.png"))); }
-window.background:not(.csd) > widget > checkbutton > check:checked,
-menu menuitem check:checked {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-checked-symbolic.svg")), -gtk-recolor(url("assets/scalable/small-checkbox-checked-symbolic.symbolic.png"))); }
-window.background:not(.csd) > widget > checkbutton > check:indeterminate,
-menu menuitem check:indeterminate {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-mixed-symbolic.svg")), -gtk-recolor(url("assets/scalable/small-checkbox-mixed-symbolic.symbolic.png"))); }
+  & {
+    min-height: 16px;
+    min-width: 16px;
+    border-radius: 2px;
+    padding-left: 4px;
+    -gtk-outline-radius: 2px;
+    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.svg")),
+                            -gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.symbolic.png")));
+  }
 
-window.background:not(.csd) > widget > radiobutton > radio,
+  &:checked {
+    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-checked-symbolic.svg")),
+                            -gtk-recolor(url("assets/scalable/small-checkbox-checked-symbolic.symbolic.png")));
+  }
+
+  &:indeterminate {
+    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-mixed-symbolic.svg")),
+                            -gtk-recolor(url("assets/scalable/small-checkbox-mixed-symbolic.symbolic.png")));
+  }
+}
+
+%small_radio,
 menu menuitem radio {
-  -gtk-icon-shadow: none;
-  border-image: none;
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.svg")), -gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.symbolic.png"))); }
-window.background:not(.csd) > widget > radiobutton > radio:checked,
-menu menuitem radio:checked {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-checked-symbolic.svg")), -gtk-recolor(url("assets/scalable/small-radio-checked-symbolic.symbolic.png"))); }
-window.background:not(.csd) > widget > radiobutton > radio:indeterminate,
-menu menuitem radio:indeterminate {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic.svg")), -gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic.symbolic.png"))); }
+  & {
+    min-height: 16px;
+    min-width: 16px;
+    padding-left: 4px;
+    -gtk-icon-shadow: none;
+    border-image: none;
+    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.svg")),
+                            -gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.symbolic.png")));
+  }
+
+  &:checked {
+    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-checked-symbolic.svg")),
+                            -gtk-recolor(url("assets/scalable/small-radio-checked-symbolic.symbolic.png")));
+  }
+
+  &:indeterminate {
+    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic.svg")),
+                            -gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic.symbolic.png")));
+  }
+}
 
 /***********
  * Synapse *

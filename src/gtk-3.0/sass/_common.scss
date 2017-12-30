@@ -1484,7 +1484,7 @@ menu,
   }
 
   menuitem {
-    transition: $shortest_transition;
+    transition: background-color $shorter_duration $deceleration_curve;
     min-height: 20px;
     min-width: 40px;
     padding: 4px 8px;
@@ -1560,16 +1560,9 @@ menu,
 
 menuitem {
   accelerator { color: gtkalpha(currentColor, $hint_opacity); }
-
-  check,
-  radio {
-    &:dir(ltr) { margin-right: -8px; margin-left: -16px; }
-    &:dir(rtl) { margin-right: -16px; margin-left: -8px; }
-  }
 }
 
 .csd.popup { border-radius: 2px; }
-
 
 /************
  * Popovers *
@@ -2142,7 +2135,7 @@ radio {
     min-height: 16px;
     min-width: 16px;
     margin: 0; // this is a workaround for a menu check/radio size allocation issue
-    padding: 0 0 0 16px;
+    padding: 0 ;
 
     &:dir(ltr) { margin-right: 8px; }
 

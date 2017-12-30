@@ -1211,7 +1211,7 @@ headerbar {
                                     transparent 0%)
                                     0 0 2 / 0 0 2px;
       background: none;
-      color: if($headerbar == 'light', $primary_color, lighten($primary_color, 5%));
+      color: $primary_color;
 
      }
   }
@@ -1239,7 +1239,7 @@ headerbar {
                                     transparent 0%)
                                     $line_size;
       background: none;
-      color: if($headerbar == 'light', $primary_color, lighten($primary_color, 5%));
+      color: $primary_color;
 
      }
   }
@@ -1497,11 +1497,11 @@ menu,
 
   .csd & {
     border: none; // axes borders in a composited env
-    border-radius: 0;
+    border-radius: 2px;
   }
 
   menuitem {
-    transition: $shortest_transition;
+    transition: background-color $shorter_duration $deceleration_curve;
     min-height: 20px;
     min-width: 40px;
     padding: 4px 8px;
@@ -1578,12 +1578,6 @@ menu,
 
 menuitem {
   accelerator { color: gtkalpha(currentColor, $hint_opacity); }
-
-  check,
-  radio {
-    &:dir(ltr) { margin-right: -8px; margin-left: -16px; }
-    &:dir(rtl) { margin-right: -16px; margin-left: -8px; }
-  }
 }
 
 .csd.popup { border-radius: 2px; }
@@ -2158,10 +2152,8 @@ radio {
 
   menu menuitem & {
     transition: none;
-    min-height: 16px;
-    min-width: 16px;
     margin: 0; // this is a workaround for a menu check/radio size allocation issue
-    padding: 0 0 0 16px;
+    padding: 0;
 
     &:dir(ltr) { margin-right: 8px; }
 
@@ -2171,7 +2163,6 @@ radio {
 
     &, &:hover, &:disabled {
       box-shadow: none;
-      background-image: none;
       // color: inherit;
     }
   }

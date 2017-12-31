@@ -1317,7 +1317,7 @@ menu,
     padding: 4px;
     border-radius: 0;
     background-color: #444444;
-    color: #FFFFFF; }
+    color: rgba(255, 255, 255, 0.75); }
     menu > arrow.top,
     .menu > arrow.top,
     .context-menu > arrow.top {
@@ -3641,7 +3641,6 @@ menu menuitem check {
   min-height: 16px;
   min-width: 16px;
   border-radius: 2px;
-  padding-left: 4px;
   -gtk-outline-radius: 2px;
   -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.svg")), -gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.symbolic.png"))); }
 window.background:not(.csd) > widget > checkbutton > check:checked,
@@ -3655,7 +3654,6 @@ window.background:not(.csd) > widget > radiobutton > radio,
 menu menuitem radio {
   min-height: 16px;
   min-width: 16px;
-  padding-left: 4px;
   -gtk-icon-shadow: none;
   border-image: none;
   -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.svg")), -gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.symbolic.png"))); }

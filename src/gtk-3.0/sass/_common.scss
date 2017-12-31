@@ -1475,7 +1475,7 @@ menu,
   margin: 4px;
   padding: 2px 0px;
   box-shadow: none;
-  background-color: $headerbar_bg_color;
+  background-color: $menu_bg_color;
   border: none;
 
   .csd & {
@@ -1490,7 +1490,7 @@ menu,
     padding: 4px 8px;
     font: initial;
     text-shadow: none;
-    color: $headerbar_fg_color;
+    color: $menu_fg_color;
 
     &:hover {
       transition: none;
@@ -1526,8 +1526,8 @@ menu,
     min-width: 16px;
     padding: 4px;
     border-radius: 0;
-    background-color: $headerbar_bg_color;
-    color: $headerbar_fg_color;
+    background-color: $menu_bg_color;
+    color: $secondary_headerbar_fg_color;
 
     &.top {
       margin-top: -4px;
@@ -1543,7 +1543,7 @@ menu,
 
     &:hover {
       background-image: image(gtkalpha(currentColor, $lower_opacity / 2));
-      color: $dark_contrast_color;
+      color: $menu_fg_color;
     }
 
     &:disabled {

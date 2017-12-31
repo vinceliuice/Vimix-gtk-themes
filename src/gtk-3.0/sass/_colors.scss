@@ -43,7 +43,6 @@ $disabled_tertiary_fg_color: scale-alpha($tertiary_fg_color, $disabled_opacity);
 $disabled_inversed_fg_color: scale-alpha($inversed_fg_color, $disabled_opacity);
 $disabled_secondary_inversed_fg_color: scale-alpha($secondary_inversed_fg_color, $disabled_opacity);
 $disabled_tertiary_inversed_fg_color: scale-alpha($tertiary_inversed_fg_color, $disabled_opacity);
-$disabled_menu_fg_color: if($headerbar =='light' and $variant =='light', rgba(#000, 0.5), rgba(#fff, 0.5));
 
 // Background colors
 $bg_color: if($variant == 'light', #F5F5F5, #333333);
@@ -67,6 +66,10 @@ $alt_primary_color: #888888;
 $accent_color: if($variant =='light', #666666, #FAFAFA);
 $topbar_color: $headerbar_bg_color;
 $topbar_fg_color: $headerbar_fg_color;
+
+$menu_bg_color: if($headerbar =='light', $base_color, $headerbar_bg_color);
+$menu_fg_color: if($headerbar =='light', $fg_color, $headerbar_fg_color);
+$disabled_menu_fg_color: if($headerbar =='light' and $variant =='light', rgba(#000, 0.5), rgba(#fff, 0.5));
 
 // Misc colors
 $track_color: gtkalpha(currentColor, $lower_opacity);

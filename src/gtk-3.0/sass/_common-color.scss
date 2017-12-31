@@ -904,23 +904,30 @@ combobox {
   }
 }
 
-.linked > combobox > box > button.combo {
-  // the combo is a composite widget so the way we do button linking doesn't
-  // work, special case needed. See
-  // https://bugzilla.gnome.org/show_bug.cgi?id=733979
+// the combo is a composite widget so the way we do button linking doesn't
+// work, special case needed. See
+// https://bugzilla.gnome.org/show_bug.cgi?id=733979
 
-  &:dir(ltr),
-  &:dir(rtl) { @extend %linked_middle; } // specificity bump
+.linked:not(.vertical) > combobox {
+  > box > button.combo { @extend %linked_middle; }
+
+  &:first-child > box > button.combo { @extend %linked:first-child; }
+
+  &:last-child > box > button.combo { @extend %linked:last-child; }
+
+  &:only-child > box > button.combo { @extend %linked:only-child; }
 }
 
-.linked:not(.vertical) > combobox:first-child > box > button.combo { @extend %linked:first-child; }
-.linked:not(.vertical) > combobox:last-child > box > button.combo { @extend %linked:last-child; }
-.linked:not(.vertical) > combobox:only-child > box > button.combo { @extend %linked:only-child; }
+.linked.vertical > combobox {
+  > box > button.combo { @extend %linked_vertical_middle; }
 
-.linked.vertical > combobox > box > button.combo { @extend %linked_vertical_middle; }
-.linked.vertical > combobox:first-child > box > button.combo { @extend %linked_vertical:first-child; }
-.linked.vertical > combobox:last-child > box > button.combo { @extend %linked_vertical:last-child; }
-.linked.vertical > combobox:only-child > box > button.combo { @extend %linked_vertical:only-child; }
+  &:first-child > box > button.combo { @extend %linked_vertical:first-child; }
+
+  &:last-child > box > button.combo { @extend %linked_vertical:last-child; }
+
+  &:only-child > box > button.combo { @extend %linked_vertical:only-child; }
+}
+
 
 %combo_flat {
   border-radius: 0;
@@ -939,21 +946,6 @@ combobox {
   }
 
   &:disabled { color: $disabled_fg_color; }
-}
-
-// workaround for LibreOffice with fallback-mode liked-buttons
-@each $order, $radius, $edge in (first-child, 2px 0 0 2px, right),
-                                (last-child, 0 2px 2px 0, left) {
-  .linked:not(combobox) > button.combo:#{$order} {
-    border-radius: #{$radius};
-    border-#{$edge}-width: 0;
-
-    &:only-child {
-      border-radius: 2px;
-      border-width: 1px;
-      border-color: $borders_color;
-    }
-  }
 }
 
 /************
@@ -1492,12 +1484,13 @@ menu,
   margin: 4px;
   padding: 2px 0px;
   box-shadow: none;
-  background-color: $headerbar_bg_color;
+  background-color: $menu_bg_color;
   border: none;
+  border-radius: 0;
 
   .csd & {
     border: none; // axes borders in a composited env
-    border-radius: 2px;
+    border-radius: 0;
   }
 
   menuitem {
@@ -1507,7 +1500,7 @@ menu,
     padding: 4px 8px;
     font: initial;
     text-shadow: none;
-    color: $headerbar_fg_color;
+    color: $menu_fg_color;
 
     &:hover {
       transition: none;
@@ -1544,7 +1537,7 @@ menu,
     min-width: 16px;
     padding: 4px;
     border-radius: 0;
-    background-color: $headerbar_bg_color;
+    background-color: $menu_bg_color;
     color: $secondary_headerbar_fg_color;
 
     &.top {
@@ -1568,7 +1561,6 @@ menu,
       border-color: transparent;
       background-color: transparent;
       color: transparent;
-      // color: $disabled_headerbar_fg_color;
     }
   }
 
@@ -1616,7 +1608,7 @@ popover.background {
   }
 
    entry { @extend %entry.flat; }
-
+  // button.combo { @extend %combo_flat; }
    button:not(.suggested-action):not(.destructive-action) {
 //       @extend %button.flat;
        box-shadow: none;

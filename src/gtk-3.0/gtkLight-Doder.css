@@ -625,7 +625,7 @@ button.needs-attention > image, stacksidebar row.needs-attention > label {
 notebook > stack:not(:only-child) revealer .linked:not(.vertical) > spinbutton:not(.vertical), .linked:not(.vertical) >
 entry, .linked >
 button, popover.background.menu button,
-popover.background button.model, .gedit-search-slider button:dir(ltr), .gedit-search-slider button:dir(rtl), .linked > combobox > box > button.combo:dir(ltr), .linked > combobox > box > button.combo:dir(rtl) {
+popover.background button.model, .gedit-search-slider button:dir(ltr), .gedit-search-slider button:dir(rtl), .linked:not(.vertical) > combobox > box > button.combo {
   border-radius: 0;
   -gtk-outline-radius: 3px; }
 
@@ -834,22 +834,6 @@ notebook > stack:not(:only-child) button.combo, #login_window #user_combobox but
     border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 100%, transparent 0%) 0 0 2/0 0 2px; }
   notebook > stack:not(:only-child) button.combo:disabled, #login_window #user_combobox button:disabled {
     color: rgba(0, 0, 0, 0.32); }
-
-.linked:not(combobox) > button.combo:first-child {
-  border-radius: 2px 0 0 2px;
-  border-right-width: 0; }
-  .linked:not(combobox) > button.combo:first-child:only-child {
-    border-radius: 2px;
-    border-width: 1px;
-    border-color: rgba(0, 0, 0, 0.1); }
-
-.linked:not(combobox) > button.combo:last-child {
-  border-radius: 0 2px 2px 0;
-  border-left-width: 0; }
-  .linked:not(combobox) > button.combo:last-child:only-child {
-    border-radius: 2px;
-    border-width: 1px;
-    border-color: rgba(0, 0, 0, 0.1); }
 
 /************
  * Toolbars *
@@ -1278,13 +1262,14 @@ menu,
   margin: 4px;
   padding: 2px 0px;
   box-shadow: none;
-  background-color: #EEEEEE;
-  border: none; }
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 0; }
   .csd menu, .csd
   .menu, .csd
   .context-menu {
     border: none;
-    border-radius: 2px; }
+    border-radius: 0; }
   menu menuitem,
   .menu menuitem,
   .context-menu menuitem {
@@ -1333,7 +1318,7 @@ menu,
     min-width: 16px;
     padding: 4px;
     border-radius: 0;
-    background-color: #EEEEEE;
+    background-color: #FFFFFF;
     color: rgba(0, 0, 0, 0.6); }
     menu > arrow.top,
     .menu > arrow.top,
@@ -3743,7 +3728,6 @@ menu menuitem check {
   min-height: 16px;
   min-width: 16px;
   border-radius: 2px;
-  padding-left: 4px;
   -gtk-outline-radius: 2px;
   -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.svg")), -gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.symbolic.png"))); }
 window.background:not(.csd) > widget > checkbutton > check:checked,
@@ -3757,7 +3741,6 @@ window.background:not(.csd) > widget > radiobutton > radio,
 menu menuitem radio {
   min-height: 16px;
   min-width: 16px;
-  padding-left: 4px;
   -gtk-icon-shadow: none;
   border-image: none;
   -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.svg")), -gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.symbolic.png"))); }

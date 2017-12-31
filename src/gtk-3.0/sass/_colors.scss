@@ -43,7 +43,7 @@ $disabled_tertiary_fg_color: scale-alpha($tertiary_fg_color, $disabled_opacity);
 $disabled_inversed_fg_color: scale-alpha($inversed_fg_color, $disabled_opacity);
 $disabled_secondary_inversed_fg_color: scale-alpha($secondary_inversed_fg_color, $disabled_opacity);
 $disabled_tertiary_inversed_fg_color: scale-alpha($tertiary_inversed_fg_color, $disabled_opacity);
-$disabled_menu_fg_color: #868686;
+$disabled_menu_fg_color: if($headerbar =='light' and $variant =='light', rgba(#000, 0.5), rgba(#fff, 0.5));
 
 // Background colors
 $bg_color: if($variant == 'light', #F5F5F5, #333333);
@@ -57,7 +57,6 @@ $tab_color: if($variant =='light', #505050, #FFFFFF);
 $secondary_titlebar_color: #333333;
 
 // Headerbar colors
-$menu_bg_color: if($headerbar =='dark', #444444, #FFFFFF);
 $headerbar_bg_color: if($headerbar =='dark', #444444, #EEEEEE);
 $headerbar_fg_color: if($headerbar =='dark', $dark_contrast_color, $fg_color);
 $secondary_headerbar_fg_color: if($headerbar =='dark', $secondary_inversed_fg_color, $secondary_fg_color);

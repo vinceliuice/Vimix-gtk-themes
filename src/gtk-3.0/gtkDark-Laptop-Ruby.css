@@ -624,30 +624,26 @@ button.needs-attention > image, stacksidebar row.needs-attention > label {
 .linked:not(.vertical) > spinbutton:not(.vertical), notebook > stack:not(:only-child) revealer .linked:not(.vertical) > entry,
 notebook > stack:not(:only-child) revealer .linked:not(.vertical) > spinbutton:not(.vertical), .linked:not(.vertical) >
 entry, .linked >
-button, popover.background.menu button,
-popover.background button.model, .gedit-search-slider button:dir(ltr), .gedit-search-slider button:dir(rtl), .linked:not(.vertical) > combobox > box > button.combo {
+button, .gedit-search-slider button:dir(ltr), .gedit-search-slider button:dir(rtl), .linked:not(.vertical) > combobox > box > button.combo {
   border-radius: 0;
   -gtk-outline-radius: 3px; }
 
 .linked:not(.vertical) > spinbutton:first-child:not(.vertical), notebook > stack:not(:only-child) revealer .linked:not(.vertical) > entry:first-child,
 notebook > stack:not(:only-child) revealer .linked:not(.vertical) > spinbutton:first-child:not(.vertical), .linked:not(.vertical) >
 entry:first-child, .linked >
-button:first-child, combobox.linked button:nth-child(2):dir(rtl), .linked:not(.vertical) > combobox:first-child > box > button.combo, popover.background.menu button:first-child,
-popover.background button.model:first-child, .gedit-search-slider button:first-child:dir(ltr), .gedit-search-slider button:first-child:dir(rtl) {
+button:first-child, combobox.linked button:nth-child(2):dir(rtl), .linked:not(.vertical) > combobox:first-child > box > button.combo, .gedit-search-slider button:first-child:dir(ltr), .gedit-search-slider button:first-child:dir(rtl) {
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px; }
 .linked:not(.vertical) > spinbutton:last-child:not(.vertical), notebook > stack:not(:only-child) revealer .linked:not(.vertical) > entry:last-child,
 notebook > stack:not(:only-child) revealer .linked:not(.vertical) > spinbutton:last-child:not(.vertical), .linked:not(.vertical) >
 entry:last-child, .linked >
-button:last-child, combobox.linked button:nth-child(2):dir(ltr), .linked:not(.vertical) > combobox:last-child > box > button.combo, popover.background.menu button:last-child,
-popover.background button.model:last-child, .gedit-search-slider button:last-child:dir(ltr), .gedit-search-slider button:last-child:dir(rtl) {
+button:last-child, combobox.linked button:nth-child(2):dir(ltr), .linked:not(.vertical) > combobox:last-child > box > button.combo, .gedit-search-slider button:last-child:dir(ltr), .gedit-search-slider button:last-child:dir(rtl) {
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px; }
 .linked:not(.vertical) > spinbutton:only-child:not(.vertical), notebook > stack:not(:only-child) revealer .linked:not(.vertical) > entry:only-child,
 notebook > stack:not(:only-child) revealer .linked:not(.vertical) > spinbutton:only-child:not(.vertical), .linked:not(.vertical) >
 entry:only-child, .linked >
-button:only-child, .linked:not(.vertical) > combobox:only-child > box > button.combo, popover.background.menu button:only-child,
-popover.background button.model:only-child, .gedit-search-slider button:only-child:dir(ltr), .gedit-search-slider button:only-child:dir(rtl) {
+button:only-child, .linked:not(.vertical) > combobox:only-child > box > button.combo, .gedit-search-slider button:only-child:dir(ltr), .gedit-search-slider button:only-child:dir(rtl) {
   border-radius: 3px; }
 
 .linked.vertical > spinbutton:not(.vertical), notebook > stack:not(:only-child) revealer .linked.vertical > entry,
@@ -819,7 +815,7 @@ combobox #gtk-combobox-popup-menu {
 combobox:drop(active) {
   box-shadow: none; }
 
-notebook > stack:not(:only-child) button.combo, #login_window #user_combobox button {
+popover.background button.combo, notebook > stack:not(:only-child) button.combo, #login_window #user_combobox button {
   border-radius: 0;
   background-image: none;
   font-weight: inherit;
@@ -828,11 +824,11 @@ notebook > stack:not(:only-child) button.combo, #login_window #user_combobox but
   box-shadow: inset 0 -1px alpha(currentColor, 0.3);
   background-color: transparent;
   color: rgba(0, 0, 0, 0.8); }
-  notebook > stack:not(:only-child) button.combo:hover, #login_window #user_combobox button:hover {
+  popover.background button.combo:hover, notebook > stack:not(:only-child) button.combo:hover, #login_window #user_combobox button:hover {
     box-shadow: inset 0 -2px alpha(currentColor, 0.3); }
-  notebook > stack:not(:only-child) button.combo:checked, #login_window #user_combobox button:checked {
+  popover.background button.combo:checked, notebook > stack:not(:only-child) button.combo:checked, #login_window #user_combobox button:checked {
     border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #F0544C 100%, transparent 0%) 0 0 2/0 0 2px; }
-  notebook > stack:not(:only-child) button.combo:disabled, #login_window #user_combobox button:disabled {
+  popover.background button.combo:disabled, notebook > stack:not(:only-child) button.combo:disabled, #login_window #user_combobox button:disabled {
     color: rgba(0, 0, 0, 0.32); }
 
 /************
@@ -1378,7 +1374,8 @@ popover.background {
     box-shadow: none;
     background-color: transparent; }
   popover.background button:not(.suggested-action):not(.destructive-action) {
-    box-shadow: none; }
+    box-shadow: inset 0 -1px alpha(currentColor, 0.3);
+    border-radius: 2px 2px 0 0; }
     popover.background button:not(.suggested-action):not(.destructive-action):hover {
       background-color: alpha(#F0544C, 0.8);
       color: #FFFFFF;
@@ -1398,8 +1395,7 @@ popover.background {
   popover.background button.model {
     margin: 0;
     min-height: 32px;
-    padding: 0 6px;
-    box-shadow: none; }
+    padding: 0; }
   popover.background separator {
     margin: 4px 0; }
   popover.background list separator {

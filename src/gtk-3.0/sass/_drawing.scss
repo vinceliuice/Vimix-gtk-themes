@@ -203,6 +203,7 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
     transition: $longer_transition, $shadow_transition, background-image 0;
     animation: ripple_effect $longer_duration $deceleration_curve forwards;
     box-shadow: $z-depth-2;
+    background-color: gtkalpha($fg_color, 0.2);
     color: $fg_color;
   }
 
@@ -239,6 +240,7 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
                                       $zero_track_color 100%,
                                       transparent 0%),
                       image($semi_track_color);
+    background-color: gtkalpha($fg_color, 0.1);
     color: currentColor;
   }
 
@@ -247,6 +249,7 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
     animation: flat_ripple_effect $longer_duration $deceleration_curve forwards;
     box-shadow: none;
     color: currentColor;
+    background-color: gtkalpha($fg_color, 0.2);
   }
 
   @if $t == flat-disabled {

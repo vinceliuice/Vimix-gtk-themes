@@ -389,6 +389,7 @@ button {
     transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1), background-image 0;
     animation: ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+    background-color: alpha(rgba(0, 0, 0, 0.8), 0.2);
     color: rgba(0, 0, 0, 0.8); }
   button:disabled {
     box-shadow: none;
@@ -419,6 +420,7 @@ button {
     button.flat:hover {
       box-shadow: none;
       background-image: radial-gradient(circle farthest-corner at center, alpha(currentColor, 0) 100%, transparent 0%), image(alpha(currentColor, 0.15));
+      background-color: alpha(rgba(0, 0, 0, 0.8), 0.1);
       color: currentColor; }
     .inline-toolbar
     button:active:not(.text-button), modelbutton.flat:active,
@@ -429,7 +431,8 @@ button {
       transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), background-image 0;
       animation: flat_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
       box-shadow: none;
-      color: currentColor; }
+      color: currentColor;
+      background-color: alpha(rgba(0, 0, 0, 0.8), 0.2); }
     .inline-toolbar
     button:disabled:not(.text-button), modelbutton.flat:disabled,
     .menuitem.button.flat:disabled, spinbutton:not(.vertical) button:disabled, spinbutton.vertical button:disabled, notebook > header > tabs > arrow:disabled, scrollbar button:disabled, check:disabled,
@@ -523,13 +526,15 @@ button.suggested-action {
     button.suggested-action.flat:hover {
       box-shadow: none;
       background-image: radial-gradient(circle farthest-corner at center, alpha(currentColor, 0) 100%, transparent 0%), image(alpha(currentColor, 0.15));
+      background-color: alpha(rgba(0, 0, 0, 0.8), 0.1);
       color: currentColor; }
     button.suggested-action.flat:active,
     button.suggested-action.flat:checked {
       transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), background-image 0;
       animation: flat_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
       box-shadow: none;
-      color: currentColor; }
+      color: currentColor;
+      background-color: alpha(rgba(0, 0, 0, 0.8), 0.2); }
     button.suggested-action.flat:disabled {
       box-shadow: none;
       background-color: transparent;
@@ -561,13 +566,15 @@ button.destructive-action {
     button.destructive-action.flat:hover {
       box-shadow: none;
       background-image: radial-gradient(circle farthest-corner at center, alpha(currentColor, 0) 100%, transparent 0%), image(alpha(currentColor, 0.15));
+      background-color: alpha(rgba(0, 0, 0, 0.8), 0.1);
       color: currentColor; }
     button.destructive-action.flat:active,
     button.destructive-action.flat:checked {
       transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), background-image 0;
       animation: flat_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
       box-shadow: none;
-      color: currentColor; }
+      color: currentColor;
+      background-color: alpha(rgba(0, 0, 0, 0.8), 0.2); }
     button.destructive-action.flat:disabled {
       box-shadow: none;
       background-color: transparent;
@@ -874,6 +881,14 @@ toolbar {
   toolbar:not(.inline-toolbar):not(.osd) switch {
     margin: 9px 3px; }
 
+.primary-toolbar.libreoffice-toolbar {
+  color: rgba(0, 0, 0, 0.8);
+  background-color: whitesmoke;
+  box-shadow: none;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-image: linear-gradient(to bottom, whitesmoke, #e3e3e3) 1 0 1 0; }
+
 .inline-toolbar {
   padding: 6px;
   border-style: solid;
@@ -1080,14 +1095,14 @@ headerbar {
       background: none;
       color: #2EB398; }
 
-.titlebar:not(headerbar) separator.titlebutton,
+.primary-toolbar.libreoffice-toolbar separator, .titlebar:not(headerbar) separator.titlebutton,
 headerbar separator.titlebutton {
   min-width: 0;
   min-height: 0;
   background: none;
   border-width: 0 0;
   border-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0) 75%) 0 1/0 0 stretch; }
-  .titlebar:not(headerbar) separator.titlebutton:backdrop,
+  .primary-toolbar.libreoffice-toolbar separator:backdrop, .titlebar:not(headerbar) separator.titlebutton:backdrop,
   headerbar separator.titlebutton:backdrop {
     opacity: 0.6; }
 
@@ -3010,6 +3025,7 @@ headerbar button.titlebutton,
   .titlebar button.titlebutton:hover {
     box-shadow: none;
     background-image: radial-gradient(circle farthest-corner at center, alpha(currentColor, 0) 100%, transparent 0%), image(alpha(currentColor, 0.15));
+    background-color: alpha(rgba(0, 0, 0, 0.8), 0.1);
     color: currentColor; }
   headerbar button.titlebutton:active,
   .titlebar button.titlebutton:active, headerbar button.titlebutton:checked,
@@ -3018,6 +3034,7 @@ headerbar button.titlebutton,
     animation: flat_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
     box-shadow: none;
     color: currentColor;
+    background-color: alpha(rgba(0, 0, 0, 0.8), 0.2);
     transition: none;
     animation: none;
     box-shadow: none;

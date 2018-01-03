@@ -606,7 +606,6 @@ button {
 
     &:not(.text-button) { @extend %simple_flat_button; }
   }
-
   .primary-toolbar & { -gtk-icon-shadow: none; } // tango icons don't need shadows
 }
 
@@ -951,6 +950,7 @@ combobox {
 /************
  * Toolbars *
  ************/
+
 toolbar {
   -GtkWidget-window-dragging: true;
   padding: $container_padding / 2;
@@ -996,6 +996,18 @@ toolbar {
 
     switch { margin: ($container_padding / 2 + $container_padding) ($container_padding / 2); }
   }
+}
+
+.primary-toolbar.libreoffice-toolbar {  // LO messes up the toolbar styling, so exclude LO toolbars
+  color: $fg_color;
+  background-color: opacify($bg_color, 1);
+  box-shadow: none;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-image: linear-gradient(to bottom, opacify($bg_color, 1),
+                                           darken($bg_color, 7%)) 1 0 1 0; //temporary hack for rhythmbox 3.1
+
+  separator { @extend %header_separator; }
 }
 
 //searchbar, location-bar & inline-toolbar

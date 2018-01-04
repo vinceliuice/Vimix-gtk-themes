@@ -3408,28 +3408,27 @@ $darker_asset_suffix: if($headerbar=='dark', '-dark', $asset_suffix);
 %titlebuttons {
 
   button.titlebutton {
-    margin: 0;
-    padding: 0;
-    min-width: 32px;
-    min-height: 28px;
 
     &:hover {
       @include button(flat-hover);
     }
     &:active, &:checked {
       @include button(flat-active);
-      transition: none;
-      animation: none;
-      box-shadow: none;
-      border: none;
     }
 
     &.close, &.maximize, &.minimize, &.restore {
+      margin: 0;
+      padding: 0;
+      min-width: 32px;
+      min-height: 28px;
+      animation: none;
+      box-shadow: none;
+      border: none;
       color: transparent;
       background-color: transparent;
       background-position: center;
       background-repeat: no-repeat;
-      border-width: 0;
+
       &:backdrop { opacity: 1; }
 
     }

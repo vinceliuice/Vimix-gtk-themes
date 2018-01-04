@@ -311,6 +311,79 @@ notebook > stack:not(:only-child) revealer .gedit-search-slider .linked:not(.ver
   border: 1px solid $borders_color;
 }
 
+//
+//  * Gnome-Logs *
+//
+
+window.background > box.vertical box.horizontal {
+
+  > box.vertical > scrolledwindow > viewport.frame > list { // right-pane
+
+    // > 3.25.90
+    row.event.activatable {
+      color: $fg_color;
+      transition-duration: 0.1s;
+      &:hover,
+      &:active { color: $fg_color; }
+
+      label.compressed-entries-label { // hard-coded background-color?
+        background-image: image($suggested_color);
+        color: $dark_contrast_color;
+        font-weight: 700;
+      }
+
+      &.compressed-row {
+        background-image: image(darken($bg_color, 3%));
+        color: darken($fg_color, 20%);
+        transition-property: opacity, // exclude background-color
+                             border-image,
+                             background-image,
+                             box-shadow;
+        &:hover {
+          background-image: image(mix($fg_color, $bg_color, 5%));
+          color: $fg_color;
+        }
+        &:active {
+          &, &:focus {
+            background-image: image(mix($fg_color,
+                                        $bg_color, 10%));
+            color: $fg_color;
+            animation: none;
+          }
+        }
+
+        &.popover-activated-row {
+          background-image: image($primary_color);
+          color: $dark_contrast_color;
+        }
+
+        &-header {
+          background-image: image($base_color); // stop highlighting
+          background-color: $base_color; // stop highlighting
+          color: $primary_color;
+          &:hover {
+            background-image: image(mix($primary_color,
+                                        $base_color, 5%));
+          }
+          &:active {
+            &, &:focus {
+              background-image: image(mix($primary_color,
+                                          $base_color, 10%));
+              color: $primary_color;
+              animation: none;
+            }
+          }
+
+          label.compressed-entries-label {
+            background-image: image($primary_color);
+            color: $dark_contrast_color;
+            transition-duration: 0s;
+          }
+        }
+      }
+    }
+  }
+}
 
 /***********
  * Builder *

@@ -197,13 +197,14 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
                                       transparent 0%),
                       image($zero_track_color);
     color: $fg_color;
+    background-color: lighten($lighter_bg_color, 5%);
   }
 
   @if $t == active {
     transition: $longer_transition, $shadow_transition, background-image 0;
     animation: ripple_effect $longer_duration $deceleration_curve forwards;
     box-shadow: $z-depth-2;
-    background-color: gtkalpha($fg_color, 0.2);
+    background-color: gtkalpha($fg_color, 0.15);
     color: $fg_color;
   }
 
@@ -240,7 +241,6 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
                                       $zero_track_color 100%,
                                       transparent 0%),
                       image($semi_track_color);
-    background-color: gtkalpha($fg_color, 0.1);
     color: currentColor;
   }
 
@@ -249,7 +249,6 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
     animation: flat_ripple_effect $longer_duration $deceleration_curve forwards;
     box-shadow: none;
     color: currentColor;
-    background-color: gtkalpha($fg_color, 0.2);
   }
 
   @if $t == flat-disabled {

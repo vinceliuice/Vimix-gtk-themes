@@ -18,7 +18,7 @@ srcdir=${repodir}/src
 
  echo
 
-for variant in 'Dark' 'Light' ; do
+for variant in '' '-Dark' '-Light' ; do
   for size in '' '-Laptop' ; do
 	for color in '' '-Ruby' '-Doder' '-Beryl'; do
 		echo -e "   Installing Vimix${variant}${size}${color} ..."
@@ -66,19 +66,19 @@ for variant in 'Dark' 'Light' ; do
 			${themedir}/gnome-shell/assets
 
 		cp -ur \
-			no-events-${variant}.svg \
+			no-events${variant}.svg \
 			${themedir}/gnome-shell/assets/no-events.svg
 
 		cp -ur \
-			no-notifications-${variant}.svg \
+			no-notifications${variant}.svg \
 			${themedir}/gnome-shell/assets/no-notifications.svg 
 
 		cp -ur \
-			calendar-arrow-left-${variant}.svg \
+			calendar-arrow-left${variant}.svg \
 			${themedir}/gnome-shell/assets/calendar-arrow-left.svg
 
 		cp -ur \
-			calendar-arrow-right-${variant}.svg \
+			calendar-arrow-right${variant}.svg \
 			${themedir}/gnome-shell/assets/calendar-arrow-right.svg
 
 		cp -ur \
@@ -86,11 +86,11 @@ for variant in 'Dark' 'Light' ; do
 			${themedir}/gnome-shell/assets/checkbox.svg
 
 		cp -ur \
-			checkbox-off-${variant}.svg \
+			checkbox-off${variant}.svg \
 			${themedir}/gnome-shell/assets/checkbox-off.svg
 
 		cp -ur \
-			close-${variant}.svg \
+			close${variant}.svg \
 			${themedir}/gnome-shell/assets/close.svg
 
 		cp -ur \
@@ -98,7 +98,7 @@ for variant in 'Dark' 'Light' ; do
 			${themedir}/gnome-shell/assets/more-results.svg
 
 		cp -ur \
-			toggle-off-${variant}.svg \
+			toggle-off${variant}.svg \
 			${themedir}/gnome-shell/assets/toggle-off.svg
 
 		cp -ur \
@@ -121,23 +121,26 @@ for variant in 'Dark' 'Light' ; do
 		cd ${srcdir}/gtk-2.0
 
 		cp -ur \
-			Vimix${color}/assets \
-			Vimix${color}/apps.rc \
+			gtkrc${variant}${color} \
+			${themedir}/gtk-2.0/gtkrc
+
+		cp -ur \
+			common/apps.rc \
+			common/hacks.rc \
+			common/main.rc \
 			${themedir}/gtk-2.0
 
+		install -d ${themedir}/gtk-2.0/assets
+		cd ${srcdir}/gtk-2.0/assets/Vimix${color}
 		cp -ur \
-			Vimix${color}/main${variant}.rc \
-			${themedir}/gtk-2.0/main.rc
-
-		cp -ur \
-			Vimix${color}/gtk${variant}rc \
-			${themedir}/gtk-2.0/gtkrc
+			assets${variant}/*.png \
+			${themedir}/gtk-2.0/assets/
 
 		# Install GTK+ 3 Theme
 		install -d ${themedir}/gtk-3.0
 		cd ${srcdir}/gtk-3.0
 		cp -ur \
-			thumbnail-${variant}${color}.png \
+			thumbnail${variant}${color}.png \
 			${themedir}/gtk-3.0/thumbnail.png
 		cp -ur \
 			windows-assets/windows-assets \
@@ -152,7 +155,7 @@ for variant in 'Dark' 'Light' ; do
 			gtk${variant}${size}${color}.css \
 			${themedir}/gtk-3.0/gtk.css
 		cp -ur \
-			gtk${size}${color}-dark.css \
+			gtk-Dark${size}${color}.css \
 			${themedir}/gtk-3.0/gtk-dark.css
 
 		# Install Metacity Theme

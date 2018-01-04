@@ -45,31 +45,46 @@ $disabled_secondary_inversed_fg_color: scale-alpha($secondary_inversed_fg_color,
 $disabled_tertiary_inversed_fg_color: scale-alpha($tertiary_inversed_fg_color, $disabled_opacity);
 
 // Background colors
-$bg_color: if($variant == 'light', #F5F5F5, #333333);
-$base_color: if($variant == 'light', #FFFFFF, #404040);
+$bg_color: if($variant =='dark', if($color == 'ruby' or $color == 'black' or $color == 'white', #333333, #343943), #F5F5F5);
+$base_color: if($variant =='dark', if($color == 'ruby' or $color == 'black' or $color == 'white', #404040, #40454F), #FFFFFF);
 $alt_base_color: mix($base_color, $bg_color, 50%);
-$lighter_bg_color: if($variant =='light', #FAFAFA, #444444);
-$darker_bg_color: if($variant =='light', #EEEEEE, #303030);
-$darker_fg_color: if($variant =='light', #202020, #DDDDDD);
-$progress_color: if($variant =='light', #444444, #EEEEEE);
-$tab_color: if($variant =='light', #505050, #FFFFFF);
-$secondary_titlebar_color: #333333;
+
+$lighter_bg_color: if($variant =='dark', if($color == 'ruby' or $color == 'black' or $color == 'white', #444444, #444851), #FAFAFA);
+$darker_bg_color: if($variant =='dark', if($color == 'ruby' or $color == 'black' or $color == 'white', #303030, #31353E), #EEEEEE);
+$darker_fg_color: if($variant =='light', if($color == 'ruby' or $color == 'black' or $color == 'white', #222222, #191D29), #DDDDDD);
 
 // Headerbar colors
-$headerbar_bg_color: if($headerbar =='dark', #444444, #EEEEEE);
 $headerbar_fg_color: if($headerbar =='dark', $dark_contrast_color, $fg_color);
 $secondary_headerbar_fg_color: if($headerbar =='dark', $secondary_inversed_fg_color, $secondary_fg_color);
 $disabled_headerbar_fg_color: if($headerbar =='dark', $disabled_secondary_inversed_fg_color, $disabled_fg_color);
 
-$primary_color: #666666;
-$alt_primary_color: #888888;
-$accent_color: if($variant =='light', #666666, #FAFAFA);
-$topbar_color: $headerbar_bg_color;
-$topbar_fg_color: $headerbar_fg_color;
+$headerbar_bg_color: #eeeeee;
+@if ($color == 'ruby' or $color == 'black') and $headerbar =='dark' { $headerbar_bg_color: if($variant =='light', #444444, #424242); }
+@if ($color == 'doder' or $color == 'beryl') and $headerbar =='dark' { $headerbar_bg_color: if($variant =='light', #444851, #3F444D); }
+
+// Selected and Theme colors
+$primary_color: #686868;
+$alt_primary_color: #666666;
+$accent_color: #666666;
+@if $color == 'ruby' { $primary_color: #F0544C; $alt_primary_color: #FF615A; $accent_color: #FF626C; }
+@if $color == 'doder' { $primary_color: #4285F4; $alt_primary_color: #03a9f4; $accent_color: #18b8ff; }
+@if $color == 'beryl' { $primary_color: #2EB398; $alt_primary_color: #1eba9b; $accent_color: #0fd1ab; }
+
+@if $color == 'black' { 
+    $primary_color: if($variant =='light', #686868, #686868);
+    $alt_primary_color: if($variant =='light', #666666, #666666);
+    $accent_color: if($variant =='light', #666666, #fefefe); }
+
+$theme_fg_color: if($color == 'white', $primary_color, if($color == 'black', $dark_contrast_color, $primary_color));
 
 $menu_bg_color: if($headerbar =='light', $base_color, $headerbar_bg_color);
 $menu_fg_color: if($headerbar =='light', $fg_color, $headerbar_fg_color);
 $disabled_menu_fg_color: if($headerbar =='light' and $variant =='light', rgba(#000, 0.5), rgba(#fff, 0.5));
+
+$tab_color: $primary_color;
+$secondary_titlebar_color: $primary_color;
+$topbar_color: $headerbar_bg_color;
+$topbar_fg_color: $headerbar_fg_color;
 
 // Misc colors
 $track_color: gtkalpha(currentColor, $lower_opacity);
@@ -77,12 +92,12 @@ $semi_track_color: gtkalpha(currentColor, $lower_opacity / 2);
 $zero_track_color: gtkalpha(currentColor, 0);
 $row_track_color: gtkalpha(currentColor, 0.05);
 $borders_color: if($variant == 'light', scale-alpha(#000000, 0.1), scale-alpha(#000000, 0.2));
-$highlight_color: if($variant == 'light', scale-alpha(#FFFFFF, 0.4), scale-alpha(#FFFFFF, 0.1));
+$highlight_color: if($variant == 'light', scale-alpha(#FFFFFF, 0.4), scale-alpha(#FFFFFF, 0.3));
 $secondary_highlight_color: scale-alpha(#FFFFFF, 0.1);
 
 $placeholder_text_color: mix($fg_color, $base_color, percentage($hint_opacity));
 
-$link_color: if($variant =='light', $primary_color, #FAFAFA);
+$link_color: $primary_color;
 $link_visited_color: #E040FB;
 
 $warning_color: #FF6D00;

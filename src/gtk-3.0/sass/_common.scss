@@ -7,16 +7,17 @@ $large_size: if($laptop == 'true', 42px, 46px);
 
 $container_padding: 6px;
 
-$line_size: if($laptop == 'true', 0 0 2 / 0 0 2px, 0 0 3 / 0 0 3px);
 $bar_size: 4px;
 $menuitem_size: 28px;
 
+$line_size: if($laptop == 'true', 0 0 3 / 0 0 3px, 0 0 3 / 0 0 3px);
 $md_radius: 3px;
 $circular_radius: 100px;
 
 $shortest_duration: 0.1s;
 $shorter_duration: 0.2s;
 $longer_duration: 0.3s;
+$ripple_duration: 0.45s;
 
 $standard_curve: cubic-bezier(0.4, 0.0, 0.2, 1);
 $deceleration_curve: cubic-bezier(0.0, 0.0, 0.2, 1);
@@ -58,7 +59,7 @@ $shadow_transition: box-shadow $shorter_duration $deceleration_curve;
   outline-width: 0;
   outline-color: $track_color;
   outline-offset: -4px;
-  -gtk-outline-radius: 2px;
+  -gtk-outline-radius: $md_radius;
 
   -gtk-secondary-caret-color: $primary_color;
 }
@@ -605,7 +606,6 @@ button {
 
     &:not(.text-button) { @extend %simple_flat_button; }
   }
-
   .primary-toolbar & { -gtk-icon-shadow: none; } // tango icons don't need shadows
 }
 
@@ -660,7 +660,7 @@ toolbar.inline-toolbar toolbutton {
 
 %linked_vertical_middle {
   border-radius: 0;
-  -gtk-outline-radius: $md_radius;
+  -gtk-outline-radius: $md_radius
 }
 
 %linked_vertical{
@@ -770,19 +770,19 @@ spinbutton {
       border-radius: 0;
       box-shadow: none;
       background-color: transparent;
-      //
+      // 
       // This will help to simplify spinbutton's code, but unfortunatelly
       // doesn't work properly in :dir(rtl). It needs z-index property.
-      //
+      // 
       // min-width: $large_size - 8px;
-      //
+      // 
       // $spinbuttons_width: $small_size * 2 + $container_padding * 3;
-      //
+      // 
       // &:dir(ltr) {
       //   margin-right: -$spinbuttons_width;
       //   padding-right: $spinbuttons_width;
       // }
-      //
+      // 
       // &:dir(rtl) {
       //   margin-left: -$spinbuttons_width;
       //   padding-left: $spinbuttons_width;
@@ -903,23 +903,30 @@ combobox {
   }
 }
 
-.linked > combobox > box > button.combo {
-  // the combo is a composite widget so the way we do button linking doesn't
-  // work, special case needed. See
-  // https://bugzilla.gnome.org/show_bug.cgi?id=733979
+// the combo is a composite widget so the way we do button linking doesn't
+// work, special case needed. See
+// https://bugzilla.gnome.org/show_bug.cgi?id=733979
 
-  &:dir(ltr),
-  &:dir(rtl) { @extend %linked_middle; } // specificity bump
+.linked:not(.vertical) > combobox {
+  > box > button.combo { @extend %linked_middle; }
+
+  &:first-child > box > button.combo { @extend %linked:first-child; }
+
+  &:last-child > box > button.combo { @extend %linked:last-child; }
+
+  &:only-child > box > button.combo { @extend %linked:only-child; }
 }
 
-.linked:not(.vertical) > combobox:first-child > box > button.combo { @extend %linked:first-child; }
-.linked:not(.vertical) > combobox:last-child > box > button.combo { @extend %linked:last-child; }
-.linked:not(.vertical) > combobox:only-child > box > button.combo { @extend %linked:only-child; }
+.linked.vertical > combobox {
+  > box > button.combo { @extend %linked_vertical_middle; }
 
-.linked.vertical > combobox > box > button.combo { @extend %linked_vertical_middle; }
-.linked.vertical > combobox:first-child > box > button.combo { @extend %linked_vertical:first-child; }
-.linked.vertical > combobox:last-child > box > button.combo { @extend %linked_vertical:last-child; }
-.linked.vertical > combobox:only-child > box > button.combo { @extend %linked_vertical:only-child; }
+  &:first-child > box > button.combo { @extend %linked_vertical:first-child; }
+
+  &:last-child > box > button.combo { @extend %linked_vertical:last-child; }
+
+  &:only-child > box > button.combo { @extend %linked_vertical:only-child; }
+}
+
 
 %combo_flat {
   border-radius: 0;
@@ -940,10 +947,10 @@ combobox {
   &:disabled { color: $disabled_fg_color; }
 }
 
-
 /************
  * Toolbars *
  ************/
+
 toolbar {
   -GtkWidget-window-dragging: true;
   padding: $container_padding / 2;
@@ -1020,6 +1027,7 @@ headerbar {
   min-height: $large_size;
   padding: 0 $container_padding;
   box-shadow: $header_shadow, inset 0 1px $secondary_highlight_color;
+//      inset 0 -1px $borders_color;
   background-color: $headerbar_bg_color;
   color: $headerbar_fg_color;
 
@@ -1052,9 +1060,9 @@ headerbar {
 
   button {
       @extend %header_button;
-      &:hover { background-color: gtkalpha($alt_primary_color, 0.3); color: $headerbar_fg_color; }
-      &:active { background-color: gtkalpha($alt_primary_color, 0.5); color: $headerbar_fg_color; }
-      &:checked { background-color: gtkalpha($alt_primary_color, 0.7); color: $dark_contrast_color; }
+      &:hover { color: $accent_color; background-color: gtkalpha($primary_color, 0.3); }
+      &:active { background-color: $primary_color; color: $dark_contrast_color; }
+      &:checked { background-color: $primary_color; color: $dark_contrast_color; }
   }
 
   button.suggested-action, button.destructive-action {
@@ -1180,49 +1188,50 @@ headerbar {
 
     &:hover {
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    gtkalpha($headerbar_fg_color, 0.8) 100%,
+                                    gtkalpha($theme_fg_color, 0.8) 100%,
                                     transparent 0%)
                                     0 0 2 / 0 0 2px;
       background: none;
-      color: gtkalpha($headerbar_fg_color, 0.8);
+      color: gtkalpha($theme_fg_color, 0.8);
 
       &, &:disabled { background-color: transparent; }
     }
 
     &:checked {
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    $headerbar_fg_color 100%,
+                                    $theme_fg_color 100%,
                                     transparent 0%)
                                     0 0 2 / 0 0 2px;
       background: none;
-      color: $headerbar_fg_color;
+      color: $theme_fg_color;
 
      }
   }
  }
 
-  // some case for headerbar path-bars
+  // Some case for headerbar path-bars
 .linked:not(.vertical).path-bar {
     > button {
-    margin: 0;
+    margin: 0 0 0 0;
+
     &:hover {
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    gtkalpha($headerbar_fg_color, 0.8) 100%,
+                                    gtkalpha($theme_fg_color, 0.8) 100%,
                                     transparent 0%)
                                     $line_size;
       background: none;
-      color: gtkalpha($headerbar_fg_color, 0.8);
+      color: gtkalpha($theme_fg_color, 0.8);
 
       &, &:disabled { background-color: transparent; }
     }
 
     &:checked {
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    $headerbar_fg_color 100%,
+                                    $theme_fg_color 100%,
                                     transparent 0%)
                                     $line_size;
       background: none;
-      color: $headerbar_fg_color;
+      color: $theme_fg_color;
 
      }
   }
@@ -1460,11 +1469,11 @@ menubar,
 
     &:hover { //Seems like it :hover even with keyboard focus
       border-radius: 2px 2px 0 0;
-      background-color: shade($primary_color, 0.9);
+      background-color: $primary_color;
       color: $dark_contrast_color;
     }
 
-    &:disabled { color: $disabled_headerbar_fg_color; }
+    &:disabled { color: $disabled_secondary_inversed_fg_color; }
 
   }
 }
@@ -1477,6 +1486,7 @@ menu,
   box-shadow: none;
   background-color: $menu_bg_color;
   border: none;
+  border-radius: 0;
 
   .csd & {
     border: none; // axes borders in a composited env
@@ -1494,7 +1504,8 @@ menu,
 
     &:hover {
       transition: none;
-      background-color: scale-alpha(#000000, 0.15);
+      color: $dark_contrast_color;
+      background-color: $primary_color;
     }
 
    &:disabled { color: $disabled_menu_fg_color; }
@@ -1543,14 +1554,13 @@ menu,
 
     &:hover {
       background-image: image(gtkalpha(currentColor, $lower_opacity / 2));
-      color: $menu_fg_color;
+      color: $headerbar_fg_color;
     }
 
     &:disabled {
       border-color: transparent;
       background-color: transparent;
       color: transparent;
-      // color: $disabled_secondary_fg_color;
     }
   }
 
@@ -1564,9 +1574,10 @@ menuitem {
 
 .csd.popup { border-radius: 2px; }
 
-/************
- * Popovers *
- ************/
+
+/***************
+ * Popovers   *
+ ***************/
 popover.background {
   transition: $shadow_transition;
   padding: 0;
@@ -1595,31 +1606,29 @@ popover.background {
     &.magnifier,
     &.osd { @extend %osd; }
   }
-
+    
    entry { @extend %entry.flat; }
-
    button:not(.suggested-action):not(.destructive-action) {
 //       @extend %button.flat;
        box-shadow: none;
-//       border: 1px solid darken($lighter_bg_color, 10%);
        &:hover {
-           background-color: gtkalpha($accent_color, 0.8);
+           background-color: gtkalpha($primary_color, 0.8);
            color: $inversed_fg_color;
-           border-color: gtkalpha($accent_color, 0.8);
+           border-color: gtkalpha($primary_color, 0.8);
        }
        &:checked {
-           background-color: $accent_color;
+           background-color: $primary_color;
            color: $inversed_fg_color;
-           border-color: $accent_color;
+           border-color: $primary_color;
        }
        &:disabled {
            background-color: $lighter_bg_color;
            color: $disabled_fg_color;
        }
        &:checked:disabled {
-           background-color: lighten($accent_color, 10%);
+           background-color: lighten($primary_color, 10%);
            color: $inversed_fg_color;
-           border-color: lighten($accent_color, 10%);
+           border-color: lighten($primary_color, 10%);
        }
     }
 
@@ -1627,7 +1636,7 @@ popover.background {
   button.model {
 //    @extend %button.flat;
     @extend %linked;
-    margin: 0 -1px 0 -1px;
+    margin: 0;
     min-height: 32px;
     padding: 0 6px;
     box-shadow: none;
@@ -1637,6 +1646,7 @@ popover.background {
 
   list separator { margin: 0; }
 }
+
 
 /*************
  * Notebooks *
@@ -2000,7 +2010,7 @@ switch {
   margin: $container_padding 0;
   border: 4px solid transparent;
   border-radius: 100px;
-  background-color: $track_color;
+  background-color: gtkalpha(currentColor, $lower_opacity);
   background-clip: padding-box;
   font-size: 0;
 
@@ -2042,6 +2052,7 @@ switch {
   row:selected & {
   }
 }
+
 
 /*************************
  * Check and Radio items *
@@ -2115,6 +2126,8 @@ radio {
     &, &:hover, &:disabled {
       box-shadow: none;
       background-image: none;
+      border-image: none;
+      background-color: transparent;
     }
 
     &:not(:checked):not(:indeterminate):not(:disabled) { color: $secondary_fg_color; }
@@ -2132,10 +2145,8 @@ radio {
 
   menu menuitem & {
     transition: none;
-    min-height: 16px;
-    min-width: 16px;
     margin: 0; // this is a workaround for a menu check/radio size allocation issue
-    padding: 0 ;
+    padding: 0;
 
     &:dir(ltr) { margin-right: 8px; }
 
@@ -2145,7 +2156,6 @@ radio {
 
     &, &:hover, &:disabled {
       box-shadow: none;
-      background-image: none;
       // color: inherit;
     }
   }
@@ -2162,10 +2172,6 @@ check {
   &:indeterminate { -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/check-dash-symbolic.svg")),
                                             -gtk-recolor(url("assets/scalable/check-dash-symbolic.png"))); }
 }
-
-$radio_indicator: 10 / ($large_size / 1px) / 2;
-$radio_radius_slice: #{$large_size / 2 / 1px};
-$radio_radius_width: #{$large_size / 2};
 
 %radio,
 radio {
@@ -2207,6 +2213,22 @@ radio {
 
   }
 
+  @each $t in (':disabled',),
+              (':indeterminate:disabled'),
+              (':checked:disabled') {
+
+    treeview.view,
+    row,
+    row.activatable {
+      #{$w}:selected#{$t},
+      #{$w}:selected:focus#{$t} {
+        color: gtkalpha($dark_contrast_color, 0.5);
+        -gtk-icon-shadow: none;
+      }
+    }
+
+  }
+
 }
 
 // check/radio inside selected-menu
@@ -2214,29 +2236,46 @@ radio {
             ('radio') {
 
   // standard checks and radios
-
-  @each $s in ('',),
-              (':indeterminate'),
-              (':checked') {
-
-    menu menuitem.#{$w}#{$s},
-    menu menuitem #{$w}#{$s} {
-        color: $headerbar_fg_color;
-        -gtk-icon-shadow: none;
-      }
-    }
-
   @each $s in (':hover',),
               (':indeterminate:hover'),
               (':checked:hover') {
 
     menu menuitem.#{$w}#{$s},
     menu menuitem #{$w}#{$s} {
-        color: $secondary_headerbar_fg_color;
+        color: $dark_contrast_color;
         -gtk-icon-shadow: none;
-      }
+        border-image: none;
     }
+  }
+}
 
+// ANIMATION:
+// this is made with those pretty convoluted transitions, since checks and radios have to animate only on state changes,
+// the transformation is set on the active state and it get reset on the checked state.
+check:not(:checked):active { -gtk-icon-transform: rotate(90deg); }
+
+// radio:not(:checked):active { -gtk-icon-transform: scale(0); }
+
+check:not(:checked):indeterminate:active,
+radio:not(:checked):indeterminate:active { -gtk-icon-transform: scaleX(-1); } // instead of rotateY(180deg)
+
+check:not(:checked),
+radio:not(:checked) {
+  & {
+    transition: $longer_transition,
+                background-size $ripple_duration $deceleration_curve,
+                background-image $ripple_duration * 2 $deceleration_curve,
+                -gtk-icon-transform 0;
+  }
+
+  &:active {
+    transition: $longer_transition,
+                background-size 0,
+                background-image 0,
+                -gtk-icon-transform 0;
+  }
+
+  menu menuitem & { transition: none; }
 }
 
 treeview.view check,
@@ -2527,9 +2566,9 @@ progressbar {
   color: $tertiary_fg_color;
   font-size: smaller;
 
-  trough { background-color: scale-alpha($progress_color, $lower_opacity); }
+  trough { background-color: scale-alpha($primary_color, $lower_opacity); }
 
-  progress { background-color: $progress_color; }
+  progress { background-color: $primary_color; }
 
   &.osd { // progressbar.osd used for epiphany page loading progress
     // min-width: $bar_size;
@@ -2543,14 +2582,6 @@ progressbar {
   }
 }
 
-// headerbar progressbar
-headerbar {
-  progressbar {
-    trough { background-color: if($variant=='light' and $headerbar=='light', scale-alpha($progress_color, $lower_opacity), scale-alpha(#EEE, $lower_opacity)); }
-    progress { background-color: if($variant=='light' and $headerbar=='light', $progress_color, #EEE); }
-    &:backdrop { opacity: 0.75; }
-  }
-}
 
 /*************
  * Level Bar *
@@ -2781,7 +2812,7 @@ expander {
 
 /************
  * Calendar *
- ************/
+ ***********/
 calendar {
   padding: 1px;
   border: 1px solid $borders_color;
@@ -2890,11 +2921,11 @@ filechooserbutton:drop(active) {
     padding: 0 2px;
     transition: none;
     
-    &:hover { color: $darker_fg_color;
+    &:hover { color: $primary_color;
               background-color: transparent; 
-              box-shadow: inset 3px 0 $progress_color; }
+              box-shadow: inset 3px 0 $primary_color; }
 
-    &:active { box-shadow: inset 3px 0 $progress_color; }
+    &:active { box-shadow: inset 3px 0 $primary_color; }
 
     &:backdrop:hover { background-color: transparent; }
 
@@ -2903,7 +2934,7 @@ filechooserbutton:drop(active) {
 
       &:hover { color: #fff;
                 background-color: scale-alpha($primary_color, 0.8);
-                box-shadow: inset 3px 0 scale-alpha($progress_color, 0.5); }
+                box-shadow: none; }
 
       &:backdrop { background-color: scale-alpha($primary_color, 0.8); }
               }
@@ -3298,7 +3329,7 @@ colorchooser .popover.osd {
 
 /**********************
  * Window Decorations *
- **********************/
+ *********************/
 decoration {
   transition: $shadow_transition;
   border-radius: 2px 2px 0 0;
@@ -3494,6 +3525,7 @@ stackswitcher button.text-button.circular { // FIXME aggregate with buttons
   min-height: $medium_size;
   padding: 0;
 }
+
 
 /*********
  * Emoji *

@@ -2869,13 +2869,30 @@ messagedialog { // Message Dialog styling
       padding: 8px 16px;
       border-top: 1px solid $borders_color;
       border-radius: 0;
-
       @extend %simple_flat_button;
 
       &:first-child { border-bottom-left-radius: 2px; }
 
       &:last-child { border-bottom-right-radius: 2px; }
     }
+
+  @each $b_type, $b_color in (suggested-action, $suggested_color),
+                             (destructive-action, $destructive_color) {
+    .dialog-action-area button.#{$b_type} {
+      color: $b_color;
+      background-color: transparent;
+      box-shadow: none;
+//      border-color: $borders_color;
+      &:hover,
+      &:checked {
+          background-color: $b_color;
+          color: $inversed_fg_color;
+//          border-color: $b_color;
+        }
+      &:disabled { opacity: 0.65; }
+      }
+    }
+
   }
 }
 
@@ -2918,7 +2935,7 @@ filechooserbutton:drop(active) {
   list { background-color: transparent; }
 
   row {
-    padding: 0 2px;
+    padding: 10px 4px;
     transition: none;
     
     &:hover { color: $primary_color;
@@ -2932,7 +2949,7 @@ filechooserbutton:drop(active) {
     &:selected {
       &:active { box-shadow: none; }
 
-      &:hover { color: #fff;
+      &:hover { color: $dark_contrast_color;
                 background-color: scale-alpha($primary_color, 0.8);
                 box-shadow: none; }
 
@@ -2954,7 +2971,7 @@ stacksidebar {
   }
 
   row {
-    padding: 10px 4px;
+    padding: 0;
 
     > label {
       padding-left: 6px;

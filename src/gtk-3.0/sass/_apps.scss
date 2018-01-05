@@ -44,6 +44,35 @@
   text-shadow: none;
 }
 
+filechooser,
+.nautilus-window {
+
+  placessidebar.sidebar {
+
+     separator,
+     .separator {
+       min-height: 1px;
+       border-color: $borders_color;
+       background-color: $borders_color;
+     }
+
+    row.sidebar-row {
+      padding: 0;
+      &:hover { color: $primary_color;
+              background-color: transparent;
+              box-shadow: inset 3px 0 $primary_color; }
+
+      &:active { box-shadow: inset 3px 0 $primary_color; }
+      &:backdrop { opacity: 0.85; }
+
+      &:selected {
+        &:active { box-shadow: none; }
+        &:hover { box-shadow: none; color:$dark_contrast_color; background-color: scale-alpha($primary_color, 0.8); }
+      }
+    }
+  }
+}
+
 // Toolbar
 @keyframes needs_attention_keyframes {
   from { background-color: transparent; }

@@ -2695,6 +2695,24 @@ messagedialog.csd .dialog-action-area button {
     border-bottom-left-radius: 2px; }
   messagedialog.csd .dialog-action-area button:last-child {
     border-bottom-right-radius: 2px; }
+messagedialog.csd .dialog-action-area button.suggested-action {
+  color: #4CAF50;
+  background-color: transparent;
+  box-shadow: none; }
+  messagedialog.csd .dialog-action-area button.suggested-action:hover, messagedialog.csd .dialog-action-area button.suggested-action:checked {
+    background-color: #4CAF50;
+    color: #FFFFFF; }
+  messagedialog.csd .dialog-action-area button.suggested-action:disabled {
+    opacity: 0.65; }
+messagedialog.csd .dialog-action-area button.destructive-action {
+  color: #FF5252;
+  background-color: transparent;
+  box-shadow: none; }
+  messagedialog.csd .dialog-action-area button.destructive-action:hover, messagedialog.csd .dialog-action-area button.destructive-action:checked {
+    background-color: #FF5252;
+    color: #FFFFFF; }
+  messagedialog.csd .dialog-action-area button.destructive-action:disabled {
+    opacity: 0.65; }
 
 filechooser .dialog-action-box {
   border-top: 1px solid rgba(0, 0, 0, 0.1); }
@@ -2722,7 +2740,7 @@ filechooserbutton:drop(active) {
   .sidebar list {
     background-color: transparent; }
   .sidebar row {
-    padding: 0 2px;
+    padding: 10px 4px;
     transition: none; }
     .sidebar row:hover {
       color: #4285F4;
@@ -2735,7 +2753,7 @@ filechooserbutton:drop(active) {
     .sidebar row:selected:active {
       box-shadow: none; }
     .sidebar row:selected:hover {
-      color: #fff;
+      color: #FFFFFF;
       background-color: rgba(66, 133, 244, 0.8);
       box-shadow: none; }
     .sidebar row:selected:backdrop {
@@ -2744,7 +2762,7 @@ filechooserbutton:drop(active) {
     border-style: none; }
 
 stacksidebar row {
-  padding: 10px 4px; }
+  padding: 0; }
   stacksidebar row > label {
     padding-left: 6px;
     padding-right: 6px; }
@@ -3218,6 +3236,36 @@ button.emoji-section {
 
 .nautilus-desktop.nautilus-canvas-item:selected, .caja-desktop.caja-canvas-item:selected {
   text-shadow: none; }
+
+filechooser placessidebar.sidebar separator,
+filechooser placessidebar.sidebar .separator,
+.nautilus-window placessidebar.sidebar separator,
+.nautilus-window placessidebar.sidebar .separator {
+  min-height: 1px;
+  border-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.1); }
+filechooser placessidebar.sidebar row.sidebar-row,
+.nautilus-window placessidebar.sidebar row.sidebar-row {
+  padding: 0; }
+  filechooser placessidebar.sidebar row.sidebar-row:hover,
+  .nautilus-window placessidebar.sidebar row.sidebar-row:hover {
+    color: #4285F4;
+    background-color: transparent;
+    box-shadow: inset 3px 0 #4285F4; }
+  filechooser placessidebar.sidebar row.sidebar-row:active,
+  .nautilus-window placessidebar.sidebar row.sidebar-row:active {
+    box-shadow: inset 3px 0 #4285F4; }
+  filechooser placessidebar.sidebar row.sidebar-row:backdrop,
+  .nautilus-window placessidebar.sidebar row.sidebar-row:backdrop {
+    opacity: 0.85; }
+  filechooser placessidebar.sidebar row.sidebar-row:selected:active,
+  .nautilus-window placessidebar.sidebar row.sidebar-row:selected:active {
+    box-shadow: none; }
+  filechooser placessidebar.sidebar row.sidebar-row:selected:hover,
+  .nautilus-window placessidebar.sidebar row.sidebar-row:selected:hover {
+    box-shadow: none;
+    color: #FFFFFF;
+    background-color: rgba(66, 133, 244, 0.8); }
 
 @keyframes needs_attention_keyframes {
   from {

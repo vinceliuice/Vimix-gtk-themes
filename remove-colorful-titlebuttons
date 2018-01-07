@@ -13,7 +13,7 @@ function has_command() {
 
 # change titlebutton style
 cd $srcdir/gtk-3.0/sass
-sed -i "s/$OLD_TITLE/$NEW_TITLE/g" _common.scss _common-color.scss
+sed -i "s/$OLD_TITLE/$NEW_TITLE/g" _common.scss
 
 # Install Packages
 if ! bundle exec sass --update --sourcemap=none . > /dev/null; then

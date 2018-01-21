@@ -1664,6 +1664,8 @@ switch {
     color: rgba(255, 255, 255, 0.4); }
   switch:checked:disabled slider {
     animation: none; }
+  row switch {
+    margin: 16px 0; }
 
 /*************************
  * Check and Radio items *
@@ -3878,13 +3880,13 @@ window.background > box.vertical > widget > widget:selected {
 /****************
  * Libre-Office *
  ****************/
-window.background > grid.horizontal > grid.horizontal {
+window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal {
   background-color: #424242; }
-  window.background > grid.horizontal > grid.horizontal > button.flat.small-button {
+  window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button {
     color: #FFFFFF; }
-    window.background > grid.horizontal > grid.horizontal > button.flat.small-button:hover, window.background > grid.horizontal > grid.horizontal > button.flat.small-button:active, window.background > grid.horizontal > grid.horizontal > button.flat.small-button:checked {
+    window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:hover, window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:active, window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:checked {
       color: rgba(255, 255, 255, 0.75); }
-    window.background > grid.horizontal > grid.horizontal > button.flat.small-button:disabled {
+    window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:disabled {
       color: rgba(255, 255, 255, 0.3); }
 
 window.background:not(.solid-csd) > notebook:not(.frame) {

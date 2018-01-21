@@ -999,7 +999,7 @@ window.background > box.vertical > widget > widget:selected { background-color: 
  * Libre-Office *
  ****************/
 
-window.background {
+window.background:not(.csd):not(.solid-csd) {
 // reserved area at the most-right side of GtkMenuBar
   > grid.horizontal > grid.horizontal {
     background-color: $headerbar_bg_color;

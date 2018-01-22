@@ -1648,8 +1648,8 @@ switch {
     min-width: 20px;
     min-height: 20px;
     margin: -4px 0 -4px -4px;
-    border-radius: 100px;
-    -gtk-outline-radius: 100px; }
+    border-radius: 100%;
+    -gtk-outline-radius: 100%; }
   switch:hover slider {
     border-image: none;
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23); }
@@ -1664,8 +1664,6 @@ switch {
     color: rgba(0, 0, 0, 0.32); }
   switch:checked:disabled slider {
     animation: none; }
-  row switch {
-    margin: 16px 0; }
 
 /*************************
  * Check and Radio items *

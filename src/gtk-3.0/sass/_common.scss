@@ -2032,8 +2032,8 @@ switch {
     min-width: $small_size;
     min-height: $small_size;
     margin: -4px 0 -4px -4px;
-    border-radius: 100px;
-    -gtk-outline-radius: 100px;
+    border-radius: 100%;
+    -gtk-outline-radius: 100%;
   }
 
   &:hover slider { @include entry(focus); }
@@ -2049,7 +2049,7 @@ switch {
 
   &:checked:disabled slider { animation: none; }
 
-  row & { margin: 16px 0; }
+//  row & { margin: 12px 0; } // Fix me: When more than two lines of text switch patterns will be deformed!
 }
 
 

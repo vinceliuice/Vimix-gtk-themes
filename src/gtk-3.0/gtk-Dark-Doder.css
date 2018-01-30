@@ -1028,7 +1028,7 @@ headerbar {
     .default-decoration.titlebar:not(headerbar) button.titlebutton,
     headerbar.default-decoration button.titlebutton {
       min-height: 22px;
-      min-width: 32px;
+      min-width: 26px;
       margin: 0;
       padding: 0; }
   .default-decoration.titlebar:not(headerbar), .csd .default-decoration.titlebar:not(headerbar), .default-decoration.titlebar:backdrop:not(headerbar), .csd .default-decoration.titlebar:backdrop:not(headerbar),
@@ -3003,10 +3003,10 @@ colorchooser .popover.osd {
 decoration {
   transition: box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
   border-radius: 2px 2px 0 0;
-  box-shadow: 0 14px 14px rgba(0, 0, 0, 0.25), 0 10px 5px rgba(0, 0, 0, 0.22), 0 16px 16px transparent;
-  margin: 8px; }
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22), 0 10px 12px transparent;
+  margin: 4px; }
   decoration:backdrop {
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23), 0 16px 16px transparent; }
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23), 0 10px 12px transparent; }
   .maximized decoration, .fullscreen decoration, .tiled decoration {
     border-radius: 0; }
   .popup decoration {
@@ -3073,8 +3073,8 @@ headerbar button.titlebutton.close,
 .titlebar button.titlebutton.restore {
   margin: 0;
   padding: 0;
-  min-width: 32px;
-  min-height: 28px;
+  min-width: 26px;
+  min-height: 26px;
   animation: none;
   box-shadow: none;
   border: none;
@@ -3772,7 +3772,7 @@ button.image-button.session-new-button {
 overlay > revealer.left > scrolledwindow.frame,
 overlay > revealer.right > scrolledwindow.frame {
   border-style: none;
-  box-shadow: 0 14px 14px rgba(0, 0, 0, 0.25), 0 10px 5px rgba(0, 0, 0, 0.22); }
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22); }
 
 overlay > revealer.left > scrolledwindow.frame {
   margin-right: 32px; }
@@ -4134,7 +4134,7 @@ na-tray-applet {
 /* mate-screensaver lock dialog */
 .lock-dialog {
   border-radius: 3px;
-  box-shadow: 0 14px 14px rgba(0, 0, 0, 0.25), 0 10px 5px rgba(0, 0, 0, 0.22), inset 0 1px rgba(255, 255, 255, 0.3); }
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22), inset 0 1px rgba(255, 255, 255, 0.3); }
   .lock-dialog frame > border {
     border-style: none; }
 
@@ -4223,7 +4223,7 @@ button.raven-trigger {
 
 frame.raven-frame > border {
   border-style: none;
-  box-shadow: 0 14px 14px rgba(0, 0, 0, 0.25), 0 10px 5px rgba(0, 0, 0, 0.22); }
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22); }
 
 .top frame.raven-frame > border {
   margin-bottom: 32px; }

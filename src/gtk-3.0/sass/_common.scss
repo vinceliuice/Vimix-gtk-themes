@@ -1151,7 +1151,7 @@ headerbar {
 
     button.titlebutton {
       min-height: $small_size;
-      min-width: 32px;
+      min-width: 26px;
       margin: 0;
       padding: 0;
     }
@@ -3381,19 +3381,19 @@ colorchooser .popover.osd {
 decoration {
   transition: $shadow_transition;
   border-radius: 2px 2px 0 0;
-  box-shadow: $z-depth-4, 0 16px 16px transparent;
+  box-shadow: $z-depth-4, 0 10px 12px transparent;
 
   // FIXME rationalize shadows
 
   // this is used for the resize cursor area
-  margin: 8px;
+  margin: 4px;
 
   &:backdrop {
     // the transparent shadow here is to enforce that the shadow extents don't
     // change when we go to backdrop, to prevent jumping windows.
     // The biggest shadow should be in the same order then in the active state
     // or the jumping will happen during the transition.
-    box-shadow: $z-depth-2, 0 16px 16px transparent;
+    box-shadow: $z-depth-2, 0 10px 12px transparent;
   }
 
   .maximized &,
@@ -3417,9 +3417,9 @@ decoration {
 
   messagedialog.csd & {
     border-radius: 2px;
-    // box-shadow: $z-depth-4, 0 16px 16px transparent;
+    // box-shadow: $z-depth-4;
 
-    // &:backdrop { box-shadow: $z-depth-2, 0 16px 16px transparent; }
+    // &:backdrop { box-shadow: $z-depth-2, 0 10px 10px transparent; }
   }
 
   .solid-csd & {
@@ -3467,8 +3467,8 @@ $darker_asset_suffix: if($headerbar=='dark', '-dark', $asset_suffix);
     &.close, &.maximize, &.minimize, &.restore {
       margin: 0;
       padding: 0;
-      min-width: 32px;
-      min-height: 28px;
+      min-width: 26px;
+      min-height: 26px;
       animation: none;
       box-shadow: none;
       border: none;

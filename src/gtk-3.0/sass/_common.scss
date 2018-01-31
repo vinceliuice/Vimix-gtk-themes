@@ -1,4 +1,5 @@
-$asset_suffix: if($variant=='dark', '-dark', '');
+$asset_suffix: if($variant=='dark', '-dark', ''); // use dark assets in dark variant
+$darker_asset_suffix: if($headerbar=='dark', '-dark', $asset_suffix);
 $extra_background_clip: if($variant == 'light', padding-box, border-box);
 
 $small_size: if($laptop == 'true', 20px, 22px);
@@ -593,6 +594,12 @@ button {
     min-width: 0;
     min-height: 0;
     background: transparent;
+  }
+
+//  make the row image-button be circular
+  row &.image-button {
+    border-radius: $circular_radius;
+    -gtk-outline-radius: $circular_radius;
   }
 
   // &.font,
@@ -2032,8 +2039,8 @@ switch {
     min-width: $small_size;
     min-height: $small_size;
     margin: -4px 0 -4px -4px;
-    border-radius: 100%;
-    -gtk-outline-radius: 100%;
+    border-radius: 100px;
+    -gtk-outline-radius: 100px;
   }
 
   &:hover slider { @include entry(focus); }
@@ -2049,7 +2056,22 @@ switch {
 
   &:checked:disabled slider { animation: none; }
 
-//  row & { margin: 12px 0; } // Fix me: When more than two lines of text switch patterns will be deformed!
+  row:selected & {
+      background-color: gtkalpha($light_contrast_color, 0.2);
+
+      &:checked {
+        background-color: gtkalpha($inversed_fg_color, $middle_opacity);
+      }
+
+    slider {
+      background-color: lighten($accent_color, 25%);
+    }
+
+      &:checked slider {
+        animation: none;
+        background-color: $inversed_fg_color;
+       }
+   }
 }
 
 
@@ -3450,9 +3472,6 @@ decoration {
  * Title buttons *
  *****************/
 
-$asset_suffix: if($variant=='dark', '-dark', ''); // use dark assets in dark variant
-$darker_asset_suffix: if($headerbar=='dark', '-dark', $asset_suffix);
-
 %titlebuttons {
 
   button.titlebutton {
@@ -3543,6 +3562,8 @@ button.circular { // FIXME: aggregate to buttons
   // label { padding: 0; }
 }
 
+button.circular { row & {margin: 0 5px; } } // Make the circular button hover shadow on row fully displayed
+
 %small_button {
   min-height: $small_size;
   min-width: $small_size;
@@ -3580,6 +3601,8 @@ stackswitcher button.circular,
 stackswitcher button.text-button.circular { // FIXME aggregate with buttons
   min-width: $medium_size;
   min-height: $medium_size;
+  border-radius: 100px;
+  -gtk-outline-radius: 100px;
   padding: 0;
 }
 

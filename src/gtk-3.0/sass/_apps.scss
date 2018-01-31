@@ -1005,21 +1005,21 @@ menu menuitem radio {
 
 // templates for the fallback mode buttons
 %button_fallback_normal {
-  border: 1px solid borders_color;
+  border: 1px solid $borders_color;
   background-color: $lighter_bg_color;
   color: $secondary_fg_color;
   box-shadow: none;
 }
 
 %button_fallback_hover {
-  border: 1px solid borders_color;
+  border: 1px solid $borders_color;
   background-color: mix($lighter_bg_color, $fg_color, 96%);
   color: $fg_color;
   box-shadow: none;
 }
 
 %button_fallback_active {
-  border: 1px solid borders_color;
+  border: 1px solid $borders_color;
   background-color: mix($lighter_bg_color, $fg_color, 92%);
   color: $fg_color; // do not use inverted colours
   box-shadow: none;
@@ -1042,7 +1042,7 @@ menu menuitem radio {
 
 // templates for the fallback mode entries
 %entry_fallback_normal {
-  border: 1px solid borders_color;
+  border: 1px solid $borders_color;
   border-image: none;
   background-color: $lighter_bg_color;
   color: $secondary_fg_color;
@@ -1058,7 +1058,7 @@ menu menuitem radio {
 }
 
 %entry_fallback_insensitive {
-  border: 1px solid borders_color;
+  border: 1px solid $borders_color;
   border-image: none;
   background-color: mix($bg_color, $fg_color, 96%);
   color: $disabled_fg_color;

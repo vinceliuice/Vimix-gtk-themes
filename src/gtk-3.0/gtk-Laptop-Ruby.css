@@ -607,6 +607,10 @@ button separator {
   min-width: 0;
   min-height: 0;
   background: transparent; }
+row
+button.image-button {
+  border-radius: 100px;
+  -gtk-outline-radius: 100px; }
 .primary-toolbar
 button {
   -gtk-icon-shadow: none; }
@@ -1648,8 +1652,8 @@ switch {
     min-width: 20px;
     min-height: 20px;
     margin: -4px 0 -4px -4px;
-    border-radius: 100%;
-    -gtk-outline-radius: 100%; }
+    border-radius: 100px;
+    -gtk-outline-radius: 100px; }
   switch:hover slider {
     border-image: none;
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23); }
@@ -1664,6 +1668,15 @@ switch {
     color: rgba(0, 0, 0, 0.32); }
   switch:checked:disabled slider {
     animation: none; }
+  row:selected switch {
+    background-color: alpha(rgba(0, 0, 0, 0.8), 0.2); }
+    row:selected switch:checked {
+      background-color: alpha(#FFFFFF, 0.6); }
+    row:selected switch slider {
+      background-color: #ffe2e3; }
+    row:selected switch:checked slider {
+      animation: none;
+      background-color: #FFFFFF; }
 
 /*************************
  * Check and Radio items *
@@ -3183,6 +3196,9 @@ button.circular {
   border-radius: 100px;
   -gtk-outline-radius: 100px; }
 
+row button.circular {
+  margin: 0 5px; }
+
 spinbutton:not(.vertical) button, button.sidebar-button, .nautilus-window .floating-bar button, .gedit-document-panel row button.flat, .pluma-window paned.horizontal box.vertical box.horizontal button.flat {
   min-height: 20px;
   min-width: 20px;
@@ -3216,6 +3232,8 @@ stackswitcher button.circular,
 stackswitcher button.text-button.circular {
   min-width: 32px;
   min-height: 32px;
+  border-radius: 100px;
+  -gtk-outline-radius: 100px;
   padding: 0; }
 
 /*********
@@ -3902,19 +3920,19 @@ menu menuitem radio:indeterminate {
   -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic.svg")), -gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic.symbolic.png"))); }
 
 #MozillaGtkWidget.background > widget > button > button, #MozillaGtkWidget.background > widget > button.combo > button {
-  border: 1px solid borders_color;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: #FAFAFA;
   color: rgba(0, 0, 0, 0.6);
   box-shadow: none; }
 
 #MozillaGtkWidget.background > widget > button > button:hover, #MozillaGtkWidget.background > widget > button.combo > button:hover {
-  border: 1px solid borders_color;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: rgba(243, 243, 243, 0.992);
   color: rgba(0, 0, 0, 0.8);
   box-shadow: none; }
 
 #MozillaGtkWidget.background > widget > button > button:active, #MozillaGtkWidget.background > widget > button > button:checked, #MozillaGtkWidget.background > widget > button.combo > button:active, #MozillaGtkWidget.background > widget > button.combo > button:checked {
-  border: 1px solid borders_color;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: rgba(236, 236, 236, 0.984);
   color: rgba(0, 0, 0, 0.8);
   box-shadow: none;
@@ -3933,7 +3951,7 @@ menu menuitem radio:indeterminate {
   box-shadow: none; }
 
 #MozillaGtkWidget.background > widget > entry {
-  border: 1px solid borders_color;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-image: none;
   background-color: #FAFAFA;
   color: rgba(0, 0, 0, 0.6);
@@ -3947,7 +3965,7 @@ menu menuitem radio:indeterminate {
   box-shadow: none; }
 
 #MozillaGtkWidget.background > widget > entry:disabled {
-  border: 1px solid borders_color;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-image: none;
   background-color: rgba(238, 238, 238, 0.992);
   color: rgba(0, 0, 0, 0.32);

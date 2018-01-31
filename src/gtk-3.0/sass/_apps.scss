@@ -905,15 +905,17 @@ window.background:not(.csd) {
 
     // use 16px assets for hard-coded sizing
     > checkbutton > check { @extend %small_check; }
-
     > radiobutton > radio { @extend %small_radio; }
 
-  // remove ugly border around the menus
-  > window > menu,
-  > menu > menu { border: none; }
+    // remove ugly border around the menus
+    > window > menu,
+    > menu > menu { border: none; }
 
-// Firefox now uses this for selected items
-text:selected { @extend %selected_items; }
+    // Firefox now uses this for selected items
+    text:selected { @extend %selected_items; }
+
+  }
+}
 
 // for backwards compatibility
 window.background:not(.csd) {
@@ -930,14 +932,14 @@ window.background:not(.csd) {
 
     > checkbutton > check,
     > radiobutton > radio {
+      min-height: 16px;
+      min-width: 16px;
       margin: 0;
       padding: 0;
     }
   }
 
   > menu > separator { color: $borders_color; }
-    }
-  }
 }
 
 window.background > menu > menuitem > label:disabled { color: $disabled_menu_fg_color; }
@@ -948,14 +950,19 @@ menu menuitem check {
   & {
     min-height: 16px;
     min-width: 16px;
-//    padding-left: 4px;
+    padding: 0;
+    margin: 0;
     border-radius: 2px;
     -gtk-outline-radius: 2px;
+    -gtk-icon-shadow: none;
+    border-image: none;
+    background-image: none;
     -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.svg")),
                             -gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.symbolic.png")));
   }
 
   &:checked {
+    color: $accent_color;
     -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-checked-symbolic.svg")),
                             -gtk-recolor(url("assets/scalable/small-checkbox-checked-symbolic.symbolic.png")));
   }
@@ -971,14 +978,17 @@ menu menuitem radio {
   & {
     min-height: 16px;
     min-width: 16px;
-//    padding-left: 4px;
+    padding: 0;
+    margin: 0;
     -gtk-icon-shadow: none;
     border-image: none;
+    background-image: none;
     -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.svg")),
                             -gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.symbolic.png")));
   }
 
   &:checked {
+    color: $accent_color;
     -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-checked-symbolic.svg")),
                             -gtk-recolor(url("assets/scalable/small-radio-checked-symbolic.symbolic.png")));
   }
@@ -986,6 +996,225 @@ menu menuitem radio {
   &:indeterminate {
     -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic.svg")),
                             -gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic.symbolic.png")));
+  }
+}
+
+// /*******************
+//  * Firefox Quantum *
+//  *******************/
+
+// templates for the fallback mode buttons
+%button_fallback_normal {
+  border: 1px solid borders_color;
+  background-color: $lighter_bg_color;
+  color: $secondary_fg_color;
+  box-shadow: none;
+}
+
+%button_fallback_hover {
+  border: 1px solid borders_color;
+  background-color: mix($lighter_bg_color, $fg_color, 96%);
+  color: $fg_color;
+  box-shadow: none;
+}
+
+%button_fallback_active {
+  border: 1px solid borders_color;
+  background-color: mix($lighter_bg_color, $fg_color, 92%);
+  color: $fg_color; // do not use inverted colours
+  box-shadow: none;
+  animation: none;
+}
+
+%button_fallback_insensitive {
+  border: none;
+  background-color: mix($bg_color, $fg_color, 96%);
+  color: $disabled_fg_color;
+  box-shadow: none;
+}
+
+%button_fallback_checked_insensitive {
+  border: none;
+  background-color: mix($primary_color, $lighter_bg_color, 20%);
+  color: mix($primary_color, $lighter_bg_color, 40%);
+  box-shadow: none;
+}
+
+// templates for the fallback mode entries
+%entry_fallback_normal {
+  border: 1px solid borders_color;
+  border-image: none;
+  background-color: $lighter_bg_color;
+  color: $secondary_fg_color;
+  box-shadow: none;
+}
+
+%entry_fallback_focus {
+  border: 1px solid $primary_color;
+  border-image: none;
+  background-color: $lighter_bg_color;
+  color: $fg_color;
+  box-shadow: none;
+}
+
+%entry_fallback_insensitive {
+  border: 1px solid borders_color;
+  border-image: none;
+  background-color: mix($bg_color, $fg_color, 96%);
+  color: $disabled_fg_color;
+  box-shadow: none;
+}
+
+%_html_button_spacing {
+  min-width: unset; // do not set min-width/height
+  min-height: unset;
+  padding: 4px 8px 5px;
+}
+
+%_html_entry_spacing {
+  min-width: 24px;
+  min-height: 24px;
+  padding: 0 4px;
+}
+
+#MozillaGtkWidget.background {
+  &,
+  decoration { border-radius: 2px 2px 0 0; } // enforce radius
+
+  // FIXME: unset all our specific titlebuttons
+  // until upstream stops rendering useless (weird) icons
+  headerbar.titlebar {
+    border-radius: 2px 2px 0 0;
+    border-top: 1px solid $borders_color;
+
+    &.default-decoration button.titlebutton {
+      min-width: 16px;
+      min-height: 16px;
+      margin: 6px 2px;
+      padding: 0;
+    }
+  }
+
+  // blend with weird toolbar backgrounds
+  background-color: $alt_base_color;
+
+  // FIXME: resetting child elements background is not fully functional yet
+  // because WidgetStyleCache keeps holding initial background-color.
+  // the stem of this incorrect colouring seems to be caused by their
+  // gdk_rgba to ns_rgba conversion. I don't think theme's fault.
+  .background,
+  frame,
+  separator,
+  scrolledwindow { background-color: $bg_color; }
+
+  scrollbar { background-color: $base_color; }
+
+  *:not(menuitem):hover, // exclude menuitem node
+  *:focus,
+  *:active,
+  *:checked {
+    &, button { color: $fg_color; } // enforce opaque foregrounds
+  }
+
+  > window.background > menu { // context-menus
+    background-color: $base_color;
+
+    // revert to standard separators
+    > separator {
+      padding: 0;
+      border: none;
+      background-color: $borders_color;
+    }
+
+    > menuitem > radio { @extend %small_radio; }
+    > menuitem > check { @extend %small_check; }
+
+    // check/radio inside selected-menu
+    @each $w in ('check'),
+                ('radio') {
+
+      // standard checks and radios
+      @each $s, $c in ('', gtkalpha(currentColor, $hint_opacity)),
+                      (':indeterminate', $accent_color),
+                      (':checked', $accent_color),
+                      (':hover', $dark_contrast_color),
+                      (':indeterminate:hover', $dark_contrast_color),
+                      (':checked:hover', $dark_contrast_color),
+                      (':disabled', gtkalpha($dark_contrast_color, 0.5)),
+                      (':indeterminate:disabled', gtkalpha($dark_contrast_color, 0.5)),
+                      (':checked:disabled', gtkalpha($dark_contrast_color, 0.5)) {
+
+            > menuitem > #{$w}#{$s} {
+              color: $c;
+              -gtk-icon-shadow: none;
+              border-image: none;
+        }
+      }
+    }
+
+  }
+
+  > widget {
+    border { border-color: $borders_color; }
+
+    separator { background-color: $borders_color; }
+
+    // FIXME: this affected to popover widget as well,
+    // so we can not set $lighter_bg_color to search-bar...
+    > scrolledwindow > textview {
+      background-color: $base_color;
+
+      text {
+        background-color: transparent;
+        color: $secondary_fg_color;
+        &:selected,
+        &:selected:focus,
+        selection { @extend %selected_items; }
+      }
+    }
+
+    > button {
+      &, &.combo {
+        > button { // enforce fallback buttons inside the HTML pages
+          @extend %button_fallback_normal;
+          &:hover { @extend %button_fallback_hover; }
+          &:active,
+          &:checked { @extend %button_fallback_active; }
+          &:disabled { @extend %button_fallback_insensitive; }
+          &:checked:disabled {
+            @extend %button_fallback_checked_insensitive;
+          }
+        }
+      }
+
+      &.combo, // generic button and combo spacing
+      & { @extend %_html_button_spacing; }
+
+      // toolbar combo buttons in 'downloads' sub-window
+      &:not(.combo) > button { @extend %_html_button_spacing; }
+    }
+
+    > entry {
+      @extend %_html_entry_spacing;
+      // enforce fallback entries inside the HTML pages
+      @extend %entry_fallback_normal;
+      border-radius: 2px;
+      &:focus { @extend %entry_fallback_focus; }
+      &:disabled { @extend %entry_fallback_insensitive; }
+    }
+
+    // use 16px assets for hard-coded sizing
+    > checkbutton > check { @extend %small_check; }
+    > radiobutton > radio { @extend %small_radio; }
+    > check,
+    > radio { // unset all
+      min-width: 16px;
+      min-height: 16px;
+      margin: 0;
+      padding: 0;
+      background-image: none;
+      transition: none;
+    }
   }
 }
 
@@ -1056,7 +1285,7 @@ UnityDecoration {
 UnityDecoration .top {
   padding: 3px 8px 3px 8px;
   border-radius: 2px 2px 0px 0px;
-//  box-shadow: inset 0 1px $secondary_highlight_color; //
+//  box-shadow: inset 0 1px $secondary_highlighter_bg_color; //
   background-color: $headerbar_bg_color;
   color: $headerbar_fg_color;
 }

@@ -3489,6 +3489,16 @@ $darker_asset_suffix: if($headerbar=='dark', '-dark', $asset_suffix);
       }
     }
   }
+
+  .fullscreen &,
+  .maximized & {
+    button.titlebutton {
+      @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
+      &.maximize#{$l} { background-image: -gtk-scaled(url('windows-assets/titlebutton-restore#{$m}#{$darker_asset_suffix}.png'),
+                                                      url('windows-assets/titlebutton-restore#{$m}#{$darker_asset_suffix}@2.png')); }
+      }
+    }
+  }
 }
 
 headerbar,

@@ -3844,7 +3844,7 @@ window.background:not(.csd) > widget > button > button {
   border-radius: 3px;
   box-shadow: none; }
 window.background:not(.csd) > widget > entry {
-  min-height: 30px; }
+  min-height: 32px; }
   window.background:not(.csd) > widget > entry:focus {
     border-color: #2EB398; }
 window.background:not(.csd) > widget > button > button {
@@ -3874,12 +3874,8 @@ window.background:not(.csd) > widget > radiobutton > radio {
   padding: 0; }
 window.background:not(.csd) > menu > separator {
   color: rgba(0, 0, 0, 0.1); }
-
-window.background > menu > menuitem > label:disabled {
+window.background:not(.csd) > menu > menuitem > label:disabled {
   color: rgba(0, 0, 0, 0.5); }
-
-window.background > menu > separator {
-  color: rgba(0, 0, 0, 0.1); }
 
 window.background:not(.csd) > widget > checkbutton > check, #MozillaGtkWidget.background > window.background > menu > menuitem > check, #MozillaGtkWidget.background > widget > checkbutton > check,
 menu menuitem check {
@@ -4098,6 +4094,18 @@ menu menuitem radio:indeterminate {
       color: rgba(0, 0, 0, 0.6); }
   #MozillaGtkWidget.background > widget > entry {
     border-radius: 2px; }
+  #MozillaGtkWidget.background > widget > checkbutton > check, #MozillaGtkWidget.background > widget > radiobutton > radio {
+    color: #888888; }
+    #MozillaGtkWidget.background > widget > checkbutton > check:hover, #MozillaGtkWidget.background > widget > radiobutton > radio:hover {
+      color: alpha(#888888, 0.75); }
+    #MozillaGtkWidget.background > widget > checkbutton > check:checked, #MozillaGtkWidget.background > widget > radiobutton > radio:checked, #MozillaGtkWidget.background > widget > checkbutton > check:indeterminate, #MozillaGtkWidget.background > widget > radiobutton > radio:indeterminate {
+      color: #0fd1ab; }
+    #MozillaGtkWidget.background > widget > checkbutton > check:checked:hover, #MozillaGtkWidget.background > widget > radiobutton > radio:checked:hover, #MozillaGtkWidget.background > widget > checkbutton > check:indeterminate:hover, #MozillaGtkWidget.background > widget > radiobutton > radio:indeterminate:hover {
+      color: alpha(#0fd1ab, 0.8); }
+    #MozillaGtkWidget.background > widget > checkbutton > check:disabled, #MozillaGtkWidget.background > widget > radiobutton > radio:disabled {
+      color: alpha(#888888, 0.5); }
+    #MozillaGtkWidget.background > widget > checkbutton > check:checked:disabled, #MozillaGtkWidget.background > widget > radiobutton > radio:checked:disabled, #MozillaGtkWidget.background > widget > checkbutton > check:indeterminate:disabled, #MozillaGtkWidget.background > widget > radiobutton > radio:indeterminate:disabled {
+      color: alpha(#0fd1ab, 0.5); }
   #MozillaGtkWidget.background > widget > check,
   #MozillaGtkWidget.background > widget > radio {
     min-width: 16px;

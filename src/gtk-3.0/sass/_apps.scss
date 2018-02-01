@@ -866,7 +866,8 @@ window.background > box.vertical > scrolledwindow > widget toolbar {
 // * Firefox and Thunderbird *
 //
 
-$firefox_border_color: scale-alpha(#000000, 0.1);
+$firefox_border_color: $borders_color;
+$firefox_entry_bg: if($variant =='light', $dark_contrast_color, gtkalpha($dark_contrast_color, 0.1));
 
 window.background:not(.csd) {
   > widget {
@@ -888,7 +889,8 @@ window.background:not(.csd) {
     }
 
     > entry {
-      min-height: 32px - 2px;
+      min-height: 32px;
+//      background-color: $firefox_entry_bg;
 
       &:focus { border-color: $primary_color; }
     }
@@ -899,7 +901,6 @@ window.background:not(.csd) {
       // color: $fg_color;
 
       &:hover { background-image: image(gtkalpha(currentColor, 0.1 / 2)); }
-
       &:active { background-image: image(gtkalpha(currentColor, 0.1)); }
     }
 
@@ -940,10 +941,8 @@ window.background:not(.csd) {
   }
 
   > menu > separator { color: $borders_color; }
+  > menu > menuitem > label:disabled { color: $disabled_menu_fg_color; }
 }
-
-window.background > menu > menuitem > label:disabled { color: $disabled_menu_fg_color; }
-window.background > menu > separator { color: $borders_color; }
 
 %small_check,
 menu menuitem check {
@@ -1162,7 +1161,7 @@ menu menuitem radio {
     // FIXME: this affected to popover widget as well,
     // so we can not set $lighter_bg_color to search-bar...
     > scrolledwindow > textview {
-      background-color: $base_color;
+      background-color: if($variant == 'light', $base_color, lighten($base_color, 13%));
 
       text {
         background-color: transparent;
@@ -1203,9 +1202,18 @@ menu menuitem radio {
       &:disabled { @extend %entry_fallback_insensitive; }
     }
 
+  %firefox_check_radio {
+    color: #888888;
+    &:hover { color: gtkalpha(#888888, 0.75); }
+    &:checked, &:indeterminate { color: $accent_color; }
+    &:checked:hover, &:indeterminate:hover { color: gtkalpha($accent_color, 0.8); }
+    &:disabled { color: gtkalpha(#888888, 0.5); }
+    &:checked:disabled, &:indeterminate:disabled { color: gtkalpha($accent_color, 0.5); }
+ }
+
     // use 16px assets for hard-coded sizing
-    > checkbutton > check { @extend %small_check; }
-    > radiobutton > radio { @extend %small_radio; }
+    > checkbutton > check { @extend %small_check; @extend %firefox_check_radio; }
+    > radiobutton > radio { @extend %small_radio; @extend %firefox_check_radio; }
     > check,
     > radio { // unset all
       min-width: 16px;

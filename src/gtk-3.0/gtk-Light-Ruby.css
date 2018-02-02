@@ -3831,52 +3831,6 @@ window.background > box.vertical > scrolledwindow > widget toolbar {
   window.background > box.vertical > scrolledwindow > widget toolbar button {
     border-radius: 2px; }
 
-window.background:not(.csd) > widget > separator {
-  color: rgba(0, 0, 0, 0.1); }
-window.background:not(.csd) > widget > scrollbar {
-  background-clip: border-box; }
-window.background:not(.csd) > widget > scrollbar,
-window.background:not(.csd) > widget > frame > border {
-  border-color: rgba(0, 0, 0, 0.1); }
-window.background:not(.csd) > widget > entry,
-window.background:not(.csd) > widget > button > button {
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
-  box-shadow: none; }
-window.background:not(.csd) > widget > entry {
-  min-height: 32px; }
-  window.background:not(.csd) > widget > entry:focus {
-    border-color: #F0544C; }
-window.background:not(.csd) > widget > button > button {
-  padding: 4px 8px;
-  background-size: auto; }
-  window.background:not(.csd) > widget > button > button:hover {
-    background-image: image(alpha(currentColor, 0.05)); }
-  window.background:not(.csd) > widget > button > button:active {
-    background-image: image(alpha(currentColor, 0.1)); }
-window.background:not(.csd) > widget > window > menu,
-window.background:not(.csd) > widget > menu > menu {
-  border: none; }
-
-window.background:not(.csd) > widget > menubar {
-  color: rgba(0, 0, 0, 0.6); }
-  window.background:not(.csd) > widget > menubar:hover {
-    color: rgba(0, 0, 0, 0.8); }
-  window.background:not(.csd) > widget > menubar:disabled {
-    color: rgba(0, 0, 0, 0.32); }
-window.background:not(.csd) > widget > frame {
-  color: rgba(0, 0, 0, 0.1); }
-window.background:not(.csd) > widget > checkbutton > check,
-window.background:not(.csd) > widget > radiobutton > radio {
-  min-height: 16px;
-  min-width: 16px;
-  margin: 0;
-  padding: 0; }
-window.background:not(.csd) > menu > separator {
-  color: rgba(0, 0, 0, 0.1); }
-window.background:not(.csd) > menu > menuitem > label:disabled {
-  color: rgba(0, 0, 0, 0.5); }
-
 window.background:not(.csd) > widget > checkbutton > check, #MozillaGtkWidget.background > window.background > menu > menuitem > check, #MozillaGtkWidget.background > widget > checkbutton > check,
 menu menuitem check {
   min-height: 16px;
@@ -3946,21 +3900,21 @@ menu menuitem radio:indeterminate {
   color: #f6b8b4;
   box-shadow: none; }
 
-#MozillaGtkWidget.background > widget > entry {
+window.background:not(.csd) > widget > entry, #MozillaGtkWidget.background > widget > entry {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-image: none;
   background-color: #FAFAFA;
   color: rgba(0, 0, 0, 0.6);
   box-shadow: none; }
 
-#MozillaGtkWidget.background > widget > entry:focus {
+window.background:not(.csd) > widget > entry:focus, #MozillaGtkWidget.background > widget > entry:focus {
   border: 1px solid #F0544C;
   border-image: none;
   background-color: #FAFAFA;
   color: rgba(0, 0, 0, 0.8);
   box-shadow: none; }
 
-#MozillaGtkWidget.background > widget > entry:disabled {
+window.background:not(.csd) > widget > entry:disabled, #MozillaGtkWidget.background > widget > entry:disabled {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-image: none;
   background-color: rgba(238, 238, 238, 0.992);
@@ -3972,10 +3926,54 @@ menu menuitem radio:indeterminate {
   min-height: unset;
   padding: 4px 8px 5px; }
 
-#MozillaGtkWidget.background > widget > entry {
+window.background:not(.csd) > widget > entry, #MozillaGtkWidget.background > widget > entry {
   min-width: 24px;
   min-height: 24px;
   padding: 0 4px; }
+
+window.background:not(.csd) > widget > separator {
+  color: rgba(0, 0, 0, 0.1); }
+window.background:not(.csd) > widget > scrollbar {
+  background-clip: border-box; }
+window.background:not(.csd) > widget > scrollbar,
+window.background:not(.csd) > widget > frame > border {
+  border-color: rgba(0, 0, 0, 0.1); }
+window.background:not(.csd) > widget > entry,
+window.background:not(.csd) > widget > button > button {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  box-shadow: none; }
+window.background:not(.csd) > widget > entry {
+  border-radius: 2px; }
+window.background:not(.csd) > widget > button > button {
+  padding: 4px 8px;
+  background-size: auto; }
+  window.background:not(.csd) > widget > button > button:hover {
+    background-image: image(alpha(currentColor, 0.05)); }
+  window.background:not(.csd) > widget > button > button:active {
+    background-image: image(alpha(currentColor, 0.1)); }
+window.background:not(.csd) > widget > window > menu,
+window.background:not(.csd) > widget > menu > menu {
+  border: none; }
+
+window.background:not(.csd) > widget > menubar {
+  color: rgba(0, 0, 0, 0.6); }
+  window.background:not(.csd) > widget > menubar:hover {
+    color: rgba(0, 0, 0, 0.8); }
+  window.background:not(.csd) > widget > menubar:disabled {
+    color: rgba(0, 0, 0, 0.32); }
+window.background:not(.csd) > widget > frame {
+  color: rgba(0, 0, 0, 0.1); }
+window.background:not(.csd) > widget > checkbutton > check,
+window.background:not(.csd) > widget > radiobutton > radio {
+  min-height: 16px;
+  min-width: 16px;
+  margin: 0;
+  padding: 0; }
+window.background:not(.csd) > menu > separator {
+  color: rgba(0, 0, 0, 0.1); }
+window.background:not(.csd) > menu > menuitem > label:disabled {
+  color: rgba(0, 0, 0, 0.5); }
 
 #MozillaGtkWidget.background {
   background-color: #fafafa; }
@@ -3996,7 +3994,7 @@ menu menuitem radio:indeterminate {
   #MozillaGtkWidget.background scrolledwindow {
     background-color: #F5F5F5; }
   #MozillaGtkWidget.background scrollbar {
-    background-color: #FFFFFF; }
+    background-color: transparent; }
   #MozillaGtkWidget.background *:not(menuitem):hover, #MozillaGtkWidget.background *:not(menuitem):hover button,
   #MozillaGtkWidget.background *:focus,
   #MozillaGtkWidget.background *:focus button,
@@ -4139,6 +4137,10 @@ window.background:not(.solid-csd) > notebook:not(.frame) {
   window.background:not(.solid-csd) > notebook:not(.frame) > stack {
     border: none;
     box-shadow: none; }
+
+.geary-titlebar-left separator,
+.geary-titlebar-right separator {
+  opacity: 0; }
 
 /*********
  * Unity *

@@ -866,82 +866,6 @@ window.background > box.vertical > scrolledwindow > widget toolbar {
 //
 
 $firefox_border_color: $borders_color;
-$firefox_entry_bg: if($variant =='light', $dark_contrast_color, gtkalpha($dark_contrast_color, 0.1));
-
-window.background:not(.csd) {
-  > widget {
-    // for the bookmark toolbar's separators
-    > separator { color: $firefox_border_color; }
-
-    // avoid black border
-    > scrollbar { background-clip: border-box; }
-
-    // emphasize borders color
-    > scrollbar,
-    > frame > border { border-color: $firefox_border_color; }
-
-    > entry,
-    > button > button {
-      border: 1px solid $firefox_border_color;
-      border-radius: 2px + 1px;
-      box-shadow: none;
-    }
-
-    > entry {
-      min-height: 32px;
-//      background-color: $firefox_entry_bg;
-
-      &:focus { border-color: $primary_color; }
-    }
-
-    > button > button {
-      padding: 4px 8px;
-      background-size: auto;
-      // color: $fg_color;
-
-      &:hover { background-image: image(gtkalpha(currentColor, 0.1 / 2)); }
-      &:active { background-image: image(gtkalpha(currentColor, 0.1)); }
-    }
-
-    // use 16px assets for hard-coded sizing
-    > checkbutton > check { @extend %small_check; }
-    > radiobutton > radio { @extend %small_radio; }
-
-    // remove ugly border around the menus
-    > window > menu,
-    > menu > menu { border: none; }
-
-    // Firefox now uses this for selected items
-    text:selected { @extend %selected_items; }
-
-  }
-}
-
-// for backwards compatibility
-window.background:not(.csd) {
-  > widget {
-    > menubar {
-      color: $secondary_headerbar_fg_color;
-
-      &:hover { color: $headerbar_fg_color; }
-
-      &:disabled { color: $disabled_headerbar_fg_color; }
-    }
-
-    > frame { color: $firefox_border_color; }
-
-    > checkbutton > check,
-    > radiobutton > radio {
-      min-height: 16px;
-      min-width: 16px;
-      margin: 0;
-      padding: 0;
-    }
-  }
-
-  > menu > separator { color: $borders_color; }
-  > menu > menuitem > label:disabled { color: $disabled_menu_fg_color; }
-}
 
 %small_check,
 menu menuitem check {
@@ -996,10 +920,6 @@ menu menuitem radio {
                             -gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic.symbolic.png")));
   }
 }
-
-// /*******************
-//  * Firefox Quantum *
-//  *******************/
 
 // templates for the fallback mode buttons
 %button_fallback_normal {
@@ -1075,6 +995,87 @@ menu menuitem radio {
   padding: 0 4px;
 }
 
+window.background:not(.csd) {
+  > widget {
+    // for the bookmark toolbar's separators
+    > separator { color: $firefox_border_color; }
+
+    // avoid black border
+    > scrollbar { background-clip: border-box; }
+
+    // emphasize borders color
+    > scrollbar,
+    > frame > border { border-color: $firefox_border_color; }
+
+    > entry,
+    > button > button {
+      border: 1px solid $firefox_border_color;
+      border-radius: 2px + 1px;
+      box-shadow: none;
+    }
+
+    > entry {
+      @extend %_html_entry_spacing;
+      // enforce fallback entries inside the HTML pages
+      @extend %entry_fallback_normal;
+      border-radius: 2px;
+      &:focus { @extend %entry_fallback_focus; }
+      &:disabled { @extend %entry_fallback_insensitive; }
+    }
+
+    > button > button {
+      padding: 4px 8px;
+      background-size: auto;
+      // color: $fg_color;
+
+      &:hover { background-image: image(gtkalpha(currentColor, 0.1 / 2)); }
+      &:active { background-image: image(gtkalpha(currentColor, 0.1)); }
+    }
+
+    // use 16px assets for hard-coded sizing
+    > checkbutton > check { @extend %small_check; }
+    > radiobutton > radio { @extend %small_radio; }
+
+    // remove ugly border around the menus
+    > window > menu,
+    > menu > menu { border: none; }
+
+    // Firefox now uses this for selected items
+    text:selected { @extend %selected_items; }
+
+  }
+}
+
+// for backwards compatibility
+window.background:not(.csd) {
+  > widget {
+    > menubar {
+      color: $secondary_headerbar_fg_color;
+
+      &:hover { color: $headerbar_fg_color; }
+
+      &:disabled { color: $disabled_headerbar_fg_color; }
+    }
+
+    > frame { color: $firefox_border_color; }
+
+    > checkbutton > check,
+    > radiobutton > radio {
+      min-height: 16px;
+      min-width: 16px;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  > menu > separator { color: $borders_color; }
+  > menu > menuitem > label:disabled { color: $disabled_menu_fg_color; }
+}
+
+// /*******************
+//  * Firefox Quantum *
+//  *******************/
+
 #MozillaGtkWidget.background {
   &,
   decoration { border-radius: 2px 2px 0 0; } // enforce radius
@@ -1105,7 +1106,7 @@ menu menuitem radio {
   separator,
   scrolledwindow { background-color: $bg_color; }
 
-  scrollbar { background-color: $base_color; }
+  scrollbar { background-color: transparent; }
 
   *:not(menuitem):hover, // exclude menuitem node
   *:focus,
@@ -1261,6 +1262,16 @@ window.background:not(.solid-csd) {
       box-shadow: none;
     }
   }
+}
+
+//
+//  * Geary *
+//
+
+.geary-titlebar-left,
+.geary-titlebar-right {
+  // remove unexpected "hardcoded" vertical separator
+  separator { opacity: 0; }
 }
 
 /*********

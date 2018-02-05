@@ -1067,7 +1067,7 @@ headerbar {
 
   button {
       @extend %header_button;
-      &:hover { color: $accent_color; background-color: gtkalpha($primary_color, 0.3); }
+      &:hover { background-color: gtkalpha($primary_color, 0.3); color: $theme_color; }
       &:active { background-color: $primary_color; color: $dark_contrast_color; }
       &:checked { background-color: $primary_color; color: $dark_contrast_color; }
   }
@@ -1195,22 +1195,22 @@ headerbar {
 
     &:hover {
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    gtkalpha($theme_fg_color, 0.8) 100%,
+                                    gtkalpha($theme_color, 0.8) 100%,
                                     transparent 0%)
                                     0 0 2 / 0 0 2px;
       background: none;
-      color: gtkalpha($theme_fg_color, 0.8);
+      color: gtkalpha($theme_color, 0.8);
 
       &, &:disabled { background-color: transparent; }
     }
 
     &:checked {
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    $theme_fg_color 100%,
+                                    $theme_color 100%,
                                     transparent 0%)
                                     0 0 2 / 0 0 2px;
       background: none;
-      color: $theme_fg_color;
+      color: $theme_color;
 
      }
   }
@@ -1223,22 +1223,22 @@ headerbar {
 
     &:hover {
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    gtkalpha($theme_fg_color, 0.8) 100%,
+                                    gtkalpha($theme_color, 0.8) 100%,
                                     transparent 0%)
                                     $line_size;
       background: none;
-      color: gtkalpha($theme_fg_color, 0.8);
+      color: gtkalpha($theme_color, 0.8);
 
       &, &:disabled { background-color: transparent; }
     }
 
     &:checked {
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    $theme_fg_color 100%,
+                                    $theme_color 100%,
                                     transparent 0%)
                                     $line_size;
       background: none;
-      color: $theme_fg_color;
+      color: $theme_color;
 
      }
   }
@@ -2126,6 +2126,15 @@ radiobutton > radio:not(:checked):not(:indeterminate) {
     &:disabled { color: gtkalpha($fg_color, $enabled_opacity * $disabled_opacity); }
   }
 
+//checkbutton > check:checked,
+//checkbutton > check:indeterminate,
+//radiobutton > radio:checked
+//radiobutton > radio:indeterminate {
+//    color: $accent_color;
+//    &:hover, &:active { color: $accent_color; }
+//    &:disabled { color: gtkalpha($accent_color, $disabled_opacity); }
+//  }
+
 check,
 radio {
   min-height: 24px;
@@ -2141,7 +2150,7 @@ radio {
       color: $accent_color;
 
       &:disabled {  color: scale-alpha($accent_color, $disabled_opacity); }
-}
+  }
 
   // &:only-child { margin: -12px; }
 
@@ -2172,17 +2181,75 @@ radio {
     transition: none;
     margin: 0; // this is a workaround for a menu check/radio size allocation issue
     padding: 0;
+    box-shadow: none;
+    border-image: none;
+    background-image: none;
+    color: gtkalpha(currentColor, $hint_opacity);
 
     &:dir(ltr) { margin-right: 8px; }
 
     &:dir(rtl) { margin-left: 8px; }
 
-    &:not(:checked):not(:indeterminate) { color: gtkalpha(currentColor, $hint_opacity); }
+    &:hover, &:checked:hover, &:indeterminate:hover { color: $dark_contrast_color; }
 
-    &, &:hover, &:disabled {
-      box-shadow: none;
-      // color: inherit;
+    &:disabled { color: gtkalpha($dark_contrast_color, 0.5); }
+
+    &:checked, &:indeterminate {
+      color: $alt_theme_color;
+      &:disabled {  color: scale-alpha($alt_theme_color, $disabled_opacity); }
     }
+  }
+}
+
+%small_check,
+menu menuitem check {
+  & {
+    min-height: 16px;
+    min-width: 16px;
+    padding: 0;
+    margin: 0;
+    border-radius: 2px;
+    -gtk-outline-radius: 2px;
+    -gtk-icon-shadow: none;
+    border-image: none;
+    background-image: none;
+    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.svg")),
+                            -gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.symbolic.png")));
+  }
+
+  &:checked {
+    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-checked-symbolic.svg")),
+                            -gtk-recolor(url("assets/scalable/small-checkbox-checked-symbolic.symbolic.png")));
+  }
+
+  &:indeterminate {
+    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-mixed-symbolic.svg")),
+                            -gtk-recolor(url("assets/scalable/small-checkbox-mixed-symbolic.symbolic.png")));
+  }
+}
+
+%small_radio,
+menu menuitem radio {
+  & {
+    min-height: 16px;
+    min-width: 16px;
+    padding: 0;
+    margin: 0;
+    -gtk-icon-shadow: none;
+    border-image: none;
+    background-image: none;
+    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.svg")),
+                            -gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.symbolic.png")));
+  }
+
+  &:checked {
+    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-checked-symbolic.svg")),
+                            -gtk-recolor(url("assets/scalable/small-radio-checked-symbolic.symbolic.png")));
+  }
+
+  &:indeterminate {
+    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic.svg")),
+                            -gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic.symbolic.png")));
   }
 }
 
@@ -2235,7 +2302,6 @@ radio {
         -gtk-icon-shadow: none;
       }
     }
-
   }
 
   @each $t in (':disabled',),
@@ -2251,28 +2317,33 @@ radio {
         -gtk-icon-shadow: none;
       }
     }
-
-  }
-
-}
-
-// check/radio inside selected-menu
-@each $w in ('check'),
-            ('radio') {
-
-  // standard checks and radios
-  @each $s in (':hover',),
-              (':indeterminate:hover'),
-              (':checked:hover') {
-
-    menu menuitem.#{$w}#{$s},
-    menu menuitem #{$w}#{$s} {
-        color: $dark_contrast_color;
-        -gtk-icon-shadow: none;
-        border-image: none;
-    }
   }
 }
+
+//    // check/radio inside selected-menu
+//
+//    @each $w in ('check'),
+//                ('radio') {
+//
+//      // standard checks and radios
+//      @each $s, $c in ('', gtkalpha(currentColor, $hint_opacity)),
+//                      (':indeterminate', $alt_theme_color),
+//                      (':checked', $alt_theme_color),
+//                      (':hover', $dark_contrast_color),
+//                      (':indeterminate:hover', $dark_contrast_color),
+//                      (':checked:hover', $dark_contrast_color),
+//                      (':disabled', gtkalpha($dark_contrast_color, 0.5)),
+//                      (':indeterminate:disabled', gtkalpha($dark_contrast_color, 0.5)),
+//                      (':checked:disabled', gtkalpha($dark_contrast_color, 0.5)) {
+//
+//            menu menuitem.#{$w}#{$s},
+//            menu menuitem #{$w}#{$s} {
+//              color: $c;
+//              -gtk-icon-shadow: none;
+//              border-image: none;
+//        }
+//      }
+//    }
 
 // ANIMATION:
 // this is made with those pretty convoluted transitions, since checks and radios have to animate only on state changes,

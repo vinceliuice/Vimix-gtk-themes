@@ -866,60 +866,7 @@ window.background > box.vertical > scrolledwindow > widget toolbar {
 //
 
 $firefox_border_color: $borders_color;
-
-%small_check,
-menu menuitem check {
-  & {
-    min-height: 16px;
-    min-width: 16px;
-    padding: 0;
-    margin: 0;
-    border-radius: 2px;
-    -gtk-outline-radius: 2px;
-    -gtk-icon-shadow: none;
-    border-image: none;
-    background-image: none;
-    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.svg")),
-                            -gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.symbolic.png")));
-  }
-
-  &:checked {
-    color: $accent_color;
-    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-checked-symbolic.svg")),
-                            -gtk-recolor(url("assets/scalable/small-checkbox-checked-symbolic.symbolic.png")));
-  }
-
-  &:indeterminate {
-    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-mixed-symbolic.svg")),
-                            -gtk-recolor(url("assets/scalable/small-checkbox-mixed-symbolic.symbolic.png")));
-  }
-}
-
-%small_radio,
-menu menuitem radio {
-  & {
-    min-height: 16px;
-    min-width: 16px;
-    padding: 0;
-    margin: 0;
-    -gtk-icon-shadow: none;
-    border-image: none;
-    background-image: none;
-    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.svg")),
-                            -gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.symbolic.png")));
-  }
-
-  &:checked {
-    color: $accent_color;
-    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-checked-symbolic.svg")),
-                            -gtk-recolor(url("assets/scalable/small-radio-checked-symbolic.symbolic.png")));
-  }
-
-  &:indeterminate {
-    -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic.svg")),
-                            -gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic.symbolic.png")));
-  }
-}
+$firefox_theme_color: if($color == 'black', #666666, $primary_color);
 
 // templates for the fallback mode buttons
 %button_fallback_normal {
@@ -1023,13 +970,25 @@ window.background:not(.csd) {
       &:disabled { @extend %entry_fallback_insensitive; }
     }
 
-    > button > button {
-      padding: 4px 8px;
-      background-size: auto;
-      // color: $fg_color;
+    > button {
+      &, &.combo {
+        > button { // enforce fallback buttons inside the HTML pages
+          @extend %button_fallback_normal;
+          &:hover { @extend %button_fallback_hover; }
+          &:active,
+          &:checked { @extend %button_fallback_active; }
+          &:disabled { @extend %button_fallback_insensitive; }
+          &:checked:disabled {
+            @extend %button_fallback_checked_insensitive;
+          }
+        }
+      }
 
-      &:hover { background-image: image(gtkalpha(currentColor, 0.1 / 2)); }
-      &:active { background-image: image(gtkalpha(currentColor, 0.1)); }
+      &.combo, // generic button and combo spacing
+      & { @extend %_html_button_spacing; }
+
+      // toolbar combo buttons in 'downloads' sub-window
+      &:not(.combo) > button { @extend %_html_button_spacing; }
     }
 
     // use 16px assets for hard-coded sizing
@@ -1134,8 +1093,8 @@ window.background:not(.csd) {
 
       // standard checks and radios
       @each $s, $c in ('', gtkalpha(currentColor, $hint_opacity)),
-                      (':indeterminate', $accent_color),
-                      (':checked', $accent_color),
+                      (':indeterminate', $alt_theme_color),
+                      (':checked', $alt_theme_color),
                       (':hover', $dark_contrast_color),
                       (':indeterminate:hover', $dark_contrast_color),
                       (':checked:hover', $dark_contrast_color),
@@ -1143,11 +1102,7 @@ window.background:not(.csd) {
                       (':indeterminate:disabled', gtkalpha($dark_contrast_color, 0.5)),
                       (':checked:disabled', gtkalpha($dark_contrast_color, 0.5)) {
 
-            > menuitem > #{$w}#{$s} {
-              color: $c;
-              -gtk-icon-shadow: none;
-              border-image: none;
-        }
+            > menuitem > #{$w}#{$s} { color: $c; }
       }
     }
 
@@ -1205,10 +1160,10 @@ window.background:not(.csd) {
   %firefox_check_radio {
     color: #888888;
     &:hover { color: gtkalpha(#888888, 0.75); }
-    &:checked, &:indeterminate { color: $accent_color; }
-    &:checked:hover, &:indeterminate:hover { color: gtkalpha($accent_color, 0.8); }
+    &:checked, &:indeterminate { color: $firefox_theme_color; }
+    &:checked:hover, &:indeterminate:hover { color: gtkalpha($firefox_theme_color, 0.8); }
     &:disabled { color: gtkalpha(#888888, 0.5); }
-    &:checked:disabled, &:indeterminate:disabled { color: gtkalpha($accent_color, 0.5); }
+    &:checked:disabled, &:indeterminate:disabled { color: gtkalpha($firefox_theme_color, 0.5); }
  }
 
     // use 16px assets for hard-coded sizing

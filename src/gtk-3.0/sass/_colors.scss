@@ -71,11 +71,12 @@ $accent_color: #666666;
 @if $color == 'beryl' { $primary_color: #2EB398; $alt_primary_color: #1eba9b; $accent_color: #0fd1ab; }
 
 @if $color == 'black' { 
-    $primary_color: if($variant =='light', #686868, #686868);
-    $alt_primary_color: if($variant =='light', #666666, #666666);
-    $accent_color: if($variant =='light', #666666, #fefefe); }
+    $primary_color: if($variant =='light', #686868, rgba($fg_color, 0.35));
+    $alt_primary_color: if($variant =='light', #666666, rgba($fg_color, 0.5));
+    $accent_color: if($variant =='light', #666666, rgba($fg_color, 1.0)); }
 
-$theme_fg_color: if($color == 'white', $primary_color, if($color == 'black', $dark_contrast_color, $primary_color));
+$theme_color: if($color == 'black', $dark_contrast_color, $primary_color);
+$alt_theme_color: if($color == 'black', $dark_contrast_color, $accent_color);
 
 $menu_bg_color: if($headerbar =='light', $base_color, $headerbar_bg_color);
 $menu_fg_color: if($headerbar =='light', $fg_color, $headerbar_fg_color);

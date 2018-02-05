@@ -72,7 +72,7 @@ Maybe you don't like the new title button style, now you can remove it:
 Run
 
 
-    ./remove-colorful-titlebuttons
+    ./normal-titlebuttons
 
 
 Or double-click to open that script files and select "run at the terminal" at nautilus.

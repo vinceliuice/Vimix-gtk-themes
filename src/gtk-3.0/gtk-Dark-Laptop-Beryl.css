@@ -3922,6 +3922,8 @@ window.background:not(.csd) > widget > entry {
 window.background:not(.csd) > widget > window > menu,
 window.background:not(.csd) > widget > menu > menu {
   border: none; }
+window.background:not(.csd) > widget text {
+  color: #aaaaaa; }
 
 window.background:not(.csd) > widget > menubar {
   color: rgba(255, 255, 255, 0.75); }
@@ -4017,10 +4019,10 @@ window.background:not(.csd) > menu > menuitem > label:disabled {
   #MozillaGtkWidget.background > widget separator {
     background-color: rgba(0, 0, 0, 0.15); }
   #MozillaGtkWidget.background > widget > scrolledwindow > textview {
-    background-color: #5e6574; }
+    background-color: #40454f; }
     #MozillaGtkWidget.background > widget > scrolledwindow > textview text {
       background-color: transparent;
-      color: rgba(255, 255, 255, 0.75); }
+      color: #aaaaaa; }
   #MozillaGtkWidget.background > widget > entry {
     border-radius: 2px; }
   #MozillaGtkWidget.background > widget > checkbutton > check, #MozillaGtkWidget.background > widget > radiobutton > radio {
@@ -4043,6 +4045,33 @@ window.background:not(.csd) > menu > menuitem > label:disabled {
     padding: 0;
     background-image: none;
     transition: none; }
+
+/***************
+ * Chrome(ium) *
+ ***************/
+window.background.chromium headerbar.titlebar button.toggle {
+  border: none;
+  min-height: 22px;
+  margin: 6px 0;
+  padding: 0 10px; }
+window.background.chromium headerbar.titlebar button.titlebutton {
+  min-width: 24px;
+  min-height: 24px;
+  margin: 0;
+  padding: 0;
+  color: transparent; }
+window.background.chromium button {
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.15); }
+window.background.chromium entry.chromium {
+  border-image: none;
+  border: 1px solid rgba(0, 0, 0, 0.15); }
+window.background.chromium entry.chromium:focus {
+  border-image: none;
+  border: 1px solid #2EB398; }
+window.background.chromium > textview.view {
+  background-color: #343943; }
 
 /***********
  * Synapse *

@@ -3922,6 +3922,8 @@ window.background:not(.csd) > widget > entry {
 window.background:not(.csd) > widget > window > menu,
 window.background:not(.csd) > widget > menu > menu {
   border: none; }
+window.background:not(.csd) > widget text {
+  color: rgba(0, 0, 0, 0.6); }
 
 window.background:not(.csd) > widget > menubar {
   color: rgba(0, 0, 0, 0.6); }
@@ -4043,6 +4045,33 @@ window.background:not(.csd) > menu > menuitem > label:disabled {
     padding: 0;
     background-image: none;
     transition: none; }
+
+/***************
+ * Chrome(ium) *
+ ***************/
+window.background.chromium headerbar.titlebar button.toggle {
+  border: none;
+  min-height: 22px;
+  margin: 6px 0;
+  padding: 0 10px; }
+window.background.chromium headerbar.titlebar button.titlebutton {
+  min-width: 24px;
+  min-height: 24px;
+  margin: 0;
+  padding: 0;
+  color: transparent; }
+window.background.chromium button {
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.1); }
+window.background.chromium entry.chromium {
+  border-image: none;
+  border: 1px solid rgba(0, 0, 0, 0.1); }
+window.background.chromium entry.chromium:focus {
+  border-image: none;
+  border: 1px solid #4285F4; }
+window.background.chromium > textview.view {
+  background-color: #F5F5F5; }
 
 /***********
  * Synapse *

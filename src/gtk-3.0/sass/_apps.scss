@@ -867,6 +867,8 @@ window.background > box.vertical > scrolledwindow > widget toolbar {
 
 $firefox_border_color: $borders_color;
 $firefox_theme_color: if($color == 'black', #666666, $primary_color);
+$firefox_fg_color: if($variant =='light', $secondary_fg_color, #aaaaaa);
+$firefox_bg_color: if($variant =='light', $lighter_bg_color, #666666);
 
 // templates for the fallback mode buttons
 %button_fallback_normal {
@@ -1001,6 +1003,7 @@ window.background:not(.csd) {
 
     // Firefox now uses this for selected items
     text:selected { @extend %selected_items; }
+    text { color: $firefox_fg_color; }
 
   }
 }
@@ -1116,11 +1119,11 @@ window.background:not(.csd) {
     // FIXME: this affected to popover widget as well,
     // so we can not set $lighter_bg_color to search-bar...
     > scrolledwindow > textview {
-      background-color: if($variant == 'light', $base_color, lighten($base_color, 13%));
+      background-color: if($variant == 'light', $base_color, lighten($base_color, 0%));
 
       text {
         background-color: transparent;
-        color: $secondary_fg_color;
+        color: $firefox_fg_color;
         &:selected,
         &:selected:focus,
         selection { @extend %selected_items; }
@@ -1180,6 +1183,58 @@ window.background:not(.csd) {
     }
   }
 }
+
+ /***************
+  * Chrome(ium) *
+  ***************/
+
+window.background.chromium {
+  // checked-tab & toolbar & button widgets
+//  background-color: $bg_color;
+//  color: $text_color;
+
+  headerbar.titlebar {
+    button.toggle { // account-button (> 64.0.3282?)
+      border: none;
+      min-height: 22px;
+      margin: 6px 0;
+      padding: 0 10px;
+    }
+
+    // from nav_button_provider_gtk3.cc (> 62.0.3202?)
+    button.titlebutton { // title-buttons
+      // define global titlebutton class sizing
+      min-width: 24px; // > 16px causes image blurring
+      min-height: 24px;
+      margin: 0; // unset margins
+      padding: 0;
+      color: transparent; // hide stock icons
+    }
+  }
+
+  // FIXME: not for actual button widgets but for toolbar's separators
+  // crazy: src/+/master/chrome/browser/ui/libgtkui/gtk_ui.cc#891
+  button { // for active-tab borders
+    border-width: 1px;
+    border-style: solid;
+    border-color: $borders_color;
+  }
+
+  entry.chromium {
+    & { // overrides standard borders
+      border-image: none;
+      border: 1px solid $borders_color;
+    }
+    &:focus { // overrides standard borders
+      border-image: none;
+      border: 1px solid $primary_color;
+    }
+  }
+
+  // internal region of toolbar's entry widget
+  > textview.view { background-color: $bg_color; }
+}
+
 
 /***********
  * Synapse *

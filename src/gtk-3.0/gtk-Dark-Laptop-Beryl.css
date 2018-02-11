@@ -219,10 +219,6 @@ entry {
   spinbutton:not(.vertical) image, notebook > stack:not(:only-child) revealer entry image,
   notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) image,
   entry image {
-    min-height: 20px;
-    min-width: 20px;
-    border-radius: 3px;
-    -gtk-outline-radius: 3px;
     color: alpha(currentColor, 0.75); }
     spinbutton:not(.vertical) image:hover, notebook > stack:not(:only-child) revealer entry image:hover,
     notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) image:hover, spinbutton:not(.vertical) image:active, notebook > stack:not(:only-child) revealer entry image:active,
@@ -237,13 +233,13 @@ entry {
     spinbutton:not(.vertical) image.left, notebook > stack:not(:only-child) revealer entry image.left,
     notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) image.left,
     entry image.left {
-      margin-left: -2px;
-      margin-right: 2px; }
+      margin-left: 0px;
+      margin-right: 6px; }
     spinbutton:not(.vertical) image.right, notebook > stack:not(:only-child) revealer entry image.right,
     notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) image.right,
     entry image.right {
-      margin-left: 2px;
-      margin-right: -2px; }
+      margin-left: 6px;
+      margin-right: 0px; }
   spinbutton:not(.vertical) undershoot.left, notebook > stack:not(:only-child) revealer entry undershoot.left,
   notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) undershoot.left,
   entry undershoot.left {
@@ -4064,7 +4060,7 @@ window.background.chromium headerbar.titlebar button.titlebutton {
   min-height: 24px;
   margin: 0;
   padding: 0;
-  color: transparent; }
+  border: none; }
 window.background.chromium button {
   border-width: 1px;
   border-style: solid;

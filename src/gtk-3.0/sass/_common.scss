@@ -276,19 +276,25 @@ entry {
     image { // icons inside the entry
       // @extend %simple_flat_button;
 
-      min-height: $small_size;
-      min-width: $small_size;
-      border-radius: $md_radius;
-      -gtk-outline-radius: $md_radius;
+//      min-height: $small_size;
+//      min-width: $small_size;
+//      border-radius: $md_radius;
+//      -gtk-outline-radius: $md_radius;
       color: gtkalpha(currentColor, $enabled_opacity);
 
       &:hover, &:active { color: currentColor; }
 
       &:disabled { color: gtkalpha(currentColor, $hint_opacity); }
 
-      &.left { margin-left: -2px; margin-right: 2px; }
+       &.left {
+        margin-left: ($medium_size - 16px) / 2 - 8px;
+        margin-right: 6px;
+      }
 
-      &.right { margin-left: 2px; margin-right: -2px; }
+      &.right {
+        margin-left: 6px;
+        margin-right: ($medium_size - 16px) / 2 - 8px;
+      }
     }
 
     undershoot {

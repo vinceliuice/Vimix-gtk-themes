@@ -12,5 +12,5 @@ _parallel() {
 	)
 }
 
-cat $INDEX | _parallel ./render-asset.sh
+cat $INDEX | _parallel ./parallel.sh
 exit 0

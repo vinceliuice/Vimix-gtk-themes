@@ -4447,12 +4447,14 @@ na-tray-applet {
   transition: all 0.2s cubic-bezier(0, 0, 0.2, 1); }
   .workspace-switcher .workspace-item.current-workspace {
     background-color: rgba(255, 255, 255, 0.12); }
-.workspace-switcher .workspace-add-button:hover {
-  box-shadow: none; }
-.workspace-switcher .workspace-add-button:active {
-  background-image: none; }
-.workspace-switcher .workspace-add-button:active image {
-  margin: 1px 0 -1px; }
+.workspace-switcher .workspace-add-button {
+  background-color: transparent; }
+  .workspace-switcher .workspace-add-button:hover {
+    box-shadow: none; }
+  .workspace-switcher .workspace-add-button:active {
+    background-image: none; }
+  .workspace-switcher .workspace-add-button:active image {
+    margin: 1px 0 -1px; }
 .budgie-panel .workspace-switcher .workspace-icon-button {
   min-height: 24px;
   min-width: 24px;

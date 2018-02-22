@@ -35,7 +35,7 @@ style "default" {
 
   GtkSeparatorMenuItem::horizontal-padding = 0
   GtkSeparatorMenuItem::wide-separators    = 1
-  GtkSeparatorMenuItem::separator-height   = 3
+  GtkSeparatorMenuItem::separator-height   = 2
 
   GtkButton::child-displacement-y = 0
 
@@ -144,6 +144,7 @@ style "default" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = NORMAL
       shadow          = OUT
       overlay_file    = "assets/checkbox-unchecked.png"
@@ -152,6 +153,7 @@ style "default" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = PRELIGHT
       shadow          = OUT
       overlay_file    = "assets/checkbox-unchecked-hover.png"
@@ -160,6 +162,7 @@ style "default" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = ACTIVE
       shadow          = OUT
       overlay_file    = "assets/checkbox-unchecked-active.png"
@@ -168,6 +171,7 @@ style "default" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = SELECTED
       shadow          = OUT
       overlay_file    = "assets/checkbox-unchecked.png"
@@ -176,6 +180,7 @@ style "default" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = INSENSITIVE
       shadow          = OUT
       overlay_file    = "assets/checkbox-unchecked-insensitive.png"
@@ -184,6 +189,7 @@ style "default" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = NORMAL
       shadow          = IN
       overlay_file    = "assets/checkbox-checked.png"
@@ -192,6 +198,7 @@ style "default" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = PRELIGHT
       shadow          = IN
       overlay_file    = "assets/checkbox-checked-hover.png"
@@ -200,6 +207,7 @@ style "default" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = ACTIVE
       shadow          = IN
       overlay_file    = "assets/checkbox-checked-active.png"
@@ -208,6 +216,7 @@ style "default" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = SELECTED
       shadow          = IN
       overlay_file    = "assets/checkbox-checked.png"
@@ -216,6 +225,7 @@ style "default" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = INSENSITIVE
       shadow          = IN
       overlay_file    = "assets/checkbox-checked-insensitive.png"
@@ -224,6 +234,7 @@ style "default" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = NORMAL
       shadow          = ETCHED_IN
       overlay_file    = "assets/checkbox-mixed.png"
@@ -232,6 +243,7 @@ style "default" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = PRELIGHT
       shadow          = ETCHED_IN
       overlay_file    = "assets/checkbox-mixed-hover.png"
@@ -240,6 +252,7 @@ style "default" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = ACTIVE
       shadow          = ETCHED_IN
       overlay_file    = "assets/checkbox-mixed-active.png"
@@ -248,6 +261,7 @@ style "default" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = SELECTED
       shadow          = ETCHED_IN
       overlay_file    = "assets/checkbox-mixed.png"
@@ -256,6 +270,7 @@ style "default" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = INSENSITIVE
       shadow          = ETCHED_IN
       overlay_file    = "assets/checkbox-mixed-insensitive.png"
@@ -1662,12 +1677,12 @@ style "menubar" {
 }
 
 style "menubar_item" {
-  xthickness = 3
+  xthickness = 2
   ythickness = 4
 
   fg[NORMAL]      = mix(0.7, @titlebar_fg_color, @titlebar_bg_color)
-  bg[PRELIGHT]    = mix(0.15, @titlebar_fg_color, @titlebar_bg_color)
-  fg[PRELIGHT]    = @titlebar_fg_color
+  bg[PRELIGHT]    = @selected_bg_color
+  fg[PRELIGHT]    = @selected_fg_color
   fg[INSENSITIVE] = mix(0.3, @titlebar_fg_color, @titlebar_bg_color)
 }
 
@@ -1685,14 +1700,14 @@ style "menu_item" {
   xthickness = 4
   ythickness = 4
 
-  bg[PRELIGHT]   = mix(0.15, @fg_color, @base_color)
-  fg[PRELIGHT]   = @fg_color
+  bg[PRELIGHT]   = @selected_bg_color
+  fg[PRELIGHT]   = @selected_fg_color
   # Chromium uses this setting
-  bg[SELECTED]   = mix(0.15, @fg_color, @base_color)
-  text[SELECTED] = @fg_color
+  bg[SELECTED]   = @selected_bg_color
+  text[SELECTED] = @selected_fg_color
   # Some widgets use text, we need to handle that
   text[NORMAL]   = @fg_color
-  text[PRELIGHT] = @fg_color
+  text[PRELIGHT] = @selected_fg_color
 
   # Unfortunately we can't tell regular and menu checks/radios apart
   # Without the heirarchy
@@ -1704,6 +1719,7 @@ style "menu_item" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = NORMAL
       shadow          = OUT
       overlay_file    = "assets/menu-checkbox-unchecked.png"
@@ -1712,6 +1728,7 @@ style "menu_item" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = PRELIGHT
       shadow          = OUT
       overlay_file    = "assets/menu-checkbox-unchecked.png"
@@ -1720,6 +1737,7 @@ style "menu_item" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = ACTIVE
       shadow          = OUT
       overlay_file    = "assets/menu-checkbox-unchecked.png"
@@ -1728,6 +1746,7 @@ style "menu_item" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = INSENSITIVE
       shadow          = OUT
       overlay_file    = "assets/menu-checkbox-unchecked-insensitive.png"
@@ -1736,6 +1755,7 @@ style "menu_item" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = NORMAL
       shadow          = IN
       overlay_file    = "assets/menu-checkbox-checked.png"
@@ -1744,6 +1764,7 @@ style "menu_item" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = PRELIGHT
       shadow          = IN
       overlay_file    = "assets/menu-checkbox-checked.png"
@@ -1752,6 +1773,7 @@ style "menu_item" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = ACTIVE
       shadow          = IN
       overlay_file    = "assets/menu-checkbox-checked.png"
@@ -1760,6 +1782,7 @@ style "menu_item" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = INSENSITIVE
       shadow          = IN
       overlay_file    = "assets/menu-checkbox-checked-insensitive.png"
@@ -1768,6 +1791,7 @@ style "menu_item" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = NORMAL
       shadow          = ETCHED_IN
       overlay_file    = "assets/menu-checkbox-mixed.png"
@@ -1776,6 +1800,7 @@ style "menu_item" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = PRELIGHT
       shadow          = ETCHED_IN
       overlay_file    = "assets/menu-checkbox-mixed.png"
@@ -1784,6 +1809,7 @@ style "menu_item" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = ACTIVE
       shadow          = ETCHED_IN
       overlay_file    = "assets/menu-checkbox-mixed.png"
@@ -1792,6 +1818,7 @@ style "menu_item" {
 
     image {
       function        = CHECK
+      recolorable     = TRUE
       state           = INSENSITIVE
       shadow          = ETCHED_IN
       overlay_file    = "assets/menu-checkbox-mixed-insensitive.png"
@@ -1896,6 +1923,13 @@ style "menu_item" {
       shadow          = ETCHED_IN
       overlay_file    = "assets/menu-radio-mixed-insensitive.png"
       overlay_stretch = FALSE
+    }
+
+    image {
+      function = SHADOW # This fixes boxy Qt menu items
+      file = "assets/null.png"
+      border = { 4, 4, 4, 4 }
+      stretch = TRUE
     }
   }
 }

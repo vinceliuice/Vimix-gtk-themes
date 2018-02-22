@@ -128,6 +128,8 @@ for variant in '' '-Dark' '-Light' ; do
 			common/apps.rc \
 			common/hacks.rc \
 			common/main.rc \
+			common/panel.rc \
+			common/xfce-notify.rc \
 			${themedir}/gtk-2.0
 
 		install -d ${themedir}/gtk-2.0/assets
@@ -178,6 +180,18 @@ for variant in '' '-Dark' '-Light' ; do
 		cp -ur \
 			Vimix${size}/* \
 			${themedir}/unity
+
+		# Install xfwm4 Theme
+		install -d ${themedir}/xfwm4
+		cd ${srcdir}/xfwm4
+
+		cp -ur \
+			assets${variant}${color}/*.png \
+			${themedir}/xfwm4
+
+		cp -ur \
+			themerc${variant} \
+			${themedir}/xfwm4/themerc
 	done
   done
 done

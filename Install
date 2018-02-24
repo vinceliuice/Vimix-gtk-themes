@@ -50,7 +50,7 @@ for variant in '' '-Dark' '-Light' ; do
 			${themedir}/gnome-shell
 
 		cp -ur \
-			gnome${variant}-shell${size}${color}.css \
+			gnome-shell${variant}${size}${color}.css \
 			${themedir}/gnome-shell/gnome-shell.css
 
 		install -d ${themedir}/gnome-shell/assets

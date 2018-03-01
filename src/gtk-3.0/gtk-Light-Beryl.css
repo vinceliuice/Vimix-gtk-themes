@@ -5679,12 +5679,12 @@ window.background:not(.solid-csd) > notebook:not(.frame) > stack {
  * Unity *
  *********/
 UnityDecoration {
-  -UnityDecoration-extents: 28px 0 0 0;
+  -UnityDecoration-extents: 28px 1px 1px 1px;
   -UnityDecoration-input-extents: 10px;
   -UnityDecoration-shadow-offset-x: 0;
   -UnityDecoration-shadow-offset-y: 3px;
   -UnityDecoration-active-shadow-color: rgba(0, 0, 0, 0.48);
-  -UnityDecoration-active-shadow-radius: 18px;
+  -UnityDecoration-active-shadow-radius: 12px;
   -UnityDecoration-inactive-shadow-color: rgba(0, 0, 0, 0.32);
   -UnityDecoration-inactive-shadow-radius: 6px;
   -UnityDecoration-glow-size: 8px;
@@ -5697,6 +5697,7 @@ UnityDecoration {
 UnityDecoration .top {
   padding: 3px 8px 3px 8px;
   border-radius: 2px 2px 0px 0px;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.1);
   background-color: #eeeeee;
   color: rgba(0, 0, 0, 0.8);
 }
@@ -5712,7 +5713,7 @@ UnityDecoration .menuitem {
 
 UnityDecoration.menubar.menuitem:hover,
 UnityDecoration.menubar .menuitem *:hover {
-  box-shadow: inset 0 -2px currentColor;
+  box-shadow: inset 0 -2px #2EB398;
   background-color: transparent;
   color: currentColor;
 }
@@ -5745,7 +5746,7 @@ UnityPanelWidget:backdrop,
 
 .unity-panel.menubar.menuitem:hover,
 .unity-panel.menubar .menuitem *:hover {
-  box-shadow: inset 0 -2px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 -2px #2EB398;
   background-color: transparent;
   color: currentColor;
 }
@@ -5767,9 +5768,9 @@ menuitem calendar .button,
 menuitem calendar .header,
 menuitem calendar .view,
 menuitem calendar iconview {
-  background-color: #eeeeee;
-  padding: 5px;
+  background-color: #FFFFFF;
   color: rgba(0, 0, 0, 0.8);
+  padding: 2px 6px;
 }
 
 /**************

@@ -175,11 +175,10 @@ for variant in '' '-Dark' '-Light' ; do
 			${themedir}/metacity-1/metacity-theme-3.xml
 
 		# Install Unity Theme
-		install -d ${themedir}/unity
-		cd ${srcdir}/unity
+		cd ${srcdir}
 		cp -ur \
-			Vimix${size}/* \
-			${themedir}/unity
+			unity \
+			${themedir}
 
 		# Install xfwm4 Theme
 		install -d ${themedir}/xfwm4

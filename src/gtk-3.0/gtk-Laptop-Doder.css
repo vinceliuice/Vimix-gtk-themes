@@ -1972,12 +1972,17 @@ menu > arrow:disabled,
 }
 
 menu separator,
+.csd menu separator,
 .menu separator,
+.csd
+.menu separator,
+.context-menu separator,
+.csd
 .context-menu separator {
   margin: 3px 0;
-  border: none;
-  color: rgba(0, 0, 0, 0.1);
-  background-color: rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: transparent;
+  background-color: transparent;
 }
 
 menuitem accelerator {
@@ -5679,7 +5684,7 @@ window.background:not(.solid-csd) > notebook:not(.frame) > stack {
  * Unity *
  *********/
 UnityDecoration {
-  -UnityDecoration-extents: 28px 1px 1px 1px;
+  -UnityDecoration-extents: 28px 0 0 0;
   -UnityDecoration-input-extents: 10px;
   -UnityDecoration-shadow-offset-x: 0;
   -UnityDecoration-shadow-offset-y: 3px;
@@ -5704,6 +5709,12 @@ UnityDecoration .top {
 
 UnityDecoration .top:backdrop {
   color: alpha(#FFFFFF, 0.9);
+}
+
+UnityDecoration .left,
+UnityDecoration .right,
+UnityDecoration .bottom {
+  background-color: #444851;
 }
 
 UnityDecoration.menuitem,

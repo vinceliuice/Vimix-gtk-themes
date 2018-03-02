@@ -1594,11 +1594,12 @@ menu,
     }
   }
 
-  separator {
+  separator,
+  .csd & separator {
       margin: 3px 0;
-      border: none;
-      color: $borders_color;
-      background-color: $borders_color;
+      border-bottom: 1px solid $borders_color;
+      color: transparent;
+      background-color: transparent;
     }
 }
 

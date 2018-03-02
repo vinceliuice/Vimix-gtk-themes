@@ -1298,7 +1298,7 @@ window.background:not(.solid-csd) {
 
 // Decorations
 UnityDecoration {
-  -UnityDecoration-extents: 28px 1px 1px 1px;
+  -UnityDecoration-extents: 28px 0 0 0;
   -UnityDecoration-input-extents: 10px;
 
   -UnityDecoration-shadow-offset-x: 0;
@@ -1329,10 +1329,9 @@ UnityDecoration .top:backdrop {
 }
 
 UnityDecoration .left,
-UnityDecoration .right {
-}
-
+UnityDecoration .right,
 UnityDecoration .bottom {
+  background-color: $headerbar_bg_color;
 }
 
 UnityDecoration.menuitem,

@@ -127,6 +127,7 @@
 //
 
   @if $t == normal {
+    transition-duration: 0;
     color: if($tc == $fg_color, $button_fg_color, $tc);
     background-color: $c;
     border-color: transparent;
@@ -136,6 +137,7 @@
   }
 
   @if $t == focus {
+    transition-duration: 0;
     color: $tc;
     text-shadow: none;
     icon-shadow: none;
@@ -144,6 +146,7 @@
   }
 
   @if $t == hover {
+    transition-duration: 0;
     color: $tc;
     background-color: $c;
     border-color: transparent;
@@ -153,6 +156,7 @@
   }
 
   @if $t == active {
+    transition-duration: 0;
     color: $tc;
     background-color: mix($tc, $c, percentage($lower_opacity));
     border-color: transparent;
@@ -162,7 +166,8 @@
   }
 
   @if $t == insensitive {
-    color: if($tc == $fg_color, $disabled_secondary_fg_color, $tc);
+    transition-duration: 0;
+    color: if($tc == $fg_color, $disabled_fg_color, $tc);
     background-color: if($c == $base_color, $divider_color, $c);
     border-color: transparent;
     box-shadow: $shadow_0;
@@ -206,7 +211,7 @@
   }
 
   @if $t == flat-insensitive {
-    color: if($tc != $inverse_fg_color, $disabled_secondary_fg_color, $inverse_disabled_secondary_fg_color);
+    color: if($tc != $inverse_fg_color, $disabled_fg_color, $inverse_disabled_fg_color);
     background-color: transparent;
     border-color: transparent;
     box-shadow: $shadow_0;

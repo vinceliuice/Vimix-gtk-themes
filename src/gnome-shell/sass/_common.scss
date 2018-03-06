@@ -1964,6 +1964,7 @@ StScrollBar {
     &:insensitive { @include button(flat-insensitive, $tc: $inverse_fg_color); }
 
     &:default {
+      transition-duration: 0;
       @include button(normal, $c: $suggested_color, $tc: $inverse_fg_color);
       &:hover,&:focus { @include button(hover, $c: $suggested_color, $tc: $inverse_fg_color); }
       &:active { @include button(active, $c: $suggested_color, $tc: $inverse_fg_color); }

@@ -745,6 +745,34 @@ box.vertical:not(.titlebar) > revealer > toolbar.search-bar {
   }
 }
 
+// /************************
+//  * Gnome-Control-Center *
+//  ************************/
+
+// users section
+
+stack > box.vertical > widget > overlay grid.horizontal > stack {
+  > button.toggle { box-shadow: none; border: 1px solid $borders_color; }
+}
+
+// > 3.25.90
+scrolledwindow.view > viewport.frame > stack > list { // left-pane
+  > row.activatable { }
+}
+
+box.horizontal.titlebar > headerbar > stack > box.vertical {
+  > .title { margin: 0; }
+  > .subtitle { margin: -3px 0; }
+}
+
+dialog.background.csd {
+  > headerbar.titlebar {
+
+    > label:not(.title):not(.subtitle) {
+      font-weight: 700;
+    }
+  }
+}
 
 /*********
  * To Do *

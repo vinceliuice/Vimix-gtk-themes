@@ -5136,6 +5136,23 @@ box.vertical:not(.titlebar) > revealer > toolbar.search-bar button > widget {
   -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
 }
 
+stack > box.vertical > widget > overlay grid.horizontal > stack > button.toggle {
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+box.horizontal.titlebar > headerbar > stack > box.vertical > .title {
+  margin: 0;
+}
+
+box.horizontal.titlebar > headerbar > stack > box.vertical > .subtitle {
+  margin: -3px 0;
+}
+
+dialog.background.csd > headerbar.titlebar > label:not(.title):not(.subtitle) {
+  font-weight: 700;
+}
+
 /*********
  * To Do *
  *********/

@@ -17,7 +17,7 @@ sed -i "s/$OLD_TITLE/$NEW_TITLE/g" _common.scss
 
 # Install Packages
 if ! bundle exec sass --update --sourcemap=none . > /dev/null; then
-  echo 'Installing ruby, gem, sass & bundle for your system... Please type in your password if requested'
+  echo 'Installing sassc for your system... Please type in your password if requested'
     if has_command zypper; then
 
     # openSUSE
@@ -25,11 +25,11 @@ if ! bundle exec sass --update --sourcemap=none . > /dev/null; then
       elif has_command apt-get; then
 
     # Debian or Debian-like
-    sudo apt-get install ruby-sass ruby-bundler
+    sudo apt-get install sassc
       elif has_command dnf; then
 
     # Fedora
-    sudo dnf install glib2-devel rubygems && gem install bundle && bundle install
+    sudo dnf install sassc
       elif has_command yum; then
 
     # RedHat
@@ -37,7 +37,7 @@ if ! bundle exec sass --update --sourcemap=none . > /dev/null; then
       elif has_command pacman; then
 
     # ArchLinux
-    sudo pacman -S --noconfirm rubygems && gem install bundle && bundle install
+    sudo pacman -S --noconfirm sassc
     fi
 fi
 

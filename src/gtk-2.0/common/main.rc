@@ -2711,6 +2711,13 @@ style "disable_separator" {
   GtkWidget::wide-separators = 1
 }
 
+style "panel-launchers"
+{
+  xthickness = 0
+  ythickness = 0
+  GtkButton::inner-border = {1, 2, 1, 2}
+}
+
 # Default style, containing theme properties and trying to match every widget as
 # much as possible, which is not only faster than trying to match every widget
 # by its own but also less bug-prune and more consistent. However there is some
@@ -2813,3 +2820,6 @@ widget_class "*<GtkCellView>"                                      style "disabl
 
 # GTK tooltips
 widget "gtk-tooltip*"                                              style "tooltip"
+
+# Xfce4 panel launchers
+widget "*launcher*" style "panel-launchers"

@@ -16,12 +16,12 @@ cd $srcdir/gtk-3.0/sass
 sed -i "s/$OLD_TITLE/$NEW_TITLE/g" _common.scss
 
 # Install Packages
-if ! bundle exec sass --update --sourcemap=none . > /dev/null; then
-  echo 'Installing sassc for your system... Please type in your password if requested'
+if [ ! "$(which sassc 2> /dev/null)" ]; then
+   echo sassc needs to be installed to generate the css.
     if has_command zypper; then
 
     # openSUSE
-    sudo zypper in rubygems && gem install bundle && bundle install
+    sudo zypper in sassc
       elif has_command apt-get; then
 
     # Debian or Debian-like
@@ -33,7 +33,7 @@ if ! bundle exec sass --update --sourcemap=none . > /dev/null; then
       elif has_command yum; then
 
     # RedHat
-    sudo yum install rubygems && gem install bundle && bundle install
+    sudo yum install sassc
       elif has_command pacman; then
 
     # ArchLinux

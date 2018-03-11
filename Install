@@ -162,17 +162,18 @@ for variant in '' '-Dark' '-Light' ; do
 
 		# Install Metacity Theme
 		install -d ${themedir}/metacity-1
-		cd ${srcdir}/metacity-1/Vimix${variant}
+		cd ${srcdir}/metacity-1
 		cp -ur \
-			*.svg \
+			assets/*.png \
 			${themedir}/metacity-1
 
 		cp -ur \
-			metacity-theme${color}-2.xml \
-			${themedir}/metacity-1/metacity-theme-2.xml
-		cp -ur \
-			metacity-theme${color}-3.xml \
-			${themedir}/metacity-1/metacity-theme-3.xml
+			metacity-theme-1${variant}${color}.xml \
+			${themedir}/metacity-1/metacity-theme-1.xml
+
+		cd ${themedir}/metacity-1
+		ln -s metacity-theme-1.xml metacity-theme-2.xml
+		ln -s metacity-theme-1.xml metacity-theme-3.xml
 
 		# Install Unity Theme
 		cd ${srcdir}

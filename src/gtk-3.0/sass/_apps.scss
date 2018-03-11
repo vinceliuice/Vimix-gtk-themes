@@ -1238,11 +1238,10 @@ window.background.chromium {
     // from nav_button_provider_gtk3.cc (> 62.0.3202?)
     button.titlebutton { // title-buttons
       // define global titlebutton class sizing
-      min-width: 24px; // > 16px causes image blurring
-      min-height: 24px;
-      margin: 0; // unset margins
+      min-width: 16px; // > 16px causes image blurring
+      min-height: 16px;
+      margin: 0 4px; // unset margins
       padding: 0;
-      border: none;
     }
   }
 
@@ -1266,7 +1265,7 @@ window.background.chromium {
   }
 
   // internal region of toolbar's entry widget
-  > textview.view { background-color: $bg_color; }
+  > textview.view { background-color: $base_color; }
 }
 
 

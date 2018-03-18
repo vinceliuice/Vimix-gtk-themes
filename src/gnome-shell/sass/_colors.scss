@@ -44,6 +44,8 @@ $bg_color:         rgba($black, $middle_opacity);
 $alt_bg_color:     rgba($black, $lower_opacity);
 $inverse_bg_color: rgba($inverse_fg_color, 0.1);
 $panel_bg_color:   if($panel =='dark', scale-alpha($black, 0.5), scale-alpha($black, 0.4));
+$keyboard_bg_color:  if($variant == 'light', $grey_50, fade($grey_600));
+$alt_keyboard_bg_color:  if($variant == 'light', $grey_300, fade($grey_900));
 
 // Misc colors
 
@@ -55,6 +57,8 @@ $accent_color: #444444;
 @if $color =='doder' { $primary_color: #4586D8; $alt_primary_color: #03a9f4; $accent_color: #0CAAF0; }
 @if $color =='beryl' { $primary_color: #2EB398; $alt_primary_color: #1eba9b; $accent_color: #0fd1ab; }
 @if $color =='black' { $primary_color: #555555; $alt_primary_color: #666666; $accent_color: #EEEEEE; }
+
+$theme_color: if($color == 'black', $inverse_fg_color, $primary_color);
 
 $link_color:         $primary_color;
 $visited_link_color: $purple_A200;

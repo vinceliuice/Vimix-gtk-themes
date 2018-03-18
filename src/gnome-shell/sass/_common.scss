@@ -877,7 +877,7 @@ StScrollBar {
       // Trick due to St limitations. It needs a background to draw
       // a box-shadow
       background-color: rgba($bg_color, 0.01);
-      box-shadow: inset 0 -2px 0px $inverse_fg_color;
+      box-shadow: inset 0 -2px 0px $theme_color;
       color: $inverse_fg_color;
 
       & > .system-status-icon { icon-shadow: none; }
@@ -1833,50 +1833,82 @@ StScrollBar {
 
 //Keyboard
 /* On-screen Keyboard */
+.word-suggestions {
+    font-size: 14pt;
+    spacing: 12px;
+    min-height: 20pt;
+}
 
 #keyboard {
-    background-color: $alt_bg_color;
+    background-color: $panel_bg_color;
 }
 
   .keyboard-layout {
-    spacing: 10px;
-    padding: 10px;
+    padding: 4px;
+    spacing: 4px;
   }
 
-  .keyboard-row { spacing: 15px; }
-
   .keyboard-key {
-    min-height: $medium_size * 2;
-    min-width: $medium_size * 2;
-    font-size: 2em;
-    font-weight: 500;
-    border-radius: 2px;
+    min-height: 2em;
+    min-width: 2em;
+    font-size: 14pt;
+    font-weight: bold;
+    border-radius: 3px;
     border: none;
     color: inherit;
-    @include button(normal);
-    &:focus { @include button(focus); }
-    &:hover,&:checked { @include button(hover); }
-    &:active { @include button(active);}
+    background-color: $keyboard_bg_color;
+    box-shadow: 0 1px rgba(black, 0.2);
+    &:focus, &:hover { color: $inverse_fg_color; background-color: $accent_color; }
+    &:checked, &:active { color: $inverse_fg_color; background-color: darken($accent_color, 6%); }
     &:grayed { //FIXME
-      background-color: $alt_bg_color;
+      background-color: $panel_bg_color;
       color: $inverse_fg_color;
-      border-color: $alt_bg_color;
+      border-color: $panel_bg_color;
+    }
+    &.default-key { background-size: 20px; } // backspace button
+    &.default-key,
+    &.enter-key,
+    &.shift-key-lowercase,
+    &.shift-key-uppercase,
+    &.hide-key,
+    &.layout-key {
+      background-color: $alt_keyboard_bg_color;
+      box-shadow: 0 1px rgba(black, 0.2);
+      &:focus, &:hover { color: $button_fg_color; background-color: $keyboard_bg_color; }
+      &:checked, &:active { color: $button_fg_color; background-color: darken($keyboard_bg_color, 6%); }
+    }
+    &.enter-key {
+      background-color: $primary_color;
+      background-image: url("assets/key-enter.svg");
+      &:focus, &:hover { color: $inverse_fg_color; background-color: lighten($primary_color, 5%); }
+      &:checked, &:active { color: $inverse_fg_color; background-color: darken($primary_color, 10%); }
+    }
+    &.shift-key-lowercase {
+      background-image: url("assets/key-shift.svg");
+    }
+    &.shift-key-uppercase {
+      background-image: url("assets/key-shift-uppercase.svg");
+    }
+    &.shift-key-uppercase:latched {
+      background-image: url("assets/key-shift-latched-uppercase.svg");
+    }
+    &.hide-key {
+      background-image: url("assets/key-hide.svg");
+    }
+    &.layout-key {
+      background-image: url("assets/key-layout.svg");
     }
   }
 
   .keyboard-subkeys { //long press on a key popup
     color: inherit;
-    padding: 5px;
-    -arrow-border-radius: 0;
-    -arrow-background-color: transparent;
+    -arrow-border-radius: 3px;
+    -arrow-background-color: $panel_bg_color;
     -arrow-border-width: 0;
     -arrow-border-color: transparent;
-    -arrow-base: 0;
-    -arrow-rise: 0;
+    -arrow-base: 20px;
+    -arrow-rise: 10px;
     -boxpointer-gap: 5px;
-    background-color: $base_color;
-    border-radius: 2px;
-    box-shadow: $shadow_2;
   }
 
 // IBus Candidate Popup

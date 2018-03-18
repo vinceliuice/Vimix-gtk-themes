@@ -63,6 +63,9 @@ for variant in '' '-Dark' '-Light' ; do
 			process-working.svg \
 			window-close.svg \
 			window-close-active.svg \
+			key-enter.svg \
+			key-shift-latched-uppercase.svg \
+			key-shift-uppercase.svg \
 			${themedir}/gnome-shell/assets
 
 		cp -ur \
@@ -105,16 +108,28 @@ for variant in '' '-Dark' '-Light' ; do
 			toggle-on${color}.svg \
 			${themedir}/gnome-shell/assets/toggle-on.svg
 
+		cp -ur \
+			key-hide${variant}.svg \
+			${themedir}/gnome-shell/assets/key-hide.svg
+
+		cp -ur \
+			key-layout${variant}.svg \
+			${themedir}/gnome-shell/assets/key-layout.svg
+
+		cp -ur \
+			key-shift${variant}.svg \
+			${themedir}/gnome-shell/assets/key-shift.svg
+
 		cd ${themedir}/gnome-shell
 		ln -s assets/no-events.svg no-events.svg
 		ln -s assets/process-working.svg process-working.svg
 		ln -s assets/no-notifications.svg no-notifications.svg
 
-		cd ${srcdir}/gnome-shell
-		glib-compile-resources \
-			--sourcedir=${themedir}/gnome-shell \
-			--target=${themedir}/gnome-shell/gnome-shell-theme.gresource \
-			gnome-shell-theme.gresource.xml
+#		cd ${srcdir}/gnome-shell
+#		glib-compile-resources \
+#			--sourcedir=${themedir}/gnome-shell \
+#			--target=${themedir}/gnome-shell/gnome-shell-theme.gresource \
+#			gnome-shell-theme.gresource.xml
 
 		# Install GTK+ 2 Theme
 		install -d ${themedir}/gtk-2.0

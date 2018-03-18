@@ -573,8 +573,8 @@ button.flat {
 radio:hover, calendar.button:hover, messagedialog.csd .dialog-action-area button:hover, button.sidebar-button:hover, .gedit-search-slider button:hover, PanelToplevel > widget > button:hover, .budgie-settings-window buttonbox.inline-toolbar button:hover, .raven .raven-header:not(.top) button:hover, .drop-shadow button:hover, .budgie-session-dialog .linked.horizontal > button:hover, .lightdm-gtk-greeter button:hover, :not(headerbar) .caja-pathbar button:hover, .caja-pathbar :not(headerbar) button:hover, :not(headerbar) .path-bar button:hover, layouttabbar button:hover, .mate-panel-menu-bar #PanelApplet button:hover:not(.flat), .raven stackswitcher.linked > button:hover, toolbar button:hover, actionbar > revealer > box button:hover:not(.suggested-action):not(.destructive-action):not(.server-list-button), .app-notification button:hover,
 button.flat:hover {
   box-shadow: none;
-  background-image: radial-gradient(circle farthest-corner at center, alpha(currentColor, 0) 100%, transparent 0%), image(alpha(currentColor, 0.15));
-  background-color: rgba(255, 255, 255, 0.1);
+  background-image: radial-gradient(circle farthest-corner at center, transparent 100%, transparent 0%), image(rgba(255, 255, 255, 0.05));
+  background-color: rgba(255, 255, 255, 0.05);
   color: currentColor;
 }
 
@@ -606,7 +606,7 @@ button.flat:checked {
 
 :not(headerbar) .caja-pathbar button:checked:disabled, .caja-pathbar :not(headerbar) button:checked:disabled, :not(headerbar) .path-bar button:checked:disabled, layouttabbar button:checked:disabled, .mate-panel-menu-bar #PanelApplet button:checked:disabled:not(.flat), .raven stackswitcher.linked > button:checked:disabled, toolbar button:checked:disabled, actionbar > revealer > box button:checked:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), .app-notification button:checked:disabled,
 button.flat:checked:disabled {
-  background-color: alpha(currentColor, 0.3);
+  background-color: rgba(255, 255, 255, 0.15);
   color: alpha(currentColor, 0.4);
 }
 
@@ -781,8 +781,8 @@ button.suggested-action.flat {
 
 button.suggested-action.flat:hover {
   box-shadow: none;
-  background-image: radial-gradient(circle farthest-corner at center, alpha(currentColor, 0) 100%, transparent 0%), image(alpha(currentColor, 0.15));
-  background-color: rgba(255, 255, 255, 0.1);
+  background-image: radial-gradient(circle farthest-corner at center, transparent 100%, transparent 0%), image(rgba(255, 255, 255, 0.05));
+  background-color: rgba(255, 255, 255, 0.05);
   color: currentColor;
 }
 
@@ -846,8 +846,8 @@ button.destructive-action.flat {
 
 button.destructive-action.flat:hover {
   box-shadow: none;
-  background-image: radial-gradient(circle farthest-corner at center, alpha(currentColor, 0) 100%, transparent 0%), image(alpha(currentColor, 0.15));
-  background-color: rgba(255, 255, 255, 0.1);
+  background-image: radial-gradient(circle farthest-corner at center, transparent 100%, transparent 0%), image(rgba(255, 255, 255, 0.05));
+  background-color: rgba(255, 255, 255, 0.05);
   color: currentColor;
 }
 

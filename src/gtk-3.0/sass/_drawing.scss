@@ -238,10 +238,10 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
   @if $t == flat-hover {
     box-shadow: none;
     background-image: radial-gradient(circle farthest-corner at center,
-                                      $zero_track_color 100%,
+                                      transparent 100%,
                                       transparent 0%),
-                      image($semi_track_color);
-    background-color: rgba($fg_color, 0.10);
+                      image(rgba($fg_color, 0.05));
+    background-color: rgba($fg_color, 0.05);
     color: currentColor;
   }
 
@@ -265,7 +265,7 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
   }
 
   @if $t == flat-checked-disabled {
-    background-color: $track_color;
+    background-color: rgba($fg_color, 0.15);
     color: gtkalpha(currentColor, $disabled_opacity);
   }
 }

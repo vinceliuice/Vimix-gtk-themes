@@ -241,12 +241,14 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
                                       $zero_track_color 100%,
                                       transparent 0%),
                       image($semi_track_color);
+    background-color: rgba($fg_color, 0.10);
     color: currentColor;
   }
 
   @if $t == flat-active {
     transition: $longer_transition, background-image 0;
     animation: flat_ripple_effect $longer_duration $deceleration_curve forwards;
+    background-color: rgba($fg_color, 0.15);
     box-shadow: none;
     color: currentColor;
   }
@@ -258,7 +260,7 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
   }
 
   @if $t == flat-checked {
-    background-color: $track_color;
+    background-color: rgba($fg_color, 0.20);
     color: currentColor;
   }
 

@@ -574,6 +574,7 @@ radio:hover, calendar.button:hover, messagedialog.csd .dialog-action-area button
 button.flat:hover {
   box-shadow: none;
   background-image: radial-gradient(circle farthest-corner at center, alpha(currentColor, 0) 100%, transparent 0%), image(alpha(currentColor, 0.15));
+  background-color: rgba(0, 0, 0, 0.1);
   color: currentColor;
 }
 
@@ -583,6 +584,7 @@ radio:active, calendar.button:active, messagedialog.csd .dialog-action-area butt
 button.flat:active {
   transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), background-image 0;
   animation: flat_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
+  background-color: rgba(0, 0, 0, 0.15);
   box-shadow: none;
   color: currentColor;
 }
@@ -598,7 +600,7 @@ button.flat:disabled {
 
 :not(headerbar) .caja-pathbar button:checked, .caja-pathbar :not(headerbar) button:checked, :not(headerbar) .path-bar button:checked, layouttabbar button:checked, .mate-panel-menu-bar #PanelApplet button:checked:not(.flat), .raven stackswitcher.linked > button:checked, toolbar button:checked, actionbar > revealer > box button:checked:not(.suggested-action):not(.destructive-action):not(.server-list-button), .app-notification button:checked,
 button.flat:checked {
-  background-color: alpha(currentColor, 0.3);
+  background-color: rgba(0, 0, 0, 0.2);
   color: currentColor;
 }
 
@@ -780,6 +782,7 @@ button.suggested-action.flat {
 button.suggested-action.flat:hover {
   box-shadow: none;
   background-image: radial-gradient(circle farthest-corner at center, alpha(currentColor, 0) 100%, transparent 0%), image(alpha(currentColor, 0.15));
+  background-color: rgba(0, 0, 0, 0.1);
   color: currentColor;
 }
 
@@ -788,6 +791,7 @@ button.suggested-action.flat:active,
 button.suggested-action.flat:checked {
   transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), background-image 0;
   animation: flat_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
+  background-color: rgba(0, 0, 0, 0.15);
   box-shadow: none;
   color: currentColor;
 }
@@ -843,6 +847,7 @@ button.destructive-action.flat {
 button.destructive-action.flat:hover {
   box-shadow: none;
   background-image: radial-gradient(circle farthest-corner at center, alpha(currentColor, 0) 100%, transparent 0%), image(alpha(currentColor, 0.15));
+  background-color: rgba(0, 0, 0, 0.1);
   color: currentColor;
 }
 
@@ -851,6 +856,7 @@ button.destructive-action.flat:active,
 button.destructive-action.flat:checked {
   transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), background-image 0;
   animation: flat_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
+  background-color: rgba(0, 0, 0, 0.15);
   box-shadow: none;
   color: currentColor;
 }

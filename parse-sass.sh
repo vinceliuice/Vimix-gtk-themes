@@ -25,12 +25,17 @@ fi
 for color in "${_COLOR_VARIANTS[@]}"; do
   for size in "${_SIZE_VARIANTS[@]}"; do
     for theme in "${_THEME_VARIANTS[@]}"; do
-
     sassc $SASSC_OPT src/gtk-3.0/gtk${color}${size}${theme}.{scss,css}
     echo "== Generating the gtk${color}${size}${theme}.css..."
+    done
+  done
+done
+
+for color in "${_COLOR_VARIANTS[@]}"; do
+  for size in "${_SIZE_VARIANTS[@]}"; do
+    for theme in "${_THEME_VARIANTS[@]}"; do
     sassc $SASSC_OPT src/gnome-shell/gnome-shell${color}${size}${theme}.{scss,css}
     echo "== Generating the gnome-shell${color}${size}${theme}.css..."
-
     done
   done
 done

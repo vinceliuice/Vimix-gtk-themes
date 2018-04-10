@@ -1088,7 +1088,8 @@ headerbar {
       &:checked:disabled { @include header_button(header-checked-disabled); }
     }
 
-  button {
+  button,
+  button.flat.toggle.popup {
       @extend %header_button;
       &:hover { background-color: gtkalpha($primary_color, 0.3); color: $theme_color; }
       &:active { background-color: $primary_color; color: $dark_contrast_color; }
@@ -3574,6 +3575,7 @@ decoration {
 
     &:hover {
       @include button(header-hover);
+      transition-duration: $shortest_duration;
     }
     &:active, &:checked {
       @include button(header-active);

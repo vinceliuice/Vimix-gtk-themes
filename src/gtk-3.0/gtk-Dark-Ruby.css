@@ -1331,7 +1331,9 @@ headerbar .subtitle {
 }
 
 .titlebar:not(headerbar) button,
-headerbar button {
+.titlebar:not(headerbar) button.flat.toggle.popup,
+headerbar button,
+headerbar button.flat.toggle.popup {
   transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
   box-shadow: none;
   background-color: transparent;
@@ -1340,44 +1342,58 @@ headerbar button {
 }
 
 .titlebar:not(headerbar) button:hover,
-headerbar button:hover {
+.titlebar:not(headerbar) button.flat.toggle.popup:hover,
+headerbar button:hover,
+headerbar button.flat.toggle.popup:hover {
   box-shadow: none;
 }
 
 .titlebar:not(headerbar) button:active,
-headerbar button:active {
+.titlebar:not(headerbar) button.flat.toggle.popup:active,
+headerbar button:active,
+headerbar button.flat.toggle.popup:active {
   transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), background-image 0;
   animation: flat_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
   box-shadow: none;
 }
 
 .titlebar:not(headerbar) button:disabled,
-headerbar button:disabled {
+.titlebar:not(headerbar) button.flat.toggle.popup:disabled,
+headerbar button:disabled,
+headerbar button.flat.toggle.popup:disabled {
   box-shadow: none;
   background-color: transparent;
   color: alpha(currentColor, 0.3);
 }
 
 .titlebar:not(headerbar) button:checked:disabled,
-headerbar button:checked:disabled {
+.titlebar:not(headerbar) button.flat.toggle.popup:checked:disabled,
+headerbar button:checked:disabled,
+headerbar button.flat.toggle.popup:checked:disabled {
   background-color: alpha(currentColor, 0.3);
   color: alpha(currentColor, 0.4);
 }
 
 .titlebar:not(headerbar) button:hover,
-headerbar button:hover {
+.titlebar:not(headerbar) button.flat.toggle.popup:hover,
+headerbar button:hover,
+headerbar button.flat.toggle.popup:hover {
   background-color: alpha(#F0544C, 0.3);
   color: #F0544C;
 }
 
 .titlebar:not(headerbar) button:active,
-headerbar button:active {
+.titlebar:not(headerbar) button.flat.toggle.popup:active,
+headerbar button:active,
+headerbar button.flat.toggle.popup:active {
   background-color: #F0544C;
   color: #FFFFFF;
 }
 
 .titlebar:not(headerbar) button:checked,
-headerbar button:checked {
+.titlebar:not(headerbar) button.flat.toggle.popup:checked,
+headerbar button:checked,
+headerbar button.flat.toggle.popup:checked {
   background-color: #F0544C;
   color: #FFFFFF;
 }
@@ -4416,6 +4432,10 @@ entry selection:disabled, modelbutton.flat:disabled:selected,
 /*****************
  * Title buttons *
  *****************/
+headerbar button.titlebutton:hover, .titlebar button.titlebutton:hover {
+  transition-duration: 0.1s;
+}
+
 headerbar button.titlebutton.close, .titlebar button.titlebutton.close, headerbar button.titlebutton.maximize, .titlebar button.titlebutton.maximize, headerbar button.titlebutton.minimize, .titlebar button.titlebutton.minimize, headerbar button.titlebutton.restore, .titlebar button.titlebutton.restore {
   margin: 0;
   padding: 0;
@@ -6450,7 +6470,7 @@ popover.background.places-menu row {
 }
 
 .budgie-panel {
-  transition: background-color 0.3s cubic-bezier(0, 0, 0.2, 1);
+  transition: background-color 0.2s cubic-bezier(0, 0, 0.2, 1);
   background-color: #424242;
   color: #FFFFFF;
   font-weight: 500;

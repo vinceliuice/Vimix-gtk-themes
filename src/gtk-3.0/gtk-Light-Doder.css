@@ -3755,21 +3755,17 @@ list row {
 
 row.activatable, .view, iconview, treeview.view header button, .budgie-menu button {
   transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), background-color 0, color 0;
-  box-shadow: inset 0 0 0 9999px alpha(currentColor, 0);
-  background-image: radial-gradient(circle farthest-corner at center, alpha(currentColor, 0) 100%, transparent 0%), image(alpha(currentColor, 0));
+  background-image: none;
 }
 
 row.activatable:hover, .view:hover, iconview:hover, treeview.view header button:hover, .budgie-menu button:hover {
-  transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), background-color 0, color 0, box-shadow 0;
-  box-shadow: inset 0 0 0 9999px transparent;
-  background-image: radial-gradient(circle farthest-corner at center, alpha(currentColor, 0) 100%, transparent 0%), image(alpha(currentColor, 0));
+  transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), background-color 0, color 0;
   background-color: alpha(currentColor, 0.05);
 }
 
 row.activatable.has-open-popup, .has-open-popup.view, iconview.has-open-popup, treeview.view header button.has-open-popup, .budgie-menu button.has-open-popup, row.activatable:active, .view:active, iconview:active, treeview.view header button:active, .budgie-menu button:active {
-  transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), background-color 0, color 0, background-image 0;
+  transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), background-color 0, color 0;
   animation: row_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
-  box-shadow: inset 0 0 0 9999px alpha(currentColor, 0.15);
 }
 
 row:selected:hover {

@@ -4869,6 +4869,10 @@ filechooser placessidebar.sidebar row.sidebar-row:selected:hover,
   box-shadow: inset 1px 0 rgba(0, 0, 0, 0.1);
 }
 
+.gedit-document-panel row.activatable, .gedit-document-panel .view, .gedit-document-panel iconview, .gedit-document-panel treeview.view header button, treeview.view header .gedit-document-panel button, .gedit-document-panel .budgie-menu button, .budgie-menu .gedit-document-panel button {
+  padding: 6px 4px;
+}
+
 .gedit-document-panel-group-row,
 .gedit-document-panel-group-row:hover {
   border-top: 1px solid alpha(currentColor, 0.3);

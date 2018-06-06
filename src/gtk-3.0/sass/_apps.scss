@@ -215,7 +215,9 @@ filechooser,
 
 .gedit-document-panel {
   background-color: $lighter_bg_color;
-    box-shadow: inset 1px 0 $borders_color;
+  box-shadow: inset 1px 0 $borders_color;
+
+  row.activatable { padding: 6px 4px; }
 }
 
 .gedit-document-panel row:selected {

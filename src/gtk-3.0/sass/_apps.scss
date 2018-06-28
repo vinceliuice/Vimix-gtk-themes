@@ -58,9 +58,11 @@ filechooser,
 
     row.sidebar-row {
       padding: 0;
-      &:hover { color: $primary_color;
-              background-color: transparent;
-              box-shadow: inset 3px 0 $primary_color; }
+      &:hover {
+        color: if($color =='black', $darker_contrast_color, $primary_color);
+        background-color: transparent;
+        box-shadow: inset 3px 0 if($color =='black', $darker_contrast_color, $primary_color);
+      }
 
       &:active { box-shadow: inset 3px 0 $primary_color; }
       &:backdrop { opacity: 0.85; }

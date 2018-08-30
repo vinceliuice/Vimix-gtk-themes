@@ -6518,6 +6518,7 @@ popover.background.places-menu row {
 .budgie-panel .menubar > menuitem:hover {
   color: rgba(0, 0, 0, 0.8);
   background-color: rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 -3px #686868;
 }
 
 .budgie-panel menubar > menuitem:disabled,
@@ -6623,12 +6624,12 @@ frame.raven-frame > border {
 }
 
 .raven stackswitcher.linked > button {
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FFA726 0%, transparent 0%) 0 0 0/0 0 0px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FFFFFF 0%, transparent 0%) 0 0 0/0 0 0px;
   border-radius: 0;
 }
 
 .raven stackswitcher.linked > button:checked {
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FFA726 100%, transparent 0%) 0 0 2/0 0 2px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FFFFFF 100%, transparent 0%) 0 0 2/0 0 2px;
   background-color: transparent;
 }
 

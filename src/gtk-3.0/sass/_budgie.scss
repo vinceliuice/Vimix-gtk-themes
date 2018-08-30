@@ -309,6 +309,7 @@ popover.background.places-menu {
       &:hover {
         color: $topbar_fg_color;
         background-color: rgba($topbar_fg_color, 0.12);
+        box-shadow: inset 0 -3px $theme_color;
       }
       &:disabled {
         color: transparentize($topbar_fg_color, 0.6);
@@ -361,14 +362,14 @@ popover.background.places-menu {
     .#{$pos} & {
       & {
         border-image: radial-gradient(circle closest-corner at #{$b_pos},
-                                      $primary_color 0%,
+                                      $theme_color 0%,
                                       transparent 0%)
                                       0 0 0 0 / 0 0 0 0;
       }
 
       &:checked {
         border-image: radial-gradient(circle closest-corner at #{$b_pos},
-                                      $primary_color 100%,
+                                      $theme_color 100%,
                                       transparent 0%)
                                       #{$b_wid};
       }
@@ -398,6 +399,9 @@ $pos_list: ((top, bottom), (bottom, top), (left, right), (right, left));
 }
 
 // Raven
+
+$stackswitcher_color: if($color == 'black' or $color == 'white', $inversed_fg_color, $warning_bg_color);
+
 .raven {
   background-color: $lighter_bg_color;
 
@@ -414,14 +418,14 @@ $pos_list: ((top, bottom), (bottom, top), (left, right), (right, left));
     @extend %button_selected.flat;
 
     border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                  $warning_bg_color 0%,
+                                  $stackswitcher_color 0%,
                                   transparent 0%)
                                   0 0 0 / 0 0 0px;
     border-radius: 0;
 
     &:checked {
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    $warning_bg_color 100%,
+                                    $stackswitcher_color 100%,
                                     transparent 0%)
                                     0 0 2 / 0 0 2px;
       background-color: transparent;

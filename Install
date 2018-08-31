@@ -186,6 +186,10 @@ for variant in '' '-Dark' '-Light' ; do
 			metacity-theme-1${variant}${color}.xml \
 			${themedir}/metacity-1/metacity-theme-1.xml
 
+		cp -ur \
+			thumbnail${variant}.png \
+			${themedir}/metacity-1/thumbnail.png
+
 		cd ${themedir}/metacity-1
 		ln -s metacity-theme-1.xml metacity-theme-2.xml
 		ln -s metacity-theme-1.xml metacity-theme-3.xml

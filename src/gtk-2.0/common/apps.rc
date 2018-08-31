@@ -90,3 +90,38 @@ class "GimpSpinScale" style "gimp_spin_scale"
 
 # Chromium lets us define some colours and settings for better integration
 class "ChromeGtkFrame" style "chrome_gtk_frame"
+
+#
+# (He)XChat
+#
+
+style "chat-entry" {
+  xthickness = 4
+  ythickness = 4
+
+  # enforce white backgrounds
+  bg[NORMAL] = @selected_fg_color
+  bg[PRELIGHT] = @selected_fg_color
+  bg[ACTIVE] = @selected_fg_color
+  bg[SELECTED] = @selected_bg_color
+
+  engine "pixmap" {
+    image {
+      function = SHADOW
+      detail   = "entry"
+      file     = "assets/frame.png"
+      border   = { 1, 1, 1, 1 }
+      stretch  = TRUE
+    }
+    image {
+      function = FLAT_BOX
+      detail   = "entry_bg"
+      file     = "assets/null.png"
+      border   = { 0, 0, 0, 0 }
+      stretch  = TRUE
+    }
+  }
+}
+
+widget "*xchat-inputbox" style "chat-entry"
+class "SexySpellEntry"   style:highest "chat-entry"

@@ -898,7 +898,7 @@ window.background > box.vertical > scrolledwindow > widget toolbar {
 
 $firefox_border_color: $borders_color;
 $firefox_theme_color: if($color == 'black', #666666, $primary_color);
-$firefox_fg_color: if($variant =='light', $secondary_fg_color, #aaaaaa);
+$firefox_fg_color: if($variant =='light', $secondary_fg_color, #bababa);
 $firefox_bg_color: if($variant =='light', $lighter_bg_color, #666666);
 
 // templates for the fallback mode buttons
@@ -1105,7 +1105,7 @@ window.background:not(.csd) {
   separator,
   scrolledwindow { background-color: $bg_color; }
 
-  scrollbar { background-color: transparent; }
+  scrollbar { background-color: $darker_bg_color; }
 
   *:not(menuitem):hover, // exclude menuitem node
   *:focus,

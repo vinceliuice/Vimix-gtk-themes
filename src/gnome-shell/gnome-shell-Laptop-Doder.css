@@ -241,6 +241,15 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   -slider-active-border-color: transparent;
   -slider-border-width: 0;
   -slider-handle-radius: 7px;
+  -barlevel-height: 2px;
+  -barlevel-background-color: rgba(0, 0, 0, 0.26);
+  -barlevel-border-color: transparent;
+  -barlevel-active-background-color: #0CAAF0;
+  -barlevel-active-border-color: transparent;
+  -barlevel-overdrive-color: #FF5252;
+  -barlevel-overdrive-border-color: transparent;
+  -barlevel-overdrive-separator-width: 2px;
+  -barlevel-border-width: 0;
 }
 
 /* Check Boxes */
@@ -604,7 +613,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .hidden {
-  color: transparent;
+  color: rgba(0, 0, 0, 0);
 }
 
 .prompt-dialog-null-label {
@@ -847,6 +856,12 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   border-radius: 0;
   background-color: rgba(69, 134, 216, 0.3);
   color: rgba(0, 0, 0, 0.87);
+  -barlevel-height: 2px;
+  -barlevel-background-color: transparent;
+  -barlevel-active-background-color: #00C853;
+  -barlevel-overdrive-color: #FF5252;
+  -barlevel-overdrive-separator-width: 2px;
+  -barlevel-border-width: 0;
 }
 
 .osd-window .level-bar {
@@ -914,7 +929,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .switcher-arrow {
-  border-color: transparent;
+  border-color: rgba(0, 0, 0, 0);
   color: rgba(0, 0, 0, 0.38);
 }
 
@@ -1098,6 +1113,10 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 #panel .screencast-indicator {
+  color: #FF6D00;
+}
+
+#panel .remote-access-indicator {
   color: #FF6D00;
 }
 
@@ -1557,14 +1576,12 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .aggregate-menu .popup-sub-menu .popup-menu-item :first-child:ltr {
   /* 8px spacing + 2*4px padding */
-  padding-left: 16px;
-  margin-left: 1.23077em;
+  margin-left: 14px;
 }
 
 .aggregate-menu .popup-sub-menu .popup-menu-item :first-child:rtl {
   /* 8px spacing + 2*4px padding */
-  padding-right: 16px;
-  margin-right: 1.23077em;
+  margin-right: 14px;
 }
 
 .system-menu-action {
@@ -1573,6 +1590,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   /* wish we could do 50% */
   padding: 14px;
   border: none;
+  -st-icon-style: symbolic;
 }
 
 .system-menu-action:hover, .system-menu-action:focus {

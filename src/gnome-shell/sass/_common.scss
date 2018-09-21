@@ -155,6 +155,18 @@ StScrollBar {
   -slider-active-border-color: transparent; //active trough border
   -slider-border-width: 0;
   -slider-handle-radius: 7px;
+
+  // barlevels are for >= 3.29.90
+  -barlevel-height: 2px;
+  -barlevel-background-color: $track_color;
+  -barlevel-border-color: transparent;
+  -barlevel-active-background-color: $accent_color;
+  -barlevel-active-border-color: transparent;
+  -barlevel-overdrive-color: $destructive_color;
+  -barlevel-overdrive-border-color: transparent;
+  -barlevel-overdrive-separator-width: 2px;
+  -barlevel-border-width: 0;
+
 }
 
 /* Check Boxes */
@@ -665,6 +677,17 @@ StScrollBar {
     border-radius: 0;
     background-color: rgba($primary_color, $lower_opacity);
     color: $fg_color;
+
+    // For >= 3.29.90
+    -barlevel-height: 2px;
+    // FIXME: above 'background-color' property rendered correct trough
+    // colour already, so keep -background-color style-property transparent
+    -barlevel-background-color: transparent;
+    -barlevel-active-background-color: $success_color;
+    -barlevel-overdrive-color: $destructive_color;
+    -barlevel-overdrive-separator-width: 2px;
+    -barlevel-border-width: 0;
+
   }
   .level-bar {
     background-color: $primary_color;
@@ -903,6 +926,7 @@ StScrollBar {
   }
 
   .screencast-indicator { color: $warning_color; }
+  .remote-access-indicator { color: $warning_color; } // > 3.29.4
 
   &.solid {
     background-color: $panel_bg_color;
@@ -1261,9 +1285,11 @@ StScrollBar {
     .popup-menu-icon { padding: 0 4px; }
     .popup-sub-menu .popup-menu-item :first-child {
       &:ltr { /* 8px spacing + 2*4px padding */
-              padding-left: 16px; margin-left: em(16px); }
+        margin-left: 14px;
+      }
       &:rtl { /* 8px spacing + 2*4px padding */
-              padding-right: 16px; margin-right: em(16px); }
+        margin-right: 14px;
+      }
     }
   }
 
@@ -1272,6 +1298,7 @@ StScrollBar {
     border-radius: 100px; /* wish we could do 50% */
     padding: ($large_size - 16px) / 2;
     border: none;
+    -st-icon-style: symbolic; // >= 3.29.90
 
     &:hover, &:focus {
       background-color: $divider_color;

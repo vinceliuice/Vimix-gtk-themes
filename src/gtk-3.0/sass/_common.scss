@@ -1294,8 +1294,26 @@ headerbar {
   }
 
   switch {
-    margin-top: $container_padding * 2;
-    margin-bottom: $container_padding * 2;
+    margin-top: if($laptop == 'true', 12px, 14px);
+    margin-bottom: if($laptop == 'true', 12px, 14px);
+
+    @if $color == 'black' and $headerbar =='dark' {
+
+    background-color: rgba($headerbar_fg_color, $lower_opacity);
+
+    &:disabled { color: rgba($headerbar_fg_color, $disabled_opacity); }
+
+    &:checked {
+      background-color: rgba($headerbar_fg_color, 0.5);
+
+      &:disabled {
+        background-color: rgba($headerbar_fg_color, 0.5 * $disabled_opacity);
+      }
+    }
+
+    &:checked slider { background-color: $headerbar_fg_color; }
+
+    }
   }
 }
 
@@ -2061,7 +2079,7 @@ switch {
   slider {
     @include entry(normal);
 
-    transition: $longer_transition, $shadow_transition, margin 0;
+    transition: $longer_transition, $shadow_transition;
     min-width: $small_size;
     min-height: $small_size;
     margin: -4px 0 -4px -4px;
@@ -2072,7 +2090,8 @@ switch {
   &:hover slider { @include entry(focus); }
 
   &:checked slider {
-    animation: needs_attention $longer_duration $deceleration_curve;
+    transition: $longer_transition, $shadow_transition;
+//    animation: needs_attention $longer_duration $deceleration_curve;
     margin: -4px -4px -4px 0;
     background-color: $accent_color;
     color: $inversed_fg_color;
@@ -2096,7 +2115,7 @@ switch {
       &:checked slider {
         animation: none;
         background-color: $inversed_fg_color;
-       }
+      }
    }
 }
 

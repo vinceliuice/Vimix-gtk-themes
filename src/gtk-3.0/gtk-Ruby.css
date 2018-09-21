@@ -1620,8 +1620,8 @@ headerbar button {
 }
 
 headerbar switch {
-  margin-top: 12px;
-  margin-bottom: 12px;
+  margin-top: 14px;
+  margin-bottom: 14px;
 }
 
 .background:not(.tiled):not(.maximized):not(.fullscreen) .titlebar {
@@ -2456,7 +2456,7 @@ switch slider {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   background-color: #FFFFFF;
   color: rgba(0, 0, 0, 0.8);
-  transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1), margin 0;
+  transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
   min-width: 22px;
   min-height: 22px;
   margin: -4px 0 -4px -4px;
@@ -2470,7 +2470,7 @@ switch:hover slider {
 }
 
 switch:checked slider {
-  animation: needs_attention 0.3s cubic-bezier(0, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
   margin: -4px -4px -4px 0;
   background-color: #FF626C;
   color: #FFFFFF;

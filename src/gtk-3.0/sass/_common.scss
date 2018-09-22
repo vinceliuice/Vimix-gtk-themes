@@ -2192,9 +2192,9 @@ radio {
   @extend %circular_button;
 
   &:checked, &:indeterminate {
-      color: $accent_color;
+      color: $alt_theme_color;
 
-      &:disabled {  color: scale-alpha($accent_color, $disabled_opacity); }
+      &:disabled {  color: scale-alpha($alt_theme_color, $disabled_opacity); }
   }
 
   // &:only-child { margin: -12px; }

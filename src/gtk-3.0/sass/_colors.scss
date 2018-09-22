@@ -25,10 +25,10 @@ $disabled_opacity: 0.4;
 // Foreground colors
 $light_contrast_color: scale-alpha(#000000, 0.8);
 $dark_contrast_color: #FFFFFF;
-$darker_contrast_color: #E0E0E0;
+$darker_contrast_color: #EAEAEA;
 $darkest_contrast_color: #000000;
 
-$fg_color: if($variant == 'light', $light_contrast_color, $dark_contrast_color);
+$fg_color: if($variant == 'light', $light_contrast_color, $darker_contrast_color);
 $secondary_fg_color: scale-alpha($fg_color, $enabled_opacity);
 $tertiary_fg_color: scale-alpha($fg_color, $hint_opacity);
 
@@ -71,9 +71,9 @@ $accent_color: #666666;
 @if $color == 'beryl' { $primary_color: #2EB398; $alt_primary_color: #1eba9b; $accent_color: #0fd1ab; }
 
 @if $color == 'black' { 
-    $primary_color: if($variant =='light', #686868, rgba($fg_color, 0.35));
-    $alt_primary_color: if($variant =='light', #666666, rgba($fg_color, 0.5));
-    $accent_color: if($variant =='light', #666666, rgba($fg_color, 1.0)); }
+    $primary_color: if($variant =='light', #686868, #888888);
+    $alt_primary_color: if($variant =='light', #666666, #777777);
+    $accent_color: if($variant =='light', #666666, #aaaaaa); }
 
 $theme_color: if($color == 'black', $dark_contrast_color, $primary_color);
 $alt_theme_color: if($color == 'black', $dark_contrast_color, $accent_color);

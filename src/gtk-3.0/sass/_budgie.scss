@@ -400,7 +400,7 @@ $pos_list: ((top, bottom), (bottom, top), (left, right), (right, left));
 
 // Raven
 
-$stackswitcher_color: if($color == 'black' or $color == 'white', $inversed_fg_color, $warning_bg_color);
+$stackswitcher_color: if($color == 'black' or $color == 'white', rgba(white, 0.65), $warning_bg_color);
 
 .raven {
   background-color: $lighter_bg_color;

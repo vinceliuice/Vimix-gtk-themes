@@ -142,8 +142,8 @@ rubberband,
 flowbox rubberband,
 treeview.view rubberband,
 .content-view rubberband {
-  border: 1px solid #666666;
-  background-color: rgba(102, 102, 102, 0.3);
+  border: 1px solid #777777;
+  background-color: rgba(119, 119, 119, 0.3);
 }
 
 flowbox flowboxchild {
@@ -2619,13 +2619,13 @@ radio {
 check:checked, check:indeterminate,
 radio:checked,
 radio:indeterminate {
-  color: #FFFFFF;
+  color: #686868;
 }
 
 check:checked:disabled, check:indeterminate:disabled,
 radio:checked:disabled,
 radio:indeterminate:disabled {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(104, 104, 104, 0.4);
 }
 
 popover check, popover check:hover, popover check:disabled, popover
@@ -2691,13 +2691,13 @@ radio:disabled {
 menu menuitem check:checked, menu menuitem check:indeterminate, menu menuitem
 radio:checked, menu menuitem
 radio:indeterminate {
-  color: #FFFFFF;
+  color: #686868;
 }
 
 menu menuitem check:checked:disabled, menu menuitem check:indeterminate:disabled, menu menuitem
 radio:checked:disabled, menu menuitem
 radio:indeterminate:disabled {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(104, 104, 104, 0.4);
 }
 
 window.background:not(.csd) > widget > checkbutton > check, #MozillaGtkWidget.background > window.background > menu > menuitem > check, #MozillaGtkWidget.background > widget > checkbutton > check,
@@ -3666,7 +3666,7 @@ scrolledwindow viewport.frame {
 }
 
 overshoot.top {
-  background-image: -gtk-gradient(radial, center top, 0, center top, 0.75, to(rgba(102, 102, 102, 0.3)), to(transparent));
+  background-image: -gtk-gradient(radial, center top, 0, center top, 0.75, to(rgba(119, 119, 119, 0.3)), to(transparent));
   background-repeat: no-repeat;
   background-position: center top;
   background-color: transparent;
@@ -3675,7 +3675,7 @@ overshoot.top {
 }
 
 overshoot.bottom {
-  background-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.75, to(rgba(102, 102, 102, 0.3)), to(transparent));
+  background-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.75, to(rgba(119, 119, 119, 0.3)), to(transparent));
   background-repeat: no-repeat;
   background-position: center bottom;
   background-color: transparent;
@@ -3684,7 +3684,7 @@ overshoot.bottom {
 }
 
 overshoot.left {
-  background-image: -gtk-gradient(radial, left center, 0, left center, 0.75, to(rgba(102, 102, 102, 0.3)), to(transparent));
+  background-image: -gtk-gradient(radial, left center, 0, left center, 0.75, to(rgba(119, 119, 119, 0.3)), to(transparent));
   background-repeat: no-repeat;
   background-position: left center;
   background-color: transparent;
@@ -3693,7 +3693,7 @@ overshoot.left {
 }
 
 overshoot.right {
-  background-image: -gtk-gradient(radial, right center, 0, right center, 0.75, to(rgba(102, 102, 102, 0.3)), to(transparent));
+  background-image: -gtk-gradient(radial, right center, 0, right center, 0.75, to(rgba(119, 119, 119, 0.3)), to(transparent));
   background-repeat: no-repeat;
   background-position: right center;
   background-color: transparent;
@@ -4748,14 +4748,14 @@ filechooser placessidebar.sidebar row.sidebar-row,
 filechooser placessidebar.sidebar row.sidebar-row:hover,
 .nautilus-window placessidebar.sidebar row.sidebar-row:hover {
   transition: none;
-  color: #FFFFFF;
+  color: #686868;
   background-color: transparent;
-  box-shadow: inset 3px 0 #FFFFFF;
+  box-shadow: inset 3px 0 #686868;
 }
 
 filechooser placessidebar.sidebar row.sidebar-row:active,
 .nautilus-window placessidebar.sidebar row.sidebar-row:active {
-  box-shadow: inset 3px 0 #FFFFFF;
+  box-shadow: inset 3px 0 #686868;
 }
 
 filechooser placessidebar.sidebar row.sidebar-row:backdrop,
@@ -6028,7 +6028,7 @@ MatePanelAppletFrameDBus {
 
 PanelApplet.wnck-applet .wnck-pager {
   background-color: transparent;
-  color: #666666;
+  color: #777777;
 }
 
 PanelApplet.wnck-applet .wnck-pager:hover {
@@ -6642,12 +6642,12 @@ frame.raven-frame > border {
 }
 
 .raven stackswitcher.linked > button {
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FFFFFF 0%, transparent 0%) 0 0 0/0 0 0px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), rgba(255, 255, 255, 0.65) 0%, transparent 0%) 0 0 0/0 0 0px;
   border-radius: 0;
 }
 
 .raven stackswitcher.linked > button:checked {
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FFFFFF 100%, transparent 0%) 0 0 2/0 0 2px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), rgba(255, 255, 255, 0.65) 100%, transparent 0%) 0 0 2/0 0 2px;
   background-color: transparent;
 }
 

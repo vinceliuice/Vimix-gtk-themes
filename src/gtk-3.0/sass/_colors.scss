@@ -64,19 +64,22 @@ $headerbar_bg_color: #eeeeee;
 
 // Selected and Theme colors
 $primary_color: #686868;
-$alt_primary_color: #666666;
+$alt_primary_color: #777777;
 $accent_color: #666666;
 @if $color == 'ruby' { $primary_color: #F0544C; $alt_primary_color: #FF615A; $accent_color: #FF626C; }
 @if $color == 'doder' { $primary_color: #4285F4; $alt_primary_color: #03a9f4; $accent_color: #18b8ff; }
 @if $color == 'beryl' { $primary_color: #2EB398; $alt_primary_color: #1eba9b; $accent_color: #0fd1ab; }
 
 @if $color == 'black' { 
-    $primary_color: if($variant =='light', #686868, #888888);
-    $alt_primary_color: if($variant =='light', #666666, #777777);
-    $accent_color: if($variant =='light', #666666, #aaaaaa); }
+    $primary_color: if($variant =='light', #686868, #686868);
+    $alt_primary_color: if($variant =='light', #777777, #777777);
+    $accent_color: if($variant =='light', #666666, #888888); }
 
 $theme_color: if($color == 'black', $dark_contrast_color, $primary_color);
 $alt_theme_color: if($color == 'black', $dark_contrast_color, $accent_color);
+
+$inverse_theme_color: if($color == 'black' and $variant =='dark', $dark_contrast_color, $primary_color);
+$alt_inverse_theme_color: if($color == 'black' and $variant =='dark', $dark_contrast_color, $accent_color);
 
 $menu_bg_color: if($headerbar =='light', $base_color, $headerbar_bg_color);
 $menu_fg_color: if($headerbar =='light', $fg_color, $headerbar_fg_color);

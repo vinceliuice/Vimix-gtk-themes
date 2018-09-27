@@ -2192,9 +2192,9 @@ radio {
   @extend %circular_button;
 
   &:checked, &:indeterminate {
-      color: $alt_theme_color;
+      color: $inverse_theme_color;
 
-      &:disabled {  color: scale-alpha($alt_theme_color, $disabled_opacity); }
+      &:disabled {  color: scale-alpha($inverse_theme_color, $disabled_opacity); }
   }
 
   // &:only-child { margin: -12px; }
@@ -2240,8 +2240,8 @@ radio {
     &:disabled { color: gtkalpha($dark_contrast_color, 0.5); }
 
     &:checked, &:indeterminate {
-      color: $alt_theme_color;
-      &:disabled {  color: scale-alpha($alt_theme_color, $disabled_opacity); }
+      color: $inverse_theme_color;
+      &:disabled {  color: scale-alpha($inverse_theme_color, $disabled_opacity); }
     }
   }
 }

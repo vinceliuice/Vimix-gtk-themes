@@ -265,7 +265,6 @@ entry {
 
     &.flat {
       border-radius: 0;
-
       @include entry(flat-normal);
 
       &:focus { @include entry(flat-focus); }
@@ -466,6 +465,11 @@ button {
 
         &:last-child { margin-right: (24px - 16px) / 2; }
       }
+    }
+
+    &.close,
+    &.circular { // The Bloody Circul Button
+      @extend %circular_button;
     }
 
     .linked > & { @extend %linked; }
@@ -1659,8 +1663,9 @@ popover.background {
     &.osd { @extend %osd; }
   }
     
-   entry { @extend %entry.flat; }
-   button:not(.suggested-action):not(.destructive-action) {
+  entry { @extend %entry.flat; }
+  button.combo { @extend %combo_flat; }
+  button:not(.suggested-action):not(.destructive-action) {
 //       @extend %button.flat;
        box-shadow: none;
        &:hover {
@@ -2192,9 +2197,9 @@ radio {
   @extend %circular_button;
 
   &:checked, &:indeterminate {
-      color: $inverse_theme_color;
+    color: $inverse_theme_color;
 
-      &:disabled {  color: scale-alpha($inverse_theme_color, $disabled_opacity); }
+    &:disabled {  color: scale-alpha($inverse_theme_color, $disabled_opacity); }
   }
 
   // &:only-child { margin: -12px; }
@@ -2240,8 +2245,8 @@ radio {
     &:disabled { color: gtkalpha($dark_contrast_color, 0.5); }
 
     &:checked, &:indeterminate {
-      color: $inverse_theme_color;
-      &:disabled {  color: scale-alpha($inverse_theme_color, $disabled_opacity); }
+      color: $theme_color;
+      &:disabled {  color: scale-alpha($theme_color, $disabled_opacity); }
     }
   }
 }
@@ -2948,7 +2953,7 @@ expander {
  ***********/
 calendar {
   margin: 2px;
-  padding: 4px;
+  padding: 2px 6px;
   border: 1px solid $borders_color;
   color: $fg_color;
 

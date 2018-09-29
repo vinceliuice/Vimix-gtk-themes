@@ -90,3 +90,19 @@ these are pretty self explicative */
 
 @define-color placeholder_text_color #{"" + $placeholder_text_color};
 
+//
+// Budgie-desktop specific indicator colours
+//
+
+// unfocused window 'dot(s)'
+@define-color budgie_tasklist_indicator_color #{"" + $theme_color};
+// focused window 'line'
+@define-color budgie_tasklist_indicator_color_active #{"" + $theme_color};
+// group-ed and unfocused window 'line(s)'
+@define-color budgie_tasklist_indicator_color_active_window #{"" + mix($theme_color, $headerbar_bg_color, 54%)};
+// attention 'dot'
+// FIXME: we can't fill whole widget backgrounds with our suggestion colour
+//        because of lacking specific style-class on 'needs_attention' state,
+//        so use warning orange dot instead.
+@define-color budgie_tasklist_indicator_color_attention #{"" + $warning_color};
+

@@ -23,9 +23,10 @@ usage() {
   printf "\n%s\n" "OPTIONS:"
   printf "  %-25s%s\n" "-d, --dest DIR" "Specify theme destination directory (Default: ${DEST_DIR})"
   printf "  %-25s%s\n" "-n, --name NAME" "Specify theme name (Default: ${THEME_NAME})"
-  printf "  %-25s%s\n" "-c, --color VARIANTS" "Specify theme color variant(s) [default|light|dark] (Default: All variants)"
-  printf "  %-25s%s\n" "-t, --theme VARIANTS" "Specify hue theme variant(s) [default|doder|beryl|ruby] (Default: All variants)"
-  printf "  %-25s%s\n" "-s, --simple" "Specify theme with simple and normal titlebutton style"
+  printf "  %-25s%s\n" "-c, --color VARIANTS" "Specify theme color variant(s) [standard|light|dark] (Default: All variants)"
+  printf "  %-25s%s\n" "-t, --theme VARIANTS" "Specify hue theme variant(s) [standard|doder|beryl|ruby] (Default: All variants)"
+  printf "  %-25s%s\n" "-s, --size VARIANTS" "Specify theme size variant(s) [standard|laptop] (Default: All variants)"
+  printf "  %-25s%s\n" "-f, --flat" "Specify theme with flat and normal titlebutton style"
   printf "  %-25s%s\n" "-h, --help" "Show this help"
 }
 
@@ -140,7 +141,7 @@ for color in "${colors[@]:-${COLOR_VARIANTS[@]}}"; do
 done
 }
 
-install_simple() {
+install_flat() {
 
 OLD_TITLE="@extend %titlebuttons;" 
 NEW_TITLE=""
@@ -165,15 +166,15 @@ while [[ $# -gt 0 ]]; do
       name="${2}"
       shift 2
       ;;
-    -s|--simple)
-      simple='true'
+    -f|--flat)
+      flat='true'
       shift 1
       ;;
     -t|--theme)
       shift
       for theme in "${@}"; do
         case "${theme}" in
-          default)
+          standard)
             themes+=("${THEME_VARIANTS[0]}")
             shift 1
             ;;
@@ -200,11 +201,34 @@ while [[ $# -gt 0 ]]; do
         esac
       done
       ;;
+    -s|--size)
+      shift
+      for size in "${@}"; do
+        case "${size}" in
+          standard)
+            sizes+=("${SIZE_VARIANTS[0]}")
+            shift 1
+            ;;
+          laptop)
+            sizes+=("${SIZE_VARIANTS[1]}")
+            shift 1
+            ;;
+          -*|--*)
+            break
+            ;;
+          *)
+            echo "ERROR: Unrecognized thin variant '$1'."
+            echo "Try '$0 --help' for more information."
+            exit 1
+            ;;
+        esac
+      done
+      ;;
     -c|--color)
       shift
       for color in "${@}"; do
         case "${color}" in
-          default)
+          standard)
             colors+=("${COLOR_VARIANTS[0]}")
             shift 1
             ;;
@@ -239,12 +263,10 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-if [[ "${simple:-}" != 'true' ]]; then
+if [[ "${flat:-}" == 'true' ]]; then
+  install_package && install_flat && parse_sass && install_theme
+else
   install_theme
-fi
-
-if [[ "${simple:-}" == 'true' ]]; then
-  install_package && install_simple && parse_sass && install_theme
 fi
 
 echo

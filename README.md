@@ -32,50 +32,27 @@ Search for the engines in your distributions repository or install the engines f
 
 Open the terminal at current directory.
 
-
 Run
 
+    ./Install
 
-    ./Vimix-installer
+Usage:  ./Install  [OPTIONS...]
 
-
-Or double-click to open that script files and select "run at the terminal" at nautilus.
-
-
+|  OPTIONS:    | |
+|:-------------|:-------------|
+| -d, --dest  | Specify theme destination directory (Default: /home/vince/.themes) |
+| -n, --name  | Specify theme name (Default: vimix) |
+| -c, --color | Specify theme color variant(s) [standard/light/dark] (Default: All variants) |
+| -t, --theme | Specify hue theme variant(s) [standard/doder/beryl/ruby] (Default: All variants) |
+| -s, --size  | Specify theme size variant(s) [standard/laptop] (Default: All variants) |
+| -f, --flat  | Specify theme with flat and normal titlebutton style |
+| -h, --help  | Show this help |
 
 if you want to get the last vimix theme version online, you can
 
 Run
 
-
     ./update-vimix-online
-
-
-Or double-click to open the launcher "update vimix online".
-
-When running the installer script in ubuntu16.04 or later, if you had this error:
-
-    XMLLINT not set and xmllint not found in path; skipping xml preprocessing.
-
-To fix it you have to install libxml2-utils
-
-    sudo apt install libxml2-utils
-
-When running the installer script in Fedora 24 or later, you need to install 'glib2-devel'.
-
-    sudo dnf install glib2-devel
-
-### Remove colorful titlebuttons
-
-Maybe you don't like the new title button style, now you can remove it:
-
-Run
-
-
-    ./normal-titlebuttons
-
-
-Or double-click to open that script files and select "run at the terminal" at nautilus.
 
 ## Screenshots
 

@@ -42,9 +42,9 @@ Usage:  `./Install`  **[OPTIONS...]**
 |:-------------|:-------------|
 | -d, --dest  | Specify theme destination directory (Default: /home/vince/.themes) |
 | -n, --name  | Specify theme name (Default: vimix) |
-| -c, --color | Specify theme color variant(s) [standard/light/dark] (Default: All variants) |
-| -t, --theme | Specify hue theme variant(s) [standard/doder/beryl/ruby] (Default: All variants) |
-| -s, --size  | Specify theme size variant(s) [standard/laptop] (Default: All variants) |
+| -c, --color | Specify theme color variant(s) **[standard/light/dark]** (Default: All variants) |
+| -t, --theme | Specify hue theme variant(s) **[standard/doder/beryl/ruby]** (Default: All variants) |
+| -s, --size  | Specify theme size variant(s) **[standard/laptop]** (Default: All variants) |
 | -f, --flat  | Specify theme with flat and normal titlebutton style |
 | -h, --help  | Show this help |
 

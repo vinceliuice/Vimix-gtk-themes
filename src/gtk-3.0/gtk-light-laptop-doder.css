@@ -1640,7 +1640,8 @@ headerbar switch {
   margin-bottom: 12px;
 }
 
-.background:not(.tiled):not(.maximized):not(.fullscreen) .titlebar {
+.titlebar,
+.titlebar .background:not(.tiled):not(.maximized):not(.fullscreen) {
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 }
@@ -4871,6 +4872,10 @@ filechooser placessidebar.sidebar row.sidebar-row:selected:hover,
 /*********
  * gedit *
  *********/
+paned.titlebar.horizontal headerbar {
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.1);
+}
+
 /* Only normal state is handle */
 .open-document-selector-name-label {
   font-weight: bold;

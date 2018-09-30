@@ -196,10 +196,9 @@ filechooser,
  * gedit *
  *********/
 
-.open-document-selector-treeview:hover {
-}
-
-.open-document-selector-treeview:selected:hover {
+paned.titlebar.horizontal { // show border
+  headerbar {
+    box-shadow: inset 0 -1px $borders_color; }
 }
 
 /* Only normal state is handle */

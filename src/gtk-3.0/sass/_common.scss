@@ -1314,7 +1314,8 @@ headerbar {
   }
 }
 
-.background:not(.tiled):not(.maximized):not(.fullscreen) .titlebar {
+.titlebar,
+.titlebar .background:not(.tiled):not(.maximized):not(.fullscreen) {
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 }

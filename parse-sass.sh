@@ -7,17 +7,17 @@ fi
 
 SASSC_OPT="-M -t expanded"
 
-_COLOR_VARIANTS=('' '-Light' '-Dark')
+_COLOR_VARIANTS=('' '-light' '-dark')
 if [ ! -z "${COLOR_VARIANTS:-}" ]; then
   IFS=', ' read -r -a _COLOR_VARIANTS <<< "${COLOR_VARIANTS:-}"
 fi
 
-_SIZE_VARIANTS=('' '-Laptop')
+_SIZE_VARIANTS=('' '-laptop')
 if [ ! -z "${SIZE_VARIANTS:-}" ]; then
   IFS=', ' read -r -a _SIZE_VARIANTS <<< "${SIZE_VARIANTS:-}"
 fi
 
-_THEME_VARIANTS=('' '-Ruby' '-Doder' '-Beryl')
+_THEME_VARIANTS=('' '-ruby' '-doder' '-beryl')
 if [ ! -z "${THEME_VARIANTS:-}" ]; then
   IFS=', ' read -r -a _THEME_VARIANTS <<< "${THEME_VARIANTS:-}"
 fi

@@ -6214,32 +6214,32 @@ na-tray-applet {
 /******************
  * Budgie Desktop *
  ******************/
-.budgie-panel #tasklist-button, .budgie-panel button.flat.launcher {
+.budgie-panel button, .budgie-panel #tasklist-button, .budgie-panel button.flat.launcher {
   color: #EAEAEA;
   background-color: transparent;
   box-shadow: none;
 }
 
-.budgie-panel #tasklist-button:hover, .budgie-panel button.flat.launcher:hover {
+.budgie-panel button:hover, .budgie-panel #tasklist-button:hover, .budgie-panel button.flat.launcher:hover {
   color: #FFFFFF;
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.budgie-panel #tasklist-button:disabled, .budgie-panel button.flat.launcher:disabled {
+.budgie-panel button:disabled, .budgie-panel #tasklist-button:disabled, .budgie-panel button.flat.launcher:disabled {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.budgie-panel #tasklist-button:checked, .budgie-panel button.flat.launcher:checked {
+.budgie-panel button:checked, .budgie-panel #tasklist-button:checked, .budgie-panel button.flat.launcher:checked {
   background-color: rgba(255, 255, 255, 0.12);
   color: #FFFFFF;
 }
 
-.budgie-panel #tasklist-button:active, .budgie-panel button.flat.launcher:active {
-  background-color: rgba(255, 255, 255, 0.08);
+.budgie-panel button:active, .budgie-panel #tasklist-button:active, .budgie-panel button.flat.launcher:active {
+  background-color: rgba(255, 255, 255, 0.15);
   color: #FFFFFF;
 }
 
-.budgie-panel #tasklist-button:checked:disabled, .budgie-panel button.flat.launcher:checked:disabled {
+.budgie-panel button:checked:disabled, .budgie-panel #tasklist-button:checked:disabled {
   background-color: rgba(255, 255, 255, 0.03);
   color: rgba(255, 255, 255, 0.65);
 }
@@ -6621,11 +6621,6 @@ popover.background.places-menu row {
   min-width: 16px;
   padding: 0;
   border-radius: 0;
-  color: #EAEAEA;
-}
-
-.budgie-panel button:checked {
-  background-color: rgba(255, 255, 255, 0.12);
 }
 
 .budgie-panel.horizontal button {

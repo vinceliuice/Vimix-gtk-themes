@@ -528,7 +528,7 @@ button {
   font-weight: 500;
   transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
-  background-color: #FAFAFA;
+  background-color: #FCFCFC;
   background-image: radial-gradient(circle farthest-corner at center, alpha(currentColor, 0) 100%, transparent 0%), image(alpha(currentColor, 0));
   color: rgba(0, 0, 0, 0.6);
 }
@@ -585,8 +585,7 @@ button.flat {
 radio:hover, calendar.button:hover, messagedialog.csd .dialog-action-area button:hover, button.sidebar-button:hover, .gedit-search-slider button:hover, PanelToplevel > widget > button:hover, .budgie-settings-window buttonbox.inline-toolbar button:hover, .budgie-popover button:hover, .raven .raven-header:not(.top) button:hover, .drop-shadow button:hover, .budgie-session-dialog .linked.horizontal > button:hover, .lightdm-gtk-greeter button:hover, :not(headerbar) .caja-pathbar button:hover, .caja-pathbar :not(headerbar) button:hover, :not(headerbar) .path-bar button:hover, layouttabbar button:hover, .mate-panel-menu-bar #PanelApplet button:hover:not(.flat), .raven stackswitcher.linked > button:hover, toolbar button:hover, actionbar > revealer > box button:hover:not(.suggested-action):not(.destructive-action):not(.server-list-button), .app-notification button:hover,
 button.flat:hover {
   box-shadow: none;
-  background-image: radial-gradient(circle farthest-corner at center, transparent 100%, transparent 0%), image(rgba(0, 0, 0, 0.05));
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.1);
   color: currentColor;
 }
 
@@ -793,8 +792,7 @@ button.suggested-action.flat {
 
 button.suggested-action.flat:hover {
   box-shadow: none;
-  background-image: radial-gradient(circle farthest-corner at center, transparent 100%, transparent 0%), image(rgba(0, 0, 0, 0.05));
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.1);
   color: currentColor;
 }
 
@@ -858,8 +856,7 @@ button.destructive-action.flat {
 
 button.destructive-action.flat:hover {
   box-shadow: none;
-  background-image: radial-gradient(circle farthest-corner at center, transparent 100%, transparent 0%), image(rgba(0, 0, 0, 0.05));
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.1);
   color: currentColor;
 }
 
@@ -2013,7 +2010,7 @@ popover.background {
   transition: box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
   padding: 0;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
-  background-color: #FAFAFA;
+  background-color: #FCFCFC;
 }
 
 popover.background:backdrop {
@@ -2053,7 +2050,7 @@ popover.background button:not(.suggested-action):not(.destructive-action):checke
 }
 
 popover.background button:not(.suggested-action):not(.destructive-action):disabled {
-  background-color: #FAFAFA;
+  background-color: #FCFCFC;
   color: rgba(0, 0, 0, 0.32);
 }
 
@@ -3876,14 +3873,14 @@ calendar:indeterminate {
  * Dialogs *
  ***********/
 messagedialog.background {
-  background-color: #FAFAFA;
+  background-color: #FCFCFC;
 }
 
 messagedialog .titlebar {
   min-height: 20px;
   border-style: none;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.1);
-  background-color: #FAFAFA;
+  background-color: #FCFCFC;
   color: rgba(0, 0, 0, 0.8);
 }
 
@@ -3958,7 +3955,7 @@ filechooserbutton:drop(active) {
  ***********/
 .sidebar {
   border-style: none;
-  background-color: #FAFAFA;
+  background-color: #FCFCFC;
 }
 
 stacksidebar.sidebar:dir(ltr) list, stacksidebar.sidebar.left list, stacksidebar.sidebar.left:dir(rtl) list, .sidebar:dir(ltr), .sidebar.left, .sidebar.left:dir(rtl) {
@@ -4582,7 +4579,7 @@ cursor-handle.insertion-cursor:dir(ltr), cursor-handle.insertion-cursor:dir(rtl)
 
 button.close,
 button.circular, check,
-radio, .nautilus-window headerbar > revealer > button, .raven button.image-button, .raven .raven-header:not(.top) button.image-button, .raven .expander-button,
+radio, .nautilus-window headerbar > revealer > button, .raven button.image-button, .raven .raven-header:not(.top) button.image-button, .raven .expander-button, .budgie-notification-window button.image-button, .budgie-osd-window button.image-button, .budgie-switcher-window button.image-button,
 button.circular {
   border-radius: 100px;
   -gtk-outline-radius: 100px;
@@ -4880,7 +4877,7 @@ filechooser placessidebar.sidebar row.sidebar-row:selected:hover,
 }
 
 .gedit-document-panel {
-  background-color: #FAFAFA;
+  background-color: #FCFCFC;
   box-shadow: inset 1px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -4959,7 +4956,7 @@ notebook > stack:not(:only-child) revealer .gedit-search-slider .linked:not(.ver
  * Tweak Tool *
  **************/
 .tweak-categories {
-  background-image: image(#FAFAFA);
+  background-image: image(#FCFCFC);
 }
 
 .tweak-categories separator {
@@ -5279,11 +5276,11 @@ overlay grid.horizontal > revealer > scrolledwindow.frame:dir(rtl) {
 }
 
 .side-panel .view, .side-panel iconview {
-  background-image: image(#FAFAFA);
+  background-image: image(#FCFCFC);
 }
 
 .side-panel .view:hover, .side-panel iconview:hover {
-  background-image: image(rgba(242, 242, 242, 0.99));
+  background-image: image(rgba(243, 243, 243, 0.99));
 }
 
 .side-panel .view:selected, .side-panel iconview:selected {
@@ -5402,7 +5399,7 @@ box.dialog-vbox scrolledwindow.related {
 }
 
 list.categories {
-  background-image: image(#FAFAFA);
+  background-image: image(#FCFCFC);
 }
 
 /**************
@@ -5450,7 +5447,7 @@ overlay > revealer.right > scrolledwindow.frame {
 }
 
 .terminix-session-sidebar {
-  background-image: image(#FAFAFA);
+  background-image: image(#FCFCFC);
 }
 
 /***********
@@ -5471,21 +5468,21 @@ window.background > box.vertical > scrolledwindow > widget toolbar button {
 
 window.background:not(.csd) > widget > button > button, window.background:not(.csd) > widget > button.combo > button, #MozillaGtkWidget.background > widget > button > button, #MozillaGtkWidget.background > widget > button.combo > button {
   border: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: #FAFAFA;
+  background-color: #FCFCFC;
   color: rgba(0, 0, 0, 0.6);
   box-shadow: none;
 }
 
 window.background:not(.csd) > widget > button > button:hover, window.background:not(.csd) > widget > button.combo > button:hover, #MozillaGtkWidget.background > widget > button > button:hover, #MozillaGtkWidget.background > widget > button.combo > button:hover {
   border: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: rgba(243, 243, 243, 0.992);
+  background-color: rgba(245, 245, 245, 0.992);
   color: rgba(0, 0, 0, 0.8);
   box-shadow: none;
 }
 
 window.background:not(.csd) > widget > button > button:active, window.background:not(.csd) > widget > button > button:checked, window.background:not(.csd) > widget > button.combo > button:active, window.background:not(.csd) > widget > button.combo > button:checked, #MozillaGtkWidget.background > widget > button > button:active, #MozillaGtkWidget.background > widget > button > button:checked, #MozillaGtkWidget.background > widget > button.combo > button:active, #MozillaGtkWidget.background > widget > button.combo > button:checked {
   border: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: rgba(236, 236, 236, 0.984);
+  background-color: rgba(238, 238, 238, 0.984);
   color: rgba(0, 0, 0, 0.8);
   box-shadow: none;
   animation: none;
@@ -5500,15 +5497,15 @@ window.background:not(.csd) > widget > button > button:disabled, window.backgrou
 
 window.background:not(.csd) > widget > button > button:checked:disabled, window.background:not(.csd) > widget > button.combo > button:checked:disabled, #MozillaGtkWidget.background > widget > button > button:checked:disabled, #MozillaGtkWidget.background > widget > button.combo > button:checked:disabled {
   border: none;
-  background-color: #f8d9d7;
-  color: #f6b8b4;
+  background-color: #fadad9;
+  color: #f7b9b6;
   box-shadow: none;
 }
 
 window.background:not(.csd) > widget > entry, #MozillaGtkWidget.background > widget > entry {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-image: none;
-  background-color: #FAFAFA;
+  background-color: #FCFCFC;
   color: rgba(0, 0, 0, 0.6);
   box-shadow: none;
 }
@@ -5516,7 +5513,7 @@ window.background:not(.csd) > widget > entry, #MozillaGtkWidget.background > wid
 window.background:not(.csd) > widget > entry:focus, #MozillaGtkWidget.background > widget > entry:focus {
   border: 1px solid #F0544C;
   border-image: none;
-  background-color: #FAFAFA;
+  background-color: #FCFCFC;
   color: rgba(0, 0, 0, 0.8);
   box-shadow: none;
 }
@@ -5935,9 +5932,9 @@ UnityDecoration.menubar .menuitem *:hover {
 
 UnityPanelWidget,
 .unity-panel {
-  background-color: #eeeeee;
-  background-image: image(#eeeeee);
-  color: rgba(0, 0, 0, 0.8);
+  background-color: #424242;
+  background-image: image(#424242);
+  color: #FFFFFF;
 }
 
 UnityPanelWidget:backdrop,
@@ -5989,8 +5986,8 @@ menuitem calendar iconview {
 
 #PanelPlug,
 PanelToplevel.background {
-  background-color: #eeeeee;
-  color: rgba(0, 0, 0, 0.8);
+  background-color: #424242;
+  color: #FFFFFF;
   font-weight: 500;
 }
 
@@ -6201,33 +6198,33 @@ na-tray-applet {
  * Budgie Desktop *
  ******************/
 .budgie-panel #tasklist-button, .budgie-panel button.flat.launcher {
-  color: rgba(0, 0, 0, 0.8);
+  color: #EAEAEA;
   background-color: transparent;
   box-shadow: none;
 }
 
 .budgie-panel #tasklist-button:hover, .budgie-panel button.flat.launcher:hover {
-  color: rgba(0, 0, 0, 0.8);
-  background-color: rgba(0, 0, 0, 0.1);
+  color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .budgie-panel #tasklist-button:disabled, .budgie-panel button.flat.launcher:disabled {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .budgie-panel #tasklist-button:checked, .budgie-panel button.flat.launcher:checked {
-  background-color: rgba(0, 0, 0, 0.12);
-  color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
 }
 
 .budgie-panel #tasklist-button:active, .budgie-panel button.flat.launcher:active {
-  background-color: rgba(0, 0, 0, 0.08);
-  color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
 }
 
 .budgie-panel #tasklist-button:checked:disabled, .budgie-panel button.flat.launcher:checked:disabled {
-  background-color: rgba(0, 0, 0, 0.03);
-  color: rgba(0, 0, 0, 0.65);
+  background-color: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .raven-mpris button.image-button {
@@ -6280,10 +6277,10 @@ na-tray-applet {
 }
 
 .budgie-popover {
-  border-color: #FAFAFA;
+  border-color: #FCFCFC;
   border-radius: 4px;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
-  background-color: #FAFAFA;
+  background-color: #FCFCFC;
 }
 
 .budgie-popover .container {
@@ -6593,13 +6590,13 @@ popover.background.places-menu row {
 
 .budgie-panel {
   transition: background-color 0.2s cubic-bezier(0, 0, 0.2, 1);
-  background-color: #eeeeee;
-  color: rgba(0, 0, 0, 0.8);
+  background-color: #424242;
+  color: #EAEAEA;
   font-weight: 500;
 }
 
 .budgie-panel.transparent {
-  background-color: rgba(238, 238, 238, 0.85);
+  background-color: rgba(66, 66, 66, 0.85);
 }
 
 .budgie-panel button {
@@ -6607,11 +6604,11 @@ popover.background.places-menu row {
   min-width: 16px;
   padding: 0;
   border-radius: 0;
-  color: rgba(0, 0, 0, 0.8);
+  color: #EAEAEA;
 }
 
 .budgie-panel button:checked {
-  background-color: rgba(0, 0, 0, 0.12);
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 .budgie-panel.horizontal button {
@@ -6626,26 +6623,22 @@ popover.background.places-menu row {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-.budgie-panel menubar,
-.budgie-panel .menubar {
-  color: rgba(0, 0, 0, 0.8);
-}
-
 .budgie-panel menubar > menuitem,
 .budgie-panel .menubar > menuitem {
   border-radius: 0;
+  color: #EAEAEA;
 }
 
 .budgie-panel menubar > menuitem:hover,
 .budgie-panel .menubar > menuitem:hover {
-  color: rgba(0, 0, 0, 0.8);
-  background-color: rgba(0, 0, 0, 0.12);
+  color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.12);
   box-shadow: inset 0 -3px #F0544C;
 }
 
 .budgie-panel menubar > menuitem:disabled,
 .budgie-panel .menubar > menuitem:disabled {
-  color: rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .budgie-panel .alert {
@@ -6665,15 +6658,15 @@ popover.background.places-menu row {
 }
 
 .budgie-panel button.flat.launcher:not(:checked) {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .budgie-panel button.flat.launcher:not(:checked):hover, .budgie-panel button.flat.launcher:not(:checked):active {
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .budgie-panel button.flat.launcher:not(:checked):disabled {
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.3);
 }
 
 .top .budgie-panel #tasklist-button, .budgie-panel .top #tasklist-button, .top .budgie-panel button.flat.launcher, .budgie-panel .top button.flat.launcher {
@@ -6869,7 +6862,7 @@ frame.raven-frame > border {
 }
 
 .raven {
-  background-color: #FAFAFA;
+  background-color: #FCFCFC;
 }
 
 .raven > box {
@@ -7128,7 +7121,7 @@ box.vertical > stack > box.vertical > .raven-background > viewport.frame > list 
   padding: 3px;
   border-radius: 2px;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23), inset 0 1px rgba(255, 255, 255, 0.4);
-  background-color: #FAFAFA;
+  background-color: #FCFCFC;
 }
 
 .drop-shadow .linked > button {
@@ -7137,7 +7130,7 @@ box.vertical > stack > box.vertical > .raven-background > viewport.frame > list 
 
 .budgie-session-dialog, .budgie-polkit-dialog, .budgie-run-dialog {
   border-radius: 2px;
-  background-color: #FAFAFA;
+  background-color: #FCFCFC;
 }
 
 .budgie-session-dialog decoration, .budgie-polkit-dialog decoration, .budgie-run-dialog decoration {
@@ -7210,7 +7203,7 @@ box.vertical > stack > box.vertical > .raven-background > viewport.frame > list 
   margin: 8px;
   border-radius: 2px;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23), inset 0 1px rgba(255, 255, 255, 0.4);
-  background-color: #FAFAFA;
+  background-color: #FCFCFC;
 }
 
 #content_frame {
@@ -7296,5 +7289,5 @@ these are pretty self explicative */
 @define-color placeholder_text_color rgba(128, 128, 128, 0.88);
 @define-color budgie_tasklist_indicator_color #F0544C;
 @define-color budgie_tasklist_indicator_color_active #F0544C;
-@define-color budgie_tasklist_indicator_color_active_window #ef9b97;
+@define-color budgie_tasklist_indicator_color_active_window #a04c47;
 @define-color budgie_tasklist_indicator_color_attention #FF6D00;

@@ -49,7 +49,7 @@ $bg_color: if($variant =='dark', if($color == 'ruby' or $color == 'black' or $co
 $base_color: if($variant =='dark', if($color == 'ruby' or $color == 'black' or $color == 'white', #404040, #40454F), #FFFFFF);
 $alt_base_color: mix($base_color, $bg_color, 50%);
 
-$lighter_bg_color: if($variant =='dark', if($color == 'ruby' or $color == 'black' or $color == 'white', #444444, #444851), #FAFAFA);
+$lighter_bg_color: if($variant =='dark', if($color == 'ruby' or $color == 'black' or $color == 'white', #444444, #444851), #FCFCFC);
 $darker_bg_color: if($variant =='dark', if($color == 'ruby' or $color == 'black' or $color == 'white', #303030, #31353E), #EEEEEE);
 $darker_fg_color: if($variant =='light', if($color == 'ruby' or $color == 'black' or $color == 'white', #222222, #191D29), #DDDDDD);
 
@@ -81,14 +81,20 @@ $alt_theme_color: if($color == 'black', $dark_contrast_color, $accent_color);
 $inverse_theme_color: if($color == 'black' and $variant =='dark', $dark_contrast_color, $primary_color);
 $alt_inverse_theme_color: if($color == 'black' and $variant =='dark', $dark_contrast_color, $accent_color);
 
+$topbar_theme_color: if($color == 'black' or $color =='white', $darker_contrast_color, $primary_color);
+$alt_topbar_theme_color: if($color == 'black' and $color =='white', $darker_contrast_color, $accent_color);
+
 $menu_bg_color: if($headerbar =='light', $base_color, $headerbar_bg_color);
 $menu_fg_color: if($headerbar =='light', $fg_color, $headerbar_fg_color);
 $disabled_menu_fg_color: if($headerbar =='light' and $variant =='light', rgba(#000, 0.5), rgba(#fff, 0.5));
 
 $tab_color: $inverse_theme_color;
 $secondary_titlebar_color: $primary_color;
-$topbar_bg_color: $headerbar_bg_color;
-$topbar_fg_color: $headerbar_fg_color;
+$topbar_bg_color: #424242;
+@if $color == 'ruby' or $color == 'black' { $topbar_bg_color: #424242; }
+@if $color == 'doder' or $color == 'beryl' { $topbar_bg_color: #3F444D; }
+$topbar_fg_color: $dark_contrast_color;
+$alt_topbar_fg_color: $darker_contrast_color;
 
 // Misc colors
 $track_color: gtkalpha(currentColor, $lower_opacity);

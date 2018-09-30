@@ -585,8 +585,7 @@ button.flat {
 radio:hover, calendar.button:hover, messagedialog.csd .dialog-action-area button:hover, button.sidebar-button:hover, .gedit-search-slider button:hover, PanelToplevel > widget > button:hover, .budgie-settings-window buttonbox.inline-toolbar button:hover, .budgie-popover button:hover, .raven .raven-header:not(.top) button:hover, .drop-shadow button:hover, .budgie-session-dialog .linked.horizontal > button:hover, .lightdm-gtk-greeter button:hover, :not(headerbar) .caja-pathbar button:hover, .caja-pathbar :not(headerbar) button:hover, :not(headerbar) .path-bar button:hover, layouttabbar button:hover, .mate-panel-menu-bar #PanelApplet button:hover:not(.flat), .raven stackswitcher.linked > button:hover, toolbar button:hover, actionbar > revealer > box button:hover:not(.suggested-action):not(.destructive-action):not(.server-list-button), .app-notification button:hover,
 button.flat:hover {
   box-shadow: none;
-  background-image: radial-gradient(circle farthest-corner at center, transparent 100%, transparent 0%), image(rgba(234, 234, 234, 0.05));
-  background-color: rgba(234, 234, 234, 0.05);
+  background-color: rgba(234, 234, 234, 0.1);
   color: currentColor;
 }
 
@@ -793,8 +792,7 @@ button.suggested-action.flat {
 
 button.suggested-action.flat:hover {
   box-shadow: none;
-  background-image: radial-gradient(circle farthest-corner at center, transparent 100%, transparent 0%), image(rgba(234, 234, 234, 0.05));
-  background-color: rgba(234, 234, 234, 0.05);
+  background-color: rgba(234, 234, 234, 0.1);
   color: currentColor;
 }
 
@@ -858,8 +856,7 @@ button.destructive-action.flat {
 
 button.destructive-action.flat:hover {
   box-shadow: none;
-  background-image: radial-gradient(circle farthest-corner at center, transparent 100%, transparent 0%), image(rgba(234, 234, 234, 0.05));
-  background-color: rgba(234, 234, 234, 0.05);
+  background-color: rgba(234, 234, 234, 0.1);
   color: currentColor;
 }
 
@@ -4599,7 +4596,7 @@ cursor-handle.insertion-cursor:dir(ltr), cursor-handle.insertion-cursor:dir(rtl)
 
 button.close,
 button.circular, check,
-radio, .nautilus-window headerbar > revealer > button, .raven button.image-button, .raven .raven-header:not(.top) button.image-button, .raven .expander-button,
+radio, .nautilus-window headerbar > revealer > button, .raven button.image-button, .raven .raven-header:not(.top) button.image-button, .raven .expander-button, .budgie-notification-window button.image-button, .budgie-osd-window button.image-button, .budgie-switcher-window button.image-button,
 button.circular {
   border-radius: 100px;
   -gtk-outline-radius: 100px;
@@ -6218,7 +6215,7 @@ na-tray-applet {
  * Budgie Desktop *
  ******************/
 .budgie-panel #tasklist-button, .budgie-panel button.flat.launcher {
-  color: #FFFFFF;
+  color: #EAEAEA;
   background-color: transparent;
   box-shadow: none;
 }
@@ -6611,7 +6608,7 @@ popover.background.places-menu row {
 .budgie-panel {
   transition: background-color 0.2s cubic-bezier(0, 0, 0.2, 1);
   background-color: #424242;
-  color: #FFFFFF;
+  color: #EAEAEA;
   font-weight: 500;
 }
 
@@ -6624,7 +6621,7 @@ popover.background.places-menu row {
   min-width: 16px;
   padding: 0;
   border-radius: 0;
-  color: #FFFFFF;
+  color: #EAEAEA;
 }
 
 .budgie-panel button:checked {
@@ -6643,26 +6640,22 @@ popover.background.places-menu row {
   background-color: rgba(0, 0, 0, 0.15);
 }
 
-.budgie-panel menubar,
-.budgie-panel .menubar {
-  color: #FFFFFF;
-}
-
 .budgie-panel menubar > menuitem,
 .budgie-panel .menubar > menuitem {
   border-radius: 0;
+  color: #EAEAEA;
 }
 
 .budgie-panel menubar > menuitem:hover,
 .budgie-panel .menubar > menuitem:hover {
   color: #FFFFFF;
   background-color: rgba(255, 255, 255, 0.12);
-  box-shadow: inset 0 -3px #FFFFFF;
+  box-shadow: inset 0 -3px #EAEAEA;
 }
 
 .budgie-panel menubar > menuitem:disabled,
 .budgie-panel .menubar > menuitem:disabled {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .budgie-panel .alert {
@@ -6694,35 +6687,35 @@ popover.background.places-menu row {
 }
 
 .top .budgie-panel #tasklist-button, .budgie-panel .top #tasklist-button, .top .budgie-panel button.flat.launcher, .budgie-panel .top button.flat.launcher {
-  border-image: radial-gradient(circle closest-corner at center calc(1px), #FFFFFF 0%, transparent 0%) 0 0 0 0/0 0 0 0;
+  border-image: radial-gradient(circle closest-corner at center calc(1px), #EAEAEA 0%, transparent 0%) 0 0 0 0/0 0 0 0;
 }
 
 .top .budgie-panel #tasklist-button:checked, .budgie-panel .top #tasklist-button:checked, .top .budgie-panel button.flat.launcher:checked, .budgie-panel .top button.flat.launcher:checked {
-  border-image: radial-gradient(circle closest-corner at center calc(1px), #FFFFFF 100%, transparent 0%) 3 0 0 0/3px 0 0 0;
+  border-image: radial-gradient(circle closest-corner at center calc(1px), #EAEAEA 100%, transparent 0%) 3 0 0 0/3px 0 0 0;
 }
 
 .bottom .budgie-panel #tasklist-button, .budgie-panel .bottom #tasklist-button, .bottom .budgie-panel button.flat.launcher, .budgie-panel .bottom button.flat.launcher {
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FFFFFF 0%, transparent 0%) 0 0 0 0/0 0 0 0;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #EAEAEA 0%, transparent 0%) 0 0 0 0/0 0 0 0;
 }
 
 .bottom .budgie-panel #tasklist-button:checked, .budgie-panel .bottom #tasklist-button:checked, .bottom .budgie-panel button.flat.launcher:checked, .budgie-panel .bottom button.flat.launcher:checked {
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FFFFFF 100%, transparent 0%) 0 0 3 0/0 0 3px 0;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #EAEAEA 100%, transparent 0%) 0 0 3 0/0 0 3px 0;
 }
 
 .left .budgie-panel #tasklist-button, .budgie-panel .left #tasklist-button, .left .budgie-panel button.flat.launcher, .budgie-panel .left button.flat.launcher {
-  border-image: radial-gradient(circle closest-corner at calc(1px) center, #FFFFFF 0%, transparent 0%) 0 0 0 0/0 0 0 0;
+  border-image: radial-gradient(circle closest-corner at calc(1px) center, #EAEAEA 0%, transparent 0%) 0 0 0 0/0 0 0 0;
 }
 
 .left .budgie-panel #tasklist-button:checked, .budgie-panel .left #tasklist-button:checked, .left .budgie-panel button.flat.launcher:checked, .budgie-panel .left button.flat.launcher:checked {
-  border-image: radial-gradient(circle closest-corner at calc(1px) center, #FFFFFF 100%, transparent 0%) 0 0 0 3/0 0 0 3px;
+  border-image: radial-gradient(circle closest-corner at calc(1px) center, #EAEAEA 100%, transparent 0%) 0 0 0 3/0 0 0 3px;
 }
 
 .right .budgie-panel #tasklist-button, .budgie-panel .right #tasklist-button, .right .budgie-panel button.flat.launcher, .budgie-panel .right button.flat.launcher {
-  border-image: radial-gradient(circle closest-corner at calc(100% - 1px) center, #FFFFFF 0%, transparent 0%) 0 0 0 0/0 0 0 0;
+  border-image: radial-gradient(circle closest-corner at calc(100% - 1px) center, #EAEAEA 0%, transparent 0%) 0 0 0 0/0 0 0 0;
 }
 
 .right .budgie-panel #tasklist-button:checked, .budgie-panel .right #tasklist-button:checked, .right .budgie-panel button.flat.launcher:checked, .budgie-panel .right button.flat.launcher:checked {
-  border-image: radial-gradient(circle closest-corner at calc(100% - 1px) center, #FFFFFF 100%, transparent 0%) 0 3 0 0/0 3px 0 0;
+  border-image: radial-gradient(circle closest-corner at calc(100% - 1px) center, #EAEAEA 100%, transparent 0%) 0 3 0 0/0 3px 0 0;
 }
 
 
@@ -7311,7 +7304,7 @@ these are pretty self explicative */
 @define-color success_color #00C853;
 @define-color content_view_bg #404040;
 @define-color placeholder_text_color #a6a6a6;
-@define-color budgie_tasklist_indicator_color #FFFFFF;
-@define-color budgie_tasklist_indicator_color_active #FFFFFF;
-@define-color budgie_tasklist_indicator_color_active_window #a8a8a8;
+@define-color budgie_tasklist_indicator_color #EAEAEA;
+@define-color budgie_tasklist_indicator_color_active #EAEAEA;
+@define-color budgie_tasklist_indicator_color_active_window #9d9d9d;
 @define-color budgie_tasklist_indicator_color_attention #FF6D00;

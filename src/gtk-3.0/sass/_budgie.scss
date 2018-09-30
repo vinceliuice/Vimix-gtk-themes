@@ -8,7 +8,7 @@
 // this transparent..
 
  %budgie_button {
-  color: $topbar_fg_color;
+  color: $alt_topbar_fg_color;
   background-color: transparent;
   box-shadow: none;
   &:hover {
@@ -367,7 +367,7 @@ popover.background.places-menu {
 .budgie-panel {
   transition: background-color $shorter_duration $deceleration_curve;
   background-color: $topbar_bg_color;
-  color: $topbar_fg_color;
+  color: $alt_topbar_fg_color;
   font-weight: 500;
 
   &.transparent { background-color: rgba($topbar_bg_color, 0.85); }
@@ -378,7 +378,7 @@ popover.background.places-menu {
     min-width: 16px;
     padding: 0;
     border-radius: 0;
-    color: $topbar_fg_color;
+    color: $alt_topbar_fg_color;
 
     &:checked { background-color: rgba($topbar_fg_color, 0.12); }
   }
@@ -392,18 +392,18 @@ popover.background.places-menu {
   // Budgie styled Gtk Menus
   menubar,
   .menubar {
-    color: $topbar_fg_color;
 
     > menuitem {
       border-radius: 0;
+      color: $alt_topbar_fg_color;
 
       &:hover {
         color: $topbar_fg_color;
         background-color: rgba($topbar_fg_color, 0.12);
-        box-shadow: inset 0 -3px $theme_color;
+        box-shadow: inset 0 -3px $topbar_theme_color;
       }
       &:disabled {
-        color: transparentize($topbar_fg_color, 0.6);
+        color: transparentize($topbar_fg_color, 0.5);
       }
     }
   }
@@ -450,14 +450,14 @@ popover.background.places-menu {
     .#{$pos} & {
       & {
         border-image: radial-gradient(circle closest-corner at #{$b_pos},
-                                      $theme_color 0%,
+                                      $topbar_theme_color 0%,
                                       transparent 0%)
                                       0 0 0 0 / 0 0 0 0;
       }
 
       &:checked {
         border-image: radial-gradient(circle closest-corner at #{$b_pos},
-                                      $theme_color 100%,
+                                      $topbar_theme_color 100%,
                                       transparent 0%)
                                       #{$b_wid};
       }
@@ -809,7 +809,13 @@ box.vertical > stack > box.vertical {
 }
 
 // Notifications
-.budgie-notification-window { background-color: transparent; }
+.budgie-notification-window {
+  background-color: transparent;
+
+  button.image-button { // 'close'
+    @extend %circular_button;
+  }
+}
 
 .budgie-notification {
   .notification-title { font-size: 120%; }

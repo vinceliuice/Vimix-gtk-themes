@@ -1316,7 +1316,7 @@ headerbar {
   min-height: 42px;
   padding: 0 6px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24), inset 0 1px rgba(255, 255, 255, 0.1);
-  background-color: #444444;
+  background-color: #383838;
   color: #FFFFFF;
 }
 
@@ -1662,7 +1662,7 @@ window.csd > .titlebar:not(headerbar) {
 }
 
 .titlebar:not(headerbar) > separator {
-  background-color: #444444;
+  background-color: #383838;
 }
 
 /************
@@ -1850,7 +1850,7 @@ menubar,
 .menubar {
   -GtkWidget-window-dragging: true;
   padding: 0;
-  background-color: #444444;
+  background-color: #383838;
 }
 
 menubar > menuitem,
@@ -1879,7 +1879,7 @@ menu,
   margin: 4px;
   padding: 2px 0px;
   box-shadow: none;
-  background-color: #444444;
+  background-color: #383838;
   border: none;
   border-radius: 0;
 }
@@ -1953,7 +1953,7 @@ menu > arrow,
   min-width: 16px;
   padding: 4px;
   border-radius: 0;
-  background-color: #444444;
+  background-color: #383838;
   color: rgba(255, 255, 255, 0.75);
 }
 
@@ -5848,7 +5848,7 @@ window.background > box.vertical > widget > widget:selected {
  * Libre-Office *
  ****************/
 window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal {
-  background-color: #444444;
+  background-color: #383838;
 }
 
 window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button {
@@ -5901,7 +5901,7 @@ UnityDecoration .top {
   padding: 3px 8px 3px 8px;
   border-radius: 2px 2px 0px 0px;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.1);
-  background-color: #444444;
+  background-color: #383838;
   color: #FFFFFF;
 }
 
@@ -5912,7 +5912,7 @@ UnityDecoration .top:backdrop {
 UnityDecoration .left,
 UnityDecoration .right,
 UnityDecoration .bottom {
-  background-color: #444444;
+  background-color: #383838;
 }
 
 UnityDecoration.menuitem,
@@ -5938,8 +5938,8 @@ UnityDecoration.menubar .menuitem *:hover {
 
 UnityPanelWidget,
 .unity-panel {
-  background-color: #424242;
-  background-image: image(#424242);
+  background-color: #222222;
+  background-image: image(#222222);
   color: #FFFFFF;
 }
 
@@ -5977,7 +5977,7 @@ menuitem calendar .button,
 menuitem calendar .header,
 menuitem calendar .view,
 menuitem calendar iconview {
-  background-color: #444444;
+  background-color: #383838;
   color: #FFFFFF;
   padding: 2px 6px;
 }
@@ -5992,7 +5992,7 @@ menuitem calendar iconview {
 
 #PanelPlug,
 PanelToplevel.background {
-  background-color: #424242;
+  background-color: #222222;
   color: #FFFFFF;
   font-weight: 500;
 }
@@ -6596,13 +6596,13 @@ popover.background.places-menu row {
 
 .budgie-panel {
   transition: background-color 0.2s cubic-bezier(0, 0, 0.2, 1);
-  background-color: #424242;
+  background-color: #222222;
   color: #EAEAEA;
   font-weight: 500;
 }
 
 .budgie-panel.transparent {
-  background-color: rgba(66, 66, 66, 0.85);
+  background-color: rgba(34, 34, 34, 0.85);
 }
 
 .budgie-panel button {
@@ -7290,5 +7290,5 @@ these are pretty self explicative */
 @define-color placeholder_text_color rgba(128, 128, 128, 0.88);
 @define-color budgie_tasklist_indicator_color #F0544C;
 @define-color budgie_tasklist_indicator_color_active #F0544C;
-@define-color budgie_tasklist_indicator_color_active_window #a04c47;
+@define-color budgie_tasklist_indicator_color_active_window #913d39;
 @define-color budgie_tasklist_indicator_color_attention #FF6D00;

@@ -36,7 +36,7 @@ Run
 
     ./Install
 
-Usage:  ./Install  [OPTIONS...]
+Usage:  `./Install`  **[OPTIONS...]**
 
 |  OPTIONS:    | |
 |:-------------|:-------------|

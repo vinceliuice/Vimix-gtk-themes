@@ -38,9 +38,9 @@ Run
 
 Usage:  `./Install`  **[OPTIONS...]**
 
-|  OPTIONS:    | |
-|:-------------|:-------------|
-| -d, --dest  | Specify theme destination directory (Default: /home/vince/.themes) |
+|  OPTIONS:   | |
+|:------------|:-------------|
+| -d, --dest  | Specify theme destination directory (Default: $HOME/.themes) |
 | -n, --name  | Specify theme name (Default: vimix) |
 | -c, --color | Specify theme color variant(s) **[standard/light/dark]** (Default: All variants) |
 | -t, --theme | Specify hue theme variant(s) **[standard/doder/beryl/ruby]** (Default: All variants) |

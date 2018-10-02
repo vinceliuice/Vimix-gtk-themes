@@ -51,7 +51,7 @@ $alt_base_color: mix($base_color, $bg_color, 50%);
 
 $lighter_bg_color: if($variant =='dark', if($color == 'ruby' or $color == 'black' or $color == 'white', #383838, #36393e), #FCFCFC);
 $darker_bg_color: if($variant =='dark', if($color == 'ruby' or $color == 'black' or $color == 'white', #303030, #30333b), #EEEEEE);
-$darker_fg_color: if($variant =='light', if($color == 'ruby' or $color == 'black' or $color == 'white', #222222, #191D29), #DDDDDD);
+$darker_fg_color: if($variant =='light', if($color == 'ruby' or $color == 'black' or $color == 'white', #222222, #212329), #DDDDDD);
 
 // Headerbar colors
 $headerbar_fg_color: if($headerbar =='dark', $dark_contrast_color, $fg_color);
@@ -92,7 +92,7 @@ $tab_color: $inverse_theme_color;
 $secondary_titlebar_color: $primary_color;
 $topbar_bg_color: #222222;
 @if $color == 'ruby' or $color == 'black' { $topbar_bg_color: #222222; }
-@if $color == 'doder' or $color == 'beryl' { $topbar_bg_color: #191D29; }
+@if $color == 'doder' or $color == 'beryl' { $topbar_bg_color: #212329; }
 $topbar_fg_color: $dark_contrast_color;
 $alt_topbar_fg_color: $darker_contrast_color;
 
@@ -122,4 +122,3 @@ $info_bg_color: #66BB6A;
 $question_bg_color: #42A5F5;
 $warning_bg_color: #FFA726;
 $error_bg_color: #EF5350;
-

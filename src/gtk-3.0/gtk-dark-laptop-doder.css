@@ -2473,7 +2473,7 @@ switch slider {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   background-color: #313338;
   color: #EAEAEA;
-  transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1), margin 0;
   min-width: 20px;
   min-height: 20px;
   margin: -4px 0 -4px -4px;
@@ -2487,7 +2487,7 @@ switch:hover slider {
 }
 
 switch:checked slider {
-  transition: all 0.3s cubic-bezier(0, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
+  animation: needs_attention 0.3s cubic-bezier(0, 0, 0.2, 1);
   margin: -4px -4px -4px 0;
   background-color: #18b8ff;
   color: #FFFFFF;
@@ -5943,8 +5943,8 @@ UnityDecoration.menubar .menuitem *:hover {
 
 UnityPanelWidget,
 .unity-panel {
-  background-color: #191D29;
-  background-image: image(#191D29);
+  background-color: #212329;
+  background-image: image(#212329);
   color: #FFFFFF;
 }
 
@@ -5997,7 +5997,7 @@ menuitem calendar iconview {
 
 #PanelPlug,
 PanelToplevel.background {
-  background-color: #191D29;
+  background-color: #212329;
   color: #FFFFFF;
   font-weight: 500;
 }
@@ -6601,13 +6601,13 @@ popover.background.places-menu row {
 
 .budgie-panel {
   transition: background-color 0.2s cubic-bezier(0, 0, 0.2, 1);
-  background-color: #191D29;
+  background-color: #212329;
   color: #EAEAEA;
   font-weight: 500;
 }
 
 .budgie-panel.transparent {
-  background-color: rgba(25, 29, 41, 0.85);
+  background-color: rgba(33, 35, 41, 0.85);
 }
 
 .budgie-panel button {
@@ -7295,5 +7295,5 @@ these are pretty self explicative */
 @define-color placeholder_text_color #a0a1a3;
 @define-color budgie_tasklist_indicator_color #4285F4;
 @define-color budgie_tasklist_indicator_color_active #4285F4;
-@define-color budgie_tasklist_indicator_color_active_window #2f5597;
+@define-color budgie_tasklist_indicator_color_active_window #335897;
 @define-color budgie_tasklist_indicator_color_attention #FF6D00;

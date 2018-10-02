@@ -529,8 +529,7 @@ button {
 
   //overlay / OSD style
   @at-root %osd_button,
-  .osd & {
-  }
+  .osd & { }
 
   // Suggested and Destructive Action buttons
   @each $b_type, $b_color in (suggested-action, $suggested_color),
@@ -652,6 +651,11 @@ button {
 
   &:dir(rtl) { background-position: left 3px; }
 }
+
+  row {
+    .linked > button { @extend %linked; }
+    .linked.vertical > button { @extend %linked_vertical; }
+  }
 
 // all the following is for the +|- buttons on inline toolbars, that way
 // should really be deprecated...

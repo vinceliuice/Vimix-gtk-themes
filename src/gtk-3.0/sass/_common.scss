@@ -2078,7 +2078,7 @@ switch {
   slider {
     @include entry(normal);
 
-    transition: $longer_transition, $shadow_transition;
+    transition: $longer_transition, $shadow_transition, margin 0;
     min-width: $small_size;
     min-height: $small_size;
     margin: -4px 0 -4px -4px;
@@ -2089,8 +2089,7 @@ switch {
   &:hover slider { @include entry(focus); }
 
   &:checked slider {
-    transition: $longer_transition, $shadow_transition;
-//    animation: needs_attention $longer_duration $deceleration_curve;
+    animation: needs_attention $longer_duration $deceleration_curve;
     margin: -4px -4px -4px 0;
     background-color: $accent_color;
     color: $inversed_fg_color;

@@ -1214,11 +1214,11 @@ headerbar {
 
   separator.titlebutton { @extend %header_separator; }
 
-  // Reset buttons
-  .linked:not(.vertical):not(.path-bar) > button {
+  // Reset buttons and entris
+  .linked:not(.vertical):not(.path-bar) > button,
+  .linked:not(.vertical):not(.path-bar) > entry {
     &, &:hover, &:active, &:checked, &:disabled {
       border-radius: $md_radius;
-      border-style: solid;
     }
   }
 
@@ -1245,7 +1245,7 @@ headerbar {
    }
  }
 
-  // Some case for headerbar path-bars
+  // special case for headerbar path-bars
   .linked:not(.vertical).path-bar {
     > button {
       margin: 0;
@@ -1347,13 +1347,52 @@ headerbar {
   @extend %titlebar;
 }
 
+.titlebar {
+  :not(headerbar) .path-bar {
+    button {
+      transition: border-image 0.00001s $longer_duration;
+      animation: border_ripple_effect $longer_duration $deceleration_curve;
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    $theme_color 0%,
+                                    transparent 0%)
+                                    0 0 0 / 0 0 0;
+      &:hover { background-color: rgba($headerbar_fg_color, 0.12); }
+      &:checked, &:active {
+//        color: $headerbar_fg_color;
+        background-color: transparent;
+        border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                      $theme_color 100%,
+                                      transparent 0%)
+                                      0 0 2 / 0 0 2px;
+      }
+    }
+  }
+}
+
 /************
  * Pathbars *
  ************/
+
 %pathbar_button,
 .path-bar button {
+  @extend %flat_button;
+  border-radius: 2px;
   padding-left: ($medium_size - 24px) / 2;
   padding-right: ($medium_size - 24px) / 2;
+
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                $primary_color 0%,
+                                transparent 0%)
+                                0 0 0 / 0 0 0;
+
+  &:checked {
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  $primary_color 100%,
+                                  transparent 0%)
+                                  0 0 2 / 0 0 2px;
+
+    &, &:disabled { background-color: transparent; }
+  }
 
   label:not(:only-child) {
     &:first-child { margin-left: 4px; }
@@ -1365,27 +1404,7 @@ headerbar {
     padding-left: (24px - 16px) / 2;
     padding-right: (24px - 16px) / 2;
   }
-
-  :not(headerbar) & {
-    @extend %flat_button;
-
-    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                  $primary_color 0%,
-                                  transparent 0%)
-                                  0 0 0 / 0 0 0px;
-    border-radius: 2px;
-
-    &:checked {
-      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    $primary_color 100%,
-                                    transparent 0%)
-                                    0 0 2 / 0 0 2px;
-
-      &, &:disabled { background-color: transparent; }
-    }
-  }
 }
-
 
 /**************
  * Tree Views *
@@ -2993,7 +3012,7 @@ messagedialog { // Message Dialog styling
     &:backdrop { color: $secondary_fg_color; }
   }
 
-  &.csd { // rounded bottom border styling for csd version
+  &, &.csd { // rounded bottom border styling for csd version
     &.background {
       // bigger radius for better antialiasing
       border-bottom-left-radius: 2px;
@@ -3006,9 +3025,15 @@ messagedialog { // Message Dialog styling
       border-radius: 0;
       @extend %simple_flat_button;
 
-      &:first-child { border-bottom-left-radius: 2px; }
+      &:first-child {
+        border-bottom-left-radius: 2px;
+        border-top-left-radius: 0;
+      }
 
-      &:last-child { border-bottom-right-radius: 2px; }
+      &:last-child {
+        border-bottom-right-radius: 2px;
+        border-top-right-radius: 0;
+      }
     }
 
   @each $b_type, $b_color in (suggested-action, $suggested_color),
@@ -3027,7 +3052,6 @@ messagedialog { // Message Dialog styling
       &:disabled { opacity: 0.65; }
       }
     }
-
   }
 }
 

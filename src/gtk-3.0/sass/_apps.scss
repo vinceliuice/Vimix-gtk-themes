@@ -1321,6 +1321,157 @@ window.background:not(.solid-csd) {
   separator { opacity: 0; }
 }
 
+//
+// Xfce4
+//
+
+$text_shadow: 0 0 1px rgba(0, 0, 0, 0.26),
+              0 1px 2px rgba(0, 0, 0, 0.32),
+              0 2px 3px rgba(0, 0, 0, 0.12);
+
+%panelbutton {
+  color: $topbar_fg_color;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+
+  &:hover:not(:active):not(:checked) {
+    color: $topbar_fg_color;
+    box-shadow: inset 0 -2px rgba($topbar_theme_color, 0.5);
+  }
+  &:checked, &:active {
+    color: $topbar_fg_color;
+    box-shadow: inset 0 -2px $topbar_theme_color;
+    label, image { color: inherit; }
+  }
+}
+
+.XfceHeading {
+  border: 0 none transparent;
+  background-color: $bg_color;
+  color: $fg_color;
+}
+
+.xfce4-panel {
+  background-color: $topbar_bg_color;
+  color: $topbar_fg_color;
+  font-weight: 700;
+  text-shadow: none;
+  -gtk-icon-shadow: none;
+
+  &, // unset borders
+  frame > border { border: none; }
+
+  &#XfcePanelWindow { // main panel container >= 4.13.3?
+    // FIXME: unneeded 1px borders are reserved by its code itself
+    border: none;
+
+    &, &.marching-ants { transition: none; } // unset transitions
+  }
+
+  button.flat { @extend %panelbutton; }
+
+  button {
+    font-weight: 700;
+    @extend %panelbutton;
+
+    &#launcher-arrow { // launcher applet
+      // FIXME: quite weird pseudo-classe transitions, especially :hover
+      // state can't be cleared properly ( -> an upstream issue)
+      &, + button.toggle {
+        &:hover { box-shadow: none; } // hide indicators
+      }
+
+      + button.toggle:checked { // 'arrow' toggle button
+        color: $topbar_theme_color;
+        box-shadow: none;
+      }
+    }
+
+    &#xfce4-notification-plugin {
+      padding: 0 1px; // for 4.12.2
+    }
+  }
+
+  menu {
+    font-weight: 400; // for enforcing regular weight
+    text-shadow: none;
+    -gtk-icon-effect: none;
+  }
+
+  widget.tasklist > button.toggle { font-weight: 400; }
+}
+
+XfdesktopIconView.view {
+  border-radius: 2px;
+  background: transparent;
+  color: $inversed_fg_color;
+  text-shadow: $text_shadow;
+
+  &:active, &:checked {
+    background-color: $topbar_theme_color;
+    text-shadow: none;
+  }
+
+  .rubberband { @extend rubberband; }
+}
+
+window#whiskermenu-window {
+  background-color: $base_color;
+
+  // no CSD class even if the sw compositor was enabled.
+  > frame > border {
+    border-radius: 0;
+  }
+
+  scrolledwindow {
+    > viewport button.radio {
+      &:not(:disabled) {
+        border-radius: 0;
+        background-image: none;
+        animation: none;
+        transition: none;
+      }
+//      &:hover { background-color: $track_color; }
+      &:checked {
+        background-color: rgba($topbar_theme_color, 0.12);
+        color: $topbar_theme_color;
+      }
+    }
+
+    treeview.view {
+      &:selected:hover {
+        background-color: transparent;
+        color: $fg_color;
+      }
+    }
+  }
+}
+
+
+//
+//  * Thunar *
+//
+
+window.thunar {
+  toolbar#location-toolbar {
+    border-bottom: 1px solid $borders_color;
+
+    // FIXME: need to unset for weird allocation height
+    entry { min-height: 0; }
+  }
+
+  notebook {
+    // hide unneeded border
+    stack > scrolledwindow.frame.standard-view { border-top-width: 0; }
+
+    // an allocation height of label node affects to close button's
+    // image height (it's quite weird).
+    header.top tab.reorderable-page > box > label { min-height: 0; }
+  }
+}
+
 /*********
  * Unity *
  *********/

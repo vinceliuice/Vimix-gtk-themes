@@ -108,6 +108,21 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
   }
 }
 
+@keyframes border_ripple_effect {
+  from {
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  $theme_color 0%,
+                                  transparent 0%)
+                                  0 0 0 / 0 0 0;
+  }
+
+  to {
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  $theme_color 100%,
+                                  transparent 0%)
+                                  0 0 2 / 0 0 2px;
+  }
+}
 
 @mixin entry($t, $fc:$primary_color) {
 //

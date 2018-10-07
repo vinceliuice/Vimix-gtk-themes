@@ -77,13 +77,13 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
 @keyframes tab_ripple_effect {
   from {
     background-image: radial-gradient(circle farthest-corner at center,
-                                      scale-alpha($primary_color, $middle_opacity) 0%,
+                                      rgba($fg_color, 0.1) 0%,
                                       transparent 0%);
   }
 
   50% {
     background-image: radial-gradient(circle farthest-corner at center,
-                                      scale-alpha($primary_color, $middle_opacity) 100%,
+                                      rgba($fg_color, 0.1) 100%,
                                       transparent 0%);
   }
 

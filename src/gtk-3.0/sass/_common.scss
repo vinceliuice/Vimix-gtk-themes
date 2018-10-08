@@ -15,10 +15,11 @@ $line_size: if($laptop == 'true', 0 0 3 / 0 0 3px, 0 0 3 / 0 0 3px);
 $md_radius: 3px;
 $circular_radius: 100px;
 
-$shortest_duration: 0.1s;
-$shorter_duration: 0.2s;
-$longer_duration: 0.3s;
-$ripple_duration: 0.45s;
+$shortest_duration: 100ms;
+$shorter_duration: 200ms;
+$longer_duration: 300ms;
+$ripple_duration: 450ms;
+$ripple_opacity_duration: 1000ms;
 
 $normal_curve: cubic-bezier(0.05, 0.3, 0.6, 1);
 $standard_curve: cubic-bezier(0.4, 0.0, 0.2, 1);
@@ -116,7 +117,7 @@ $shadow_transition: box-shadow $shorter_duration $deceleration_curve;
   background-color: $base_color;
   color: $fg_color;
 
-  &:hover, &:active, &:selected { border-radius: 2px; }
+//  &:hover, &:active, &:selected { border-radius: 2px; }
 
   &:disabled {
     // background-color: $alt_base_color;
@@ -126,7 +127,6 @@ $shadow_transition: box-shadow $shorter_duration $deceleration_curve;
   &:selected { @extend %selected_items; }
 }
 
-.view,
 textview {
   text {
     // @extend %view;
@@ -241,7 +241,7 @@ spinner {
 
   &:checked {
     opacity: 1;
-    animation: spin 1s linear infinite, spin_colors 4s linear infinite;
+    animation: spin 1s linear infinite;
 
     &:disabled { opacity: $disabled_opacity; }
   }
@@ -1002,7 +1002,6 @@ toolbar {
 
   // stand-alone OSD toolbars
   &.osd {
-    transition: $shadow_transition;
     padding: $container_padding;
     border-radius: 2px;
     box-shadow: $z-depth-2, inset 0 1px $secondary_highlight_color;
@@ -1062,11 +1061,10 @@ searchbar,
  ***************/
 %titlebar,
 headerbar {
-  transition: background-color $shorter_duration $deceleration_curve;
+  transition: background-color $shorter_duration $deceleration_curve, color $longer_duration $deceleration_curve;
   min-height: $large_size;
   padding: 0 $container_padding;
   box-shadow: $header_shadow, inset 0 1px $secondary_highlight_color;
-//      inset 0 -1px $borders_color;
   background-color: $headerbar_bg_color;
   color: $headerbar_fg_color;
 
@@ -1075,13 +1073,11 @@ headerbar {
   }
 
   .title {
-    transition: $longer_transition;
     padding: 0 12px;
     font-weight: bold;
   }
 
   .subtitle {
-    transition: $longer_transition;
     padding: 0 12px;
     font-size: smaller;
 
@@ -1098,12 +1094,7 @@ headerbar {
     }
 
   button,
-  button.flat.toggle.popup {
-      @extend %header_button;
-      &:hover { background-color: gtkalpha($primary_color, 0.3); color: $theme_color; }
-      &:active { background-color: $primary_color; color: $dark_contrast_color; }
-      &:checked { background-color: $primary_color; color: $dark_contrast_color; }
-  }
+  button.flat.toggle.popup { @extend %header_button; }
 
   button.suggested-action, button.destructive-action {
     &:disabled {
@@ -1112,8 +1103,10 @@ headerbar {
     }
   }
 
+  entry { background-color: lighten($base_color, 8%); }
+
   &.selection-mode {
-    transition: background-color 0.00001s $longer_duration;
+    transition: background-color 0.00001s $longer_duration, color $longer_duration $deceleration_curve;
     animation: header_ripple_effect $longer_duration $deceleration_curve;
     box-shadow: $z-depth-1, inset 0 1px $secondary_highlight_color;
     background-color: $primary_color;
@@ -1194,6 +1187,7 @@ headerbar {
       min-width: 26px;
       margin: 0;
       padding: 0;
+      transition: $longer_duration;
     }
   }
 
@@ -1350,15 +1344,18 @@ headerbar {
 .titlebar {
   :not(headerbar) .path-bar {
     button {
-      transition: border-image 0.00001s $longer_duration;
-      animation: border_ripple_effect $longer_duration $deceleration_curve;
+      @extend %flat_button;
+      color: $secondary_headerbar_fg_color;
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                     $theme_color 0%,
                                     transparent 0%)
                                     0 0 0 / 0 0 0;
-      &:hover { background-color: rgba($headerbar_fg_color, 0.12); }
+      &:hover {
+        color: $headerbar_fg_color;
+        background-color: rgba($headerbar_fg_color, 0.12);
+      }
       &:checked, &:active {
-//        color: $headerbar_fg_color;
+        color: $headerbar_fg_color;
         background-color: transparent;
         border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                       $theme_color 100%,
@@ -1531,7 +1528,6 @@ menubar,
   background-color: $headerbar_bg_color;
 
   > menuitem {
-    transition: $shorter_transition;
     min-height: 20px;
     padding: 4px 8px;
     color: $headerbar_fg_color;
@@ -1563,7 +1559,6 @@ menu,
   }
 
   menuitem {
-    transition: background-color $shorter_duration $deceleration_curve;
     min-height: 20px;
     min-width: 40px;
     padding: 4px 8px;
@@ -1846,7 +1841,9 @@ notebook {
     }
 
     tab {
-      transition: $longer_transition;
+      transition: $longer_transition,
+                  background-size 0,
+                  background-image 0;
       min-height: $small_size;
       min-width: $small_size;
       padding: $container_padding 12px;
@@ -1855,6 +1852,13 @@ notebook {
 
       border-width: 1px;         // for reorderable tabs
       border-color: transparent; //
+
+      background-image: radial-gradient(circle farthest-corner at center,
+                                        $semi_track_color 10%,
+                                        transparent 0%);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 0% 0%;
 
       color: $secondary_fg_color;
       font-weight: 500;
@@ -1871,7 +1875,13 @@ notebook {
       &:disabled { color: $disabled_secondary_fg_color; }
 
       &:checked {
-        animation: tab_ripple_effect $longer_duration * 3 $deceleration_curve;
+        transition: $longer_transition,
+                    background-size $longer_duration $deceleration_curve,
+                    background-image $longer_duration + $ripple_duration $deceleration_curve;
+        background-image: radial-gradient(circle farthest-corner at center,
+                                          transparent 10%,
+                                          transparent 0%);
+        background-size: 1000% 1000%;
         color: $fg_color;
 
         &:disabled { color: $disabled_fg_color; }
@@ -2079,7 +2089,7 @@ scrollbar {
  * Switch *
  **********/
 switch {
-  transition: $longer_transition;
+  transition: background-color 100ms $deceleration_curve, opacity $longer_duration $deceleration_curve;
   margin: $container_padding 0;
   border: 4px solid transparent;
   border-radius: 100px;
@@ -2100,8 +2110,7 @@ switch {
 
   slider {
     @include entry(normal);
-
-    transition: $longer_transition, $shadow_transition, margin 0;
+    transition: all 100ms $deceleration_curve, $shadow_transition, margin 0;
     min-width: $small_size;
     min-height: $small_size;
     margin: -4px 0 -4px -4px;
@@ -2112,7 +2121,6 @@ switch {
   &:hover slider { @include entry(focus); }
 
   &:checked slider {
-    animation: needs_attention $longer_duration $deceleration_curve;
     margin: -4px -4px -4px 0;
     background-color: $accent_color;
     color: $inversed_fg_color;
@@ -2496,7 +2504,7 @@ scale {
   min-width: $medium_size - $slider_size;
   padding: ($slider_size / 2);
 
-  * { transition: $longer_transition; }
+//  * { transition: $longer_transition; }
 
   // the slider is inside the trough, so to have make it bigger there's a negative margin
   slider {
@@ -2529,11 +2537,14 @@ scale {
   }
 
   slider {
-    transition: all $shorter_duration $standard_curve;
-    // border-radius: 100%;
-    // background-color: $accent_color;
+    transition: background-color $longer_duration $deceleration_curve,
+                background-size $ripple_duration $deceleration_curve,
+                background-image $ripple_opacity_duration $deceleration_curve;
     background-repeat: no-repeat;
     background-position: center;
+    background-size: auto, 1000% 1000%;
+    // border-radius: 100%;
+    // background-color: $accent_color;
 
     @each $s, $as in ('', ''),
                     (':disabled', '-insensitive') {
@@ -2906,8 +2917,10 @@ row {
 
     &.has-open-popup, // this is for indicathing which row generated a popover see https://bugzilla.gnome.org/show_bug.cgi?id=754411
     &:active {
-      transition: $row_transition;
-      animation: row_ripple_effect $longer_duration $deceleration_curve forwards;
+      transition: $row_transition,
+                  background-size 0,
+                  background-image 0;
+      animation: ripple_effect $longer_duration $deceleration_curve forwards;
     }
   }
 
@@ -3012,7 +3025,25 @@ messagedialog { // Message Dialog styling
     &:backdrop { color: $secondary_fg_color; }
   }
 
-  &, &.csd { // rounded bottom border styling for csd version
+  .dialog-action-area button {
+    padding: 4px 12px;
+    border-top: 1px solid $borders_color;
+    border-radius: 0;
+
+    @extend %simple_flat_button;
+
+    &:first-child {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
+
+    &:last-child {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+
+  &.csd { // rounded bottom border styling for csd version
     &.background {
       // bigger radius for better antialiasing
       border-bottom-left-radius: 2px;
@@ -3053,6 +3084,8 @@ messagedialog { // Message Dialog styling
       }
     }
   }
+
+  entry { @extend %entry.flat; }
 }
 
 filechooser {
@@ -3628,7 +3661,9 @@ decoration {
       background-color: transparent;
       background-position: center;
       background-repeat: no-repeat;
+      background-size: 16px 16px;
 
+      &:hover, &:active, &:checked { background-size: 22px 22px; }
       &:backdrop { opacity: 1; }
 
     }
@@ -3728,7 +3763,7 @@ button.circular { row & { margin: 0 5px; } } // Make the circular button hover s
   font-size: smaller;
 }
 
-*:drop(active) { // FIXME needs to be done widget by widget, this wildcard should really die
+:not(decoration):not(window):drop(active) { // FIXME needs to be done widget by widget, this wildcard should really die
   transition: $longer_transition;
   box-shadow: $z-depth-1, inset 0 0 0 2px $accent_color;
   caret-color: $accent_color;

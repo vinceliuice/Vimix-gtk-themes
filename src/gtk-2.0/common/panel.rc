@@ -1,70 +1,98 @@
-style "theme-panel" {
 
+style "theme-panel" {
+  GtkButton::inner-border = { 0, 0, 0, 0 }
   xthickness = 2
   ythickness = 0
 
-  bg[NORMAL] = shade(1.0, @titlebar_bg_color)
+  bg[NORMAL] = shade(1.0, @topbar_bg_color)
   bg[ACTIVE] = @selected_bg_color
-  bg[PRELIGHT] = shade(1.2, @titlebar_bg_color)
+  bg[PRELIGHT] = shade(0.9, @topbar_bg_color)
   bg[SELECTED] = @selected_bg_color
 
-  fg[NORMAL] = shade(1.0, @titlebar_fg_color)
-  fg[PRELIGHT] = shade(1.1, @titlebar_fg_color)
+  fg[NORMAL] = shade(1.0, @topbar_fg_color)
+  fg[PRELIGHT] = @topbar_fg_color
   fg[ACTIVE] = @selected_fg_color
   fg[SELECTED] = @selected_fg_color
 
-  text[NORMAL] = shade(1.0, @titlebar_fg_color)
-  text[PRELIGHT] = shade(1.1, @titlebar_fg_color)
-  text[ACTIVE] = shade(1.0, @titlebar_fg_color)
+  text[NORMAL] = shade(1.0, @topbar_fg_color)
+  text[PRELIGHT] = shade(1.1, @topbar_fg_color)
+  text[ACTIVE] = shade(1.0, @topbar_fg_color)
   text[SELECTED] = @selected_fg_color
-
-  engine "murrine" {
-    reliefstyle = 0
-    glazestyle = 0
-    glow_shade = 1.0
-    highlight_shade = 1.0
-    roundness = 0
-    gradient_shades = {1.0,1.0,1.0,1.0}
-    textstyle = 0
-    contrast = 0.0
-  }
 }
 
 style "theme-panel-progressbar" {
-  bg[ACTIVE] = shade(0.8, @titlebar_bg_color)
+  bg[ACTIVE] = shade(0.8, @topbar_bg_color)
 }
 
 style "panelbar" {
 
-  fg[NORMAL] = shade(1.0, @titlebar_fg_color)
-  fg[ACTIVE] = shade(1.0, @titlebar_fg_color)
-  fg[PRELIGHT] = shade(1.1, @titlebar_fg_color)
+  fg[NORMAL] = shade(1.0, @topbar_fg_color)
+  fg[ACTIVE] = shade(1.0, @topbar_fg_color)
+  fg[PRELIGHT] = shade(1.1, @topbar_fg_color)
   fg[SELECTED] = @selected_fg_color
 
   bg[SELECTED] = @selected_bg_color
 
-  engine "murrine" {}
 }
 
 style "panelbuttons" {
-
+  GtkButton::inner-border = { 0, 0, 0, 0 }
   xthickness = 4
   ythickness = 0
 
-  engine "murrine" {
-    textstyle = 0
+  fg[NORMAL] = shade(0.8, @topbar_fg_color)
+  fg[PRELIGHT] = @selected_fg_color
+  fg[ACTIVE] = @selected_fg_color
+  fg[SELECTED] = @selected_fg_color
+  fg[INSENSITIVE] = mix(0.28, @topbar_fg_color, @topbar_bg_color)
+  bg[PRELIGHT] = shade(1.2, @topbar_bg_color)
+  bg[ACTIVE] = shade(1.5, @topbar_bg_color)
+
+  engine "pixmap" {
+    image {
+      function = BOX
+      state    = NORMAL
+      file     = "assets/flat-button.png"
+      border   = { 0, 0, 0, 2 }
+      stretch  = TRUE
+    }
+    image {
+      function = BOX
+      state    = ACTIVE
+      file     = "assets/pathbar_button_active.png"
+      border   = { 0, 0, 0, 2 }
+      stretch  = TRUE
+    }
+    image {
+      function = BOX
+      state    = PRELIGHT
+      file     = "assets/pathbar_button_prelight.png"
+      border   = { 0, 0, 0, 2 }
+      stretch  = TRUE
+    }
+    image {
+      function = BOX
+      state    = INSENSITIVE
+      file     = "assets/flat-button.png"
+      border   = { 0, 0, 0, 2 }
+      stretch  = TRUE
+    }
   }
+}
+
+style "regular-label" {
+  font_name = "Regular"
 }
 
 style "theme-panel-text" {
 
-  fg[NORMAL] = shade(1.0, @titlebar_fg_color)
+  fg[NORMAL] = shade(1.0, @topbar_fg_color)
   fg[PRELIGHT] = @selected_fg_color
-  fg[ACTIVE] = shade(1.0, @titlebar_fg_color)
+  fg[ACTIVE] = shade(1.0, @topbar_fg_color)
 
-  text[NORMAL] = shade(1.0, @titlebar_fg_color)
+  text[NORMAL] = shade(1.0, @topbar_fg_color)
   text[PRELIGHT] = @selected_fg_color
-  text[ACTIVE] = shade(1.0, @titlebar_fg_color)
+  text[ACTIVE] = shade(1.0, @topbar_fg_color)
 
   engine "murrine" {
     textstyle = 0
@@ -74,17 +102,17 @@ style "theme-panel-text" {
 
 style "panel-entry" {
 
-  fg[NORMAL] = @text_color
-  fg[PRELIGHT] = @text_color
-  fg[ACTIVE] = @text_color
-  fg[SELECTED] = @text_color
-  fg[INSENSITIVE] = @text_color
+  fg[NORMAL] = @topbar_fg_color
+  fg[PRELIGHT] = @topbar_fg_color
+  fg[ACTIVE] = @topbar_fg_color
+  fg[SELECTED] = @topbar_fg_color
+  fg[INSENSITIVE] = @topbar_fg_color
 
-  text[NORMAL] = @text_color
-  text[PRELIGHT] = @text_color
-  text[ACTIVE] = @text_color
-  text[SELECTED] = @text_color
-  text[INSENSITIVE] = @text_color
+  text[NORMAL] = @topbar_fg_color
+  text[PRELIGHT] = @topbar_fg_color
+  text[ACTIVE] = @topbar_fg_color
+  text[SELECTED] = @topbar_fg_color
+  text[INSENSITIVE] = @topbar_fg_color
 
 }
 
@@ -111,9 +139,12 @@ widget_class "*Xfce*Panel*Button*"                    style "panelbuttons"
 widget_class "*<XfceArrowButton>"                     style "panelbuttons"
 widget_class "*<XfceActionsPlugin>*"                  style "panelbuttons"
 widget_class "*XfcePanelPlugin.GtkButton"             style "panelbuttons"
+widget_class "*XfcePanelPlugin.GtkToggleButton"       style "panelbuttons"
 widget "*dict*Applet*"                                style "panelbuttons"
 widget_class "*Xfce*NetkTasklist*GtkToggleButton"     style "panelbuttons"
 widget_class "*Tasklist*"                             style:highest "panelbuttons"
+widget_class "*Tasklist*.GtkLabel"                    style:highest "regular-label"
+widget_class "*Mixer*lugin*"                          style:highest "panelbuttons"
 
 class "*Panel*MenuBar*"                               style "panelbar"
 widget_class "*Panel*MenuBar*"                        style "panelbar"

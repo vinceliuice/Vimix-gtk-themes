@@ -1425,24 +1425,20 @@ window#whiskermenu-window {
     border-radius: 0;
   }
 
+  entry { @extend %entry.flat; }
+
   scrolledwindow {
     > viewport button.radio {
-      &:not(:disabled) {
-        border-radius: 0;
-        background-image: none;
-        animation: none;
-        transition: none;
-      }
-//      &:hover { background-color: $track_color; }
+      &:hover { background-color: $semi_track_color; }
       &:checked {
-        background-color: rgba($topbar_theme_color, 0.12);
-        color: $topbar_theme_color;
+        background-color: $primary_color;
+        color: $inversed_fg_color;
       }
     }
 
     treeview.view {
       &:selected:hover {
-        background-color: transparent;
+        background-color: $semi_track_color;
         color: $fg_color;
       }
     }
@@ -1464,7 +1460,10 @@ window.thunar {
 
   notebook {
     // hide unneeded border
-    stack > scrolledwindow.frame.standard-view { border-top-width: 0; }
+    stack > scrolledwindow.frame.standard-view {
+      border-top-width: 0;
+      border-right-width: 0;
+    }
 
     // an allocation height of label node affects to close button's
     // image height (it's quite weird).

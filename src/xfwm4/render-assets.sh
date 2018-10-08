@@ -27,6 +27,26 @@ for variant in '' '-dark'; do
   done
 done
 
+for variant in '' '-light' '-dark'; do
+
+  ASSETS_DIR="assets${variant}-contrast"
+  SRC_FILE="assets${variant}-contrast.svg"
+
+  for i in `cat $INDEX`
+  do
+  if [ -f $ASSETS_DIR/$i.png ]; then
+     echo $ASSETS_DIR/$i.png exists.
+  else
+    echo
+    echo Rendering $ASSETS_DIR/$i.png
+    $INKSCAPE --export-id=$i \
+              --export-id-only \
+              --export-png=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null \
+    && $OPTIPNG -o7 --quiet $ASSETS_DIR/$i.png
+    fi
+  done
+done
+
 LIGHT_ASSETS_DIR="assets-light"
 LIGHT_SRC_FILE="assets-light.svg"
 

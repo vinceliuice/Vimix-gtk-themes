@@ -3043,6 +3043,21 @@ messagedialog { // Message Dialog styling
     }
   }
 
+  @each $b_type, $b_color in (suggested-action, $suggested_color),
+                             (destructive-action, $destructive_color) {
+    .dialog-action-area button.#{$b_type} {
+      color: $b_color;
+      background-color: transparent;
+      box-shadow: none;
+      &:hover,
+      &:checked {
+        background-color: $b_color;
+        color: $inversed_fg_color;
+      }
+      &:disabled { opacity: 0.65; }
+      }
+    }
+
   &.csd { // rounded bottom border styling for csd version
     &.background {
       // bigger radius for better antialiasing
@@ -3073,13 +3088,11 @@ messagedialog { // Message Dialog styling
       color: $b_color;
       background-color: transparent;
       box-shadow: none;
-//      border-color: $borders_color;
       &:hover,
       &:checked {
-          background-color: $b_color;
-          color: $inversed_fg_color;
-//          border-color: $b_color;
-        }
+        background-color: $b_color;
+        color: $inversed_fg_color;
+      }
       &:disabled { opacity: 0.65; }
       }
     }

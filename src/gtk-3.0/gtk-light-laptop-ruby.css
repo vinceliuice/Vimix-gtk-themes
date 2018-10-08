@@ -13,15 +13,6 @@
   }
 }
 
-@keyframes border_ripple_effect {
-  from {
-    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #F0544C 0%, transparent 0%) 0 0 0/0 0 0;
-  }
-  to {
-    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #F0544C 100%, transparent 0%) 0 0 2/0 0 2px;
-  }
-}
-
 * {
   padding: 0;
   background-clip: padding-box;
@@ -3911,6 +3902,36 @@ messagedialog .dialog-action-area button:first-child {
 messagedialog .dialog-action-area button:last-child {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
+}
+
+messagedialog .dialog-action-area button.suggested-action {
+  color: #4CAF50;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+messagedialog .dialog-action-area button.suggested-action:hover, messagedialog .dialog-action-area button.suggested-action:checked {
+  background-color: #4CAF50;
+  color: #FFFFFF;
+}
+
+messagedialog .dialog-action-area button.suggested-action:disabled {
+  opacity: 0.65;
+}
+
+messagedialog .dialog-action-area button.destructive-action {
+  color: #FF5252;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+messagedialog .dialog-action-area button.destructive-action:hover, messagedialog .dialog-action-area button.destructive-action:checked {
+  background-color: #FF5252;
+  color: #FFFFFF;
+}
+
+messagedialog .dialog-action-area button.destructive-action:disabled {
+  opacity: 0.65;
 }
 
 messagedialog.csd.background {

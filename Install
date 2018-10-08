@@ -70,7 +70,10 @@ install() {
 
   mkdir -p                                                                              ${THEME_DIR}/gtk-3.0/assets
   cp -ur ${SRC_DIR}/gtk-3.0/assets/assets${theme}/*.png                                 ${THEME_DIR}/gtk-3.0/assets
+  [[ ${theme} != '' ]] && \
   cp -ur ${SRC_DIR}/gtk-3.0/assets/window-assets                                        ${THEME_DIR}/gtk-3.0/assets
+  [[ ${theme} == '' ]] && \
+  cp -ur ${SRC_DIR}/gtk-3.0/assets/window-assets-contrast                               ${THEME_DIR}/gtk-3.0/assets/window-assets
   cp -ur ${SRC_DIR}/gtk-3.0/assets/scalable                                             ${THEME_DIR}/gtk-3.0/assets
   cp -ur ${SRC_DIR}/gtk-3.0/gtk${color}${size}${theme}.css                              ${THEME_DIR}/gtk-3.0/gtk.css
   [[ ${color} != '-dark' ]] && \
@@ -98,7 +101,10 @@ install() {
 
   mkdir -p                                                                              ${THEME_DIR}/xfwm4
   cp -ur ${SRC_DIR}/xfwm4/themerc${color}                                               ${THEME_DIR}/xfwm4/themerc
+  [[ ${theme} != '' ]] && \
   cp -ur ${SRC_DIR}/xfwm4/assets${color}${theme}/*.png                                  ${THEME_DIR}/xfwm4
+  [[ ${theme} == '' ]] && \
+  cp -ur ${SRC_DIR}/xfwm4/assets${color}-contrast/*.png                                 ${THEME_DIR}/xfwm4
 
   mkdir -p                                                                              ${THEME_DIR}/unity
   cp -ur ${SRC_DIR}/unity                                                               ${THEME_DIR}

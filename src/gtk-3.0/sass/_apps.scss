@@ -840,6 +840,78 @@ list.categories { background-image: image($lighter_bg_color); }
 button.title label { min-height: $medium_size; }
 
 
+/**********
+ * Tweaks *
+ **********/
+// hard-coded css:
+// https://gitlab.gnome.org/GNOME/gnome-tweaks/blob/master/data/shell.css
+
+// the sidebar
+.tweak-categories {
+  // padding: 4px 0;
+  // background-color: shade(@theme_bg_color, 0.99);
+  background-image: image($alt_base_color);
+
+  separator {
+    min-width: 0;
+    min-height: 0;
+    background-color: transparent;
+  }
+}
+
+.tweak {
+  // padding-top: 3px;
+  padding: 3px;
+
+  &.title:hover { box-shadow: none; }
+}
+
+.tweak-group-white,
+.tweak-white,
+.tweak-white:hover {
+  // background-color: white;
+  background-image: image($base_color);
+}
+
+.tweak-startup,
+.tweak-startup:hover {
+  // background-color: lighter(shade(@theme_bg_color, 0.9));
+  background-image: image($base_color);
+}
+
+.tweak-group-startup {
+  // background-color: @view_separators;
+  background-image: image($base_color);
+  border: 1px solid $borders_color;
+}
+
+//
+// Workaround for 3.26
+//
+
+row#Focus,
+row#ClickMethod,
+row#StaticWorkspaceTweak, // for 3.26.0
+row#dynamic-workspaces,
+row#PrimaryWorkspaceTweak, // for 3.26.0
+row#workspaces-only-on-primary {
+  padding: 0;
+  border: 1px solid $borders_color;
+
+  row:not(:last-child) { border-bottom: 1px solid $borders_color; }
+
+  &.tweak > list { margin-top: -3px; }
+}
+
+// Add more spaces between title and list
+row#Focus,
+row#ClickMethod,
+row#PrimaryWorkspaceTweak, // for 3.26.0
+row#workspaces-only-on-primary {
+  margin-top: 4px;
+}
+
+
 /************
  * Terminix *
  ************/

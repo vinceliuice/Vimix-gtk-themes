@@ -5479,6 +5479,78 @@ button.title label {
   min-height: 32px;
 }
 
+/**********
+ * Tweaks *
+ **********/
+.tweak-categories {
+  background-image: image(#fafafa);
+}
+
+.tweak-categories separator {
+  min-width: 0;
+  min-height: 0;
+  background-color: transparent;
+}
+
+.tweak {
+  padding: 3px;
+}
+
+.tweak.title:hover {
+  box-shadow: none;
+}
+
+.tweak-group-white,
+.tweak-white,
+.tweak-white:hover {
+  background-image: image(#FFFFFF);
+}
+
+.tweak-startup,
+.tweak-startup:hover {
+  background-image: image(#FFFFFF);
+}
+
+.tweak-group-startup {
+  background-image: image(#FFFFFF);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+row#Focus,
+row#ClickMethod,
+row#StaticWorkspaceTweak,
+row#dynamic-workspaces,
+row#PrimaryWorkspaceTweak,
+row#workspaces-only-on-primary {
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+row#Focus row:not(:last-child),
+row#ClickMethod row:not(:last-child),
+row#StaticWorkspaceTweak row:not(:last-child),
+row#dynamic-workspaces row:not(:last-child),
+row#PrimaryWorkspaceTweak row:not(:last-child),
+row#workspaces-only-on-primary row:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+row#Focus.tweak > list,
+row#ClickMethod.tweak > list,
+row#StaticWorkspaceTweak.tweak > list,
+row#dynamic-workspaces.tweak > list,
+row#PrimaryWorkspaceTweak.tweak > list,
+row#workspaces-only-on-primary.tweak > list {
+  margin-top: -3px;
+}
+
+row#Focus,
+row#ClickMethod,
+row#PrimaryWorkspaceTweak,
+row#workspaces-only-on-primary {
+  margin-top: 4px;
+}
+
 /************
  * Terminix *
  ************/

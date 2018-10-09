@@ -991,6 +991,28 @@ button.osd:disabled {
 }
 
 
+.osd
+button,
+.osd
+button:disabled {
+  background-color: transparent;
+}
+
+
+.osd
+button,
+.osd
+button:hover,
+.osd
+button:active,
+.osd
+button:checked,
+.osd
+button:disabled {
+  box-shadow: none;
+}
+
+
 button.suggested-action {
   background-color: #4CAF50;
   color: #FFFFFF;
@@ -4548,6 +4570,11 @@ infobar.info button, infobar.question button, infobar.warning button, infobar.er
 infobar.info button.flat, infobar.question button.flat, infobar.warning button.flat, infobar.error button.flat {
   color: #FFFFFF;
   background-color: rgba(255, 255, 255, 0);
+  box-shadow: none;
+}
+
+infobar.info button.flat:disabled, infobar.question button.flat:disabled, infobar.warning button.flat:disabled, infobar.error button.flat:disabled {
+  box-shadow: none;
 }
 
 infobar.info button.flat:disabled, infobar.question button.flat:disabled, infobar.warning button.flat:disabled, infobar.error button.flat:disabled, infobar.info button.flat:disabled label, infobar.question button.flat:disabled label, infobar.warning button.flat:disabled label, infobar.error button.flat:disabled label {
@@ -4558,17 +4585,20 @@ infobar.info button:hover, infobar.question button:hover, infobar.warning button
   color: #FFFFFF;
   background-color: rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: none;
 }
 
 infobar.info button:active, infobar.question button:active, infobar.warning button:active, infobar.error button:active, infobar.info button:active:hover, infobar.question button:active:hover, infobar.warning button:active:hover, infobar.error button:active:hover, infobar.info button:checked, infobar.question button:checked, infobar.warning button:checked, infobar.error button:checked {
   color: #FFFFFF;
   background-color: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: none;
 }
 
 infobar.info button:disabled, infobar.question button:disabled, infobar.warning button:disabled, infobar.error button:disabled {
   background-color: rgba(255, 255, 255, 0);
   border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: none;
 }
 
 infobar.info button:disabled, infobar.question button:disabled, infobar.warning button:disabled, infobar.error button:disabled, infobar.info button:disabled label, infobar.question button:disabled label, infobar.warning button:disabled label, infobar.error button:disabled label {
@@ -4579,6 +4609,7 @@ infobar.info button:disabled:active, infobar.question button:disabled:active, in
   color: #FFFFFF;
   background-color: rgba(255, 255, 255, 0.5);
   border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: none;
 }
 
 /************

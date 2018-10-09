@@ -610,7 +610,11 @@ button {
 
   //overlay / OSD style
   @at-root %osd_button,
-  .osd & { }
+  .osd & {
+    &, &:disabled { background-color: transparent; }
+    &, &:hover, &:active, &:checked, &:disabled { box-shadow: none; }
+    &.flat { }
+  }
 
   // Suggested and Destructive Action buttons
   @each $b_type, $b_color in (suggested-action, $suggested_color),
@@ -1421,21 +1425,15 @@ headerbar {
     margin-bottom: if($laptop == 'true', 12px, 14px);
 
     @if $color == 'black' and $headerbar =='dark' {
-
-    background-color: rgba($headerbar_fg_color, $lower_opacity);
-
-    &:disabled { color: rgba($headerbar_fg_color, $disabled_opacity); }
-
-    &:checked {
-      background-color: rgba($headerbar_fg_color, 0.5);
-
-      &:disabled {
-        background-color: rgba($headerbar_fg_color, 0.5 * $disabled_opacity);
+      background-color: rgba($headerbar_fg_color, $lower_opacity);
+      &:disabled { color: rgba($headerbar_fg_color, $disabled_opacity); }
+      &:checked {
+        background-color: rgba($headerbar_fg_color, 0.5);
+        &:disabled {
+          background-color: rgba($headerbar_fg_color, 0.5 * $disabled_opacity);
+        }
       }
-    }
-
-    &:checked slider { background-color: $headerbar_fg_color; }
-
+      &:checked slider { background-color: $headerbar_fg_color; }
     }
   }
 }
@@ -1449,17 +1447,16 @@ headerbar {
 headerbar {
   window:not(.tiled):not(.maximized):not(.fullscreen) separator:first-child + &, // tackles the paned container case
   window:not(.tiled):not(.maximized):not(.fullscreen) &:first-child { border-top-left-radius: 0; }
-
   window:not(.tiled):not(.maximized):not(.fullscreen) &:last-child { border-top-right-radius: 0; }
 }
 
 .titlebar:not(headerbar) {
   window.csd > & {
     // in csd we assume every titlebar is a headerbar so reset anything, this is needed for split toolbars cases
-      padding: 0;
-      background: none;
-      border: none;
-      box-shadow: none;
+    padding: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
   }
 
   > separator {

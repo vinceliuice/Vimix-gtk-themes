@@ -102,7 +102,8 @@ $semi_track_color: gtkalpha(currentColor, $lower_opacity / 2);
 $zero_track_color: gtkalpha(currentColor, 0);
 $row_track_color: gtkalpha(currentColor, 0.05);
 $borders_color: if($variant == 'light', scale-alpha(#000000, 0.1), scale-alpha(#000000, 0.15));
-$solid_borders_color: if($variant == 'light', darken($bg_color, 10%), darken($bg_color, 5%));
+$solid_borders_color: if($variant == 'light', darken($bg_color, 10%), darken($bg_color, 3.5%));
+$darker_borders_color: if($variant == 'light', darken($bg_color, 15%), darken($bg_color, 5%));
 $highlight_color: if($variant == 'light', scale-alpha(#FFFFFF, 0.4), scale-alpha(#FFFFFF, 0.3));
 $secondary_highlight_color: scale-alpha(#FFFFFF, 0.1);
 

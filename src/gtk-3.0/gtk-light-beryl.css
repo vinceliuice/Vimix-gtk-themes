@@ -215,93 +215,278 @@ spinner:checked:disabled {
 /****************
  * Text Entries *
  ****************/
-spinbutton:not(.vertical), notebook > stack:not(:only-child) revealer entry,
+notebook > stack:not(:only-child) revealer entry,
+notebook > stack:not(:only-child) revealer spinbutton:not(.vertical),
+entry, spinbutton:not(.vertical), notebook > stack:not(:only-child) revealer entry.flat,
+notebook > stack:not(:only-child) revealer spinbutton.flat:not(.vertical),
+entry.flat, spinbutton.flat:not(.vertical) {
+  border: 1px solid #cfcfcf;
+  box-shadow: none;
+  border-image: none;
+  background-color: #FFFFFF;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+notebook > stack:not(:only-child) revealer entry:focus,
+notebook > stack:not(:only-child) revealer spinbutton:focus:not(.vertical),
+entry:focus, spinbutton:focus:not(.vertical),
+entry.flat:focus, spinbutton.flat:focus:not(.vertical) {
+  border: 1px solid #2EB398;
+  box-shadow: none;
+  border-image: none;
+  background-color: #FFFFFF;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+notebook > stack:not(:only-child) revealer entry:disabled,
+notebook > stack:not(:only-child) revealer spinbutton:disabled:not(.vertical),
+entry:disabled, spinbutton:disabled:not(.vertical),
+entry.flat:disabled, spinbutton.flat:disabled:not(.vertical) {
+  border: 1px solid #cfcfcf;
+  box-shadow: none;
+  border-image: none;
+  background-color: #fafafa;
+  color: rgba(0, 0, 0, 0.32);
+}
+
+.background notebook > stack:not(:only-child) revealer entry, notebook > stack:not(:only-child) revealer .background entry,
+.background notebook > stack:not(:only-child) revealer spinbutton:not(.vertical), notebook > stack:not(:only-child) revealer .background spinbutton:not(.vertical),
+.background entry, .background spinbutton:not(.vertical) {
+  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  border-image: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  background-color: #FFFFFF;
+  color: rgba(0, 0, 0, 0.6);
+  border: none;
+}
+
+
+.background entry:focus, .background spinbutton:focus:not(.vertical) {
+  border-image: none;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+  color: rgba(0, 0, 0, 0.8);
+}
+
+
+.background entry:disabled, .background spinbutton:disabled:not(.vertical) {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  background-color: #fafafa;
+  color: rgba(0, 0, 0, 0.32);
+}
+
+popover.background entry, notebook > stack:not(:only-child) entry,
+notebook > stack:not(:only-child) spinbutton:not(.vertical), messagedialog entry, colorchooser .popover.osd spinbutton:not(.vertical), layoutpane entry.search, editortweak entry.search, window#whiskermenu-window entry, .budgie-popover entry,
+.budgie-popover spinbutton:not(.vertical), .raven .raven-background spinbutton:not(.vertical), #login_window entry,
+.background entry.flat,
+.background spinbutton.flat:not(.vertical) {
+  transition: all 300ms cubic-bezier(0, 0, 0.2, 1);
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #2EB398 0%, transparent 0%) 0 0 0/0 0 0px;
+  box-shadow: inset 0 -1px alpha(currentColor, 0.24);
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.8);
+  border-radius: 0;
+}
+
+popover.background entry:focus, notebook > stack:not(:only-child) entry:focus,
+notebook > stack:not(:only-child) spinbutton:focus:not(.vertical), messagedialog entry:focus, colorchooser .popover.osd spinbutton:focus:not(.vertical), layoutpane entry.search:focus, editortweak entry.search:focus, window#whiskermenu-window entry:focus, .budgie-popover entry:focus,
+.budgie-popover spinbutton:focus:not(.vertical), .raven .raven-background spinbutton:focus:not(.vertical), #login_window entry:focus,
+.background entry.flat:focus,
+.background spinbutton.flat:focus:not(.vertical) {
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #2EB398 100%, transparent 0%) 0 0 2/0 0 2px;
+  box-shadow: inset 0 -1px alpha(currentColor, 0.24);
+}
+
+popover.background entry:disabled, notebook > stack:not(:only-child) entry:disabled,
+notebook > stack:not(:only-child) spinbutton:disabled:not(.vertical), messagedialog entry:disabled, colorchooser .popover.osd spinbutton:disabled:not(.vertical), layoutpane entry.search:disabled, editortweak entry.search:disabled, window#whiskermenu-window entry:disabled, .budgie-popover entry:disabled,
+.budgie-popover spinbutton:disabled:not(.vertical), .raven .raven-background spinbutton:disabled:not(.vertical), #login_window entry:disabled,
+.background entry.flat:disabled,
+.background spinbutton.flat:disabled:not(.vertical) {
+  box-shadow: inset 0 -1px alpha(currentColor, 0.24);
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.32);
+}
+
+notebook > stack:not(:only-child) revealer entry,
 notebook > stack:not(:only-child) revealer spinbutton:not(.vertical),
 entry {
   min-height: 36px;
   padding: 0 8px;
   border-radius: 2px;
-  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+notebook > stack:not(:only-child) revealer .linked > entry,
+notebook > stack:not(:only-child) revealer .linked > spinbutton:not(.vertical), notebook > stack:not(:only-child) revealer entry.flat,
+notebook > stack:not(:only-child) revealer spinbutton.flat:not(.vertical),
+notebook > stack:not(:only-child) revealer .linked.vertical > entry,
+notebook > stack:not(:only-child) revealer .linked.vertical > spinbutton:not(.vertical), notebook > stack:not(:only-child) revealer entry.flat,
+notebook > stack:not(:only-child) revealer spinbutton.flat:not(.vertical), .linked >
+entry,
+entry.flat,
+.linked.vertical >
+entry,
+entry.flat {
+  border: 1px solid #cfcfcf;
+  box-shadow: none;
   border-image: none;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  background-color: #FFFFFF;
+  color: rgba(0, 0, 0, 0.6);
+  border-radius: 2px;
+}
+
+notebook > stack:not(:only-child) revealer .linked > entry:focus,
+notebook > stack:not(:only-child) revealer .linked > spinbutton:focus:not(.vertical), notebook > stack:not(:only-child) revealer entry.flat:focus,
+notebook > stack:not(:only-child) revealer spinbutton.flat:focus:not(.vertical),
+notebook > stack:not(:only-child) revealer .linked.vertical > entry:focus,
+notebook > stack:not(:only-child) revealer .linked.vertical > spinbutton:focus:not(.vertical), notebook > stack:not(:only-child) revealer entry.flat:focus,
+notebook > stack:not(:only-child) revealer spinbutton.flat:focus:not(.vertical), .linked >
+entry:focus,
+entry.flat:focus,
+.linked.vertical >
+entry:focus,
+entry.flat:focus {
+  border: 1px solid #2EB398;
+  box-shadow: none;
+  border-image: none;
   background-color: #FFFFFF;
   color: rgba(0, 0, 0, 0.8);
 }
 
-spinbutton:focus:not(.vertical), notebook > stack:not(:only-child) revealer entry:focus,
-notebook > stack:not(:only-child) revealer spinbutton:focus:not(.vertical),
+notebook > stack:not(:only-child) revealer .linked > entry:disabled,
+notebook > stack:not(:only-child) revealer .linked > spinbutton:disabled:not(.vertical), notebook > stack:not(:only-child) revealer entry.flat:disabled,
+notebook > stack:not(:only-child) revealer spinbutton.flat:disabled:not(.vertical),
+notebook > stack:not(:only-child) revealer .linked.vertical > entry:disabled,
+notebook > stack:not(:only-child) revealer .linked.vertical > spinbutton:disabled:not(.vertical), notebook > stack:not(:only-child) revealer entry.flat:disabled,
+notebook > stack:not(:only-child) revealer spinbutton.flat:disabled:not(.vertical), .linked >
+entry:disabled,
+entry.flat:disabled,
+.linked.vertical >
+entry:disabled,
+entry.flat:disabled {
+  border: 1px solid #cfcfcf;
+  box-shadow: none;
+  border-image: none;
+  background-color: #fafafa;
+  color: rgba(0, 0, 0, 0.32);
+}
+
+.background notebook > stack:not(:only-child) revealer .linked > entry, notebook > stack:not(:only-child) revealer .background .linked > entry,
+.background notebook > stack:not(:only-child) revealer .linked > spinbutton:not(.vertical), notebook > stack:not(:only-child) revealer .background .linked > spinbutton:not(.vertical),
+.background notebook > stack:not(:only-child) revealer .linked.vertical > entry,
+notebook > stack:not(:only-child) revealer .background .linked.vertical > entry,
+.background notebook > stack:not(:only-child) revealer .linked.vertical > spinbutton:not(.vertical),
+notebook > stack:not(:only-child) revealer .background .linked.vertical > spinbutton:not(.vertical), .background .linked >
+entry,
+.background .linked.vertical >
+entry {
+  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  border-image: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  background-color: #FFFFFF;
+  color: rgba(0, 0, 0, 0.6);
+  border: none;
+}
+
+.background notebook > stack:not(:only-child) revealer .linked > entry:focus, notebook > stack:not(:only-child) revealer .background .linked > entry:focus,
+.background notebook > stack:not(:only-child) revealer .linked > spinbutton:focus:not(.vertical), notebook > stack:not(:only-child) revealer .background .linked > spinbutton:focus:not(.vertical),
+.background notebook > stack:not(:only-child) revealer .linked.vertical > entry:focus,
+notebook > stack:not(:only-child) revealer .background .linked.vertical > entry:focus,
+.background notebook > stack:not(:only-child) revealer .linked.vertical > spinbutton:focus:not(.vertical),
+notebook > stack:not(:only-child) revealer .background .linked.vertical > spinbutton:focus:not(.vertical), .background .linked >
+entry:focus,
+.background .linked.vertical >
 entry:focus {
   border-image: none;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+  color: rgba(0, 0, 0, 0.8);
 }
 
-spinbutton:disabled:not(.vertical), notebook > stack:not(:only-child) revealer entry:disabled,
-notebook > stack:not(:only-child) revealer spinbutton:disabled:not(.vertical),
+.background notebook > stack:not(:only-child) revealer .linked > entry:disabled, notebook > stack:not(:only-child) revealer .background .linked > entry:disabled,
+.background notebook > stack:not(:only-child) revealer .linked > spinbutton:disabled:not(.vertical), notebook > stack:not(:only-child) revealer .background .linked > spinbutton:disabled:not(.vertical),
+.background notebook > stack:not(:only-child) revealer .linked.vertical > entry:disabled,
+notebook > stack:not(:only-child) revealer .background .linked.vertical > entry:disabled,
+.background notebook > stack:not(:only-child) revealer .linked.vertical > spinbutton:disabled:not(.vertical),
+notebook > stack:not(:only-child) revealer .background .linked.vertical > spinbutton:disabled:not(.vertical), .background .linked >
+entry:disabled,
+.background .linked.vertical >
 entry:disabled {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
   background-color: #fafafa;
   color: rgba(0, 0, 0, 0.32);
 }
 
-spinbutton.flat:not(.vertical), popover.background entry, notebook > stack:not(:only-child) entry,
-notebook > stack:not(:only-child) spinbutton:not(.vertical), notebook > stack:not(:only-child) revealer entry.flat,
-notebook > stack:not(:only-child) revealer spinbutton.flat:not(.vertical), messagedialog entry, colorchooser .popover.osd spinbutton:not(.vertical), layoutpane entry.search, editortweak entry.search, window#whiskermenu-window entry, .budgie-popover entry,
-.budgie-popover spinbutton:not(.vertical), .raven .raven-background spinbutton:not(.vertical), #login_window entry,
+.background notebook > stack:not(:only-child) revealer .linked > entry.flat, notebook > stack:not(:only-child) revealer .background .linked > entry.flat,
+.background notebook > stack:not(:only-child) revealer .linked > spinbutton.flat:not(.vertical), notebook > stack:not(:only-child) revealer .background .linked > spinbutton.flat:not(.vertical),
+.background notebook > stack:not(:only-child) revealer .linked.vertical > entry.flat,
+notebook > stack:not(:only-child) revealer .background .linked.vertical > entry.flat,
+.background notebook > stack:not(:only-child) revealer .linked.vertical > spinbutton.flat:not(.vertical),
+notebook > stack:not(:only-child) revealer .background .linked.vertical > spinbutton.flat:not(.vertical), .background .linked >
+entry.flat,
+.background .linked.vertical >
 entry.flat {
-  border-radius: 0;
   transition: all 300ms cubic-bezier(0, 0, 0.2, 1);
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #2EB398 0%, transparent 0%) 0 0 0/0 0 0px;
   box-shadow: inset 0 -1px alpha(currentColor, 0.24);
   background-color: transparent;
   color: rgba(0, 0, 0, 0.8);
+  border: none;
 }
 
-spinbutton.flat:focus:not(.vertical), popover.background entry:focus, notebook > stack:not(:only-child) entry:focus,
-notebook > stack:not(:only-child) spinbutton:focus:not(.vertical), messagedialog entry:focus, colorchooser .popover.osd spinbutton:focus:not(.vertical), layoutpane entry.search:focus, editortweak entry.search:focus, window#whiskermenu-window entry:focus, .budgie-popover entry:focus,
-.budgie-popover spinbutton:focus:not(.vertical), .raven .raven-background spinbutton:focus:not(.vertical), #login_window entry:focus,
+.background notebook > stack:not(:only-child) revealer .linked > entry.flat:focus, notebook > stack:not(:only-child) revealer .background .linked > entry.flat:focus,
+.background notebook > stack:not(:only-child) revealer .linked > spinbutton.flat:focus:not(.vertical), notebook > stack:not(:only-child) revealer .background .linked > spinbutton.flat:focus:not(.vertical),
+.background notebook > stack:not(:only-child) revealer .linked.vertical > entry.flat:focus,
+notebook > stack:not(:only-child) revealer .background .linked.vertical > entry.flat:focus,
+.background notebook > stack:not(:only-child) revealer .linked.vertical > spinbutton.flat:focus:not(.vertical),
+notebook > stack:not(:only-child) revealer .background .linked.vertical > spinbutton.flat:focus:not(.vertical), .background .linked >
+entry.flat:focus,
+.background .linked.vertical >
 entry.flat:focus {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #2EB398 100%, transparent 0%) 0 0 2/0 0 2px;
   box-shadow: inset 0 -1px alpha(currentColor, 0.24);
 }
 
-spinbutton.flat:disabled:not(.vertical), popover.background entry:disabled, notebook > stack:not(:only-child) entry:disabled,
-notebook > stack:not(:only-child) spinbutton:disabled:not(.vertical), messagedialog entry:disabled, colorchooser .popover.osd spinbutton:disabled:not(.vertical), layoutpane entry.search:disabled, editortweak entry.search:disabled, window#whiskermenu-window entry:disabled, .budgie-popover entry:disabled,
-.budgie-popover spinbutton:disabled:not(.vertical), .raven .raven-background spinbutton:disabled:not(.vertical), #login_window entry:disabled,
+.background notebook > stack:not(:only-child) revealer .linked > entry.flat:disabled, notebook > stack:not(:only-child) revealer .background .linked > entry.flat:disabled,
+.background notebook > stack:not(:only-child) revealer .linked > spinbutton.flat:disabled:not(.vertical), notebook > stack:not(:only-child) revealer .background .linked > spinbutton.flat:disabled:not(.vertical),
+.background notebook > stack:not(:only-child) revealer .linked.vertical > entry.flat:disabled,
+notebook > stack:not(:only-child) revealer .background .linked.vertical > entry.flat:disabled,
+.background notebook > stack:not(:only-child) revealer .linked.vertical > spinbutton.flat:disabled:not(.vertical),
+notebook > stack:not(:only-child) revealer .background .linked.vertical > spinbutton.flat:disabled:not(.vertical), .background .linked >
+entry.flat:disabled,
+.background .linked.vertical >
 entry.flat:disabled {
   box-shadow: inset 0 -1px alpha(currentColor, 0.24);
   background-color: transparent;
   color: rgba(0, 0, 0, 0.32);
 }
 
-spinbutton:not(.vertical) image, notebook > stack:not(:only-child) revealer entry image, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) image,
+notebook > stack:not(:only-child) revealer entry image, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) image,
 entry image {
   color: alpha(currentColor, 0.75);
 }
 
-spinbutton:not(.vertical) image:hover, notebook > stack:not(:only-child) revealer entry image:hover, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) image:hover, spinbutton:not(.vertical) image:active, notebook > stack:not(:only-child) revealer entry image:active, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) image:active,
+notebook > stack:not(:only-child) revealer entry image:hover, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) image:hover, notebook > stack:not(:only-child) revealer entry image:active, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) image:active,
 entry image:hover,
 entry image:active {
   color: currentColor;
 }
 
-spinbutton:not(.vertical) image:disabled, notebook > stack:not(:only-child) revealer entry image:disabled, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) image:disabled,
+notebook > stack:not(:only-child) revealer entry image:disabled, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) image:disabled,
 entry image:disabled {
   color: alpha(currentColor, 0.6);
 }
 
-spinbutton:not(.vertical) image.left, notebook > stack:not(:only-child) revealer entry image.left, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) image.left,
+notebook > stack:not(:only-child) revealer entry image.left, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) image.left,
 entry image.left {
   margin-left: 2px;
   margin-right: 6px;
 }
 
-spinbutton:not(.vertical) image.right, notebook > stack:not(:only-child) revealer entry image.right, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) image.right,
+notebook > stack:not(:only-child) revealer entry image.right, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) image.right,
 entry image.right {
   margin-left: 6px;
   margin-right: 2px;
 }
 
-spinbutton:not(.vertical) undershoot.left, notebook > stack:not(:only-child) revealer entry undershoot.left, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) undershoot.left,
+notebook > stack:not(:only-child) revealer entry undershoot.left, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) undershoot.left,
 entry undershoot.left {
   background-color: transparent;
   background-image: linear-gradient(to top, rgba(255, 255, 255, 0.24) 50%, rgba(0, 0, 0, 0.192) 50%);
@@ -312,7 +497,7 @@ entry undershoot.left {
   background-position: left top;
 }
 
-spinbutton:not(.vertical) undershoot.right, notebook > stack:not(:only-child) revealer entry undershoot.right, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) undershoot.right,
+notebook > stack:not(:only-child) revealer entry undershoot.right, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) undershoot.right,
 entry undershoot.right {
   background-color: transparent;
   background-image: linear-gradient(to top, rgba(255, 255, 255, 0.24) 50%, rgba(0, 0, 0, 0.192) 50%);
@@ -323,7 +508,7 @@ entry undershoot.right {
   background-position: right top;
 }
 
-spinbutton.error:not(.vertical), notebook > stack:not(:only-child) revealer entry.error,
+notebook > stack:not(:only-child) revealer entry.error,
 notebook > stack:not(:only-child) revealer spinbutton.error:not(.vertical),
 entry.error {
   transition: all 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
@@ -333,22 +518,24 @@ entry.error {
   color: #FFFFFF;
 }
 
-spinbutton.error:focus:not(.vertical), notebook > stack:not(:only-child) revealer entry.error:focus,
+notebook > stack:not(:only-child) revealer entry.error:focus,
+notebook > stack:not(:only-child) revealer spinbutton.error:focus:not(.vertical),
 entry.error:focus {
   border-image: none;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+  color: #FFFFFF;
 }
 
-spinbutton.error:disabled:not(.vertical), notebook > stack:not(:only-child) revealer entry.error:disabled,
+notebook > stack:not(:only-child) revealer entry.error:disabled,
+notebook > stack:not(:only-child) revealer spinbutton.error:disabled:not(.vertical),
 entry.error:disabled {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
   background-color: #fafafa;
   color: rgba(0, 0, 0, 0.32);
 }
 
-spinbutton.error.flat:not(.vertical), popover.background entry.error, notebook > stack:not(:only-child) entry.error,
-notebook > stack:not(:only-child) spinbutton.error:not(.vertical), messagedialog entry.error, colorchooser .popover.osd spinbutton.error:not(.vertical), layoutpane entry.error.search, editortweak entry.error.search, window#whiskermenu-window entry.error, .budgie-popover entry.error,
-.budgie-popover spinbutton.error:not(.vertical), .raven .raven-background spinbutton.error:not(.vertical), #login_window entry.error,
+notebook > stack:not(:only-child) revealer entry.error.flat,
+notebook > stack:not(:only-child) revealer spinbutton.error.flat:not(.vertical),
 entry.error.flat {
   transition: all 300ms cubic-bezier(0, 0, 0.2, 1);
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #DD2C00 0%, transparent 0%) 0 0 0/0 0 0px;
@@ -357,24 +544,22 @@ entry.error.flat {
   color: rgba(0, 0, 0, 0.8);
 }
 
-spinbutton.error.flat:focus:not(.vertical), popover.background entry.error:focus, notebook > stack:not(:only-child) entry.error:focus,
-notebook > stack:not(:only-child) spinbutton.error:focus:not(.vertical), messagedialog entry.error:focus, colorchooser .popover.osd spinbutton.error:focus:not(.vertical), layoutpane entry.error.search:focus, editortweak entry.error.search:focus, window#whiskermenu-window entry.error:focus, .budgie-popover entry.error:focus,
-.budgie-popover spinbutton.error:focus:not(.vertical), .raven .raven-background spinbutton.error:focus:not(.vertical), #login_window entry.error:focus,
+notebook > stack:not(:only-child) revealer entry.error.flat:focus,
+notebook > stack:not(:only-child) revealer spinbutton.error.flat:focus:not(.vertical),
 entry.error.flat:focus {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #DD2C00 100%, transparent 0%) 0 0 2/0 0 2px;
   box-shadow: inset 0 -1px #DD2C00;
 }
 
-spinbutton.error.flat:disabled:not(.vertical), popover.background entry.error:disabled, notebook > stack:not(:only-child) entry.error:disabled,
-notebook > stack:not(:only-child) spinbutton.error:disabled:not(.vertical), messagedialog entry.error:disabled, colorchooser .popover.osd spinbutton.error:disabled:not(.vertical), layoutpane entry.error.search:disabled, editortweak entry.error.search:disabled, window#whiskermenu-window entry.error:disabled, .budgie-popover entry.error:disabled,
-.budgie-popover spinbutton.error:disabled:not(.vertical), .raven .raven-background spinbutton.error:disabled:not(.vertical), #login_window entry.error:disabled,
+notebook > stack:not(:only-child) revealer entry.error.flat:disabled,
+notebook > stack:not(:only-child) revealer spinbutton.error.flat:disabled:not(.vertical),
 entry.error.flat:disabled {
   box-shadow: inset 0 -1px alpha(currentColor, 0.24);
   background-color: transparent;
   color: rgba(0, 0, 0, 0.32);
 }
 
-spinbutton.warning:not(.vertical), notebook > stack:not(:only-child) revealer entry.warning,
+notebook > stack:not(:only-child) revealer entry.warning,
 notebook > stack:not(:only-child) revealer spinbutton.warning:not(.vertical),
 entry.warning {
   transition: all 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
@@ -384,22 +569,24 @@ entry.warning {
   color: #FFFFFF;
 }
 
-spinbutton.warning:focus:not(.vertical), notebook > stack:not(:only-child) revealer entry.warning:focus,
+notebook > stack:not(:only-child) revealer entry.warning:focus,
+notebook > stack:not(:only-child) revealer spinbutton.warning:focus:not(.vertical),
 entry.warning:focus {
   border-image: none;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+  color: #FFFFFF;
 }
 
-spinbutton.warning:disabled:not(.vertical), notebook > stack:not(:only-child) revealer entry.warning:disabled,
+notebook > stack:not(:only-child) revealer entry.warning:disabled,
+notebook > stack:not(:only-child) revealer spinbutton.warning:disabled:not(.vertical),
 entry.warning:disabled {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
   background-color: #fafafa;
   color: rgba(0, 0, 0, 0.32);
 }
 
-spinbutton.warning.flat:not(.vertical), popover.background entry.warning, notebook > stack:not(:only-child) entry.warning,
-notebook > stack:not(:only-child) spinbutton.warning:not(.vertical), messagedialog entry.warning, colorchooser .popover.osd spinbutton.warning:not(.vertical), layoutpane entry.warning.search, editortweak entry.warning.search, window#whiskermenu-window entry.warning, .budgie-popover entry.warning,
-.budgie-popover spinbutton.warning:not(.vertical), .raven .raven-background spinbutton.warning:not(.vertical), #login_window entry.warning,
+notebook > stack:not(:only-child) revealer entry.warning.flat,
+notebook > stack:not(:only-child) revealer spinbutton.warning.flat:not(.vertical),
 entry.warning.flat {
   transition: all 300ms cubic-bezier(0, 0, 0.2, 1);
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FF6D00 0%, transparent 0%) 0 0 0/0 0 0px;
@@ -408,24 +595,82 @@ entry.warning.flat {
   color: rgba(0, 0, 0, 0.8);
 }
 
-spinbutton.warning.flat:focus:not(.vertical), popover.background entry.warning:focus, notebook > stack:not(:only-child) entry.warning:focus,
-notebook > stack:not(:only-child) spinbutton.warning:focus:not(.vertical), messagedialog entry.warning:focus, colorchooser .popover.osd spinbutton.warning:focus:not(.vertical), layoutpane entry.warning.search:focus, editortweak entry.warning.search:focus, window#whiskermenu-window entry.warning:focus, .budgie-popover entry.warning:focus,
-.budgie-popover spinbutton.warning:focus:not(.vertical), .raven .raven-background spinbutton.warning:focus:not(.vertical), #login_window entry.warning:focus,
+notebook > stack:not(:only-child) revealer entry.warning.flat:focus,
+notebook > stack:not(:only-child) revealer spinbutton.warning.flat:focus:not(.vertical),
 entry.warning.flat:focus {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FF6D00 100%, transparent 0%) 0 0 2/0 0 2px;
   box-shadow: inset 0 -1px #FF6D00;
 }
 
-spinbutton.warning.flat:disabled:not(.vertical), popover.background entry.warning:disabled, notebook > stack:not(:only-child) entry.warning:disabled,
-notebook > stack:not(:only-child) spinbutton.warning:disabled:not(.vertical), messagedialog entry.warning:disabled, colorchooser .popover.osd spinbutton.warning:disabled:not(.vertical), layoutpane entry.warning.search:disabled, editortweak entry.warning.search:disabled, window#whiskermenu-window entry.warning:disabled, .budgie-popover entry.warning:disabled,
-.budgie-popover spinbutton.warning:disabled:not(.vertical), .raven .raven-background spinbutton.warning:disabled:not(.vertical), #login_window entry.warning:disabled,
+notebook > stack:not(:only-child) revealer entry.warning.flat:disabled,
+notebook > stack:not(:only-child) revealer spinbutton.warning.flat:disabled:not(.vertical),
 entry.warning.flat:disabled {
   box-shadow: inset 0 -1px alpha(currentColor, 0.24);
   background-color: transparent;
   color: rgba(0, 0, 0, 0.32);
 }
 
-spinbutton:not(.vertical) progress, notebook > stack:not(:only-child) revealer entry progress, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) progress,
+notebook > stack:not(:only-child) revealer entry.entry-tag,
+notebook > stack:not(:only-child) revealer spinbutton.entry-tag:not(.vertical),
+entry.entry-tag {
+  padding: 0 8px;
+  border-radius: 100px;
+  box-shadow: none;
+  background-color: #2EB398;
+  color: #FFFFFF;
+}
+
+notebook > stack:not(:only-child) revealer entry.entry-tag:hover,
+notebook > stack:not(:only-child) revealer spinbutton.entry-tag:hover:not(.vertical),
+entry.entry-tag:hover {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+notebook > stack:not(:only-child) revealer entry.entry-tag:dir(ltr),
+notebook > stack:not(:only-child) revealer spinbutton.entry-tag:dir(ltr):not(.vertical),
+entry.entry-tag:dir(ltr) {
+  margin: rem(2.7px) rem(-4px) rem(2.7px) rem(8px);
+}
+
+notebook > stack:not(:only-child) revealer entry.entry-tag:dir(rtl),
+notebook > stack:not(:only-child) revealer spinbutton.entry-tag:dir(rtl):not(.vertical),
+entry.entry-tag:dir(rtl) {
+  margin: rem(2.7px) rem(8px) rem(2.7px) rem(-4px);
+}
+
+notebook > stack:not(:only-child) revealer entry.entry-tag.button,
+notebook > stack:not(:only-child) revealer spinbutton.entry-tag.button:not(.vertical), notebook > stack:not(:only-child) revealer entry.entry-tag.button:hover,
+notebook > stack:not(:only-child) revealer spinbutton.entry-tag.button:hover:not(.vertical), notebook > stack:not(:only-child) revealer entry.entry-tag.button:active,
+notebook > stack:not(:only-child) revealer spinbutton.entry-tag.button:active:not(.vertical),
+entry.entry-tag.button,
+entry.entry-tag.button:hover,
+entry.entry-tag.button:active {
+  background-color: transparent;
+  background-image: none;
+  border-image: none;
+  border: none;
+  box-shadow: none;
+  animation: none;
+  margin: 0 -2px;
+  padding: 4px;
+  border-radius: 100px;
+}
+
+notebook > stack:not(:only-child) revealer entry.entry-tag.button:not(:hover):not(:active),
+notebook > stack:not(:only-child) revealer spinbutton.entry-tag.button:not(:hover):not(:active):not(.vertical),
+entry.entry-tag.button:not(:hover):not(:active) {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+notebook > stack:not(:only-child) revealer entry.entry-tag.button:hover,
+notebook > stack:not(:only-child) revealer spinbutton.entry-tag.button:hover:not(.vertical), notebook > stack:not(:only-child) revealer entry.entry-tag.button:active,
+notebook > stack:not(:only-child) revealer spinbutton.entry-tag.button:active:not(.vertical),
+entry.entry-tag.button:hover,
+entry.entry-tag.button:active {
+  color: #FFFFFF;
+}
+
+notebook > stack:not(:only-child) revealer entry progress, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) progress,
 entry progress {
   margin: 2px -6px;
   border-style: none none solid;
@@ -434,25 +679,10 @@ entry progress {
   background-color: transparent;
 }
 
-.linked:not(.vertical) > spinbutton.flat:not(.vertical), popover.background .linked:not(.vertical) > entry, notebook > stack:not(:only-child) .linked:not(.vertical) > entry,
-notebook > stack:not(:only-child) .linked:not(.vertical) > spinbutton:not(.vertical), notebook > stack:not(:only-child) revealer .linked:not(.vertical) > entry.flat,
-notebook > stack:not(:only-child) revealer .linked:not(.vertical) > spinbutton.flat:not(.vertical), messagedialog .linked:not(.vertical) > entry, colorchooser .popover.osd .linked:not(.vertical) > spinbutton:not(.vertical), layoutpane .linked:not(.vertical) > entry.search, editortweak .linked:not(.vertical) > entry.search, window#whiskermenu-window .linked:not(.vertical) > entry, .budgie-popover .linked:not(.vertical) > entry,
-.budgie-popover .linked:not(.vertical) > spinbutton:not(.vertical), .raven .raven-background .linked:not(.vertical) > spinbutton:not(.vertical), #login_window .linked:not(.vertical) > entry,
-.linked.vertical > spinbutton.flat:not(.vertical),
-popover.background .linked.vertical > entry,
-notebook > stack:not(:only-child) .linked.vertical > entry,
-notebook > stack:not(:only-child) .linked.vertical > spinbutton:not(.vertical),
+notebook > stack:not(:only-child) revealer .linked:not(.vertical) > entry.flat,
+notebook > stack:not(:only-child) revealer .linked:not(.vertical) > spinbutton.flat:not(.vertical),
 notebook > stack:not(:only-child) revealer .linked.vertical > entry.flat,
-notebook > stack:not(:only-child) revealer .linked.vertical > spinbutton.flat:not(.vertical),
-messagedialog .linked.vertical > entry,
-colorchooser .popover.osd .linked.vertical > spinbutton:not(.vertical),
-layoutpane .linked.vertical > entry.search,
-editortweak .linked.vertical > entry.search,
-window#whiskermenu-window .linked.vertical > entry,
-.budgie-popover .linked.vertical > entry,
-.budgie-popover .linked.vertical > spinbutton:not(.vertical),
-.raven .raven-background .linked.vertical > spinbutton:not(.vertical),
-#login_window .linked.vertical > entry, .linked:not(.vertical) >
+notebook > stack:not(:only-child) revealer .linked.vertical > spinbutton.flat:not(.vertical), .linked:not(.vertical) >
 entry.flat,
 .linked.vertical >
 entry.flat {
@@ -490,6 +720,44 @@ button {
   padding: 6px 10px;
   border-radius: 3px;
   font-weight: 500;
+  border: 1px solid #cfcfcf;
+  box-shadow: none;
+  background-color: #FCFCFC;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+
+button:hover {
+  box-shadow: none;
+  background-color: rgba(245, 245, 245, 0.992);
+  color: rgba(0, 0, 0, 0.8);
+}
+
+
+button:active,
+button:checked {
+  box-shadow: none;
+  background-color: rgba(238, 238, 238, 0.984);
+  color: rgba(0, 0, 0, 0.8);
+  animation: none;
+}
+
+
+button:disabled {
+  box-shadow: none;
+  background-color: rgba(238, 238, 238, 0.992);
+  color: rgba(0, 0, 0, 0.8);
+}
+
+
+button:checked:disabled {
+  box-shadow: none;
+  background-color: rgba(46, 179, 152, 0.5);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.background
+button {
   transition: all 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 200ms cubic-bezier(0, 0, 0.2, 1), background-size 450ms cubic-bezier(0, 0, 0.2, 1), background-image 1000ms cubic-bezier(0, 0, 0.2, 1);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 0 0 9999px transparent;
   background-color: #FCFCFC;
@@ -498,16 +766,17 @@ button {
   background-position: center;
   background-size: 1000% 1000%;
   color: rgba(0, 0, 0, 0.6);
+  border: none;
 }
 
-
+.background
 button:hover {
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23), inset 0 0 0 9999px transparent;
   color: rgba(0, 0, 0, 0.8);
   background-color: white;
 }
 
-
+.background
 button:active {
   transition: all 300ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
   animation: ripple_effect 300ms cubic-bezier(0, 0, 0.2, 1) forwards;
@@ -517,20 +786,20 @@ button:active {
   color: rgba(0, 0, 0, 0.8);
 }
 
-
+.background
 button:disabled {
   box-shadow: none;
   background-color: alpha(currentColor, 0.12);
   color: rgba(0, 0, 0, 0.24);
 }
 
-
+.background
 button:checked {
   background-color: #2EB398;
   color: #FFFFFF;
 }
 
-
+.background
 button:checked:disabled {
   background-color: alpha(currentColor, 0.24);
   color: rgba(46, 179, 152, 0.4);
@@ -687,21 +956,17 @@ button.flat {
   color: rgba(255, 255, 255, 0.75);
 }
 
-.raven .raven-header.top stackswitcher button:hover, .raven .raven-header.top stackswitcher button:active, row:selected
+.raven .raven-header.top stackswitcher button:hover, .raven .raven-header.top stackswitcher button:active, .raven .raven-header.top stackswitcher button:checked, row:selected
 button.flat:hover, row:selected
-button.flat:active {
+button.flat:active, row:selected
+button.flat:checked {
+  background-color: alpha(currentColor, 0.24);
   color: #FFFFFF;
 }
 
 .raven .raven-header.top stackswitcher button:disabled, row:selected
 button.flat:disabled {
   color: rgba(255, 255, 255, 0.3);
-}
-
-.raven .raven-header.top stackswitcher button:checked, row:selected
-button.flat:checked {
-  background-color: alpha(currentColor, 0.24);
-  color: #FFFFFF;
 }
 
 .raven .raven-header.top stackswitcher button:checked:disabled, row:selected
@@ -927,52 +1192,52 @@ button {
   background-position: left 3px;
 }
 
-.linked:not(.vertical) > spinbutton:not(.vertical), notebook > stack:not(:only-child) revealer .linked:not(.vertical) > entry,
+notebook > stack:not(:only-child) revealer .linked:not(.vertical) > entry,
 notebook > stack:not(:only-child) revealer .linked:not(.vertical) > spinbutton:not(.vertical), .linked:not(.vertical) > entry, .linked > button, row .linked > button, popover.background.menu button,
 popover.background button.model, .gedit-search-slider button:dir(ltr), .gedit-search-slider button:dir(rtl), .linked:not(.vertical) > combobox > box > button.combo {
   border-radius: 0;
   -gtk-outline-radius: 3px;
 }
 
-.linked:not(.vertical) > spinbutton:first-child:not(.vertical), notebook > stack:not(:only-child) revealer .linked:not(.vertical) > entry:first-child,
+notebook > stack:not(:only-child) revealer .linked:not(.vertical) > entry:first-child,
 notebook > stack:not(:only-child) revealer .linked:not(.vertical) > spinbutton:first-child:not(.vertical), .linked:not(.vertical) > entry:first-child, .linked > button:first-child, row .linked > button:first-child, combobox.linked button:nth-child(2):dir(rtl), .linked:not(.vertical) > combobox:first-child > box > button.combo, popover.background.menu button:first-child,
 popover.background button.model:first-child, .gedit-search-slider button:first-child:dir(ltr), .gedit-search-slider button:first-child:dir(rtl) {
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
 }
 
-.linked:not(.vertical) > spinbutton:last-child:not(.vertical), notebook > stack:not(:only-child) revealer .linked:not(.vertical) > entry:last-child,
+notebook > stack:not(:only-child) revealer .linked:not(.vertical) > entry:last-child,
 notebook > stack:not(:only-child) revealer .linked:not(.vertical) > spinbutton:last-child:not(.vertical), .linked:not(.vertical) > entry:last-child, .linked > button:last-child, row .linked > button:last-child, combobox.linked button:nth-child(2):dir(ltr), .linked:not(.vertical) > combobox:last-child > box > button.combo, popover.background.menu button:last-child,
 popover.background button.model:last-child, .gedit-search-slider button:last-child:dir(ltr), .gedit-search-slider button:last-child:dir(rtl) {
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
 }
 
-.linked:not(.vertical) > spinbutton:only-child:not(.vertical), notebook > stack:not(:only-child) revealer .linked:not(.vertical) > entry:only-child,
+notebook > stack:not(:only-child) revealer .linked:not(.vertical) > entry:only-child,
 notebook > stack:not(:only-child) revealer .linked:not(.vertical) > spinbutton:only-child:not(.vertical), .linked:not(.vertical) > entry:only-child, .linked > button:only-child, row .linked > button:only-child, .linked:not(.vertical) > combobox:only-child > box > button.combo, popover.background.menu button:only-child,
 popover.background button.model:only-child, .gedit-search-slider button:only-child:dir(ltr), .gedit-search-slider button:only-child:dir(rtl) {
   border-radius: 3px;
 }
 
-.linked.vertical > spinbutton:not(.vertical), notebook > stack:not(:only-child) revealer .linked.vertical > entry,
+notebook > stack:not(:only-child) revealer .linked.vertical > entry,
 notebook > stack:not(:only-child) revealer .linked.vertical > spinbutton:not(.vertical), .linked.vertical > entry, .linked.vertical > button, row .linked.vertical > button, .linked.vertical > combobox > box > button.combo {
   border-radius: 0;
   -gtk-outline-radius: 3px;
 }
 
-.linked.vertical > spinbutton:first-child:not(.vertical), notebook > stack:not(:only-child) revealer .linked.vertical > entry:first-child,
+notebook > stack:not(:only-child) revealer .linked.vertical > entry:first-child,
 notebook > stack:not(:only-child) revealer .linked.vertical > spinbutton:first-child:not(.vertical), .linked.vertical > entry:first-child, .linked.vertical > button:first-child, row .linked.vertical > button:first-child, .linked.vertical > combobox:first-child > box > button.combo {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }
 
-.linked.vertical > spinbutton:last-child:not(.vertical), notebook > stack:not(:only-child) revealer .linked.vertical > entry:last-child,
+notebook > stack:not(:only-child) revealer .linked.vertical > entry:last-child,
 notebook > stack:not(:only-child) revealer .linked.vertical > spinbutton:last-child:not(.vertical), .linked.vertical > entry:last-child, .linked.vertical > button:last-child, row .linked.vertical > button:last-child, .linked.vertical > combobox:last-child > box > button.combo {
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
 }
 
-.linked.vertical > spinbutton:only-child:not(.vertical), notebook > stack:not(:only-child) revealer .linked.vertical > entry:only-child,
+notebook > stack:not(:only-child) revealer .linked.vertical > entry:only-child,
 notebook > stack:not(:only-child) revealer .linked.vertical > spinbutton:only-child:not(.vertical), .linked.vertical > entry:only-child, .linked.vertical > button:only-child, row .linked.vertical > button:only-child, .linked.vertical > combobox:only-child > box > button.combo {
   border-radius: 3px;
 }
@@ -1090,17 +1355,19 @@ spinbutton:not(.vertical) {
   padding: 0;
 }
 
-notebook > stack:not(:only-child) spinbutton:not(.vertical) entry, .budgie-popover spinbutton:not(.vertical) entry,
-spinbutton:not(.vertical) entry {
+notebook > stack:not(:only-child) spinbutton:not(.vertical) entry, .budgie-popover spinbutton:not(.vertical) entry, notebook > stack:not(:only-child) spinbutton:not(.vertical) entry:focus, .budgie-popover spinbutton:not(.vertical) entry:focus, notebook > stack:not(:only-child) spinbutton:not(.vertical) entry:disabled, .budgie-popover spinbutton:not(.vertical) entry:disabled,
+spinbutton:not(.vertical) entry,
+spinbutton:not(.vertical) entry:focus,
+spinbutton:not(.vertical) entry:disabled {
   min-width: 30px;
   margin: 0;
-  border-image: none;
+  border: none;
   border-radius: 0;
   box-shadow: none;
   background-color: transparent;
 }
 
-spinbutton:not(.vertical) button {
+spinbutton:not(.vertical) button, spinbutton:not(.vertical) button:hover, spinbutton:not(.vertical) button:active, spinbutton:not(.vertical) button:checked, spinbutton:not(.vertical) button:disabled {
   border: solid 6px transparent;
 }
 
@@ -1154,10 +1421,69 @@ treeview spinbutton:not(.vertical) entry {
 /**************
  * ComboBoxes *
  **************/
+combobox {
+  border-radius: 2px;
+}
+
 combobox arrow {
   -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
   min-height: 16px;
   min-width: 16px;
+}
+
+.background combobox {
+  border: unset;
+  border-image: unset;
+  border-radius: unset;
+  background-color: unset;
+  color: unset;
+  box-shadow: unset;
+}
+
+combobox entry.combo {
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  box-shadow: none;
+  border-image: none;
+  background-color: #FFFFFF;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+combobox entry.combo:focus {
+  border: 1px solid #2EB398;
+  box-shadow: none;
+  border-image: none;
+  background-color: #FFFFFF;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+combobox entry.combo:disabled {
+  border: 1px solid #cfcfcf;
+  box-shadow: none;
+  border-image: none;
+  background-color: #fafafa;
+  color: rgba(0, 0, 0, 0.32);
+}
+
+.background combobox entry.combo {
+  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  border-image: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  background-color: #FFFFFF;
+  color: rgba(0, 0, 0, 0.6);
+  border: none;
+}
+
+.background combobox entry.combo:focus {
+  border-image: none;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.background combobox entry.combo:disabled {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  background-color: #fafafa;
+  color: rgba(0, 0, 0, 0.32);
 }
 
 combobox decoration,
@@ -1184,6 +1510,22 @@ combobox #gtk-combobox-popup-menu menuitem {
 
 combobox:drop(active) {
   box-shadow: none;
+}
+
+.linked:not(combobox) > button.combo:first-child {
+  border-right-width: 0;
+}
+
+.linked:not(combobox) > button.combo:first-child:only-child {
+  border-width: 1px;
+}
+
+.linked:not(combobox) > button.combo:last-child {
+  border-left-width: 0;
+}
+
+.linked:not(combobox) > button.combo:last-child:only-child {
+  border-width: 1px;
 }
 
 popover.background button.combo, notebook > stack:not(:only-child) button.combo, .budgie-popover button.combo, .raven .raven-background button.combo, #login_window #user_combobox button {
@@ -1316,10 +1658,8 @@ headerbar .subtitle {
   font-size: smaller;
 }
 
-.titlebar:not(headerbar) button,
-.titlebar:not(headerbar) button.flat.toggle.popup,
-headerbar button,
-headerbar button.flat.toggle.popup {
+.titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action),
+headerbar button:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button {
   transition: all 300ms cubic-bezier(0, 0, 0.2, 1);
   box-shadow: none;
   background-color: transparent;
@@ -1327,19 +1667,15 @@ headerbar button.flat.toggle.popup {
   color: rgba(0, 0, 0, 0.6);
 }
 
-.titlebar:not(headerbar) button:hover,
-.titlebar:not(headerbar) button.flat.toggle.popup:hover,
-headerbar button:hover,
-headerbar button.flat.toggle.popup:hover {
+.titlebar:not(headerbar) button:hover:not(.suggested-action):not(.destructive-action),
+headerbar button:hover:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:hover {
   box-shadow: none;
-  background-color: alpha(#2EB398, 0.3);
+  background-color: rgba(46, 179, 152, 0.3);
   color: #2EB398;
 }
 
-.titlebar:not(headerbar) button:active,
-.titlebar:not(headerbar) button.flat.toggle.popup:active,
-headerbar button:active,
-headerbar button.flat.toggle.popup:active {
+.titlebar:not(headerbar) button:active:not(.suggested-action):not(.destructive-action),
+headerbar button:active:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:active {
   transition: all 300ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
   animation: ripple_effect 300ms cubic-bezier(0, 0, 0.2, 1) forwards;
   box-shadow: none;
@@ -1347,27 +1683,21 @@ headerbar button.flat.toggle.popup:active {
   color: #FFFFFF;
 }
 
-.titlebar:not(headerbar) button:disabled,
-.titlebar:not(headerbar) button.flat.toggle.popup:disabled,
-headerbar button:disabled,
-headerbar button.flat.toggle.popup:disabled {
+.titlebar:not(headerbar) button:disabled:not(.suggested-action):not(.destructive-action),
+headerbar button:disabled:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:disabled {
   box-shadow: none;
   background-color: transparent;
   color: alpha(currentColor, 0.3);
 }
 
-.titlebar:not(headerbar) button:checked,
-.titlebar:not(headerbar) button.flat.toggle.popup:checked,
-headerbar button:checked,
-headerbar button.flat.toggle.popup:checked {
+.titlebar:not(headerbar) button:checked:not(.suggested-action):not(.destructive-action),
+headerbar button:checked:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:checked {
   background-color: #2EB398;
   color: #FFFFFF;
 }
 
-.titlebar:not(headerbar) button:checked:disabled,
-.titlebar:not(headerbar) button.flat.toggle.popup:checked:disabled,
-headerbar button:checked:disabled,
-headerbar button.flat.toggle.popup:checked:disabled {
+.titlebar:not(headerbar) button:checked:disabled:not(.suggested-action):not(.destructive-action),
+headerbar button:checked:disabled:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:checked:disabled {
   background-color: rgba(46, 179, 152, 0.4);
   color: #FFFFFF;
 }
@@ -2468,7 +2798,7 @@ switch slider {
   border-image: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
   background-color: #FFFFFF;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.6);
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 200ms cubic-bezier(0, 0, 0.2, 1), margin 0;
   min-width: 22px;
   min-height: 22px;
@@ -2480,6 +2810,7 @@ switch slider {
 switch:hover slider {
   border-image: none;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 switch:checked slider {
@@ -3575,7 +3906,7 @@ levelbar trough {
   border-image: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
   background-color: #FFFFFF;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 levelbar trough:disabled {
@@ -4457,21 +4788,21 @@ messagedialog.csd decoration {
   background: none;
 }
 
-.view:selected, iconview:selected, textview text selection, flowbox flowboxchild:selected, spinbutton:not(.vertical) selection, notebook > stack:not(:only-child) revealer entry selection, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) selection,
+.view:selected, iconview:selected, textview text selection, flowbox flowboxchild:selected, notebook > stack:not(:only-child) revealer entry selection, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) selection,
 entry selection, modelbutton.flat:selected,
-.menuitem.button.flat:selected, row:selected, calendar:selected, .budgie-menu button:checked {
+.menuitem.button.flat:selected, .background combobox entry.combo selection, .background combobox entry.combo selection:focus, row:selected, calendar:selected, .budgie-menu button:checked {
   background-color: #2EB398;
 }
 
-row:selected label, label:selected, .view:selected, iconview:selected, textview text selection, flowbox flowboxchild:selected, spinbutton:not(.vertical) selection, notebook > stack:not(:only-child) revealer entry selection, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) selection,
+row:selected label, label:selected, .view:selected, iconview:selected, textview text selection, flowbox flowboxchild:selected, notebook > stack:not(:only-child) revealer entry selection, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) selection,
 entry selection, modelbutton.flat:selected,
-.menuitem.button.flat:selected, row:selected, calendar:selected, .budgie-menu button:checked {
+.menuitem.button.flat:selected, .background combobox entry.combo selection, .background combobox entry.combo selection:focus, row:selected, calendar:selected, .budgie-menu button:checked {
   color: #FFFFFF;
 }
 
-row:selected label:disabled, label:disabled:selected, .view:disabled:selected, iconview:disabled:selected, textview text selection:disabled, flowbox flowboxchild:disabled:selected, label:disabled selection, spinbutton:not(.vertical) selection:disabled, notebook > stack:not(:only-child) revealer entry selection:disabled, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) selection:disabled,
+row:selected label:disabled, label:disabled:selected, .view:disabled:selected, iconview:disabled:selected, textview text selection:disabled, flowbox flowboxchild:disabled:selected, label:disabled selection, notebook > stack:not(:only-child) revealer entry selection:disabled, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) selection:disabled,
 entry selection:disabled, modelbutton.flat:disabled:selected,
-.menuitem.button.flat:disabled:selected, row:disabled:selected, calendar:disabled:selected, .budgie-menu button:disabled:checked {
+.menuitem.button.flat:disabled:selected, .background combobox entry.combo selection:disabled, row:disabled:selected, calendar:disabled:selected, .budgie-menu button:disabled:checked {
   color: rgba(255, 255, 255, 0.4);
 }
 
@@ -4486,7 +4817,10 @@ headerbar button.titlebutton:hover, .titlebar button.titlebutton:hover {
   transition-duration: 100ms;
 }
 
-headerbar button.titlebutton.close, .titlebar button.titlebutton.close, headerbar button.titlebutton.maximize, .titlebar button.titlebutton.maximize, headerbar button.titlebutton.minimize, .titlebar button.titlebutton.minimize, headerbar button.titlebutton.restore, .titlebar button.titlebutton.restore {
+.csd headerbar:not(.default-decoration) button.titlebutton.close, .csd headerbar:not(.default-decoration) button.titlebutton.maximize, .csd headerbar:not(.default-decoration) button.titlebutton.minimize,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.close,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize, headerbar button.titlebutton.close, .titlebar button.titlebutton.close, headerbar button.titlebutton.maximize, .titlebar button.titlebutton.maximize, headerbar button.titlebutton.minimize, .titlebar button.titlebutton.minimize {
   margin: 0;
   padding: 0;
   min-width: 26px;
@@ -4501,11 +4835,28 @@ headerbar button.titlebutton.close, .titlebar button.titlebutton.close, headerba
   background-size: 16px 16px;
 }
 
-headerbar button.titlebutton.close:hover, .titlebar button.titlebutton.close:hover, headerbar button.titlebutton.close:active, .titlebar button.titlebutton.close:active, headerbar button.titlebutton.close:checked, .titlebar button.titlebutton.close:checked, headerbar button.titlebutton.maximize:hover, .titlebar button.titlebutton.maximize:hover, headerbar button.titlebutton.maximize:active, .titlebar button.titlebutton.maximize:active, headerbar button.titlebutton.maximize:checked, .titlebar button.titlebutton.maximize:checked, headerbar button.titlebutton.minimize:hover, .titlebar button.titlebutton.minimize:hover, headerbar button.titlebutton.minimize:active, .titlebar button.titlebutton.minimize:active, headerbar button.titlebutton.minimize:checked, .titlebar button.titlebutton.minimize:checked, headerbar button.titlebutton.restore:hover, .titlebar button.titlebutton.restore:hover, headerbar button.titlebutton.restore:active, .titlebar button.titlebutton.restore:active, headerbar button.titlebutton.restore:checked, .titlebar button.titlebutton.restore:checked {
+.csd headerbar:not(.default-decoration) button.titlebutton.close:hover, .csd headerbar:not(.default-decoration) button.titlebutton.maximize:hover, .csd headerbar:not(.default-decoration) button.titlebutton.minimize:hover,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.close:hover,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize:hover,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize:hover, .csd headerbar:not(.default-decoration) button.titlebutton.close:active, .csd headerbar:not(.default-decoration) button.titlebutton.maximize:active, .csd headerbar:not(.default-decoration) button.titlebutton.minimize:active,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.close:active,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize:active,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize:active, .csd headerbar:not(.default-decoration) button.titlebutton.close:checked, .csd headerbar:not(.default-decoration) button.titlebutton.maximize:checked, .csd headerbar:not(.default-decoration) button.titlebutton.minimize:checked,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.close:checked,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize:checked,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize:checked, headerbar button.titlebutton.close:hover, .titlebar button.titlebutton.close:hover, headerbar button.titlebutton.close:active, .titlebar button.titlebutton.close:active, headerbar button.titlebutton.close:checked, .titlebar button.titlebutton.close:checked, headerbar button.titlebutton.maximize:hover, .titlebar button.titlebutton.maximize:hover, headerbar button.titlebutton.maximize:active, .titlebar button.titlebutton.maximize:active, headerbar button.titlebutton.maximize:checked, .titlebar button.titlebutton.maximize:checked, headerbar button.titlebutton.minimize:hover, .titlebar button.titlebutton.minimize:hover, headerbar button.titlebutton.minimize:active, .titlebar button.titlebutton.minimize:active, headerbar button.titlebutton.minimize:checked, .titlebar button.titlebutton.minimize:checked {
+  box-shadow: none;
+  border: none;
+  color: transparent;
+  animation: none;
+  background-color: transparent;
   background-size: 22px 22px;
 }
 
-headerbar button.titlebutton.close:backdrop, .titlebar button.titlebutton.close:backdrop, headerbar button.titlebutton.maximize:backdrop, .titlebar button.titlebutton.maximize:backdrop, headerbar button.titlebutton.minimize:backdrop, .titlebar button.titlebutton.minimize:backdrop, headerbar button.titlebutton.restore:backdrop, .titlebar button.titlebutton.restore:backdrop {
+.csd headerbar:not(.default-decoration) button.titlebutton.close:backdrop, .csd headerbar:not(.default-decoration) button.titlebutton.maximize:backdrop, .csd headerbar:not(.default-decoration) button.titlebutton.minimize:backdrop,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.close:backdrop,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize:backdrop,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize:backdrop, headerbar button.titlebutton.close:backdrop, .titlebar button.titlebutton.close:backdrop, headerbar button.titlebutton.maximize:backdrop, .titlebar button.titlebutton.maximize:backdrop, headerbar button.titlebutton.minimize:backdrop, .titlebar button.titlebutton.minimize:backdrop {
   opacity: 1;
 }
 
@@ -4557,22 +4908,6 @@ headerbar button.titlebutton.minimize:active, .titlebar button.titlebutton.minim
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-minimize-active.png"), url("assets/window-assets/titlebutton-minimize-active@2.png"));
 }
 
-headerbar button.titlebutton.restore, .titlebar button.titlebutton.restore {
-  background-image: -gtk-scaled(url("assets/window-assets/titlebutton-restore.png"), url("assets/window-assets/titlebutton-restore@2.png"));
-}
-
-headerbar button.titlebutton.restore:backdrop, .titlebar button.titlebutton.restore:backdrop {
-  background-image: -gtk-scaled(url("assets/window-assets/titlebutton-restore-backdrop.png"), url("assets/window-assets/titlebutton-restore-backdrop@2.png"));
-}
-
-headerbar button.titlebutton.restore:hover, .titlebar button.titlebutton.restore:hover {
-  background-image: -gtk-scaled(url("assets/window-assets/titlebutton-restore-hover.png"), url("assets/window-assets/titlebutton-restore-hover@2.png"));
-}
-
-headerbar button.titlebutton.restore:active, .titlebar button.titlebutton.restore:active {
-  background-image: -gtk-scaled(url("assets/window-assets/titlebutton-restore-active.png"), url("assets/window-assets/titlebutton-restore-active@2.png"));
-}
-
 .fullscreen headerbar button.titlebutton.maximize, .fullscreen .titlebar button.titlebutton.maximize,
 .maximized headerbar button.titlebutton.maximize,
 .maximized .titlebar button.titlebutton.maximize {
@@ -4594,6 +4929,86 @@ headerbar button.titlebutton.restore:active, .titlebar button.titlebutton.restor
 .fullscreen headerbar button.titlebutton.maximize:active, .fullscreen .titlebar button.titlebutton.maximize:active,
 .maximized headerbar button.titlebutton.maximize:active,
 .maximized .titlebar button.titlebutton.maximize:active {
+  background-image: -gtk-scaled(url("assets/window-assets/titlebutton-restore-active.png"), url("assets/window-assets/titlebutton-restore-active@2.png"));
+}
+
+.csd headerbar:not(.default-decoration) button.titlebutton.close,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.close {
+  background-image: -gtk-scaled(url("assets/window-assets/titlebutton-close.png"), url("assets/window-assets/titlebutton-close@2.png"));
+}
+
+.csd headerbar:not(.default-decoration) button.titlebutton.close:backdrop,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.close:backdrop {
+  background-image: -gtk-scaled(url("assets/window-assets/titlebutton-close-backdrop.png"), url("assets/window-assets/titlebutton-close-backdrop@2.png"));
+}
+
+.csd headerbar:not(.default-decoration) button.titlebutton.close:hover,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.close:hover {
+  background-image: -gtk-scaled(url("assets/window-assets/titlebutton-close-hover.png"), url("assets/window-assets/titlebutton-close-hover@2.png"));
+}
+
+.csd headerbar:not(.default-decoration) button.titlebutton.close:active,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.close:active {
+  background-image: -gtk-scaled(url("assets/window-assets/titlebutton-close-active.png"), url("assets/window-assets/titlebutton-close-active@2.png"));
+}
+
+.csd headerbar:not(.default-decoration) button.titlebutton.maximize,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize {
+  background-image: -gtk-scaled(url("assets/window-assets/titlebutton-maximize.png"), url("assets/window-assets/titlebutton-maximize@2.png"));
+}
+
+.csd headerbar:not(.default-decoration) button.titlebutton.maximize:backdrop,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize:backdrop {
+  background-image: -gtk-scaled(url("assets/window-assets/titlebutton-maximize-backdrop.png"), url("assets/window-assets/titlebutton-maximize-backdrop@2.png"));
+}
+
+.csd headerbar:not(.default-decoration) button.titlebutton.maximize:hover,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize:hover {
+  background-image: -gtk-scaled(url("assets/window-assets/titlebutton-maximize-hover.png"), url("assets/window-assets/titlebutton-maximize-hover@2.png"));
+}
+
+.csd headerbar:not(.default-decoration) button.titlebutton.maximize:active,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize:active {
+  background-image: -gtk-scaled(url("assets/window-assets/titlebutton-maximize-active.png"), url("assets/window-assets/titlebutton-maximize-active@2.png"));
+}
+
+.csd headerbar:not(.default-decoration) button.titlebutton.minimize,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize {
+  background-image: -gtk-scaled(url("assets/window-assets/titlebutton-minimize.png"), url("assets/window-assets/titlebutton-minimize@2.png"));
+}
+
+.csd headerbar:not(.default-decoration) button.titlebutton.minimize:backdrop,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize:backdrop {
+  background-image: -gtk-scaled(url("assets/window-assets/titlebutton-minimize-backdrop.png"), url("assets/window-assets/titlebutton-minimize-backdrop@2.png"));
+}
+
+.csd headerbar:not(.default-decoration) button.titlebutton.minimize:hover,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize:hover {
+  background-image: -gtk-scaled(url("assets/window-assets/titlebutton-minimize-hover.png"), url("assets/window-assets/titlebutton-minimize-hover@2.png"));
+}
+
+.csd headerbar:not(.default-decoration) button.titlebutton.minimize:active,
+.solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize:active {
+  background-image: -gtk-scaled(url("assets/window-assets/titlebutton-minimize-active.png"), url("assets/window-assets/titlebutton-minimize-active@2.png"));
+}
+
+.csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize,
+.solid-csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize {
+  background-image: -gtk-scaled(url("assets/window-assets/titlebutton-restore.png"), url("assets/window-assets/titlebutton-restore@2.png"));
+}
+
+.csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize:backdrop,
+.solid-csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize:backdrop {
+  background-image: -gtk-scaled(url("assets/window-assets/titlebutton-restore-backdrop.png"), url("assets/window-assets/titlebutton-restore-backdrop@2.png"));
+}
+
+.csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize:hover,
+.solid-csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize:hover {
+  background-image: -gtk-scaled(url("assets/window-assets/titlebutton-restore-hover.png"), url("assets/window-assets/titlebutton-restore-hover@2.png"));
+}
+
+.csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize:active,
+.solid-csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize:active {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-restore-active.png"), url("assets/window-assets/titlebutton-restore-active@2.png"));
 }
 
@@ -4638,7 +5053,7 @@ row button.circular {
   margin: 0 5px;
 }
 
-spinbutton:not(.vertical) button, button.sidebar-button, .nautilus-window .floating-bar button, .gedit-document-panel row button.flat, .pluma-window paned.horizontal box.vertical box.horizontal button.flat {
+spinbutton:not(.vertical) button, spinbutton:not(.vertical) button:checked, button.sidebar-button, .nautilus-window .floating-bar button, .gedit-document-panel row button.flat, .pluma-window paned.horizontal box.vertical box.horizontal button.flat {
   min-height: 22px;
   min-width: 22px;
   padding: 0;
@@ -4959,6 +5374,8 @@ paned.titlebar.horizontal headerbar {
 
 .gedit-search-slider .gedit-search-entry-occurrences-tag {
   all: unset;
+  border: none;
+  box-shadow: none;
   padding: 0 4px;
   color: alpha(currentColor, 0.6);
 }
@@ -4976,6 +5393,7 @@ paned.titlebar.horizontal headerbar {
 }
 
 .gedit-search-slider entry:dir(ltr) .gedit-search-entry-occurrences-tag {
+  box-shadow: none;
   margin-right: -8px;
 }
 
@@ -4985,6 +5403,7 @@ paned.titlebar.horizontal headerbar {
 }
 
 .gedit-search-slider entry:dir(rtl) .gedit-search-entry-occurrences-tag {
+  box-shadow: none;
   margin-left: -8px;
 }
 
@@ -5627,7 +6046,7 @@ window.background:not(.csd) > widget > button > button:checked:disabled, window.
   box-shadow: none;
 }
 
-window.background:not(.csd) > widget > entry, #MozillaGtkWidget.background > widget > entry {
+combobox, window.background:not(.csd) > widget > entry, #MozillaGtkWidget.background > widget > entry {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-image: none;
   background-color: #FCFCFC;
@@ -5970,18 +6389,6 @@ window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal 
   background-color: #eeeeee;
 }
 
-window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button {
-  color: rgba(0, 0, 0, 0.8);
-}
-
-window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:hover, window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:active, window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:checked {
-  color: rgba(0, 0, 0, 0.6);
-}
-
-window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:disabled {
-  color: rgba(0, 0, 0, 0.32);
-}
-
 window.background:not(.solid-csd) > notebook:not(.frame) {
   border: 0 none transparent;
   background-color: #FFFFFF;
@@ -6008,11 +6415,13 @@ window.background:not(.solid-csd) > notebook:not(.frame) > stack {
 .xfce4-panel button:hover:not(:active):not(:checked) {
   color: #FFFFFF;
   box-shadow: inset 0 -2px rgba(46, 179, 152, 0.5);
+  background-color: transparent;
 }
 
 .xfce4-panel button:checked, .xfce4-panel button:active {
   color: #FFFFFF;
   box-shadow: inset 0 -2px #2EB398;
+  background-color: transparent;
 }
 
 .xfce4-panel button:checked label, .xfce4-panel button:checked image, .xfce4-panel button:active label, .xfce4-panel button:active image {

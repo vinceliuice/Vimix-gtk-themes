@@ -251,6 +251,40 @@ spinner {
 /****************
  * Text Entries *
  ****************/
+
+%entry_fallback {
+  &, &.flat {
+    @include entry(fallback-normal);
+    &:focus { @include entry(fallback-focus); }
+    &:disabled { @include entry(fallback-disabled); }
+  }
+}
+
+%entry_native {
+  .background & {
+    @include entry(normal);
+    border: none;
+    &:focus {
+      @include entry(focus);
+    }
+    &:disabled {
+      @include entry(disabled);
+    }
+  }
+
+  @at-root %flat_entry,
+  .background &.flat {
+    @include entry(flat-normal);
+    border-radius: 0;
+    &:focus {
+      @include entry(flat-focus);
+    }
+    &:disabled {
+      @include entry(flat-disabled);
+    }
+  }
+}
+
 %entry,
 entry {
   %entry_basic, & {
@@ -258,18 +292,35 @@ entry {
     padding: 0 8px;
     border-radius: 2px;
 
-    @include entry(normal);
+    // fallback entries for non-native apps
+    @extend %entry_fallback;
 
-    &:focus { @include entry(focus); }
+    // standard entries for native Gtk+ apps
+    @extend %entry_native;
 
-    &:disabled { @include entry(disabled); }
+    // fallback linked-entries for non-native apps
+    .linked > &, &.flat,
+    .linked.vertical > &, &.flat {
+      @include entry(fallback-normal);
+      border-radius: 2px;
+      &:focus { @include entry(fallback-focus); }
+      &:disabled { @include entry(fallback-disabled); }
+    }
 
-    &.flat {
-      border-radius: 0;
+    // standard linked-entries for native Gtk+ apps
+    .background .linked > &,
+    .background .linked.vertical > &, {
+      @include entry(normal);
+      border: none;
+      &:focus { @include entry(focus); }
+      &:disabled { @include entry(disabled); }
+    }
+
+    .background .linked > &.flat,
+    .background .linked.vertical > &.flat {
       @include entry(flat-normal);
-
+      border: none;
       &:focus { @include entry(flat-focus); }
-
       &:disabled { @include entry(flat-disabled); }
     }
 
@@ -329,8 +380,40 @@ entry {
       // box-shadow: inset 0 0 0 2px $accent_color;
     }
 
-    .osd & {
+    &.entry-tag { // for libgd apps
+      padding: 0 8px;
+      border-radius: $circular_radius;
+      box-shadow: none;
+      background-color: $primary_color;
+      color: $inversed_fg_color;
+
+      &:hover { box-shadow: $z-depth-1; }
+
+      &:dir(ltr) { margin: rem(2.7px) rem(-4px) rem(2.7px) rem(8px); }
+      &:dir(rtl) { margin: rem(2.7px) rem(8px) rem(2.7px) rem(-4px); }
+
+      &.button {
+        &,
+        &:hover,
+        &:active { // unset styling
+          background-color: transparent;
+          background-image: none;
+          border-image: none;
+          border: none;
+          box-shadow: none;
+          animation: none;
+          margin: 0 -2px;
+          padding: 4px;
+          border-radius: $circular_radius;
+        }
+
+        &:not(:hover):not(:active) { color: $secondary_inversed_fg_color; }
+        &:hover,
+        &:active { color: $inversed_fg_color; }
+      }
     }
+
+    .osd & { }
   }
 
   progress {
@@ -400,31 +483,31 @@ button {
     border-radius: $md_radius;
     font-weight: 500;
 
-    @include button(normal);
+    // fallback buttons for non-native apps
+    @include button(fallback-normal);
+    &:hover { @include button(fallback-hover); }
+    &:active, &:checked { @include button(fallback-active); }
+    &:disabled { @include button(fallback-disabled); }
+    &:checked:disabled { @include button(fallback-checked-disabled); }
 
-    &:hover { @include button(hover); }
-
-    &:active { @include button(active); }
-
-    &:disabled { @include button(disabled); }
-
-    &:checked { @include button(checked); }
-
-    &:checked:disabled { @include button(checked-disabled); }
+    // raised buttons for native Gtk+ apps
+    .background & {
+      @include button(normal);
+      &:hover { @include button(hover); }
+      &:active { @include button(active); }
+      &:disabled { @include button(disabled); }
+      &:checked { @include button(checked); }
+      &:checked:disabled { @include button(checked-disabled); }
+    }
 
     @at-root %flat_button, &.flat {
       @at-root %simple_flat_button, & {
         @include button(flat-normal);
-
         &:hover { @include button(flat-hover); }
-
         &:active { @include button(flat-active); }
-
         &:disabled { @include button(flat-disabled); }
       }
-
       &:checked { @include button(flat-checked); }
-
       &:checked:disabled { @include button(flat-checked-disabled); }
     }
 
@@ -502,14 +585,12 @@ button {
     &.flat {
       color: $secondary_inversed_fg_color;
 
-      &:hover, &:active { color: $inversed_fg_color; }
-
-      &:disabled { color: $disabled_secondary_inversed_fg_color; }
-
-      &:checked {
+      &:hover, &:active, &:checked {
         background-color: $track_color;
         color: $inversed_fg_color;
       }
+
+      &:disabled { color: $disabled_secondary_inversed_fg_color; }
 
       &:checked:disabled {
         background-color: rgba(white, 0.12);
@@ -796,16 +877,19 @@ spinbutton {
     // in this horizontal configuration, the whole spinbutton
     // behaves as the entry, so we extend the entry styling
     // and nuke the style on the internal entry
-    @extend %entry;
-
+    @extend %entry_fallback;
+    @extend %entry_native;
     padding: 0;
 
     %spinbutton_entry,
     entry {
+      &, // unset all of fallback mode
+      &:focus,
+      &:disabled {
       min-width: $large_size - 8px * 2;
       // reset all the other props since the spinbutton node is styled here
       margin: 0;
-      border-image: none;
+      border: none;
       border-radius: 0;
       box-shadow: none;
       background-color: transparent;
@@ -826,15 +910,17 @@ spinbutton {
       //   margin-left: -$spinbuttons_width;
       //   padding-left: $spinbuttons_width;
       // }
+      }
     }
 
     button {
       // margin: $container_padding;
-      border: solid $container_padding transparent;
-
       @extend %simple_flat_button;
 
-      @extend %small_button;
+      &, &:hover, &:active, &:checked, &:disabled {
+        @extend %small_button;
+        border: solid $container_padding transparent;
+      }
 
       &.up:dir(ltr),
       &.down:dir(rtl) { margin-left: -$container_padding / 2; }
@@ -846,8 +932,7 @@ spinbutton {
 
   // OSD horizontal
   .osd &:not(.vertical) {
-    button {
-    }
+    button { }
   }
 
   // Vertical
@@ -911,6 +996,39 @@ combobox {
     min-width: 16px;
   }
 
+  // fallback combo node for non-native apps
+  @extend %entry_fallback_normal;
+  border-radius: 2px;
+
+  .background & { // unset all properties in combobox node
+    border: unset;
+    border-image: unset;
+    border-radius: unset;
+    background-color: unset;
+    color: unset;
+    box-shadow: unset;
+  }
+
+  // fallback combo-entries for non-native apps
+  entry.combo {
+    border-radius: 2px;
+    @include entry(fallback-normal);
+    &:focus { @include entry(fallback-focus); }
+    &:disabled { @include entry(fallback-disabled); }
+  }
+
+  // standard combo-entries for native Gtk+ apps
+  .background & entry.combo {
+    @include entry(normal);
+    border: none;
+    &:focus { @include entry(focus); }
+    &:disabled { @include entry(disabled); }
+
+    selection {
+      &, &:focus { @extend %selected_items; }
+    }
+  }
+
   decoration,
   button.combo:checked { transition: none; } // workaround for menuitem selection
 
@@ -939,6 +1057,15 @@ combobox {
     box-shadow: none;
 
     // button.combo { @extend %button_basic:drop(active); }
+  }
+}
+
+// workaround for LibreOffice with fallback-mode liked-buttons
+@each $order, $edge in (first-child, right),
+                       (last-child, left) {
+  .linked:not(combobox) > button.combo:#{$order} {
+    border-#{$edge}-width: 0;
+    &:only-child { border-width: 1px; }
   }
 }
 
@@ -1093,8 +1220,9 @@ headerbar {
       &:checked:disabled { @include header_button(header-checked-disabled); }
     }
 
-  button,
-  button.flat.toggle.popup { @extend %header_button; }
+//  .background & button,
+//  button.flat.toggle.popup,
+  button:not(.suggested-action):not(.destructive-action) { @extend %header_button; }
 
   button.suggested-action, button.destructive-action {
     &:disabled {
@@ -1675,7 +1803,7 @@ popover.background {
     &.osd { @extend %osd; }
   }
     
-  entry { @extend %entry.flat; }
+  entry { @extend %flat_entry; }
   button.combo { @extend %combo_flat; }
   button:not(.suggested-action):not(.destructive-action) {
 //       @extend %button.flat;
@@ -1948,7 +2076,7 @@ notebook {
     background-color: $base_color;
 
     entry,
-    spinbutton:not(.vertical) { @extend %entry.flat; }
+    spinbutton:not(.vertical) { @extend %flat_entry; }
 
     revealer entry,
     revealer spinbutton:not(.vertical) { @extend %entry; }
@@ -2217,7 +2345,6 @@ radio {
   padding: ($large_size - 24px) / 2;
 
   @extend %simple_flat_button;
-
   @extend %circular_button;
 
   &:checked, &:indeterminate {
@@ -3098,7 +3225,7 @@ messagedialog { // Message Dialog styling
     }
   }
 
-  entry { @extend %entry.flat; }
+  entry { @extend %flat_entry; }
 }
 
 filechooser {
@@ -3342,41 +3469,43 @@ infobar {
 // Buttons on selected backgrounds
 //
 %selected_button {
-
   & {
     color: $dark_contrast_color;
     background-color: transparentize($dark_contrast_color, 1);
     border: 1px solid transparentize($dark_contrast_color, 0.5);
     box-shadow: none;
   }
-
   &.flat {
     color: $dark_contrast_color;
     background-color: transparentize($dark_contrast_color, 1);
-
+    box-shadow: none;
     &:disabled {
       &, label { color: transparentize($dark_contrast_color, 0.6); }
+      box-shadow: none;
     }
   }
   &:hover {
     color: $dark_contrast_color;
     background-color: transparentize($dark_contrast_color, 0.8);
     border-color: transparentize($dark_contrast_color, 0.2);
+    box-shadow: none;
   }
   &:active, &:active:hover, &:checked {
     color: $dark_contrast_color;
     background-color: transparentize($dark_contrast_color, 0.9);
     border-color: transparentize($dark_contrast_color, 0.2);
+    box-shadow: none;
   }
   &:disabled {
     &, label { color: transparentize($dark_contrast_color, 0.5); }
     background-color: transparentize($dark_contrast_color, 1);
     border-color: transparentize($dark_contrast_color, 0.6);
-
+    box-shadow: none;
     &:active, &:checked {
       color: $dark_contrast_color;
       background-color: transparentize($dark_contrast_color, 0.5);
       border-color: transparentize($dark_contrast_color, 0.6);
+      box-shadow: none;
     }
   }
 }
@@ -3548,7 +3677,7 @@ colorchooser .popover.osd {
 
   &:backdrop { box-shadow: $z-depth-1, inset 0 1px $highlight_color; }
 
-  spinbutton:not(.vertical) { @extend %entry.flat; }
+  spinbutton:not(.vertical) { @extend %flat_entry; }
 }
 
 
@@ -3662,7 +3791,8 @@ decoration {
       @include button(header-active);
     }
 
-    &.close, &.maximize, &.minimize, &.restore {
+    @at-root %windows_button,
+    &.close, &.maximize, &.minimize {
       margin: 0;
       padding: 0;
       min-width: 26px;
@@ -3676,12 +3806,20 @@ decoration {
       background-repeat: no-repeat;
       background-size: 16px 16px;
 
-      &:hover, &:active, &:checked { background-size: 22px 22px; }
-      &:backdrop { opacity: 1; }
+      &:hover, &:active, &:checked {
+        box-shadow: none;
+        border: none;
+        color: transparent;
+        animation: none;
+        background-color: transparent;
+        background-size: 22px 22px;
+      }
 
+      &:backdrop { opacity: 1; }
     }
-    // Load png assets for each button, Fix the Chrome window restore button bug
-    @each $k in ('close', 'maximize', 'minimize', 'restore') {
+
+    // Load png assets for each button
+    @each $k in ('close', 'maximize', 'minimize') {
       @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
 
         &.#{$k}#{$l} { background-image: -gtk-scaled(url('assets/window-assets/titlebutton-#{$k}#{$m}#{$darker_asset_suffix}.png'),
@@ -3703,10 +3841,37 @@ decoration {
 
 headerbar,
 .titlebar {
-  &, .csd &,
+  &, .csd &, .solid-csd &,
   &.default-decoration,
   .csd &.default-decoration {  // needed under wayland, since all gtk3 windows are csd windows
     @extend %titlebuttons;
+  }
+}
+
+// solid-csd Window manager buttons
+.csd headerbar:not(.default-decoration),
+.solid-csd headerbar:not(.default-decoration) {
+  button.titlebutton {
+    &.close, &.maximize, &.minimize { @extend %windows_button; }
+
+    // Load png assets for each button
+    @each $k in ('close', 'maximize', 'minimize') {
+      @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
+
+        &.#{$k}#{$l} { background-image: -gtk-scaled(url('assets/window-assets/titlebutton-#{$k}#{$m}#{$darker_asset_suffix}.png'),
+                                                        url('assets/window-assets/titlebutton-#{$k}#{$m}#{$darker_asset_suffix}@2.png')); }
+      }
+    }
+  }
+}
+
+.csd.maximized headerbar:not(.default-decoration),
+.solid-csd.maximized headerbar:not(.default-decoration) {
+  button.titlebutton {
+    @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
+    &.maximize#{$l} { background-image: -gtk-scaled(url('assets/window-assets/titlebutton-restore#{$m}#{$darker_asset_suffix}.png'),
+                                                    url('assets/window-assets/titlebutton-restore#{$m}#{$darker_asset_suffix}@2.png')); }
+    }
   }
 }
 

@@ -101,7 +101,7 @@
   }
 
   entry,
-  spinbutton:not(.vertical) { @extend %entry.flat; }
+  spinbutton:not(.vertical) { @extend %flat_entry; }
 
   spinbutton:not(.vertical) entry { @extend %spinbutton_entry; }
   button.combo { @extend %combo_flat; }
@@ -673,7 +673,7 @@ $stackswitcher_color: if($color == 'black' or $color == 'white', rgba(white, 0.6
     grid > label:first-child { min-height: $medium_size; } // workaround to fix vertical-align
 
     // for <10.4
-    spinbutton:not(.vertical) { @extend %entry.flat; }
+    spinbutton:not(.vertical) { @extend %flat_entry; }
 
     // for <10.4
     button.combo { @extend %combo_flat; }

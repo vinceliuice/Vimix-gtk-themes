@@ -60,16 +60,41 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
     border-image: none;
     box-shadow: $z-depth-1;
     background-color: if($fc != $primary_color, $fc, $base_color);
-    color: if($fc != $primary_color, $inversed_fg_color, $fg_color);
+    color: if($fc != $primary_color, $inversed_fg_color, $secondary_fg_color);
   }
 
   @if $t == focus {
     border-image: none;
     box-shadow: $z-depth-2;
+    color: if($fc != $primary_color, $inversed_fg_color, $fg_color);
   }
 
   @if $t == disabled {
     box-shadow: $z-depth-1;
+    background-color: $alt_base_color;
+    color: $disabled_fg_color;
+  }
+
+  @if $t == fallback-normal {
+    border: 1px solid $darker_borders_color;
+    box-shadow: none;
+    border-image: none;
+    background-color: if($fc != $primary_color, $fc, $base_color);
+    color: if($fc != $primary_color, $inversed_fg_color, $secondary_fg_color);
+  }
+
+  @if $t == fallback-focus {
+    border: 1px solid $primary_color;
+    box-shadow: none;
+    border-image: none;
+    background-color: if($fc != $primary_color, $fc, $base_color);
+    color: if($fc != $primary_color, $inversed_fg_color, $fg_color);
+  }
+
+  @if $t == fallback-disabled {
+    border: 1px solid $darker_borders_color;
+    box-shadow: none;
+    border-image: none;
     background-color: $alt_base_color;
     color: $disabled_fg_color;
   }
@@ -128,6 +153,7 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
     background-position: center;
     background-size: 1000% 1000%;
     color: $secondary_fg_color;
+    border: none;
   }
 
   @if $t == hover {
@@ -213,6 +239,44 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
     background-color: rgba($fg_color, 0.15);
     color: $disabled_fg_color;
   }
+
+  @if $t == fallback-normal {
+    border: 1px solid $darker_borders_color;
+    box-shadow: none;
+    background-color: $c;
+    color: $secondary_fg_color;
+  }
+
+  @if $t == fallback-hover {
+    box-shadow: none;
+    background-color: mix($c, $fg_color, 96%);
+    color: $fg_color;
+  }
+
+  @if $t == fallback-active {
+    box-shadow: none;
+    background-color: mix($c, $fg_color, 92%);
+    color: $fg_color;
+    animation: none;
+  }
+
+  @if $t == fallback-disabled {
+    box-shadow: none;
+    background-color: mix($bg_color, $fg_color, 96%);
+    color: $fg_color;
+  }
+
+  @if $t == fallback-checked {
+    box-shadow: none;
+    background-color: $primary_color;
+    color: $inversed_fg_color;
+  }
+
+  @if $t == fallback-checked-disabled {
+    box-shadow: none;
+    background-color: rgba($primary_color, 0.5);
+    color: $tertiary_inversed_fg_color;
+  }
 }
 
 @mixin header_button($t, $c:$lighter_bg_color, $tc:$fg_color) {
@@ -240,7 +304,7 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
 
   @if $t == header-hover {
     box-shadow: none;
-    background-color: gtkalpha($primary_color, 0.3);
+    background-color: rgba($primary_color, 0.3);
     color: $theme_color;
   }
 

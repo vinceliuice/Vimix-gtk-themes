@@ -248,6 +248,8 @@ paned.titlebar.horizontal { // show border
 
   .gedit-search-entry-occurrences-tag {
     all: unset;
+    border: none;
+    box-shadow: none;
     padding: 0 4px;
     color: gtkalpha(currentColor, $hint_opacity);
   }
@@ -264,14 +266,14 @@ paned.titlebar.horizontal { // show border
       margin-right: -$medium_size * 2;
       padding-right: $medium_size * 2 + 8px;
 
-      .gedit-search-entry-occurrences-tag { margin-right: -8px; }
+      .gedit-search-entry-occurrences-tag { box-shadow: none; margin-right: -8px; }
     }
 
     &:dir(rtl) {
       margin-left: -$medium_size * 2;
       padding-left: $medium_size * 2 + 8px;
 
-      .gedit-search-entry-occurrences-tag { margin-left: -8px; }
+      .gedit-search-entry-occurrences-tag { box-shadow: none; margin-left: -8px; }
     }
 
     &.error ~ button {
@@ -580,14 +582,14 @@ buildperspective row {
 }
 
 layoutpane entry.search {
-  @extend %entry.flat;
+  @extend %flat_entry;
 
   box-shadow: inset 0 -1px $borders_color;
   background-color: $base_color;
 }
 
 editortweak entry.search {
-  @extend %entry.flat;
+  @extend %flat_entry;
 
   margin-bottom: -1px;
   box-shadow: none;
@@ -1361,11 +1363,7 @@ window.background:not(.csd):not(.solid-csd) {
     background-color: $headerbar_bg_color;
 
     > button.flat.small-button { // 'close' button
-      color: $headerbar_fg_color;
-      &:hover,
-      &:active,
-      &:checked { color: $secondary_headerbar_fg_color; }
-      &:disabled { color: $disabled_headerbar_fg_color; }
+      @extend %header_button;
     }
   }
 }
@@ -1411,10 +1409,12 @@ $text_shadow: 0 0 1px rgba(0, 0, 0, 0.26),
   &:hover:not(:active):not(:checked) {
     color: $topbar_fg_color;
     box-shadow: inset 0 -2px rgba($topbar_theme_color, 0.5);
+    background-color: transparent;
   }
   &:checked, &:active {
     color: $topbar_fg_color;
     box-shadow: inset 0 -2px $topbar_theme_color;
+    background-color: transparent;
     label, image { color: inherit; }
   }
 }
@@ -1497,7 +1497,7 @@ window#whiskermenu-window {
     border-radius: 0;
   }
 
-  entry { @extend %entry.flat; }
+  entry { @extend %flat_entry; }
 
   scrolledwindow {
     > viewport button.radio {

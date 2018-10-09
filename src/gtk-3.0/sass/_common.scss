@@ -3845,31 +3845,34 @@ headerbar,
   }
 }
 
-// solid-csd Window manager buttons
-.csd headerbar:not(.default-decoration),
-.solid-csd headerbar:not(.default-decoration) {
-  button.titlebutton {
-    &.close, &.maximize, &.minimize { @extend %windows_button; }
+@at-root %solid_titlebuttons {
+  .csd &, .solid-csd & {
+    button.titlebutton {
+      &.close, &.maximize, &.minimize { @extend %windows_button; }
 
-    // Load png assets for each button
-    @each $k in ('close', 'maximize', 'minimize') {
-      @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
+      // Load png assets for each button
+      @each $k in ('close', 'maximize', 'minimize') {
+        @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
 
         &.#{$k}#{$l} { background-image: -gtk-scaled(url('assets/window-assets/titlebutton-#{$k}#{$m}#{$darker_asset_suffix}.png'),
                                                         url('assets/window-assets/titlebutton-#{$k}#{$m}#{$darker_asset_suffix}@2.png')); }
+        }
+      }
+    }
+  }
+  .csd &, .solid-csd.maximized & {
+    button.titlebutton {
+      @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
+      &.maximize#{$l} { background-image: -gtk-scaled(url('assets/window-assets/titlebutton-restore#{$m}#{$darker_asset_suffix}.png'),
+                                                      url('assets/window-assets/titlebutton-restore#{$m}#{$darker_asset_suffix}@2.png')); }
       }
     }
   }
 }
 
-.csd.maximized headerbar:not(.default-decoration),
-.solid-csd.maximized headerbar:not(.default-decoration) {
-  button.titlebutton {
-    @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
-    &.maximize#{$l} { background-image: -gtk-scaled(url('assets/window-assets/titlebutton-restore#{$m}#{$darker_asset_suffix}.png'),
-                                                    url('assets/window-assets/titlebutton-restore#{$m}#{$darker_asset_suffix}@2.png')); }
-    }
-  }
+// solid-csd Window manager buttons
+headerbar:not(.default-decoration) {
+  @extend %solid_titlebuttons;
 }
 
 /**********************

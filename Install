@@ -149,12 +149,14 @@ done
 
 install_flat() {
 
-OLD_TITLE="@extend %titlebuttons;" 
+OLD_TITLE_1="@extend %titlebuttons;" 
+OLD_TITLE_2="@extend %solid_titlebuttons;" 
 NEW_TITLE=""
 
 # change titlebutton style
 cd ${SRC_DIR}/gtk-3.0/sass
-sed -i "s/$OLD_TITLE/$NEW_TITLE/g" _common.scss
+sed -i "s/$OLD_TITLE_1/$NEW_TITLE/g" _common.scss
+sed -i "s/$OLD_TITLE_2/$NEW_TITLE/g" _common.scss
 
 }
 

@@ -1381,6 +1381,70 @@ window.background:not(.solid-csd) {
   }
 }
 
+ /*************
+  * rhythmbox *
+  *************/
+
+// add top-border to inline-toolbar
+.sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar {
+  box-shadow: inset 0 1px $borders_color;
+  padding: 4px;
+  background-color: darken($bg_color, 1%);
+
+  button.image-button {
+    @extend %flat_button;
+  }
+}
+
+// tweak sidebar styling
+.sidebar-paned {
+  scrolledwindow { border: none; }
+}
+
+// tweak border and frame in alt-toolbar
+window.csd > box.vertical > box.vertical,
+window.solid-csd > box.vertical > box.vertical {
+  > toolbar.horizontal {
+    margin: -1px 0;
+    border-top: 1px solid $borders_color;
+    box-shadow: none;
+//    background-color: transparent;
+
+    button {
+      @extend %flat_button;
+    }
+  }
+
+  > frame {
+    margin: -1px 0;
+    padding: 0;
+
+    > border { border: none; }
+  }
+}
+
+// hard-coded spacing depends on non-scalable unit,
+// seems cover-art widget is the most biggest thing?
+
+window.background > box.vertical > toolbar.primary-toolbar {
+
+  toolitem {
+    .linked > button.image-button.raised { // 'shuffle/repeat'
+      @extend %flat_button;
+    }
+
+    button.flat.scale { // 'volume'
+      @extend %flat_button;
+    }
+
+    > box.horizontal:not(.linked) > button.toggle,
+    > .linked > button:not(.toggle):not(.raised):not(.flat) {
+      @extend %flat_button;
+    }
+  }
+}
+
+
 //
 //  * Geary *
 //

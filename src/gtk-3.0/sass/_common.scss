@@ -1466,30 +1466,30 @@ headerbar {
   @extend %titlebar;
 }
 
-.titlebar {
-  :not(headerbar) .path-bar {
-    button {
-      @extend %flat_button;
-      color: $secondary_headerbar_fg_color;
-      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    $theme_color 0%,
-                                    transparent 0%)
-                                    0 0 0 / 0 0 0;
-      &:hover {
-        color: $headerbar_fg_color;
-        background-color: rgba($headerbar_fg_color, 0.12);
-      }
-      &:checked, &:active {
-        color: $headerbar_fg_color;
-        background-color: transparent;
-        border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                      $theme_color 100%,
-                                      transparent 0%)
-                                      0 0 2 / 0 0 2px;
-      }
-    }
-  }
-}
+//.titlebar {
+//  :not(headerbar) .path-bar {
+//    button {
+//      @extend %flat_button;
+//      color: $secondary_headerbar_fg_color;
+//      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+//                                    $theme_color 0%,
+//                                    transparent 0%)
+//                                    0 0 0 / 0 0 0;
+//      &:hover {
+//        color: $headerbar_fg_color;
+//        background-color: rgba($headerbar_fg_color, 0.12);
+//      }
+//      &:checked, &:active {
+//        color: $headerbar_fg_color;
+//        background-color: transparent;
+//        border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+//                                      $theme_color 100%,
+//                                      transparent 0%)
+//                                      0 0 2 / 0 0 2px;
+//      }
+//    }
+//  }
+//}
 
 /************
  * Pathbars *

@@ -76,21 +76,78 @@ filechooser,
   }
 }
 
-.path-bar-box {
-  // transition: background-color $shorter_duration $deceleration_curve;
-  // margin: $container_padding 0;
-  // border-radius: $material_radius;
-
-  // button { margin: 0; } // reset the margin
-
-  // &.width-maximized { background-color: rgba($titlebar_fg_color, 0.06); }
-
-  // workaround for 3.30.1
-  &.background.frame {
-    border: 1px solid $borders_color;
-    background-color: $track_color;
+%pathbar_box_button {
+  margin: 0;
+  @extend %flat_button;
+  color: $secondary_headerbar_fg_color;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                $theme_color 0%,
+                                transparent 0%)
+                                0 0 0 / 0 0 0;
+  &:hover {
+    color: $headerbar_fg_color;
+    background-color: rgba($headerbar_fg_color, 0.12);
+  }
+  &:checked, &:active {
+    color: $headerbar_fg_color;
+    background-color: transparent;
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  $theme_color 100%,
+                                  transparent 0%)
+                                  0 0 2 / 0 0 2px;
   }
 }
+
+%pathbar_widthbox_button {
+  margin: 0;
+  border-radius: 0;
+  transition: $longer_transition,
+              background-size 0,
+              background-image 0,
+              background-color 0;
+  animation: ripple_effect $longer_duration $deceleration_curve forwards;
+  color: $secondary_headerbar_fg_color;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                $theme_color 0%,
+                                transparent 0%)
+                                0 0 0 / 0 0 0;
+  &:hover {
+    color: $headerbar_fg_color;
+    background: none;
+    box-shadow: inset 0 -2px rgba($theme_color, 0.5);
+  }
+  &:checked, &:active {
+    color: $headerbar_fg_color;
+    background: none;
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  $theme_color 100%,
+                                  transparent 0%)
+                                  0 0 2 / 0 0 2px;
+  }
+}
+
+.nautilus-window headerbar {
+  .path-bar-box {
+    margin: $container_padding 0;
+    border-radius: $md_radius;
+
+    button { @extend %pathbar_box_button; }
+
+    &.width-maximized {
+      color: $secondary_headerbar_fg_color;
+      background-color: rgba($headerbar_fg_color, 0.06);
+
+      button { @extend %pathbar_widthbox_button; }
+    }
+
+    // workaround for 3.30.1
+    &.background.frame {
+      border: none;
+      background-color: transparent;
+    }
+  }
+}
+
 
 // Toolbar
 @keyframes needs_attention_keyframes {

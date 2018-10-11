@@ -1333,8 +1333,8 @@ headerbar {
       margin-left: -2px;
       margin-right: -2px;
       margin-top: -2px;
-      // border-radius: 0;
-      box-shadow: inset 0 1px $secondary_highlight_color;
+      border-radius: 0;
+      box-shadow: none;
     }
   }
 
@@ -1439,15 +1439,50 @@ headerbar {
 }
 
 .titlebar,
-.titlebar .background:not(.tiled):not(.maximized):not(.fullscreen) {
+.titlebar .background {
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 }
 
-headerbar {
-  window:not(.tiled):not(.maximized):not(.fullscreen) separator:first-child + &, // tackles the paned container case
-  window:not(.tiled):not(.maximized):not(.fullscreen) &:first-child { border-top-left-radius: 0; }
-  window:not(.tiled):not(.maximized):not(.fullscreen) &:last-child { border-top-right-radius: 0; }
+.background.tiled .titlebar,
+.background.tiled-top .titlebar,
+.background.tiled-right .titlebar,
+.background.tiled-bottom .titlebar,
+.background.tiled-left .titlebar,
+.background.maximized .titlebar,
+.background.solid-csd .titlebar {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+headerbar { // headerbar border rounding
+  window separator:first-child + &, // tackles the paned container case
+  window &:first-child { border-top-left-radius: 2px; }
+  window &:last-child { border-top-right-radius: 2px; }
+
+  window stack & { // tackles the stacked headerbars case
+    &:first-child, &:last-child {
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+    }
+  }
+
+  window.tiled &,
+  window.tiled-top &,
+  window.tiled-right &,
+  window.tiled-bottom &,
+  window.tiled-left &,
+  window.maximized &,
+  window.fullscreen &,
+  window.solid-csd & {
+    &,
+    &:first-child,
+    &:last-child,
+    &:only-child {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
 }
 
 .titlebar:not(headerbar) {

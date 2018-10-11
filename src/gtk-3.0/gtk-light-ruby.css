@@ -1884,7 +1884,8 @@ headerbar:dir(ltr) {
   margin-left: -2px;
   margin-right: -2px;
   margin-top: -2px;
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.1);
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .titlebar:not(headerbar) .linked:not(.vertical):not(.path-bar) > button, .titlebar:not(headerbar) .linked:not(.vertical):not(.path-bar) > button:hover, .titlebar:not(headerbar) .linked:not(.vertical):not(.path-bar) > button:active, .titlebar:not(headerbar) .linked:not(.vertical):not(.path-bar) > button:checked, .titlebar:not(headerbar) .linked:not(.vertical):not(.path-bar) > button:disabled,
@@ -1985,17 +1986,66 @@ headerbar switch {
 }
 
 .titlebar,
-.titlebar .background:not(.tiled):not(.maximized):not(.fullscreen) {
+.titlebar .background {
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 }
 
-window:not(.tiled):not(.maximized):not(.fullscreen) separator:first-child + headerbar,
-window:not(.tiled):not(.maximized):not(.fullscreen) headerbar:first-child {
+.background.tiled .titlebar,
+.background.tiled-top .titlebar,
+.background.tiled-right .titlebar,
+.background.tiled-bottom .titlebar,
+.background.tiled-left .titlebar,
+.background.maximized .titlebar,
+.background.solid-csd .titlebar {
   border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
-window:not(.tiled):not(.maximized):not(.fullscreen) headerbar:last-child {
+window separator:first-child + headerbar,
+window headerbar:first-child {
+  border-top-left-radius: 2px;
+}
+
+window headerbar:last-child {
+  border-top-right-radius: 2px;
+}
+
+window stack headerbar:first-child, window stack headerbar:last-child {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+window.tiled headerbar, window.tiled headerbar:first-child, window.tiled headerbar:last-child, window.tiled headerbar:only-child,
+window.tiled-top headerbar,
+window.tiled-top headerbar:first-child,
+window.tiled-top headerbar:last-child,
+window.tiled-top headerbar:only-child,
+window.tiled-right headerbar,
+window.tiled-right headerbar:first-child,
+window.tiled-right headerbar:last-child,
+window.tiled-right headerbar:only-child,
+window.tiled-bottom headerbar,
+window.tiled-bottom headerbar:first-child,
+window.tiled-bottom headerbar:last-child,
+window.tiled-bottom headerbar:only-child,
+window.tiled-left headerbar,
+window.tiled-left headerbar:first-child,
+window.tiled-left headerbar:last-child,
+window.tiled-left headerbar:only-child,
+window.maximized headerbar,
+window.maximized headerbar:first-child,
+window.maximized headerbar:last-child,
+window.maximized headerbar:only-child,
+window.fullscreen headerbar,
+window.fullscreen headerbar:first-child,
+window.fullscreen headerbar:last-child,
+window.fullscreen headerbar:only-child,
+window.solid-csd headerbar,
+window.solid-csd headerbar:first-child,
+window.solid-csd headerbar:last-child,
+window.solid-csd headerbar:only-child {
+  border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 

@@ -611,9 +611,8 @@ button {
   //overlay / OSD style
   @at-root %osd_button,
   .osd & {
-    &, &:disabled { background-color: transparent; }
-    &, &:hover, &:active, &:checked, &:disabled { box-shadow: none; }
-    &.flat { }
+    @extend %flat_button;
+    &.flat { @extend %simple_flat_button; }
   }
 
   // Suggested and Destructive Action buttons
@@ -3786,7 +3785,7 @@ decoration {
   .solid-csd & {
     margin: 0;
     padding: 0;
-    border: solid 2px $headerbar_bg_color;
+    border: 2px solid $headerbar_bg_color;
     border-radius: 0;
     box-shadow: none;
     background: none;

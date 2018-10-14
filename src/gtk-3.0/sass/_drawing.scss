@@ -191,6 +191,7 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
     color: scale-alpha($primary_color, $disabled_opacity);
   }
 
+  // flat buttons
   @if $t == flat-normal {
     transition: $longer_transition,
                 background-size $ripple_duration $deceleration_curve,
@@ -231,8 +232,8 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
   }
 
   @if $t == flat-checked {
-    background-color: rgba($fg_color, 0.20);
     color: $fg_color;
+    background-color: rgba($fg_color, 0.20);
   }
 
   @if $t == flat-checked-disabled {
@@ -240,6 +241,7 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
     color: $disabled_fg_color;
   }
 
+  // fallback buttons
   @if $t == fallback-normal {
     border: 1px solid $darker_borders_color;
     box-shadow: none;
@@ -277,28 +279,12 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
     background-color: rgba($primary_color, 0.5);
     color: $tertiary_inversed_fg_color;
   }
-}
 
-@mixin header_button($t, $c:$lighter_bg_color, $tc:$fg_color) {
-//
-// Button drawing function
-//
-// $t:    button type,
-// $c:    base button color for colored* types
-// $tc:   optional text color for colored* types
-//
-// possible $t values:
-// normal, hover, active, disabled, checked, checked-disabled,
-// flat-normal, flat-hover, flat-active, flat-disabled, flat-checked, flat-checked-disabled;
-//
-
+  // headerbar buttons
   @if $t == header-normal {
     transition: $longer_transition;
     box-shadow: none;
     background-color: transparent;
-    background-image: radial-gradient(circle farthest-corner at center,
-                                      transparent 100%,
-                                      transparent 0%);
     color: $secondary_headerbar_fg_color;
   }
 
@@ -309,10 +295,6 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
   }
 
   @if $t == header-active {
-    transition: $longer_transition,
-                background-size 0,
-                background-image 0;
-    animation: ripple_effect $longer_duration $deceleration_curve forwards;
     box-shadow: none;
     background-color: $primary_color;
     color: $dark_contrast_color;
@@ -326,15 +308,14 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
 
   @if $t == header-checked {
     background-color: $primary_color;
-    color: $dark_contrast_color;
+    color: $inversed_fg_color;
   }
 
   @if $t == header-checked-disabled {
     background-color: rgba($primary_color, $disabled_opacity);
-    color: $dark_contrast_color;
+    color: gtkalpha(currentColor, $disabled_opacity);
   }
 }
-
 
 @mixin overshoot($p, $t:normal, $c:$alt_primary_color) {
 //

@@ -59,7 +59,7 @@ $shadow_transition: box-shadow $shorter_duration $deceleration_curve;
   // and we don't use any outlines for now.
 
   outline-style: solid;
-  outline-width: 0;
+  outline-width: 2px;
   outline-color: $track_color;
   outline-offset: -4px;
   -gtk-outline-radius: $md_radius;
@@ -1215,12 +1215,12 @@ headerbar {
   }
 
    @at-root %header_button {
-      @include header_button(header-normal);
-      &:hover { @include header_button(header-hover); }
-      &:active { @include header_button(header-active); }
-      &:disabled { @include header_button(header-disabled); }
-      &:checked { @include header_button(header-checked); }
-      &:checked:disabled { @include header_button(header-checked-disabled); }
+      @include button(header-normal);
+      &:hover { @include button(header-hover); }
+      &:active { @include button(header-active); }
+      &:disabled { @include button(header-disabled); }
+      &:checked { @include button(header-checked); }
+      &:checked:disabled { @include button(header-checked-disabled); }
     }
 
 //  .background & button,
@@ -1233,8 +1233,6 @@ headerbar {
       > label { color: inherit; }
     }
   }
-
-  entry { background-color: lighten($base_color, 8%); }
 
   &.selection-mode {
     transition: background-color 0.00001s $longer_duration, color $longer_duration $deceleration_curve;
@@ -1253,7 +1251,7 @@ headerbar {
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                     currentColor 0%,
                                     transparent 0%)
-                                    0 0 0 / 0 0 0px;
+                                    0 0 0 / 0 0 0;
       color: currentColor;
 
       &:disabled {
@@ -1499,6 +1497,9 @@ headerbar { // headerbar border rounding
 
   @extend %titlebar;
 }
+
+.background .titlebar entry,
+.background headerbar entry { background-color: lighten($headerbar_bg_color, 5%); }
 
 //.titlebar {
 //  :not(headerbar) .path-bar {
@@ -2300,11 +2301,11 @@ switch {
       background-color: lighten($accent_color, 25%);
     }
 
-      &:checked slider {
-        animation: none;
-        background-color: $inversed_fg_color;
-      }
-   }
+    &:checked slider {
+      animation: none;
+      background-color: $inversed_fg_color;
+    }
+  }
 }
 
 
@@ -2695,7 +2696,7 @@ scale {
   }
 
   slider {
-    transition: background-color $longer_duration $deceleration_curve,
+    transition: background-color $shorter_duration $deceleration_curve,
                 background-size $ripple_duration $deceleration_curve,
                 background-image $ripple_opacity_duration $deceleration_curve;
     background-repeat: no-repeat;
@@ -3894,7 +3895,7 @@ headerbar,
       }
     }
   }
-  .csd &, .solid-csd.maximized & {
+  .csd.maximized &, .solid-csd.maximized & {
     button.titlebutton {
       @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
       &.maximize#{$l} { background-image: -gtk-scaled(url('assets/window-assets/titlebutton-restore#{$m}#{$darker_asset_suffix}.png'),

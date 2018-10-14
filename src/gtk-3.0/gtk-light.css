@@ -25,7 +25,7 @@
   -GtkDialog-button-spacing: 4;
   -GtkDialog-action-area-border: 0;
   outline-style: solid;
-  outline-width: 0;
+  outline-width: 2px;
   outline-color: alpha(currentColor, 0.24);
   outline-offset: -4px;
   -gtk-outline-radius: 3px;
@@ -874,8 +874,8 @@ button.flat:disabled {
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:checked, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:checked, window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:checked, window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:checked,
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:checked:not(.toggle):not(.raised):not(.flat), .mate-panel-menu-bar #PanelApplet button:checked:not(.flat), .raven stackswitcher.linked > button:checked, toolbar button:checked, actionbar > revealer > box button:checked:not(.suggested-action):not(.destructive-action):not(.server-list-button), .app-notification button:checked,
 button.flat:checked {
-  background-color: rgba(0, 0, 0, 0.2);
   color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 
@@ -1685,7 +1685,6 @@ headerbar button:not(.suggested-action):not(.destructive-action), window.backgro
   transition: all 300ms cubic-bezier(0, 0, 0.2, 1);
   box-shadow: none;
   background-color: transparent;
-  background-image: radial-gradient(circle farthest-corner at center, transparent 100%, transparent 0%);
   color: rgba(0, 0, 0, 0.6);
 }
 
@@ -1698,8 +1697,6 @@ headerbar button:hover:not(.suggested-action):not(.destructive-action), window.b
 
 .titlebar:not(headerbar) button:active:not(.suggested-action):not(.destructive-action),
 headerbar button:active:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:active {
-  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
-  animation: ripple_effect 300ms cubic-bezier(0, 0, 0.2, 1) forwards;
   box-shadow: none;
   background-color: #686868;
   color: #FFFFFF;
@@ -1721,7 +1718,7 @@ headerbar button:checked:not(.suggested-action):not(.destructive-action), window
 .titlebar:not(headerbar) button:checked:disabled:not(.suggested-action):not(.destructive-action),
 headerbar button:checked:disabled:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:checked:disabled {
   background-color: rgba(104, 104, 104, 0.4);
-  color: #FFFFFF;
+  color: alpha(currentColor, 0.4);
 }
 
 .titlebar:not(headerbar) button.suggested-action:disabled, .titlebar:not(headerbar) button.destructive-action:disabled,
@@ -1734,11 +1731,6 @@ headerbar button.destructive-action:disabled {
 headerbar button.suggested-action:disabled > label,
 headerbar button.destructive-action:disabled > label {
   color: inherit;
-}
-
-.titlebar:not(headerbar) entry,
-headerbar entry {
-  background-color: white;
 }
 
 .selection-mode.titlebar:not(headerbar),
@@ -1757,7 +1749,7 @@ headerbar.selection-mode:backdrop {
 
 .selection-mode.titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action),
 headerbar.selection-mode button:not(.suggested-action):not(.destructive-action) {
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), currentColor 0%, transparent 0%) 0 0 0/0 0 0px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), currentColor 0%, transparent 0%) 0 0 0/0 0 0;
   color: currentColor;
 }
 
@@ -2046,6 +2038,11 @@ window.csd > .titlebar:not(headerbar) {
 
 .titlebar:not(headerbar) > separator {
   background-color: #eeeeee;
+}
+
+.background .titlebar entry,
+.background headerbar entry {
+  background-color: #fbfbfb;
 }
 
 /************
@@ -3711,7 +3708,7 @@ scale fill:disabled {
 }
 
 scale slider {
-  transition: background-color 300ms cubic-bezier(0, 0, 0.2, 1), background-size 450ms cubic-bezier(0, 0, 0.2, 1), background-image 1000ms cubic-bezier(0, 0, 0.2, 1);
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1), background-size 450ms cubic-bezier(0, 0, 0.2, 1), background-image 1000ms cubic-bezier(0, 0, 0.2, 1);
   background-repeat: no-repeat;
   background-position: center;
   background-size: auto, 1000% 1000%;
@@ -4879,7 +4876,16 @@ entry selection:disabled, modelbutton.flat:disabled:selected,
  * Title buttons *
  *****************/
 headerbar button.titlebutton:hover, .titlebar button.titlebutton:hover {
+  box-shadow: none;
+  background-color: rgba(104, 104, 104, 0.3);
+  color: #686868;
   transition-duration: 100ms;
+}
+
+headerbar button.titlebutton:active, .titlebar button.titlebutton:active, headerbar button.titlebutton:checked, .titlebar button.titlebutton:checked {
+  box-shadow: none;
+  background-color: #686868;
+  color: #FFFFFF;
 }
 
 .csd headerbar:not(.default-decoration) button.titlebutton.close, .csd headerbar:not(.default-decoration) button.titlebutton.maximize, .csd headerbar:not(.default-decoration) button.titlebutton.minimize, .solid-csd headerbar:not(.default-decoration) button.titlebutton.close, .solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize, .solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize, headerbar button.titlebutton.close, .titlebar button.titlebutton.close, headerbar button.titlebutton.maximize, .titlebar button.titlebutton.maximize, headerbar button.titlebutton.minimize, .titlebar button.titlebutton.minimize {
@@ -5030,19 +5036,19 @@ headerbar button.titlebutton.minimize:active, .titlebar button.titlebutton.minim
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-minimize-active.png"), url("assets/window-assets/titlebutton-minimize-active@2.png"));
 }
 
-.csd headerbar:not(.default-decoration) button.titlebutton.maximize, .solid-csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize {
+.csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize, .solid-csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-restore.png"), url("assets/window-assets/titlebutton-restore@2.png"));
 }
 
-.csd headerbar:not(.default-decoration) button.titlebutton.maximize:backdrop, .solid-csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize:backdrop {
+.csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize:backdrop, .solid-csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize:backdrop {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-restore-backdrop.png"), url("assets/window-assets/titlebutton-restore-backdrop@2.png"));
 }
 
-.csd headerbar:not(.default-decoration) button.titlebutton.maximize:hover, .solid-csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize:hover {
+.csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize:hover, .solid-csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize:hover {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-restore-hover.png"), url("assets/window-assets/titlebutton-restore-hover@2.png"));
 }
 
-.csd headerbar:not(.default-decoration) button.titlebutton.maximize:active, .solid-csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize:active {
+.csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize:active, .solid-csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize:active {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-restore-active.png"), url("assets/window-assets/titlebutton-restore-active@2.png"));
 }
 
@@ -6647,7 +6653,6 @@ window#whiskermenu-window scrolledwindow treeview.view:selected:hover {
 }
 
 #xfce4-weather-plugin *,
-#pulseaudio-button *,
 #xfce4-power-manager-plugin *,
 #xfce4-clipman-plugin * {
   -gtk-icon-transform: scale(0.8);

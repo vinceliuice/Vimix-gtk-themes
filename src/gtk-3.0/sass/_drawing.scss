@@ -297,7 +297,7 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
   @if $t == header-active {
     box-shadow: none;
     background-color: $primary_color;
-    color: $dark_contrast_color;
+    color: $inversed_fg_color;
   }
 
   @if $t == header-disabled {

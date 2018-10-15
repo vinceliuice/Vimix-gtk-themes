@@ -3374,8 +3374,7 @@ placessidebar {
 
       @extend %small_button;
 
-      row:selected & {
-      }
+      row:selected & { @extend %button_selected.flat; }
     }
 
     &.sidebar-placeholder-row {

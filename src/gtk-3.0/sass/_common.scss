@@ -1268,8 +1268,8 @@ headerbar {
         background: none;
         color: gtkalpha($dark_contrast_color, 0.8);
 
-          &, &:disabled { background-color: transparent; }
-          }
+        &, &:disabled { background-color: transparent; }
+      }
 
       &:checked {
         border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
@@ -1349,6 +1349,10 @@ headerbar {
   .linked:not(.vertical):not(.path-bar).stack-switcher {
     > button {
     border-radius: 0;
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  $theme_color 0%,
+                                  transparent 0%)
+                                  0 0 0 / 0 0 0;
 
     &:hover {
       color: lighten($theme_color, 0.85);

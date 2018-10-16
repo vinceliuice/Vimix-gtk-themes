@@ -1890,6 +1890,7 @@ headerbar .linked:not(.vertical):not(.path-bar) > entry:disabled {
 .titlebar:not(headerbar) .linked:not(.vertical):not(.path-bar).stack-switcher > button,
 headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button {
   border-radius: 0;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 0%, transparent 0%) 0 0 0/0 0 0;
 }
 
 .titlebar:not(headerbar) .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover,

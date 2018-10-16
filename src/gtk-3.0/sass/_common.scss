@@ -1499,7 +1499,12 @@ headerbar { // headerbar border rounding
 }
 
 .background .titlebar entry,
-.background headerbar entry { background-color: lighten($headerbar_bg_color, 5%); }
+.background headerbar entry {
+  &, &:focus {
+    background-color: lighten($headerbar_bg_color, 5%);
+    color: $headerbar_fg_color;
+  }
+}
 
 //.titlebar {
 //  :not(headerbar) .path-bar {

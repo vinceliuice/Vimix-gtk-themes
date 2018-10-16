@@ -2040,9 +2040,11 @@ window.csd > .titlebar:not(headerbar) {
   background-color: #36383e;
 }
 
-.background .titlebar entry,
-.background headerbar entry {
+.background .titlebar entry, .background .titlebar entry:focus,
+.background headerbar entry,
+.background headerbar entry:focus {
   background-color: #42444c;
+  color: #FFFFFF;
 }
 
 /************

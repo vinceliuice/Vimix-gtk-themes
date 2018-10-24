@@ -1732,7 +1732,7 @@ menu,
     color: $menu_fg_color;
 
     &:hover {
-      transition: none;
+      transition: background-color $shorter_duration $deceleration_curve;
       color: $dark_contrast_color;
       background-color: $primary_color;
     }

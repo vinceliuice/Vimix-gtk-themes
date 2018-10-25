@@ -1230,7 +1230,7 @@ window.background:not(.csd) {
   // until upstream stops rendering useless (weird) icons
   headerbar.titlebar {
     border-radius: 2px 2px 0 0;
-    border-top: 1px solid $borders_color;
+    border-top: 1px solid lighten($headerbar_bg_color, 10%);
 
     &.default-decoration button.titlebutton {
       min-width: 16px;

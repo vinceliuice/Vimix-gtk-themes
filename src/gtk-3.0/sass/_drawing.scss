@@ -282,21 +282,36 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
 
   // headerbar buttons
   @if $t == header-normal {
-    transition: $longer_transition;
+    transition: none;
+    animation: none;
     box-shadow: none;
     background-color: transparent;
     color: $secondary_headerbar_fg_color;
   }
 
   @if $t == header-hover {
-    box-shadow: none;
-    background-color: rgba($primary_color, 0.3);
+    transition: $longer_transition,
+                background-size 0,
+                background-image 0;
+    animation: none;
+    box-shadow: inset 0 0 0 9999px rgba($primary_color, 0.3);
+    background-image: radial-gradient(circle farthest-corner at center,
+                                      rgba($primary_color, 0.3) 10%,
+                                      transparent 0%);
+    background-size: 0% 0%;
     color: $theme_color;
   }
 
   @if $t == header-active {
-    box-shadow: none;
-    background-color: $primary_color;
+    transition: $longer_transition,
+                background-size 0,
+                background-image 0;
+    animation: ripple_effect $longer_duration $deceleration_curve forwards;
+    box-shadow: inset 0 0 0 9999px $primary_color;
+    background-image: radial-gradient(circle farthest-corner at center,
+                                      $primary_color 10%,
+                                      transparent 0%);
+    background-size: 0% 0%;
     color: $inversed_fg_color;
   }
 

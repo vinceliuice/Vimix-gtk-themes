@@ -5026,6 +5026,18 @@ headerbar button.titlebutton.minimize:active, .titlebar button.titlebutton.minim
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-restore-active-dark.png"), url("assets/window-assets/titlebutton-restore-active-dark@2.png"));
 }
 
+headerbar button.titlebutton.close, .csd headerbar button.titlebutton.close, .solid-csd headerbar button.titlebutton.close, headerbar.default-decoration button.titlebutton.close,
+.csd headerbar.default-decoration button.titlebutton.close,
+.titlebar button.titlebutton.close, .csd
+.titlebar button.titlebutton.close, .solid-csd
+.titlebar button.titlebutton.close,
+.titlebar.default-decoration button.titlebutton.close,
+.csd
+.titlebar.default-decoration button.titlebutton.close {
+  border-radius: 2px;
+  -gtk-outline-radius: 2px;
+}
+
 .csd headerbar:not(.default-decoration) button.titlebutton.close, .solid-csd headerbar:not(.default-decoration) button.titlebutton.close {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-close-dark.png"), url("assets/window-assets/titlebutton-close-dark@2.png"));
 }
@@ -5120,6 +5132,8 @@ cursor-handle.insertion-cursor:dir(ltr), cursor-handle.insertion-cursor:dir(rtl)
 }
 
 
+button.close,
+button.round-button,
 button.circular, check,
 radio, .nautilus-window headerbar > revealer > button, .raven button.image-button, .raven .raven-header:not(.top) button.image-button, .raven .expander-button, .budgie-notification-window button.image-button, .budgie-osd-window button.image-button, .budgie-switcher-window button.image-button,
 button.circular {
@@ -5590,6 +5604,55 @@ notebook > stack:not(:only-child) revealer .gedit-search-slider .linked:not(.ver
 .tweak-group-startup {
   background-image: image(#FFFFFF);
   border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+window.background > box.vertical > overlay > stack > widget > stack > box.vertical > scrolledwindow > viewport.frame > widget > list {
+  background-color: #F5F5F5;
+}
+
+window.background > box.vertical > overlay > stack > widget > stack > box.vertical > scrolledwindow > viewport.frame > widget > list > separator {
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+}
+
+window.background > box.vertical > overlay > stack > widget > stack widget > box.vertical.app-list {
+  background-image: image(#F5F5F5);
+}
+
+window.background > box.vertical > overlay > stack > widget > stack widget > box.vertical.app-list > box.vertical > list {
+  background-color: #F5F5F5;
+}
+
+window.background > box.vertical > overlay > stack > widget > stack widget > box.vertical.app-list separator {
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+}
+
+.category_page_header_filter_box {
+  background-image: image(#F5F5F5);
+  border-image: linear-gradient(to bottom, gainsboro, gainsboro) 0 0 1 0/0 0 1px 0 stretch;
+}
+
+.category_page_header_filter_box button {
+  color: rgba(0, 0, 0, 0.6);
+  background-image: image(#F5F5F5);
+}
+
+.category_page_header_filter_box button:prelight {
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.category_page_header_filter_box button:checked {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.category_page_header_filter_box button:disabled {
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.application-details-infobar {
+  background-image: image(#FFFFFF);
+  border-image: linear-gradient(to bottom, gainsboro, gainsboro) 1 1 1 1/1px 1px 1px 1px stretch;
 }
 
 window.background > box.vertical box.horizontal > box.vertical > scrolledwindow > viewport.frame > list row.event.activatable, window.background > box.vertical box.horizontal > box.vertical > scrolledwindow > viewport.frame > list .event.view, window.background > box.vertical box.horizontal > box.vertical > scrolledwindow > viewport.frame > list iconview.event, window.background > box.vertical box.horizontal > box.vertical > scrolledwindow > viewport.frame > list treeview.view header button.event, treeview.view header window.background > box.vertical box.horizontal > box.vertical > scrolledwindow > viewport.frame > list button.event, window.background > box.vertical box.horizontal > box.vertical > scrolledwindow > viewport.frame > list .budgie-menu button.event, .budgie-menu window.background > box.vertical box.horizontal > box.vertical > scrolledwindow > viewport.frame > list button.event {

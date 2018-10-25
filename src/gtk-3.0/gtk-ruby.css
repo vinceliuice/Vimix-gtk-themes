@@ -8066,6 +8066,84 @@ box.vertical > stack > box.vertical > .raven-background > viewport.frame > list 
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.budgie-panel box.titlebar {
+  min-width: 16px;
+  min-height: 16px;
+  border-radius: 0;
+  background: unset;
+  box-shadow: none;
+  border: none;
+}
+
+.budgie-panel box.titlebar > widget > label {
+  color: #FFFFFF;
+}
+
+.budgie-panel box.titlebar > button.image-button.titlebutton {
+  min-width: 16px;
+  min-height: 16px;
+  padding: 0;
+  margin: 0;
+  background: none;
+  box-shadow: none;
+  color: #FFFFFF;
+}
+
+.budgie-panel box.titlebar > button.image-button.titlebutton image {
+  border-radius: 100px;
+  background-size: 16px 16px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transition-duration: 0s;
+}
+
+.budgie-panel box.titlebar > button.image-button.titlebutton:hover, .budgie-panel box.titlebar > button.image-button.titlebutton:active {
+  background: none;
+  box-shadow: none;
+  color: #FFFFFF;
+  animation: none;
+}
+
+.budgie-panel box.titlebar > button.image-button.titlebutton:hover image, .budgie-panel box.titlebar > button.image-button.titlebutton:active image {
+  -gtk-icon-shadow: none;
+}
+
+.budgie-panel box.titlebar > button.image-button.titlebutton.close:hover image {
+  background-image: image(#FF5252);
+}
+
+.budgie-panel box.titlebar > button.image-button.titlebutton.close:active image {
+  background-image: image(#ff1f1f);
+}
+
+.budgie-panel box.titlebar > button.image-button.titlebutton:not(.close):hover image {
+  background-image: image(rgba(255, 255, 255, 0.2));
+}
+
+.budgie-panel box.titlebar > button.image-button.titlebutton:not(.close):active image {
+  background-image: image(#F0544C);
+}
+
+.budgie-panel box.titlebar > button.image-button.titlebutton:disabled image {
+  opacity: 0;
+}
+
+.budgie-panel box.titlebar.horizontal {
+  padding: 0 3px;
+}
+
+.budgie-panel box.titlebar.horizontal > widget > label:dir(ltr) {
+  padding-right: 3px;
+}
+
+.budgie-panel box.titlebar.horizontal > widget > label:dir(rtl) {
+  padding-left: 3px;
+}
+
+.budgie-panel box.titlebar.horizontal > button.image-button.titlebutton {
+  padding: 0 3px;
+}
+
 /************************
  * LightDM GTK+ Greeter *
  ************************/

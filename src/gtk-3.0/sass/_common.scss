@@ -2364,10 +2364,10 @@ radiobutton.text-button {
 %check_radio_button,
 checkbutton > check:not(:checked):not(:indeterminate),
 radiobutton > radio:not(:checked):not(:indeterminate) {
-    color: gtkalpha($fg_color, $enabled_opacity);
-    &:hover, &:active { color: $fg_color; }
-    &:disabled { color: gtkalpha($fg_color, $enabled_opacity * $disabled_opacity); }
-  }
+  color: gtkalpha($fg_color, $enabled_opacity);
+  &:hover, &:active { color: $fg_color; }
+  &:disabled { color: gtkalpha($fg_color, $enabled_opacity * $disabled_opacity); }
+}
 
 //checkbutton > check:checked,
 //checkbutton > check:indeterminate,

@@ -551,7 +551,8 @@ button {
       }
     }
 
-//    &.close,
+    &.close,
+    &.round-button,
     &.circular { // The Bloody Circul Button
       @extend %circular_button;
     }
@@ -1265,10 +1266,9 @@ headerbar {
                                     gtkalpha($dark_contrast_color, 0.8) 100%,
                                     transparent 0%)
                                     0 0 2 / 0 0 2px;
-        background: none;
         color: gtkalpha($dark_contrast_color, 0.8);
 
-        &, &:disabled { background-color: transparent; }
+        &, &:disabled { background: none; }
       }
 
       &:checked {
@@ -1321,9 +1321,12 @@ headerbar {
   }
 
   &.default-decoration,
-  .csd &.default-decoration,             // needed under wayland, since all gtk3 windows are csd windows
+  .csd &.default-decoration,
   &.default-decoration:backdrop,
-  .csd &.default-decoration:backdrop { box-shadow: none; }
+  .csd &.default-decoration:backdrop {  // needed under wayland, since all gtk3 windows are csd windows
+    box-shadow: unset;
+    box-shadow: inset 0 1px $secondary_highlight_color;
+  }
 
   .solid-csd & {
     &:dir(rtl), &:dir(ltr) { // specificity bump
@@ -1381,7 +1384,7 @@ headerbar {
       &:hover {
         color: rgba($theme_color, 0.85);
         box-shadow: inset 0 -3px rgba($theme_color, 0.5);
-        &, &:disabled { background-color: transparent; }
+        &, &:disabled { background: none; }
       }
 
       &:checked {
@@ -1702,6 +1705,7 @@ menubar,
     color: $headerbar_fg_color;
 
     &:hover { //Seems like it :hover even with keyboard focus
+      transition: background-color $shorter_duration $deceleration_curve;
       border-radius: 2px 2px 0 0;
       background-color: $primary_color;
       color: $dark_contrast_color;
@@ -3829,6 +3833,7 @@ decoration {
       @include button(header-hover);
       transition-duration: $shortest_duration;
     }
+
     &:active, &:checked {
       @include button(header-active);
     }
@@ -3887,6 +3892,11 @@ headerbar,
   &.default-decoration,
   .csd &.default-decoration {  // needed under wayland, since all gtk3 windows are csd windows
     @extend %titlebuttons;
+
+    button.titlebutton.close {
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
+    }
   }
 }
 

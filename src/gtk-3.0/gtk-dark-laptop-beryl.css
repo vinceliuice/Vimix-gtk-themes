@@ -1682,7 +1682,8 @@ headerbar .subtitle {
 
 .titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action),
 headerbar button:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button {
-  transition: all 300ms cubic-bezier(0, 0, 0.2, 1);
+  transition: none;
+  animation: none;
   box-shadow: none;
   background-color: transparent;
   color: rgba(255, 255, 255, 0.75);
@@ -1690,15 +1691,21 @@ headerbar button:not(.suggested-action):not(.destructive-action), window.backgro
 
 .titlebar:not(headerbar) button:hover:not(.suggested-action):not(.destructive-action),
 headerbar button:hover:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:hover {
-  box-shadow: none;
-  background-color: rgba(46, 179, 152, 0.3);
+  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
+  animation: none;
+  box-shadow: inset 0 0 0 9999px rgba(46, 179, 152, 0.3);
+  background-image: radial-gradient(circle farthest-corner at center, rgba(46, 179, 152, 0.3) 10%, transparent 0%);
+  background-size: 0% 0%;
   color: #2EB398;
 }
 
 .titlebar:not(headerbar) button:active:not(.suggested-action):not(.destructive-action),
 headerbar button:active:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:active {
-  box-shadow: none;
-  background-color: #2EB398;
+  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
+  animation: ripple_effect 300ms cubic-bezier(0, 0, 0.2, 1) forwards;
+  box-shadow: inset 0 0 0 9999px #2EB398;
+  background-image: radial-gradient(circle farthest-corner at center, #2EB398 10%, transparent 0%);
+  background-size: 0% 0%;
   color: #FFFFFF;
 }
 
@@ -1766,14 +1773,13 @@ headerbar.selection-mode button:not(.suggested-action):not(.destructive-action):
 .selection-mode.titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action):hover,
 headerbar.selection-mode button:not(.suggested-action):not(.destructive-action):hover {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), alpha(#FFFFFF, 0.8) 100%, transparent 0%) 0 0 2/0 0 2px;
-  background: none;
   color: alpha(#FFFFFF, 0.8);
 }
 
 .selection-mode.titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action):hover, .selection-mode.titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action):hover:disabled,
 headerbar.selection-mode button:not(.suggested-action):not(.destructive-action):hover,
 headerbar.selection-mode button:not(.suggested-action):not(.destructive-action):hover:disabled {
-  background-color: transparent;
+  background: none;
 }
 
 .selection-mode.titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action):checked,
@@ -1855,7 +1861,8 @@ headerbar.default-decoration,
 headerbar.default-decoration:backdrop,
 .csd
 headerbar.default-decoration:backdrop {
-  box-shadow: none;
+  box-shadow: unset;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.1);
 }
 
 .solid-csd .titlebar:dir(rtl):not(headerbar), .solid-csd .titlebar:dir(ltr):not(headerbar), .solid-csd
@@ -1929,7 +1936,7 @@ headerbar .linked:not(.vertical).path-bar > button:hover {
 .titlebar:not(headerbar) .linked:not(.vertical).path-bar > button:hover, .titlebar:not(headerbar) .linked:not(.vertical).path-bar > button:hover:disabled,
 headerbar .linked:not(.vertical).path-bar > button:hover,
 headerbar .linked:not(.vertical).path-bar > button:hover:disabled {
-  background-color: transparent;
+  background: none;
 }
 
 .titlebar:not(headerbar) .linked:not(.vertical).path-bar > button:checked,
@@ -2241,6 +2248,7 @@ menubar > menuitem,
 
 menubar > menuitem:hover,
 .menubar > menuitem:hover {
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
   border-radius: 2px 2px 0 0;
   background-color: #2EB398;
   color: #FFFFFF;
@@ -4883,15 +4891,21 @@ entry selection:disabled, modelbutton.flat:disabled:selected,
  * Title buttons *
  *****************/
 headerbar button.titlebutton:hover, .titlebar button.titlebutton:hover {
-  box-shadow: none;
-  background-color: rgba(46, 179, 152, 0.3);
+  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
+  animation: none;
+  box-shadow: inset 0 0 0 9999px rgba(46, 179, 152, 0.3);
+  background-image: radial-gradient(circle farthest-corner at center, rgba(46, 179, 152, 0.3) 10%, transparent 0%);
+  background-size: 0% 0%;
   color: #2EB398;
   transition-duration: 100ms;
 }
 
 headerbar button.titlebutton:active, .titlebar button.titlebutton:active, headerbar button.titlebutton:checked, .titlebar button.titlebutton:checked {
-  box-shadow: none;
-  background-color: #2EB398;
+  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
+  animation: ripple_effect 300ms cubic-bezier(0, 0, 0.2, 1) forwards;
+  box-shadow: inset 0 0 0 9999px #2EB398;
+  background-image: radial-gradient(circle farthest-corner at center, #2EB398 10%, transparent 0%);
+  background-size: 0% 0%;
   color: #FFFFFF;
 }
 
@@ -4995,6 +5009,18 @@ headerbar button.titlebutton.minimize:active, .titlebar button.titlebutton.minim
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-restore-active-dark.png"), url("assets/window-assets/titlebutton-restore-active-dark@2.png"));
 }
 
+headerbar button.titlebutton.close, .csd headerbar button.titlebutton.close, .solid-csd headerbar button.titlebutton.close, headerbar.default-decoration button.titlebutton.close,
+.csd headerbar.default-decoration button.titlebutton.close,
+.titlebar button.titlebutton.close, .csd
+.titlebar button.titlebutton.close, .solid-csd
+.titlebar button.titlebutton.close,
+.titlebar.default-decoration button.titlebutton.close,
+.csd
+.titlebar.default-decoration button.titlebutton.close {
+  border-radius: 2px;
+  -gtk-outline-radius: 2px;
+}
+
 .csd headerbar:not(.default-decoration) button.titlebutton.close, .solid-csd headerbar:not(.default-decoration) button.titlebutton.close {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-close-dark.png"), url("assets/window-assets/titlebutton-close-dark@2.png"));
 }
@@ -5089,6 +5115,8 @@ cursor-handle.insertion-cursor:dir(ltr), cursor-handle.insertion-cursor:dir(rtl)
 }
 
 
+button.close,
+button.round-button,
 button.circular, check,
 radio, .nautilus-window headerbar > revealer > button, .raven button.image-button, .raven .raven-header:not(.top) button.image-button, .raven .expander-button, .budgie-notification-window button.image-button, .budgie-osd-window button.image-button, .budgie-switcher-window button.image-button,
 button.circular {
@@ -5559,6 +5587,55 @@ notebook > stack:not(:only-child) revealer .gedit-search-slider .linked:not(.ver
 .tweak-group-startup {
   background-image: image(#313338);
   border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+window.background > box.vertical > overlay > stack > widget > stack > box.vertical > scrolledwindow > viewport.frame > widget > list {
+  background-color: #2c2e33;
+}
+
+window.background > box.vertical > overlay > stack > widget > stack > box.vertical > scrolledwindow > viewport.frame > widget > list > separator {
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+}
+
+window.background > box.vertical > overlay > stack > widget > stack widget > box.vertical.app-list {
+  background-image: image(#2c2e33);
+}
+
+window.background > box.vertical > overlay > stack > widget > stack widget > box.vertical.app-list > box.vertical > list {
+  background-color: #2c2e33;
+}
+
+window.background > box.vertical > overlay > stack > widget > stack widget > box.vertical.app-list separator {
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+}
+
+.category_page_header_filter_box {
+  background-image: image(#2c2e33);
+  border-image: linear-gradient(to bottom, #242529, #242529) 0 0 1 0/0 0 1px 0 stretch;
+}
+
+.category_page_header_filter_box button {
+  color: rgba(234, 234, 234, 0.75);
+  background-image: image(#2c2e33);
+}
+
+.category_page_header_filter_box button:hover {
+  color: rgba(234, 234, 234, 0.75);
+}
+
+.category_page_header_filter_box button:checked {
+  color: #EAEAEA;
+}
+
+.category_page_header_filter_box button:disabled {
+  color: rgba(234, 234, 234, 0.55);
+}
+
+.application-details-infobar {
+  background-image: image(#313338);
+  border-image: linear-gradient(to bottom, #242529, #242529) 1 1 1 1/1px 1px 1px 1px stretch;
 }
 
 window.background > box.vertical box.horizontal > box.vertical > scrolledwindow > viewport.frame > list row.event.activatable, window.background > box.vertical box.horizontal > box.vertical > scrolledwindow > viewport.frame > list .event.view, window.background > box.vertical box.horizontal > box.vertical > scrolledwindow > viewport.frame > list iconview.event, window.background > box.vertical box.horizontal > box.vertical > scrolledwindow > viewport.frame > list treeview.view header button.event, treeview.view header window.background > box.vertical box.horizontal > box.vertical > scrolledwindow > viewport.frame > list button.event, window.background > box.vertical box.horizontal > box.vertical > scrolledwindow > viewport.frame > list .budgie-menu button.event, .budgie-menu window.background > box.vertical box.horizontal > box.vertical > scrolledwindow > viewport.frame > list button.event {
@@ -6269,7 +6346,7 @@ window.background:not(.csd) > menu > menuitem > label:disabled {
 
 #MozillaGtkWidget.background headerbar.titlebar {
   border-radius: 2px 2px 0 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-top: 1px solid #4e5159;
 }
 
 #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton {
@@ -7987,6 +8064,84 @@ box.vertical > stack > box.vertical > .raven-background > viewport.frame > list 
 
 .budgie-run-dialog scrolledwindow {
   border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.budgie-panel box.titlebar {
+  min-width: 16px;
+  min-height: 16px;
+  border-radius: 0;
+  background: unset;
+  box-shadow: none;
+  border: none;
+}
+
+.budgie-panel box.titlebar > widget > label {
+  color: #FFFFFF;
+}
+
+.budgie-panel box.titlebar > button.image-button.titlebutton {
+  min-width: 16px;
+  min-height: 16px;
+  padding: 0;
+  margin: 0;
+  background: none;
+  box-shadow: none;
+  color: #FFFFFF;
+}
+
+.budgie-panel box.titlebar > button.image-button.titlebutton image {
+  border-radius: 100px;
+  background-size: 16px 16px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transition-duration: 0s;
+}
+
+.budgie-panel box.titlebar > button.image-button.titlebutton:hover, .budgie-panel box.titlebar > button.image-button.titlebutton:active {
+  background: none;
+  box-shadow: none;
+  color: #FFFFFF;
+  animation: none;
+}
+
+.budgie-panel box.titlebar > button.image-button.titlebutton:hover image, .budgie-panel box.titlebar > button.image-button.titlebutton:active image {
+  -gtk-icon-shadow: none;
+}
+
+.budgie-panel box.titlebar > button.image-button.titlebutton.close:hover image {
+  background-image: image(#FF5252);
+}
+
+.budgie-panel box.titlebar > button.image-button.titlebutton.close:active image {
+  background-image: image(#ff1f1f);
+}
+
+.budgie-panel box.titlebar > button.image-button.titlebutton:not(.close):hover image {
+  background-image: image(rgba(255, 255, 255, 0.2));
+}
+
+.budgie-panel box.titlebar > button.image-button.titlebutton:not(.close):active image {
+  background-image: image(#2EB398);
+}
+
+.budgie-panel box.titlebar > button.image-button.titlebutton:disabled image {
+  opacity: 0;
+}
+
+.budgie-panel box.titlebar.horizontal {
+  padding: 0 3px;
+}
+
+.budgie-panel box.titlebar.horizontal > widget > label:dir(ltr) {
+  padding-right: 3px;
+}
+
+.budgie-panel box.titlebar.horizontal > widget > label:dir(rtl) {
+  padding-left: 3px;
+}
+
+.budgie-panel box.titlebar.horizontal > button.image-button.titlebutton {
+  padding: 0 3px;
 }
 
 /************************

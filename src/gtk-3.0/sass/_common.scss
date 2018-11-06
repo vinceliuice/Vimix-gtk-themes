@@ -3829,14 +3829,8 @@ decoration {
 
   button.titlebutton {
 
-    &:hover {
-      @include button(header-hover);
-      transition-duration: $shortest_duration;
-    }
-
-    &:active, &:checked {
-      @include button(header-active);
-    }
+    &:hover { @include button(header-hover); }
+    &:active, &:checked { @include button(header-active); }
 
     @at-root %windows_button,
     &.close, &.maximize, &.minimize {
@@ -3858,6 +3852,7 @@ decoration {
         border: none;
         color: transparent;
         animation: none;
+        transition: background-size $shorter_duration $deceleration_curve;
         background-color: transparent;
         background-size: 22px 22px;
       }

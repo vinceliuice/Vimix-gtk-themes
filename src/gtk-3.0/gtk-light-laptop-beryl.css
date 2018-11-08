@@ -4912,7 +4912,6 @@ headerbar button.titlebutton:hover, .titlebar button.titlebutton:hover {
   background-image: radial-gradient(circle farthest-corner at center, rgba(46, 179, 152, 0.3) 10%, transparent 0%);
   background-size: 0% 0%;
   color: #2EB398;
-  transition-duration: 100ms;
 }
 
 headerbar button.titlebutton:active, .titlebar button.titlebutton:active, headerbar button.titlebutton:checked, .titlebar button.titlebutton:checked {
@@ -4944,6 +4943,7 @@ headerbar button.titlebutton:active, .titlebar button.titlebutton:active, header
   border: none;
   color: transparent;
   animation: none;
+  transition: background-size 200ms cubic-bezier(0, 0, 0.2, 1);
   background-color: transparent;
   background-size: 22px 22px;
 }

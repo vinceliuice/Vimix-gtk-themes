@@ -17,7 +17,7 @@ $circular_radius: 100px;
 
 $shortest_duration: 100ms;
 $shorter_duration: 200ms;
-$longer_duration: 300ms;
+$shorter_duration: 300ms;
 $ripple_duration: 450ms;
 $ripple_opacity_duration: 1000ms;
 
@@ -29,7 +29,7 @@ $sharp_curve: cubic-bezier(0.4, 0.0, 0.6, 1);
 
 $shortest_transition: all $shortest_duration $deceleration_curve;
 $shorter_transition: all $shorter_duration $deceleration_curve;
-$longer_transition: all $longer_duration $deceleration_curve;
+$shorter_transition: all $shorter_duration $deceleration_curve;
 $shadow_transition: box-shadow $shorter_duration $deceleration_curve;
 
 * {
@@ -729,7 +729,7 @@ button {
 }
 
 %needs_attention {
-  animation: needs_attention $longer_duration $deceleration_curve forwards;
+  animation: needs_attention $shorter_duration $deceleration_curve forwards;
   background-repeat: no-repeat;
   background-position: right 3px;
   background-size: 6px 6px;
@@ -1192,7 +1192,7 @@ searchbar,
  ***************/
 %titlebar,
 headerbar {
-  transition: background-color $shorter_duration $deceleration_curve, color $longer_duration $deceleration_curve;
+  transition: background-color $shorter_duration $deceleration_curve, color $shorter_duration $deceleration_curve;
   min-height: $large_size;
   padding: 0 $container_padding;
   box-shadow: $header_shadow, inset 0 1px $secondary_highlight_color;
@@ -1236,8 +1236,8 @@ headerbar {
   }
 
   &.selection-mode {
-    transition: background-color 0.00001s $longer_duration, color $longer_duration $deceleration_curve;
-    animation: header_ripple_effect $longer_duration $deceleration_curve;
+    transition: background-color 0.00001s $shorter_duration, color $shorter_duration $deceleration_curve;
+    animation: header_ripple_effect $shorter_duration $deceleration_curve;
     box-shadow: $z-depth-1, inset 0 1px $secondary_highlight_color;
     background-color: $primary_color;
     color: $inversed_fg_color;
@@ -1316,7 +1316,7 @@ headerbar {
       min-width: 26px;
       margin: 0;
       padding: 0;
-      transition: $longer_duration;
+      transition: $shorter_duration;
     }
   }
 
@@ -1425,20 +1425,34 @@ headerbar {
   }
 
   switch {
-    margin-top: if($laptop == 'true', 12px, 14px);
-    margin-bottom: if($laptop == 'true', 12px, 14px);
+    margin-top: ($large_size - 24px) / 2;
+    margin-bottom: ($large_size - 24px) / 2;
 
     @if $color == 'black' and $headerbar =='dark' {
       background-color: rgba($headerbar_fg_color, $lower_opacity);
+
       &:disabled { color: rgba($headerbar_fg_color, $disabled_opacity); }
+
       &:checked {
         background-color: rgba($headerbar_fg_color, 0.5);
-        &:disabled {
-          background-color: rgba($headerbar_fg_color, 0.5 * $disabled_opacity);
-        }
+
+        &:disabled { background-color: rgba($headerbar_fg_color, 0.5 * $disabled_opacity); }
       }
+
       &:checked slider { background-color: $headerbar_fg_color; }
     }
+  }
+
+  // reset button margins of the spinbutton
+  spinbutton button {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  // FIXME: This is a hacky workaround.
+  .entry-tag {
+    margin-top: $container_padding - 1px;
+    margin-bottom: $container_padding - 1px;
   }
 }
 
@@ -1507,36 +1521,13 @@ headerbar { // headerbar border rounding
 
 .background .titlebar entry,
 .background headerbar entry {
+  caret-color: $headerbar_fg_color;
+
   &, &:focus {
     background-color: lighten($headerbar_bg_color, 5%);
     color: $headerbar_fg_color;
   }
 }
-
-//.titlebar {
-//  :not(headerbar) .path-bar {
-//    button {
-//      @extend %flat_button;
-//      color: $secondary_headerbar_fg_color;
-//      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-//                                    $theme_color 0%,
-//                                    transparent 0%)
-//                                    0 0 0 / 0 0 0;
-//      &:hover {
-//        color: $headerbar_fg_color;
-//        background-color: rgba($headerbar_fg_color, 0.12);
-//      }
-//      &:checked, &:active {
-//        color: $headerbar_fg_color;
-//        background-color: transparent;
-//        border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-//                                      $theme_color 100%,
-//                                      transparent 0%)
-//                                      0 0 2 / 0 0 2px;
-//      }
-//    }
-//  }
-//}
 
 /************
  * Pathbars *
@@ -2014,7 +2005,7 @@ notebook {
     }
 
     tab {
-      transition: $longer_transition,
+      transition: $shorter_transition,
                   background-size 0,
                   background-image 0;
       min-height: $small_size;
@@ -2048,9 +2039,9 @@ notebook {
       &:disabled { color: $disabled_secondary_fg_color; }
 
       &:checked {
-        transition: $longer_transition,
-                    background-size $longer_duration $deceleration_curve,
-                    background-image $longer_duration + $ripple_duration $deceleration_curve;
+        transition: $shorter_transition,
+                    background-size $shorter_duration $deceleration_curve,
+                    background-image $shorter_duration + $ripple_duration $deceleration_curve;
         background-image: radial-gradient(circle farthest-corner at center,
                                           transparent 10%,
                                           transparent 0%);
@@ -2144,7 +2135,7 @@ scrollbar {
     -GtkScrollbar-has-forward-stepper: false;
   }
 
-  transition: $longer_transition;
+  transition: $shorter_transition;
   background-color: $base_color;
   background-clip: $extra_background_clip;
 
@@ -2262,7 +2253,7 @@ scrollbar {
  * Switch *
  **********/
 switch {
-  transition: background-color 100ms $deceleration_curve, opacity $longer_duration $deceleration_curve;
+  transition: background-color 100ms $deceleration_curve, opacity $shorter_duration $deceleration_curve;
   margin: $container_padding 0;
   border: 4px solid transparent;
   border-radius: 100px;
@@ -2604,14 +2595,14 @@ radio:not(:checked):indeterminate:active { -gtk-icon-transform: scaleX(-1); } //
 check:not(:checked),
 radio:not(:checked) {
   & {
-    transition: $longer_transition,
+    transition: $shorter_transition,
                 background-size $ripple_duration $deceleration_curve,
                 background-image $ripple_duration * 2 $deceleration_curve,
                 -gtk-icon-transform 0;
   }
 
   &:active {
-    transition: $longer_transition,
+    transition: $shorter_transition,
                 background-size 0,
                 background-image 0,
                 -gtk-icon-transform 0;
@@ -2676,7 +2667,7 @@ scale {
   min-width: $medium_size - $slider_size;
   padding: ($slider_size / 2);
 
-//  * { transition: $longer_transition; }
+//  * { transition: $shorter_transition; }
 
   // the slider is inside the trough, so to have make it bigger there's a negative margin
   slider {
@@ -3075,7 +3066,7 @@ list {
 }
 
 // FIXME
-$row_transition: $longer_transition, background-color 0, color 0;
+$row_transition: $shorter_transition, background-color 0, color 0;
 
 row {
   &.activatable {
@@ -3092,7 +3083,7 @@ row {
       transition: $row_transition,
                   background-size 0,
                   background-image 0;
-      animation: ripple_effect $longer_duration $deceleration_curve forwards;
+      animation: ripple_effect $shorter_duration $deceleration_curve forwards;
     }
   }
 
@@ -3997,7 +3988,7 @@ button.circular { row & { margin: 0 5px; } } // Make the circular button hover s
 }
 
 :not(decoration):not(window):drop(active) { // FIXME needs to be done widget by widget, this wildcard should really die
-  transition: $longer_transition;
+  transition: $shorter_transition;
   box-shadow: $z-depth-1, inset 0 0 0 2px $accent_color;
   caret-color: $accent_color;
 }

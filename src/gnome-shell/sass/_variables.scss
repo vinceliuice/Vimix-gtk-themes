@@ -23,9 +23,9 @@ $disabled_opacity: 0.5;
 // sizes
 $small_size: if($laptop == 'false', 24px, 20px);
 $medium_size: if($laptop == 'false', 36px, 32px);
-$large_size: if($laptop == 'false', 48px, 44px);
+$large_size: if($laptop == 'false', 42px, 38px);
 
-$container_padding: 6px;
+$container_padding: if($laptop == 'false', 6px, 4px);
 
 $bar_size: 4px;
 $menuitem_size: if($laptop == 'false', 32px, 28px);
@@ -35,9 +35,9 @@ $material_radius: 2px;
 $circular_radius: 9999px;
 
 // durations
-$shorter_duration: 200ms / 2;
-$longer_duration: 300ms / 2;
-$ripple_duration: 500ms / 2;
+$shorter_duration: 100ms;
+$longer_duration: 225ms;
+$ripple_duration: 300ms;
 
 // timing functions
 $standard_curve: cubic-bezier(0.4, 0.0, 0.2, 1);

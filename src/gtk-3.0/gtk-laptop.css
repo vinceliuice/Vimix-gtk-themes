@@ -252,7 +252,7 @@ entry.flat:disabled, spinbutton.flat:disabled:not(.vertical) {
 .background notebook > stack:not(:only-child) revealer entry, notebook > stack:not(:only-child) revealer .background entry,
 .background notebook > stack:not(:only-child) revealer spinbutton:not(.vertical), notebook > stack:not(:only-child) revealer .background spinbutton:not(.vertical),
 .background entry, .background spinbutton:not(.vertical) {
-  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0, 0, 0.2, 1);
   border-image: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   background-color: #FFFFFF;
@@ -378,7 +378,7 @@ notebook > stack:not(:only-child) revealer .background .linked.vertical > spinbu
 entry,
 .background .linked.vertical >
 entry {
-  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0, 0, 0.2, 1);
   border-image: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   background-color: #FFFFFF;
@@ -511,7 +511,7 @@ entry undershoot.right {
 notebook > stack:not(:only-child) revealer entry.error,
 notebook > stack:not(:only-child) revealer spinbutton.error:not(.vertical),
 entry.error {
-  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0, 0, 0.2, 1);
   border-image: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   background-color: #DD2C00;
@@ -562,7 +562,7 @@ entry.error.flat:disabled {
 notebook > stack:not(:only-child) revealer entry.warning,
 notebook > stack:not(:only-child) revealer spinbutton.warning:not(.vertical),
 entry.warning {
-  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0, 0, 0.2, 1);
   border-image: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   background-color: #FF6D00;
@@ -758,7 +758,7 @@ button:checked:disabled {
 
 .background
 button {
-  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 200ms cubic-bezier(0, 0, 0.2, 1), background-size 450ms cubic-bezier(0, 0, 0.2, 1), background-image 1000ms cubic-bezier(0, 0, 0.2, 1);
+  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0, 0, 0.2, 1), background-size 450ms cubic-bezier(0, 0, 0.2, 1), background-image 1000ms cubic-bezier(0, 0, 0.2, 1);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24), inset 0 0 0 9999px transparent;
   background-color: #FCFCFC;
   background-image: radial-gradient(circle farthest-corner at center, transparent 100%, transparent 0%);
@@ -1488,7 +1488,7 @@ combobox entry.combo:disabled {
 }
 
 .background combobox entry.combo {
-  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0, 0, 0.2, 1);
   border-image: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   background-color: #FFFFFF;
@@ -1655,7 +1655,7 @@ searchbar,
  ***************/
 .titlebar:not(headerbar),
 headerbar {
-  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1), color 300ms cubic-bezier(0, 0, 0.2, 1);
+  transition: background-color 300ms cubic-bezier(0, 0, 0.2, 1), color 300ms cubic-bezier(0, 0, 0.2, 1);
   min-height: 42px;
   padding: 0 6px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24), inset 0 1px rgba(255, 255, 255, 0.1);
@@ -1969,8 +1969,8 @@ headerbar button {
 }
 
 headerbar switch {
-  margin-top: 12px;
-  margin-bottom: 12px;
+  margin-top: 9px;
+  margin-bottom: 9px;
   background-color: rgba(255, 255, 255, 0.24);
 }
 
@@ -1988,6 +1988,16 @@ headerbar switch:checked:disabled {
 
 headerbar switch:checked slider {
   background-color: #FFFFFF;
+}
+
+headerbar spinbutton button {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+headerbar .entry-tag {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .titlebar,
@@ -2063,6 +2073,11 @@ window.csd > .titlebar:not(headerbar) {
 
 .titlebar:not(headerbar) > separator {
   background-color: #383838;
+}
+
+.background .titlebar entry,
+.background headerbar entry {
+  caret-color: #FFFFFF;
 }
 
 .background .titlebar entry, .background .titlebar entry:focus,
@@ -2265,7 +2280,7 @@ menubar > menuitem,
 
 menubar > menuitem:hover,
 .menubar > menuitem:hover {
-  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+  transition: background-color 300ms cubic-bezier(0, 0, 0.2, 1);
   border-radius: 2px 2px 0 0;
   background-color: #686868;
   color: #FFFFFF;
@@ -2308,7 +2323,7 @@ menu menuitem,
 menu menuitem:hover,
 .menu menuitem:hover,
 .context-menu menuitem:hover {
-  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+  transition: background-color 300ms cubic-bezier(0, 0, 0.2, 1);
   color: #FFFFFF;
   background-color: #686868;
 }
@@ -2416,7 +2431,7 @@ menuitem accelerator {
  * Popovers   *
  ***************/
 popover.background {
-  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  transition: box-shadow 300ms cubic-bezier(0, 0, 0.2, 1);
   padding: 0;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
   background-color: #FCFCFC;
@@ -2735,7 +2750,7 @@ scrollbar.right {
 }
 
 scrollbar slider {
-  transition: all 200ms cubic-bezier(0, 0, 0.2, 1), margin 0, border-width 0;
+  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), margin 0, border-width 0;
   min-width: 5px;
   min-height: 5px;
   border: 3px solid transparent;
@@ -2757,7 +2772,7 @@ scrollbar slider:disabled {
 }
 
 scrollbar.fine-tune slider {
-  transition: all 200ms cubic-bezier(0, 0, 0.2, 1), margin 0, border-width 0, min-width 0, min-height 0;
+  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), margin 0, border-width 0, min-width 0, min-height 0;
   min-width: 4px;
   min-height: 4px;
 }
@@ -2875,12 +2890,12 @@ switch:checked:disabled {
 }
 
 switch slider {
-  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0, 0, 0.2, 1);
   border-image: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   background-color: #FFFFFF;
   color: rgba(0, 0, 0, 0.6);
-  transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 200ms cubic-bezier(0, 0, 0.2, 1), margin 0;
+  transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0, 0, 0.2, 1), margin 0;
   min-width: 20px;
   min-height: 20px;
   margin: -4px 0 -4px -4px;
@@ -3736,7 +3751,7 @@ scale fill:disabled {
 }
 
 scale slider {
-  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1), background-size 450ms cubic-bezier(0, 0, 0.2, 1), background-image 1000ms cubic-bezier(0, 0, 0.2, 1);
+  transition: background-color 300ms cubic-bezier(0, 0, 0.2, 1), background-size 450ms cubic-bezier(0, 0, 0.2, 1), background-image 1000ms cubic-bezier(0, 0, 0.2, 1);
   background-repeat: no-repeat;
   background-position: center;
   background-size: auto, 1000% 1000%;
@@ -3983,7 +3998,7 @@ levelbar.vertical block {
 levelbar trough {
   padding: 2px;
   border-radius: 2px;
-  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  transition: all 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0, 0, 0.2, 1);
   border-image: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   background-color: #FFFFFF;
@@ -4209,7 +4224,7 @@ row:selected:hover {
  * Expanders *
  *************/
 expander arrow {
-  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
   min-width: 16px;
   min-height: 16px;
   -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
@@ -4775,7 +4790,7 @@ colorswatch:drop(active).dark overlay {
 }
 
 colorswatch overlay {
-  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  transition: box-shadow 300ms cubic-bezier(0, 0, 0.2, 1);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
@@ -4814,7 +4829,7 @@ colorswatch#editor-color-sample overlay {
 }
 
 colorchooser .popover.osd {
-  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  transition: box-shadow 300ms cubic-bezier(0, 0, 0.2, 1);
   border-radius: 2px;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23), inset 0 1px rgba(255, 255, 255, 0.4);
   background-color: #FFFFFF;
@@ -4835,7 +4850,7 @@ colorchooser .popover.osd:backdrop {
  * Window Decorations *
  *********************/
 decoration {
-  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  transition: box-shadow 300ms cubic-bezier(0, 0, 0.2, 1);
   border-radius: 2px 2px 0 0;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22), 0 10px 12px transparent;
   margin: 4px;
@@ -5244,7 +5259,7 @@ button.emoji-section:last-child {
 }
 
 .emoji widget {
-  transition: all 200ms cubic-bezier(0, 0, 0.2, 1);
+  transition: all 300ms cubic-bezier(0, 0, 0.2, 1);
 }
 
 .emoji widget:hover {
@@ -5526,7 +5541,7 @@ paned.titlebar.horizontal headerbar {
 }
 
 .gedit-search-slider popover.background {
-  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  transition: box-shadow 300ms cubic-bezier(0, 0, 0.2, 1);
   padding: 0;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
   background-color: #FFFFFF;
@@ -5912,12 +5927,12 @@ GdMainIconView.content-view {
 
 .photos-fade-in {
   opacity: 1;
-  transition: opacity 200ms cubic-bezier(0, 0, 0.2, 1);
+  transition: opacity 300ms cubic-bezier(0, 0, 0.2, 1);
 }
 
 .photos-fade-out {
   opacity: 0;
-  transition: opacity 200ms cubic-bezier(0, 0, 0.2, 1);
+  transition: opacity 300ms cubic-bezier(0, 0, 0.2, 1);
 }
 
 overlay grid.horizontal > revealer > scrolledwindow.frame:dir(ltr) {
@@ -5998,7 +6013,7 @@ dialog.background.csd > headerbar.titlebar > label:not(.title):not(.subtitle) {
  * To Do *
  *********/
 task-row {
-  transition: all 200ms cubic-bezier(0, 0, 0.2, 1);
+  transition: all 300ms cubic-bezier(0, 0, 0.2, 1);
   margin: 0 -4px;
 }
 
@@ -7357,7 +7372,7 @@ window.budgie-popover:not(.csd) > frame.container > border {
 }
 
 .workspace-switcher .workspace-item {
-  transition: all 200ms cubic-bezier(0, 0, 0.2, 1);
+  transition: all 300ms cubic-bezier(0, 0, 0.2, 1);
 }
 
 .workspace-switcher .workspace-item.current-workspace {
@@ -7493,7 +7508,7 @@ popover.background.places-menu row {
 }
 
 .budgie-panel {
-  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+  transition: background-color 300ms cubic-bezier(0, 0, 0.2, 1);
   background-color: #222222;
   color: #EAEAEA;
   font-weight: 500;

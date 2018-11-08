@@ -56,7 +56,7 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
 //
 
   @if $t == normal {
-    transition: $longer_transition, $shadow_transition;
+    transition: $shorter_transition, $shadow_transition;
     border-image: none;
     box-shadow: $z-depth-1;
     background-color: if($fc != $primary_color, $fc, $base_color);
@@ -100,7 +100,7 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
   }
 
   @if $t == flat-normal {
-    transition: $longer_transition;
+    transition: $shorter_transition;
     border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                   $fc 0%,
                                   transparent 0%)
@@ -140,7 +140,7 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
 //
 
   @if $t == normal {
-    transition: $longer_transition,
+    transition: $shorter_transition,
                 $shadow_transition,
                 background-size $ripple_duration $deceleration_curve,
                 background-image $ripple_opacity_duration $deceleration_curve;
@@ -163,10 +163,10 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
   }
 
   @if $t == active {
-    transition: $longer_transition,
+    transition: $shorter_transition,
                 background-size 0,
                 background-image 0;
-    animation: ripple_effect $longer_duration $deceleration_curve forwards;
+    animation: ripple_effect $shorter_duration $deceleration_curve forwards;
     box-shadow: $z-depth-2, inset 0 0 0 9999px $semi_track_color;
     background-image: radial-gradient(circle farthest-corner at center,
                                       $semi_track_color 10%,
@@ -193,7 +193,7 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
 
   // flat buttons
   @if $t == flat-normal {
-    transition: $longer_transition,
+    transition: $shorter_transition,
                 background-size $ripple_duration $deceleration_curve,
                 background-image $ripple_opacity_duration $deceleration_curve;
     box-shadow: inset 0 0 0 9999px transparent;
@@ -213,10 +213,10 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
   }
 
   @if $t == flat-active {
-    transition: $longer_transition,
+    transition: $shorter_transition,
                 background-size 0,
                 background-image 0;
-    animation: ripple_effect $longer_duration $deceleration_curve forwards;
+    animation: ripple_effect $shorter_duration $deceleration_curve forwards;
     box-shadow: inset 0 0 0 9999px $semi_track_color;
     background-image: radial-gradient(circle farthest-corner at center,
                                       $semi_track_color 10%,
@@ -290,7 +290,7 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
   }
 
   @if $t == header-hover {
-    transition: $longer_transition,
+    transition: $shorter_transition,
                 background-size 0,
                 background-image 0;
     animation: none;
@@ -303,10 +303,10 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
   }
 
   @if $t == header-active {
-    transition: $longer_transition,
+    transition: $shorter_transition,
                 background-size 0,
                 background-image 0;
-    animation: ripple_effect $longer_duration $deceleration_curve forwards;
+    animation: ripple_effect $shorter_duration $deceleration_curve forwards;
     box-shadow: inset 0 0 0 9999px $primary_color;
     background-image: radial-gradient(circle farthest-corner at center,
                                       $primary_color 10%,

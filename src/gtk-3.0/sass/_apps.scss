@@ -101,11 +101,11 @@ filechooser,
 %pathbar_widthbox_button {
   margin: 0;
   border-radius: 0;
-  transition: $longer_transition,
+  transition: $shorter_transition,
               background-size 0,
               background-image 0,
               background-color 0;
-  animation: ripple_effect $longer_duration $deceleration_curve forwards;
+  animation: ripple_effect $shorter_duration $deceleration_curve forwards;
   color: $secondary_headerbar_fg_color;
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                 $theme_color 0%,
@@ -157,12 +157,12 @@ filechooser,
 
 .nautilus-operations-button-needs-attention {
   color: $accent_color;
-  animation: needs_attention_keyframes $longer_duration $standard_curve 2 alternate;
+  animation: needs_attention_keyframes $shorter_duration $standard_curve 2 alternate;
 }
 
 .nautilus-operations-button-needs-attention-multiple {
   color: $accent_color;
-  animation: needs_attention_keyframes $longer_duration $standard_curve 4 alternate;
+  animation: needs_attention_keyframes $shorter_duration $standard_curve 4 alternate;
 }
 
 // Floating status bar
@@ -179,7 +179,7 @@ filechooser,
   border-radius: (2px + 1px) (2px + 1px) 0 0;
   background-color: $base_color;
   background-clip: $extra_background_clip;
-  transition: $longer_transition, border-width 0;
+  transition: $shorter_transition, border-width 0;
 
   &.bottom.left { // axes left border and border radius
     margin-right: 8px - 1px;
@@ -650,7 +650,7 @@ docktabstrip {
 }
 
 docktab {
-  transition: $longer_transition;
+  transition: $shorter_transition;
   min-height: $small_size;
   min-width: $small_size;
   margin-bottom: -1px;
@@ -670,7 +670,7 @@ docktab {
   }
 
   &:checked {
-    animation: tab_ripple_effect $longer_duration * 3 $deceleration_curve;
+    animation: tab_ripple_effect $shorter_duration * 3 $deceleration_curve;
     box-shadow: inset 0 -2px $primary_color;
     color: $fg_color;
   }

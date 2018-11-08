@@ -2,34 +2,37 @@ $asset_suffix: if($variant=='dark', '-dark', ''); // use dark assets in dark var
 $darker_asset_suffix: if($headerbar=='dark', '-dark', $asset_suffix);
 $extra_background_clip: if($variant == 'light', padding-box, border-box);
 
-$small_size: if($laptop == 'true', 20px, 22px);
-$medium_size: if($laptop == 'true', 32px, 36px);
-$large_size: if($laptop == 'true', 42px, 46px);
+// sizes
+$small_size: if($laptop == 'false', 24px, 20px);
+$medium_size: if($laptop == 'false', 36px, 32px);
+$large_size: if($laptop == 'false', 42px, 38px);
 
-$container_padding: 6px;
+$container_padding: if($laptop == 'false', 6px, 4px);
 
 $bar_size: 4px;
 $menuitem_size: 28px;
-
 $line_size: if($laptop == 'true', 0 0 3 / 0 0 3px, 0 0 3 / 0 0 3px);
+
+// radiuses
 $md_radius: 3px;
 $circular_radius: 100px;
 
-$shortest_duration: 100ms;
-$shorter_duration: 200ms;
-$shorter_duration: 300ms;
-$ripple_duration: 450ms;
+// durations
+$shorter_duration: 100ms;
+$longer_duration: 225ms;
+$ripple_duration: 300ms;
 $ripple_opacity_duration: 1000ms;
 
+// timing functions
 $normal_curve: cubic-bezier(0.05, 0.3, 0.6, 1);
 $standard_curve: cubic-bezier(0.4, 0.0, 0.2, 1);
 $deceleration_curve: cubic-bezier(0.0, 0.0, 0.2, 1);
 $acceleration_curve: cubic-bezier(0.4, 0.0, 1, 1);
 $sharp_curve: cubic-bezier(0.4, 0.0, 0.6, 1);
 
-$shortest_transition: all $shortest_duration $deceleration_curve;
+// transition shorthands
 $shorter_transition: all $shorter_duration $deceleration_curve;
-$shorter_transition: all $shorter_duration $deceleration_curve;
+$longer_transition: all $longer_duration $deceleration_curve;
 $shadow_transition: box-shadow $shorter_duration $deceleration_curve;
 
 * {
@@ -1193,7 +1196,7 @@ searchbar,
 %titlebar,
 headerbar {
   transition: background-color $shorter_duration $deceleration_curve, color $shorter_duration $deceleration_curve;
-  min-height: $large_size;
+  min-height: $medium_size;
   padding: 0 $container_padding;
   box-shadow: $header_shadow, inset 0 1px $secondary_highlight_color;
   background-color: $headerbar_bg_color;
@@ -1312,9 +1315,9 @@ headerbar {
     .fullscreen & { box-shadow: none; }
 
     button.titlebutton {
-      min-height: $small_size;
-      min-width: 26px;
-      margin: 0;
+      min-height: 16px;
+      min-width: 16px;
+      margin: 0 3px;
       padding: 0;
       transition: $shorter_duration;
     }

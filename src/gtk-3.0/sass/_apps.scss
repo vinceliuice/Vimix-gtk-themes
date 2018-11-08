@@ -14,14 +14,14 @@
 
 .nautilus-window notebook > header.top tabs, 
 .nautilus-window notebook > header.bottom tabs {
-    padding-left: 0;
-    padding-right: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .nautilus-window notebook > header.left tabs, 
 .nautilus-window notebook > header.right tabs {
-    padding-top: 0;
-    padding-bottom: 0; 
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .nautilus-canvas-item {
@@ -58,6 +58,7 @@ filechooser,
 
     row.sidebar-row {
       padding: 0;
+
       &:hover {
         transition: none;
         color: $inverse_theme_color;
@@ -66,6 +67,7 @@ filechooser,
       }
 
       &:active { box-shadow: inset 3px 0 $primary_color; }
+
       &:backdrop { opacity: 0.85; }
 
       &:selected {
@@ -80,21 +82,33 @@ filechooser,
   margin: 0;
   @extend %flat_button;
   color: $secondary_headerbar_fg_color;
+  background-color: transparent;
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                 $theme_color 0%,
                                 transparent 0%)
                                 0 0 0 / 0 0 0;
   &:hover {
+    background-color: transparent;
     color: $headerbar_fg_color;
-    background-color: rgba($headerbar_fg_color, 0.12);
+    box-shadow: inset 0 0 0 9999px rgba($headerbar_fg_color, 0.12);
   }
-  &:checked, &:active {
+
+  &:active, &:checked {
     color: $headerbar_fg_color;
     background-color: transparent;
+    box-shadow: inset 0 0 0 9999px rgba($headerbar_fg_color, 0.12);
     border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                   $theme_color 100%,
                                   transparent 0%)
                                   0 0 2 / 0 0 2px;
+    background-image: radial-gradient(circle farthest-corner at center,
+                                      rgba($headerbar_fg_color, 0.12) 10%,
+                                      transparent 0%);
+  }
+
+  &:checked { // Reset checked buttons
+    background: none;
+    box-shadow: none;
   }
 }
 
@@ -128,7 +142,8 @@ filechooser,
 
 .nautilus-window headerbar {
   .path-bar-box {
-    margin: $container_padding 0;
+    margin-top: $container_padding;
+    margin-bottom: $container_padding;
     border-radius: $md_radius;
 
     button { @extend %pathbar_box_button; }

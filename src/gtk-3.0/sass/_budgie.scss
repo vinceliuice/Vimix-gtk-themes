@@ -623,13 +623,13 @@ $stackswitcher_color: if($color == 'black' or $color == 'white', rgba(white, 0.6
     }
 
     &.top {
-      padding: 2px 0;
+      padding: 0;
       background-color: $primary_color;
       color: $inversed_fg_color;
 
       stackswitcher button {
         @extend %button_selected.flat;
-        margin: -$container_padding 0;
+        margin: -4px 0;
         min-height: $medium_size;
       }
 

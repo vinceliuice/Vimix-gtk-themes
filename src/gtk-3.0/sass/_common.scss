@@ -926,14 +926,14 @@ spinbutton {
 
       &, &:hover, &:active, &:checked, &:disabled {
         @extend %small_button;
-        border: solid $container_padding transparent;
+        border: solid 6px transparent;
       }
 
       &.up:dir(ltr),
-      &.down:dir(rtl) { margin-left: -$container_padding / 2; }
+      &.down:dir(rtl) { margin-left: -3px; }
 
       &.up:dir(rtl),
-      &.down:dir(ltr) { margin-right: -$container_padding / 2; }
+      &.down:dir(ltr) { margin-right: -3px; }
     }
   }
 

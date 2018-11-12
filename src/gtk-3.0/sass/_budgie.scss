@@ -14,19 +14,26 @@
   &:hover {
     color: $topbar_fg_color;
     background-color: rgba($topbar_fg_color, 0.1);
+    box-shadow: none;
   }
-  &:disabled { color: rgba($topbar_fg_color, 0.5); }
+  &:disabled {
+    color: rgba($topbar_fg_color, 0.5);
+    background-color: transparent;
+  }
   &:checked {
     background-color: rgba($topbar_fg_color, 0.12);
     color: $topbar_fg_color;
+    box-shadow: none;
   }
   &:active {
     background-color: rgba($topbar_fg_color, 0.15);
     color: $topbar_fg_color;
+    box-shadow: none;
   }
   &:checked:disabled {
     background-color: rgba($topbar_fg_color, 0.03);
     color: rgba($topbar_fg_color, 0.65);
+    box-shadow: none;
   }
 }
 

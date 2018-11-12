@@ -7135,25 +7135,30 @@ na-tray-applet {
 .budgie-panel button:hover, .budgie-panel #tasklist-button:hover, .budgie-panel button.flat.launcher:hover {
   color: #FFFFFF;
   background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: none;
 }
 
 .budgie-panel button:disabled, .budgie-panel #tasklist-button:disabled, .budgie-panel button.flat.launcher:disabled {
   color: rgba(255, 255, 255, 0.5);
+  background-color: transparent;
 }
 
 .budgie-panel button:checked, .budgie-panel #tasklist-button:checked, .budgie-panel button.flat.launcher:checked {
   background-color: rgba(255, 255, 255, 0.12);
   color: #FFFFFF;
+  box-shadow: none;
 }
 
 .budgie-panel button:active, .budgie-panel #tasklist-button:active, .budgie-panel button.flat.launcher:active {
   background-color: rgba(255, 255, 255, 0.15);
   color: #FFFFFF;
+  box-shadow: none;
 }
 
 .budgie-panel button:checked:disabled, .budgie-panel #tasklist-button:checked:disabled {
   background-color: rgba(255, 255, 255, 0.03);
   color: rgba(255, 255, 255, 0.65);
+  box-shadow: none;
 }
 
 .raven-mpris button.image-button {

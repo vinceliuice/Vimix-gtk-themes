@@ -110,6 +110,12 @@ install() {
   mkdir -p                                                                              ${THEME_DIR}/unity
   cp -ur ${SRC_DIR}/unity                                                               ${THEME_DIR}
 
+  mkdir -p                                                                              ${THEME_DIR}/cinnamon
+  cp -ur ${SRC_DIR}/cinnamon/cinnamon${ELSE_DARK}${theme}.css                           ${THEME_DIR}/cinnamon/cinnamon.css
+  cp -ur ${SRC_DIR}/cinnamon/assets${theme}/common-assets                               ${THEME_DIR}/cinnamon/assets
+  cp -ur ${SRC_DIR}/cinnamon/assets${theme}/assets${ELSE_DARK}/checkbox/*.svg           ${THEME_DIR}/cinnamon/assets/checkbox
+  cp -ur ${SRC_DIR}/cinnamon/assets${theme}/assets${ELSE_DARK}/menu/*.svg               ${THEME_DIR}/cinnamon/assets/menu
+  cp -ur ${SRC_DIR}/cinnamon/assets${theme}/assets${ELSE_DARK}/switch/*.svg             ${THEME_DIR}/cinnamon/assets/switch
 }
 
 # check command avalibility

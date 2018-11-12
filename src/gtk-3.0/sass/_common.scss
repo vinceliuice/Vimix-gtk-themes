@@ -113,8 +113,8 @@ $shadow_transition: box-shadow $shorter_duration $deceleration_curve;
   }
 }
 
-.view,
-%view {
+%view,
+.view {
   @extend row.activatable;
 
   background-color: $base_color;
@@ -151,7 +151,10 @@ textview border {
   color: $tertiary_fg_color;
 }
 
-iconview { @extend .view; }
+iconview {
+  @extend %view;
+  &:hover, &:active, &:selected { border-radius: 2px; }
+}
 
 .rubberband,
 rubberband {
@@ -728,7 +731,10 @@ button {
 
     &:not(.text-button) { @extend %simple_flat_button; }
   }
-  .primary-toolbar & { -gtk-icon-shadow: none; } // tango icons don't need shadows
+
+  .primary-toolbar & {
+    -gtk-icon-shadow: none; // tango icons don't need shadows
+  }
 }
 
 %needs_attention {
@@ -1103,21 +1109,29 @@ combobox {
 
 %combo_flat {
   border-radius: 0;
-  background-image: none;
+  background: none;
   font-weight: inherit;
 
   @include entry(flat-normal);
 
-  &:hover { box-shadow: inset 0 -2px $track_color; }
+  &:hover {
+    box-shadow: inset 0 -2px $high_track_color;
+    background: none;
+  }
 
   &:checked {
+    background: none;
     border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                   $primary_color 100%,
                                   transparent 0%)
                                   0 0 2 / 0 0 2px;
   }
 
-  &:disabled { color: $disabled_fg_color; }
+  &:disabled {
+    box-shadow: inset 0 -1px $semi_track_color;
+    color: $disabled_fg_color;
+    background: none;
+  }
 }
 
 /************
@@ -1168,6 +1182,42 @@ toolbar {
 
     switch { margin: ($container_padding / 2 + $container_padding) ($container_padding / 2); }
   }
+}
+
+%toolbar_flat_button {
+  background-color: transparent;
+  box-shadow: none;
+
+  &:hover {
+    background-color: rgba($fg_color, 0.15);
+    box-shadow: none;
+  }
+
+  &:disabled {
+    background-color: transparent;
+  }
+
+  &:active, &:checked {
+    color: $fg_color;
+    background-color: rgba($fg_color, 0.2);
+    box-shadow: none;
+  }
+
+  &:checked:disabled {
+    color: rgba($fg_color, 0.5);
+    background-color: rgba($fg_color, 0.1);
+    box-shadow: none;
+  }
+}
+
+.primary-toolbar {
+  button { @extend %toolbar_flat_button; }
+  button.combo { @extend %combo_flat; }
+
+  entry,
+  spinbutton:not(.vertical) { @extend %flat_entry; }
+
+  spinbutton:not(.vertical) entry { @extend %spinbutton_entry; }
 }
 
 //searchbar, location-bar & inline-toolbar
@@ -1354,29 +1404,29 @@ headerbar {
   // special case for stack-switchers
   .linked:not(.vertical):not(.path-bar).stack-switcher {
     > button {
-    border-radius: 0;
-    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                  $theme_color 0%,
-                                  transparent 0%)
-                                  0 0 0 / 0 0 0;
-
-    &:hover {
-      color: lighten($theme_color, 0.85);
-      box-shadow: inset 0 -2px rgba($theme_color, 0.5);
-      &, &:disabled { background-color: transparent; }
-    }
-
-    &:checked, &:active {
-      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    $theme_color 100%,
-                                    transparent 0%)
-                                    0 0 2 / 0 0 2px;
-      background: none;
-      color: $theme_color;
       border-radius: 0;
-     }
-   }
- }
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    $theme_color 0%,
+                                    transparent 0%)
+                                    0 0 0 / 0 0 0;
+
+      &:hover {
+        color: lighten($theme_color, 0.85);
+        box-shadow: inset 0 -2px rgba($theme_color, 0.5);
+        &, &:disabled { background-color: transparent; }
+      }
+
+      &:checked, &:active {
+        border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                      $theme_color 100%,
+                                      transparent 0%)
+                                      0 0 2 / 0 0 2px;
+        background: none;
+        color: $theme_color;
+        border-radius: 0;
+      }
+    }
+  }
 
   // special case for headerbar path-bars
   .linked:not(.vertical).path-bar {

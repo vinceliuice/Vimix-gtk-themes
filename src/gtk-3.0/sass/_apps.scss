@@ -1761,6 +1761,171 @@ window.thunar {
   }
 }
 
+//
+// Nemo
+//
+
+.nemo-window {
+
+  .toolbar {
+    button { @extend %toolbar_flat_button; }
+  }
+
+  .nemo-places-sidebar {
+    background-color: $lighter_bg_color;
+
+    &.frame { border-width: 0; }
+    .places-treeview {
+//      @extend row.activatable;
+    }
+  }
+
+  notebook {
+    background-color: $base_color;
+
+    .primary-toolbar {
+      background-color: $bg_color;
+
+      button,
+      combobox > .linked > button.combo {
+        @include button(normal);
+        &:hover { @include button(hover); }
+        &:active { @include button(active); }
+        &:disabled { @include button(disabled); }
+        &:checked { @include button(checked); }
+        &:checked:disabled { @include button(checked-disabled); }
+      }
+
+      entry {
+        @include entry(normal);
+        &:focus { @include entry(focus); }
+        &:disabled { @include entry(disabled); }
+      }
+    }
+  }
+
+  // Rename entry
+  .nemo-window-pane widget.entry {
+    border-radius: 3px;
+    padding: 3px 10px;
+    border-width: 2px;
+  }
+
+  .primary-toolbar {
+    padding-top: $container_padding;
+    padding-bottom: $container_padding;
+    border: none;
+    color: $headerbar_fg_color;
+    background-color: $headerbar_bg_color;
+    box-shadow: inset 0 -1px $borders_color;
+
+    button:not(.suggested-action):not(.destructive-action) { @extend %header_button; }
+
+    button, entry {
+      min-height: 24px;
+    }
+  }
+
+  // Pathbar
+  .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar,
+  .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) {
+    button { @extend %pathbar_box_button; }
+  }
+
+  .sidebar {
+    scrolledwindow.frame { border: none; } // Removed treeview double borders
+  }
+}
+
+//
+// Cinnamon-settings
+//
+
+%switcher_flat_button {
+  margin: 0;
+  border-radius: 0;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                $primary_color 0%,
+                                transparent 0%)
+                                0 0 0 / 0 0 0;
+
+  &:hover {
+    box-shadow: inset 0 -2px rgba($primary_color, 0.5);
+    background: none;
+  }
+
+  &:checked, &:active {
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  $primary_color 100%,
+                                  transparent 0%)
+                                  0 0 2 / 0 0 2px;
+    background: none;
+    color: $fg_color;
+  }
+}
+
+toolbar.primary-toolbar {
+  toolitem.raised {
+
+    button { @extend %toolbar_flat_button; }
+
+    stackswitcher.stack-switcher {
+      background-color: $lighter_bg_color;
+      border-radius: 3px;
+      border: none;
+      padding: 0 8px;
+
+      button { @extend %switcher_flat_button; }
+    }
+  }
+}
+
+//
+// Cinnamon dialogs
+//
+
+dialog.background {
+
+  .dialog-vbox {
+
+    stackswitcher.stack-switcher {
+      background-color: $lighter_bg_color;
+      border-radius: 3px;
+      border: none;
+      padding: 0 8px;
+
+      button { @extend %switcher_flat_button; }
+    }
+
+    .dialog-action-area {
+      button { @extend %toolbar_flat_button; }
+    }
+
+//    button { @extend %toolbar_flat_button; }
+    entry { @extend %flat_entry; }
+    button.combo { @extend %combo_flat; }
+  }
+}
+
+//
+// Cinnamon scrolledwindows
+//
+
+window.background {
+  stack {
+    scrolledwindow {
+      button { @extend %toolbar_flat_button; }
+      button.combo { @extend %combo_flat; }
+
+      entry,
+      spinbutton:not(.vertical) { @extend %flat_entry; }
+
+      spinbutton:not(.vertical) entry { @extend %spinbutton_entry; }
+    }
+  }
+}
+
+
 /*********
  * Unity *
  *********/
@@ -1877,4 +2042,4 @@ menuitem calendar .view {
     color: $menu_fg_color;
     padding: 2px 6px;
 }
-// Unity Music Control Button //
+

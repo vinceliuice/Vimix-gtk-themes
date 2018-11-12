@@ -77,6 +77,18 @@ widgets main borders color */
 widgets main borders color on backdrop windows */
 @define-color unfocused_borders #{"" +$borders_color};
 
+/* WM */
+$wm_highlight: lighten($headerbar_bg_color, 3%);
+$wm_bg_unfocused: $headerbar_bg_color;
+
+@define-color wm_title alpha(#{"" + $headerbar_fg_color}, 0.8);
+@define-color wm_unfocused_title alpha(#{"" + $headerbar_fg_color}, 0.5);
+
+@define-color wm_bg #{"" + $headerbar_bg_color};
+@define-color wm_bg_unfocused #{"" + $wm_bg_unfocused};
+
+@define-color wm_highlight #{"" + $wm_highlight};
+
 /*
 these are pretty self explicative */
 @define-color warning_color #{"" +$warning_color};

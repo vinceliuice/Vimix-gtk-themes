@@ -101,7 +101,7 @@ textview border {
 }
 
 iconview:hover, iconview:active, iconview:selected {
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
 .rubberband,
@@ -1245,29 +1245,25 @@ button {
 }
 
 notebook > stack:not(:only-child) revealer .linked:not(.vertical) > entry,
-notebook > stack:not(:only-child) revealer .linked:not(.vertical) > spinbutton:not(.vertical), .linked:not(.vertical) > entry, .linked > button, row .linked > button, popover.background.menu button,
-popover.background button.model, .gedit-search-slider button:dir(ltr), .gedit-search-slider button:dir(rtl), .linked:not(.vertical) > combobox > box > button.combo {
+notebook > stack:not(:only-child) revealer .linked:not(.vertical) > spinbutton:not(.vertical), .linked:not(.vertical) > entry, .linked > button, row .linked > button, .gedit-search-slider button:dir(ltr), .gedit-search-slider button:dir(rtl), .linked:not(.vertical) > combobox > box > button.combo {
   border-radius: 0;
   -gtk-outline-radius: 3px;
 }
 
 notebook > stack:not(:only-child) revealer .linked:not(.vertical) > entry:first-child,
-notebook > stack:not(:only-child) revealer .linked:not(.vertical) > spinbutton:first-child:not(.vertical), .linked:not(.vertical) > entry:first-child, .linked > button:first-child, row .linked > button:first-child, combobox.linked button:nth-child(2):dir(rtl), .linked:not(.vertical) > combobox:first-child > box > button.combo, popover.background.menu button:first-child,
-popover.background button.model:first-child, .gedit-search-slider button:first-child:dir(ltr), .gedit-search-slider button:first-child:dir(rtl) {
+notebook > stack:not(:only-child) revealer .linked:not(.vertical) > spinbutton:first-child:not(.vertical), .linked:not(.vertical) > entry:first-child, .linked > button:first-child, row .linked > button:first-child, combobox.linked button:nth-child(2):dir(rtl), .linked:not(.vertical) > combobox:first-child > box > button.combo, .gedit-search-slider button:first-child:dir(ltr), .gedit-search-slider button:first-child:dir(rtl) {
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
 }
 
 notebook > stack:not(:only-child) revealer .linked:not(.vertical) > entry:last-child,
-notebook > stack:not(:only-child) revealer .linked:not(.vertical) > spinbutton:last-child:not(.vertical), .linked:not(.vertical) > entry:last-child, .linked > button:last-child, row .linked > button:last-child, combobox.linked button:nth-child(2):dir(ltr), .linked:not(.vertical) > combobox:last-child > box > button.combo, popover.background.menu button:last-child,
-popover.background button.model:last-child, .gedit-search-slider button:last-child:dir(ltr), .gedit-search-slider button:last-child:dir(rtl) {
+notebook > stack:not(:only-child) revealer .linked:not(.vertical) > spinbutton:last-child:not(.vertical), .linked:not(.vertical) > entry:last-child, .linked > button:last-child, row .linked > button:last-child, combobox.linked button:nth-child(2):dir(ltr), .linked:not(.vertical) > combobox:last-child > box > button.combo, .gedit-search-slider button:last-child:dir(ltr), .gedit-search-slider button:last-child:dir(rtl) {
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
 }
 
 notebook > stack:not(:only-child) revealer .linked:not(.vertical) > entry:only-child,
-notebook > stack:not(:only-child) revealer .linked:not(.vertical) > spinbutton:only-child:not(.vertical), .linked:not(.vertical) > entry:only-child, .linked > button:only-child, row .linked > button:only-child, .linked:not(.vertical) > combobox:only-child > box > button.combo, popover.background.menu button:only-child,
-popover.background button.model:only-child, .gedit-search-slider button:only-child:dir(ltr), .gedit-search-slider button:only-child:dir(rtl) {
+notebook > stack:not(:only-child) revealer .linked:not(.vertical) > spinbutton:only-child:not(.vertical), .linked:not(.vertical) > entry:only-child, .linked > button:only-child, row .linked > button:only-child, .linked:not(.vertical) > combobox:only-child > box > button.combo, .gedit-search-slider button:only-child:dir(ltr), .gedit-search-slider button:only-child:dir(rtl) {
   border-radius: 3px;
 }
 
@@ -2507,20 +2503,27 @@ popover.background > toolbar {
   background-color: transparent;
 }
 
+popover.background .linked button:not(.combo) {
+  border-radius: 3px;
+  margin: 0 2px;
+}
+
+popover.background .linked button {
+  border-radius: 0;
+}
+
 popover.background button:not(.suggested-action):not(.destructive-action) {
   box-shadow: none;
 }
 
 popover.background button:not(.suggested-action):not(.destructive-action):hover {
-  background-color: alpha(#F0544C, 0.8);
-  color: #FFFFFF;
-  border-color: alpha(#F0544C, 0.8);
+  background-color: rgba(0, 0, 0, 0.15);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 popover.background button:not(.suggested-action):not(.destructive-action):checked {
   background-color: #F0544C;
   color: #FFFFFF;
-  border-color: #F0544C;
 }
 
 popover.background button:not(.suggested-action):not(.destructive-action):disabled {
@@ -2529,9 +2532,8 @@ popover.background button:not(.suggested-action):not(.destructive-action):disabl
 }
 
 popover.background button:not(.suggested-action):not(.destructive-action):checked:disabled {
-  background-color: #f4817b;
-  color: #FFFFFF;
-  border-color: #f4817b;
+  background-color: rgba(240, 84, 76, 0.5);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 popover.background.menu button,

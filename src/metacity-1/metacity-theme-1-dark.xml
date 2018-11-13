@@ -19,15 +19,6 @@
 <constant name="C_title_focused" value="#f5f5f5" />
 <constant name="C_title_unfocused" value="#dedede" />
 
-<constant name="C_wm_button_background" value="#363636" />
-<constant name="C_wm_button_foreground" value="#363636" />
-<constant name="C_wm_button_unfocused" value="#363636" />
-
-<constant name="C_close_button" value="#787878" />
-<constant name="C_maximize_button" value="#787878" />
-<constant name="C_restore_button" value="#787878" />
-<constant name="C_minimize_button" value="#787878" />
-
 <!-- GEOMETRY -->
 
 <!-- Focused window -->
@@ -209,28 +200,28 @@
 	<line
 		x1="width-1" y1="0"
 		x2="width-1" y2="height"
-		color="C_border_focused" />
+		color="C_titlebar" />
 </draw_ops>
 
 <draw_ops name="border_right_unfocused">
 	<line
 		x1="width-1" y1="0"
 		x2="width-1" y2="height"
-		color="C_border_unfocused" />
+		color="C_titlebar_unfocused" />
 </draw_ops>
 
 <draw_ops name="border_left_focused">
 	<line
 		x1="0" y1="0"
 		x2="0" y2="height"
-		color="C_border_focused" />
+		color="C_titlebar" />
 </draw_ops>
 
 <draw_ops name="border_left_unfocused">
 	<line
 		x1="0" y1="0"
 		x2="0" y2="height"
-		color="C_border_unfocused" />
+		color="C_titlebar_unfocused" />
 </draw_ops>
 
 <!-- BUTTON ICONS -->
@@ -582,7 +573,7 @@
 	<button function="unstick" state="pressed"><draw_ops></draw_ops></button>
 </frame_style>
 
-<frame_style name="dialog_focused" geometry="normal">
+<frame_style name="dialog_focused" geometry="nobuttons">
 	<piece position="entire_background" draw_ops="entire_background_focused" />
 	<piece position="titlebar" draw_ops="rounded_titlebar_focused" />
 	<piece position="title" draw_ops="title_focused" />
@@ -616,7 +607,7 @@
 	<button function="unstick" state="pressed"><draw_ops></draw_ops></button>
 </frame_style>
 
-<frame_style name="dialog_unfocused" geometry="normal">
+<frame_style name="dialog_unfocused" geometry="nobuttons">
 	<piece position="entire_background" draw_ops="entire_background_unfocused" />
 	<piece position="titlebar" draw_ops="titlebar_fill_unfocused" />
 	<piece position="title" draw_ops="title_unfocused" />

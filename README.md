@@ -3,7 +3,8 @@
 
 Vimix is a flat Material Design theme for GTK 3, GTK 2 and Gnome-Shell which supports GTK 3 and GTK 2 based desktop environments like Gnome, Unity, Budgie, Pantheon, XFCE, Mate, etc.
 
-This theme is based on materia gtk theme of nana-4. Thanks nana-4 sincerely for his great job! 
+This theme is based on materia gtk theme of nana-4. Thanks nana-4 sincerely for his great job!
+
 materia gtk theme: https://github.com/nana-4/materia-theme
 
 ## Info
@@ -38,16 +39,16 @@ Run
 
 Usage:  `./Install`  **[OPTIONS...]**
 
-|  OPTIONS:     | |
-|:--------------|:-------------|
-| -d, --dest    | Specify theme destination directory (Default: $HOME/.themes) |
-| -n, --name    | Specify theme name (Default: vimix) |
-| -c, --color   | Specify theme color variant(s) **[standard/light/dark]** (Default: All variants) |
-| -t, --theme   | Specify hue theme variant(s) **[standard/doder/beryl/ruby]** (Default: All variants) |
-| -s, --size    | Specify theme size variant(s) **[standard/laptop]** (Default: All variants) |
-| -f, --flat    | Specify theme with flat and normal titlebutton style |
-| -o, --no-flat | Use colored titlebuttons in standard variants as well |
-| -h, --help    | Show this help |
+|  OPTIONS:      | |
+|:---------------|:-------------|
+| -d, --dest     | Specify theme destination directory (Default: $HOME/.themes) |
+| -n, --name     | Specify theme name (Default: vimix) |
+| -c, --color    | Specify theme color variant(s) **[standard/light/dark]** (Default: All variants) |
+| -t, --theme    | Specify hue theme variant(s) **[standard/doder/beryl/ruby]** (Default: All variants) |
+| -s, --size     | Specify theme size variant(s) **[standard/laptop]** (Default: All variants) |
+| -f, --flat     | Specify theme with flat and normal titlebutton style |
+| -o, --no-color | Use grey titlebuttons in standard variants |
+| -h, --help     | Show this help |
 
 if you want to get the last vimix theme version online, you can
 

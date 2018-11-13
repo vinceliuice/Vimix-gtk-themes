@@ -864,14 +864,9 @@ box.vertical > stack > box.vertical {
   background-color: $lighter_bg_color;
 
   decoration { border-radius: 2px; }
-}
 
-// Session Dialog
-.budgie-session-dialog {
-  @extend %budgie_dialog;
-
-  label:not(:last-child),
-  .dialog-title { font-size: 120%; }
+  entry { @extend %flat_entry; }
+  button { @extend %flat_button; }
 
   .linked.horizontal > button {
     padding: 8px 16px;
@@ -883,6 +878,31 @@ box.vertical > stack > box.vertical {
     &:first-child { border-bottom-left-radius: 2px; }
     &:last-child { border-bottom-right-radius: 2px; }
   }
+
+  @each $b_type, $b_color in (suggested-action, $suggested_color),
+                             (destructive-action, $destructive_color) {
+    .linked.horizontal > button.#{$b_type} {
+
+      &, &:hover { color: $b_color; }
+
+      &:active, &:checked {
+        background-color: $b_color;
+        color: white;
+        border-color: $b_color;
+        box-shadow: none;
+      }
+
+      &:disabled { opacity: 0.65; }
+    }
+  }
+}
+
+// Session Dialog
+.budgie-session-dialog {
+  @extend %budgie_dialog;
+
+  label:not(:last-child),
+  .dialog-title { font-size: 120%; }
 }
 
 // PolKit Dialog
@@ -890,7 +910,6 @@ box.vertical > stack > box.vertical {
   @extend %budgie_dialog;
 
   .message { color: $tertiary_fg_color; }
-
   .failure { color: $destructive_color; }
 }
 

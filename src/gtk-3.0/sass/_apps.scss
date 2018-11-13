@@ -12,13 +12,13 @@
   background: $base_color;
 }
 
-.nautilus-window notebook > header.top tabs, 
+.nautilus-window notebook > header.top tabs,
 .nautilus-window notebook > header.bottom tabs {
   padding-left: 0;
   padding-right: 0;
 }
 
-.nautilus-window notebook > header.left tabs, 
+.nautilus-window notebook > header.left tabs,
 .nautilus-window notebook > header.right tabs {
   padding-top: 0;
   padding-bottom: 0;
@@ -1593,6 +1593,20 @@ window.background > box.vertical > toolbar.primary-toolbar {
   separator { opacity: 0; }
 }
 
+.geary-composer-box {
+
+  .linked > button:not(.combo) { border-radius: $md_radius; }
+  .linked > button.combo { border-radius: 0; }
+
+  button { @extend %flat_button; }
+
+  entry,
+  spinbutton:not(.vertical) { @extend %flat_entry; }
+
+  spinbutton:not(.vertical) entry { @extend %spinbutton_entry; }
+  button.combo { @extend %combo_flat; }
+}
+
 //
 // Xfce4
 //
@@ -1921,6 +1935,8 @@ window.background {
       spinbutton:not(.vertical) { @extend %flat_entry; }
 
       spinbutton:not(.vertical) entry { @extend %spinbutton_entry; }
+
+      infobar { button { @extend %selected_button; }}
     }
   }
 }
@@ -2042,4 +2058,3 @@ menuitem calendar .view {
     color: $menu_fg_color;
     padding: 2px 6px;
 }
-

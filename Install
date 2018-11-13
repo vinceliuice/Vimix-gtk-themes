@@ -27,7 +27,7 @@ usage() {
   printf "  %-25s%s\n" "-t, --theme VARIANTS" "Specify hue theme variant(s) [standard|doder|beryl|ruby] (Default: All variants)"
   printf "  %-25s%s\n" "-s, --size VARIANTS" "Specify theme size variant(s) [standard|laptop] (Default: All variants)"
   printf "  %-25s%s\n" "-f, --flat" "Specify theme with flat and normal titlebutton style"
-  printf "  %-25s%s\n" "-o, --no-flat" "Use colored titlebuttons in standard variants as well"
+  printf "  %-25s%s\n" "-o, --no-color" "Use grey titlebuttons in standard variants"
   printf "  %-25s%s\n" "-h, --help" "Show this help"
 }
 
@@ -47,69 +47,87 @@ install() {
 
   echo "Installing '${THEME_DIR}'..."
 
+  #  Copy LICENSE
   mkdir -p                                                                              ${THEME_DIR}
   cp -ur ${REO_DIR}/LICENSE                                                             ${THEME_DIR}
   cp -ur ${REO_DIR}/AUTHORS                                                             ${THEME_DIR}
 
-  echo "[Desktop Entry]" >> ${THEME_DIR}/index.theme
-  echo "Type=X-GNOME-Metatheme" >> ${THEME_DIR}/index.theme
-  echo "Name=${name}${color}${size}${theme}" >> ${THEME_DIR}/index.theme
-  echo "Comment=An Clean Gtk+ theme based on Flat Design" >> ${THEME_DIR}/index.theme
-  echo "Encoding=UTF-8" >> ${THEME_DIR}/index.theme
-  echo "" >> ${THEME_DIR}/index.theme
-  echo "[X-GNOME-Metatheme]" >> ${THEME_DIR}/index.theme
-  echo "GtkTheme=${name}${color}${size}${theme}" >> ${THEME_DIR}/index.theme
-  echo "MetacityTheme=${name}${color}${size}${theme}" >> ${THEME_DIR}/index.theme
-  echo "IconTheme=Adwaita" >> ${THEME_DIR}/index.theme
-  echo "CursorTheme=Adwaita" >> ${THEME_DIR}/index.theme
-  echo "ButtonLayout=menu:minimize,maximize,close" >> ${THEME_DIR}/index.theme
+  #  Install index.theme files
+  echo "[Desktop Entry]"                                                             >> ${THEME_DIR}/index.theme
+  echo "Type=X-GNOME-Metatheme"                                                      >> ${THEME_DIR}/index.theme
+  echo "Name=${name}${color}${size}${theme}"                                         >> ${THEME_DIR}/index.theme
+  echo "Comment=An Clean Gtk+ theme based on Flat Design"                            >> ${THEME_DIR}/index.theme
+  echo "Encoding=UTF-8"                                                              >> ${THEME_DIR}/index.theme
+  echo ""                                                                            >> ${THEME_DIR}/index.theme
+  echo "[X-GNOME-Metatheme]"                                                         >> ${THEME_DIR}/index.theme
+  echo "GtkTheme=${name}${color}${size}${theme}"                                     >> ${THEME_DIR}/index.theme
+  echo "MetacityTheme=${name}${color}${size}${theme}"                                >> ${THEME_DIR}/index.theme
+  echo "IconTheme=Adwaita"                                                           >> ${THEME_DIR}/index.theme
+  echo "CursorTheme=Adwaita"                                                         >> ${THEME_DIR}/index.theme
+  echo "ButtonLayout=menu:minimize,maximize,close"                                   >> ${THEME_DIR}/index.theme
 
+  #  Install gtk2 theme
   mkdir -p                                                                              ${THEME_DIR}/gtk-2.0
   cp -ur ${SRC_DIR}/gtk-2.0/common/*.rc                                                 ${THEME_DIR}/gtk-2.0
   cp -ur ${SRC_DIR}/gtk-2.0/assets/vimix${theme}/assets${ELSE_DARK}                     ${THEME_DIR}/gtk-2.0/assets
   cp -ur ${SRC_DIR}/gtk-2.0/gtkrc${color}${theme}                                       ${THEME_DIR}/gtk-2.0/gtkrc
 
+  #  Install gtk3 theme
   mkdir -p                                                                              ${THEME_DIR}/gtk-3.0/assets
   cp -ur ${SRC_DIR}/gtk-3.0/assets/assets${theme}/*.png                                 ${THEME_DIR}/gtk-3.0/assets
-  [[ ${theme} != '' || ${no_flat} == 'true' ]] && \
+
+  [[ ${no_color} == '' ]] && \
   cp -ur ${SRC_DIR}/gtk-3.0/assets/window-assets                                        ${THEME_DIR}/gtk-3.0/assets
-  [[ ${theme} == '' && ${no_flat} == '' ]] && \
+
+  [[ ${theme} == '' && ${no_color} == 'true' ]] && \
   cp -ur ${SRC_DIR}/gtk-3.0/assets/window-assets-contrast                               ${THEME_DIR}/gtk-3.0/assets/window-assets
   cp -ur ${SRC_DIR}/gtk-3.0/assets/scalable                                             ${THEME_DIR}/gtk-3.0/assets
   cp -ur ${SRC_DIR}/gtk-3.0/gtk${color}${size}${theme}.css                              ${THEME_DIR}/gtk-3.0/gtk.css
+
   [[ ${color} != '-dark' ]] && \
   cp -ur ${SRC_DIR}/gtk-3.0/gtk-dark${size}${theme}.css                                 ${THEME_DIR}/gtk-3.0/gtk-dark.css
   cp -ur ${SRC_DIR}/gtk-3.0/assets/thumbnails/thumbnail${color}${theme}.png             ${THEME_DIR}/gtk-3.0/thumbnail.png
 
+  #  Install gnome-shell theme
   mkdir -p                                                                              ${THEME_DIR}/gnome-shell
   cp -ur ${SRC_DIR}/gnome-shell/{extensions,message-indicator-symbolic.svg,pad-osd.css} ${THEME_DIR}/gnome-shell
   cp -ur ${SRC_DIR}/gnome-shell/common-assets                                           ${THEME_DIR}/gnome-shell/assets
   cp -ur ${SRC_DIR}/gnome-shell/assets${ELSE_DARK}/*.svg                                ${THEME_DIR}/gnome-shell/assets
-  cp -ur ${SRC_DIR}/gnome-shell/color-assets/{checkbox${theme}.svg,more-results${theme}.svg,toggle-on${theme}.svg} ${THEME_DIR}/gnome-shell/assets
+  cp -ur ${SRC_DIR}/gnome-shell/color-assets/checkbox${theme}.svg                       ${THEME_DIR}/gnome-shell/assets
+  cp -ur ${SRC_DIR}/gnome-shell/color-assets/more-results${theme}.svg                   ${THEME_DIR}/gnome-shell/assets
+  cp -ur ${SRC_DIR}/gnome-shell/color-assets/toggle-on${theme}.svg                      ${THEME_DIR}/gnome-shell/assets
   cp -ur ${SRC_DIR}/gnome-shell/gnome-shell${color}${size}${theme}.css                  ${THEME_DIR}/gnome-shell/gnome-shell.css
+
   cd ${THEME_DIR}/gnome-shell
   ln -s assets/no-events.svg no-events.svg
   ln -s assets/process-working.svg process-working.svg
   ln -s assets/no-notifications.svg no-notifications.svg
 
+  #  Install metacity theme
   mkdir -p                                                                              ${THEME_DIR}/metacity-1
   cp -ur ${SRC_DIR}/metacity-1/assets/*.png                                             ${THEME_DIR}/metacity-1
   cp -ur ${SRC_DIR}/metacity-1/metacity-theme-1${color}${theme}.xml                     ${THEME_DIR}/metacity-1/metacity-theme-1.xml
   cp -ur ${SRC_DIR}/metacity-1/thumbnail${color}.png                                    ${THEME_DIR}/metacity-1/thumbnail.png
+
   cd ${THEME_DIR}/metacity-1
   ln -s metacity-theme-1.xml metacity-theme-2.xml
   ln -s metacity-theme-1.xml metacity-theme-3.xml
 
+  #  Install xfwm4 theme
   mkdir -p                                                                              ${THEME_DIR}/xfwm4
   cp -ur ${SRC_DIR}/xfwm4/themerc${color}                                               ${THEME_DIR}/xfwm4/themerc
-  [[ ${theme} != '' || ${no_flat} == 'true' ]] && \
+
+  [[ ${no_color} == '' ]] && \
   cp -ur ${SRC_DIR}/xfwm4/assets${color}${theme}/*.png                                  ${THEME_DIR}/xfwm4
-  [[ ${theme} == '' && ${no_flat} == '' ]] && \
+
+  [[ ${theme} == '' && ${no_color} == 'true' ]] && \
   cp -ur ${SRC_DIR}/xfwm4/assets${color}-contrast/*.png                                 ${THEME_DIR}/xfwm4
 
+  #  Install unity theme
   mkdir -p                                                                              ${THEME_DIR}/unity
   cp -ur ${SRC_DIR}/unity                                                               ${THEME_DIR}
 
+  #  Install cinnamon theme
   mkdir -p                                                                              ${THEME_DIR}/cinnamon
   cp -ur ${SRC_DIR}/cinnamon/cinnamon${ELSE_DARK}${theme}.css                           ${THEME_DIR}/cinnamon/cinnamon.css
   cp -ur ${SRC_DIR}/cinnamon/assets${theme}/common-assets                               ${THEME_DIR}/cinnamon/assets
@@ -119,11 +137,12 @@ install() {
   cp -ur ${SRC_DIR}/cinnamon/thumbnail${ELSE_DARK}${theme}.png                          ${THEME_DIR}/cinnamon/thumbnail.png
 }
 
-# check command avalibility
+#  Check command avalibility
 function has_command() {
   command -v $1 > /dev/null
 }
 
+#  Install needed packages
 install_package() {
   if [ ! "$(which sassc 2> /dev/null)" ]; then
      echo sassc needs to be installed to generate the css.
@@ -141,10 +160,12 @@ install_package() {
   fi
 }
 
+#  Parse sass to css
 parse_sass() {
   cd ${REO_DIR} && ./parse-sass.sh
 }
 
+#  Install theme
 install_theme() {
 for color in "${colors[@]:-${COLOR_VARIANTS[@]}}"; do
   for size in "${sizes[@]:-${SIZE_VARIANTS[@]}}"; do
@@ -155,17 +176,16 @@ for color in "${colors[@]:-${COLOR_VARIANTS[@]}}"; do
 done
 }
 
+#  Install flat version theme
 install_flat() {
-
 OLD_TITLE_1="@extend %titlebuttons;" 
 OLD_TITLE_2="@extend %solid_titlebuttons;" 
 NEW_TITLE=""
 
-# change titlebutton style
+##  change titlebutton style
 cd ${SRC_DIR}/gtk-3.0/sass
 sed -i "s/$OLD_TITLE_1/$NEW_TITLE/g" _common.scss
 sed -i "s/$OLD_TITLE_2/$NEW_TITLE/g" _common.scss
-
 }
 
 while [[ $# -gt 0 ]]; do
@@ -186,8 +206,8 @@ while [[ $# -gt 0 ]]; do
       flat='true'
       shift 1
       ;;
-    -o|--no-flat)
-      no_flat='true'
+    -o|--no-color)
+      no_color='true'
       shift 1
       ;; 
     -t|--theme)

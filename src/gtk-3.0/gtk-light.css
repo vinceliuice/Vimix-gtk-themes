@@ -283,7 +283,8 @@ entry.flat:disabled, spinbutton.flat:disabled:not(.vertical) {
 .primary-toolbar entry,
 .primary-toolbar spinbutton:not(.vertical), popover.background entry, notebook > stack:not(:only-child) entry,
 notebook > stack:not(:only-child) spinbutton:not(.vertical), messagedialog entry, colorchooser .popover.osd spinbutton:not(.vertical), layoutpane entry.search, editortweak entry.search, .geary-composer-box entry,
-.geary-composer-box spinbutton:not(.vertical), window#whiskermenu-window entry, dialog.background .dialog-vbox entry, window.background stack scrolledwindow entry,
+.geary-composer-box spinbutton:not(.vertical), window#whiskermenu-window entry, dialog.background .dialog-vbox stack entry,
+dialog.background .dialog-vbox stack spinbutton:not(.vertical), window.background stack scrolledwindow entry,
 window.background stack scrolledwindow spinbutton:not(.vertical), .budgie-popover entry,
 .budgie-popover spinbutton:not(.vertical), .raven .raven-background spinbutton:not(.vertical), .budgie-session-dialog entry, .budgie-polkit-dialog entry, .budgie-run-dialog entry, #login_window entry,
 .background entry.flat,
@@ -299,7 +300,8 @@ window.background stack scrolledwindow spinbutton:not(.vertical), .budgie-popove
 .primary-toolbar entry:focus,
 .primary-toolbar spinbutton:focus:not(.vertical), popover.background entry:focus, notebook > stack:not(:only-child) entry:focus,
 notebook > stack:not(:only-child) spinbutton:focus:not(.vertical), messagedialog entry:focus, colorchooser .popover.osd spinbutton:focus:not(.vertical), layoutpane entry.search:focus, editortweak entry.search:focus, .geary-composer-box entry:focus,
-.geary-composer-box spinbutton:focus:not(.vertical), window#whiskermenu-window entry:focus, dialog.background .dialog-vbox entry:focus, window.background stack scrolledwindow entry:focus,
+.geary-composer-box spinbutton:focus:not(.vertical), window#whiskermenu-window entry:focus, dialog.background .dialog-vbox stack entry:focus,
+dialog.background .dialog-vbox stack spinbutton:focus:not(.vertical), window.background stack scrolledwindow entry:focus,
 window.background stack scrolledwindow spinbutton:focus:not(.vertical), .budgie-popover entry:focus,
 .budgie-popover spinbutton:focus:not(.vertical), .raven .raven-background spinbutton:focus:not(.vertical), .budgie-session-dialog entry:focus, .budgie-polkit-dialog entry:focus, .budgie-run-dialog entry:focus, #login_window entry:focus,
 .background entry.flat:focus,
@@ -311,7 +313,8 @@ window.background stack scrolledwindow spinbutton:focus:not(.vertical), .budgie-
 .primary-toolbar entry:disabled,
 .primary-toolbar spinbutton:disabled:not(.vertical), popover.background entry:disabled, notebook > stack:not(:only-child) entry:disabled,
 notebook > stack:not(:only-child) spinbutton:disabled:not(.vertical), messagedialog entry:disabled, colorchooser .popover.osd spinbutton:disabled:not(.vertical), layoutpane entry.search:disabled, editortweak entry.search:disabled, .geary-composer-box entry:disabled,
-.geary-composer-box spinbutton:disabled:not(.vertical), window#whiskermenu-window entry:disabled, dialog.background .dialog-vbox entry:disabled, window.background stack scrolledwindow entry:disabled,
+.geary-composer-box spinbutton:disabled:not(.vertical), window#whiskermenu-window entry:disabled, dialog.background .dialog-vbox stack entry:disabled,
+dialog.background .dialog-vbox stack spinbutton:disabled:not(.vertical), window.background stack scrolledwindow entry:disabled,
 window.background stack scrolledwindow spinbutton:disabled:not(.vertical), .budgie-popover entry:disabled,
 .budgie-popover spinbutton:disabled:not(.vertical), .raven .raven-background spinbutton:disabled:not(.vertical), .budgie-session-dialog entry:disabled, .budgie-polkit-dialog entry:disabled, .budgie-run-dialog entry:disabled, #login_window entry:disabled,
 .background entry.flat:disabled,
@@ -1404,7 +1407,7 @@ spinbutton:not(.vertical) {
   padding: 0;
 }
 
-.primary-toolbar spinbutton:not(.vertical) entry, notebook > stack:not(:only-child) spinbutton:not(.vertical) entry, .geary-composer-box spinbutton:not(.vertical) entry, window.background stack scrolledwindow spinbutton:not(.vertical) entry, .budgie-popover spinbutton:not(.vertical) entry, .primary-toolbar spinbutton:not(.vertical) entry:focus, notebook > stack:not(:only-child) spinbutton:not(.vertical) entry:focus, .geary-composer-box spinbutton:not(.vertical) entry:focus, window.background stack scrolledwindow spinbutton:not(.vertical) entry:focus, .budgie-popover spinbutton:not(.vertical) entry:focus, .primary-toolbar spinbutton:not(.vertical) entry:disabled, notebook > stack:not(:only-child) spinbutton:not(.vertical) entry:disabled, .geary-composer-box spinbutton:not(.vertical) entry:disabled, window.background stack scrolledwindow spinbutton:not(.vertical) entry:disabled, .budgie-popover spinbutton:not(.vertical) entry:disabled,
+.primary-toolbar spinbutton:not(.vertical) entry, notebook > stack:not(:only-child) spinbutton:not(.vertical) entry, .geary-composer-box spinbutton:not(.vertical) entry, dialog.background .dialog-vbox stack spinbutton:not(.vertical) entry, window.background stack scrolledwindow spinbutton:not(.vertical) entry, .budgie-popover spinbutton:not(.vertical) entry, .primary-toolbar spinbutton:not(.vertical) entry:focus, notebook > stack:not(:only-child) spinbutton:not(.vertical) entry:focus, .geary-composer-box spinbutton:not(.vertical) entry:focus, dialog.background .dialog-vbox stack spinbutton:not(.vertical) entry:focus, window.background stack scrolledwindow spinbutton:not(.vertical) entry:focus, .budgie-popover spinbutton:not(.vertical) entry:focus, .primary-toolbar spinbutton:not(.vertical) entry:disabled, notebook > stack:not(:only-child) spinbutton:not(.vertical) entry:disabled, .geary-composer-box spinbutton:not(.vertical) entry:disabled, dialog.background .dialog-vbox stack spinbutton:not(.vertical) entry:disabled, window.background stack scrolledwindow spinbutton:not(.vertical) entry:disabled, .budgie-popover spinbutton:not(.vertical) entry:disabled,
 spinbutton:not(.vertical) entry,
 spinbutton:not(.vertical) entry:focus,
 spinbutton:not(.vertical) entry:disabled {
@@ -1577,7 +1580,7 @@ combobox:drop(active) {
   border-width: 1px;
 }
 
-.primary-toolbar button.combo, popover.background button.combo, notebook > stack:not(:only-child) button.combo, .geary-composer-box button.combo, dialog.background .dialog-vbox button.combo, window.background stack scrolledwindow button.combo, .budgie-popover button.combo, .raven .raven-background button.combo, #login_window #user_combobox button {
+.primary-toolbar button.combo, popover.background button.combo, notebook > stack:not(:only-child) button.combo, .geary-composer-box button.combo, dialog.background .dialog-vbox stack button.combo, window.background stack scrolledwindow button.combo, .budgie-popover button.combo, .raven .raven-background button.combo, #login_window #user_combobox button {
   border-radius: 0;
   background: none;
   font-weight: inherit;
@@ -1588,17 +1591,17 @@ combobox:drop(active) {
   color: rgba(0, 0, 0, 0.8);
 }
 
-.primary-toolbar button.combo:hover, popover.background button.combo:hover, notebook > stack:not(:only-child) button.combo:hover, .geary-composer-box button.combo:hover, dialog.background .dialog-vbox button.combo:hover, window.background stack scrolledwindow button.combo:hover, .budgie-popover button.combo:hover, .raven .raven-background button.combo:hover, #login_window #user_combobox button:hover {
+.primary-toolbar button.combo:hover, popover.background button.combo:hover, notebook > stack:not(:only-child) button.combo:hover, .geary-composer-box button.combo:hover, dialog.background .dialog-vbox stack button.combo:hover, window.background stack scrolledwindow button.combo:hover, .budgie-popover button.combo:hover, .raven .raven-background button.combo:hover, #login_window #user_combobox button:hover {
   box-shadow: inset 0 -2px alpha(currentColor, 0.4);
   background: none;
 }
 
-.primary-toolbar button.combo:checked, popover.background button.combo:checked, notebook > stack:not(:only-child) button.combo:checked, .geary-composer-box button.combo:checked, dialog.background .dialog-vbox button.combo:checked, window.background stack scrolledwindow button.combo:checked, .budgie-popover button.combo:checked, .raven .raven-background button.combo:checked, #login_window #user_combobox button:checked {
+.primary-toolbar button.combo:checked, popover.background button.combo:checked, notebook > stack:not(:only-child) button.combo:checked, .geary-composer-box button.combo:checked, dialog.background .dialog-vbox stack button.combo:checked, window.background stack scrolledwindow button.combo:checked, .budgie-popover button.combo:checked, .raven .raven-background button.combo:checked, #login_window #user_combobox button:checked {
   background: none;
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #686868 100%, transparent 0%) 0 0 2/0 0 2px;
 }
 
-.primary-toolbar button.combo:disabled, popover.background button.combo:disabled, notebook > stack:not(:only-child) button.combo:disabled, .geary-composer-box button.combo:disabled, dialog.background .dialog-vbox button.combo:disabled, window.background stack scrolledwindow button.combo:disabled, .budgie-popover button.combo:disabled, .raven .raven-background button.combo:disabled, #login_window #user_combobox button:disabled {
+.primary-toolbar button.combo:disabled, popover.background button.combo:disabled, notebook > stack:not(:only-child) button.combo:disabled, .geary-composer-box button.combo:disabled, dialog.background .dialog-vbox stack button.combo:disabled, window.background stack scrolledwindow button.combo:disabled, .budgie-popover button.combo:disabled, .raven .raven-background button.combo:disabled, #login_window #user_combobox button:disabled {
   box-shadow: inset 0 -1px alpha(currentColor, 0.12);
   color: rgba(0, 0, 0, 0.32);
   background: none;
@@ -1687,6 +1690,14 @@ toolbar:not(.inline-toolbar):not(.osd) switch {
   color: rgba(0, 0, 0, 0.5);
   background-color: rgba(0, 0, 0, 0.1);
   box-shadow: none;
+}
+
+.primary-toolbar .linked button:not(.combo) {
+  border-radius: 3px;
+}
+
+.primary-toolbar .linked button.combo {
+  border-radius: 0;
 }
 
 .inline-toolbar {
@@ -4476,12 +4487,12 @@ filechooserbutton:drop(active) {
 }
 
 stacksidebar.sidebar:dir(ltr) list, stacksidebar.sidebar.left list, stacksidebar.sidebar.left:dir(rtl) list, .sidebar:dir(ltr), .sidebar.left, .sidebar.left:dir(rtl) {
-  border-right: 1px solid gainsboro;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
   border-left-style: none;
 }
 
 stacksidebar.sidebar:dir(rtl) list .sidebar:dir(rtl), stacksidebar.sidebar.right list .sidebar:dir(rtl), .sidebar.right {
-  border-left: 1px solid gainsboro;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
   border-right-style: none;
 }
 
@@ -4600,7 +4611,7 @@ paned > separator {
   -gtk-icon-source: none;
   border-style: none;
   background-color: transparent;
-  background-image: image(rgba(0, 0, 0, 0.1));
+  background-image: image(gainsboro);
   background-size: 1px 1px;
 }
 
@@ -4608,7 +4619,7 @@ paned > separator.wide {
   min-width: 6px;
   min-height: 6px;
   background-color: #F5F5F5;
-  background-image: image(rgba(0, 0, 0, 0.1)), image(rgba(0, 0, 0, 0.1));
+  background-image: image(gainsboro), image(gainsboro);
   background-size: 1px 1px, 1px 1px;
 }
 
@@ -7005,6 +7016,10 @@ dialog.background .dialog-vbox stackswitcher.stack-switcher {
   border-radius: 3px;
   border: none;
   padding: 0 8px;
+}
+
+dialog.background .dialog-vbox filechooser .search-bar {
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.1);
 }
 
 /*********

@@ -1915,9 +1915,19 @@ dialog.background {
       button { @extend %toolbar_flat_button; }
     }
 
-//    button { @extend %toolbar_flat_button; }
-    entry { @extend %flat_entry; }
-    button.combo { @extend %combo_flat; }
+    stack {
+//      button { @extend %toolbar_flat_button; }
+
+      entry,
+      spinbutton:not(.vertical) { @extend %flat_entry; }
+
+      spinbutton:not(.vertical) entry { @extend %spinbutton_entry; }
+      button.combo { @extend %combo_flat; }
+    }
+
+    filechooser {
+      .search-bar { box-shadow: inset 0 -1px $borders_color; }
+    }
   }
 }
 

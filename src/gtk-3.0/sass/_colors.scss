@@ -70,7 +70,7 @@ $accent_color: #666666;
 @if $color == 'doder' { $primary_color: #4285F4; $alt_primary_color: #03a9f4; $accent_color: #18b8ff; }
 @if $color == 'beryl' { $primary_color: #2EB398; $alt_primary_color: #1eba9b; $accent_color: #0fd1ab; }
 
-@if $color == 'black' { 
+@if $color == 'black' {
     $primary_color: if($variant =='light', #686868, #686868);
     $alt_primary_color: if($variant =='light', #777777, #777777);
     $accent_color: if($variant =='light', #666666, #888888); }
@@ -102,9 +102,9 @@ $high_track_color: gtkalpha(currentColor, $disabled_opacity);
 $semi_track_color: gtkalpha(currentColor, $lower_opacity / 2);
 $zero_track_color: gtkalpha(currentColor, 0);
 $row_track_color: gtkalpha(currentColor, 0.05);
-$borders_color: if($variant == 'light', scale-alpha(#000000, 0.1), scale-alpha(#000000, 0.15));
-$solid_borders_color: if($variant == 'light', darken($bg_color, 10%), darken($bg_color, 3.5%));
-$darker_borders_color: if($variant == 'light', darken($bg_color, 15%), darken($bg_color, 5%));
+$borders_color: if($variant == 'light', scale-alpha(#000000, 0.1), scale-alpha(#000000, 0.18));
+$solid_borders_color: if($variant == 'light', darken($bg_color, 10%), darken($bg_color, 2.5%));
+$darker_borders_color: if($variant == 'light', darken($bg_color, 15%), darken($bg_color, 3.5%));
 $highlight_color: if($variant == 'light', scale-alpha(#FFFFFF, 0.4), scale-alpha(#FFFFFF, 0.3));
 $secondary_highlight_color: scale-alpha(#FFFFFF, 0.1);
 

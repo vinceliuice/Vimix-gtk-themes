@@ -1220,6 +1220,9 @@ toolbar {
   button { @extend %toolbar_flat_button; }
   button.combo { @extend %combo_flat; }
 
+  .linked button:not(.combo) { border-radius: $md_radius; }
+  .linked button.combo { border-radius: 0; }
+
   entry,
   spinbutton:not(.vertical) { @extend %flat_entry; }
 
@@ -3350,14 +3353,14 @@ filechooserbutton:drop(active) {
   &:dir(ltr),
   &.left,
   &.left:dir(rtl) {
-    border-right: 1px solid $solid_borders_color;
+    border-right: 1px solid $borders_color;
     border-left-style: none;
   }
 
   @at-root %sidebar_right
   &:dir(rtl),
   &.right {
-    border-left: 1px solid $solid_borders_color;
+    border-left: 1px solid $borders_color;
     border-right-style: none;
   }
 
@@ -3484,14 +3487,14 @@ paned {
     border-style: none; // just to be sure
     background-color: transparent;
     // workaround, using background istead of a border since the border will get rendered twice (?)
-    background-image: image($borders_color);
+    background-image: image($solid_borders_color);
     background-size: 1px 1px;
 
     &.wide {
       min-width: 6px;
       min-height: 6px;
       background-color: $bg_color;
-      background-image: image($borders_color), image($borders_color);
+      background-image: image($solid_borders_color), image($solid_borders_color);
       background-size: 1px 1px, 1px 1px;
     }
   }

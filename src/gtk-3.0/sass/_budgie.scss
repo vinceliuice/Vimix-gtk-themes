@@ -597,21 +597,29 @@ $stackswitcher_color: if($color == 'black' or $color == 'white', rgba(white, 0.6
 
   button.image-button { @extend %circular_button; }
 
-  stackswitcher.linked > button {
-    @extend %flat_button;
+  stackswitcher {
+    box-shadow: inset 0 -1px $borders_color;
 
-    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                  $stackswitcher_color 0%,
-                                  transparent 0%)
-                                  0 0 0 / 0 0 0px;
-    border-radius: 0;
-
-    &:checked {
-      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    $stackswitcher_color 100%,
-                                    transparent 0%)
-                                    0 0 2 / 0 0 2px;
+    &.stack-switcher {
+      background-image: none;
       background-color: transparent;
+      border-radius: 0;
+    }
+
+    &.linked > button {
+      @extend %flat_button;
+      border-radius: 0;
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    $stackswitcher_color 0%,
+                                    transparent 0%)
+                                    0 0 0 / 0 0 0px;
+      &:checked {
+        border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                      $stackswitcher_color 100%,
+                                      transparent 0%)
+                                      0 0 2 / 0 0 2px;
+        background-color: transparent;
+      }
     }
   }
 
@@ -634,10 +642,14 @@ $stackswitcher_color: if($color == 'black' or $color == 'white', rgba(white, 0.6
       background-color: $primary_color;
       color: $inversed_fg_color;
 
-      stackswitcher button {
-        @extend %button_selected.flat;
-        margin: -4px 0;
-        min-height: $medium_size;
+      stackswitcher {
+        box-shadow: none;
+
+        button {
+          @extend %button_selected.flat;
+          margin: -4px 0;
+          min-height: $medium_size;
+        }
       }
 
       // for <10.4

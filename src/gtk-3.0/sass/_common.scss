@@ -1872,6 +1872,32 @@ menuitem {
 /***************
  * Popovers   *
  ***************/
+
+%flat_theme_button {
+   box-shadow: none;
+   background-color: transparent;
+
+   &:hover {
+     background-color: rgba($fg_color, 0.15);
+     color: $fg_color;
+   }
+
+   &:checked {
+     background-color: $primary_color;
+     color: $inversed_fg_color;
+   }
+
+   &:disabled {
+     background-color: transparent;
+     color: $disabled_fg_color;
+   }
+
+   &:checked:disabled {
+     background-color: rgba($primary_color, 0.5);
+     color: rgba($inversed_fg_color, 0.5);
+   }
+ }
+
 popover.background {
   transition: $shadow_transition;
   padding: 0;
@@ -1908,27 +1934,7 @@ popover.background {
   .linked button { border-radius: 0; }
 
   button:not(.suggested-action):not(.destructive-action) {
-    box-shadow: none;
-
-    &:hover {
-      background-color: rgba($fg_color, 0.15);
-      color: $fg_color;
-    }
-
-    &:checked {
-      background-color: $primary_color;
-      color: $inversed_fg_color;
-    }
-
-    &:disabled {
-      background-color: $lighter_bg_color;
-      color: $disabled_fg_color;
-    }
-
-    &:checked:disabled {
-      background-color: rgba($primary_color, 0.5);
-      color: rgba($inversed_fg_color, 0.5);
-    }
+    @extend %flat_theme_button;
   }
 
   &.menu button,

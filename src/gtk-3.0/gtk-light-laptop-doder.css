@@ -274,7 +274,9 @@ entry.flat:disabled, spinbutton.flat:disabled:not(.vertical) {
 .primary-toolbar entry,
 .primary-toolbar spinbutton:not(.vertical), popover.background entry, notebook > stack:not(:only-child) entry,
 notebook > stack:not(:only-child) spinbutton:not(.vertical), messagedialog entry, colorchooser .popover.osd spinbutton:not(.vertical), layoutpane entry.search, editortweak entry.search, .geary-composer-box entry,
-.geary-composer-box spinbutton:not(.vertical), window#whiskermenu-window entry, dialog.background .dialog-vbox stack entry,
+.geary-composer-box spinbutton:not(.vertical), .tilix-search-frame entry,
+.tilix-search-frame .linked entry,
+.tilix-search-frame .linked entry.search, window#whiskermenu-window entry, dialog.background .dialog-vbox stack entry,
 dialog.background .dialog-vbox stack spinbutton:not(.vertical), window.background stack scrolledwindow entry,
 window.background stack scrolledwindow spinbutton:not(.vertical), .budgie-popover entry,
 .budgie-popover spinbutton:not(.vertical), .raven .raven-background spinbutton:not(.vertical), .budgie-session-dialog entry, .budgie-polkit-dialog entry, .budgie-run-dialog entry, #login_window entry,
@@ -291,7 +293,8 @@ window.background stack scrolledwindow spinbutton:not(.vertical), .budgie-popove
 .primary-toolbar entry:focus,
 .primary-toolbar spinbutton:focus:not(.vertical), popover.background entry:focus, notebook > stack:not(:only-child) entry:focus,
 notebook > stack:not(:only-child) spinbutton:focus:not(.vertical), messagedialog entry:focus, colorchooser .popover.osd spinbutton:focus:not(.vertical), layoutpane entry.search:focus, editortweak entry.search:focus, .geary-composer-box entry:focus,
-.geary-composer-box spinbutton:focus:not(.vertical), window#whiskermenu-window entry:focus, dialog.background .dialog-vbox stack entry:focus,
+.geary-composer-box spinbutton:focus:not(.vertical), .tilix-search-frame entry:focus,
+.tilix-search-frame .linked entry.search:focus, window#whiskermenu-window entry:focus, dialog.background .dialog-vbox stack entry:focus,
 dialog.background .dialog-vbox stack spinbutton:focus:not(.vertical), window.background stack scrolledwindow entry:focus,
 window.background stack scrolledwindow spinbutton:focus:not(.vertical), .budgie-popover entry:focus,
 .budgie-popover spinbutton:focus:not(.vertical), .raven .raven-background spinbutton:focus:not(.vertical), .budgie-session-dialog entry:focus, .budgie-polkit-dialog entry:focus, .budgie-run-dialog entry:focus, #login_window entry:focus,
@@ -304,7 +307,8 @@ window.background stack scrolledwindow spinbutton:focus:not(.vertical), .budgie-
 .primary-toolbar entry:disabled,
 .primary-toolbar spinbutton:disabled:not(.vertical), popover.background entry:disabled, notebook > stack:not(:only-child) entry:disabled,
 notebook > stack:not(:only-child) spinbutton:disabled:not(.vertical), messagedialog entry:disabled, colorchooser .popover.osd spinbutton:disabled:not(.vertical), layoutpane entry.search:disabled, editortweak entry.search:disabled, .geary-composer-box entry:disabled,
-.geary-composer-box spinbutton:disabled:not(.vertical), window#whiskermenu-window entry:disabled, dialog.background .dialog-vbox stack entry:disabled,
+.geary-composer-box spinbutton:disabled:not(.vertical), .tilix-search-frame entry:disabled,
+.tilix-search-frame .linked entry.search:disabled, window#whiskermenu-window entry:disabled, dialog.background .dialog-vbox stack entry:disabled,
 dialog.background .dialog-vbox stack spinbutton:disabled:not(.vertical), window.background stack scrolledwindow entry:disabled,
 window.background stack scrolledwindow spinbutton:disabled:not(.vertical), .budgie-popover entry:disabled,
 .budgie-popover spinbutton:disabled:not(.vertical), .raven .raven-background spinbutton:disabled:not(.vertical), .budgie-session-dialog entry:disabled, .budgie-polkit-dialog entry:disabled, .budgie-run-dialog entry:disabled, #login_window entry:disabled,
@@ -821,7 +825,7 @@ toolbutton button.image-button.toggle, .caja-pathbar button,
 .path-bar button, .nautilus-window headerbar .path-bar-box button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button, layouttabbar button, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button, window.csd > box.vertical > box.vertical > toolbar.horizontal button,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised, window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale, window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle,
-window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:not(.toggle):not(.raised):not(.flat), .geary-composer-box button:not(.combo), .mate-panel-menu-bar #PanelApplet button:not(.flat), .raven stackswitcher.linked > button, .budgie-session-dialog button, .budgie-polkit-dialog button, .budgie-run-dialog button, toolbar button, actionbar > revealer > box button:not(.suggested-action):not(.destructive-action):not(.server-list-button), .app-notification button,
+window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:not(.toggle):not(.raised):not(.flat), .geary-composer-box button:not(.combo), .tilix-search-frame button, .mate-panel-menu-bar #PanelApplet button:not(.flat), .raven stackswitcher.linked > button, .budgie-session-dialog button, .budgie-polkit-dialog button, .budgie-run-dialog button, toolbar button, actionbar > revealer > box button:not(.suggested-action):not(.destructive-action):not(.server-list-button), .app-notification button,
 button.flat {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 300ms cubic-bezier(0, 0, 0.2, 1), background-image 1000ms cubic-bezier(0, 0, 0.2, 1);
   box-shadow: inset 0 0 0 9999px transparent;
@@ -842,7 +846,7 @@ toolbutton button.image-button.toggle:hover, .caja-pathbar button:hover,
 .path-bar button:hover, .nautilus-window headerbar .path-bar-box button:hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:hover,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:hover, layouttabbar button:hover, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:hover, window.csd > box.vertical > box.vertical > toolbar.horizontal button:hover,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:hover, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:hover, window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:hover, window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:hover,
-window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:hover:not(.toggle):not(.raised):not(.flat), .geary-composer-box button:hover:not(.combo), .mate-panel-menu-bar #PanelApplet button:hover:not(.flat), .raven stackswitcher.linked > button:hover, .budgie-session-dialog button:hover, .budgie-polkit-dialog button:hover, .budgie-run-dialog button:hover, toolbar button:hover, actionbar > revealer > box button:hover:not(.suggested-action):not(.destructive-action):not(.server-list-button), .app-notification button:hover,
+window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:hover:not(.toggle):not(.raised):not(.flat), .geary-composer-box button:hover:not(.combo), .tilix-search-frame button:hover, .mate-panel-menu-bar #PanelApplet button:hover:not(.flat), .raven stackswitcher.linked > button:hover, .budgie-session-dialog button:hover, .budgie-polkit-dialog button:hover, .budgie-run-dialog button:hover, toolbar button:hover, actionbar > revealer > box button:hover:not(.suggested-action):not(.destructive-action):not(.server-list-button), .app-notification button:hover,
 button.flat:hover {
   box-shadow: inset 0 0 0 9999px alpha(currentColor, 0.12);
   color: rgba(0, 0, 0, 0.8);
@@ -857,7 +861,7 @@ toolbutton button.image-button.toggle:active, .caja-pathbar button:active,
 .path-bar button:active, .nautilus-window headerbar .path-bar-box button:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:active,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:active, layouttabbar button:active, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:active, window.csd > box.vertical > box.vertical > toolbar.horizontal button:active,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:active, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:active, window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:active, window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:active,
-window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:active:not(.toggle):not(.raised):not(.flat), .geary-composer-box button:active:not(.combo), .mate-panel-menu-bar #PanelApplet button:active:not(.flat), .raven stackswitcher.linked > button:active, .budgie-session-dialog button:active, .budgie-polkit-dialog button:active, .budgie-run-dialog button:active, toolbar button:active, actionbar > revealer > box button:active:not(.suggested-action):not(.destructive-action):not(.server-list-button), .app-notification button:active,
+window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:active:not(.toggle):not(.raised):not(.flat), .geary-composer-box button:active:not(.combo), .tilix-search-frame button:active, .mate-panel-menu-bar #PanelApplet button:active:not(.flat), .raven stackswitcher.linked > button:active, .budgie-session-dialog button:active, .budgie-polkit-dialog button:active, .budgie-run-dialog button:active, toolbar button:active, actionbar > revealer > box button:active:not(.suggested-action):not(.destructive-action):not(.server-list-button), .app-notification button:active,
 button.flat:active {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
   animation: ripple_effect 100ms cubic-bezier(0, 0, 0.2, 1) forwards;
@@ -876,7 +880,7 @@ toolbutton button.image-button.toggle:disabled, .caja-pathbar button:disabled,
 .path-bar button:disabled, .nautilus-window headerbar .path-bar-box button:disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:disabled,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:disabled, layouttabbar button:disabled, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:disabled, window.csd > box.vertical > box.vertical > toolbar.horizontal button:disabled,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:disabled, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:disabled, window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:disabled, window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:disabled,
-window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:disabled:not(.toggle):not(.raised):not(.flat), .geary-composer-box button:disabled:not(.combo), .mate-panel-menu-bar #PanelApplet button:disabled:not(.flat), .raven stackswitcher.linked > button:disabled, .budgie-session-dialog button:disabled, .budgie-polkit-dialog button:disabled, .budgie-run-dialog button:disabled, toolbar button:disabled, actionbar > revealer > box button:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), .app-notification button:disabled,
+window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:disabled:not(.toggle):not(.raised):not(.flat), .geary-composer-box button:disabled:not(.combo), .tilix-search-frame button:disabled, .mate-panel-menu-bar #PanelApplet button:disabled:not(.flat), .raven stackswitcher.linked > button:disabled, .budgie-session-dialog button:disabled, .budgie-polkit-dialog button:disabled, .budgie-run-dialog button:disabled, toolbar button:disabled, actionbar > revealer > box button:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), .app-notification button:disabled,
 button.flat:disabled {
   box-shadow: none;
   background-color: transparent;
@@ -889,7 +893,7 @@ toolbutton button.image-button.toggle:checked, .caja-pathbar button:checked,
 .path-bar button:checked, .nautilus-window headerbar .path-bar-box button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked, layouttabbar button:checked, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:checked, window.csd > box.vertical > box.vertical > toolbar.horizontal button:checked,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:checked, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:checked, window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:checked, window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:checked,
-window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:checked:not(.toggle):not(.raised):not(.flat), .geary-composer-box button:checked:not(.combo), .mate-panel-menu-bar #PanelApplet button:checked:not(.flat), .raven stackswitcher.linked > button:checked, .budgie-session-dialog button:checked, .budgie-polkit-dialog button:checked, .budgie-run-dialog button:checked, toolbar button:checked, actionbar > revealer > box button:checked:not(.suggested-action):not(.destructive-action):not(.server-list-button), .app-notification button:checked,
+window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:checked:not(.toggle):not(.raised):not(.flat), .geary-composer-box button:checked:not(.combo), .tilix-search-frame button:checked, .mate-panel-menu-bar #PanelApplet button:checked:not(.flat), .raven stackswitcher.linked > button:checked, .budgie-session-dialog button:checked, .budgie-polkit-dialog button:checked, .budgie-run-dialog button:checked, toolbar button:checked, actionbar > revealer > box button:checked:not(.suggested-action):not(.destructive-action):not(.server-list-button), .app-notification button:checked,
 button.flat:checked {
   color: rgba(0, 0, 0, 0.8);
   background-color: rgba(0, 0, 0, 0.2);
@@ -900,7 +904,7 @@ button.flat:checked {
 .path-bar button:checked:disabled, .nautilus-window headerbar .path-bar-box button:checked:disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked:disabled,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked:disabled, layouttabbar button:checked:disabled, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:checked:disabled, window.csd > box.vertical > box.vertical > toolbar.horizontal button:checked:disabled,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:checked:disabled, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:checked:disabled, window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:checked:disabled, window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:checked:disabled,
-window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:checked:disabled:not(.toggle):not(.raised):not(.flat), .geary-composer-box button:checked:disabled:not(.combo), .mate-panel-menu-bar #PanelApplet button:checked:disabled:not(.flat), .raven stackswitcher.linked > button:checked:disabled, .budgie-session-dialog button:checked:disabled, .budgie-polkit-dialog button:checked:disabled, .budgie-run-dialog button:checked:disabled, toolbar button:checked:disabled, actionbar > revealer > box button:checked:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), .app-notification button:checked:disabled,
+window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:checked:disabled:not(.toggle):not(.raised):not(.flat), .geary-composer-box button:checked:disabled:not(.combo), .tilix-search-frame button:checked:disabled, .mate-panel-menu-bar #PanelApplet button:checked:disabled:not(.flat), .raven stackswitcher.linked > button:checked:disabled, .budgie-session-dialog button:checked:disabled, .budgie-polkit-dialog button:checked:disabled, .budgie-run-dialog button:checked:disabled, toolbar button:checked:disabled, actionbar > revealer > box button:checked:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), .app-notification button:checked:disabled,
 button.flat:checked:disabled {
   background-color: rgba(0, 0, 0, 0.15);
   color: rgba(0, 0, 0, 0.32);
@@ -1555,7 +1559,7 @@ combobox:drop(active) {
   border-width: 1px;
 }
 
-.primary-toolbar button.combo, popover.background button.combo, notebook > stack:not(:only-child) button.combo, .geary-composer-box button.combo, dialog.background .dialog-vbox stack button.combo, window.background stack scrolledwindow button.combo, .budgie-popover button.combo, .raven .raven-background button.combo, #login_window #user_combobox button {
+.primary-toolbar button.combo, popover.background button.combo, notebook > stack:not(:only-child) button.combo, .geary-composer-box button.combo, .tilix-search-frame button.combo, dialog.background .dialog-vbox stack button.combo, window.background stack scrolledwindow button.combo, .budgie-popover button.combo, .raven .raven-background button.combo, #login_window #user_combobox button {
   border-radius: 0;
   background: none;
   font-weight: inherit;
@@ -1566,17 +1570,17 @@ combobox:drop(active) {
   color: rgba(0, 0, 0, 0.8);
 }
 
-.primary-toolbar button.combo:hover, popover.background button.combo:hover, notebook > stack:not(:only-child) button.combo:hover, .geary-composer-box button.combo:hover, dialog.background .dialog-vbox stack button.combo:hover, window.background stack scrolledwindow button.combo:hover, .budgie-popover button.combo:hover, .raven .raven-background button.combo:hover, #login_window #user_combobox button:hover {
+.primary-toolbar button.combo:hover, popover.background button.combo:hover, notebook > stack:not(:only-child) button.combo:hover, .geary-composer-box button.combo:hover, .tilix-search-frame button.combo:hover, dialog.background .dialog-vbox stack button.combo:hover, window.background stack scrolledwindow button.combo:hover, .budgie-popover button.combo:hover, .raven .raven-background button.combo:hover, #login_window #user_combobox button:hover {
   box-shadow: inset 0 -2px alpha(currentColor, 0.4);
   background: none;
 }
 
-.primary-toolbar button.combo:checked, popover.background button.combo:checked, notebook > stack:not(:only-child) button.combo:checked, .geary-composer-box button.combo:checked, dialog.background .dialog-vbox stack button.combo:checked, window.background stack scrolledwindow button.combo:checked, .budgie-popover button.combo:checked, .raven .raven-background button.combo:checked, #login_window #user_combobox button:checked {
+.primary-toolbar button.combo:checked, popover.background button.combo:checked, notebook > stack:not(:only-child) button.combo:checked, .geary-composer-box button.combo:checked, .tilix-search-frame button.combo:checked, dialog.background .dialog-vbox stack button.combo:checked, window.background stack scrolledwindow button.combo:checked, .budgie-popover button.combo:checked, .raven .raven-background button.combo:checked, #login_window #user_combobox button:checked {
   background: none;
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 100%, transparent 0%) 0 0 2/0 0 2px;
 }
 
-.primary-toolbar button.combo:disabled, popover.background button.combo:disabled, notebook > stack:not(:only-child) button.combo:disabled, .geary-composer-box button.combo:disabled, dialog.background .dialog-vbox stack button.combo:disabled, window.background stack scrolledwindow button.combo:disabled, .budgie-popover button.combo:disabled, .raven .raven-background button.combo:disabled, #login_window #user_combobox button:disabled {
+.primary-toolbar button.combo:disabled, popover.background button.combo:disabled, notebook > stack:not(:only-child) button.combo:disabled, .geary-composer-box button.combo:disabled, .tilix-search-frame button.combo:disabled, dialog.background .dialog-vbox stack button.combo:disabled, window.background stack scrolledwindow button.combo:disabled, .budgie-popover button.combo:disabled, .raven .raven-background button.combo:disabled, #login_window #user_combobox button:disabled {
   box-shadow: inset 0 -1px alpha(currentColor, 0.12);
   color: rgba(0, 0, 0, 0.32);
   background: none;
@@ -5157,7 +5161,17 @@ cursor-handle.insertion-cursor:dir(ltr), cursor-handle.insertion-cursor:dir(rtl)
 button.close,
 button.round-button,
 button.circular, check,
-radio, .nautilus-window headerbar > revealer > button, .raven button.image-button, .raven .raven-header:not(.top) button.image-button, .raven .expander-button, .budgie-notification-window button.image-button, .budgie-osd-window button.image-button, .budgie-switcher-window button.image-button,
+radio, .nautilus-window headerbar > revealer > button, .terminix-session-sidebar row.activatable button.tilix-sidebar-close-button, .terminix-session-sidebar iconview button.tilix-sidebar-close-button, .terminix-session-sidebar .view button.tilix-sidebar-close-button, .terminix-session-sidebar treeview.view header button button.tilix-sidebar-close-button, treeview.view header .terminix-session-sidebar button button.tilix-sidebar-close-button, .terminix-session-sidebar .budgie-menu button button.tilix-sidebar-close-button, .budgie-menu .terminix-session-sidebar button button.tilix-sidebar-close-button, .terminix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button, .terminix-session-sidebar iconview:selected button.tilix-sidebar-close-button, .terminix-session-sidebar .view:selected button.tilix-sidebar-close-button, .terminix-session-sidebar treeview.view header button:selected button.tilix-sidebar-close-button, treeview.view header .terminix-session-sidebar button:selected button.tilix-sidebar-close-button, .terminix-session-sidebar .budgie-menu button:selected button.tilix-sidebar-close-button, .budgie-menu .terminix-session-sidebar button:selected button.tilix-sidebar-close-button,
+list.tilix-session-sidebar row.activatable button.tilix-sidebar-close-button,
+list.tilix-session-sidebar iconview button.tilix-sidebar-close-button,
+list.tilix-session-sidebar .view button.tilix-sidebar-close-button,
+list.tilix-session-sidebar treeview.view header button button.tilix-sidebar-close-button, treeview.view header list.tilix-session-sidebar button button.tilix-sidebar-close-button,
+list.tilix-session-sidebar .budgie-menu button button.tilix-sidebar-close-button, .budgie-menu list.tilix-session-sidebar button button.tilix-sidebar-close-button,
+list.tilix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button,
+list.tilix-session-sidebar iconview:selected button.tilix-sidebar-close-button,
+list.tilix-session-sidebar .view:selected button.tilix-sidebar-close-button,
+list.tilix-session-sidebar treeview.view header button:selected button.tilix-sidebar-close-button, treeview.view header list.tilix-session-sidebar button:selected button.tilix-sidebar-close-button,
+list.tilix-session-sidebar .budgie-menu button:selected button.tilix-sidebar-close-button, .budgie-menu list.tilix-session-sidebar button:selected button.tilix-sidebar-close-button, widget > box.terminal-titlebar > button.image-button, widget > box.terminal-titlebar > button.image-button.toggle, .raven button.image-button, .raven .raven-header:not(.top) button.image-button, .raven .expander-button, .budgie-notification-window button.image-button, .budgie-osd-window button.image-button, .budgie-switcher-window button.image-button,
 button.circular {
   border-radius: 100px;
   -gtk-outline-radius: 100px;
@@ -6600,6 +6614,204 @@ popover.background list.geary-folder-popover-list .geary-folder-popover-list-row
 popover.background list.geary-folder-popover-list row.activatable.geary-folder-popover-list-row:disabled, popover.background list.geary-folder-popover-list iconview.geary-folder-popover-list-row:disabled,
 popover.background list.geary-folder-popover-list .geary-folder-popover-list-row.view:disabled, popover.background list.geary-folder-popover-list treeview.view header button.geary-folder-popover-list-row:disabled, treeview.view header popover.background list.geary-folder-popover-list button.geary-folder-popover-list-row:disabled, popover.background list.geary-folder-popover-list .budgie-menu button.geary-folder-popover-list-row:disabled, .budgie-menu popover.background list.geary-folder-popover-list button.geary-folder-popover-list-row:disabled {
   color: rgba(0, 0, 0, 0.32);
+}
+
+overlay > revealer.left > scrolledwindow.frame,
+overlay > revealer.right > scrolledwindow.frame {
+  border-style: none;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+}
+
+overlay > revealer.left > scrolledwindow.frame {
+  margin-right: 32px;
+}
+
+overlay > revealer.right > scrolledwindow.frame {
+  margin-left: 32px;
+}
+
+.tilix-search-frame entry,
+.tilix-search-frame .linked entry,
+.tilix-search-frame .linked entry.search {
+  border-radius: 0;
+}
+
+.tilix-search-frame .linked button {
+  border-radius: 3px;
+}
+
+.terminix-session-sidebar,
+list.tilix-session-sidebar {
+  background-color: #FCFCFC;
+}
+
+.terminix-session-sidebar row.activatable button.tilix-sidebar-close-button, .terminix-session-sidebar iconview button.tilix-sidebar-close-button, .terminix-session-sidebar .view button.tilix-sidebar-close-button, .terminix-session-sidebar treeview.view header button button.tilix-sidebar-close-button, treeview.view header .terminix-session-sidebar button button.tilix-sidebar-close-button, .terminix-session-sidebar .budgie-menu button button.tilix-sidebar-close-button, .budgie-menu .terminix-session-sidebar button button.tilix-sidebar-close-button, .terminix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button, .terminix-session-sidebar iconview:selected button.tilix-sidebar-close-button, .terminix-session-sidebar .view:selected button.tilix-sidebar-close-button, .terminix-session-sidebar treeview.view header button:selected button.tilix-sidebar-close-button, treeview.view header .terminix-session-sidebar button:selected button.tilix-sidebar-close-button, .terminix-session-sidebar .budgie-menu button:selected button.tilix-sidebar-close-button, .budgie-menu .terminix-session-sidebar button:selected button.tilix-sidebar-close-button,
+list.tilix-session-sidebar row.activatable button.tilix-sidebar-close-button,
+list.tilix-session-sidebar iconview button.tilix-sidebar-close-button,
+list.tilix-session-sidebar .view button.tilix-sidebar-close-button,
+list.tilix-session-sidebar treeview.view header button button.tilix-sidebar-close-button,
+treeview.view header list.tilix-session-sidebar button button.tilix-sidebar-close-button,
+list.tilix-session-sidebar .budgie-menu button button.tilix-sidebar-close-button,
+.budgie-menu list.tilix-session-sidebar button button.tilix-sidebar-close-button,
+list.tilix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button,
+list.tilix-session-sidebar iconview:selected button.tilix-sidebar-close-button,
+list.tilix-session-sidebar .view:selected button.tilix-sidebar-close-button,
+list.tilix-session-sidebar treeview.view header button:selected button.tilix-sidebar-close-button,
+treeview.view header list.tilix-session-sidebar button:selected button.tilix-sidebar-close-button,
+list.tilix-session-sidebar .budgie-menu button:selected button.tilix-sidebar-close-button,
+.budgie-menu list.tilix-session-sidebar button:selected button.tilix-sidebar-close-button {
+  min-height: 20px;
+  min-width: 20px;
+  padding: 0;
+  background-color: #FF5252;
+}
+
+.terminix-session-sidebar row.activatable button.tilix-sidebar-close-button, .terminix-session-sidebar iconview button.tilix-sidebar-close-button, .terminix-session-sidebar .view button.tilix-sidebar-close-button, .terminix-session-sidebar treeview.view header button button.tilix-sidebar-close-button, treeview.view header .terminix-session-sidebar button button.tilix-sidebar-close-button, .terminix-session-sidebar .budgie-menu button button.tilix-sidebar-close-button, .budgie-menu .terminix-session-sidebar button button.tilix-sidebar-close-button, .terminix-session-sidebar row.activatable button.tilix-sidebar-close-button:hover, .terminix-session-sidebar iconview button.tilix-sidebar-close-button:hover, .terminix-session-sidebar .view button.tilix-sidebar-close-button:hover, .terminix-session-sidebar treeview.view header button button.tilix-sidebar-close-button:hover, treeview.view header .terminix-session-sidebar button button.tilix-sidebar-close-button:hover, .terminix-session-sidebar .budgie-menu button button.tilix-sidebar-close-button:hover, .budgie-menu .terminix-session-sidebar button button.tilix-sidebar-close-button:hover, .terminix-session-sidebar row.activatable button.tilix-sidebar-close-button:active, .terminix-session-sidebar iconview button.tilix-sidebar-close-button:active, .terminix-session-sidebar .view button.tilix-sidebar-close-button:active, .terminix-session-sidebar treeview.view header button button.tilix-sidebar-close-button:active, treeview.view header .terminix-session-sidebar button button.tilix-sidebar-close-button:active, .terminix-session-sidebar .budgie-menu button button.tilix-sidebar-close-button:active, .budgie-menu .terminix-session-sidebar button button.tilix-sidebar-close-button:active, .terminix-session-sidebar row.activatable button.tilix-sidebar-close-button:checked, .terminix-session-sidebar iconview button.tilix-sidebar-close-button:checked, .terminix-session-sidebar .view button.tilix-sidebar-close-button:checked, .terminix-session-sidebar treeview.view header button button.tilix-sidebar-close-button:checked, treeview.view header .terminix-session-sidebar button button.tilix-sidebar-close-button:checked, .terminix-session-sidebar .budgie-menu button button.tilix-sidebar-close-button:checked, .budgie-menu .terminix-session-sidebar button button.tilix-sidebar-close-button:checked, .terminix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button, .terminix-session-sidebar iconview:selected button.tilix-sidebar-close-button, .terminix-session-sidebar .view:selected button.tilix-sidebar-close-button, .terminix-session-sidebar treeview.view header button:selected button.tilix-sidebar-close-button, treeview.view header .terminix-session-sidebar button:selected button.tilix-sidebar-close-button, .terminix-session-sidebar .budgie-menu button:selected button.tilix-sidebar-close-button, .budgie-menu .terminix-session-sidebar button:selected button.tilix-sidebar-close-button, .terminix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button:hover, .terminix-session-sidebar iconview:selected button.tilix-sidebar-close-button:hover, .terminix-session-sidebar .view:selected button.tilix-sidebar-close-button:hover, .terminix-session-sidebar treeview.view header button:selected button.tilix-sidebar-close-button:hover, treeview.view header .terminix-session-sidebar button:selected button.tilix-sidebar-close-button:hover, .terminix-session-sidebar .budgie-menu button:selected button.tilix-sidebar-close-button:hover, .budgie-menu .terminix-session-sidebar button:selected button.tilix-sidebar-close-button:hover, .terminix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button:active, .terminix-session-sidebar iconview:selected button.tilix-sidebar-close-button:active, .terminix-session-sidebar .view:selected button.tilix-sidebar-close-button:active, .terminix-session-sidebar treeview.view header button:selected button.tilix-sidebar-close-button:active, treeview.view header .terminix-session-sidebar button:selected button.tilix-sidebar-close-button:active, .terminix-session-sidebar .budgie-menu button:selected button.tilix-sidebar-close-button:active, .budgie-menu .terminix-session-sidebar button:selected button.tilix-sidebar-close-button:active, .terminix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button:checked, .terminix-session-sidebar iconview:selected button.tilix-sidebar-close-button:checked, .terminix-session-sidebar .view:selected button.tilix-sidebar-close-button:checked, .terminix-session-sidebar treeview.view header button:selected button.tilix-sidebar-close-button:checked, treeview.view header .terminix-session-sidebar button:selected button.tilix-sidebar-close-button:checked, .terminix-session-sidebar .budgie-menu button:selected button.tilix-sidebar-close-button:checked, .budgie-menu .terminix-session-sidebar button:selected button.tilix-sidebar-close-button:checked,
+list.tilix-session-sidebar row.activatable button.tilix-sidebar-close-button,
+list.tilix-session-sidebar iconview button.tilix-sidebar-close-button,
+list.tilix-session-sidebar .view button.tilix-sidebar-close-button,
+list.tilix-session-sidebar treeview.view header button button.tilix-sidebar-close-button,
+treeview.view header list.tilix-session-sidebar button button.tilix-sidebar-close-button,
+list.tilix-session-sidebar .budgie-menu button button.tilix-sidebar-close-button,
+.budgie-menu list.tilix-session-sidebar button button.tilix-sidebar-close-button,
+list.tilix-session-sidebar row.activatable button.tilix-sidebar-close-button:hover,
+list.tilix-session-sidebar iconview button.tilix-sidebar-close-button:hover,
+list.tilix-session-sidebar .view button.tilix-sidebar-close-button:hover,
+list.tilix-session-sidebar treeview.view header button button.tilix-sidebar-close-button:hover,
+treeview.view header list.tilix-session-sidebar button button.tilix-sidebar-close-button:hover,
+list.tilix-session-sidebar .budgie-menu button button.tilix-sidebar-close-button:hover,
+.budgie-menu list.tilix-session-sidebar button button.tilix-sidebar-close-button:hover,
+list.tilix-session-sidebar row.activatable button.tilix-sidebar-close-button:active,
+list.tilix-session-sidebar iconview button.tilix-sidebar-close-button:active,
+list.tilix-session-sidebar .view button.tilix-sidebar-close-button:active,
+list.tilix-session-sidebar treeview.view header button button.tilix-sidebar-close-button:active,
+treeview.view header list.tilix-session-sidebar button button.tilix-sidebar-close-button:active,
+list.tilix-session-sidebar .budgie-menu button button.tilix-sidebar-close-button:active,
+.budgie-menu list.tilix-session-sidebar button button.tilix-sidebar-close-button:active,
+list.tilix-session-sidebar row.activatable button.tilix-sidebar-close-button:checked,
+list.tilix-session-sidebar iconview button.tilix-sidebar-close-button:checked,
+list.tilix-session-sidebar .view button.tilix-sidebar-close-button:checked,
+list.tilix-session-sidebar treeview.view header button button.tilix-sidebar-close-button:checked,
+treeview.view header list.tilix-session-sidebar button button.tilix-sidebar-close-button:checked,
+list.tilix-session-sidebar .budgie-menu button button.tilix-sidebar-close-button:checked,
+.budgie-menu list.tilix-session-sidebar button button.tilix-sidebar-close-button:checked,
+list.tilix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button,
+list.tilix-session-sidebar iconview:selected button.tilix-sidebar-close-button,
+list.tilix-session-sidebar .view:selected button.tilix-sidebar-close-button,
+list.tilix-session-sidebar treeview.view header button:selected button.tilix-sidebar-close-button,
+treeview.view header list.tilix-session-sidebar button:selected button.tilix-sidebar-close-button,
+list.tilix-session-sidebar .budgie-menu button:selected button.tilix-sidebar-close-button,
+.budgie-menu list.tilix-session-sidebar button:selected button.tilix-sidebar-close-button,
+list.tilix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button:hover,
+list.tilix-session-sidebar iconview:selected button.tilix-sidebar-close-button:hover,
+list.tilix-session-sidebar .view:selected button.tilix-sidebar-close-button:hover,
+list.tilix-session-sidebar treeview.view header button:selected button.tilix-sidebar-close-button:hover,
+treeview.view header list.tilix-session-sidebar button:selected button.tilix-sidebar-close-button:hover,
+list.tilix-session-sidebar .budgie-menu button:selected button.tilix-sidebar-close-button:hover,
+.budgie-menu list.tilix-session-sidebar button:selected button.tilix-sidebar-close-button:hover,
+list.tilix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button:active,
+list.tilix-session-sidebar iconview:selected button.tilix-sidebar-close-button:active,
+list.tilix-session-sidebar .view:selected button.tilix-sidebar-close-button:active,
+list.tilix-session-sidebar treeview.view header button:selected button.tilix-sidebar-close-button:active,
+treeview.view header list.tilix-session-sidebar button:selected button.tilix-sidebar-close-button:active,
+list.tilix-session-sidebar .budgie-menu button:selected button.tilix-sidebar-close-button:active,
+.budgie-menu list.tilix-session-sidebar button:selected button.tilix-sidebar-close-button:active,
+list.tilix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button:checked,
+list.tilix-session-sidebar iconview:selected button.tilix-sidebar-close-button:checked,
+list.tilix-session-sidebar .view:selected button.tilix-sidebar-close-button:checked,
+list.tilix-session-sidebar treeview.view header button:selected button.tilix-sidebar-close-button:checked,
+treeview.view header list.tilix-session-sidebar button:selected button.tilix-sidebar-close-button:checked,
+list.tilix-session-sidebar .budgie-menu button:selected button.tilix-sidebar-close-button:checked,
+.budgie-menu list.tilix-session-sidebar button:selected button.tilix-sidebar-close-button:checked {
+  color: white;
+}
+
+.terminix-session-sidebar row.activatable button.tilix-sidebar-close-button:hover, .terminix-session-sidebar iconview button.tilix-sidebar-close-button:hover, .terminix-session-sidebar .view button.tilix-sidebar-close-button:hover, .terminix-session-sidebar treeview.view header button button.tilix-sidebar-close-button:hover, treeview.view header .terminix-session-sidebar button button.tilix-sidebar-close-button:hover, .terminix-session-sidebar .budgie-menu button button.tilix-sidebar-close-button:hover, .budgie-menu .terminix-session-sidebar button button.tilix-sidebar-close-button:hover, .terminix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button:hover, .terminix-session-sidebar iconview:selected button.tilix-sidebar-close-button:hover, .terminix-session-sidebar .view:selected button.tilix-sidebar-close-button:hover, .terminix-session-sidebar treeview.view header button:selected button.tilix-sidebar-close-button:hover, treeview.view header .terminix-session-sidebar button:selected button.tilix-sidebar-close-button:hover, .terminix-session-sidebar .budgie-menu button:selected button.tilix-sidebar-close-button:hover, .budgie-menu .terminix-session-sidebar button:selected button.tilix-sidebar-close-button:hover,
+list.tilix-session-sidebar row.activatable button.tilix-sidebar-close-button:hover,
+list.tilix-session-sidebar iconview button.tilix-sidebar-close-button:hover,
+list.tilix-session-sidebar .view button.tilix-sidebar-close-button:hover,
+list.tilix-session-sidebar treeview.view header button button.tilix-sidebar-close-button:hover,
+treeview.view header list.tilix-session-sidebar button button.tilix-sidebar-close-button:hover,
+list.tilix-session-sidebar .budgie-menu button button.tilix-sidebar-close-button:hover,
+.budgie-menu list.tilix-session-sidebar button button.tilix-sidebar-close-button:hover,
+list.tilix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button:hover,
+list.tilix-session-sidebar iconview:selected button.tilix-sidebar-close-button:hover,
+list.tilix-session-sidebar .view:selected button.tilix-sidebar-close-button:hover,
+list.tilix-session-sidebar treeview.view header button:selected button.tilix-sidebar-close-button:hover,
+treeview.view header list.tilix-session-sidebar button:selected button.tilix-sidebar-close-button:hover,
+list.tilix-session-sidebar .budgie-menu button:selected button.tilix-sidebar-close-button:hover,
+.budgie-menu list.tilix-session-sidebar button:selected button.tilix-sidebar-close-button:hover {
+  background-color: #ff6c6c;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.terminix-session-sidebar row.activatable button.tilix-sidebar-close-button:active, .terminix-session-sidebar iconview button.tilix-sidebar-close-button:active, .terminix-session-sidebar .view button.tilix-sidebar-close-button:active, .terminix-session-sidebar treeview.view header button button.tilix-sidebar-close-button:active, treeview.view header .terminix-session-sidebar button button.tilix-sidebar-close-button:active, .terminix-session-sidebar .budgie-menu button button.tilix-sidebar-close-button:active, .budgie-menu .terminix-session-sidebar button button.tilix-sidebar-close-button:active, .terminix-session-sidebar row.activatable button.tilix-sidebar-close-button:checked, .terminix-session-sidebar iconview button.tilix-sidebar-close-button:checked, .terminix-session-sidebar .view button.tilix-sidebar-close-button:checked, .terminix-session-sidebar treeview.view header button button.tilix-sidebar-close-button:checked, treeview.view header .terminix-session-sidebar button button.tilix-sidebar-close-button:checked, .terminix-session-sidebar .budgie-menu button button.tilix-sidebar-close-button:checked, .budgie-menu .terminix-session-sidebar button button.tilix-sidebar-close-button:checked, .terminix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button:active, .terminix-session-sidebar iconview:selected button.tilix-sidebar-close-button:active, .terminix-session-sidebar .view:selected button.tilix-sidebar-close-button:active, .terminix-session-sidebar treeview.view header button:selected button.tilix-sidebar-close-button:active, treeview.view header .terminix-session-sidebar button:selected button.tilix-sidebar-close-button:active, .terminix-session-sidebar .budgie-menu button:selected button.tilix-sidebar-close-button:active, .budgie-menu .terminix-session-sidebar button:selected button.tilix-sidebar-close-button:active, .terminix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button:checked, .terminix-session-sidebar iconview:selected button.tilix-sidebar-close-button:checked, .terminix-session-sidebar .view:selected button.tilix-sidebar-close-button:checked, .terminix-session-sidebar treeview.view header button:selected button.tilix-sidebar-close-button:checked, treeview.view header .terminix-session-sidebar button:selected button.tilix-sidebar-close-button:checked, .terminix-session-sidebar .budgie-menu button:selected button.tilix-sidebar-close-button:checked, .budgie-menu .terminix-session-sidebar button:selected button.tilix-sidebar-close-button:checked,
+list.tilix-session-sidebar row.activatable button.tilix-sidebar-close-button:active,
+list.tilix-session-sidebar iconview button.tilix-sidebar-close-button:active,
+list.tilix-session-sidebar .view button.tilix-sidebar-close-button:active,
+list.tilix-session-sidebar treeview.view header button button.tilix-sidebar-close-button:active,
+treeview.view header list.tilix-session-sidebar button button.tilix-sidebar-close-button:active,
+list.tilix-session-sidebar .budgie-menu button button.tilix-sidebar-close-button:active,
+.budgie-menu list.tilix-session-sidebar button button.tilix-sidebar-close-button:active,
+list.tilix-session-sidebar row.activatable button.tilix-sidebar-close-button:checked,
+list.tilix-session-sidebar iconview button.tilix-sidebar-close-button:checked,
+list.tilix-session-sidebar .view button.tilix-sidebar-close-button:checked,
+list.tilix-session-sidebar treeview.view header button button.tilix-sidebar-close-button:checked,
+treeview.view header list.tilix-session-sidebar button button.tilix-sidebar-close-button:checked,
+list.tilix-session-sidebar .budgie-menu button button.tilix-sidebar-close-button:checked,
+.budgie-menu list.tilix-session-sidebar button button.tilix-sidebar-close-button:checked,
+list.tilix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button:active,
+list.tilix-session-sidebar iconview:selected button.tilix-sidebar-close-button:active,
+list.tilix-session-sidebar .view:selected button.tilix-sidebar-close-button:active,
+list.tilix-session-sidebar treeview.view header button:selected button.tilix-sidebar-close-button:active,
+treeview.view header list.tilix-session-sidebar button:selected button.tilix-sidebar-close-button:active,
+list.tilix-session-sidebar .budgie-menu button:selected button.tilix-sidebar-close-button:active,
+.budgie-menu list.tilix-session-sidebar button:selected button.tilix-sidebar-close-button:active,
+list.tilix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button:checked,
+list.tilix-session-sidebar iconview:selected button.tilix-sidebar-close-button:checked,
+list.tilix-session-sidebar .view:selected button.tilix-sidebar-close-button:checked,
+list.tilix-session-sidebar treeview.view header button:selected button.tilix-sidebar-close-button:checked,
+treeview.view header list.tilix-session-sidebar button:selected button.tilix-sidebar-close-button:checked,
+list.tilix-session-sidebar .budgie-menu button:selected button.tilix-sidebar-close-button:checked,
+.budgie-menu list.tilix-session-sidebar button:selected button.tilix-sidebar-close-button:checked {
+  background-color: #ff1f1f;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+button.image-button.session-new-button {
+  min-width: 28px;
+}
+
+widget > box.terminal-titlebar {
+  padding: 0 6px;
+}
+
+widget > box.terminal-titlebar > button.flat.popup.toggle {
+  border: none;
+  border-radius: 0;
+  padding: 0 8px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 0%, transparent 0%) 0 0 0/0 0 0;
+}
+
+widget > box.terminal-titlebar > button.flat.popup.toggle:dir(ltr) {
+  padding-right: 6px;
+}
+
+widget > box.terminal-titlebar > button.flat.popup.toggle:dir(rtl) {
+  padding-left: 6px;
+}
+
+widget > box.terminal-titlebar > button.flat.popup.toggle:checked, widget > box.terminal-titlebar > button.flat.popup.toggle:active {
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 100%, transparent 0%) 0 0 2/0 0 2px;
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+widget > box.terminal-titlebar > button.image-button, widget > box.terminal-titlebar > button.image-button.toggle {
+  margin: 2px 0;
+  padding: 0;
+  min-height: 24px;
+  min-width: 24px;
 }
 
 .xfce4-panel button.flat, .xfce4-panel button {

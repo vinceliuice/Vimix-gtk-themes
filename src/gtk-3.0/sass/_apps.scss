@@ -1553,6 +1553,107 @@ popover.background {
 }
 
 //
+// Tilix
+//
+overlay > revealer {
+  &.left > scrolledwindow.frame,
+  &.right > scrolledwindow.frame {
+    border-style: none;
+    box-shadow: $z-depth-2;
+  }
+
+  &.left > scrolledwindow.frame { margin-right: 32px; }
+  &.right > scrolledwindow.frame { margin-left: 32px; }
+}
+
+.tilix-search-frame {
+  button { @extend %flat_button; }
+  button.combo { @extend %combo_flat; }
+
+  entry,
+  .linked entry,
+  .linked entry.search {
+    @extend %flat_entry;
+    border-radius: 0;
+  }
+
+  .linked button { border-radius: $md_radius; }
+}
+
+.terminix-session-sidebar, // for backwards compatibility
+list.tilix-session-sidebar {
+  // use -image property instead
+  background-color: $lighter_bg_color;
+
+  row.activatable {
+    &, &:selected {
+      button.tilix-sidebar-close-button {
+        min-height: 20px;
+        min-width: 20px;
+        padding: 0;
+        background-color: $destructive_color;
+        @extend %circular_button;
+
+        &, &:hover, &:active, &:checked { color: white; }
+
+        &:hover {
+          background-color: lighten($destructive_color, 5%);
+          box-shadow: $z-depth-1;
+        }
+
+        &:active,
+        &:checked {
+          background-color: darken($destructive_color, 10%);
+          box-shadow: $z-depth-1;
+        }
+      }
+    }
+  }
+}
+
+button.image-button.session-new-button { min-width: $medium_size - 4px; }
+
+// in-line titlebars
+widget > box.terminal-titlebar {
+  padding: 0 6px;
+
+  > button.flat.popup.toggle {
+    border: none;
+    border-radius: 0;
+    padding: 0 8px;
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  $primary_color 0%,
+                                  transparent 0%)
+                                  0 0 0 / 0 0 0;
+
+    &:dir(ltr) { padding-right: 6px; }
+    &:dir(rtl) { padding-left: 6px; }
+
+//    &:hover { background-color: transparent; }
+
+    &:checked, &:active {
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    $primary_color 100%,
+                                    transparent 0%)
+                                    0 0 2 / 0 0 2px;
+      background-color: transparent;
+      color: $fg_color;
+    }
+  }
+
+  > button.image-button { // 'plus' and 'close'
+    &, &.toggle {
+      margin: 2px 0;
+      padding: 0;
+      min-height: 24px;
+      min-width: 24px;
+      @extend %circular_button;
+    }
+  }
+}
+
+
+//
 // Xfce4
 //
 $text_shadow: 0 0 1px rgba(0, 0, 0, 0.26),

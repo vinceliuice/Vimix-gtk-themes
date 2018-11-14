@@ -4,6 +4,12 @@
   }
 }
 
+@keyframes scale_ripple_effect {
+  to {
+    background-size: auto, 1000% 1000%;
+  }
+}
+
 @keyframes header_ripple_effect {
   from {
     background-image: radial-gradient(circle farthest-corner at center, #686868 0%, transparent 0%);
@@ -32,20 +38,11 @@
   -gtk-secondary-caret-color: #686868;
 }
 
-/***************
- * Base States *
- ***************/
 .background {
   background-color: #F5F5F5;
   color: rgba(0, 0, 0, 0.8);
 }
 
-/*
-   These wildcard seems unavoidable, need to investigate.
-   Wildcards are bad and troublesome, use them with care,
-   or better, just don't.
-   Everytime a wildcard is used a kitten dies, painfully.
-*/
 *:disabled {
   -gtk-icon-effect: dim;
 }
@@ -167,9 +164,6 @@ popover.background.touch-selection, popover.background.magnifier, popover.backgr
   opacity: 0.87;
 }
 
-/*********************
- * Spinner Animation *
- *********************/
 @keyframes spin {
   to {
     -gtk-icon-transform: rotate(1turn);
@@ -218,9 +212,6 @@ spinner:checked:disabled {
   opacity: 0.4;
 }
 
-/****************
- * Text Entries *
- ****************/
 notebook > stack:not(:only-child) revealer entry,
 notebook > stack:not(:only-child) revealer spinbutton:not(.vertical),
 entry, spinbutton:not(.vertical), notebook > stack:not(:only-child) revealer entry.flat,
@@ -719,9 +710,6 @@ treeview entry.flat, treeview entry.flat:focus, treeview entry, treeview entry:f
   box-shadow: none;
 }
 
-/***********
- * Buttons *
- ***********/
 @keyframes needs_attention {
   from {
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.001, to(#666666), to(transparent));
@@ -1361,9 +1349,6 @@ button.color {
   padding: 6px;
 }
 
-/*********
- * Links *
- *********/
 *:link, button:link,
 button:visited, *:link:hover, button:hover:link,
 button:hover:visited, *:link:active, button:active:link,
@@ -1396,9 +1381,6 @@ button:visited > label {
   text-decoration-line: underline;
 }
 
-/*****************
- * GtkSpinButton *
- *****************/
 spinbutton:not(.vertical) {
   padding: 0;
 }
@@ -1466,9 +1448,6 @@ treeview spinbutton:not(.vertical) entry {
   padding: 1px 2px;
 }
 
-/**************
- * ComboBoxes *
- **************/
 combobox {
   border-radius: 2px;
 }
@@ -1603,9 +1582,6 @@ combobox:drop(active) {
   background: none;
 }
 
-/************
- * Toolbars *
- ************/
 toolbar {
   -GtkWidget-window-dragging: true;
   padding: 3px;
@@ -1714,9 +1690,6 @@ searchbar,
   background-clip: border-box;
 }
 
-/***************
- * Header bars *
- ***************/
 .titlebar:not(headerbar),
 headerbar {
   transition: background-color 100ms cubic-bezier(0, 0, 0.2, 1), color 100ms cubic-bezier(0, 0, 0.2, 1);
@@ -2134,9 +2107,6 @@ window.csd > .titlebar:not(headerbar) {
   color: rgba(0, 0, 0, 0.8);
 }
 
-/************
- * Pathbars *
- ************/
 .caja-pathbar button,
 .path-bar button {
   border-radius: 2px;
@@ -2172,9 +2142,6 @@ window.csd > .titlebar:not(headerbar) {
   padding-right: 4px;
 }
 
-/**************
- * Tree Views *
- **************/
 treeview.view {
   border-left-color: alpha(currentColor, 0.24);
   border-top-color: rgba(0, 0, 0, 0.1);
@@ -2248,7 +2215,7 @@ treeview.view.expander:selected:disabled {
 
 treeview.view.progressbar {
   border-style: none none solid;
-  border-width: 4px;
+  border-width: 3px;
   border-color: #686868;
   box-shadow: none;
   background-color: transparent;
@@ -2260,10 +2227,11 @@ treeview.view.progressbar:selected {
 
 treeview.view.trough {
   border-style: none none solid;
-  border-width: 4px;
+  border-width: 3px;
   border-color: rgba(104, 104, 104, 0.24);
   box-shadow: none;
   background-color: transparent;
+  border-radius: 6px;
 }
 
 treeview.view.trough:selected {
@@ -2308,9 +2276,6 @@ treeview.view acceleditor > label {
   background-color: #686868;
 }
 
-/*********
- * Menus *
- *********/
 menubar,
 .menubar {
   -GtkWidget-window-dragging: true;
@@ -2474,9 +2439,6 @@ menuitem accelerator {
   border-radius: 2px;
 }
 
-/***************
- * Popovers   *
- ***************/
 popover.background button:not(.suggested-action):not(.destructive-action) {
   box-shadow: none;
   background-color: transparent;
@@ -2553,9 +2515,6 @@ popover.background list separator {
   margin: 0;
 }
 
-/*************
- * Notebooks *
- *************/
 notebook > header {
   border-width: 1px;
   border-color: rgba(0, 0, 0, 0.1);
@@ -2772,9 +2731,6 @@ notebook > stack:not(:only-child) {
   background-color: #FFFFFF;
 }
 
-/**************
- * Scrollbars *
- **************/
 scrollbar {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1);
   background-color: #FFFFFF;
@@ -2916,13 +2872,10 @@ scrollbar.horizontal button.up {
   -gtk-icon-source: -gtk-icontheme("pan-start-symbolic");
 }
 
-/**********
- * Switch *
- **********/
 switch {
-  transition: background-color 100ms cubic-bezier(0, 0, 0.2, 1), opacity 100ms cubic-bezier(0, 0, 0.2, 1);
+  transition: all 100ms cubic-bezier(0, 0, 0.2, 1);
   margin: 6px 0;
-  border: 4px solid transparent;
+  border: 5px solid transparent;
   border-radius: 100px;
   background-color: alpha(currentColor, 0.24);
   background-clip: padding-box;
@@ -2930,52 +2883,42 @@ switch {
 }
 
 switch:disabled {
-  color: alpha(currentColor, 0.4);
+  opacity: 0.5;
 }
 
 switch:checked {
   background-color: rgba(102, 102, 102, 0.5);
 }
 
-switch:checked:disabled {
-  background-color: rgba(102, 102, 102, 0.2);
-  color: rgba(0, 0, 0, 0.32);
-}
-
 switch slider {
-  transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
-  border-image: none;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
-  background-color: #FFFFFF;
-  color: rgba(0, 0, 0, 0.6);
-  transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1), margin 0;
-  min-width: 24px;
-  min-height: 24px;
-  margin: -4px 0 -4px -4px;
+  transition: all 100ms cubic-bezier(0, 0, 0.2, 1);
+  min-width: 20px;
+  min-height: 20px;
+  margin: -3px -2px;
   border-radius: 100px;
-  -gtk-outline-radius: 100px;
+  box-shadow: 0 0 0 10px transparent, 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  background-color: #FCFCFC;
+  color: #FCFCFC;
 }
 
 switch:hover slider {
-  border-image: none;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
   color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 0 10px alpha(currentColor, 0.1), 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+switch:focus slider {
+  color: #666666;
+  box-shadow: 0 0 0 10px alpha(currentColor, 0.15), 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+switch:focus:hover slider {
+  color: #666666;
+  box-shadow: 0 0 0 10px alpha(currentColor, 0.18), 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 switch:checked slider {
-  margin: -4px -4px -4px 0;
   background-color: #666666;
-  color: #FFFFFF;
-}
-
-switch:disabled slider {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
-  background-color: #fafafa;
-  color: rgba(0, 0, 0, 0.32);
-}
-
-switch:checked:disabled slider {
-  animation: none;
+  color: #666666;
 }
 
 row:selected switch {
@@ -2995,9 +2938,6 @@ row:selected switch:checked slider {
   background-color: #FFFFFF;
 }
 
-/*************************
- * Check and Radio items *
- *************************/
 .view.content-view.check:not(list),
 .content-view .tile check:not(list) {
   min-height: 40px;
@@ -3048,6 +2988,11 @@ row:selected switch:checked slider {
   background-color: transparent;
 }
 
+checkbutton,
+radiobutton {
+  outline: none;
+}
+
 checkbutton.text-button,
 radiobutton.text-button {
   padding: 2px;
@@ -3059,13 +3004,13 @@ radiobutton.text-button label:not(:only-child) {
   margin: 0 4px;
 }
 
-row check:not(:checked):not(:indeterminate), row radio:not(:checked):not(:indeterminate),
+
 checkbutton > check:not(:checked):not(:indeterminate),
 radiobutton > radio:not(:checked):not(:indeterminate) {
   color: alpha(rgba(0, 0, 0, 0.8), 0.75);
 }
 
-row check:hover:not(:checked):not(:indeterminate), row radio:hover:not(:checked):not(:indeterminate), row check:active:not(:checked):not(:indeterminate), row radio:active:not(:checked):not(:indeterminate),
+
 checkbutton > check:not(:checked):not(:indeterminate):hover,
 checkbutton > check:not(:checked):not(:indeterminate):active,
 radiobutton > radio:not(:checked):not(:indeterminate):hover,
@@ -3073,10 +3018,566 @@ radiobutton > radio:not(:checked):not(:indeterminate):active {
   color: rgba(0, 0, 0, 0.8);
 }
 
-row check:disabled:not(:checked):not(:indeterminate), row radio:disabled:not(:checked):not(:indeterminate),
+
 checkbutton > check:not(:checked):not(:indeterminate):disabled,
 radiobutton > radio:not(:checked):not(:indeterminate):disabled {
   color: alpha(rgba(0, 0, 0, 0.8), 0.3);
+}
+
+row check:selected,
+row radio:selected, row check:selected:active,
+row radio:selected:active, row check:selected:checked,
+row radio:selected:checked, row check:selected:indeterminate,
+row radio:selected:indeterminate, row check:selected:focus,
+row radio:selected:focus, row check:selected:focus:active,
+row radio:selected:focus:active, row check:selected:focus:checked,
+row radio:selected:focus:checked, row check:selected:focus:indeterminate,
+row radio:selected:focus:indeterminate,
+treeview.view check:selected,
+treeview.view radio:selected,
+treeview.view check:selected:active,
+treeview.view radio:selected:active,
+treeview.view check:selected:checked,
+treeview.view radio:selected:checked,
+treeview.view check:selected:indeterminate,
+treeview.view radio:selected:indeterminate,
+treeview.view check:selected:focus,
+treeview.view radio:selected:focus,
+treeview.view check:selected:focus:active,
+treeview.view radio:selected:focus:active,
+treeview.view check:selected:focus:checked,
+treeview.view radio:selected:focus:checked,
+treeview.view check:selected:focus:indeterminate,
+treeview.view radio:selected:focus:indeterminate,
+row.activatable check:selected,
+iconview check:selected,
+.view check:selected,
+.budgie-menu button check:selected,
+row.activatable radio:selected,
+iconview radio:selected,
+.view radio:selected,
+.budgie-menu button radio:selected,
+row.activatable check:selected:active,
+iconview check:selected:active,
+.view check:selected:active,
+.budgie-menu button check:selected:active,
+row.activatable radio:selected:active,
+iconview radio:selected:active,
+.view radio:selected:active,
+.budgie-menu button radio:selected:active,
+row.activatable check:selected:checked,
+iconview check:selected:checked,
+.view check:selected:checked,
+.budgie-menu button check:selected:checked,
+row.activatable radio:selected:checked,
+iconview radio:selected:checked,
+.view radio:selected:checked,
+.budgie-menu button radio:selected:checked,
+row.activatable check:selected:indeterminate,
+iconview check:selected:indeterminate,
+.view check:selected:indeterminate,
+.budgie-menu button check:selected:indeterminate,
+row.activatable radio:selected:indeterminate,
+iconview radio:selected:indeterminate,
+.view radio:selected:indeterminate,
+.budgie-menu button radio:selected:indeterminate,
+row.activatable check:selected:focus,
+iconview check:selected:focus,
+.view check:selected:focus,
+.budgie-menu button check:selected:focus,
+row.activatable radio:selected:focus,
+iconview radio:selected:focus,
+.view radio:selected:focus,
+.budgie-menu button radio:selected:focus,
+row.activatable check:selected:focus:active,
+iconview check:selected:focus:active,
+.view check:selected:focus:active,
+.budgie-menu button check:selected:focus:active,
+row.activatable radio:selected:focus:active,
+iconview radio:selected:focus:active,
+.view radio:selected:focus:active,
+.budgie-menu button radio:selected:focus:active,
+row.activatable check:selected:focus:checked,
+iconview check:selected:focus:checked,
+.view check:selected:focus:checked,
+.budgie-menu button check:selected:focus:checked,
+row.activatable radio:selected:focus:checked,
+iconview radio:selected:focus:checked,
+.view radio:selected:focus:checked,
+.budgie-menu button radio:selected:focus:checked,
+row.activatable check:selected:focus:indeterminate,
+iconview check:selected:focus:indeterminate,
+.view check:selected:focus:indeterminate,
+.budgie-menu button check:selected:focus:indeterminate,
+row.activatable radio:selected:focus:indeterminate,
+iconview radio:selected:focus:indeterminate,
+.view radio:selected:focus:indeterminate,
+.budgie-menu button radio:selected:focus:indeterminate, row
+checkbutton check:selected, row
+checkbutton check:selected:active, row
+checkbutton check:selected:checked, row
+checkbutton check:selected:indeterminate, row
+checkbutton check:selected:focus, row
+checkbutton check:selected:focus:active, row
+checkbutton check:selected:focus:checked, row
+checkbutton check:selected:focus:indeterminate,
+treeview.view
+checkbutton check:selected,
+treeview.view
+checkbutton check:selected:active,
+treeview.view
+checkbutton check:selected:checked,
+treeview.view
+checkbutton check:selected:indeterminate,
+treeview.view
+checkbutton check:selected:focus,
+treeview.view
+checkbutton check:selected:focus:active,
+treeview.view
+checkbutton check:selected:focus:checked,
+treeview.view
+checkbutton check:selected:focus:indeterminate,
+row.activatable checkbutton check:selected,
+iconview checkbutton check:selected,
+.view checkbutton check:selected,
+treeview.view header button checkbutton check:selected,
+.budgie-menu button checkbutton check:selected,
+row.activatable checkbutton check:selected:active,
+iconview checkbutton check:selected:active,
+.view checkbutton check:selected:active,
+treeview.view header button checkbutton check:selected:active,
+.budgie-menu button checkbutton check:selected:active,
+row.activatable checkbutton check:selected:checked,
+iconview checkbutton check:selected:checked,
+.view checkbutton check:selected:checked,
+treeview.view header button checkbutton check:selected:checked,
+.budgie-menu button checkbutton check:selected:checked,
+row.activatable checkbutton check:selected:indeterminate,
+iconview checkbutton check:selected:indeterminate,
+.view checkbutton check:selected:indeterminate,
+treeview.view header button checkbutton check:selected:indeterminate,
+.budgie-menu button checkbutton check:selected:indeterminate,
+row.activatable checkbutton check:selected:focus,
+iconview checkbutton check:selected:focus,
+.view checkbutton check:selected:focus,
+treeview.view header button checkbutton check:selected:focus,
+.budgie-menu button checkbutton check:selected:focus,
+row.activatable checkbutton check:selected:focus:active,
+iconview checkbutton check:selected:focus:active,
+.view checkbutton check:selected:focus:active,
+treeview.view header button checkbutton check:selected:focus:active,
+.budgie-menu button checkbutton check:selected:focus:active,
+row.activatable checkbutton check:selected:focus:checked,
+iconview checkbutton check:selected:focus:checked,
+.view checkbutton check:selected:focus:checked,
+treeview.view header button checkbutton check:selected:focus:checked,
+.budgie-menu button checkbutton check:selected:focus:checked,
+row.activatable checkbutton check:selected:focus:indeterminate,
+iconview checkbutton check:selected:focus:indeterminate,
+.view checkbutton check:selected:focus:indeterminate,
+treeview.view header button checkbutton check:selected:focus:indeterminate,
+.budgie-menu button checkbutton check:selected:focus:indeterminate, row
+radiobutton radio:selected, row
+radiobutton radio:selected:active, row
+radiobutton radio:selected:checked, row
+radiobutton radio:selected:indeterminate, row
+radiobutton radio:selected:focus, row
+radiobutton radio:selected:focus:active, row
+radiobutton radio:selected:focus:checked, row
+radiobutton radio:selected:focus:indeterminate,
+treeview.view
+radiobutton radio:selected,
+treeview.view
+radiobutton radio:selected:active,
+treeview.view
+radiobutton radio:selected:checked,
+treeview.view
+radiobutton radio:selected:indeterminate,
+treeview.view
+radiobutton radio:selected:focus,
+treeview.view
+radiobutton radio:selected:focus:active,
+treeview.view
+radiobutton radio:selected:focus:checked,
+treeview.view
+radiobutton radio:selected:focus:indeterminate,
+row.activatable radiobutton radio:selected,
+iconview radiobutton radio:selected,
+.view radiobutton radio:selected,
+treeview.view header button radiobutton radio:selected,
+.budgie-menu button radiobutton radio:selected,
+row.activatable radiobutton radio:selected:active,
+iconview radiobutton radio:selected:active,
+.view radiobutton radio:selected:active,
+treeview.view header button radiobutton radio:selected:active,
+.budgie-menu button radiobutton radio:selected:active,
+row.activatable radiobutton radio:selected:checked,
+iconview radiobutton radio:selected:checked,
+.view radiobutton radio:selected:checked,
+treeview.view header button radiobutton radio:selected:checked,
+.budgie-menu button radiobutton radio:selected:checked,
+row.activatable radiobutton radio:selected:indeterminate,
+iconview radiobutton radio:selected:indeterminate,
+.view radiobutton radio:selected:indeterminate,
+treeview.view header button radiobutton radio:selected:indeterminate,
+.budgie-menu button radiobutton radio:selected:indeterminate,
+row.activatable radiobutton radio:selected:focus,
+iconview radiobutton radio:selected:focus,
+.view radiobutton radio:selected:focus,
+treeview.view header button radiobutton radio:selected:focus,
+.budgie-menu button radiobutton radio:selected:focus,
+row.activatable radiobutton radio:selected:focus:active,
+iconview radiobutton radio:selected:focus:active,
+.view radiobutton radio:selected:focus:active,
+treeview.view header button radiobutton radio:selected:focus:active,
+.budgie-menu button radiobutton radio:selected:focus:active,
+row.activatable radiobutton radio:selected:focus:checked,
+iconview radiobutton radio:selected:focus:checked,
+.view radiobutton radio:selected:focus:checked,
+treeview.view header button radiobutton radio:selected:focus:checked,
+.budgie-menu button radiobutton radio:selected:focus:checked,
+row.activatable radiobutton radio:selected:focus:indeterminate,
+iconview radiobutton radio:selected:focus:indeterminate,
+.view radiobutton radio:selected:focus:indeterminate,
+treeview.view header button radiobutton radio:selected:focus:indeterminate,
+.budgie-menu button radiobutton radio:selected:focus:indeterminate {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+row check:selected:disabled,
+row radio:selected:disabled, row check:selected:active:disabled,
+row radio:selected:active:disabled, row check:selected:checked:disabled,
+row radio:selected:checked:disabled, row check:selected:indeterminate:disabled,
+row radio:selected:indeterminate:disabled, row check:selected:focus:disabled,
+row radio:selected:focus:disabled, row check:selected:focus:active:disabled,
+row radio:selected:focus:active:disabled, row check:selected:focus:checked:disabled,
+row radio:selected:focus:checked:disabled, row check:selected:focus:indeterminate:disabled,
+row radio:selected:focus:indeterminate:disabled,
+treeview.view check:selected:disabled,
+treeview.view radio:selected:disabled,
+treeview.view check:selected:active:disabled,
+treeview.view radio:selected:active:disabled,
+treeview.view check:selected:checked:disabled,
+treeview.view radio:selected:checked:disabled,
+treeview.view check:selected:indeterminate:disabled,
+treeview.view radio:selected:indeterminate:disabled,
+treeview.view check:selected:focus:disabled,
+treeview.view radio:selected:focus:disabled,
+treeview.view check:selected:focus:active:disabled,
+treeview.view radio:selected:focus:active:disabled,
+treeview.view check:selected:focus:checked:disabled,
+treeview.view radio:selected:focus:checked:disabled,
+treeview.view check:selected:focus:indeterminate:disabled,
+treeview.view radio:selected:focus:indeterminate:disabled,
+row.activatable check:selected:disabled,
+iconview check:selected:disabled,
+.view check:selected:disabled,
+.budgie-menu button check:selected:disabled,
+row.activatable radio:selected:disabled,
+iconview radio:selected:disabled,
+.view radio:selected:disabled,
+.budgie-menu button radio:selected:disabled,
+row.activatable check:selected:active:disabled,
+iconview check:selected:active:disabled,
+.view check:selected:active:disabled,
+.budgie-menu button check:selected:active:disabled,
+row.activatable radio:selected:active:disabled,
+iconview radio:selected:active:disabled,
+.view radio:selected:active:disabled,
+.budgie-menu button radio:selected:active:disabled,
+row.activatable check:selected:checked:disabled,
+iconview check:selected:checked:disabled,
+.view check:selected:checked:disabled,
+.budgie-menu button check:selected:checked:disabled,
+row.activatable radio:selected:checked:disabled,
+iconview radio:selected:checked:disabled,
+.view radio:selected:checked:disabled,
+.budgie-menu button radio:selected:checked:disabled,
+row.activatable check:selected:indeterminate:disabled,
+iconview check:selected:indeterminate:disabled,
+.view check:selected:indeterminate:disabled,
+.budgie-menu button check:selected:indeterminate:disabled,
+row.activatable radio:selected:indeterminate:disabled,
+iconview radio:selected:indeterminate:disabled,
+.view radio:selected:indeterminate:disabled,
+.budgie-menu button radio:selected:indeterminate:disabled,
+row.activatable check:selected:focus:disabled,
+iconview check:selected:focus:disabled,
+.view check:selected:focus:disabled,
+.budgie-menu button check:selected:focus:disabled,
+row.activatable radio:selected:focus:disabled,
+iconview radio:selected:focus:disabled,
+.view radio:selected:focus:disabled,
+.budgie-menu button radio:selected:focus:disabled,
+row.activatable check:selected:focus:active:disabled,
+iconview check:selected:focus:active:disabled,
+.view check:selected:focus:active:disabled,
+.budgie-menu button check:selected:focus:active:disabled,
+row.activatable radio:selected:focus:active:disabled,
+iconview radio:selected:focus:active:disabled,
+.view radio:selected:focus:active:disabled,
+.budgie-menu button radio:selected:focus:active:disabled,
+row.activatable check:selected:focus:checked:disabled,
+iconview check:selected:focus:checked:disabled,
+.view check:selected:focus:checked:disabled,
+.budgie-menu button check:selected:focus:checked:disabled,
+row.activatable radio:selected:focus:checked:disabled,
+iconview radio:selected:focus:checked:disabled,
+.view radio:selected:focus:checked:disabled,
+.budgie-menu button radio:selected:focus:checked:disabled,
+row.activatable check:selected:focus:indeterminate:disabled,
+iconview check:selected:focus:indeterminate:disabled,
+.view check:selected:focus:indeterminate:disabled,
+.budgie-menu button check:selected:focus:indeterminate:disabled,
+row.activatable radio:selected:focus:indeterminate:disabled,
+iconview radio:selected:focus:indeterminate:disabled,
+.view radio:selected:focus:indeterminate:disabled,
+.budgie-menu button radio:selected:focus:indeterminate:disabled, row
+checkbutton check:selected:disabled, row
+checkbutton check:selected:active:disabled, row
+checkbutton check:selected:checked:disabled, row
+checkbutton check:selected:indeterminate:disabled, row
+checkbutton check:selected:focus:disabled, row
+checkbutton check:selected:focus:active:disabled, row
+checkbutton check:selected:focus:checked:disabled, row
+checkbutton check:selected:focus:indeterminate:disabled,
+treeview.view
+checkbutton check:selected:disabled,
+treeview.view
+checkbutton check:selected:active:disabled,
+treeview.view
+checkbutton check:selected:checked:disabled,
+treeview.view
+checkbutton check:selected:indeterminate:disabled,
+treeview.view
+checkbutton check:selected:focus:disabled,
+treeview.view
+checkbutton check:selected:focus:active:disabled,
+treeview.view
+checkbutton check:selected:focus:checked:disabled,
+treeview.view
+checkbutton check:selected:focus:indeterminate:disabled,
+row.activatable checkbutton check:selected:disabled,
+iconview checkbutton check:selected:disabled,
+.view checkbutton check:selected:disabled,
+treeview.view header button checkbutton check:selected:disabled,
+.budgie-menu button checkbutton check:selected:disabled,
+row.activatable checkbutton check:selected:active:disabled,
+iconview checkbutton check:selected:active:disabled,
+.view checkbutton check:selected:active:disabled,
+treeview.view header button checkbutton check:selected:active:disabled,
+.budgie-menu button checkbutton check:selected:active:disabled,
+row.activatable checkbutton check:selected:checked:disabled,
+iconview checkbutton check:selected:checked:disabled,
+.view checkbutton check:selected:checked:disabled,
+treeview.view header button checkbutton check:selected:checked:disabled,
+.budgie-menu button checkbutton check:selected:checked:disabled,
+row.activatable checkbutton check:selected:indeterminate:disabled,
+iconview checkbutton check:selected:indeterminate:disabled,
+.view checkbutton check:selected:indeterminate:disabled,
+treeview.view header button checkbutton check:selected:indeterminate:disabled,
+.budgie-menu button checkbutton check:selected:indeterminate:disabled,
+row.activatable checkbutton check:selected:focus:disabled,
+iconview checkbutton check:selected:focus:disabled,
+.view checkbutton check:selected:focus:disabled,
+treeview.view header button checkbutton check:selected:focus:disabled,
+.budgie-menu button checkbutton check:selected:focus:disabled,
+row.activatable checkbutton check:selected:focus:active:disabled,
+iconview checkbutton check:selected:focus:active:disabled,
+.view checkbutton check:selected:focus:active:disabled,
+treeview.view header button checkbutton check:selected:focus:active:disabled,
+.budgie-menu button checkbutton check:selected:focus:active:disabled,
+row.activatable checkbutton check:selected:focus:checked:disabled,
+iconview checkbutton check:selected:focus:checked:disabled,
+.view checkbutton check:selected:focus:checked:disabled,
+treeview.view header button checkbutton check:selected:focus:checked:disabled,
+.budgie-menu button checkbutton check:selected:focus:checked:disabled,
+row.activatable checkbutton check:selected:focus:indeterminate:disabled,
+iconview checkbutton check:selected:focus:indeterminate:disabled,
+.view checkbutton check:selected:focus:indeterminate:disabled,
+treeview.view header button checkbutton check:selected:focus:indeterminate:disabled,
+.budgie-menu button checkbutton check:selected:focus:indeterminate:disabled, row
+radiobutton radio:selected:disabled, row
+radiobutton radio:selected:active:disabled, row
+radiobutton radio:selected:checked:disabled, row
+radiobutton radio:selected:indeterminate:disabled, row
+radiobutton radio:selected:focus:disabled, row
+radiobutton radio:selected:focus:active:disabled, row
+radiobutton radio:selected:focus:checked:disabled, row
+radiobutton radio:selected:focus:indeterminate:disabled,
+treeview.view
+radiobutton radio:selected:disabled,
+treeview.view
+radiobutton radio:selected:active:disabled,
+treeview.view
+radiobutton radio:selected:checked:disabled,
+treeview.view
+radiobutton radio:selected:indeterminate:disabled,
+treeview.view
+radiobutton radio:selected:focus:disabled,
+treeview.view
+radiobutton radio:selected:focus:active:disabled,
+treeview.view
+radiobutton radio:selected:focus:checked:disabled,
+treeview.view
+radiobutton radio:selected:focus:indeterminate:disabled,
+row.activatable radiobutton radio:selected:disabled,
+iconview radiobutton radio:selected:disabled,
+.view radiobutton radio:selected:disabled,
+treeview.view header button radiobutton radio:selected:disabled,
+.budgie-menu button radiobutton radio:selected:disabled,
+row.activatable radiobutton radio:selected:active:disabled,
+iconview radiobutton radio:selected:active:disabled,
+.view radiobutton radio:selected:active:disabled,
+treeview.view header button radiobutton radio:selected:active:disabled,
+.budgie-menu button radiobutton radio:selected:active:disabled,
+row.activatable radiobutton radio:selected:checked:disabled,
+iconview radiobutton radio:selected:checked:disabled,
+.view radiobutton radio:selected:checked:disabled,
+treeview.view header button radiobutton radio:selected:checked:disabled,
+.budgie-menu button radiobutton radio:selected:checked:disabled,
+row.activatable radiobutton radio:selected:indeterminate:disabled,
+iconview radiobutton radio:selected:indeterminate:disabled,
+.view radiobutton radio:selected:indeterminate:disabled,
+treeview.view header button radiobutton radio:selected:indeterminate:disabled,
+.budgie-menu button radiobutton radio:selected:indeterminate:disabled,
+row.activatable radiobutton radio:selected:focus:disabled,
+iconview radiobutton radio:selected:focus:disabled,
+.view radiobutton radio:selected:focus:disabled,
+treeview.view header button radiobutton radio:selected:focus:disabled,
+.budgie-menu button radiobutton radio:selected:focus:disabled,
+row.activatable radiobutton radio:selected:focus:active:disabled,
+iconview radiobutton radio:selected:focus:active:disabled,
+.view radiobutton radio:selected:focus:active:disabled,
+treeview.view header button radiobutton radio:selected:focus:active:disabled,
+.budgie-menu button radiobutton radio:selected:focus:active:disabled,
+row.activatable radiobutton radio:selected:focus:checked:disabled,
+iconview radiobutton radio:selected:focus:checked:disabled,
+.view radiobutton radio:selected:focus:checked:disabled,
+treeview.view header button radiobutton radio:selected:focus:checked:disabled,
+.budgie-menu button radiobutton radio:selected:focus:checked:disabled,
+row.activatable radiobutton radio:selected:focus:indeterminate:disabled,
+iconview radiobutton radio:selected:focus:indeterminate:disabled,
+.view radiobutton radio:selected:focus:indeterminate:disabled,
+treeview.view header button radiobutton radio:selected:focus:indeterminate:disabled,
+.budgie-menu button radiobutton radio:selected:focus:indeterminate:disabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+row check:selected:hover,
+row radio:selected:hover, row check:selected:focus:hover,
+row radio:selected:focus:hover,
+treeview.view check:selected:hover,
+treeview.view radio:selected:hover,
+treeview.view check:selected:focus:hover,
+treeview.view radio:selected:focus:hover,
+row.activatable check:selected:hover,
+iconview check:selected:hover,
+.view check:selected:hover,
+.budgie-menu button check:selected:hover,
+row.activatable radio:selected:hover,
+iconview radio:selected:hover,
+.view radio:selected:hover,
+.budgie-menu button radio:selected:hover,
+row.activatable check:selected:focus:hover,
+iconview check:selected:focus:hover,
+.view check:selected:focus:hover,
+.budgie-menu button check:selected:focus:hover,
+row.activatable radio:selected:focus:hover,
+iconview radio:selected:focus:hover,
+.view radio:selected:focus:hover,
+.budgie-menu button radio:selected:focus:hover, row
+checkbutton check:selected:hover, row
+checkbutton check:selected:focus:hover,
+treeview.view
+checkbutton check:selected:hover,
+treeview.view
+checkbutton check:selected:focus:hover,
+row.activatable checkbutton check:selected:hover,
+iconview checkbutton check:selected:hover,
+.view checkbutton check:selected:hover,
+treeview.view header button checkbutton check:selected:hover,
+.budgie-menu button checkbutton check:selected:hover,
+row.activatable checkbutton check:selected:focus:hover,
+iconview checkbutton check:selected:focus:hover,
+.view checkbutton check:selected:focus:hover,
+treeview.view header button checkbutton check:selected:focus:hover,
+.budgie-menu button checkbutton check:selected:focus:hover, row
+radiobutton radio:selected:hover, row
+radiobutton radio:selected:focus:hover,
+treeview.view
+radiobutton radio:selected:hover,
+treeview.view
+radiobutton radio:selected:focus:hover,
+row.activatable radiobutton radio:selected:hover,
+iconview radiobutton radio:selected:hover,
+.view radiobutton radio:selected:hover,
+treeview.view header button radiobutton radio:selected:hover,
+.budgie-menu button radiobutton radio:selected:hover,
+row.activatable radiobutton radio:selected:focus:hover,
+iconview radiobutton radio:selected:focus:hover,
+.view radiobutton radio:selected:focus:hover,
+treeview.view header button radiobutton radio:selected:focus:hover,
+.budgie-menu button radiobutton radio:selected:focus:hover {
+  color: #FFFFFF;
+}
+
+row check:selected:hover:disabled,
+row radio:selected:hover:disabled, row check:selected:focus:hover:disabled,
+row radio:selected:focus:hover:disabled,
+treeview.view check:selected:hover:disabled,
+treeview.view radio:selected:hover:disabled,
+treeview.view check:selected:focus:hover:disabled,
+treeview.view radio:selected:focus:hover:disabled,
+row.activatable check:selected:hover:disabled,
+iconview check:selected:hover:disabled,
+.view check:selected:hover:disabled,
+.budgie-menu button check:selected:hover:disabled,
+row.activatable radio:selected:hover:disabled,
+iconview radio:selected:hover:disabled,
+.view radio:selected:hover:disabled,
+.budgie-menu button radio:selected:hover:disabled,
+row.activatable check:selected:focus:hover:disabled,
+iconview check:selected:focus:hover:disabled,
+.view check:selected:focus:hover:disabled,
+.budgie-menu button check:selected:focus:hover:disabled,
+row.activatable radio:selected:focus:hover:disabled,
+iconview radio:selected:focus:hover:disabled,
+.view radio:selected:focus:hover:disabled,
+.budgie-menu button radio:selected:focus:hover:disabled, row
+checkbutton check:selected:hover:disabled, row
+checkbutton check:selected:focus:hover:disabled,
+treeview.view
+checkbutton check:selected:hover:disabled,
+treeview.view
+checkbutton check:selected:focus:hover:disabled,
+row.activatable checkbutton check:selected:hover:disabled,
+iconview checkbutton check:selected:hover:disabled,
+.view checkbutton check:selected:hover:disabled,
+treeview.view header button checkbutton check:selected:hover:disabled,
+.budgie-menu button checkbutton check:selected:hover:disabled,
+row.activatable checkbutton check:selected:focus:hover:disabled,
+iconview checkbutton check:selected:focus:hover:disabled,
+.view checkbutton check:selected:focus:hover:disabled,
+treeview.view header button checkbutton check:selected:focus:hover:disabled,
+.budgie-menu button checkbutton check:selected:focus:hover:disabled, row
+radiobutton radio:selected:hover:disabled, row
+radiobutton radio:selected:focus:hover:disabled,
+treeview.view
+radiobutton radio:selected:hover:disabled,
+treeview.view
+radiobutton radio:selected:focus:hover:disabled,
+row.activatable radiobutton radio:selected:hover:disabled,
+iconview radiobutton radio:selected:hover:disabled,
+.view radiobutton radio:selected:hover:disabled,
+treeview.view header button radiobutton radio:selected:hover:disabled,
+.budgie-menu button radiobutton radio:selected:hover:disabled,
+row.activatable radiobutton radio:selected:focus:hover:disabled,
+iconview radiobutton radio:selected:focus:hover:disabled,
+.view radiobutton radio:selected:focus:hover:disabled,
+treeview.view header button radiobutton radio:selected:focus:hover:disabled,
+.budgie-menu button radiobutton radio:selected:focus:hover:disabled {
+  color: rgba(255, 255, 255, 0.4);
 }
 
 check,
@@ -3182,17 +3683,17 @@ menu menuitem check {
   -gtk-icon-shadow: none;
   border-image: none;
   background-image: none;
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.svg")), -gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.symbolic.png")));
+  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.svg")));
 }
 
 window.background:not(.csd) > widget > checkbutton > check:checked, #MozillaGtkWidget.background > window.background > menu > menuitem > check:checked, #MozillaGtkWidget.background > widget > checkbutton > check:checked,
 menu menuitem check:checked {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-checked-symbolic.svg")), -gtk-recolor(url("assets/scalable/small-checkbox-checked-symbolic.symbolic.png")));
+  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-checked-symbolic.svg")));
 }
 
 window.background:not(.csd) > widget > checkbutton > check:indeterminate, #MozillaGtkWidget.background > window.background > menu > menuitem > check:indeterminate, #MozillaGtkWidget.background > widget > checkbutton > check:indeterminate,
 menu menuitem check:indeterminate {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-mixed-symbolic.svg")), -gtk-recolor(url("assets/scalable/small-checkbox-mixed-symbolic.symbolic.png")));
+  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-mixed-symbolic.svg")));
 }
 
 window.background:not(.csd) > widget > radiobutton > radio, #MozillaGtkWidget.background > window.background > menu > menuitem > radio, #MozillaGtkWidget.background > widget > radiobutton > radio,
@@ -3204,479 +3705,47 @@ menu menuitem radio {
   -gtk-icon-shadow: none;
   border-image: none;
   background-image: none;
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.svg")), -gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.symbolic.png")));
+  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.svg")));
 }
 
 window.background:not(.csd) > widget > radiobutton > radio:checked, #MozillaGtkWidget.background > window.background > menu > menuitem > radio:checked, #MozillaGtkWidget.background > widget > radiobutton > radio:checked,
 menu menuitem radio:checked {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-checked-symbolic.svg")), -gtk-recolor(url("assets/scalable/small-radio-checked-symbolic.symbolic.png")));
+  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-checked-symbolic.svg")));
 }
 
 window.background:not(.csd) > widget > radiobutton > radio:indeterminate, #MozillaGtkWidget.background > window.background > menu > menuitem > radio:indeterminate, #MozillaGtkWidget.background > widget > radiobutton > radio:indeterminate,
 menu menuitem radio:indeterminate {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic.svg")), -gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic.symbolic.png")));
+  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic.svg")));
 }
 
 
 check {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/check-unchecked-symbolic.svg")), -gtk-recolor(url("assets/scalable/check-unchecked-symbolic.png")));
+  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/check-unchecked-symbolic.svg")));
 }
 
 
 check:checked {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/check-checked-symbolic.svg")), -gtk-recolor(url("assets/scalable/check-checked-symbolic.png")));
+  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/check-checked-symbolic.svg")));
 }
 
 
 check:indeterminate {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/check-dash-symbolic.svg")), -gtk-recolor(url("assets/scalable/check-dash-symbolic.png")));
+  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/check-dash-symbolic.svg")));
 }
 
 
 radio {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-unchecked-symbolic.svg")), -gtk-recolor(url("assets/scalable/radio-unchecked-symbolic.png")));
+  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-unchecked-symbolic.svg")));
 }
 
 
 radio:checked {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-checked-symbolic.svg")), -gtk-recolor(url("assets/scalable/radio-checked-symbolic.png")));
+  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-checked-symbolic.svg")));
 }
 
 
 radio:indeterminate {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-dash-symbolic.svg")), -gtk-recolor(url("assets/scalable/radio-dash-symbolic.png")));
-}
-
-treeview.view check:selected,
-treeview.view check:selected:focus,
-row check:selected,
-row check:selected:focus,
-row.activatable check:selected,
-iconview check:selected,
-.view check:selected,
-treeview.view header button check:selected,
-.budgie-menu button check:selected,
-row.activatable check:selected:focus,
-iconview check:selected:focus,
-.view check:selected:focus,
-treeview.view header button check:selected:focus,
-.budgie-menu button check:selected:focus {
-  color: #FFFFFF;
-  -gtk-icon-shadow: none;
-}
-
-treeview.view check:selected:active,
-treeview.view check:selected:focus:active,
-row check:selected:active,
-row check:selected:focus:active,
-row.activatable check:selected:active,
-iconview check:selected:active,
-.view check:selected:active,
-treeview.view header button check:selected:active,
-.budgie-menu button check:selected:active,
-row.activatable check:selected:focus:active,
-iconview check:selected:focus:active,
-.view check:selected:focus:active,
-treeview.view header button check:selected:focus:active,
-.budgie-menu button check:selected:focus:active {
-  color: #FFFFFF;
-  -gtk-icon-shadow: none;
-}
-
-treeview.view check:selected:backdrop,
-treeview.view check:selected:focus:backdrop,
-row check:selected:backdrop,
-row check:selected:focus:backdrop,
-row.activatable check:selected:backdrop,
-iconview check:selected:backdrop,
-.view check:selected:backdrop,
-treeview.view header button check:selected:backdrop,
-.budgie-menu button check:selected:backdrop,
-row.activatable check:selected:focus:backdrop,
-iconview check:selected:focus:backdrop,
-.view check:selected:focus:backdrop,
-treeview.view header button check:selected:focus:backdrop,
-.budgie-menu button check:selected:focus:backdrop {
-  color: #FFFFFF;
-  -gtk-icon-shadow: none;
-}
-
-treeview.view check:selected:indeterminate,
-treeview.view check:selected:focus:indeterminate,
-row check:selected:indeterminate,
-row check:selected:focus:indeterminate,
-row.activatable check:selected:indeterminate,
-iconview check:selected:indeterminate,
-.view check:selected:indeterminate,
-treeview.view header button check:selected:indeterminate,
-.budgie-menu button check:selected:indeterminate,
-row.activatable check:selected:focus:indeterminate,
-iconview check:selected:focus:indeterminate,
-.view check:selected:focus:indeterminate,
-treeview.view header button check:selected:focus:indeterminate,
-.budgie-menu button check:selected:focus:indeterminate {
-  color: #FFFFFF;
-  -gtk-icon-shadow: none;
-}
-
-treeview.view check:selected:indeterminate:backdrop,
-treeview.view check:selected:focus:indeterminate:backdrop,
-row check:selected:indeterminate:backdrop,
-row check:selected:focus:indeterminate:backdrop,
-row.activatable check:selected:indeterminate:backdrop,
-iconview check:selected:indeterminate:backdrop,
-.view check:selected:indeterminate:backdrop,
-treeview.view header button check:selected:indeterminate:backdrop,
-.budgie-menu button check:selected:indeterminate:backdrop,
-row.activatable check:selected:focus:indeterminate:backdrop,
-iconview check:selected:focus:indeterminate:backdrop,
-.view check:selected:focus:indeterminate:backdrop,
-treeview.view header button check:selected:focus:indeterminate:backdrop,
-.budgie-menu button check:selected:focus:indeterminate:backdrop {
-  color: #FFFFFF;
-  -gtk-icon-shadow: none;
-}
-
-treeview.view check:selected:indeterminate:active,
-treeview.view check:selected:focus:indeterminate:active,
-row check:selected:indeterminate:active,
-row check:selected:focus:indeterminate:active,
-row.activatable check:selected:indeterminate:active,
-iconview check:selected:indeterminate:active,
-.view check:selected:indeterminate:active,
-treeview.view header button check:selected:indeterminate:active,
-.budgie-menu button check:selected:indeterminate:active,
-row.activatable check:selected:focus:indeterminate:active,
-iconview check:selected:focus:indeterminate:active,
-.view check:selected:focus:indeterminate:active,
-treeview.view header button check:selected:focus:indeterminate:active,
-.budgie-menu button check:selected:focus:indeterminate:active {
-  color: #FFFFFF;
-  -gtk-icon-shadow: none;
-}
-
-treeview.view check:selected:checked,
-treeview.view check:selected:focus:checked,
-row check:selected:checked,
-row check:selected:focus:checked,
-row.activatable check:selected:checked,
-iconview check:selected:checked,
-.view check:selected:checked,
-treeview.view header button check:selected:checked,
-.budgie-menu button check:selected:checked,
-row.activatable check:selected:focus:checked,
-iconview check:selected:focus:checked,
-.view check:selected:focus:checked,
-treeview.view header button check:selected:focus:checked,
-.budgie-menu button check:selected:focus:checked {
-  color: #FFFFFF;
-  -gtk-icon-shadow: none;
-}
-
-treeview.view check:selected:checked:backdrop,
-treeview.view check:selected:focus:checked:backdrop,
-row check:selected:checked:backdrop,
-row check:selected:focus:checked:backdrop,
-row.activatable check:selected:checked:backdrop,
-iconview check:selected:checked:backdrop,
-.view check:selected:checked:backdrop,
-treeview.view header button check:selected:checked:backdrop,
-.budgie-menu button check:selected:checked:backdrop,
-row.activatable check:selected:focus:checked:backdrop,
-iconview check:selected:focus:checked:backdrop,
-.view check:selected:focus:checked:backdrop,
-treeview.view header button check:selected:focus:checked:backdrop,
-.budgie-menu button check:selected:focus:checked:backdrop {
-  color: #FFFFFF;
-  -gtk-icon-shadow: none;
-}
-
-treeview.view check:selected:checked:active,
-treeview.view check:selected:focus:checked:active,
-row check:selected:checked:active,
-row check:selected:focus:checked:active,
-row.activatable check:selected:checked:active,
-iconview check:selected:checked:active,
-.view check:selected:checked:active,
-treeview.view header button check:selected:checked:active,
-.budgie-menu button check:selected:checked:active,
-row.activatable check:selected:focus:checked:active,
-iconview check:selected:focus:checked:active,
-.view check:selected:focus:checked:active,
-treeview.view header button check:selected:focus:checked:active,
-.budgie-menu button check:selected:focus:checked:active {
-  color: #FFFFFF;
-  -gtk-icon-shadow: none;
-}
-
-treeview.view check:selected:disabled,
-treeview.view check:selected:focus:disabled,
-row check:selected:disabled,
-row check:selected:focus:disabled,
-row.activatable check:selected:disabled,
-iconview check:selected:disabled,
-.view check:selected:disabled,
-treeview.view header button check:selected:disabled,
-.budgie-menu button check:selected:disabled,
-row.activatable check:selected:focus:disabled,
-iconview check:selected:focus:disabled,
-.view check:selected:focus:disabled,
-treeview.view header button check:selected:focus:disabled,
-.budgie-menu button check:selected:focus:disabled {
-  color: alpha(#FFFFFF, 0.5);
-  -gtk-icon-shadow: none;
-}
-
-treeview.view check:selected:indeterminate:disabled,
-treeview.view check:selected:focus:indeterminate:disabled,
-row check:selected:indeterminate:disabled,
-row check:selected:focus:indeterminate:disabled,
-row.activatable check:selected:indeterminate:disabled,
-iconview check:selected:indeterminate:disabled,
-.view check:selected:indeterminate:disabled,
-treeview.view header button check:selected:indeterminate:disabled,
-.budgie-menu button check:selected:indeterminate:disabled,
-row.activatable check:selected:focus:indeterminate:disabled,
-iconview check:selected:focus:indeterminate:disabled,
-.view check:selected:focus:indeterminate:disabled,
-treeview.view header button check:selected:focus:indeterminate:disabled,
-.budgie-menu button check:selected:focus:indeterminate:disabled {
-  color: alpha(#FFFFFF, 0.5);
-  -gtk-icon-shadow: none;
-}
-
-treeview.view check:selected:checked:disabled,
-treeview.view check:selected:focus:checked:disabled,
-row check:selected:checked:disabled,
-row check:selected:focus:checked:disabled,
-row.activatable check:selected:checked:disabled,
-iconview check:selected:checked:disabled,
-.view check:selected:checked:disabled,
-treeview.view header button check:selected:checked:disabled,
-.budgie-menu button check:selected:checked:disabled,
-row.activatable check:selected:focus:checked:disabled,
-iconview check:selected:focus:checked:disabled,
-.view check:selected:focus:checked:disabled,
-treeview.view header button check:selected:focus:checked:disabled,
-.budgie-menu button check:selected:focus:checked:disabled {
-  color: alpha(#FFFFFF, 0.5);
-  -gtk-icon-shadow: none;
-}
-
-treeview.view radio:selected,
-treeview.view radio:selected:focus,
-row radio:selected,
-row radio:selected:focus,
-row.activatable radio:selected,
-iconview radio:selected,
-.view radio:selected,
-treeview.view header button radio:selected,
-.budgie-menu button radio:selected,
-row.activatable radio:selected:focus,
-iconview radio:selected:focus,
-.view radio:selected:focus,
-treeview.view header button radio:selected:focus,
-.budgie-menu button radio:selected:focus {
-  color: #FFFFFF;
-  -gtk-icon-shadow: none;
-}
-
-treeview.view radio:selected:active,
-treeview.view radio:selected:focus:active,
-row radio:selected:active,
-row radio:selected:focus:active,
-row.activatable radio:selected:active,
-iconview radio:selected:active,
-.view radio:selected:active,
-treeview.view header button radio:selected:active,
-.budgie-menu button radio:selected:active,
-row.activatable radio:selected:focus:active,
-iconview radio:selected:focus:active,
-.view radio:selected:focus:active,
-treeview.view header button radio:selected:focus:active,
-.budgie-menu button radio:selected:focus:active {
-  color: #FFFFFF;
-  -gtk-icon-shadow: none;
-}
-
-treeview.view radio:selected:backdrop,
-treeview.view radio:selected:focus:backdrop,
-row radio:selected:backdrop,
-row radio:selected:focus:backdrop,
-row.activatable radio:selected:backdrop,
-iconview radio:selected:backdrop,
-.view radio:selected:backdrop,
-treeview.view header button radio:selected:backdrop,
-.budgie-menu button radio:selected:backdrop,
-row.activatable radio:selected:focus:backdrop,
-iconview radio:selected:focus:backdrop,
-.view radio:selected:focus:backdrop,
-treeview.view header button radio:selected:focus:backdrop,
-.budgie-menu button radio:selected:focus:backdrop {
-  color: #FFFFFF;
-  -gtk-icon-shadow: none;
-}
-
-treeview.view radio:selected:indeterminate,
-treeview.view radio:selected:focus:indeterminate,
-row radio:selected:indeterminate,
-row radio:selected:focus:indeterminate,
-row.activatable radio:selected:indeterminate,
-iconview radio:selected:indeterminate,
-.view radio:selected:indeterminate,
-treeview.view header button radio:selected:indeterminate,
-.budgie-menu button radio:selected:indeterminate,
-row.activatable radio:selected:focus:indeterminate,
-iconview radio:selected:focus:indeterminate,
-.view radio:selected:focus:indeterminate,
-treeview.view header button radio:selected:focus:indeterminate,
-.budgie-menu button radio:selected:focus:indeterminate {
-  color: #FFFFFF;
-  -gtk-icon-shadow: none;
-}
-
-treeview.view radio:selected:indeterminate:backdrop,
-treeview.view radio:selected:focus:indeterminate:backdrop,
-row radio:selected:indeterminate:backdrop,
-row radio:selected:focus:indeterminate:backdrop,
-row.activatable radio:selected:indeterminate:backdrop,
-iconview radio:selected:indeterminate:backdrop,
-.view radio:selected:indeterminate:backdrop,
-treeview.view header button radio:selected:indeterminate:backdrop,
-.budgie-menu button radio:selected:indeterminate:backdrop,
-row.activatable radio:selected:focus:indeterminate:backdrop,
-iconview radio:selected:focus:indeterminate:backdrop,
-.view radio:selected:focus:indeterminate:backdrop,
-treeview.view header button radio:selected:focus:indeterminate:backdrop,
-.budgie-menu button radio:selected:focus:indeterminate:backdrop {
-  color: #FFFFFF;
-  -gtk-icon-shadow: none;
-}
-
-treeview.view radio:selected:indeterminate:active,
-treeview.view radio:selected:focus:indeterminate:active,
-row radio:selected:indeterminate:active,
-row radio:selected:focus:indeterminate:active,
-row.activatable radio:selected:indeterminate:active,
-iconview radio:selected:indeterminate:active,
-.view radio:selected:indeterminate:active,
-treeview.view header button radio:selected:indeterminate:active,
-.budgie-menu button radio:selected:indeterminate:active,
-row.activatable radio:selected:focus:indeterminate:active,
-iconview radio:selected:focus:indeterminate:active,
-.view radio:selected:focus:indeterminate:active,
-treeview.view header button radio:selected:focus:indeterminate:active,
-.budgie-menu button radio:selected:focus:indeterminate:active {
-  color: #FFFFFF;
-  -gtk-icon-shadow: none;
-}
-
-treeview.view radio:selected:checked,
-treeview.view radio:selected:focus:checked,
-row radio:selected:checked,
-row radio:selected:focus:checked,
-row.activatable radio:selected:checked,
-iconview radio:selected:checked,
-.view radio:selected:checked,
-treeview.view header button radio:selected:checked,
-.budgie-menu button radio:selected:checked,
-row.activatable radio:selected:focus:checked,
-iconview radio:selected:focus:checked,
-.view radio:selected:focus:checked,
-treeview.view header button radio:selected:focus:checked,
-.budgie-menu button radio:selected:focus:checked {
-  color: #FFFFFF;
-  -gtk-icon-shadow: none;
-}
-
-treeview.view radio:selected:checked:backdrop,
-treeview.view radio:selected:focus:checked:backdrop,
-row radio:selected:checked:backdrop,
-row radio:selected:focus:checked:backdrop,
-row.activatable radio:selected:checked:backdrop,
-iconview radio:selected:checked:backdrop,
-.view radio:selected:checked:backdrop,
-treeview.view header button radio:selected:checked:backdrop,
-.budgie-menu button radio:selected:checked:backdrop,
-row.activatable radio:selected:focus:checked:backdrop,
-iconview radio:selected:focus:checked:backdrop,
-.view radio:selected:focus:checked:backdrop,
-treeview.view header button radio:selected:focus:checked:backdrop,
-.budgie-menu button radio:selected:focus:checked:backdrop {
-  color: #FFFFFF;
-  -gtk-icon-shadow: none;
-}
-
-treeview.view radio:selected:checked:active,
-treeview.view radio:selected:focus:checked:active,
-row radio:selected:checked:active,
-row radio:selected:focus:checked:active,
-row.activatable radio:selected:checked:active,
-iconview radio:selected:checked:active,
-.view radio:selected:checked:active,
-treeview.view header button radio:selected:checked:active,
-.budgie-menu button radio:selected:checked:active,
-row.activatable radio:selected:focus:checked:active,
-iconview radio:selected:focus:checked:active,
-.view radio:selected:focus:checked:active,
-treeview.view header button radio:selected:focus:checked:active,
-.budgie-menu button radio:selected:focus:checked:active {
-  color: #FFFFFF;
-  -gtk-icon-shadow: none;
-}
-
-treeview.view radio:selected:disabled,
-treeview.view radio:selected:focus:disabled,
-row radio:selected:disabled,
-row radio:selected:focus:disabled,
-row.activatable radio:selected:disabled,
-iconview radio:selected:disabled,
-.view radio:selected:disabled,
-treeview.view header button radio:selected:disabled,
-.budgie-menu button radio:selected:disabled,
-row.activatable radio:selected:focus:disabled,
-iconview radio:selected:focus:disabled,
-.view radio:selected:focus:disabled,
-treeview.view header button radio:selected:focus:disabled,
-.budgie-menu button radio:selected:focus:disabled {
-  color: alpha(#FFFFFF, 0.5);
-  -gtk-icon-shadow: none;
-}
-
-treeview.view radio:selected:indeterminate:disabled,
-treeview.view radio:selected:focus:indeterminate:disabled,
-row radio:selected:indeterminate:disabled,
-row radio:selected:focus:indeterminate:disabled,
-row.activatable radio:selected:indeterminate:disabled,
-iconview radio:selected:indeterminate:disabled,
-.view radio:selected:indeterminate:disabled,
-treeview.view header button radio:selected:indeterminate:disabled,
-.budgie-menu button radio:selected:indeterminate:disabled,
-row.activatable radio:selected:focus:indeterminate:disabled,
-iconview radio:selected:focus:indeterminate:disabled,
-.view radio:selected:focus:indeterminate:disabled,
-treeview.view header button radio:selected:focus:indeterminate:disabled,
-.budgie-menu button radio:selected:focus:indeterminate:disabled {
-  color: alpha(#FFFFFF, 0.5);
-  -gtk-icon-shadow: none;
-}
-
-treeview.view radio:selected:checked:disabled,
-treeview.view radio:selected:focus:checked:disabled,
-row radio:selected:checked:disabled,
-row radio:selected:focus:checked:disabled,
-row.activatable radio:selected:checked:disabled,
-iconview radio:selected:checked:disabled,
-.view radio:selected:checked:disabled,
-treeview.view header button radio:selected:checked:disabled,
-.budgie-menu button radio:selected:checked:disabled,
-row.activatable radio:selected:focus:checked:disabled,
-iconview radio:selected:focus:checked:disabled,
-.view radio:selected:focus:checked:disabled,
-treeview.view header button radio:selected:focus:checked:disabled,
-.budgie-menu button radio:selected:focus:checked:disabled {
-  color: alpha(#FFFFFF, 0.5);
-  -gtk-icon-shadow: none;
+  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-dash-symbolic.svg")));
 }
 
 check:not(:checked):active {
@@ -3754,13 +3823,10 @@ treeview.view radio:indeterminate:disabled {
 }
 
 treeview.view radio:checked {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-checked-symbolic.svg")), -gtk-recolor(url("assets/scalable/radio-checked-symbolic.png")));
+  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-checked-symbolic.svg")));
   border-image: none;
 }
 
-/************
- * GtkScale *
- ************/
 scale {
   min-height: 12px;
   min-width: 12px;
@@ -3770,19 +3836,21 @@ scale {
 scale slider {
   min-height: 24px;
   min-width: 24px;
-  margin: -10px;
+  margin: -11px;
 }
 
 scale trough {
-  outline-offset: 2px;
+  transition: background-color 100ms cubic-bezier(0, 0, 0.2, 1);
+  outline: none;
   background-color: alpha(currentColor, 0.24);
 }
 
 scale trough:disabled {
-  color: rgba(0, 0, 0, 0.32);
+  background-color: alpha(currentColor, 0.12);
 }
 
 scale highlight {
+  transition: background-color 100ms cubic-bezier(0, 0, 0.2, 1);
   background-color: #666666;
 }
 
@@ -3791,6 +3859,7 @@ scale highlight:disabled {
 }
 
 scale fill {
+  transition: background-color 100ms cubic-bezier(0, 0, 0.2, 1);
   background-color: alpha(currentColor, 0.24);
 }
 
@@ -3803,29 +3872,43 @@ scale slider {
   background-repeat: no-repeat;
   background-position: center;
   background-size: auto, 1000% 1000%;
-  background-size: calc(100% - 8px);
+  border-radius: 100%;
+  color: transparent;
 }
 
 scale slider {
-  background-image: -gtk-scaled(url("assets/slider.png"), url("assets/slider@2.png"));
+  background-image: -gtk-scaled(url("assets/scale-slider.png"), url("assets/scale-slider@2.png")), radial-gradient(circle farthest-corner at center, currentColor 10%, transparent 0%);
 }
 
 scale slider:disabled {
-  background-image: -gtk-scaled(url("assets/slider-insensitive.png"), url("assets/slider-insensitive@2.png"));
+  background-image: -gtk-scaled(url("assets/scale-slider-disabled.png"), url("assets/scale-slider-disabled@2.png")), radial-gradient(circle farthest-corner at center, currentColor 10%, transparent 0%);
 }
 
 scale slider:hover {
-  background-size: calc(100% - 4px);
+  background-color: rgba(102, 102, 102, 0.1);
+}
+
+scale slider:focus {
+  background-color: rgba(102, 102, 102, 0.12);
+}
+
+scale slider:focus:hover {
+  background-color: rgba(102, 102, 102, 0.16);
 }
 
 scale slider:active {
-  background-size: calc(100% - 0px);
+  transition: background-color 100ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
+  animation: scale_ripple_effect 225ms cubic-bezier(0, 0, 0.2, 1) forwards;
+  background-size: auto, 0% 0%;
+  background-color: rgba(102, 102, 102, 0.12);
+  color: rgba(102, 102, 102, 0.15);
 }
 
 scale.fine-tune slider {
   background-size: calc(100% - 12px);
 }
 
+scale marks label,
 scale value {
   color: alpha(currentColor, 0.6);
 }
@@ -3865,111 +3948,35 @@ scale.vertical indicator {
 }
 
 scale.horizontal.marks-before:not(.marks-after) slider {
-  min-height: 30px;
-  min-width: 24px;
-  margin-top: -16px;
-  background-position: center calc(100% - 4px);
-}
-
-scale.horizontal.marks-before:not(.marks-after) slider {
-  background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-above.png"), url("assets/slider-horz-scale-has-marks-above@2.png"));
+  background-image: -gtk-scaled(url("assets/scale-horz-marks-before-slider.png"), url("assets/scale-horz-marks-before-slider@2.png")), radial-gradient(circle farthest-corner at center, currentColor 10%, transparent 0%);
 }
 
 scale.horizontal.marks-before:not(.marks-after) slider:disabled {
-  background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-above-insensitive.png"), url("assets/slider-horz-scale-has-marks-above-insensitive@2.png"));
-}
-
-scale.horizontal.marks-before:not(.marks-after) slider:hover {
-  background-position: center calc(100% - 2px);
-}
-
-scale.horizontal.marks-before:not(.marks-after) slider:active {
-  background-position: center calc(100% - 0px);
-}
-
-scale.horizontal.marks-before:not(.marks-after).fine-tune slider {
-  background-position: center calc(100% - 6px);
+  background-image: -gtk-scaled(url("assets/scale-horz-marks-before-slider-disabled.png"), url("assets/scale-horz-marks-before-slider-disabled@2.png")), radial-gradient(circle farthest-corner at center, currentColor 10%, transparent 0%);
 }
 
 scale.horizontal.marks-after:not(.marks-before) slider {
-  min-height: 30px;
-  min-width: 24px;
-  margin-bottom: -16px;
-  background-position: center calc(4px);
-}
-
-scale.horizontal.marks-after:not(.marks-before) slider {
-  background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-below.png"), url("assets/slider-horz-scale-has-marks-below@2.png"));
+  background-image: -gtk-scaled(url("assets/scale-horz-marks-after-slider.png"), url("assets/scale-horz-marks-after-slider@2.png")), radial-gradient(circle farthest-corner at center, currentColor 10%, transparent 0%);
 }
 
 scale.horizontal.marks-after:not(.marks-before) slider:disabled {
-  background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-below-insensitive.png"), url("assets/slider-horz-scale-has-marks-below-insensitive@2.png"));
-}
-
-scale.horizontal.marks-after:not(.marks-before) slider:hover {
-  background-position: center calc(2px);
-}
-
-scale.horizontal.marks-after:not(.marks-before) slider:active {
-  background-position: center calc(0px);
-}
-
-scale.horizontal.marks-after:not(.marks-before).fine-tune slider {
-  background-position: center calc(6px);
+  background-image: -gtk-scaled(url("assets/scale-horz-marks-after-slider-disabled.png"), url("assets/scale-horz-marks-after-slider-disabled@2.png")), radial-gradient(circle farthest-corner at center, currentColor 10%, transparent 0%);
 }
 
 scale.vertical.marks-before:not(.marks-after) slider {
-  min-height: 24px;
-  min-width: 30px;
-  margin-left: -16px;
-  background-position: calc(4px) center;
-}
-
-scale.vertical.marks-before:not(.marks-after) slider {
-  background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-above.png"), url("assets/slider-vert-scale-has-marks-above@2.png"));
+  background-image: -gtk-scaled(url("assets/scale-vert-marks-before-slider.png"), url("assets/scale-vert-marks-before-slider@2.png")), radial-gradient(circle farthest-corner at center, currentColor 10%, transparent 0%);
 }
 
 scale.vertical.marks-before:not(.marks-after) slider:disabled {
-  background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-above-insensitive.png"), url("assets/slider-vert-scale-has-marks-above-insensitive@2.png"));
-}
-
-scale.vertical.marks-before:not(.marks-after) slider:hover {
-  background-position: calc(2px) center;
-}
-
-scale.vertical.marks-before:not(.marks-after) slider:active {
-  background-position: calc(0px) center;
-}
-
-scale.vertical.marks-before:not(.marks-after).fine-tune slider {
-  background-position: calc(6px) center;
+  background-image: -gtk-scaled(url("assets/scale-vert-marks-before-slider-disabled.png"), url("assets/scale-vert-marks-before-slider-disabled@2.png")), radial-gradient(circle farthest-corner at center, currentColor 10%, transparent 0%);
 }
 
 scale.vertical.marks-after:not(.marks-before) slider {
-  min-height: 24px;
-  min-width: 30px;
-  margin-right: -16px;
-  background-position: calc(100% - 4px) center;
-}
-
-scale.vertical.marks-after:not(.marks-before) slider {
-  background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-below.png"), url("assets/slider-vert-scale-has-marks-below@2.png"));
+  background-image: -gtk-scaled(url("assets/scale-vert-marks-after-slider.png"), url("assets/scale-vert-marks-after-slider@2.png")), radial-gradient(circle farthest-corner at center, currentColor 10%, transparent 0%);
 }
 
 scale.vertical.marks-after:not(.marks-before) slider:disabled {
-  background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-below-insensitive.png"), url("assets/slider-vert-scale-has-marks-below-insensitive@2.png"));
-}
-
-scale.vertical.marks-after:not(.marks-before) slider:hover {
-  background-position: calc(100% - 2px) center;
-}
-
-scale.vertical.marks-after:not(.marks-before) slider:active {
-  background-position: calc(100% - 0px) center;
-}
-
-scale.vertical.marks-after:not(.marks-before).fine-tune slider {
-  background-position: calc(100% - 6px) center;
+  background-image: -gtk-scaled(url("assets/scale-vert-marks-after-slider-disabled.png"), url("assets/scale-vert-marks-after-slider-disabled@2.png")), radial-gradient(circle farthest-corner at center, currentColor 10%, transparent 0%);
 }
 
 scale.color {
@@ -4004,9 +4011,6 @@ scale.color.vertical:dir(rtl) slider {
   margin-left: -2px;
 }
 
-/*****************
- * Progress bars *
- *****************/
 progressbar {
   color: rgba(0, 0, 0, 0.48);
   font-size: smaller;
@@ -4014,38 +4018,37 @@ progressbar {
 
 progressbar.horizontal trough,
 progressbar.horizontal progress {
-  min-height: 4px;
+  min-height: 3px;
 }
 
 progressbar.vertical trough,
 progressbar.vertical progress {
-  min-width: 4px;
+  min-width: 3px;
 }
 
 progressbar trough {
   background-color: rgba(104, 104, 104, 0.24);
+  border-radius: 6px;
 }
 
 progressbar progress {
   background-color: #686868;
+  border-radius: 6px;
 }
 
-/*************
- * Level Bar *
- *************/
 levelbar block {
   min-width: 36px;
-  min-height: 4px;
+  min-height: 3px;
 }
 
 levelbar.vertical block {
-  min-width: 4px;
+  min-width: 3px;
   min-height: 36px;
 }
 
 levelbar trough {
   padding: 2px;
-  border-radius: 2px;
+  border-radius: 6px;
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
   border-image: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -4092,9 +4095,6 @@ levelbar block.empty {
   color: rgba(0, 0, 0, 0.32);
 }
 
-/****************
- * Print dialog *
-*****************/
 printdialog paper {
   padding: 0;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -4106,9 +4106,6 @@ printdialog .dialog-action-box {
   margin: 12px;
 }
 
-/**********
- * Frames *
- **********/
 frame > border,
 .frame {
   margin: 0;
@@ -4225,9 +4222,6 @@ separator {
   background: rgba(0, 0, 0, 0.1);
 }
 
-/*********
- * Lists *
- *********/
 list {
   border-color: rgba(0, 0, 0, 0.1);
   background-color: #FFFFFF;
@@ -4260,9 +4254,6 @@ row:selected:hover {
   background-color: #757575;
 }
 
-/*********************
- * App Notifications *
- *********************/
 .app-notification {
   margin: 8px;
 }
@@ -4272,9 +4263,6 @@ row:selected:hover {
   border-style: none;
 }
 
-/*************
- * Expanders *
- *************/
 expander arrow {
   transition: all 100ms cubic-bezier(0.4, 0, 0.2, 1);
   min-width: 16px;
@@ -4312,9 +4300,6 @@ expander arrow:selected:disabled {
   color: rgba(255, 255, 255, 0.3);
 }
 
-/************
- * Calendar *
- ***********/
 calendar {
   margin: 2px;
   padding: 2px 6px;
@@ -4348,9 +4333,6 @@ calendar:indeterminate {
   color: alpha(currentColor, 0.4);
 }
 
-/***********
- * Dialogs *
- ***********/
 messagedialog.background {
   background-color: #FCFCFC;
 }
@@ -4481,9 +4463,6 @@ filechooserbutton:drop(active) {
   box-shadow: none;
 }
 
-/***********
- * Sidebar *
- ***********/
 .sidebar {
   border-style: none;
   background-color: #FCFCFC;
@@ -4528,9 +4507,6 @@ stacksidebar row > label {
   padding-right: 6px;
 }
 
-/****************
- * File chooser *
- ****************/
 placessidebar > viewport.frame {
   border-style: none;
 }
@@ -4605,9 +4581,6 @@ placesview > actionbar > revealer > box > label {
   padding-right: 8px;
 }
 
-/*********
- * Paned *
- *********/
 paned > separator {
   min-width: 1px;
   min-height: 1px;
@@ -4663,9 +4636,6 @@ paned.vertical > separator.wide {
   background-position: bottom, top;
 }
 
-/**************
- * GtkInfoBar *
- **************/
 infobar {
   border-style: none;
 }
@@ -4742,9 +4712,6 @@ infobar.info button:disabled:active, infobar.question button:disabled:active, in
   box-shadow: none;
 }
 
-/************
- * Tooltips *
- ************/
 tooltip {
   border-radius: 2px;
   box-shadow: none;
@@ -4770,9 +4737,6 @@ tooltip label {
   padding: 0 2px;
 }
 
-/*****************
- * Color Chooser *
- *****************/
 colorswatch.top {
   border-top-left-radius: 3.5px;
   border-top-right-radius: 3.5px;
@@ -4891,16 +4855,10 @@ colorchooser .popover.osd:backdrop {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.4);
 }
 
-/********
- * Misc *
- ********/
 .content-view {
   background-color: #F5F5F5;
 }
 
-/**********************
- * Window Decorations *
- *********************/
 decoration {
   transition: box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
   border-radius: 2px 2px 0 0;
@@ -4974,9 +4932,6 @@ entry selection:disabled, modelbutton.flat:disabled:selected,
   font-family: monospace;
 }
 
-/*****************
- * Title buttons *
- *****************/
 headerbar button.titlebutton:hover, .titlebar button.titlebutton:hover {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
   animation: none;
@@ -5172,9 +5127,6 @@ headerbar button.titlebutton.close, .csd headerbar button.titlebutton.close, .so
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-restore-active.png"), url("assets/window-assets/titlebutton-restore-active@2.png"));
 }
 
-/**********************
- * Touch Copy & Paste *
- *********************/
 cursor-handle {
   border-radius: 100px;
   background-color: #666666;
@@ -5257,9 +5209,6 @@ stackswitcher button.text-button.circular {
   padding: 0;
 }
 
-/*********
- * Emoji *
- *********/
 popover.emoji-picker {
   padding: 0;
 }
@@ -5321,9 +5270,58 @@ button.emoji-section:last-child {
   font-size: larger;
 }
 
-/************
- * Nautilus *
- ************/
+.nautilus-window headerbar .path-bar-box.width-maximized button {
+  margin: 0;
+  border-radius: 0;
+  transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0, background-color 0;
+  animation: ripple_effect 100ms cubic-bezier(0, 0, 0.2, 1) forwards;
+  color: rgba(0, 0, 0, 0.6);
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #686868 0%, transparent 0%) 0 0 0/0 0 0;
+}
+
+.nautilus-window headerbar .path-bar-box.width-maximized button:hover {
+  color: rgba(0, 0, 0, 0.8);
+  background: none;
+  box-shadow: inset 0 -2px rgba(104, 104, 104, 0.5);
+}
+
+.nautilus-window headerbar .path-bar-box.width-maximized button:checked, .nautilus-window headerbar .path-bar-box.width-maximized button:active {
+  color: rgba(0, 0, 0, 0.8);
+  background: none;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #686868 100%, transparent 0%) 0 0 2/0 0 2px;
+}
+
+.nautilus-window headerbar .path-bar-box button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button,
+.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.6);
+  background-color: transparent;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #686868 0%, transparent 0%) 0 0 0/0 0 0;
+}
+
+.nautilus-window headerbar .path-bar-box button:hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:hover,
+.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:hover {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.12);
+}
+
+.nautilus-window headerbar .path-bar-box button:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:active,
+.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:active, .nautilus-window headerbar .path-bar-box button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked,
+.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked {
+  color: rgba(0, 0, 0, 0.8);
+  background-color: transparent;
+  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.12);
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #686868 100%, transparent 0%) 0 0 2/0 0 2px;
+  background-image: radial-gradient(circle farthest-corner at center, rgba(0, 0, 0, 0.12) 10%, transparent 0%);
+}
+
+.nautilus-window headerbar .path-bar-box button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked,
+.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked {
+  background: none;
+  box-shadow: none;
+}
+
 .nautilus-window,
 .nautilus-window notebook,
 .nautilus-window notebook > stack {
@@ -5393,58 +5391,6 @@ filechooser placessidebar.sidebar row.sidebar-row:selected:hover,
   box-shadow: none;
   color: #FFFFFF;
   background-color: rgba(104, 104, 104, 0.8);
-}
-
-.nautilus-window headerbar .path-bar-box button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button {
-  margin: 0;
-  color: rgba(0, 0, 0, 0.6);
-  background-color: transparent;
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #686868 0%, transparent 0%) 0 0 0/0 0 0;
-}
-
-.nautilus-window headerbar .path-bar-box button:hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:hover,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:hover {
-  background-color: transparent;
-  color: rgba(0, 0, 0, 0.8);
-  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.12);
-}
-
-.nautilus-window headerbar .path-bar-box button:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:active,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:active, .nautilus-window headerbar .path-bar-box button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked {
-  color: rgba(0, 0, 0, 0.8);
-  background-color: transparent;
-  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.12);
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #686868 100%, transparent 0%) 0 0 2/0 0 2px;
-  background-image: radial-gradient(circle farthest-corner at center, rgba(0, 0, 0, 0.12) 10%, transparent 0%);
-}
-
-.nautilus-window headerbar .path-bar-box button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked {
-  background: none;
-  box-shadow: none;
-}
-
-.nautilus-window headerbar .path-bar-box.width-maximized button {
-  margin: 0;
-  border-radius: 0;
-  transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0, background-color 0;
-  animation: ripple_effect 100ms cubic-bezier(0, 0, 0.2, 1) forwards;
-  color: rgba(0, 0, 0, 0.6);
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #686868 0%, transparent 0%) 0 0 0/0 0 0;
-}
-
-.nautilus-window headerbar .path-bar-box.width-maximized button:hover {
-  color: rgba(0, 0, 0, 0.8);
-  background: none;
-  box-shadow: inset 0 -2px rgba(104, 104, 104, 0.5);
-}
-
-.nautilus-window headerbar .path-bar-box.width-maximized button:checked, .nautilus-window headerbar .path-bar-box.width-maximized button:active {
-  color: rgba(0, 0, 0, 0.8);
-  background: none;
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #686868 100%, transparent 0%) 0 0 2/0 0 2px;
 }
 
 .nautilus-window headerbar .path-bar-box {
@@ -5556,9 +5502,6 @@ filechooser placessidebar.sidebar row.sidebar-row:selected:hover,
   margin-top: -1px;
 }
 
-/*********
- * gedit *
- *********/
 paned.titlebar.horizontal headerbar {
   box-shadow: inset 0 -1px rgba(0, 0, 0, 0.1);
 }
@@ -5653,43 +5596,6 @@ paned.titlebar.horizontal headerbar {
 .gedit-search-slider .linked:not(.vertical) > entry,
 notebook > stack:not(:only-child) revealer .gedit-search-slider .linked:not(.vertical) > entry {
   border-radius: 2px;
-}
-
-/**************
- * Tweak Tool *
- **************/
-.tweak-categories {
-  background-image: image(#FCFCFC);
-}
-
-.tweak-categories separator {
-  min-width: 0;
-  min-height: 0;
-  background: transparent;
-}
-
-.tweak {
-  padding: 3px;
-}
-
-.tweak.title:hover {
-  box-shadow: none;
-}
-
-.tweak-group-white,
-.tweak-white,
-.tweak-white:hover {
-  background-image: image(#FFFFFF);
-}
-
-.tweak-startup,
-.tweak-startup:hover {
-  background-image: image(#FFFFFF);
-}
-
-.tweak-group-startup {
-  background-image: image(#FFFFFF);
-  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 window.background > box.vertical > overlay > stack > widget > stack > box.vertical > scrolledwindow > viewport.frame > widget > list {
@@ -5812,9 +5718,6 @@ window.background > box.vertical box.horizontal > box.vertical > scrolledwindow 
   transition-duration: 0s;
 }
 
-/***********
- * Builder *
- ***********/
 workbench stack.titlebar {
   padding: 0;
 }
@@ -5988,9 +5891,6 @@ workbench preferences preferencesgroup list entry {
   padding-bottom: 8px;
 }
 
-/**********
- * Photos *
- **********/
 GdMainIconView.content-view {
   -GdMainIconView-icon-size: 48;
 }
@@ -6026,9 +5926,6 @@ overlay grid.horizontal > revealer > scrolledwindow.frame:dir(rtl) {
   border-style: none solid none none;
 }
 
-/*********
- * Music *
- *********/
 .side-panel:dir(ltr) {
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.1);
@@ -6075,9 +5972,8 @@ box.vertical:not(.titlebar) > revealer > toolbar.search-bar button > widget {
   -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
 }
 
-stack > box.vertical > widget > overlay grid.horizontal > stack > button.toggle {
-  box-shadow: none;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+stack widget stack button.toggle {
+  margin: 6px;
 }
 
 box.horizontal.titlebar > headerbar > stack > box.vertical > .title {
@@ -6092,9 +5988,6 @@ dialog.background.csd > headerbar.titlebar > label:not(.title):not(.subtitle) {
   font-weight: 700;
 }
 
-/*********
- * To Do *
- *********/
 task-row {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1);
   margin: 0 -4px;
@@ -6126,9 +6019,6 @@ task-list-view > box > revealer > box > button image {
   margin: 0 4px;
 }
 
-/*******
- * eog *
- *******/
 #eog-thumb-nav scrolledwindow {
   border-top: none;
 }
@@ -6137,9 +6027,6 @@ task-list-view > box > revealer > box > button image {
   -gtk-outline-radius: 2px;
 }
 
-/*************
- * Evolution *
- *************/
 frame.taskbar > border {
   border-style: solid none none;
 }
@@ -6148,16 +6035,10 @@ box.vertical > paned.horizontal notebook widget .frame {
   border-style: none;
 }
 
-/********
- * gitg *
- ********/
 frame.commit-frame > border {
   border-style: solid none none;
 }
 
-/**************
- * Characters *
- **************/
 box.dialog-vbox scrolledwindow.related {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -6166,16 +6047,10 @@ list.categories {
   background-image: image(#FCFCFC);
 }
 
-/**************
- * Calculator *
- **************/
 button.title label {
   min-height: 36px;
 }
 
-/**********
- * Tweaks *
- **********/
 .tweak-categories {
   background-image: image(#fafafa);
 }
@@ -6245,9 +6120,6 @@ row#workspaces-only-on-primary {
   margin-top: 4px;
 }
 
-/************
- * Terminix *
- ************/
 .terminix-background box.vertical > widget > box.horizontal {
   padding: 3px 0 2px;
 }
@@ -6286,9 +6158,6 @@ overlay > revealer.right > scrolledwindow.frame {
   background-image: image(#FCFCFC);
 }
 
-/***********
- * Eclipse *
- ***********/
 window.background > box.vertical > scrolledwindow > widget toolbar {
   padding: 2px;
 }
@@ -6629,9 +6498,6 @@ window.background:not(.csd) > menu > menuitem > label:disabled {
   transition: none;
 }
 
-/***************
-  * Chrome(ium) *
-  ***************/
 window.background.chromium headerbar.titlebar button.toggle {
   border: none;
   min-height: 22px;
@@ -6667,16 +6533,10 @@ window.background.chromium > textview.view {
   background-color: #FFFFFF;
 }
 
-/***********
- * Synapse *
- ***********/
 window.background > box.vertical > widget > widget:selected {
   background-color: #686868;
 }
 
-/****************
- * Libre-Office *
- ****************/
 window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal {
   background-color: #eeeeee;
 }
@@ -6691,9 +6551,6 @@ window.background:not(.solid-csd) > notebook:not(.frame) > stack {
   box-shadow: none;
 }
 
-/*************
-  * rhythmbox *
-  *************/
 .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar {
   box-shadow: inset 0 1px rgba(0, 0, 0, 0.1);
   padding: 4px;
@@ -6733,6 +6590,16 @@ window.solid-csd > box.vertical > box.vertical > frame > border {
 
 .geary-composer-box .linked > button.combo {
   border-radius: 0;
+}
+
+popover.background list.geary-folder-popover-list row.activatable.geary-folder-popover-list-row, popover.background list.geary-folder-popover-list iconview.geary-folder-popover-list-row,
+popover.background list.geary-folder-popover-list .geary-folder-popover-list-row.view, popover.background list.geary-folder-popover-list treeview.view header button.geary-folder-popover-list-row, treeview.view header popover.background list.geary-folder-popover-list button.geary-folder-popover-list-row, popover.background list.geary-folder-popover-list .budgie-menu button.geary-folder-popover-list-row, .budgie-menu popover.background list.geary-folder-popover-list button.geary-folder-popover-list-row {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+popover.background list.geary-folder-popover-list row.activatable.geary-folder-popover-list-row:disabled, popover.background list.geary-folder-popover-list iconview.geary-folder-popover-list-row:disabled,
+popover.background list.geary-folder-popover-list .geary-folder-popover-list-row.view:disabled, popover.background list.geary-folder-popover-list treeview.view header button.geary-folder-popover-list-row:disabled, treeview.view header popover.background list.geary-folder-popover-list button.geary-folder-popover-list-row:disabled, popover.background list.geary-folder-popover-list .budgie-menu button.geary-folder-popover-list-row:disabled, .budgie-menu popover.background list.geary-folder-popover-list button.geary-folder-popover-list-row:disabled {
+  color: rgba(0, 0, 0, 0.32);
 }
 
 .xfce4-panel button.flat, .xfce4-panel button {
@@ -7074,9 +6941,6 @@ window.background stack scrolledwindow .linked entry {
   border-radius: 0;
 }
 
-/*********
- * Unity *
- *********/
 UnityDecoration {
   -UnityDecoration-extents: 28px 0 0 0;
   -UnityDecoration-input-extents: 10px;
@@ -7177,9 +7041,6 @@ menuitem calendar .view {
   padding: 2px 6px;
 }
 
-/**************
- * Mate-Panel *
- **************/
 .mate-panel-menu-bar menubar,
 #PanelApplet-window-menu-applet-button {
   background-color: transparent;
@@ -7280,9 +7141,6 @@ na-tray-applet {
   border-style: none;
 }
 
-/*********************
- * CAJA File manager *
- *********************/
 .caja-navigation-window button.toggle.image-button {
   border-radius: 3px;
 }
@@ -7330,9 +7188,6 @@ na-tray-applet {
   font-weight: bold;
 }
 
-/*********
- * Pluma *
- *********/
 .pluma-window statusbar {
   margin: 0 -10px;
   padding: 0 4px;
@@ -7374,9 +7229,6 @@ na-tray-applet {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/*********
- * Atril *
- *********/
 .atril-window paned.horizontal box.vertical .frame {
   border-style: none;
 }
@@ -8581,68 +8433,54 @@ treeview.view header box.vertical > stack > box.vertical > .raven-background > v
 /* GTK NAMED COLORS
    ----------------
    use responsibly! */
-/*
-widget text/foreground color */
+/* widget text/foreground color */
 @define-color theme_fg_color rgba(0, 0, 0, 0.8);
-/*
-text color for entries, views and content in general */
-@define-color theme_text_color rgba(0, 0, 0, 0.8);
-/*
-widget base background color */
+/* text color for entries, views and content in general */
+@define-color theme_text_color currentColor;
+/* widget base background color */
 @define-color theme_bg_color #F5F5F5;
-/*
-text widgets and the like base background color */
+/* text widgets and the like base background color */
 @define-color theme_base_color #FFFFFF;
-/*
-base background color of selections */
+/* base background color of selections */
 @define-color theme_selected_bg_color #686868;
-/*
-text/foreground color of selections */
+/* text/foreground color of selections */
 @define-color theme_selected_fg_color #FFFFFF;
-/*
-base background color of insensitive widgets */
+/* base background color of insensitive widgets */
 @define-color insensitive_bg_color #F5F5F5;
-/*
-text foreground color of insensitive widgets */
+/* text foreground color of insensitive widgets */
 @define-color insensitive_fg_color rgba(0, 0, 0, 0.32);
-/*
-insensitive text widgets and the like base background color */
+/* insensitive text widgets and the like base background color */
 @define-color insensitive_base_color #fafafa;
-/*
-widget text/foreground color on backdrop windows */
+/* widget text/foreground color on backdrop windows */
 @define-color theme_unfocused_fg_color rgba(0, 0, 0, 0.8);
-/*
-text color for entries, views and content in general on backdrop windows */
-@define-color theme_unfocused_text_color rgba(0, 0, 0, 0.8);
-/*
-widget base background color on backdrop windows */
+/* text color for entries, views and content in general on backdrop windows */
+@define-color theme_unfocused_text_color currentColor;
+/* widget base background color on backdrop windows */
 @define-color theme_unfocused_bg_color #F5F5F5;
-/*
-text widgets and the like base background color on backdrop windows */
+/* text widgets and the like base background color on backdrop windows */
 @define-color theme_unfocused_base_color #FFFFFF;
-/*
-base background color of selections on backdrop windows */
+/* base background color of selections on backdrop windows */
 @define-color theme_unfocused_selected_bg_color #686868;
-/*
-text/foreground color of selections on backdrop windows */
+/* text/foreground color of selections on backdrop windows */
 @define-color theme_unfocused_selected_fg_color #FFFFFF;
-/*
-insensitive color on backdrop windows*/
+/* insensitive color on backdrop windows*/
 @define-color unfocused_insensitive_color rgba(0, 0, 0, 0.32);
-/*
-widgets main borders color */
+/* widgets main borders color */
 @define-color borders rgba(0, 0, 0, 0.1);
-/*
-widgets main borders color on backdrop windows */
+/* widgets main borders color on backdrop windows */
 @define-color unfocused_borders rgba(0, 0, 0, 0.1);
+/* widgets */
+@define-color fg_color rgba(0, 0, 0, 0.8);
+@define-color text_color currentColor;
+@define-color bg_color #F5F5F5;
+@define-color base_color #FFFFFF;
 /* WM */
 @define-color wm_title alpha(rgba(0, 0, 0, 0.8), 0.8);
 @define-color wm_unfocused_title alpha(rgba(0, 0, 0, 0.8), 0.5);
 @define-color wm_bg #eeeeee;
 @define-color wm_bg_unfocused #eeeeee;
 @define-color wm_highlight #f6f6f6;
-/*
-these are pretty self explicative */
+/* these are pretty self explicative */
 @define-color warning_color #FF6D00;
 @define-color error_color #DD2C00;
 @define-color success_color #00C853;

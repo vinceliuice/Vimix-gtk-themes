@@ -2005,10 +2005,10 @@ dialog.background {
 window.background {
   stack {
     scrolledwindow {
-
       button.suggested-action,
       button.destructive-action {
-        &, &:hover, &:active, &:checked { box-shadow: none; }
+        box-shadow: none;
+        &:hover, &:active, &:checked { box-shadow: $z-depth-1; }
       }
 
       button.combo { @extend %combo_flat; }

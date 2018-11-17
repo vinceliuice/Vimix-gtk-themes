@@ -7128,12 +7128,16 @@ dialog.background .dialog-vbox filechooser .search-bar {
   box-shadow: inset 0 -1px rgba(0, 0, 0, 0.1);
 }
 
-window.background stack scrolledwindow button.suggested-action, window.background stack scrolledwindow button.suggested-action:hover, window.background stack scrolledwindow button.suggested-action:active, window.background stack scrolledwindow button.suggested-action:checked,
-window.background stack scrolledwindow button.destructive-action,
+window.background stack scrolledwindow button.suggested-action,
+window.background stack scrolledwindow button.destructive-action {
+  box-shadow: none;
+}
+
+window.background stack scrolledwindow button.suggested-action:hover, window.background stack scrolledwindow button.suggested-action:active, window.background stack scrolledwindow button.suggested-action:checked,
 window.background stack scrolledwindow button.destructive-action:hover,
 window.background stack scrolledwindow button.destructive-action:active,
 window.background stack scrolledwindow button.destructive-action:checked {
-  box-shadow: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 window.background stack scrolledwindow :not(stackswitcher).linked button:not(.combo) {

@@ -2224,10 +2224,8 @@ scrollbar {
     background-clip: padding-box;
     background-color: $tertiary_fg_color;
 
-    &:hover { background-color: $secondary_fg_color; }
-
-    &:active { background-color: $fg_color; }
-
+    &:hover { background-color: $tertiary_fg_color; }
+    &:active { background-color: $secondary_fg_color; }
     &:disabled { background-color: $disabled_tertiary_fg_color; }
   }
 
@@ -2239,7 +2237,6 @@ scrollbar {
     }
 
     &.horizontal slider { margin: 2px 0; }
-
     &.vertical slider { margin: 0 2px; }
   }
 
@@ -2270,13 +2267,11 @@ scrollbar {
 
       &.horizontal {
         slider { min-width: $_slider_min_length; }
-
         button { min-width: 8px; }
       }
 
       &.vertical {
         slider { min-height: $_slider_min_length; }
-
         button { min-height: 8px; }
       }
     }
@@ -2303,7 +2298,6 @@ scrollbar {
   &.vertical {
     button {
       &.down { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
-
       &.up { -gtk-icon-source: -gtk-icontheme('pan-up-symbolic'); }
     }
   }
@@ -2311,7 +2305,6 @@ scrollbar {
   &.horizontal {
     button {
       &.down { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic'); }
-
       &.up { -gtk-icon-source: -gtk-icontheme('pan-start-symbolic'); }
     }
   }

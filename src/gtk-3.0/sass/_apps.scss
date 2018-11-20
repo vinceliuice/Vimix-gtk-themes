@@ -1206,7 +1206,6 @@ window.background:not(.csd) {
       color: $secondary_headerbar_fg_color;
 
       &:hover { color: $headerbar_fg_color; }
-
       &:disabled { color: $disabled_headerbar_fg_color; }
     }
 
@@ -1231,13 +1230,12 @@ window.background:not(.csd) {
 
 #MozillaGtkWidget.background {
   &,
-  decoration { border-radius: 2px 2px 0 0; } // enforce radius
+  decoration { border-radius: 0 0 0 0; } // enforce radius
 
   // FIXME: unset all our specific titlebuttons
   // until upstream stops rendering useless (weird) icons
   headerbar.titlebar {
-    border-radius: 2px 2px 0 0;
-    border-top: 1px solid lighten($headerbar_bg_color, 10%);
+    border-radius: 0 0 0 0;
 
     &.default-decoration button.titlebutton {
       min-width: 16px;
@@ -1295,16 +1293,13 @@ window.background:not(.csd) {
                       (':disabled', gtkalpha($dark_contrast_color, 0.5)),
                       (':indeterminate:disabled', gtkalpha($dark_contrast_color, 0.5)),
                       (':checked:disabled', gtkalpha($dark_contrast_color, 0.5)) {
-
-            > menuitem > #{$w}#{$s} { color: $c; }
+        > menuitem > #{$w}#{$s} { color: $c; }
       }
     }
-
   }
 
   > widget {
     border { border-color: $borders_color; }
-
     separator { background-color: $borders_color; }
 
     // FIXME: this affected to popover widget as well,
@@ -1351,18 +1346,19 @@ window.background:not(.csd) {
       &:disabled { @extend %entry_fallback_insensitive; }
     }
 
-  %firefox_check_radio {
-    color: #888888;
-    &:hover { color: gtkalpha(#888888, 0.75); }
-    &:checked, &:indeterminate { color: $firefox_theme_color; }
-    &:checked:hover, &:indeterminate:hover { color: gtkalpha($firefox_theme_color, 0.8); }
-    &:disabled { color: gtkalpha(#888888, 0.5); }
-    &:checked:disabled, &:indeterminate:disabled { color: gtkalpha($firefox_theme_color, 0.5); }
- }
+    %firefox_check_radio {
+      color: #888888;
+      &:hover { color: gtkalpha(#888888, 0.75); }
+      &:checked, &:indeterminate { color: $firefox_theme_color; }
+      &:checked:hover, &:indeterminate:hover { color: gtkalpha($firefox_theme_color, 0.8); }
+      &:disabled { color: gtkalpha(#888888, 0.5); }
+      &:checked:disabled, &:indeterminate:disabled { color: gtkalpha($firefox_theme_color, 0.5); }
+    }
 
     // use 16px assets for hard-coded sizing
     > checkbutton > check { @extend %small_check; @extend %firefox_check_radio; }
     > radiobutton > radio { @extend %small_radio; @extend %firefox_check_radio; }
+
     > check,
     > radio { // unset all
       min-width: 16px;
@@ -1950,9 +1946,7 @@ toolbar.primary-toolbar {
 // Dialogs
 //
 dialog.background {
-
   .dialog-vbox {
-
     grid.horizontal {
       scrolledwindow.frame { //removed ugly boders for nautilus batch renaming dialog
         border: none;
@@ -1978,11 +1972,11 @@ dialog.background {
     }
 
     .dialog-action-area {
-      button { @extend %toolbar_flat_button; }
+      button { @extend %flat_theme_button; }
     }
 
     stack {
-//      button:not(.combo) { @extend %toolbar_flat_button; }
+      // button:not(.combo) { @extend %toolbar_flat_button; }
 
       entry,
       spinbutton:not(.vertical) { @extend %flat_entry; }
@@ -1997,6 +1991,18 @@ dialog.background {
       .search-bar { box-shadow: inset 0 -1px $borders_color; }
     }
   }
+}
+
+// dialog.background:not(.csd) {
+//   stack {
+//     button:not(.combo) { @extend %flat_theme_button; }
+//   }
+// }
+
+// Nemo settings stack buttons
+button#show_previous_icon_toolbar_togglebutton,
+button#show_show_thumbnails_icon_toolbar_togglebutton {
+  @extend %flat_theme_button;
 }
 
 //

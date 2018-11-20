@@ -1504,6 +1504,8 @@ headerbar {
     margin-top: $container_padding - 1px;
     margin-bottom: $container_padding - 1px;
   }
+
+  separator { @extend %header_separator; }
 }
 
 .titlebar,
@@ -1860,29 +1862,40 @@ menuitem {
 // Popovers
 //
 %flat_theme_button {
-   box-shadow: none;
-   background-color: transparent;
+  box-shadow: none;
+  background-color: transparent;
+  transition: $shorter_transition,
+              background-size 0,
+              background-image 0;
 
-   &:hover {
-     background-color: rgba($fg_color, 0.15);
-     color: $fg_color;
-   }
+  &:hover {
+    background-color: rgba($fg_color, 0.15);
+    color: $fg_color;
+  }
 
-   &:checked {
-     background-color: $primary_color;
-     color: $inversed_fg_color;
-   }
+  &:active, &:checked {
+    @include button(header-active);
+  }
 
-   &:disabled {
-     background-color: transparent;
-     color: $disabled_fg_color;
-   }
+  &:active, &:checked {
+    @include button(header-checked);
+  }
 
-   &:checked:disabled {
-     background-color: rgba($primary_color, 0.5);
-     color: rgba($inversed_fg_color, 0.5);
-   }
- }
+  &:checked:hover {
+    background-color: lighten($primary_color, 5%);
+    color: $inversed_fg_color;
+  }
+
+  &:disabled {
+    background-color: transparent;
+    color: $disabled_fg_color;
+  }
+
+  &:checked:disabled {
+    background-color: rgba($primary_color, 0.5);
+    color: rgba($inversed_fg_color, 0.5);
+  }
+}
 
 popover.background {
   transition: $shadow_transition;
@@ -3735,7 +3748,7 @@ decoration {
       @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
 
         &.#{$k}#{$l} { background-image: -gtk-scaled(url('assets/window-assets/titlebutton-#{$k}#{$m}#{$darker_asset_suffix}.png'),
-                                                        url('assets/window-assets/titlebutton-#{$k}#{$m}#{$darker_asset_suffix}@2.png')); }
+                                                     url('assets/window-assets/titlebutton-#{$k}#{$m}#{$darker_asset_suffix}@2.png')); }
       }
     }
   }
@@ -3775,7 +3788,7 @@ headerbar,
         @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
 
         &.#{$k}#{$l} { background-image: -gtk-scaled(url('assets/window-assets/titlebutton-#{$k}#{$m}#{$darker_asset_suffix}.png'),
-                                                        url('assets/window-assets/titlebutton-#{$k}#{$m}#{$darker_asset_suffix}@2.png')); }
+                                                     url('assets/window-assets/titlebutton-#{$k}#{$m}#{$darker_asset_suffix}@2.png')); }
         }
       }
     }

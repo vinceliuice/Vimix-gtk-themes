@@ -2335,13 +2335,6 @@ menu,
   border-radius: 0;
 }
 
-.csd menu, .csd
-.menu, .csd
-.context-menu {
-  border: none;
-  border-radius: 0;
-}
-
 menu menuitem,
 .menu menuitem,
 .context-menu menuitem {
@@ -6358,15 +6351,13 @@ window.background:not(.csd) > menu > menu {
   background-color: #303030;
 }
 
-window.background:not(.csd) > menu menuitem, window.background:not(.csd) > menu menuitem label,
-window.background:not(.csd) > menu > menu menuitem,
-window.background:not(.csd) > menu > menu menuitem label {
+window.background:not(.csd) > menu menuitem,
+window.background:not(.csd) > menu > menu menuitem {
   color: rgba(234, 234, 234, 0.75);
 }
 
-window.background:not(.csd) > menu menuitem:hover, window.background:not(.csd) > menu menuitem label:hover,
-window.background:not(.csd) > menu > menu menuitem:hover,
-window.background:not(.csd) > menu > menu menuitem label:hover {
+window.background:not(.csd) > menu menuitem:hover,
+window.background:not(.csd) > menu > menu menuitem:hover {
   color: #FFFFFF;
 }
 

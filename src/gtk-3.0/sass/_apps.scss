@@ -1198,24 +1198,14 @@ window.background:not(.csd) {
     > frame { color: $firefox_border_color; }
   }
 
-  // menu, .menu {
-  //   border: none;
-  //   background-color: if($variant =='light', $base_color, $bg_color);
-  //
-  //   menuitem {
-  //     &, label { color: $secondary_fg_color; }
-  //     &:hover, label:hover { color: $inversed_fg_color; }
-  //     &:disabled, label:disabled { color: $disabled_secondary_fg_color; }
-  //   }
-  // }
   > menu,
   > menu > menu {
     border: none;
     background-color: $base_color;
 
     menuitem {
-      &, label { color: $secondary_fg_color; }
-      &:hover, label:hover { color: $inversed_fg_color; }
+      color: $secondary_fg_color;
+      &:hover { color: $inversed_fg_color; }
       &:disabled, label:disabled { color: $disabled_secondary_fg_color; }
     }
   }

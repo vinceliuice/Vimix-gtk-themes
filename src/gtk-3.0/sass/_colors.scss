@@ -54,7 +54,7 @@ $darker_bg_color: if($variant =='dark', if($color == 'ruby' or $color == 'black'
 $darker_fg_color: if($variant =='light', if($color == 'ruby' or $color == 'black' or $color == 'white', #222222, #212329), #DDDDDD);
 
 // Headerbar colors
-$headerbar_fg_color: if($headerbar =='dark', $dark_contrast_color, $fg_color);
+$headerbar_fg_color: if($headerbar =='dark', $darker_contrast_color, $fg_color);
 $secondary_headerbar_fg_color: if($headerbar =='dark', $secondary_inversed_fg_color, $secondary_fg_color);
 $disabled_headerbar_fg_color: if($headerbar =='dark', $disabled_secondary_inversed_fg_color, $disabled_fg_color);
 
@@ -85,8 +85,8 @@ $topbar_theme_color: if($color == 'black' or $color =='white', $darker_contrast_
 $alt_topbar_theme_color: if($color == 'black' and $color =='white', $darker_contrast_color, $accent_color);
 
 $menu_bg_color: if($headerbar =='light', $base_color, $headerbar_bg_color);
-$menu_fg_color: if($headerbar =='light', $fg_color, $headerbar_fg_color);
-$disabled_menu_fg_color: if($headerbar =='light' and $variant =='light', rgba(#000, 0.5), rgba(#fff, 0.5));
+$menu_fg_color: if($headerbar =='light', $secondary_fg_color, $secondary_headerbar_fg_color);
+$disabled_menu_fg_color: rgba($menu_fg_color, 0.3);
 
 $tab_color: $inverse_theme_color;
 $secondary_titlebar_color: $primary_color;

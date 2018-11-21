@@ -220,6 +220,7 @@ entry.flat, spinbutton.flat:not(.vertical) {
   border: 1px solid #cfcfcf;
   box-shadow: none;
   border-image: none;
+  border-radius: 2px;
   background-color: #FFFFFF;
   color: rgba(0, 0, 0, 0.6);
 }
@@ -231,6 +232,7 @@ entry.flat:focus, spinbutton.flat:focus:not(.vertical) {
   border: 1px solid #F0544C;
   box-shadow: none;
   border-image: none;
+  border-radius: 2px;
   background-color: #FFFFFF;
   color: rgba(0, 0, 0, 0.8);
 }
@@ -250,15 +252,16 @@ entry.flat:disabled, spinbutton.flat:disabled:not(.vertical) {
 .background notebook > stack:not(:only-child) revealer spinbutton:not(.vertical), notebook > stack:not(:only-child) revealer .background spinbutton:not(.vertical),
 .background entry, .background spinbutton:not(.vertical) {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
+  border: none;
   border-image: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
   background-color: #FFFFFF;
   color: rgba(0, 0, 0, 0.6);
-  border: none;
 }
 
 
 .background entry:focus, .background spinbutton:focus:not(.vertical) {
+  border: none;
   border-image: none;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
   color: rgba(0, 0, 0, 0.8);
@@ -324,7 +327,6 @@ notebook > stack:not(:only-child) revealer spinbutton:not(.vertical),
 entry {
   min-height: 36px;
   padding: 0 8px;
-  border-radius: 2px;
 }
 
 notebook > stack:not(:only-child) revealer .linked > entry,
@@ -341,6 +343,7 @@ entry.flat {
   border: 1px solid #cfcfcf;
   box-shadow: none;
   border-image: none;
+  border-radius: 2px;
   background-color: #FFFFFF;
   color: rgba(0, 0, 0, 0.6);
   border-radius: 2px;
@@ -360,6 +363,7 @@ entry.flat:focus {
   border: 1px solid #F0544C;
   box-shadow: none;
   border-image: none;
+  border-radius: 2px;
   background-color: #FFFFFF;
   color: rgba(0, 0, 0, 0.8);
 }
@@ -392,6 +396,7 @@ entry,
 .background .linked.vertical >
 entry {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
+  border: none;
   border-image: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
   background-color: #FFFFFF;
@@ -408,6 +413,7 @@ notebook > stack:not(:only-child) revealer .background .linked.vertical > spinbu
 entry:focus,
 .background .linked.vertical >
 entry:focus {
+  border: none;
   border-image: none;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
   color: rgba(0, 0, 0, 0.8);
@@ -525,6 +531,7 @@ notebook > stack:not(:only-child) revealer entry.error,
 notebook > stack:not(:only-child) revealer spinbutton.error:not(.vertical),
 entry.error {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
+  border: none;
   border-image: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
   background-color: #DD2C00;
@@ -534,6 +541,7 @@ entry.error {
 notebook > stack:not(:only-child) revealer entry.error:focus,
 notebook > stack:not(:only-child) revealer spinbutton.error:focus:not(.vertical),
 entry.error:focus {
+  border: none;
   border-image: none;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
   color: #FFFFFF;
@@ -576,6 +584,7 @@ notebook > stack:not(:only-child) revealer entry.warning,
 notebook > stack:not(:only-child) revealer spinbutton.warning:not(.vertical),
 entry.warning {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
+  border: none;
   border-image: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
   background-color: #FF6D00;
@@ -585,6 +594,7 @@ entry.warning {
 notebook > stack:not(:only-child) revealer entry.warning:focus,
 notebook > stack:not(:only-child) revealer spinbutton.warning:focus:not(.vertical),
 entry.warning:focus {
+  border: none;
   border-image: none;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
   color: #FFFFFF;
@@ -1389,6 +1399,14 @@ spinbutton:not(.vertical) {
   padding: 0;
 }
 
+spinbutton:not(.vertical), spinbutton:not(.vertical) .background:not(.csd) {
+  border: 1px solid gainsboro;
+}
+
+spinbutton:not(.vertical):focus, spinbutton:not(.vertical) .background:not(.csd):focus {
+  border: 1px solid #F0544C;
+}
+
 .primary-toolbar spinbutton:not(.vertical) entry, notebook > stack:not(:only-child) spinbutton:not(.vertical) entry, .geary-composer-box spinbutton:not(.vertical) entry, dialog.background .dialog-vbox stack spinbutton:not(.vertical) entry, window.background stack scrolledwindow spinbutton:not(.vertical) entry, .budgie-popover spinbutton:not(.vertical) entry, .primary-toolbar spinbutton:not(.vertical) entry:focus, notebook > stack:not(:only-child) spinbutton:not(.vertical) entry:focus, .geary-composer-box spinbutton:not(.vertical) entry:focus, dialog.background .dialog-vbox stack spinbutton:not(.vertical) entry:focus, window.background stack scrolledwindow spinbutton:not(.vertical) entry:focus, .budgie-popover spinbutton:not(.vertical) entry:focus, .primary-toolbar spinbutton:not(.vertical) entry:disabled, notebook > stack:not(:only-child) spinbutton:not(.vertical) entry:disabled, .geary-composer-box spinbutton:not(.vertical) entry:disabled, dialog.background .dialog-vbox stack spinbutton:not(.vertical) entry:disabled, window.background stack scrolledwindow spinbutton:not(.vertical) entry:disabled, .budgie-popover spinbutton:not(.vertical) entry:disabled,
 spinbutton:not(.vertical) entry,
 spinbutton:not(.vertical) entry:focus,
@@ -1452,10 +1470,6 @@ treeview spinbutton:not(.vertical) entry {
   padding: 1px 2px;
 }
 
-combobox {
-  border-radius: 2px;
-}
-
 combobox arrow {
   -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
   min-height: 16px;
@@ -1476,6 +1490,7 @@ combobox entry.combo {
   border: 1px solid #cfcfcf;
   box-shadow: none;
   border-image: none;
+  border-radius: 2px;
   background-color: #FFFFFF;
   color: rgba(0, 0, 0, 0.6);
 }
@@ -1484,6 +1499,7 @@ combobox entry.combo:focus {
   border: 1px solid #F0544C;
   box-shadow: none;
   border-image: none;
+  border-radius: 2px;
   background-color: #FFFFFF;
   color: rgba(0, 0, 0, 0.8);
 }
@@ -1498,6 +1514,7 @@ combobox entry.combo:disabled {
 
 .background combobox entry.combo {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
+  border: none;
   border-image: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
   background-color: #FFFFFF;
@@ -1506,6 +1523,7 @@ combobox entry.combo:disabled {
 }
 
 .background combobox entry.combo:focus {
+  border: none;
   border-image: none;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
   color: rgba(0, 0, 0, 0.8);
@@ -2290,7 +2308,7 @@ menubar > menuitem,
 .menubar > menuitem {
   min-height: 20px;
   padding: 4px 8px;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 menubar > menuitem:hover,
@@ -2327,26 +2345,37 @@ menu,
 menu menuitem,
 .menu menuitem,
 .context-menu menuitem {
+  transition: background-color 100ms cubic-bezier(0, 0, 0.2, 1);
   min-height: 20px;
   min-width: 40px;
   padding: 4px 8px;
   font: initial;
   text-shadow: none;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 menu menuitem:hover,
 .menu menuitem:hover,
 .context-menu menuitem:hover {
-  transition: background-color 100ms cubic-bezier(0, 0, 0.2, 1);
+  transition: none;
   color: #FFFFFF;
   background-color: #F0544C;
 }
 
-menu menuitem:disabled,
+menu menuitem:disabled, menu menuitem label:disabled,
 .menu menuitem:disabled,
-.context-menu menuitem:disabled {
-  color: rgba(0, 0, 0, 0.5);
+.menu menuitem label:disabled,
+.context-menu menuitem:disabled,
+.context-menu menuitem label:disabled {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+menu menuitem label:dir(rtl), menu menuitem label:dir(ltr),
+.menu menuitem label:dir(rtl),
+.menu menuitem label:dir(ltr),
+.context-menu menuitem label:dir(rtl),
+.context-menu menuitem label:dir(ltr) {
+  color: inherit;
 }
 
 menu menuitem arrow,
@@ -2368,14 +2397,6 @@ menu menuitem arrow:dir(rtl),
 .context-menu menuitem arrow:dir(rtl) {
   -gtk-icon-source: -gtk-icontheme("pan-end-symbolic-rtl");
   margin-right: 8px;
-}
-
-menu menuitem label:dir(rtl), menu menuitem label:dir(ltr),
-.menu menuitem label:dir(rtl),
-.menu menuitem label:dir(ltr),
-.context-menu menuitem label:dir(rtl),
-.context-menu menuitem label:dir(ltr) {
-  color: inherit;
 }
 
 menu > arrow,
@@ -4077,6 +4098,7 @@ levelbar trough {
   padding: 2px;
   border-radius: 6px;
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
+  border: none;
   border-image: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
   background-color: #FFFFFF;
@@ -4977,7 +4999,7 @@ headerbar button.titlebutton:active, .titlebar button.titlebutton:active, header
   color: #FFFFFF;
 }
 
-.csd headerbar:not(.default-decoration) button.titlebutton.close, .csd headerbar:not(.default-decoration) button.titlebutton.maximize, .csd headerbar:not(.default-decoration) button.titlebutton.minimize, .solid-csd headerbar:not(.default-decoration) button.titlebutton.close, .solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize, .solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize, headerbar button.titlebutton.close, .titlebar button.titlebutton.close, headerbar button.titlebutton.maximize, .titlebar button.titlebutton.maximize, headerbar button.titlebutton.minimize, .titlebar button.titlebutton.minimize {
+.csd headerbar:not(.default-decoration) button.titlebutton.close, .csd headerbar:not(.default-decoration) button.titlebutton.maximize, .csd headerbar:not(.default-decoration) button.titlebutton.minimize, .solid-csd headerbar:not(.default-decoration) button.titlebutton.close, .solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize, .solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton, headerbar button.titlebutton.close, .titlebar button.titlebutton.close, headerbar button.titlebutton.maximize, .titlebar button.titlebutton.maximize, headerbar button.titlebutton.minimize, .titlebar button.titlebutton.minimize {
   margin: 0;
   padding: 0;
   min-width: 26px;
@@ -4992,7 +5014,7 @@ headerbar button.titlebutton:active, .titlebar button.titlebutton:active, header
   background-size: 16px 16px;
 }
 
-.csd headerbar:not(.default-decoration) button.titlebutton.close:hover, .csd headerbar:not(.default-decoration) button.titlebutton.maximize:hover, .csd headerbar:not(.default-decoration) button.titlebutton.minimize:hover, .solid-csd headerbar:not(.default-decoration) button.titlebutton.close:hover, .solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize:hover, .solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize:hover, .csd headerbar:not(.default-decoration) button.titlebutton.close:active, .csd headerbar:not(.default-decoration) button.titlebutton.maximize:active, .csd headerbar:not(.default-decoration) button.titlebutton.minimize:active, .solid-csd headerbar:not(.default-decoration) button.titlebutton.close:active, .solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize:active, .solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize:active, .csd headerbar:not(.default-decoration) button.titlebutton.close:checked, .csd headerbar:not(.default-decoration) button.titlebutton.maximize:checked, .csd headerbar:not(.default-decoration) button.titlebutton.minimize:checked, .solid-csd headerbar:not(.default-decoration) button.titlebutton.close:checked, .solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize:checked, .solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize:checked, headerbar button.titlebutton.close:hover, .titlebar button.titlebutton.close:hover, headerbar button.titlebutton.close:active, .titlebar button.titlebutton.close:active, headerbar button.titlebutton.close:checked, .titlebar button.titlebutton.close:checked, headerbar button.titlebutton.maximize:hover, .titlebar button.titlebutton.maximize:hover, headerbar button.titlebutton.maximize:active, .titlebar button.titlebutton.maximize:active, headerbar button.titlebutton.maximize:checked, .titlebar button.titlebutton.maximize:checked, headerbar button.titlebutton.minimize:hover, .titlebar button.titlebutton.minimize:hover, headerbar button.titlebutton.minimize:active, .titlebar button.titlebutton.minimize:active, headerbar button.titlebutton.minimize:checked, .titlebar button.titlebutton.minimize:checked {
+.csd headerbar:not(.default-decoration) button.titlebutton.close:hover, .csd headerbar:not(.default-decoration) button.titlebutton.maximize:hover, .csd headerbar:not(.default-decoration) button.titlebutton.minimize:hover, .solid-csd headerbar:not(.default-decoration) button.titlebutton.close:hover, .solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize:hover, .solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize:hover, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton:hover, .csd headerbar:not(.default-decoration) button.titlebutton.close:active, .csd headerbar:not(.default-decoration) button.titlebutton.maximize:active, .csd headerbar:not(.default-decoration) button.titlebutton.minimize:active, .solid-csd headerbar:not(.default-decoration) button.titlebutton.close:active, .solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize:active, .solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize:active, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton:active, .csd headerbar:not(.default-decoration) button.titlebutton.close:checked, .csd headerbar:not(.default-decoration) button.titlebutton.maximize:checked, .csd headerbar:not(.default-decoration) button.titlebutton.minimize:checked, .solid-csd headerbar:not(.default-decoration) button.titlebutton.close:checked, .solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize:checked, .solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize:checked, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton:checked, headerbar button.titlebutton.close:hover, .titlebar button.titlebutton.close:hover, headerbar button.titlebutton.close:active, .titlebar button.titlebutton.close:active, headerbar button.titlebutton.close:checked, .titlebar button.titlebutton.close:checked, headerbar button.titlebutton.maximize:hover, .titlebar button.titlebutton.maximize:hover, headerbar button.titlebutton.maximize:active, .titlebar button.titlebutton.maximize:active, headerbar button.titlebutton.maximize:checked, .titlebar button.titlebutton.maximize:checked, headerbar button.titlebutton.minimize:hover, .titlebar button.titlebutton.minimize:hover, headerbar button.titlebutton.minimize:active, .titlebar button.titlebutton.minimize:active, headerbar button.titlebutton.minimize:checked, .titlebar button.titlebutton.minimize:checked {
   box-shadow: none;
   border: none;
   color: transparent;
@@ -5002,7 +5024,7 @@ headerbar button.titlebutton:active, .titlebar button.titlebutton:active, header
   background-size: 22px 22px;
 }
 
-.csd headerbar:not(.default-decoration) button.titlebutton.close:backdrop, .csd headerbar:not(.default-decoration) button.titlebutton.maximize:backdrop, .csd headerbar:not(.default-decoration) button.titlebutton.minimize:backdrop, .solid-csd headerbar:not(.default-decoration) button.titlebutton.close:backdrop, .solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize:backdrop, .solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize:backdrop, headerbar button.titlebutton.close:backdrop, .titlebar button.titlebutton.close:backdrop, headerbar button.titlebutton.maximize:backdrop, .titlebar button.titlebutton.maximize:backdrop, headerbar button.titlebutton.minimize:backdrop, .titlebar button.titlebutton.minimize:backdrop {
+.csd headerbar:not(.default-decoration) button.titlebutton.close:backdrop, .csd headerbar:not(.default-decoration) button.titlebutton.maximize:backdrop, .csd headerbar:not(.default-decoration) button.titlebutton.minimize:backdrop, .solid-csd headerbar:not(.default-decoration) button.titlebutton.close:backdrop, .solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize:backdrop, .solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize:backdrop, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton:backdrop, headerbar button.titlebutton.close:backdrop, .titlebar button.titlebutton.close:backdrop, headerbar button.titlebutton.maximize:backdrop, .titlebar button.titlebutton.maximize:backdrop, headerbar button.titlebutton.minimize:backdrop, .titlebar button.titlebutton.minimize:backdrop {
   opacity: 1;
 }
 
@@ -6280,13 +6302,13 @@ window.background:not(.csd) > widget > entry, #MozillaGtkWidget.background > wid
   padding: 0 4px;
 }
 
-window.background:not(.csd) > widget text:selected, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:selected, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:selected:focus,
+window.background:not(.csd) text:selected, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:selected, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:selected:focus,
 #MozillaGtkWidget.background > widget > scrolledwindow > textview text selection {
   background-color: #F0544C;
   color: #FFFFFF;
 }
 
-window.background:not(.csd) > widget text:disabled:selected, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:disabled:selected,
+window.background:not(.csd) text:disabled:selected, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:disabled:selected,
 #MozillaGtkWidget.background > widget > scrolledwindow > textview text selection:disabled {
   color: rgba(255, 255, 255, 0.4);
 }
@@ -6304,7 +6326,6 @@ window.background:not(.csd) > widget > frame > border {
   border-color: rgba(0, 0, 0, 0.1);
 }
 
-window.background:not(.csd) > widget > entry,
 window.background:not(.csd) > widget > button > button {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 3px;
@@ -6313,15 +6334,6 @@ window.background:not(.csd) > widget > button > button {
 
 window.background:not(.csd) > widget > entry {
   border-radius: 2px;
-}
-
-window.background:not(.csd) > widget > window > menu,
-window.background:not(.csd) > widget > menu > menu {
-  border: none;
-}
-
-window.background:not(.csd) > widget text {
-  color: rgba(0, 0, 0, 0.6);
 }
 
 window.background:not(.csd) > widget > menubar {
@@ -6340,40 +6352,48 @@ window.background:not(.csd) > widget > frame {
   color: rgba(0, 0, 0, 0.1);
 }
 
-window.background:not(.csd) > widget > checkbutton > check,
-window.background:not(.csd) > widget > radiobutton > radio {
-  min-height: 16px;
-  min-width: 16px;
-  margin: 0;
-  padding: 0;
+window.background:not(.csd) > menu,
+window.background:not(.csd) > menu > menu {
+  border: none;
+  background-color: #FFFFFF;
+}
+
+window.background:not(.csd) > menu menuitem, window.background:not(.csd) > menu menuitem label,
+window.background:not(.csd) > menu > menu menuitem,
+window.background:not(.csd) > menu > menu menuitem label {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+window.background:not(.csd) > menu menuitem:hover, window.background:not(.csd) > menu menuitem label:hover,
+window.background:not(.csd) > menu > menu menuitem:hover,
+window.background:not(.csd) > menu > menu menuitem label:hover {
+  color: #FFFFFF;
+}
+
+window.background:not(.csd) > menu menuitem:disabled, window.background:not(.csd) > menu menuitem label:disabled,
+window.background:not(.csd) > menu > menu menuitem:disabled,
+window.background:not(.csd) > menu > menu menuitem label:disabled {
+  color: rgba(0, 0, 0, 0.24);
+}
+
+window.background:not(.csd) > window > menu menuitem {
+  transition: none;
 }
 
 window.background:not(.csd) > menu > separator {
   color: rgba(0, 0, 0, 0.1);
 }
 
-window.background:not(.csd) > menu > menuitem > label:disabled {
-  color: rgba(0, 0, 0, 0.5);
-}
-
 #MozillaGtkWidget.background {
   background-color: #fafafa;
 }
 
-#MozillaGtkWidget.background,
-#MozillaGtkWidget.background decoration {
+#MozillaGtkWidget.background, #MozillaGtkWidget.background decoration {
   border-radius: 0 0 0 0;
 }
 
 #MozillaGtkWidget.background headerbar.titlebar {
   border-radius: 0 0 0 0;
-}
-
-#MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton {
-  min-width: 16px;
-  min-height: 16px;
-  margin: 6px 2px;
-  padding: 0;
 }
 
 #MozillaGtkWidget.background .background,
@@ -7050,6 +7070,7 @@ window.thunar notebook header.top tab.reorderable-page > box > label {
 
 .nemo-window notebook .primary-toolbar entry {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
+  border: none;
   border-image: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
   background-color: #FFFFFF;
@@ -7057,6 +7078,7 @@ window.thunar notebook header.top tab.reorderable-page > box > label {
 }
 
 .nemo-window notebook .primary-toolbar entry:focus {
+  border: none;
   border-image: none;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
   color: rgba(0, 0, 0, 0.8);
@@ -7275,7 +7297,7 @@ menuitem calendar .button,
 menuitem calendar .header,
 menuitem calendar .view {
   background-color: #FFFFFF;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.6);
   padding: 2px 6px;
 }
 

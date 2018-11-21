@@ -260,7 +260,6 @@ spinner {
 %entry_native {
   .background & {
     @include entry(normal);
-    border: none;
     &:focus {
       @include entry(focus);
     }
@@ -287,7 +286,6 @@ entry {
   %entry_basic, & {
     min-height: $medium_size;
     padding: 0 8px;
-    border-radius: 2px;
 
     // fallback entries for non-native apps
     @extend %entry_fallback;
@@ -884,42 +882,31 @@ button:visited {
 //
 spinbutton {
   &:not(.vertical) {
+    padding: 0;
     // in this horizontal configuration, the whole spinbutton
     // behaves as the entry, so we extend the entry styling
     // and nuke the style on the internal entry
     @extend %entry_fallback;
     @extend %entry_native;
-    padding: 0;
+
+    &, .background:not(.csd) {
+      border: 1px solid $solid_borders_color;
+
+      &:focus { border: 1px solid $primary_color; }
+    }
 
     %spinbutton_entry,
     entry {
       &, // unset all of fallback mode
       &:focus,
       &:disabled {
-      min-width: $large_size - 8px * 2;
-      // reset all the other props since the spinbutton node is styled here
-      margin: 0;
-      border: none;
-      border-radius: 0;
-      box-shadow: none;
-      background-color: transparent;
-      //
-      // This will help to simplify spinbutton's code, but unfortunatelly
-      // doesn't work properly in :dir(rtl). It needs z-index property.
-      //
-      // min-width: $large_size - 8px;
-      //
-      // $spinbuttons_width: $small_size * 2 + $container_padding * 3;
-      //
-      // &:dir(ltr) {
-      //   margin-right: -$spinbuttons_width;
-      //   padding-right: $spinbuttons_width;
-      // }
-      //
-      // &:dir(rtl) {
-      //   margin-left: -$spinbuttons_width;
-      //   padding-left: $spinbuttons_width;
-      // }
+        min-width: $large_size - 8px * 2;
+        // reset all the other props since the spinbutton node is styled here
+        margin: 0;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        background-color: transparent;
       }
     }
 
@@ -973,7 +960,6 @@ spinbutton {
       @extend %simple_flat_button;
 
       &.up { border-radius: 2px 2px 0 0; }
-
       &.down { border-radius: 0 0 2px 2px; }
     }
   }
@@ -1007,7 +993,6 @@ combobox {
 
   // fallback combo node for non-native apps
   @extend %entry_fallback_normal;
-  border-radius: 2px;
 
   .background & { // unset all properties in combobox node
     border: unset;
@@ -1086,9 +1071,7 @@ combobox {
   > box > button.combo { @extend %linked_middle; }
 
   &:first-child > box > button.combo { @extend %linked:first-child; }
-
   &:last-child > box > button.combo { @extend %linked:last-child; }
-
   &:only-child > box > button.combo { @extend %linked:only-child; }
 }
 
@@ -1096,9 +1079,7 @@ combobox {
   > box > button.combo { @extend %linked_vertical_middle; }
 
   &:first-child > box > button.combo { @extend %linked_vertical:first-child; }
-
   &:last-child > box > button.combo { @extend %linked_vertical:last-child; }
-
   &:only-child > box > button.combo { @extend %linked_vertical:only-child; }
 }
 
@@ -1648,7 +1629,6 @@ treeview.view {
     border-color: $accent_color;
 
     &.after { border-top-style: none; }
-
     &.before { border-bottom-style: none; }
   }
 
@@ -1657,20 +1637,17 @@ treeview.view {
     -gtk-icon-transform: rotate(-90deg);
 
     &:dir(rtl) { -gtk-icon-transform: rotate(90deg); }
-
     &:checked { -gtk-icon-transform: unset; }
 
     color: $secondary_fg_color;
 
     &:hover, &:active { color: $fg_color; }
-
     &:disabled { color: $disabled_secondary_fg_color; }
 
     &:selected {
       color: $secondary_inversed_fg_color;
 
       &:hover, &:active { color: $inversed_fg_color; }
-
       &:disabled { color: $disabled_secondary_inversed_fg_color; }
     }
   }
@@ -1744,7 +1721,7 @@ menubar,
   > menuitem {
     min-height: 20px;
     padding: 4px 8px;
-    color: $headerbar_fg_color;
+    color: $secondary_headerbar_fg_color;
 
     &:hover { //Seems like it :hover even with keyboard focus
       transition: background-color $shorter_duration $deceleration_curve;
@@ -1774,6 +1751,7 @@ menu,
   }
 
   menuitem {
+    transition: background-color $shorter_duration $deceleration_curve;
     min-height: 20px;
     min-width: 40px;
     padding: 4px 8px;
@@ -1782,12 +1760,13 @@ menu,
     color: $menu_fg_color;
 
     &:hover {
-      transition: background-color $shorter_duration $deceleration_curve;
+      transition: none;
       color: $dark_contrast_color;
       background-color: $primary_color;
     }
 
-   &:disabled { color: $disabled_menu_fg_color; }
+   &:disabled, label:disabled { color: $disabled_menu_fg_color; }
+   label { &:dir(rtl), &:dir(ltr) { color: inherit; }}
 
     // submenu indicators
     arrow {
@@ -1804,10 +1783,6 @@ menu,
         margin-right: 8px;
       }
     }
-
-    // avoids labels color being overridden, see
-    // https://bugzilla.gnome.org/show_bug.cgi?id=767058
-    label { &:dir(rtl), &:dir(ltr) { color: inherit; }}
   }
 
   // overflow arrows

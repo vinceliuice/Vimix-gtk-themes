@@ -61,6 +61,7 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
 
   @if $t == normal {
     transition: $shorter_transition, $shadow_transition;
+    border: none;
     border-image: none;
     box-shadow: $z-depth-1;
     background-color: if($fc != $primary_color, $fc, $base_color);
@@ -68,6 +69,7 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
   }
 
   @if $t == focus {
+    border: none;
     border-image: none;
     box-shadow: $z-depth-2;
     color: if($fc != $primary_color, $inversed_fg_color, $fg_color);
@@ -83,6 +85,7 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
     border: 1px solid $darker_borders_color;
     box-shadow: none;
     border-image: none;
+    border-radius: 2px;
     background-color: if($fc != $primary_color, $fc, $base_color);
     color: if($fc != $primary_color, $inversed_fg_color, $secondary_fg_color);
   }
@@ -91,6 +94,7 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
     border: 1px solid $primary_color;
     box-shadow: none;
     border-image: none;
+    border-radius: 2px;
     background-color: if($fc != $primary_color, $fc, $base_color);
     color: if($fc != $primary_color, $inversed_fg_color, $fg_color);
   }

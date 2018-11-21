@@ -1147,7 +1147,6 @@ window.background:not(.csd) {
     > scrollbar,
     > frame > border { border-color: $firefox_border_color; }
 
-    > entry,
     > button > button {
       border: 1px solid $firefox_border_color;
       border-radius: 2px + 1px;
@@ -1188,20 +1187,7 @@ window.background:not(.csd) {
     > checkbutton > check { @extend %small_check; }
     > radiobutton > radio { @extend %small_radio; }
 
-    // remove ugly border around the menus
-    > window > menu,
-    > menu > menu { border: none; }
-
-    // Firefox now uses this for selected items
-    text:selected { @extend %firefox_selected_items; }
-    text { color: $firefox_fg_color; }
-
-  }
-}
-
-// for backwards compatibility
-window.background:not(.csd) {
-  > widget {
+    // for backwards compatibility
     > menubar {
       color: $secondary_headerbar_fg_color;
 
@@ -1210,27 +1196,47 @@ window.background:not(.csd) {
     }
 
     > frame { color: $firefox_border_color; }
+  }
 
-    > checkbutton > check,
-    > radiobutton > radio {
-      min-height: 16px;
-      min-width: 16px;
-      margin: 0;
-      padding: 0;
+  // menu, .menu {
+  //   border: none;
+  //   background-color: if($variant =='light', $base_color, $bg_color);
+  //
+  //   menuitem {
+  //     &, label { color: $secondary_fg_color; }
+  //     &:hover, label:hover { color: $inversed_fg_color; }
+  //     &:disabled, label:disabled { color: $disabled_secondary_fg_color; }
+  //   }
+  // }
+  > menu,
+  > menu > menu {
+    border: none;
+    background-color: $base_color;
+
+    menuitem {
+      &, label { color: $secondary_fg_color; }
+      &:hover, label:hover { color: $inversed_fg_color; }
+      &:disabled, label:disabled { color: $disabled_secondary_fg_color; }
     }
   }
 
+  > window > menu {
+    menuitem {
+      transition: none; // Fixed plank menu background issue
+    }
+  }
+
+  // Firefox now uses this for selected items
+  text:selected { @extend %firefox_selected_items; }
+
   > menu > separator { color: $borders_color; }
-  > menu > menuitem > label:disabled { color: $disabled_menu_fg_color; }
 }
 
 //
 // Firefox Quantum
 //
-
 #MozillaGtkWidget.background {
-  &,
-  decoration { border-radius: 0 0 0 0; } // enforce radius
+  &, decoration { border-radius: 0 0 0 0; } // enforce radius
 
   // FIXME: unset all our specific titlebuttons
   // until upstream stops rendering useless (weird) icons
@@ -1238,10 +1244,7 @@ window.background:not(.csd) {
     border-radius: 0 0 0 0;
 
     &.default-decoration button.titlebutton {
-      min-width: 16px;
-      min-height: 16px;
-      margin: 6px 2px;
-      padding: 0;
+      @extend %windows_button;
     }
   }
 
@@ -1310,6 +1313,7 @@ window.background:not(.csd) {
       text {
         background-color: transparent;
         color: $firefox_fg_color;
+
         &:selected,
         &:selected:focus,
         selection { @extend %firefox_selected_items; }
@@ -2039,7 +2043,6 @@ window.background {
 
       entry,
       spinbutton:not(.vertical) { @extend %flat_entry; }
-
       spinbutton:not(.vertical) entry { @extend %spinbutton_entry; }
 
       infobar { button { @extend %selected_button; }}
@@ -2159,7 +2162,7 @@ menuitem calendar,
 menuitem calendar .button,
 menuitem calendar .header,
 menuitem calendar .view {
-    background-color: $menu_bg_color;
-    color: $menu_fg_color;
-    padding: 2px 6px;
+  background-color: $menu_bg_color;
+  color: $menu_fg_color;
+  padding: 2px 6px;
 }

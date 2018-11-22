@@ -2027,8 +2027,8 @@ headerbar button {
 }
 
 headerbar switch {
-  margin-top: 7px;
-  margin-bottom: 7px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 headerbar spinbutton button {
@@ -4409,11 +4409,13 @@ messagedialog .dialog-action-area button:last-child {
 
 messagedialog .dialog-action-area button.suggested-action {
   color: #4CAF50;
-  background-color: transparent;
-  box-shadow: none;
 }
 
-messagedialog .dialog-action-area button.suggested-action:hover, messagedialog .dialog-action-area button.suggested-action:checked {
+messagedialog .dialog-action-area button.suggested-action:hover {
+  color: #4CAF50;
+}
+
+messagedialog .dialog-action-area button.suggested-action:active, messagedialog .dialog-action-area button.suggested-action:checked {
   background-color: #4CAF50;
   color: #FFFFFF;
   border-color: #4CAF50;
@@ -4425,11 +4427,13 @@ messagedialog .dialog-action-area button.suggested-action:disabled {
 
 messagedialog .dialog-action-area button.destructive-action {
   color: #FF5252;
-  background-color: transparent;
-  box-shadow: none;
 }
 
-messagedialog .dialog-action-area button.destructive-action:hover, messagedialog .dialog-action-area button.destructive-action:checked {
+messagedialog .dialog-action-area button.destructive-action:hover {
+  color: #FF5252;
+}
+
+messagedialog .dialog-action-area button.destructive-action:active, messagedialog .dialog-action-area button.destructive-action:checked {
   background-color: #FF5252;
   color: #FFFFFF;
   border-color: #FF5252;
@@ -4458,38 +4462,6 @@ messagedialog.csd .dialog-action-area button:first-child {
 messagedialog.csd .dialog-action-area button:last-child {
   border-bottom-right-radius: 2px;
   border-top-right-radius: 0;
-}
-
-messagedialog.csd .dialog-action-area button.suggested-action {
-  color: #4CAF50;
-  background-color: transparent;
-  box-shadow: none;
-}
-
-messagedialog.csd .dialog-action-area button.suggested-action:hover, messagedialog.csd .dialog-action-area button.suggested-action:checked {
-  background-color: #4CAF50;
-  color: #FFFFFF;
-  border-color: #4CAF50;
-}
-
-messagedialog.csd .dialog-action-area button.suggested-action:disabled {
-  opacity: 0.65;
-}
-
-messagedialog.csd .dialog-action-area button.destructive-action {
-  color: #FF5252;
-  background-color: transparent;
-  box-shadow: none;
-}
-
-messagedialog.csd .dialog-action-area button.destructive-action:hover, messagedialog.csd .dialog-action-area button.destructive-action:checked {
-  background-color: #FF5252;
-  color: #FFFFFF;
-  border-color: #FF5252;
-}
-
-messagedialog.csd .dialog-action-area button.destructive-action:disabled {
-  opacity: 0.65;
 }
 
 filechooser .dialog-action-box {

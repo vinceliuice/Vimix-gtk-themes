@@ -1456,8 +1456,8 @@ headerbar {
   }
 
   switch {
-    margin-top: ($large_size - 24px) / 2;
-    margin-bottom: ($large_size - 24px) / 2;
+    margin-top: ($large_size - 18px) / 2;
+    margin-bottom: ($large_size - 18px) / 2;
 
     @if $color == 'black' and $headerbar =='dark' {
       background-color: rgba($headerbar_fg_color, $lower_opacity);
@@ -3089,18 +3089,20 @@ messagedialog { // Message Dialog styling
                              (destructive-action, $destructive_color) {
     .dialog-action-area button.#{$b_type} {
       color: $b_color;
-      background-color: transparent;
-      box-shadow: none;
 
-      &:hover, &:checked {
+      &:hover {
+        color: $b_color;
+      }
+
+      &:active, &:checked {
         background-color: $b_color;
         color: $inversed_fg_color;
         border-color: $b_color;
       }
 
       &:disabled { opacity: 0.65; }
-      }
     }
+  }
 
   &.csd { // rounded bottom border styling for csd version
     &.background {
@@ -3123,23 +3125,6 @@ messagedialog { // Message Dialog styling
       &:last-child {
         border-bottom-right-radius: 2px;
         border-top-right-radius: 0;
-      }
-    }
-
-  @each $b_type, $b_color in (suggested-action, $suggested_color),
-                             (destructive-action, $destructive_color) {
-    .dialog-action-area button.#{$b_type} {
-      color: $b_color;
-      background-color: transparent;
-      box-shadow: none;
-
-      &:hover, &:checked {
-        background-color: $b_color;
-        color: $inversed_fg_color;
-        border-color: $b_color;
-      }
-
-      &:disabled { opacity: 0.65; }
       }
     }
   }

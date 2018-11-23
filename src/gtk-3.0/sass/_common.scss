@@ -700,7 +700,7 @@ button {
   separator {
     min-width: 0;
     min-height: 0;
-    background: transparent;
+    background: none;
   }
 
 //  make the row image-button be circular
@@ -1434,15 +1434,8 @@ headerbar {
 %header_separator {
   min-width: 0;
   min-height: 0;
-  background: none;
-  border-width: 0 0;
-  border-image: linear-gradient(to bottom,
-                                transparentize($secondary_highlight_color, 1) 25%,
-                                transparentize($secondary_highlight_color, 0.65) 25%,
-                                transparentize($secondary_highlight_color, 0.65) 75%,
-                                transparentize($secondary_highlight_color, 1) 75%) 0 1/0 0 stretch;
-
-  &:backdrop { opacity: 0.6; }
+  background-color: $headerbar_bg_color;
+  border: none;
 }
 
 headerbar {
@@ -1545,8 +1538,13 @@ headerbar { // headerbar border rounding
     box-shadow: none;
   }
 
-  > separator {
+  > separator { // separator between titlebars
+    min-width: 1px;
+    min-height: 1px;
     background-color: $headerbar_bg_color;
+    background-image: image($headerbar_bg_color);
+    box-shadow: inset 0 -1px $borders_color, inset 0 1px $secondary_highlight_color;
+    border: none;
   }
 
   @extend %titlebar;
@@ -2871,7 +2869,7 @@ printdialog {
   paper {
     padding: 0;
     border: 1px solid $borders_color;
-    background: $base_color;
+    background-color: $base_color;
     color: $fg_color;
   }
 
@@ -2941,7 +2939,7 @@ scrolledwindow {
 separator {
   min-width: 1px;
   min-height: 1px;
-  background: $borders_color;
+  background-color: $borders_color;
 }
 
 //

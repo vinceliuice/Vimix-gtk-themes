@@ -889,12 +889,6 @@ spinbutton {
     @extend %entry_fallback;
     @extend %entry_native;
 
-    &, .background:not(.csd) {
-      border: 1px solid $solid_borders_color;
-
-      &:focus { border: 1px solid $primary_color; }
-    }
-
     %spinbutton_entry,
     entry {
       &, // unset all of fallback mode
@@ -965,8 +959,7 @@ spinbutton {
   }
 
   // OSD vertical
-  .osd &.vertical button:first-child {
-  }
+  .osd &.vertical button:first-child { }
 
   // Misc
   treeview &:not(.vertical) {

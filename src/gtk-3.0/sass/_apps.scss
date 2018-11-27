@@ -1968,6 +1968,28 @@ dialog.background {
 
     .dialog-action-area {
       button { @extend %flat_theme_button; }
+
+      @each $b_type, $b_color in (suggested-action, $suggested_color),
+                                 (destructive-action, $destructive_color) {
+        button.#{$b_type} {
+          color: $b_color;
+
+          &:hover {
+            color: $b_color;
+            background-color: rgba($b_color, 0.15);
+          }
+
+          &:active {
+            color: $inversed_fg_color;
+            box-shadow: inset 0 0 0 9999px rgba($b_color, 0.5);
+            background-image: radial-gradient(circle farthest-corner at center,
+                                              rgba($b_color, 0.5) 10%,
+                                              transparent 0%);
+          }
+
+          &:disabled { opacity: 0.65; }
+        }
+      }
     }
 
     stack {

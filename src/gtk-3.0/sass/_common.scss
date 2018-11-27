@@ -1226,7 +1226,7 @@ headerbar {
   transition: background-color $shorter_duration $deceleration_curve, color $shorter_duration $deceleration_curve;
   min-height: $medium_size;
   padding: 0 $container_padding;
-  box-shadow: $header_shadow, inset 0 1px $secondary_highlight_color;
+  box-shadow: $header_shadow;
   background-color: $headerbar_bg_color;
   color: $headerbar_fg_color;
 
@@ -1486,6 +1486,7 @@ headerbar {
 .titlebar .background {
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
+  box-shadow: $header_shadow, inset 0 1px $secondary_highlight_color;
 }
 
 .background.tiled .titlebar,
@@ -1501,13 +1502,13 @@ headerbar {
 
 headerbar { // headerbar border rounding
   window separator:first-child + &, // tackles the paned container case
-  window &:first-child { border-top-left-radius: 2px; }
-  window &:last-child { border-top-right-radius: 2px; }
+  window &:first-child { border-top-left-radius: 0; }
+  window &:last-child { border-top-right-radius: 0; }
 
   window stack & { // tackles the stacked headerbars case
     &:first-child, &:last-child {
-      border-top-left-radius: 2px;
-      border-top-right-radius: 2px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
     }
   }
 

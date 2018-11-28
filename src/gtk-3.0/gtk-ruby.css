@@ -2003,6 +2003,7 @@ headerbar separator.titlebutton, headerbar separator {
   min-width: 0;
   min-height: 0;
   background-color: #383838;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.1);
   border: none;
 }
 
@@ -2028,8 +2029,9 @@ headerbar .entry-tag {
   margin-bottom: 5px;
 }
 
-.titlebar,
-.titlebar .background {
+.titlebar, .titlebar > headerbar,
+.titlebar .background,
+.titlebar .background > headerbar {
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24), inset 0 1px rgba(255, 255, 255, 0.1);
@@ -2046,18 +2048,18 @@ headerbar .entry-tag {
   border-top-right-radius: 0;
 }
 
-window separator:first-child + headerbar,
-window headerbar:first-child {
-  border-top-left-radius: 0;
-}
-
-window headerbar:last-child {
+window separator:first-child + .titlebar headerbar,
+window .titlebar headerbar:first-child {
   border-top-right-radius: 0;
 }
 
-window stack headerbar:first-child, window stack headerbar:last-child {
+window .titlebar headerbar:last-child {
   border-top-left-radius: 0;
-  border-top-right-radius: 0;
+}
+
+window stack .titlebar headerbar:first-child, window stack .titlebar headerbar:last-child {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
 }
 
 window.tiled headerbar, window.tiled headerbar:first-child, window.tiled headerbar:last-child, window.tiled headerbar:only-child,
@@ -3862,15 +3864,15 @@ treeview.view radio:checked {
 }
 
 scale {
-  min-height: 12px;
-  min-width: 12px;
-  padding: 12px;
+  min-height: 4px;
+  min-width: 4px;
+  padding: 16px;
 }
 
 scale slider {
-  min-height: 24px;
-  min-width: 24px;
-  margin: -11px;
+  min-height: 32px;
+  min-width: 32px;
+  margin: -15px;
 }
 
 scale trough {
@@ -3952,23 +3954,23 @@ scale marks {
 }
 
 scale marks.top {
-  margin-bottom: 8px;
-  margin-top: -16px;
+  margin-bottom: 7px;
+  margin-top: -15px;
 }
 
 scale marks.bottom {
-  margin-top: 8px;
-  margin-bottom: -16px;
+  margin-top: 7px;
+  margin-bottom: -15px;
 }
 
 scale marks.top {
-  margin-right: 8px;
-  margin-left: -16px;
+  margin-right: 7px;
+  margin-left: -15px;
 }
 
 scale marks.bottom {
-  margin-left: 8px;
-  margin-right: -16px;
+  margin-left: 7px;
+  margin-right: -15px;
 }
 
 scale.horizontal indicator {
@@ -4023,8 +4025,8 @@ scale.color.horizontal {
 }
 
 scale.color.horizontal slider:dir(ltr), scale.color.horizontal slider:dir(rtl) {
-  margin-bottom: -12px;
-  margin-top: -2px;
+  margin-bottom: -16px;
+  margin-top: -6px;
 }
 
 scale.color.vertical:dir(ltr) {
@@ -4032,8 +4034,8 @@ scale.color.vertical:dir(ltr) {
 }
 
 scale.color.vertical:dir(ltr) slider {
-  margin-left: -12px;
-  margin-right: -2px;
+  margin-left: -16px;
+  margin-right: -6px;
 }
 
 scale.color.vertical:dir(rtl) {
@@ -4041,8 +4043,8 @@ scale.color.vertical:dir(rtl) {
 }
 
 scale.color.vertical:dir(rtl) slider {
-  margin-right: -12px;
-  margin-left: -2px;
+  margin-right: -16px;
+  margin-left: -6px;
 }
 
 progressbar {

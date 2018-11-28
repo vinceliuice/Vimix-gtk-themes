@@ -1428,6 +1428,7 @@ headerbar {
   min-width: 0;
   min-height: 0;
   background-color: $headerbar_bg_color;
+  box-shadow: inset 0 1px $secondary_highlight_color;
   border: none;
 }
 
@@ -1477,9 +1478,11 @@ headerbar {
 
 .titlebar,
 .titlebar .background {
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-  box-shadow: $header_shadow, inset 0 1px $secondary_highlight_color;
+  &, & > headerbar {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    box-shadow: $header_shadow, inset 0 1px $secondary_highlight_color;
+  }
 }
 
 .background.tiled .titlebar,
@@ -1494,14 +1497,14 @@ headerbar {
 }
 
 headerbar { // headerbar border rounding
-  window separator:first-child + &, // tackles the paned container case
-  window &:first-child { border-top-left-radius: 0; }
-  window &:last-child { border-top-right-radius: 0; }
+  window separator:first-child + .titlebar &, // tackles the paned container case
+  window .titlebar &:first-child { border-top-right-radius: 0; }
+  window .titlebar &:last-child { border-top-left-radius: 0; }
 
-  window stack & { // tackles the stacked headerbars case
+  window stack .titlebar & { // tackles the stacked headerbars case
     &:first-child, &:last-child {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
     }
   }
 
@@ -2582,10 +2585,10 @@ treeview.view radio:checked {
 scale {
   // sizing
   $_marks_lenght: 8px;
-  $_marks_distance: 8px;
+  $_marks_distance: 7px;
 
-  $slider_size: 24px;
-  $marks_slider_size: 30px;
+  $slider_size: 32px;
+  $marks_slider_size: 38px;
 
   $trough_size: 2px;
 

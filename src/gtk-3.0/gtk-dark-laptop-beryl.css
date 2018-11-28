@@ -2045,18 +2045,6 @@ headerbar .entry-tag {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24), inset 0 1px rgba(255, 255, 255, 0.1);
 }
 
-.titlebar:first-child, .titlebar > headerbar:first-child,
-.titlebar .background:first-child,
-.titlebar .background > headerbar:first-child {
-  border-top-right-radius: 0;
-}
-
-.titlebar:last-child, .titlebar > headerbar:last-child,
-.titlebar .background:last-child,
-.titlebar .background > headerbar:last-child {
-  border-top-left-radius: 0;
-}
-
 .background.tiled .titlebar,
 .background.tiled-top .titlebar,
 .background.tiled-right .titlebar,
@@ -2066,6 +2054,20 @@ headerbar .entry-tag {
 .background.solid-csd .titlebar {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+window separator:first-child + headerbar.titlebar,
+window headerbar.titlebar:first-child {
+  border-top-left-radius: 2px;
+}
+
+window headerbar.titlebar:last-child {
+  border-top-right-radius: 2px;
+}
+
+window stack headerbar.titlebar:first-child, window stack headerbar.titlebar:last-child {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
 }
 
 window.tiled headerbar, window.tiled headerbar:first-child, window.tiled headerbar:last-child, window.tiled headerbar:only-child,

@@ -1490,8 +1490,8 @@ headerbar {
     border-top-right-radius: 2px;
     box-shadow: $header_shadow, inset 0 1px $secondary_highlight_color;
 
-    &:first-child { border-top-right-radius: 0; }
-    &:last-child { border-top-left-radius: 0; }
+    // &:first-child { border-top-right-radius: 0; }
+    // &:last-child { border-top-left-radius: 0; }
   }
 }
 
@@ -1507,16 +1507,16 @@ headerbar {
 }
 
 headerbar { // headerbar border rounding
-  // window separator:first-child + &, // tackles the paned container case
-  // window &:first-child { border-top-left-radius: 2px; }
-  // window &:last-child { border-top-right-radius: 2px; }
-  //
-  // window stack & { // tackles the stacked headerbars case
-  //   &:first-child, &:last-child {
-  //     border-top-left-radius: 2px;
-  //     border-top-right-radius: 2px;
-  //   }
-  // }
+  window separator:first-child + &.titlebar, // tackles the paned container case
+  window &.titlebar:first-child { border-top-left-radius: 2px; }
+  window &.titlebar:last-child { border-top-right-radius: 2px; }
+
+  window stack &.titlebar { // tackles the stacked headerbars case
+    &:first-child, &:last-child {
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+    }
+  }
 
   window.tiled &,
   window.tiled-top &,

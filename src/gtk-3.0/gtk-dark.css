@@ -2073,16 +2073,16 @@ headerbar .entry-tag {
   border-top-right-radius: 0;
 }
 
-window separator:first-child + headerbar.titlebar,
-window headerbar.titlebar:first-child {
-  border-top-left-radius: 2px;
+window separator:first-child + .titlebar headerbar,
+window .titlebar headerbar:first-child {
+  border-top-right-radius: 0;
 }
 
-window headerbar.titlebar:last-child {
-  border-top-right-radius: 2px;
+window .titlebar headerbar:last-child {
+  border-top-left-radius: 0;
 }
 
-window stack headerbar.titlebar:first-child, window stack headerbar.titlebar:last-child {
+window stack .titlebar headerbar:first-child, window stack .titlebar headerbar:last-child {
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 }

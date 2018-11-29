@@ -2029,11 +2029,12 @@ headerbar .entry-tag {
   margin-bottom: 5px;
 }
 
-.titlebar, .titlebar > headerbar,
-.titlebar .background,
-.titlebar .background > headerbar {
+.titlebar, .titlebar.background {
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
+}
+
+.titlebar, .titlebar > headerbar {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.1);
 }
 
@@ -2048,18 +2049,17 @@ headerbar .entry-tag {
   border-top-right-radius: 0;
 }
 
-window separator:first-child + .titlebar headerbar,
-window .titlebar headerbar:first-child {
-  border-top-right-radius: 0;
-}
-
-window .titlebar headerbar:last-child {
-  border-top-left-radius: 0;
-}
-
-window stack .titlebar headerbar:first-child, window stack .titlebar headerbar:last-child {
+separator:first-child + headerbar, headerbar:first-child {
   border-top-left-radius: 2px;
+}
+
+headerbar:last-child {
   border-top-right-radius: 2px;
+}
+
+stack headerbar:first-child, stack headerbar:last-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 window.tiled headerbar, window.tiled headerbar:first-child, window.tiled headerbar:last-child, window.tiled headerbar:only-child,

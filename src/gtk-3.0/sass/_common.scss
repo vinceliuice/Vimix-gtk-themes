@@ -1476,11 +1476,13 @@ headerbar {
   separator { @extend %header_separator; }
 }
 
-.titlebar,
-.titlebar .background {
-  &, & > headerbar {
+.titlebar {
+  &, &.background {
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
+  }
+
+  &, & > headerbar {
     box-shadow: $header_shadow, inset 0 1px $secondary_highlight_color;
   }
 }
@@ -1497,14 +1499,14 @@ headerbar {
 }
 
 headerbar { // headerbar border rounding
-  window separator:first-child + .titlebar &, // tackles the paned container case
-  window .titlebar &:first-child { border-top-right-radius: 0; }
-  window .titlebar &:last-child { border-top-left-radius: 0; }
+  separator:first-child + &, // tackles the paned container case
+  &:first-child { border-top-left-radius: 2px; }
+  &:last-child { border-top-right-radius: 2px; }
 
-  window stack .titlebar & { // tackles the stacked headerbars case
+  stack & { // tackles the stacked headerbars case
     &:first-child, &:last-child {
-      border-top-left-radius: 2px;
-      border-top-right-radius: 2px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
     }
   }
 

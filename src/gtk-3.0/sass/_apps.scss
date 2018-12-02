@@ -19,11 +19,13 @@
                                 $theme_color 0%,
                                 transparent 0%)
                                 0 0 0 / 0 0 0;
+
   &:hover {
     color: $headerbar_fg_color;
     background: none;
     box-shadow: inset 0 -2px rgba($theme_color, 0.5);
   }
+
   &:checked, &:active {
     color: $headerbar_fg_color;
     background: none;
@@ -31,6 +33,11 @@
                                   $theme_color 100%,
                                   transparent 0%)
                                   0 0 2 / 0 0 2px;
+  }
+
+  &:checked:hover {
+    background: none;
+    box-shadow: none;
   }
 }
 
@@ -62,7 +69,7 @@
                                       transparent 0%);
   }
 
-  &:checked { // Reset checked buttons
+  &:checked, &:checked:hover { // Reset checked buttons
     background: none;
     box-shadow: none;
   }

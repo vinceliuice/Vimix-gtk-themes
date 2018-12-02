@@ -336,7 +336,8 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
 
   @if $t == header-checked-hover {
     background-color: lighten($primary_color, 5%);
-    color: $inversed_fg_color;
+    background-image: none;
+    box-shadow: none;
   }
 
   @if $t == header-checked-disabled {

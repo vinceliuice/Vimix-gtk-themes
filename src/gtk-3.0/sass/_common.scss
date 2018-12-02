@@ -1303,6 +1303,8 @@ headerbar {
                                       0 0 2 / 0 0 2px;
         color: currentColor;
 
+        &:hover { background-color: transparent; color: currentColor; }
+
         &:disabled {
           color: gtkalpha(currentColor, $disabled_opacity);
 
@@ -1397,6 +1399,8 @@ headerbar {
         color: $theme_color;
         border-radius: 0;
       }
+
+      &:checked:hover { background: none; }
     }
   }
 
@@ -1420,6 +1424,8 @@ headerbar {
         background: none;
         color: $theme_color;
         border-radius: 0;
+
+        &:hover { background: none; }
       }
     }
   }

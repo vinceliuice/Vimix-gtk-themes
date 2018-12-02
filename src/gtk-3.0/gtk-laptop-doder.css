@@ -1777,7 +1777,8 @@ headerbar button:checked:not(.suggested-action):not(.destructive-action), window
 .titlebar:not(headerbar) button:checked:hover:not(.suggested-action):not(.destructive-action),
 headerbar button:checked:hover:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:checked:hover, .nemo-window .primary-toolbar button:checked:hover:not(.suggested-action):not(.destructive-action) {
   background-color: #5a95f5;
-  color: #FFFFFF;
+  background-image: none;
+  box-shadow: none;
 }
 
 .titlebar:not(headerbar) button:checked:disabled:not(.suggested-action):not(.destructive-action),
@@ -1843,6 +1844,12 @@ headerbar.selection-mode button:not(.suggested-action):not(.destructive-action):
 .selection-mode.titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action):checked,
 headerbar.selection-mode button:not(.suggested-action):not(.destructive-action):checked {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), currentColor 100%, transparent 0%) 0 0 2/0 0 2px;
+  color: currentColor;
+}
+
+.selection-mode.titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action):checked:hover,
+headerbar.selection-mode button:not(.suggested-action):not(.destructive-action):checked:hover {
+  background-color: transparent;
   color: currentColor;
 }
 
@@ -1979,6 +1986,11 @@ headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active {
   border-radius: 0;
 }
 
+.titlebar:not(headerbar) .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked:hover,
+headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked:hover {
+  background: none;
+}
+
 .titlebar:not(headerbar) .linked:not(.vertical).path-bar > button,
 headerbar .linked:not(.vertical).path-bar > button {
   margin: 0;
@@ -2003,6 +2015,11 @@ headerbar .linked:not(.vertical).path-bar > button:checked {
   background: none;
   color: #4285F4;
   border-radius: 0;
+}
+
+.titlebar:not(headerbar) .linked:not(.vertical).path-bar > button:checked:hover,
+headerbar .linked:not(.vertical).path-bar > button:checked:hover {
+  background: none;
 }
 
 .titlebar:not(headerbar) separator.titlebutton,
@@ -2490,7 +2507,8 @@ button#show_show_thumbnails_icon_toolbar_togglebutton:checked {
 popover.background button:checked:hover:not(.suggested-action):not(.destructive-action), dialog.background .dialog-vbox .dialog-action-area button:checked:hover, button#show_previous_icon_toolbar_togglebutton:checked:hover,
 button#show_show_thumbnails_icon_toolbar_togglebutton:checked:hover {
   background-color: #5a95f5;
-  color: #FFFFFF;
+  background-image: none;
+  box-shadow: none;
 }
 
 popover.background button:disabled:not(.suggested-action):not(.destructive-action), dialog.background .dialog-vbox .dialog-action-area button:disabled, button#show_previous_icon_toolbar_togglebutton:disabled,
@@ -5327,6 +5345,11 @@ button.emoji-section:last-child {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 100%, transparent 0%) 0 0 2/0 0 2px;
 }
 
+.nautilus-window headerbar .path-bar-box.width-maximized button:checked:hover {
+  background: none;
+  box-shadow: none;
+}
+
 .nautilus-window headerbar .path-bar-box button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button {
   margin: 0;
@@ -5353,7 +5376,8 @@ button.emoji-section:last-child {
 }
 
 .nautilus-window headerbar .path-bar-box button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked {
+.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked, .nautilus-window headerbar .path-bar-box button:checked:hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked:hover,
+.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked:hover {
   background: none;
   box-shadow: none;
 }

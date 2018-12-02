@@ -334,6 +334,11 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
     color: $inversed_fg_color;
   }
 
+  @if $t == header-checked-hover {
+    background-color: lighten($primary_color, 5%);
+    color: $inversed_fg_color;
+  }
+
   @if $t == header-checked-disabled {
     background-color: rgba($primary_color, $disabled_opacity);
     color: gtkalpha(currentColor, $disabled_opacity);

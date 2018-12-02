@@ -1245,6 +1245,7 @@ headerbar {
       &:active { @include button(header-active); }
       &:disabled { @include button(header-disabled); }
       &:checked { @include button(header-checked); }
+      &:checked:hover { @include button(header-checked-hover); }
       &:checked:disabled { @include button(header-checked-disabled); }
     }
 
@@ -1845,17 +1846,16 @@ menuitem {
     color: $fg_color;
   }
 
-  &:active, &:checked {
+  &:active {
     @include button(header-active);
   }
 
-  &:active, &:checked {
+  &:checked {
     @include button(header-checked);
-  }
 
-  &:checked:hover {
-    background-color: lighten($primary_color, 5%);
-    color: $inversed_fg_color;
+    &:hover {
+      @include button(header-checked-hover);
+    }
   }
 
   &:disabled {

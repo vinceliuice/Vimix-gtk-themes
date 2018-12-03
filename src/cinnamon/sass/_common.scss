@@ -1456,15 +1456,20 @@ $ws_thumb_spacing: 32px;
 
 .window-list {
   &-box {
-    spacing: 0;
+    spacing: 2px;
+    padding-left: 10px;
 
-    .panel-top,
-    .panel-bottom & {
-      &:ltr { padding: 0 0 0 8px; }
-      &:rtl { padding: 0 8px 0 0; }
+    .panel-bottom &,
+    .panel-top & { padding-top: 2px; padding-bottom: 2px; }
+
+    &.vertical {
+      spacing: 2px;
+      padding: 10px 0;
+
+      #appMenuIcon {
+        padding-top: 2px;
+      }
     }
-
-    &.vertical { padding: 6px 0 0 0; }
 
     &:highlight { background-color: $accent_fill_color; }
   }
@@ -1477,6 +1482,7 @@ $ws_thumb_spacing: 32px;
     color: $osd_fg_color;
     box-shadow: $empty_shadow;
     font-weight: 400;
+
     &:hover {
       color: $selected_fg_color;
 
@@ -1489,6 +1495,7 @@ $ws_thumb_spacing: 32px;
         }
       }
     }
+
     &:active,
     &:checked,
     &:focus {
@@ -1509,7 +1516,7 @@ $ws_thumb_spacing: 32px;
     StIcon,
     StBin {
       .panel-top &,
-      .panel-bottom & { padding: 0 (6px - 2px); }
+      .panel-bottom & { padding: 2px; }
     }
 
     &.vertical StIcon,
@@ -1520,8 +1527,8 @@ $ws_thumb_spacing: 32px;
 
       .panel-top &,
       .panel-bottom & {
-        &:ltr { padding: 0 (6px - 2px) 0 0; }
-        &:rtl { padding: 0 0 0 (6px - 2px); }
+        &:ltr { padding: 0 4px 0 0; }
+        &:rtl { padding: 0 0 0 4px; }
       }
     }
 
@@ -1559,6 +1566,148 @@ $ws_thumb_spacing: 32px;
   }
 }
 
+// /********************************************************************
+//  * Grouped window list (grouped-window-list@cinnamon.org) // >= 4.0 *
+//  ********************************************************************/
+
+.grouped-window-list {
+
+  &-thumbnail-label {
+    padding-left: 4px;
+  }
+
+  &-thumbnail-alert {
+    background-color: rgba($error_color, 0.5);
+  }
+
+  &-thumbnail-menu {
+
+    .item-box {
+      padding: 6px;
+      border-radius: 2px;
+      spacing: 4px;
+
+      &:outlined {
+        padding: 2px;
+        border: 2px solid $selected_bg_color;
+      }
+
+      &:selected {
+        background-color: rgba($selected_fg_color, 0.33);
+      }
+    }
+
+    .thumbnail {
+      width: 256px;
+    }
+
+    .separator {
+      width: 1px;
+      background-color: rgba($osd_fg_color, 0.33);
+    }
+  }
+
+  &-number-label {
+    z-index: 99;
+    text-shadow: none;
+    font-size: 10px;
+    color: $selected_fg_color;
+    padding: 0;
+  }
+
+  &-button-label {
+    padding-left: 4px;
+  }
+
+  &-badge {
+    border-radius: 256px;
+    background-color: $selected_bg_color;
+  }
+
+  &-item-box {
+    border: 0 none transparent;
+    border-image: none;
+    background-image: none;
+    background-color: $hidden_fill_color;
+    color: $osd_fg_color;
+    box-shadow: $empty_shadow;
+    font-weight: 400;
+
+    &:hover {
+      color: $selected_fg_color;
+
+      @each $position, $_indicator in (top, 0 2px),
+                                      (bottom, 0 -2px),
+                                      (left, 2px 0),
+                                      (right, -2px 0) {
+        .panel-#{$position} & {
+          box-shadow: inset #{$_indicator} $osd_outline_fill_color;
+        }
+      }
+    }
+
+    &:active,
+    &:checked {
+      &, &:hover {
+        color: $selected_fg_color;
+
+        @each $position, $_indicator in (top, 0 2px),
+                                        (bottom, 0 -2px),
+                                        (left, 2px 0),
+                                        (right, -2px 0) {
+          .panel-#{$position} & {
+            box-shadow: inset #{$_indicator} rgba($selected_bg_color, 0.5);
+          }
+        }
+      }
+    }
+
+    &:focus {
+      &, &:hover {
+        color: $selected_fg_color;
+
+        @each $position, $_indicator in (top, 0 2px),
+                                        (bottom, 0 -2px),
+                                        (left, 2px 0),
+                                        (right, -2px 0) {
+          .panel-#{$position} & {
+            box-shadow: inset #{$_indicator} $selected_bg_color;
+          }
+        }
+      }
+    }
+
+    StIcon,
+    StBin {
+      .panel-top &,
+      .panel-bottom & { padding: 2px; }
+    }
+
+    &.vertical StIcon,
+    &.vertical StBin { padding: 0; }
+
+    StLabel {
+      font-weight: 400;
+
+      .panel-top &,
+      .panel-bottom & {
+        &:ltr { padding: 0 4px 0 0; }
+        &:rtl { padding: 0 0 0 4px; }
+      }
+    }
+
+    &:progress,
+    .progress {
+      background-gradient-start: $accent_fill_color;
+      background-gradient-end: $accent_fill_color;
+    }
+  }
+
+  &-item-demands-attention {
+    background-gradient-start: $warning_color;
+    background-gradient-end: $warning_color;
+  }
+}
 
 // /***********************************
 //  * Sound Applet (status/volume.js) *

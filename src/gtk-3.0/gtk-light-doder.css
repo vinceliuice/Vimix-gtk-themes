@@ -4954,21 +4954,21 @@ messagedialog.csd decoration {
 iconview:selected,
 .view:selected, textview text selection, flowbox flowboxchild:selected, notebook > stack:not(:only-child) revealer entry selection, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) selection,
 entry selection, modelbutton.flat:selected,
-.menuitem.button.flat:selected, .background combobox entry.combo selection, .background combobox entry.combo selection:focus, row:selected, calendar:selected, .budgie-menu button:checked {
+.menuitem.button.flat:selected, .background combobox entry.combo selection, .background combobox entry.combo selection:focus, row:selected, calendar:selected, .nemo-window .nemo-window-pane widget.entry:selected:focus, .nemo-window .nemo-window-pane widget.entry:selected, .budgie-menu button:checked {
   background-color: #4285F4;
 }
 
 row:selected label, label:selected, iconview:selected,
 .view:selected, textview text selection, flowbox flowboxchild:selected, notebook > stack:not(:only-child) revealer entry selection, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) selection,
 entry selection, modelbutton.flat:selected,
-.menuitem.button.flat:selected, .background combobox entry.combo selection, .background combobox entry.combo selection:focus, row:selected, calendar:selected, .budgie-menu button:checked {
+.menuitem.button.flat:selected, .background combobox entry.combo selection, .background combobox entry.combo selection:focus, row:selected, calendar:selected, .nemo-window .nemo-window-pane widget.entry:selected:focus, .nemo-window .nemo-window-pane widget.entry:selected, .budgie-menu button:checked {
   color: #FFFFFF;
 }
 
 row:selected label:disabled, label:disabled:selected, iconview:disabled:selected,
 .view:disabled:selected, textview text selection:disabled, flowbox flowboxchild:disabled:selected, label:disabled selection, notebook > stack:not(:only-child) revealer entry selection:disabled, notebook > stack:not(:only-child) revealer spinbutton:not(.vertical) selection:disabled,
 entry selection:disabled, modelbutton.flat:disabled:selected,
-.menuitem.button.flat:disabled:selected, .background combobox entry.combo selection:disabled, row:disabled:selected, calendar:disabled:selected, .budgie-menu button:disabled:checked {
+.menuitem.button.flat:disabled:selected, .background combobox entry.combo selection:disabled, row:disabled:selected, calendar:disabled:selected, .nemo-window .nemo-window-pane widget.entry:disabled:selected, .budgie-menu button:disabled:checked {
   color: rgba(255, 255, 255, 0.4);
 }
 
@@ -7088,7 +7088,8 @@ window.thunar notebook header.top tab.reorderable-page > box > label {
 .nemo-window .nemo-window-pane widget.entry {
   border-radius: 3px;
   padding: 3px 10px;
-  border-width: 2px;
+  border: 2px solid #4285F4;
+  background-color: rgba(66, 133, 244, 0.1);
 }
 
 .nemo-window .primary-toolbar {

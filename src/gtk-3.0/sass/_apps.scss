@@ -1858,7 +1858,14 @@ window.thunar {
   .nemo-window-pane widget.entry {
     border-radius: 3px;
     padding: 3px 10px;
-    border-width: 2px;
+    border: 2px solid $primary_color;
+    background-color: rgba($primary_color, 0.1);
+
+    &:selected {
+      &:focus, & {
+        @extend %selected_items;
+      }
+    }
   }
 
   .primary-toolbar {

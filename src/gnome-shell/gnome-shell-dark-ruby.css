@@ -852,13 +852,13 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .osd-window .level {
-  height: 8px;
-  border-radius: 0;
+  height: 4px;
+  border-radius: 2px;
   background-color: rgba(240, 84, 76, 0.3);
   color: #FFFFFF;
-  -barlevel-height: 2px;
-  -barlevel-background-color: transparent;
-  -barlevel-active-background-color: #00C853;
+  -barlevel-height: 4px;
+  -barlevel-background-color: rgba(240, 84, 76, 0.3);
+  -barlevel-active-background-color: #F0544C;
   -barlevel-overdrive-color: #FF5252;
   -barlevel-overdrive-separator-width: 2px;
   -barlevel-border-width: 0;
@@ -866,7 +866,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .osd-window .level-bar {
   background-color: #F0544C;
-  border-radius: 0;
+  border-radius: 3px;
 }
 
 /* Pad OSD */

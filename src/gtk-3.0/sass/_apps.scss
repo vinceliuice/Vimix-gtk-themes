@@ -1416,6 +1416,10 @@ window.background.chromium {
     }
   }
 
+  menu, .menu {
+    border: 1px solid $borders_color;
+  }
+
   // internal region of toolbar's entry widget
   > textview.view { background-color: $base_color; }
 }
@@ -1794,6 +1798,15 @@ window#whiskermenu-window {
 // Thunar
 //
 window.thunar {
+
+  .sidebar {
+    border-top: none;
+
+    // treeview.view {
+    //   @extend treeview.view;
+    // }
+  }
+
   toolbar#location-toolbar {
     border-bottom: 1px solid $borders_color;
 

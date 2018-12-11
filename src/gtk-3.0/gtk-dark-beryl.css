@@ -6584,6 +6584,10 @@ window.background.chromium entry.chromium:focus {
   border: 1px solid #2EB398;
 }
 
+window.background.chromium menu, window.background.chromium .menu {
+  border: 1px solid rgba(0, 0, 0, 0.18);
+}
+
 window.background.chromium > textview.view {
   background-color: #313338;
 }
@@ -6983,6 +6987,10 @@ window#whiskermenu-window scrolledwindow treeview.view:selected:hover {
 #xfce4-power-manager-plugin *,
 #xfce4-clipman-plugin * {
   -gtk-icon-transform: scale(0.8);
+}
+
+window.thunar .sidebar {
+  border-top: none;
 }
 
 window.thunar toolbar#location-toolbar {

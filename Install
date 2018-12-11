@@ -93,9 +93,9 @@ install() {
   cp -ur ${SRC_DIR}/gnome-shell/{extensions,message-indicator-symbolic.svg,pad-osd.css} ${THEME_DIR}/gnome-shell
   cp -ur ${SRC_DIR}/gnome-shell/common-assets                                           ${THEME_DIR}/gnome-shell/assets
   cp -ur ${SRC_DIR}/gnome-shell/assets${ELSE_DARK}/*.svg                                ${THEME_DIR}/gnome-shell/assets
-  cp -ur ${SRC_DIR}/gnome-shell/color-assets/checkbox${theme}.svg                       ${THEME_DIR}/gnome-shell/assets
-  cp -ur ${SRC_DIR}/gnome-shell/color-assets/more-results${theme}.svg                   ${THEME_DIR}/gnome-shell/assets
-  cp -ur ${SRC_DIR}/gnome-shell/color-assets/toggle-on${theme}.svg                      ${THEME_DIR}/gnome-shell/assets
+  cp -ur ${SRC_DIR}/gnome-shell/color-assets/checkbox${theme}.svg                       ${THEME_DIR}/gnome-shell/assets/checkbox.svg
+  cp -ur ${SRC_DIR}/gnome-shell/color-assets/more-results${theme}.svg                   ${THEME_DIR}/gnome-shell/assets/more-results.svg
+  cp -ur ${SRC_DIR}/gnome-shell/color-assets/toggle-on${theme}.svg                      ${THEME_DIR}/gnome-shell/assets/toggle-on.svg
   cp -ur ${SRC_DIR}/gnome-shell/gnome-shell${color}${size}${theme}.css                  ${THEME_DIR}/gnome-shell/gnome-shell.css
 
   cd ${THEME_DIR}/gnome-shell

@@ -7,8 +7,6 @@
 // https://git.gnome.org/browse/nautilus/tree/src/resources/css/nautilus.css
 
 %pathbar_widthbox_button {
-  margin: 0;
-  border-radius: 0;
   transition: $shorter_transition,
               background-size 0,
               background-image 0,
@@ -42,7 +40,6 @@
 }
 
 %pathbar_box_button {
-  margin: 0;
   @extend %flat_button;
   color: $secondary_headerbar_fg_color;
   background-color: transparent;
@@ -72,6 +69,37 @@
   &:checked, &:checked:hover { // Reset checked buttons
     background: none;
     box-shadow: none;
+  }
+}
+
+// path-bar-box for > 3.30
+.nautilus-window headerbar {
+  .path-bar-box {
+    margin-top: $container_padding;
+    margin-bottom: $container_padding;
+    border-radius: $md_radius;
+
+    button {
+      margin: 0;
+      @extend %pathbar_box_button;
+    }
+
+    &.width-maximized {
+      color: $secondary_headerbar_fg_color;
+      background-color: rgba($headerbar_fg_color, 0.06);
+
+      button {
+        margin: 0;
+        border-radius: 0;
+        @extend %pathbar_widthbox_button;
+      }
+    }
+
+    // workaround for 3.30.1
+    &.background.frame {
+      border: none;
+      background-color: transparent;
+    }
   }
 }
 
@@ -142,30 +170,6 @@ filechooser,
         &:active { box-shadow: none; }
         &:hover { box-shadow: none; color: $dark_contrast_color; background-color: scale-alpha($primary_color, 0.8); }
       }
-    }
-  }
-}
-
-// path-bar-box for > 3.30
-.nautilus-window headerbar {
-  .path-bar-box {
-    margin-top: $container_padding;
-    margin-bottom: $container_padding;
-    border-radius: $md_radius;
-
-    button { @extend %pathbar_box_button; }
-
-    &.width-maximized {
-      color: $secondary_headerbar_fg_color;
-      background-color: rgba($headerbar_fg_color, 0.06);
-
-      button { @extend %pathbar_widthbox_button; }
-    }
-
-    // workaround for 3.30.1
-    &.background.frame {
-      border: none;
-      background-color: transparent;
     }
   }
 }

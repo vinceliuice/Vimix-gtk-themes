@@ -5342,8 +5342,6 @@ button.emoji-section:last-child {
 }
 
 .nautilus-window headerbar .path-bar-box.width-maximized button {
-  margin: 0;
-  border-radius: 0;
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0, background-color 0;
   animation: ripple_effect 100ms cubic-bezier(0, 0, 0.2, 1) forwards;
   color: rgba(255, 255, 255, 0.75);
@@ -5369,7 +5367,6 @@ button.emoji-section:last-child {
 
 .nautilus-window headerbar .path-bar-box button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button {
-  margin: 0;
   color: rgba(255, 255, 255, 0.75);
   background-color: transparent;
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FFFFFF 0%, transparent 0%) 0 0 0/0 0 0;
@@ -5397,6 +5394,31 @@ button.emoji-section:last-child {
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked:hover {
   background: none;
   box-shadow: none;
+}
+
+.nautilus-window headerbar .path-bar-box {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border-radius: 3px;
+}
+
+.nautilus-window headerbar .path-bar-box button {
+  margin: 0;
+}
+
+.nautilus-window headerbar .path-bar-box.width-maximized {
+  color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(234, 234, 234, 0.06);
+}
+
+.nautilus-window headerbar .path-bar-box.width-maximized button {
+  margin: 0;
+  border-radius: 0;
+}
+
+.nautilus-window headerbar .path-bar-box.background.frame {
+  border: none;
+  background-color: transparent;
 }
 
 .nautilus-window,
@@ -5472,22 +5494,6 @@ filechooser placessidebar.sidebar row.sidebar-row:selected:hover,
   box-shadow: none;
   color: #FFFFFF;
   background-color: rgba(104, 104, 104, 0.8);
-}
-
-.nautilus-window headerbar .path-bar-box {
-  margin-top: 4px;
-  margin-bottom: 4px;
-  border-radius: 3px;
-}
-
-.nautilus-window headerbar .path-bar-box.width-maximized {
-  color: rgba(255, 255, 255, 0.75);
-  background-color: rgba(234, 234, 234, 0.06);
-}
-
-.nautilus-window headerbar .path-bar-box.background.frame {
-  border: none;
-  background-color: transparent;
 }
 
 @keyframes needs_attention_keyframes {

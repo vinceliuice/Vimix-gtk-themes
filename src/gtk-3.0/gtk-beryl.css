@@ -6584,8 +6584,30 @@ window.background.chromium entry.chromium:focus {
   border: 1px solid #2EB398;
 }
 
-window.background.chromium menu, window.background.chromium .menu {
-  border: 1px solid rgba(0, 0, 0, 0.1);
+window.background.chromium > menubar {
+  background-color: #36393e;
+}
+
+window.background.chromium > menu {
+  border: 1px solid #2a2c30;
+  background-color: #36393e;
+}
+
+window.background.chromium > menu > menuitem {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+window.background.chromium > menu > menuitem:hover {
+  color: #FFFFFF;
+  background-color: #2EB398;
+}
+
+window.background.chromium > menu > menuitem:disabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+window.background.chromium > menu > menuitem label:disabled {
+  color: rgba(255, 255, 255, 0.3);
 }
 
 window.background.chromium > textview.view {

@@ -1245,7 +1245,7 @@ headerbar {
       &:active { @include button(header-active); }
       &:disabled { @include button(header-disabled); }
       &:checked { @include button(header-checked); }
-      &:checked:hover { @include button(header-checked-hover); }
+      // &:checked:hover { @include button(header-checked-hover); }
       &:checked:disabled { @include button(header-checked-disabled); }
     }
 
@@ -1861,9 +1861,9 @@ menuitem {
   &:checked {
     @include button(header-checked);
 
-    &:hover {
-      @include button(header-checked-hover);
-    }
+    // &:hover {
+    //   @include button(header-checked-hover);
+    // }
   }
 
   &:disabled {

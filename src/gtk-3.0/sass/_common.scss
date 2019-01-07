@@ -1512,8 +1512,10 @@ headerbar { // headerbar border rounding
 
   stack & { // tackles the stacked headerbars case
     &:first-child, &:last-child {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+      box-shadow: inset 0 1px $secondary_highlight_color;
+      border-bottom: 1px solid $solid_borders_color;
     }
   }
 

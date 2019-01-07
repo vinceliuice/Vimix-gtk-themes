@@ -1,3 +1,45 @@
+
+%flat_stackswitcher {
+  background-color: $lighter_bg_color;
+  border-radius: 3px;
+  border: none;
+  padding: 0 8px;
+
+  button {
+    margin: 0;
+    border-radius: 0;
+    background-image: none;
+    background-color: transparent;
+    box-shadow: none;
+    transition: $shorter_transition,
+                background-size 0,
+                background-image 0,
+                background-color 0;
+    animation: ripple_effect $shorter_duration $deceleration_curve forwards;
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  $primary_color 0%,
+                                  transparent 0%)
+                                  0 0 0 / 0 0 0;
+
+    &:hover {
+      box-shadow: inset 0 -2px rgba($primary_color, 0.5);
+      background-image: none;
+      background-color: transparent;
+    }
+
+    &:checked, &:active {
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    $primary_color 100%,
+                                    transparent 0%)
+                                    0 0 2 / 0 0 2px;
+      background-image: none;
+      background-color: transparent;
+      box-shadow: none;
+      color: $fg_color;
+    }
+  }
+}
+
 //
 // Nautilus
 //
@@ -532,14 +574,23 @@ window.background > box.vertical box.horizontal {
 // stack. We were seeing black edges around the header bar, and
 // improper radius on the headerbar.
 //
-workbench stack.titlebar {
+workbench.csd > stack.titlebar:not(headerbar) {
   padding: 0;
-  // box-shadow: none;
+  background: none;
+  border: none;
+  box-shadow: none;
+  border-radius: 2px 2px 0 0;
 }
 
-workbench:not(.tiled):not(.maximized):not(.fullscreen) stack.titlebar headerbar {
-  border-radius: 2px 2px 0 0;
-  // box-shadow: none;
+workbench.csd:not(.tiled):not(.maximized):not(.fullscreen) > stack.titlebar:not(headerbar) {
+  headerbar {
+    &,
+    &:first-child,
+    &:last-child {
+      border-radius: 2px 2px 0 0;
+      border-bottom: 1px solid $borders_color;
+    }
+  }
 }
 
 perspectiveswitcher {
@@ -598,6 +649,16 @@ layout {
 entry.search-missing {
   background-color: $error_color;
   color: $inversed_fg_color;
+}
+
+entry.search.preferences-search {
+  box-shadow: none;
+}
+
+dzldockpaned {
+  stackswitcher.linked.stack-switcher {
+    @extend %flat_stackswitcher;
+  }
 }
 
 // tweak icons for treeviews
@@ -1936,52 +1997,13 @@ window.thunar {
 //
 // Primary-toolbar (Cinnamon-settings)
 //
-%switcher_flat_button {
-  margin: 0;
-  border-radius: 0;
-  background-image: none;
-  background-color: transparent;
-  box-shadow: none;
-  transition: $shorter_transition,
-              background-size 0,
-              background-image 0,
-              background-color 0;
-  animation: ripple_effect $shorter_duration $deceleration_curve forwards;
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                $primary_color 0%,
-                                transparent 0%)
-                                0 0 0 / 0 0 0;
-
-  &:hover {
-    box-shadow: inset 0 -2px rgba($primary_color, 0.5);
-    background-image: none;
-    background-color: transparent;
-  }
-
-  &:checked, &:active {
-    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                  $primary_color 100%,
-                                  transparent 0%)
-                                  0 0 2 / 0 0 2px;
-    background-image: none;
-    background-color: transparent;
-    box-shadow: none;
-    color: $fg_color;
-  }
-}
-
 toolbar.primary-toolbar {
   toolitem.raised {
 
     button { @extend %toolbar_flat_button; }
 
     stackswitcher.stack-switcher {
-      background-color: $lighter_bg_color;
-      border-radius: 3px;
-      border: none;
-      padding: 0 8px;
-
-      button { @extend %switcher_flat_button; }
+      @extend %flat_stackswitcher;
     }
   }
 }
@@ -2007,12 +2029,7 @@ dialog.background {
     }
 
     stackswitcher.stack-switcher {
-      background-color: $lighter_bg_color;
-      border-radius: $md_radius;
-      border: none;
-      padding: 0 8px;
-
-      button { @extend %switcher_flat_button; } // Cinnamon-settings stackswitcher button
+      @extend %flat_stackswitcher; // Cinnamon-settings stackswitcher button
     }
 
     .dialog-action-area {
@@ -2092,12 +2109,7 @@ window.background {
       }
 
       stackswitcher.stack-switcher {
-        background-color: $lighter_bg_color;
-        border-radius: $md_radius;
-        border: none;
-        padding: 0 8px;
-
-        button { @extend %switcher_flat_button; } // Cinnamon-settings stackswitcher button
+        @extend %flat_stackswitcher; // Cinnamon-settings stackswitcher button
       }
 
       .linked button,

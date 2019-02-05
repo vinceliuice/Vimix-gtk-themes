@@ -37,7 +37,7 @@ $inverse_track_color:                 rgba($white, 0.3);
 $inverse_divider_color:               rgba($white, 0.12);
 
 // Background colors
-$base_color:     if($variant =='dark', if($color =='doder' or $color =='beryl', #333333, #2b2d33), #FAFAFA);
+$base_color:     if($variant =='dark', if($color =='doder' or $color =='beryl', #2b2d33, #333333), #FAFAFA);
 $alt_base_color: if($variant =='dark', darken($base_color, 3%), darken($base_color, 6%));
 
 $bg_color:         rgba($black, $middle_opacity);

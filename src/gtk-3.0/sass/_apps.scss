@@ -1913,6 +1913,24 @@ window.thunar {
   }
 }
 
+// vala-panel-appmenu
+menubar.-vala-panel-appmenu-private, // xfce4 appmenu plugin
+menubar.-vala-panel-background {
+  background: none;
+  border: none;
+  box-shadow: none;
+
+  > menuitem {
+    color: $alt_topbar_fg_color;
+    font-weight: normal;
+
+    &:hover {
+      color: $inversed_fg_color;
+      border-radius: 0 0 0 0 ;
+    }
+  }
+}
+
 //
 // Nemo
 //

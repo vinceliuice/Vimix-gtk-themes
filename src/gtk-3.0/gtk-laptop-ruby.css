@@ -2051,8 +2051,16 @@ headerbar .entry-tag {
   border-top-right-radius: 2px;
 }
 
-.titlebar, .titlebar > headerbar {
+.titlebar, .titlebar headerbar {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24), inset 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.tiled .titlebar,
+.maximized .titlebar,
+.fullscreen .titlebar, .tiled .titlebar headerbar,
+.maximized .titlebar headerbar,
+.fullscreen .titlebar headerbar {
+  box-shadow: none;
 }
 
 .background.tiled .titlebar,
@@ -2111,6 +2119,23 @@ window.solid-csd headerbar:first-child,
 window.solid-csd headerbar:last-child,
 window.solid-csd headerbar:only-child {
   border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+window.background > box.vertical > headerbar:not(.titlebar) {
+  border-radius: 0 0 0 0;
+  box-shadow: none;
+}
+
+window.background > box.vertical > headerbar:not(.titlebar), window.background > box.vertical > headerbar:not(.titlebar):backdrop {
+  background-color: #383838;
+}
+
+separator:first-child + window.background > box.vertical > headerbar:not(.titlebar), separator:first-child + window.background > box.vertical > headerbar:not(.titlebar):backdrop, window.background > box.vertical > headerbar:not(.titlebar):first-child, window.background > box.vertical > headerbar:not(.titlebar):first-child:backdrop {
+  border-top-left-radius: 0;
+}
+
+window.background > box.vertical > headerbar:not(.titlebar):last-child, window.background > box.vertical > headerbar:not(.titlebar):last-child:backdrop {
   border-top-right-radius: 0;
 }
 
@@ -7065,6 +7090,25 @@ window.thunar notebook stack > scrolledwindow.frame.standard-view {
 
 window.thunar notebook header.top tab.reorderable-page > box > label {
   min-height: 0;
+}
+
+menubar.-vala-panel-appmenu-private,
+menubar.-vala-panel-background {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+menubar.-vala-panel-appmenu-private > menuitem,
+menubar.-vala-panel-background > menuitem {
+  color: #EAEAEA;
+  font-weight: normal;
+}
+
+menubar.-vala-panel-appmenu-private > menuitem:hover,
+menubar.-vala-panel-background > menuitem:hover {
+  color: #FFFFFF;
+  border-radius: 0 0 0 0;
 }
 
 .nemo-window .nemo-places-sidebar {

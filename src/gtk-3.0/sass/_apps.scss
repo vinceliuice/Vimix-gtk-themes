@@ -11,11 +11,11 @@
     background-image: none;
     background-color: transparent;
     box-shadow: none;
-    transition: $shorter_transition,
+    transition: $ripple_duration,
                 background-size 0,
                 background-image 0,
                 background-color 0;
-    animation: ripple_effect $shorter_duration $deceleration_curve forwards;
+    animation: ripple_effect $ripple_duration $deceleration_curve forwards;
     border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                   $primary_color 0%,
                                   transparent 0%)

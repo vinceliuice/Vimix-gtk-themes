@@ -2345,8 +2345,8 @@ switch {
   }
 
   &:hover slider { color: $fg_color; box-shadow: 0 0 0 10px gtkalpha(currentColor, 0.1), $z-depth-1; }
-  &:focus slider { color: $accent_color; box-shadow: 0 0 0 10px gtkalpha(currentColor, 0.15), $z-depth-1; }
-  &:focus:hover slider { color: $accent_color; box-shadow: 0 0 0 10px gtkalpha(currentColor, 0.18), $z-depth-1; }
+  &:focus slider { color: $accent_color; box-shadow: $z-depth-1; }
+  &:focus:hover slider { color: $accent_color; box-shadow: 0 0 0 10px gtkalpha(currentColor, 0.1), $z-depth-1; }
   &:checked slider {
     background-color: $accent_color;
     color: $accent_color;

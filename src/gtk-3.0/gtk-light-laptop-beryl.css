@@ -2949,8 +2949,9 @@ switch {
   margin: 4px 0;
   border: 5px solid transparent;
   border-radius: 100px;
-  background-color: alpha(currentColor, 0.24);
+  background-color: rgba(0, 0, 0, 0.25);
   background-clip: padding-box;
+  color: transparent;
   font-size: 0;
 }
 
@@ -2966,7 +2967,7 @@ switch slider {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1);
   min-width: 20px;
   min-height: 20px;
-  margin: -3px -2px;
+  margin: -3px;
   border-radius: 100px;
   box-shadow: 0 0 0 10px transparent, 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
   background-color: #FCFCFC;

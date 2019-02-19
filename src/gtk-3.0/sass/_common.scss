@@ -2322,8 +2322,9 @@ switch {
   margin: $container_padding 0;
   border: 5px solid transparent;
   border-radius: $circular_radius;
-  background-color: $track_color;
+  background-color: rgba($fg_color, 0.25);
   background-clip: padding-box;
+  color: transparent;
   font-size: 0;
 
   &:disabled { opacity: 0.5; }
@@ -2336,7 +2337,7 @@ switch {
     transition: all $shorter_duration $deceleration_curve;
     min-width: 20px;
     min-height: 20px;
-    margin: -3px -2px;
+    margin: -3px;
     border-radius: $circular_radius;
     box-shadow: 0 0 0 10px transparent, $z-depth-1;
     background-color: $lighter_bg_color;

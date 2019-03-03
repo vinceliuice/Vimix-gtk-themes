@@ -733,7 +733,7 @@ $ws_thumb_spacing: 32px;
   &-month-label {
     @include fontscaling($ref_size * 0.8);
     margin: 0 2px;
-    padding-top: (1.5em + 0.5em) / 8; // label centering
+    padding-top: 2px; // label centering
     color: $fg_color;
     font-weight: 400;
   }
@@ -741,8 +741,8 @@ $ws_thumb_spacing: 32px;
   &-change-month-back,
   &-change-month-forward {
     @include fontscaling($ref_size * 0.8);
-    width: 1.5em + 0.5em; // embed padding of -month-label
-    height: 1.5em + 0.5em;
+    width: 16px; // embed padding of -month-label
+    height: 16px;
     margin: 0;
     padding: 0;
     border-radius: 100px;

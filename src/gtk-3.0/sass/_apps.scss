@@ -169,7 +169,9 @@
 
 .nautilus-canvas-item.dim-label,
 .nautilus-list-dim-label {
-  @extend .dim-label;
+  color: mix($fg_color, $bg_color, 50%);
+
+  &:selected, &:selected:focus { color: mix($inversed_fg_color, $primary_color, 80%); }
 }
 
 .nautilus-desktop.nautilus-canvas-item {

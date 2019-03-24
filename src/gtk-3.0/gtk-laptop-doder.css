@@ -141,8 +141,7 @@ menuitem label:disabled {
 }
 
 .dim-label, label.separator, .titlebar:not(headerbar) .subtitle,
-headerbar .subtitle, .nautilus-canvas-item.dim-label,
-.nautilus-list-dim-label, .budgie-notification .notification-body, .budgie-switcher .notification-body {
+headerbar .subtitle, .budgie-notification .notification-body, .budgie-switcher .notification-body {
   opacity: 0.6;
 }
 
@@ -5443,6 +5442,20 @@ dzldockpaned stackswitcher.linked.stack-switcher button:checked, toolbar.primary
   border-radius: 3px;
 }
 
+.nautilus-canvas-item.dim-label, label.nautilus-canvas-item.separator, .titlebar:not(headerbar) .nautilus-canvas-item.subtitle,
+headerbar .nautilus-canvas-item.subtitle, .budgie-notification .nautilus-canvas-item.notification-body, .budgie-switcher .nautilus-canvas-item.notification-body,
+.nautilus-list-dim-label {
+  color: rgba(147, 147, 147, 0.9);
+}
+
+.nautilus-canvas-item.dim-label:selected, label.nautilus-canvas-item.separator:selected, .titlebar:not(headerbar) .nautilus-canvas-item.subtitle:selected,
+headerbar .nautilus-canvas-item.subtitle:selected, .budgie-notification .nautilus-canvas-item.notification-body:selected, .budgie-switcher .nautilus-canvas-item.notification-body:selected, .nautilus-canvas-item.dim-label:selected:focus, label.nautilus-canvas-item.separator:selected:focus, .titlebar:not(headerbar) .nautilus-canvas-item.subtitle:selected:focus,
+headerbar .nautilus-canvas-item.subtitle:selected:focus, .budgie-notification .nautilus-canvas-item.notification-body:selected:focus, .budgie-switcher .nautilus-canvas-item.notification-body:selected:focus,
+.nautilus-list-dim-label:selected,
+.nautilus-list-dim-label:selected:focus {
+  color: #d9e7fd;
+}
+
 .nautilus-desktop.nautilus-canvas-item, .caja-desktop.caja-canvas-item {
   color: #FFFFFF;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -8638,8 +8651,7 @@ treeview.view header box.vertical > stack > box.vertical > .raven-background > v
 }
 
 .budgie-run-dialog list .dim-label, .budgie-run-dialog list label.separator, .budgie-run-dialog list .titlebar:not(headerbar) .subtitle, .titlebar:not(headerbar) .budgie-run-dialog list .subtitle,
-.budgie-run-dialog list headerbar .subtitle, headerbar .budgie-run-dialog list .subtitle,
-.budgie-run-dialog list .nautilus-list-dim-label, .budgie-run-dialog list .budgie-notification .notification-body, .budgie-notification .budgie-run-dialog list .notification-body, .budgie-run-dialog list .budgie-switcher .notification-body, .budgie-switcher .budgie-run-dialog list .notification-body {
+.budgie-run-dialog list headerbar .subtitle, headerbar .budgie-run-dialog list .subtitle, .budgie-run-dialog list .budgie-notification .notification-body, .budgie-notification .budgie-run-dialog list .notification-body, .budgie-run-dialog list .budgie-switcher .notification-body, .budgie-switcher .budgie-run-dialog list .notification-body {
   opacity: 1;
 }
 

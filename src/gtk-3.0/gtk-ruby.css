@@ -6469,13 +6469,15 @@ window.background:not(.csd) > widget > entry, #MozillaGtkWidget.background > wid
 }
 
 window.background:not(.csd) text:selected, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:selected, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:selected:focus,
-#MozillaGtkWidget.background > widget > scrolledwindow > textview text selection {
+#MozillaGtkWidget.background > widget > scrolledwindow > textview text selection, window.background.chromium > textview text:selected, window.background.chromium > textview text:selected:focus,
+window.background.chromium > textview text selection {
   background-color: #F0544C;
   color: #FFFFFF;
 }
 
 window.background:not(.csd) text:disabled:selected, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:disabled:selected,
-#MozillaGtkWidget.background > widget > scrolledwindow > textview text selection:disabled {
+#MozillaGtkWidget.background > widget > scrolledwindow > textview text selection:disabled, window.background.chromium > textview text:disabled:selected,
+window.background.chromium > textview text selection:disabled {
   color: rgba(255, 255, 255, 0.4);
 }
 

@@ -3691,6 +3691,7 @@ decoration {
 
 // catch all extend :)
 %selected_items {
+  // background-color: if($color == 'black' or $color == 'white', $question_bg_color, $primary_color);
   background-color: $primary_color;
 
   @at-root %nobg_selected_items, & {

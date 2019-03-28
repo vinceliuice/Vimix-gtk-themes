@@ -1241,7 +1241,7 @@ $firefox_bg_color: if($variant =='light', $lighter_bg_color, #666666);
 }
 
 %firefox_selected_items {
-  background-color: if($color == 'black', $question_bg_color, $primary_color);
+  background-color: if($color == 'black' or $color == 'white', $question_bg_color, $primary_color);
   color: $inversed_fg_color;
   &:disabled { color: $disabled_inversed_fg_color; }
 }
@@ -1546,6 +1546,14 @@ window.background.chromium {
 
   // internal region of toolbar's entry widget
   > textview.view { background-color: $base_color; }
+
+  > textview {
+    text {
+      &:selected,
+      &:selected:focus,
+      selection { @extend %firefox_selected_items; }
+    }
+  }
 }
 
 

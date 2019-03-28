@@ -322,10 +322,10 @@ entry {
     image { // icons inside the entry
       // @extend %simple_flat_button;
 
-//      min-height: $small_size;
-//      min-width: $small_size;
-//      border-radius: $md_radius;
-//      -gtk-outline-radius: $md_radius;
+      // min-height: $small_size;
+      // min-width: $small_size;
+      // border-radius: $md_radius;
+      // -gtk-outline-radius: $md_radius;
       color: gtkalpha(currentColor, $enabled_opacity);
 
       &:hover, &:active { color: currentColor; }
@@ -354,7 +354,7 @@ entry {
     // entry error and warning style
     @each $e_type, $e_color in (error, $error_color),
                                (warning, $warning_color) {
-      &.#{$e_type} {
+      &.#{$e_type}, &.search.#{$e_type} {
         @include entry(normal, $e_color);
 
         &:focus { @include entry(focus, $e_color); }

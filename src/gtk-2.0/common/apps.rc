@@ -4,6 +4,45 @@
 # custom widgets, programs giving us a chance to alter their UI to fit more with
 # the theme or stuff that is supposed to look different, like panels.
 
+# Thunar
+
+style "thunar_location_button" = "location_button" {
+  ThunarLocationButtons::spacing = 0
+
+  engine "pixmap" {
+    image {
+      function = BOX
+      state    = NORMAL
+      file     = "assets/null.png"
+      border   = { 2, 2, 2, 2 }
+      stretch  = TRUE
+    }
+    image {
+      function = BOX
+      state    = PRELIGHT
+      file     = "assets/pathbar_button_prelight.png"
+      border   = { 2, 2, 2, 2 }
+      stretch  = TRUE
+    }
+    image {
+      function = BOX
+      state    = ACTIVE
+      file     = "assets/pathbar_button_active.png"
+      border   = { 0, 0, 0, 2 }
+      stretch  = TRUE
+    }
+    image {
+      function = BOX
+      state    = INSENSITIVE
+      file     = "assets/null.png"
+      border   = { 2, 2, 2, 2 }
+      stretch  = TRUE
+    }
+  }
+}
+
+widget_class "*ThunarLocationButtons*" style "thunar_location_button"
+
 # TODO: This could really look nicer
 style "gimp_spin_scale" {
   # Spin background

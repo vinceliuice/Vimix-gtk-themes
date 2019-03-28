@@ -401,7 +401,7 @@ paned.titlebar.horizontal { // show border
     padding: 0;
     box-shadow:  $z-depth-2; // TODO: this should really have a highlight
     background-color: $dark_contrast_color;
-    }
+  }
 
   entry {
     &:dir(ltr) {
@@ -419,11 +419,47 @@ paned.titlebar.horizontal { // show border
     }
 
     &.error ~ button {
+      @extend %simple_flat_button;
+
       color: $secondary_inversed_fg_color;
 
-      &:hover, &:active { color: $inversed_fg_color; }
+      &:hover {
+        background-image: none;
+        box-shadow: none;
+        color: $inversed_fg_color;
+        background-color: $semi_track_color;
+      }
+
+      &:active {
+        background-image: radial-gradient(circle farthest-corner at center,
+                                          $semi_track_color 10%,
+                                          transparent 0%);
+        box-shadow: none;
+        color: $inversed_fg_color;
+        background-color: $semi_track_color;
+      }
 
       &:disabled { color: $disabled_secondary_inversed_fg_color; }
+    }
+
+    // entry error and warning style
+    @each $e_type, $e_color in (error, $error_color),
+                               (warning, $warning_color) {
+      &.search.#{$e_type} {
+        @include entry(normal, $e_color);
+
+        &:focus { @include entry(focus, $e_color); }
+
+        &:disabled { @include entry(disabled, $e_color); }
+
+        &.flat {
+          @include entry(flat-normal, $e_color);
+
+          &:focus { @include entry(flat-focus, $e_color); }
+
+          &:disabled { @include entry(flat-disabled, $e_color); }
+        }
+      }
     }
   }
 
@@ -1125,7 +1161,7 @@ window.background > box.vertical > scrolledwindow > widget toolbar {
 //
 // Firefox and Thunderbird
 //
-$firefox_border_color: $borders_color;
+$firefox_border_color: $solid_borders_color;
 $firefox_theme_color: if($color == 'black', #666666, $primary_color);
 $firefox_fg_color: if($variant =='light', $secondary_fg_color, #bababa);
 $firefox_bg_color: if($variant =='light', $lighter_bg_color, #666666);
@@ -1205,7 +1241,7 @@ $firefox_bg_color: if($variant =='light', $lighter_bg_color, #666666);
 }
 
 %firefox_selected_items {
-  background-color: if($color == 'black', #686868, $primary_color);
+  background-color: if($color == 'black', $question_bg_color, $primary_color);
   color: $inversed_fg_color;
   &:disabled { color: $disabled_inversed_fg_color; }
 }
@@ -1341,7 +1377,7 @@ window.background:not(.csd) {
     > separator {
       padding: 0;
       border: none;
-      background-color: $borders_color;
+      background-color: $firefox_border_color;
     }
 
     > menuitem > radio { @extend %small_radio; }
@@ -1367,8 +1403,8 @@ window.background:not(.csd) {
   }
 
   > widget {
-    border { border-color: $borders_color; }
-    separator { background-color: $borders_color; }
+    border { border-color: $firefox_border_color; }
+    separator { background-color: $firefox_border_color; }
 
     // FIXME: this affected to popover widget as well,
     // so we can not set $lighter_bg_color to search-bar...

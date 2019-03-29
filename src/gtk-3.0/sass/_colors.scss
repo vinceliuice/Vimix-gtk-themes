@@ -110,9 +110,6 @@ $secondary_highlight_color: scale-alpha(#FFFFFF, 0.1);
 
 $placeholder_text_color: mix($fg_color, $base_color, percentage($hint_opacity));
 
-$link_color: $primary_color;
-$link_visited_color: #E040FB;
-
 $warning_color: #FF6D00;
 $error_color: #DD2C00;
 $success_color: #00C853;
@@ -124,3 +121,6 @@ $info_bg_color: #66BB6A;
 $question_bg_color: #42A5F5;
 $warning_bg_color: #FFA726;
 $error_bg_color: #EF5350;
+
+$link_color: if($color == 'black' or $color == 'white', $question_bg_color, $primary_color);
+$link_visited_color: #E040FB;

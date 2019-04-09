@@ -856,7 +856,8 @@ radio, calendar.button, messagedialog .dialog-action-area button, messagedialog.
 .osd button, toolbutton button,
 toolbutton button.image-button,
 toolbutton button.image-button.toggle, .caja-pathbar button,
-.path-bar button, .nautilus-window headerbar .path-bar-box button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button,
+.path-bar button, .nautilus-window headerbar .path-bar-box button, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button,
+.nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.image-button.text-button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button, layouttabbar button, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button, window.csd > box.vertical > box.vertical > toolbar.horizontal button,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised, window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale, window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle,
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:not(.toggle):not(.raised):not(.flat), .geary-composer-box button:not(.combo), .tilix-search-frame button, .mate-panel-menu-bar #PanelApplet button:not(.flat), .raven stackswitcher.linked > button, .budgie-session-dialog button, .budgie-polkit-dialog button, .budgie-run-dialog button, toolbar button, actionbar > revealer > box button:not(.suggested-action):not(.destructive-action):not(.server-list-button), .app-notification button,
@@ -877,7 +878,7 @@ button.flat {
 radio:hover, calendar.button:hover, messagedialog .dialog-action-area button:hover, button.sidebar-button:hover, .gedit-search-slider entry.error ~ button:hover, .gedit-search-slider button:hover, PanelToplevel > widget > button:hover, .budgie-settings-window buttonbox.inline-toolbar button:hover, .budgie-popover button:hover, .raven .raven-header:not(.top) button:hover, .drop-shadow button:hover, .budgie-session-dialog .linked.horizontal > button:hover, .budgie-polkit-dialog .linked.horizontal > button:hover, .budgie-run-dialog .linked.horizontal > button:hover, .lightdm-gtk-greeter button:hover,
 .osd button:hover, toolbutton button:hover,
 toolbutton button.image-button.toggle:hover, .caja-pathbar button:hover,
-.path-bar button:hover, .nautilus-window headerbar .path-bar-box button:hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:hover,
+.path-bar button:hover, .nautilus-window headerbar .path-bar-box button:hover, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:hover,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:hover, layouttabbar button:hover, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:hover, window.csd > box.vertical > box.vertical > toolbar.horizontal button:hover,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:hover, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:hover, window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:hover, window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:hover,
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:hover:not(.toggle):not(.raised):not(.flat), .geary-composer-box button:hover:not(.combo), .tilix-search-frame button:hover, .mate-panel-menu-bar #PanelApplet button:hover:not(.flat), .raven stackswitcher.linked > button:hover, .budgie-session-dialog button:hover, .budgie-polkit-dialog button:hover, .budgie-run-dialog button:hover, toolbar button:hover, actionbar > revealer > box button:hover:not(.suggested-action):not(.destructive-action):not(.server-list-button), .app-notification button:hover,
@@ -892,7 +893,7 @@ button.flat:hover {
 radio:active, calendar.button:active, messagedialog .dialog-action-area button:active, button.sidebar-button:active, .gedit-search-slider entry.error ~ button:active, .gedit-search-slider button:active, PanelToplevel > widget > button:active, .budgie-settings-window buttonbox.inline-toolbar button:active, .budgie-popover button:active, .raven .raven-header:not(.top) button:active, .drop-shadow button:active, .budgie-session-dialog .linked.horizontal > button:active, .budgie-polkit-dialog .linked.horizontal > button:active, .budgie-run-dialog .linked.horizontal > button:active, .lightdm-gtk-greeter button:active,
 .osd button:active, toolbutton button:active,
 toolbutton button.image-button.toggle:active, .caja-pathbar button:active,
-.path-bar button:active, .nautilus-window headerbar .path-bar-box button:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:active,
+.path-bar button:active, .nautilus-window headerbar .path-bar-box button:active, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:active,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:active, layouttabbar button:active, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:active, window.csd > box.vertical > box.vertical > toolbar.horizontal button:active,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:active, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:active, window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:active, window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:active,
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:active:not(.toggle):not(.raised):not(.flat), .geary-composer-box button:active:not(.combo), .tilix-search-frame button:active, .mate-panel-menu-bar #PanelApplet button:active:not(.flat), .raven stackswitcher.linked > button:active, .budgie-session-dialog button:active, .budgie-polkit-dialog button:active, .budgie-run-dialog button:active, toolbar button:active, actionbar > revealer > box button:active:not(.suggested-action):not(.destructive-action):not(.server-list-button), .app-notification button:active,
@@ -911,7 +912,7 @@ button.flat:active {
 radio:disabled, calendar.button:disabled, messagedialog .dialog-action-area button:disabled, button.sidebar-button:disabled, .gedit-search-slider entry.error ~ button:disabled, .gedit-search-slider button:disabled, PanelToplevel > widget > button:disabled, .budgie-settings-window buttonbox.inline-toolbar button:disabled, .budgie-popover button:disabled, .raven .raven-header:not(.top) button:disabled, .drop-shadow button:disabled, .budgie-session-dialog .linked.horizontal > button:disabled, .budgie-polkit-dialog .linked.horizontal > button:disabled, .budgie-run-dialog .linked.horizontal > button:disabled, .lightdm-gtk-greeter button:disabled,
 .osd button:disabled, toolbutton button:disabled,
 toolbutton button.image-button.toggle:disabled, .caja-pathbar button:disabled,
-.path-bar button:disabled, .nautilus-window headerbar .path-bar-box button:disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:disabled,
+.path-bar button:disabled, .nautilus-window headerbar .path-bar-box button:disabled, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:disabled,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:disabled, layouttabbar button:disabled, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:disabled, window.csd > box.vertical > box.vertical > toolbar.horizontal button:disabled,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:disabled, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:disabled, window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:disabled, window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:disabled,
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:disabled:not(.toggle):not(.raised):not(.flat), .geary-composer-box button:disabled:not(.combo), .tilix-search-frame button:disabled, .mate-panel-menu-bar #PanelApplet button:disabled:not(.flat), .raven stackswitcher.linked > button:disabled, .budgie-session-dialog button:disabled, .budgie-polkit-dialog button:disabled, .budgie-run-dialog button:disabled, toolbar button:disabled, actionbar > revealer > box button:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), .app-notification button:disabled,
@@ -924,7 +925,7 @@ button.flat:disabled {
 
 .osd button:checked, toolbutton button:checked,
 toolbutton button.image-button.toggle:checked, .caja-pathbar button:checked,
-.path-bar button:checked, .nautilus-window headerbar .path-bar-box button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked,
+.path-bar button:checked, .nautilus-window headerbar .path-bar-box button:checked, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked, layouttabbar button:checked, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:checked, window.csd > box.vertical > box.vertical > toolbar.horizontal button:checked,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:checked, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:checked, window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:checked, window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:checked,
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:checked:not(.toggle):not(.raised):not(.flat), .geary-composer-box button:checked:not(.combo), .tilix-search-frame button:checked, .mate-panel-menu-bar #PanelApplet button:checked:not(.flat), .raven stackswitcher.linked > button:checked, .budgie-session-dialog button:checked, .budgie-polkit-dialog button:checked, .budgie-run-dialog button:checked, toolbar button:checked, actionbar > revealer > box button:checked:not(.suggested-action):not(.destructive-action):not(.server-list-button), .app-notification button:checked,
@@ -935,7 +936,7 @@ button.flat:checked {
 
 
 .osd button:checked:disabled, toolbutton button:checked:disabled, .caja-pathbar button:checked:disabled,
-.path-bar button:checked:disabled, .nautilus-window headerbar .path-bar-box button:checked:disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked:disabled,
+.path-bar button:checked:disabled, .nautilus-window headerbar .path-bar-box button:checked:disabled, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:checked:disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked:disabled,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked:disabled, layouttabbar button:checked:disabled, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:checked:disabled, window.csd > box.vertical > box.vertical > toolbar.horizontal button:checked:disabled,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:checked:disabled, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:checked:disabled, window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:checked:disabled, window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:checked:disabled,
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:checked:disabled:not(.toggle):not(.raised):not(.flat), .geary-composer-box button:checked:disabled:not(.combo), .tilix-search-frame button:checked:disabled, .mate-panel-menu-bar #PanelApplet button:checked:disabled:not(.flat), .raven stackswitcher.linked > button:checked:disabled, .budgie-session-dialog button:checked:disabled, .budgie-polkit-dialog button:checked:disabled, .budgie-run-dialog button:checked:disabled, toolbar button:checked:disabled, actionbar > revealer > box button:checked:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), .app-notification button:checked:disabled,
@@ -5393,22 +5394,23 @@ dzldockpaned stackswitcher.linked.stack-switcher button:checked, toolbar.primary
   color: rgba(0, 0, 0, 0.8);
 }
 
-.nautilus-window headerbar .path-bar-box button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button,
+.nautilus-window headerbar .path-bar-box button, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button,
+.nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.image-button.text-button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button {
   color: rgba(0, 0, 0, 0.6);
   background-color: transparent;
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #F0544C 0%, transparent 0%) 0 0 0/0 0 0;
 }
 
-.nautilus-window headerbar .path-bar-box button:hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:hover,
+.nautilus-window headerbar .path-bar-box button:hover, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:hover,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:hover {
   background-color: transparent;
   color: rgba(0, 0, 0, 0.8);
   box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.12);
 }
 
-.nautilus-window headerbar .path-bar-box button:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:active,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:active, .nautilus-window headerbar .path-bar-box button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked,
+.nautilus-window headerbar .path-bar-box button:active, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:active,
+.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:active, .nautilus-window headerbar .path-bar-box button:checked, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked {
   color: rgba(0, 0, 0, 0.8);
   background-color: transparent;
@@ -5417,8 +5419,8 @@ dzldockpaned stackswitcher.linked.stack-switcher button:checked, toolbar.primary
   background-image: radial-gradient(circle farthest-corner at center, rgba(0, 0, 0, 0.12) 10%, transparent 0%);
 }
 
-.nautilus-window headerbar .path-bar-box button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked, .nautilus-window headerbar .path-bar-box button:checked:hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked:hover,
+.nautilus-window headerbar .path-bar-box button:checked, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked,
+.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked, .nautilus-window headerbar .path-bar-box button:checked:hover, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:checked:hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked:hover,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked:hover {
   background: none;
   box-shadow: none;
@@ -5432,6 +5434,17 @@ dzldockpaned stackswitcher.linked.stack-switcher button:checked, toolbar.primary
 
 .nautilus-window headerbar .path-bar-box button {
   margin: 0;
+}
+
+.nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button,
+.nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.image-button.text-button {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:not(:only-child):last-child,
+.nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.image-button.text-button:not(:only-child):last-child {
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #F0544C 100%, transparent 0%) 0 0 2/0 0 2px;
 }
 
 .nautilus-window headerbar .path-bar-box.width-maximized {
@@ -6211,6 +6224,19 @@ box.horizontal.titlebar > headerbar > stack > box.vertical > .subtitle {
 
 dialog.background.csd > headerbar.titlebar > label:not(.title):not(.subtitle) {
   font-weight: 700;
+}
+
+window.background.csd > headerbar.titlebar > box.horizontal > separator.sidebar,
+window.background.csd > headerbar.titlebar > hdyleaflet > separator.sidebar {
+  border-right-style: none;
+  background: none;
+  min-width: 0;
+}
+
+window.background.csd > box.horizontal > separator.sidebar,
+window.background.csd > hdyleaflet > separator.sidebar {
+  background: none;
+  min-width: 0;
 }
 
 task-row {

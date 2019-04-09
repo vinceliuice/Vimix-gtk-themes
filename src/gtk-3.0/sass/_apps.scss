@@ -126,6 +126,22 @@
       @extend %pathbar_box_button;
     }
 
+    .linked.nautilus-path-bar { // for ≥ 3.31.90
+      button.text-button,
+      button.image-button.text-button {
+        margin-top: 0;
+        margin-bottom: 0;
+        @extend %pathbar_box_button;
+
+        &:not(:only-child):last-child {
+          border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                        $theme_color 100%,
+                                        transparent 0%)
+                                        0 0 2 / 0 0 2px;
+        }
+      }
+    }
+
     &.width-maximized {
       color: $secondary_headerbar_fg_color;
       background-color: rgba($headerbar_fg_color, 0.06);
@@ -972,6 +988,23 @@ dialog.background.csd {
     > label:not(.title):not(.subtitle) {
       font-weight: 700;
     }
+  }
+}
+
+window.background.csd {
+  > headerbar.titlebar { // gnome 3.32
+    > box.horizontal > separator.sidebar,
+    > hdyleaflet > separator.sidebar {
+      border-right-style: none;
+      background: none;
+      min-width: 0;
+    }
+  }
+
+  > box.horizontal > separator.sidebar,
+  > hdyleaflet > separator.sidebar {
+    background: none;
+    min-width: 0;
   }
 }
 

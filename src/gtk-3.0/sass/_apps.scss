@@ -1522,10 +1522,16 @@ window.background:not(.csd) {
 //
 // Chrome(ium)
 //
+$chrome_borders_color: darken(white, 10%);
+$chrome_bg_color: #f5f5f5;
+$chrome_fg_color: #555555;
+$chrome_menu_bg_color: #ffffff;
+$chrome_menu_fg_color: #555555;
+
 window.background.chromium {
   // checked-tab & toolbar & button widgets
-//  background-color: $bg_color;
-//  color: $text_color;
+  background-color: $chrome_bg_color;
+  color: $chrome_fg_color;
 
   headerbar.titlebar {
     button.toggle { // account-button (> 64.0.3282?)
@@ -1548,14 +1554,15 @@ window.background.chromium {
   button { // for active-tab borders
     border-width: 1px;
     border-style: solid;
-    border-color: $borders_color;
+    border-color: $chrome_borders_color;
   }
 
   entry.chromium {
     & { // overrides standard borders
       border-image: none;
-      border: 1px solid $borders_color;
+      border: 1px solid $chrome_borders_color;
     }
+
     &:focus { // overrides standard borders
       border-image: none;
       border: 1px solid $primary_color;
@@ -1568,11 +1575,11 @@ window.background.chromium {
   }
 
   > menu {
-    border: 1px solid darken($headerbar_bg_color, 5%);
-    background-color: $menu_bg_color;
+    border: 1px solid $chrome_borders_color;
+    background-color: $chrome_menu_bg_color;
 
     > menuitem {
-      color: $menu_fg_color; // Atom/VS-code menubar use this as menubar menuitem color
+      color: $chrome_menu_fg_color; // Atom/VS-code menubar use this as menubar menuitem color
 
       &:hover {
         color: $inversed_fg_color;
@@ -1580,15 +1587,15 @@ window.background.chromium {
       }
 
       &:disabled {
-        color: $disabled_menu_fg_color;
+        color: rgba($chrome_menu_fg_color, 0.45);
       }
 
-      label { &:disabled { color: $disabled_menu_fg_color; }}
+      label { &:disabled { color: rgba($chrome_menu_fg_color, 0.45); }}
     }
   }
 
   // internal region of toolbar's entry widget
-  > textview.view { background-color: $base_color; }
+  > textview.view { background-color: $chrome_menu_bg_color; }
 
   > textview {
     text {

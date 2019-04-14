@@ -70,6 +70,11 @@ install() {
   mkdir -p                                                                              ${THEME_DIR}/gtk-2.0
   cp -ur ${SRC_DIR}/gtk-2.0/common/*.rc                                                 ${THEME_DIR}/gtk-2.0
   cp -ur ${SRC_DIR}/gtk-2.0/assets/vimix${theme}/assets${ELSE_DARK}                     ${THEME_DIR}/gtk-2.0/assets
+
+  [[ ${color} == '' ]] && [[ ${theme} == '' ]] && \
+  cp -r ${SRC_DIR}/gtk-2.0/assets/vimix/assets-dark/pathbar_button_active.png           ${THEME_DIR}/gtk-2.0/assets && \
+  cp -r ${SRC_DIR}/gtk-2.0/assets/vimix/assets-dark/pathbar_button_prelight.png         ${THEME_DIR}/gtk-2.0/assets
+
   cp -ur ${SRC_DIR}/gtk-2.0/gtkrc${color}${theme}                                       ${THEME_DIR}/gtk-2.0/gtkrc
 
   #  Install gtk3 theme

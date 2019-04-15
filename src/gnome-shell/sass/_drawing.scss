@@ -87,7 +87,7 @@
 }
 
 
-@mixin entry($t, $fc: $primary_color) {
+@mixin entry($t, $fc: $theme_primary_color) {
 //
 // entry
 //
@@ -96,9 +96,9 @@
 //
 
   @if $t == normal {
-    background-color: if($fc == $primary_color, rgba($base_color, 0.01), rgba($bg_color, 0.01));
+    background-color: if($fc == $theme_primary_color, rgba($base_color, 0.01), rgba($bg_color, 0.01));
     border-color: transparent;
-    box-shadow: inset 0 -1px if($fc == $primary_color, $track_color, $fc);
+    box-shadow: inset 0 -1px if($fc == $theme_primary_color, $track_color, $fc);
   }
 
   @if $t == focus {
@@ -112,7 +112,7 @@
   @if $t == insensitive {
     color: $disabled_fg_color;
     border-color: transparent;
-    box-shadow: inset 0 -1px if($fc == $primary_color, $divider_color, $fc);
+    box-shadow: inset 0 -1px if($fc == $theme_primary_color, $divider_color, $fc);
   }
 }
 

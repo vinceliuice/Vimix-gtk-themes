@@ -43,7 +43,11 @@ $alt_base_color: if($variant =='dark', darken($base_color, 3%), darken($base_col
 $bg_color:         rgba($black, $middle_opacity);
 $alt_bg_color:     rgba($black, $lower_opacity);
 $inverse_bg_color: rgba($inverse_fg_color, 0.1);
-$panel_bg_color:   if($panel =='dark', scale-alpha($black, 0.5), scale-alpha($black, 0.4));
+
+$panel_bg_color: rgba(black, 0.45);
+@if ($color == 'ruby' or $color == 'black') and $panel =='dark' { $panel_bg_color: #282828; }
+@if ($color == 'doder' or $color == 'beryl') and $panel =='dark' { $panel_bg_color: #27282d; }
+
 $keyboard_bg_color:  if($variant == 'light', $grey_50, fade($grey_600));
 $alt_keyboard_bg_color:  if($variant == 'light', $grey_300, fade($grey_900));
 
@@ -53,12 +57,18 @@ $primary_color: #555555;
 $alt_primary_color: #666666;
 $accent_color: #444444;
 
-@if $color =='ruby' { $primary_color: #F0544C; $alt_primary_color: #FF615A; $accent_color: #FF626C; }
-@if $color =='doder' { $primary_color: #4586D8; $alt_primary_color: #03a9f4; $accent_color: #0CAAF0; }
-@if $color =='beryl' { $primary_color: #2EB398; $alt_primary_color: #1eba9b; $accent_color: #0fd1ab; }
-@if $color =='black' { $primary_color: #555555; $alt_primary_color: #666666; $accent_color: #EEEEEE; }
+@if $color == 'ruby' { $primary_color: #F0544C; $alt_primary_color: #FF615A; $accent_color: #FF626C; }
+@if $color == 'doder' { $primary_color: #4586D8; $alt_primary_color: #03a9f4; $accent_color: #0CAAF0; }
+@if $color == 'beryl' { $primary_color: #2EB398; $alt_primary_color: #1eba9b; $accent_color: #0fd1ab; }
+@if $color == 'black' { $primary_color: #555555; $alt_primary_color: #666666; $accent_color: #EEEEEE; }
 
-$theme_color: if($color == 'black', $inverse_fg_color, $primary_color);
+$theme_color: if($color == 'black' or $color == 'white', $inverse_fg_color, $primary_color);
+
+$theme_primary_color: $theme_color;
+
+@if ($color == 'black' or $color == 'white') and $variant == 'light' {
+  $theme_primary_color: $primary_color;
+}
 
 $link_color:         $primary_color;
 $visited_link_color: $purple_A200;

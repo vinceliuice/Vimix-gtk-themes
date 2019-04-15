@@ -1772,13 +1772,12 @@ menu,
   padding: 2px 0px;
   box-shadow: none;
   background-color: $menu_bg_color;
-  border: none;
+  border: 1px solid $borders_color;
   border-radius: 0;
 
-  // .csd & {
-  //   border: none; // axes borders in a composited env
-  //   border-radius: 0;
-  // }
+  .csd & {
+    border: none; // axes borders in a composited env
+  }
 
   menuitem {
     transition: background-color $shorter_duration $deceleration_curve;

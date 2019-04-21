@@ -1733,6 +1733,9 @@ StScrollBar {
   padding: 15px 20px;
 
   .page-indicator-icon {
+    padding: 0;
+    margin: 0;
+    border: none;
     width: 12px;
     height: 12px;
     border-radius: 12px;
@@ -1741,22 +1744,36 @@ StScrollBar {
   }
 
   &:hover .page-indicator-icon {
+    padding: 0;
+    margin: 0;
+    border: none;
     background-image: none;
     background-color: $inverse_disabled_fg_color;
   }
 
   &:active .page-indicator-icon {
+    padding: 0;
+    margin: 0;
+    border: none;
     background-image: none;
     background-color: $inverse_secondary_fg_color;
   }
 
   &:checked .page-indicator-icon {
+    padding: 0;
+    margin: 0;
+    border: none;
     background-image: none;
     background-color: $inverse_fg_color;
     transition-duration: 0ms;
   }
 
-  &:checked:active { background-image: none; }
+  &:checked:active {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-image: none;
+  }
 }
 
 .no-frequent-applications-label { @extend %status_text; }

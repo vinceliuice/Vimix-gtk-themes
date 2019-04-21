@@ -2104,6 +2104,9 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .page-indicator .page-indicator-icon {
+  padding: 0;
+  margin: 0;
+  border: none;
   width: 12px;
   height: 12px;
   border-radius: 12px;
@@ -2112,22 +2115,34 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .page-indicator:hover .page-indicator-icon {
+  padding: 0;
+  margin: 0;
+  border: none;
   background-image: none;
   background-color: rgba(255, 255, 255, 0.5);
 }
 
 .page-indicator:active .page-indicator-icon {
+  padding: 0;
+  margin: 0;
+  border: none;
   background-image: none;
   background-color: rgba(255, 255, 255, 0.7);
 }
 
 .page-indicator:checked .page-indicator-icon {
+  padding: 0;
+  margin: 0;
+  border: none;
   background-image: none;
   background-color: #FFFFFF;
   transition-duration: 0ms;
 }
 
 .page-indicator:checked:active {
+  padding: 0;
+  margin: 0;
+  border: none;
   background-image: none;
 }
 

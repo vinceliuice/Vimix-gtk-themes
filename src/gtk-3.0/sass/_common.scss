@@ -2319,44 +2319,49 @@ scrollbar {
 switch {
   transition: all $shorter_duration $deceleration_curve;
   margin: $container_padding 0;
+  padding: 0 2px;
   border: 5px solid transparent;
   border-radius: $circular_radius;
   background-color: rgba($fg_color, 0.25);
   background-clip: padding-box;
-  color: transparent;
+  // color: transparent;
   font-size: 0;
 
   &:disabled { opacity: 0.5; }
 
-  &:checked {
-    background-color: rgba($accent_color, 0.5);
+  &:checked { background-color: rgba($accent_color, 0.5); }
+
+  // hide on/off icons for >=3.24.5
+  image {
+    margin: -8px;
+    -gtk-icon-transform: scale(0);
   }
 
   slider {
     transition: all $shorter_duration $deceleration_curve;
     min-width: 20px;
     min-height: 20px;
-    margin: -3px;
+    margin: -3px -2px;
     border-radius: $circular_radius;
     box-shadow: 0 0 0 10px transparent, $z-depth-1;
     background-color: $lighter_bg_color;
     color: $lighter_bg_color;
   }
 
-  &:hover slider { color: $fg_color; box-shadow: 0 0 0 10px gtkalpha(currentColor, 0.1), $z-depth-1; }
+  &:hover slider { color: $fg_color; box-shadow: 0 0 0 10px rgba($fg_color, 0.1), $z-depth-1; }
   &:focus slider { color: $accent_color; box-shadow: $z-depth-1; }
-  &:focus:hover slider { color: $accent_color; box-shadow: 0 0 0 10px gtkalpha(currentColor, 0.1), $z-depth-1; }
+  &:focus:hover slider { color: $accent_color; box-shadow: 0 0 0 10px rgba($fg_color, 0.1), $z-depth-1; }
   &:checked slider {
     background-color: $accent_color;
     color: $accent_color;
   }
 
   row:selected & {
-      background-color: gtkalpha($light_contrast_color, 0.2);
+    background-color: rgba($light_contrast_color, 0.2);
 
-      &:checked {
-        background-color: gtkalpha($inversed_fg_color, $middle_opacity);
-      }
+    &:checked {
+      background-color: rgba($inversed_fg_color, $middle_opacity);
+    }
 
     slider {
       background-color: lighten($accent_color, 25%);

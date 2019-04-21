@@ -244,10 +244,12 @@ StScrollBar {
   color: $fg_color;
   background-color: $base_color;
   border: none;
-  box-shadow: $shadow_4;
+  box-shadow: $shadow_2;
+
   .modal-dialog-content-box {
     padding: 24px;
   }
+
   .run-dialog-entry { width: 20em; margin-bottom: 6px; }
   .run-dialog-error-box {
     padding-top: 16px;
@@ -625,8 +627,7 @@ StScrollBar {
   height: 16px;
 }
 
-.popup-menu-boxpointer,
-.candidate-popup-boxpointer {
+.popup-menu-boxpointer {
   -arrow-border-radius: 0;
   -arrow-background-color: transparent;
   -arrow-border-width: 0;
@@ -641,6 +642,26 @@ StScrollBar {
   .popup-menu-content {
     margin: 5px 8px 8px;
     background-color: $base_color;
+    border-radius: 2px;
+    box-shadow: $shadow_2;
+  }
+}
+
+.candidate-popup-boxpointer {
+  -arrow-border-radius: 0;
+  -arrow-background-color: transparent;
+  -arrow-border-width: 0;
+  -arrow-border-color: transparent;
+  -arrow-base: 5;
+  -arrow-rise: 5;
+  -arrow-box-shadow: none;
+  margin: 0;
+  background-color: transparent;
+  box-shadow: none;
+
+  .candidate-popup-content {
+    margin: 8px 8px;
+    background-color: if($variant =='dark', darken($base_color, 2%), darken($base_color, 3%));
     border-radius: 2px;
     box-shadow: $shadow_2;
   }
@@ -1677,7 +1698,7 @@ StScrollBar {
 }
 
 .app-well-app.app-folder > .overview-icon {
-  background-color: $theme_color;
+  background-color: $inverse_bg_color;
 }
 
 .show-apps .show-apps-icon {
@@ -2006,14 +2027,17 @@ StScrollBar {
 .candidate-index {
   padding: 0 4px 0 0;
   color: $hint_fg_color;
+
   .candidate-box:selected & { color: $inverse_hint_fg_color; }
 }
 
 .candidate-box {
+  margin-top: 4px;
   transition-duration: 0ms; // FIXME: needs more natural transitions
   min-height: $menuitem_size;
   padding: 0 8px;
   border-radius: 2px;
+
   &:hover { background-color: $divider_color; color: $fg_color; }
   &:active { background-color: $track_color; color: $fg_color; }
   &:selected { background-color: $primary_color; color: $inverse_fg_color; }
@@ -2021,8 +2045,8 @@ StScrollBar {
 
 .candidate-page-button-box {
   height: $menuitem_size;
-  .vertical & { padding-top: 0; }
-  .horizontal & { padding-left: 0; }
+  .vertical & { padding-top: 0; margin-top: 3px; }
+  .horizontal & { padding-left: 0; margin-left: 3px; }
 }
 
 .candidate-page-button {

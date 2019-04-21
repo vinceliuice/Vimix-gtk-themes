@@ -356,7 +356,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   color: #FFFFFF;
   background-color: #2c2e33;
   border: none;
-  box-shadow: 0 14px 14px rgba(0, 0, 0, 0.5), 0 10px 5px rgba(0, 0, 0, 0.44);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.24), 0 3px 3px rgba(0, 0, 0, 0.345);
 }
 
 .modal-dialog .modal-dialog-content-box {
@@ -803,8 +803,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   height: 16px;
 }
 
-.popup-menu-boxpointer,
-.candidate-popup-boxpointer {
+.popup-menu-boxpointer {
   -arrow-border-radius: 0;
   -arrow-background-color: transparent;
   -arrow-border-width: 0;
@@ -817,10 +816,29 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   box-shadow: none;
 }
 
-.popup-menu-boxpointer .popup-menu-content,
-.candidate-popup-boxpointer .popup-menu-content {
+.popup-menu-boxpointer .popup-menu-content {
   margin: 5px 8px 8px;
   background-color: #2c2e33;
+  border-radius: 2px;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.24), 0 3px 3px rgba(0, 0, 0, 0.345);
+}
+
+.candidate-popup-boxpointer {
+  -arrow-border-radius: 0;
+  -arrow-background-color: transparent;
+  -arrow-border-width: 0;
+  -arrow-border-color: transparent;
+  -arrow-base: 5;
+  -arrow-rise: 5;
+  -arrow-box-shadow: none;
+  margin: 0;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.candidate-popup-boxpointer .candidate-popup-content {
+  margin: 8px 8px;
+  background-color: #27292e;
   border-radius: 2px;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.24), 0 3px 3px rgba(0, 0, 0, 0.345);
 }
@@ -2049,7 +2067,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .app-well-app.app-folder > .overview-icon {
-  background-color: #4586D8;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .show-apps .show-apps-icon {
@@ -2479,6 +2497,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .candidate-box {
+  margin-top: 4px;
   transition-duration: 0ms;
   min-height: 28px;
   padding: 0 8px;
@@ -2506,10 +2525,12 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .vertical .candidate-page-button-box {
   padding-top: 0;
+  margin-top: 3px;
 }
 
 .horizontal .candidate-page-button-box {
   padding-left: 0;
+  margin-left: 3px;
 }
 
 .candidate-page-button {

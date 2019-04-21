@@ -2607,8 +2607,8 @@ treeview.view radio {
     color: $secondary_fg_color;
     &:hover, &:active { color: $fg_color; }
     &:disabled { color: $disabled_secondary_fg_color; }
-    &:checked, &:indeterminate { color: $accent_color; }
-    &:checked:disabled, &:indeterminate:disabled { color: scale-alpha($accent_color, $disabled_opacity); }
+    &:checked, &:indeterminate { color: $inverse_theme_color; }
+    &:checked:disabled, &:indeterminate:disabled { color: scale-alpha($inverse_theme_color, $disabled_opacity); }
   }
 
 }

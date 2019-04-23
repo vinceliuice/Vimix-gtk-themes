@@ -1555,15 +1555,22 @@ window.background.chromium {
     border-width: 1px;
     border-style: solid;
     border-color: $chrome_borders_color;
+    color: $chrome_fg_color;
+    background-color: lighten($chrome_bg_color, 5%);
   }
 
   entry.chromium {
+    color: $chrome_fg_color;
+    background-color: darken($chrome_bg_color, 5%);
+
     & { // overrides standard borders
+      color: $chrome_fg_color;
       border-image: none;
       border: 1px solid $chrome_borders_color;
     }
 
     &:focus { // overrides standard borders
+      color: $chrome_fg_color;
       border-image: none;
       border: 1px solid $primary_color;
     }
@@ -1571,12 +1578,14 @@ window.background.chromium {
 
   // Fixed Atom/VS-code chromium based app menubar issues
   > menubar {
-    background-color: $headerbar_bg_color;
+    background-color: $chrome_menu_bg_color;
+    color: $chrome_menu_fg_color; // Not use
   }
 
   > menu {
     border: 1px solid $chrome_borders_color;
     background-color: $chrome_menu_bg_color;
+    color: $chrome_menu_fg_color;
 
     > menuitem {
       color: $chrome_menu_fg_color; // Atom/VS-code menubar use this as menubar menuitem color
@@ -1595,10 +1604,19 @@ window.background.chromium {
   }
 
   // internal region of toolbar's entry widget
-  > textview.view { background-color: $chrome_menu_bg_color; }
+  > textview.view {
+    color: $chrome_fg_color;
+    background-color: $chrome_menu_bg_color;
+  }
 
   > textview {
+    color: $chrome_fg_color;
+    background-color: $chrome_bg_color;
+
     text {
+      color: $chrome_fg_color;
+      background-color: $chrome_bg_color;
+
       selection { @extend %html_selection_items; }
     }
   }

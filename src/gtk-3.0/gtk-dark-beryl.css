@@ -6782,25 +6782,36 @@ window.background.chromium button {
   border-width: 1px;
   border-style: solid;
   border-color: #e6e6e6;
+  color: #555555;
+  background-color: white;
 }
 
 window.background.chromium entry.chromium {
+  color: #555555;
+  background-color: #e8e8e8;
+}
+
+window.background.chromium entry.chromium {
+  color: #555555;
   border-image: none;
   border: 1px solid #e6e6e6;
 }
 
 window.background.chromium entry.chromium:focus {
+  color: #555555;
   border-image: none;
   border: 1px solid #2EB398;
 }
 
 window.background.chromium > menubar {
-  background-color: #36383e;
+  background-color: #ffffff;
+  color: #555555;
 }
 
 window.background.chromium > menu {
   border: 1px solid #e6e6e6;
   background-color: #ffffff;
+  color: #555555;
 }
 
 window.background.chromium > menu > menuitem {
@@ -6821,7 +6832,18 @@ window.background.chromium > menu > menuitem label:disabled {
 }
 
 window.background.chromium > textview.view {
+  color: #555555;
   background-color: #ffffff;
+}
+
+window.background.chromium > textview {
+  color: #555555;
+  background-color: #f5f5f5;
+}
+
+window.background.chromium > textview text {
+  color: #555555;
+  background-color: #f5f5f5;
 }
 
 window.background > box.vertical > widget > widget:selected {

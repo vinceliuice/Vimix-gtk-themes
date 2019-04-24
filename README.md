@@ -13,13 +13,8 @@ Vimix icon theme is based on Paper-Icon-Theme: https://github.com/snwh/paper-ico
 
 ## Wallpapers
 
-![01](https://github.com/vinceliuice/vimix-gtk-themes/blob/images/wallpaper.jpg?raw=true)
+![01](https://github.com/vinceliuice/vimix-gtk-themes/blob/images/wallpapers/wallpaper_1920x1080_01.jpeg?raw=true)
 
-![02](https://github.com/vinceliuice/vimix-gtk-themes/blob/images/wallpaper1.jpg?raw=true)
+![02](https://github.com/vinceliuice/vimix-gtk-themes/blob/images/wallpapers/wallpaper_1920x1080_02.jpeg?raw=true)
 
-![03](https://github.com/vinceliuice/vimix-gtk-themes/blob/images/wallpaper2.jpg?raw=true)
-
-![04](https://github.com/vinceliuice/vimix-gtk-themes/blob/images/wallpaper3.jpg?raw=true)
-
-
-
+![03](https://github.com/vinceliuice/vimix-gtk-themes/blob/images/wallpapers/wallpaper_1920x1080_03.jpeg?raw=true)

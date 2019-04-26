@@ -3103,209 +3103,434 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 /* Dash to Dock */
-#dashtodockContainer #dash {
-  background-color: rgba(0, 0, 0, 0.6);
+#dashtodockContainer {
+  background: transparent;
+  border: none;
 }
 
-#dashtodockContainer:overview #dash {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
+#dashtodockContainer #dash,
+#dashtodockContainer:overview #dash,
+#dashtodockContainer.extended #dash,
 #dashtodockContainer.extended:overview #dash {
-  background-color: transparent;
-}
-
-#dashtodockContainer.left #dash,
-#dashtodockContainer.right #dash {
-  padding: 3px 0;
+  padding: 0;
+  border: none;
+  transition-duration: 225ms;
 }
 
 #dashtodockContainer.top #dash,
-#dashtodockContainer.bottom #dash {
-  padding: 0 3px;
+#dashtodockContainer.top:overview #dash {
+  border-radius: 0 0 3px 3px;
 }
 
-#dashtodockContainer.extended #dash {
-  padding: 0;
+#dashtodockContainer.top.extended #dash,
+#dashtodockContainer.top.extended:overview #dash {
+  border-radius: 3px;
+}
+
+#dashtodockContainer.bottom #dash,
+#dashtodockContainer.bottom:overview #dash {
+  border-radius: 3px 3px 0 0;
+}
+
+#dashtodockContainer.bottom.extended #dash,
+#dashtodockContainer.bottom.extended:overview #dash {
+  border-radius: 3px;
+}
+
+#dashtodockContainer.left #dash,
+#dashtodockContainer.left:overview #dash {
+  border-radius: 0 3px 3px 0;
+}
+
+#dashtodockContainer.left.extended #dash,
+#dashtodockContainer.left.extended:overview #dash {
+  border-radius: 3px;
+}
+
+#dashtodockContainer.right #dash,
+#dashtodockContainer.right:overview #dash {
+  border-radius: 3px 0 0 3px;
+}
+
+#dashtodockContainer.right.extended #dash,
+#dashtodockContainer.right.extended:overview #dash {
+  border-radius: 3px;
+}
+
+#dashtodockContainer #dash {
+  background-color: rgba(0, 0, 0, 0.45);
+  box-shadow: 0 0 transparent;
+}
+
+#dashtodockContainer.opaque #dash {
+  background-color: #333333;
+  box-shadow: inset 0 0 0 9999px #333333;
+}
+
+#dashtodockContainer.transparent #dash {
+  background-color: rgba(0, 0, 0, 0.01);
+  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.35);
+}
+
+#dashtodockContainer:overview #dash {
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 transparent;
+}
+
+#dashtodockContainer.opaque:overview #dash, #dashtodockContainer.transparent:overview #dash {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+#dashtodockContainer.extended:overview #dash, #dashtodockContainer.opaque.extended:overview #dash, #dashtodockContainer.transparent.extended:overview #dash {
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 transparent;
+}
+
+#dashtodockContainer .dash-item-container {
+  background: transparent;
+}
+
+#dashtodockContainer .dash-item-container > StWidget {
+  background-size: contain;
+}
+
+#dashtodockContainer .dash-item-container .app-well-app-running-dot {
+  width: 0;
+  height: 0;
+  background-color: rgba(46, 179, 152, 0.75);
+  background-image: none;
+  margin-bottom: 0;
   border-radius: 0;
 }
 
-#dashtodockContainer.left .dash-item-container > StWidget,
-#dashtodockContainer.right .dash-item-container > StWidget,
-#dashtodockContainer.extended.left .dash-item-container > StWidget,
-#dashtodockContainer.extended.right .dash-item-container > StWidget {
-  padding: 3px 6px;
-}
-
-#dashtodockContainer.extended.left .dash-item-container:first-child > StWidget,
-#dashtodockContainer.extended.right .dash-item-container:first-child > StWidget {
-  padding: 6px 6px 3px 6px;
-}
-
-#dashtodockContainer.extended.left .dash-item-container:last-child > StWidget,
-#dashtodockContainer.extended.right .dash-item-container:last-child > StWidget {
-  padding: 3px 6px 6px 6px;
-}
-
-#dashtodockContainer.top .dash-item-container > StWidget,
-#dashtodockContainer.bottom .dash-item-container > StWidget,
-#dashtodockContainer.extended.top .dash-item-container > StWidget,
-#dashtodockContainer.extended.bottom .dash-item-container > StWidget {
-  padding: 6px 3px;
-}
-
-#dashtodockContainer.extended.top .dash-item-container:first-child > StWidget,
-#dashtodockContainer.extended.bottom .dash-item-container:first-child > StWidget {
-  padding: 6px 3px 6px 6px;
-}
-
-#dashtodockContainer.extended.top .dash-item-container:last-child > StWidget,
-#dashtodockContainer.extended.bottom .dash-item-container:last-child > StWidget {
-  padding: 6px 6px 6px 3px;
-}
-
-#dashtodockContainer .focused .overview-icon {
-  background-color: rgba(0, 0, 0, 0.24);
-}
-
-#dashtodockContainer .default.focused .overview-icon {
-  background-color: transparent;
-}
-
-#dashtodockContainer .app-well-app-running-dot {
-  background-color: transparent;
+#dashtodockContainer .dash-item-container > StWidget.focused .app-well-app-running-dot {
+  width: 0;
+  height: 0;
+  background-color: #2EB398;
+  background-image: none;
 }
 
 #dashtodockContainer .default {
   background-size: cover;
 }
 
-#dashtodockContainer.left .dash-item-container > StWidget.running1 {
+#dashtodockContainer .number-overlay,
+#dashtodockContainer .notification-badge {
+  min-width: 1.6em;
+  min-height: 1.6em;
+  margin: 0;
+  padding: 0;
+  border-radius: 3px;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.24), 0 3px 3px rgba(0, 0, 0, 0.345);
+}
+
+#dashtodockContainer .number-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #FFFFFF;
+}
+
+#dashtodockContainer .notification-badge {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #FFFFFF;
+}
+
+#dashtodockContainer.top .dash-item-container > .app-well-app.focused .overview-icon,
+#dashtodockContainer.extended.top .dash-item-container > .app-well-app.focused .overview-icon {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+#dashtodockContainer.top .dash-item-container > .app-well-app.focused:hover .overview-icon,
+#dashtodockContainer.extended.top .dash-item-container > .app-well-app.focused:hover .overview-icon {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+#dashtodockContainer.bottom .dash-item-container > .app-well-app.focused .overview-icon,
+#dashtodockContainer.extended.bottom .dash-item-container > .app-well-app.focused .overview-icon {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+#dashtodockContainer.bottom .dash-item-container > .app-well-app.focused:hover .overview-icon,
+#dashtodockContainer.extended.bottom .dash-item-container > .app-well-app.focused:hover .overview-icon {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+#dashtodockContainer.left .dash-item-container > .app-well-app.focused .overview-icon,
+#dashtodockContainer.extended.left .dash-item-container > .app-well-app.focused .overview-icon {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+#dashtodockContainer.left .dash-item-container > .app-well-app.focused:hover .overview-icon,
+#dashtodockContainer.extended.left .dash-item-container > .app-well-app.focused:hover .overview-icon {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+#dashtodockContainer.right .dash-item-container > .app-well-app.focused .overview-icon,
+#dashtodockContainer.extended.right .dash-item-container > .app-well-app.focused .overview-icon {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+#dashtodockContainer.right .dash-item-container > .app-well-app.focused:hover .overview-icon,
+#dashtodockContainer.extended.right .dash-item-container > .app-well-app.focused:hover .overview-icon {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+#dashtodockContainer.left .default.running1 {
   background-image: url("assets/dash/left-running1.svg");
 }
 
-#dashtodockContainer.left .dash-item-container > StWidget.running1.focused {
+#dashtodockContainer.left .running1 {
+  background-image: none;
+}
+
+#dashtodockContainer.left .default.running1.focused {
   background-image: url("assets/dash/left-running1-focused.svg");
 }
 
-#dashtodockContainer.left .dash-item-container > StWidget.running2 {
+#dashtodockContainer.left .running1.focused {
+  background-image: none;
+}
+
+#dashtodockContainer.left .default.running2 {
   background-image: url("assets/dash/left-running2.svg");
 }
 
-#dashtodockContainer.left .dash-item-container > StWidget.running2.focused {
+#dashtodockContainer.left .running2 {
+  background-image: none;
+}
+
+#dashtodockContainer.left .default.running2.focused {
   background-image: url("assets/dash/left-running2-focused.svg");
 }
 
-#dashtodockContainer.left .dash-item-container > StWidget.running3 {
+#dashtodockContainer.left .running2.focused {
+  background-image: none;
+}
+
+#dashtodockContainer.left .default.running3 {
   background-image: url("assets/dash/left-running3.svg");
 }
 
-#dashtodockContainer.left .dash-item-container > StWidget.running3.focused {
+#dashtodockContainer.left .running3 {
+  background-image: none;
+}
+
+#dashtodockContainer.left .default.running3.focused {
   background-image: url("assets/dash/left-running3-focused.svg");
 }
 
-#dashtodockContainer.left .dash-item-container > StWidget.running4 {
+#dashtodockContainer.left .running3.focused {
+  background-image: none;
+}
+
+#dashtodockContainer.left .default.running4 {
   background-image: url("assets/dash/left-running4.svg");
 }
 
-#dashtodockContainer.left .dash-item-container > StWidget.running4.focused {
+#dashtodockContainer.left .running4 {
+  background-image: none;
+}
+
+#dashtodockContainer.left .default.running4.focused {
   background-image: url("assets/dash/left-running4-focused.svg");
 }
 
-#dashtodockContainer.right .dash-item-container > StWidget.running1 {
+#dashtodockContainer.left .running4.focused {
+  background-image: none;
+}
+
+#dashtodockContainer.right .default.running1 {
   background-image: url("assets/dash/right-running1.svg");
 }
 
-#dashtodockContainer.right .dash-item-container > StWidget.running1.focused {
+#dashtodockContainer.right .running1 {
+  background-image: none;
+}
+
+#dashtodockContainer.right .default.running1.focused {
   background-image: url("assets/dash/right-running1-focused.svg");
 }
 
-#dashtodockContainer.right .dash-item-container > StWidget.running2 {
+#dashtodockContainer.right .running1.focused {
+  background-image: none;
+}
+
+#dashtodockContainer.right .default.running2 {
   background-image: url("assets/dash/right-running2.svg");
 }
 
-#dashtodockContainer.right .dash-item-container > StWidget.running2.focused {
+#dashtodockContainer.right .running2 {
+  background-image: none;
+}
+
+#dashtodockContainer.right .default.running2.focused {
   background-image: url("assets/dash/right-running2-focused.svg");
 }
 
-#dashtodockContainer.right .dash-item-container > StWidget.running3 {
+#dashtodockContainer.right .running2.focused {
+  background-image: none;
+}
+
+#dashtodockContainer.right .default.running3 {
   background-image: url("assets/dash/right-running3.svg");
 }
 
-#dashtodockContainer.right .dash-item-container > StWidget.running3.focused {
+#dashtodockContainer.right .running3 {
+  background-image: none;
+}
+
+#dashtodockContainer.right .default.running3.focused {
   background-image: url("assets/dash/right-running3-focused.svg");
 }
 
-#dashtodockContainer.right .dash-item-container > StWidget.running4 {
+#dashtodockContainer.right .running3.focused {
+  background-image: none;
+}
+
+#dashtodockContainer.right .default.running4 {
   background-image: url("assets/dash/right-running4.svg");
 }
 
-#dashtodockContainer.right .dash-item-container > StWidget.running4.focused {
+#dashtodockContainer.right .running4 {
+  background-image: none;
+}
+
+#dashtodockContainer.right .default.running4.focused {
   background-image: url("assets/dash/right-running4-focused.svg");
 }
 
-#dashtodockContainer.top .dash-item-container > StWidget.running1 {
+#dashtodockContainer.right .running4.focused {
+  background-image: none;
+}
+
+#dashtodockContainer.top .default.running1 {
   background-image: url("assets/dash/top-running1.svg");
 }
 
-#dashtodockContainer.top .dash-item-container > StWidget.running1.focused {
+#dashtodockContainer.top .running1 {
+  background-image: none;
+}
+
+#dashtodockContainer.top .default.running1.focused {
   background-image: url("assets/dash/top-running1-focused.svg");
 }
 
-#dashtodockContainer.top .dash-item-container > StWidget.running2 {
+#dashtodockContainer.top .running1.focused {
+  background-image: none;
+}
+
+#dashtodockContainer.top .default.running2 {
   background-image: url("assets/dash/top-running2.svg");
 }
 
-#dashtodockContainer.top .dash-item-container > StWidget.running2.focused {
+#dashtodockContainer.top .running2 {
+  background-image: none;
+}
+
+#dashtodockContainer.top .default.running2.focused {
   background-image: url("assets/dash/top-running2-focused.svg");
 }
 
-#dashtodockContainer.top .dash-item-container > StWidget.running3 {
+#dashtodockContainer.top .running2.focused {
+  background-image: none;
+}
+
+#dashtodockContainer.top .default.running3 {
   background-image: url("assets/dash/top-running3.svg");
 }
 
-#dashtodockContainer.top .dash-item-container > StWidget.running3.focused {
+#dashtodockContainer.top .running3 {
+  background-image: none;
+}
+
+#dashtodockContainer.top .default.running3.focused {
   background-image: url("assets/dash/top-running3-focused.svg");
 }
 
-#dashtodockContainer.top .dash-item-container > StWidget.running4 {
+#dashtodockContainer.top .running3.focused {
+  background-image: none;
+}
+
+#dashtodockContainer.top .default.running4 {
   background-image: url("assets/dash/top-running4.svg");
 }
 
-#dashtodockContainer.top .dash-item-container > StWidget.running4.focused {
+#dashtodockContainer.top .running4 {
+  background-image: none;
+}
+
+#dashtodockContainer.top .default.running4.focused {
   background-image: url("assets/dash/top-running4-focused.svg");
 }
 
-#dashtodockContainer.bottom .dash-item-container > StWidget.running1 {
+#dashtodockContainer.top .running4.focused {
+  background-image: none;
+}
+
+#dashtodockContainer.bottom .default.running1 {
   background-image: url("assets/dash/bottom-running1.svg");
 }
 
-#dashtodockContainer.bottom .dash-item-container > StWidget.running1.focused {
+#dashtodockContainer.bottom .running1 {
+  background-image: none;
+}
+
+#dashtodockContainer.bottom .default.running1.focused {
   background-image: url("assets/dash/bottom-running1-focused.svg");
 }
 
-#dashtodockContainer.bottom .dash-item-container > StWidget.running2 {
+#dashtodockContainer.bottom .running1.focused {
+  background-image: none;
+}
+
+#dashtodockContainer.bottom .default.running2 {
   background-image: url("assets/dash/bottom-running2.svg");
 }
 
-#dashtodockContainer.bottom .dash-item-container > StWidget.running2.focused {
+#dashtodockContainer.bottom .running2 {
+  background-image: none;
+}
+
+#dashtodockContainer.bottom .default.running2.focused {
   background-image: url("assets/dash/bottom-running2-focused.svg");
 }
 
-#dashtodockContainer.bottom .dash-item-container > StWidget.running3 {
+#dashtodockContainer.bottom .running2.focused {
+  background-image: none;
+}
+
+#dashtodockContainer.bottom .default.running3 {
   background-image: url("assets/dash/bottom-running3.svg");
 }
 
-#dashtodockContainer.bottom .dash-item-container > StWidget.running3.focused {
+#dashtodockContainer.bottom .running3 {
+  background-image: none;
+}
+
+#dashtodockContainer.bottom .default.running3.focused {
   background-image: url("assets/dash/bottom-running3-focused.svg");
 }
 
-#dashtodockContainer.bottom .dash-item-container > StWidget.running4 {
+#dashtodockContainer.bottom .running3.focused {
+  background-image: none;
+}
+
+#dashtodockContainer.bottom .default.running4 {
   background-image: url("assets/dash/bottom-running4.svg");
 }
 
-#dashtodockContainer.bottom .dash-item-container > StWidget.running4.focused {
+#dashtodockContainer.bottom .running4 {
+  background-image: none;
+}
+
+#dashtodockContainer.bottom .default.running4.focused {
   background-image: url("assets/dash/bottom-running4-focused.svg");
+}
+
+#dashtodockContainer.bottom .running4.focused {
+  background-image: none;
 }
 
 /* Simple Dock */

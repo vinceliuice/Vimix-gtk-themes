@@ -1,82 +1,154 @@
 /* Dash to Dock */
+$dash_bg_color: rgba(black, 0.45);
+$solid_dash_bg_color: #333333;
 
-#dashtodockContainer #dash {
-  background-color: $bg_color;
+#dashtodockContainer {
+  background: transparent;
+  border: none;
+
+  #dash,
+  &:overview #dash,
+  &.extended #dash,
+  &.extended:overview #dash {
+    padding: 0;
+    border: none;
+    transition-duration: $longer_duration;
+  }
+
+  @each $_dock, $_radius in (top, 0 0 3px 3px),
+                            (bottom, 3px 3px 0 0),
+                            (left, 0 3px 3px 0),
+                            (right, 3px 0 0 3px) {
+    &.#{$_dock} #dash,
+    &.#{$_dock}:overview #dash { border-radius: #{$_radius}; }
+
+    &.#{$_dock}.extended #dash,
+    &.#{$_dock}.extended:overview #dash { border-radius: 3px; }
+  }
+
+  #dash { // default-mode
+    background-color: $dash_bg_color;
+    box-shadow: $shadow_0;
+  }
+
+  &.opaque #dash { // solid-mode
+    background-color: $solid_dash_bg_color;
+    // FIXME: enforce opaque background
+    box-shadow: inset 0 0 0 9999px $solid_dash_bg_color;
+  }
+
+  &.transparent #dash { // translucent-mode
+    background-color: rgba($dash_bg_color, 0.01); // does not work
+    // FIXME: add lacked alpha via box-shadow property
+    box-shadow: inset 0 0 0 9999px rgba($dash_bg_color, 0.35);
+  }
+
+  &:overview #dash { // overview-mode #1
+    background-color: rgba($dash_bg_color, 0.1);
+    box-shadow: $shadow_0;
+  }
+
+  &.opaque:overview,
+  &.transparent:overview { // overview-mode #2
+    #dash {
+      background-color: if($variant == light, rgba($dash_bg_color, 0.1), transparent !important);
+      box-shadow: none !important;
+    }
+  }
+
+  &.extended:overview, // overview-mode #3
+  &.opaque.extended:overview,
+  &.transparent.extended:overview {
+    #dash {
+      background-color: rgba($dash_bg_color, 0.1);
+      box-shadow: $shadow_0;
+    }
+  }
+
+  // .app-well-app,
+  // .show-apps {
+  //   .overview-icon {
+  //     padding: 8px;
+  //     background-size: contain;
+  //   }
+  // }
+  //
+  // .app-well-app,
+  // .show-apps {
+  //   &:focus .overview-icon,
+  //   &:hover .overview-icon,
+  //   &:selected .overview-icon { background-color: $inverse_divider_color; }
+  //
+  //   &:active .overview-icon { background-color: $inverse_track_color; }
+  //
+  //   &:checked:hover .overview-icon {
+  //     background-color: $inverse_track_color;
+  //   }
+  // }
+
+  .dash-item-container { // actual parent container
+    background: transparent;
+
+    > StWidget {
+      background-size: contain;
+    }
+
+    .app-well-app-running-dot { // set specific shape, color and sizes
+      width: 0;
+      height: 0;
+      background-color: rgba($theme_color, 0.75);
+      background-image: none;
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    > StWidget.focused .app-well-app-running-dot {
+      width: 0;
+      height: 0;
+      background-color: $theme_color;
+      background-image: none;
+    }
+  }
+
+  .default { background-size: cover; }
+
+  .number-overlay,
+  .notification-badge {
+    min-width: if($laptop == 'false', 1.6em, 1.4em);
+    min-height: if($laptop == 'false', 1.6em, 1.4em);
+    margin: 0; // unset margin/padding
+    padding: 0;
+    border-radius: 3px;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: $shadow_2;
+  }
+
+  .number-overlay {
+    background-color: $bg_color;
+    color: $fg_color;
+  }
+
+  .notification-badge {
+    background-color: $bg_color;
+    color: $fg_color;
+  }
 }
 
-#dashtodockContainer:overview #dash {
-  background-color: $inverse_bg_color;
-}
+@each $_dock in top, bottom, left, right {
+  #dashtodockContainer.#{$_dock},
+  #dashtodockContainer.extended.#{$_dock} {
+    // fill whole focused backgrounds
+    .dash-item-container > .app-well-app.focused {
+      .overview-icon {
+        background-color: $inverse_divider_color;
+      }
 
-#dashtodockContainer.extended:overview #dash {
-  background-color: transparent;
-}
-
-#dashtodockContainer.left #dash,
-#dashtodockContainer.right #dash {
-  padding: 3px 0;
-}
-
-#dashtodockContainer.top #dash,
-#dashtodockContainer.bottom #dash {
-  padding: 0 3px;
-}
-
-#dashtodockContainer.extended #dash {
-  padding: 0;
-  border-radius: 0;
-}
-
-#dashtodockContainer.left .dash-item-container > StWidget,
-#dashtodockContainer.right .dash-item-container > StWidget,
-#dashtodockContainer.extended.left .dash-item-container > StWidget,
-#dashtodockContainer.extended.right .dash-item-container > StWidget {
-  padding: 3px 6px;
-}
-
-#dashtodockContainer.extended.left .dash-item-container:first-child > StWidget,
-#dashtodockContainer.extended.right .dash-item-container:first-child > StWidget {
-  padding: 6px 6px 3px 6px;
-}
-
-#dashtodockContainer.extended.left .dash-item-container:last-child > StWidget,
-#dashtodockContainer.extended.right .dash-item-container:last-child > StWidget {
-  padding: 3px 6px 6px 6px;
-}
-
-#dashtodockContainer.top .dash-item-container > StWidget,
-#dashtodockContainer.bottom .dash-item-container > StWidget,
-#dashtodockContainer.extended.top .dash-item-container > StWidget,
-#dashtodockContainer.extended.bottom .dash-item-container > StWidget {
-  padding: 6px 3px;
-}
-
-#dashtodockContainer.extended.top .dash-item-container:first-child > StWidget,
-#dashtodockContainer.extended.bottom .dash-item-container:first-child > StWidget {
-  padding: 6px 3px 6px 6px;
-}
-
-#dashtodockContainer.extended.top .dash-item-container:last-child > StWidget,
-#dashtodockContainer.extended.bottom .dash-item-container:last-child > StWidget {
-  padding: 6px 6px 6px 3px;
-}
-
-// Running and focused application style
-#dashtodockContainer .focused .overview-icon {
-  background-color: rgba(0, 0, 0, 0.24);
-}
-
-// Remove background-color if the indicator style is default
-#dashtodockContainer .default.focused .overview-icon {
-  background-color: transparent;
-}
-
-#dashtodockContainer .app-well-app-running-dot {
-  background-color: transparent;
-}
-
-#dashtodockContainer .default {
-  background-size: cover;
+      &:hover .overview-icon {
+        background-color: $inverse_track_color;
+      }
+    }
+  }
 }
 
 // Default running and focused application style
@@ -90,13 +162,16 @@
                    ('.running4', 'running4') {
     @each $f, $fc in ('', ''),
                      ('.focused', '-focused') {
-      #dashtodockContainer#{$p} .dash-item-container > StWidget#{$n}#{$f} {
+      #dashtodockContainer#{$p} .default#{$n}#{$f} {
         background-image: url("assets/dash/#{$pt}-#{$nb}#{$fc}.svg");
+      }
+
+      #dashtodockContainer#{$p} #{$n}#{$f} {
+        background-image: none;
       }
     }
   }
 }
-
 
 /* Simple Dock */
 

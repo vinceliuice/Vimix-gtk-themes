@@ -1213,6 +1213,17 @@ searchbar,
 //
 // Header bars
 //
+
+%header_button {
+   @include button(header-normal);
+   &:hover { @include button(header-hover); }
+   &:active { @include button(header-active); }
+   &:disabled { @include button(header-disabled); }
+   &:checked { @include button(header-checked); }
+   // &:checked:hover { @include button(header-checked-hover); }
+   &:checked:disabled { @include button(header-checked-disabled); }
+}
+
 %titlebar,
 headerbar {
   transition: background-color $shorter_duration $deceleration_curve, color $shorter_duration $deceleration_curve;
@@ -1238,18 +1249,8 @@ headerbar {
     @extend .dim-label;
   }
 
-   @at-root %header_button {
-      @include button(header-normal);
-      &:hover { @include button(header-hover); }
-      &:active { @include button(header-active); }
-      &:disabled { @include button(header-disabled); }
-      &:checked { @include button(header-checked); }
-      // &:checked:hover { @include button(header-checked-hover); }
-      &:checked:disabled { @include button(header-checked-disabled); }
-    }
-
-//  .background & button,
-//  button.flat.toggle.popup,
+  // .background & button,
+  // button.flat.toggle.popup,
   button:not(.suggested-action):not(.destructive-action) { @extend %header_button; }
 
   button.suggested-action, button.destructive-action {

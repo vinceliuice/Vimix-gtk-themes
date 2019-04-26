@@ -1911,7 +1911,7 @@ headerbar {
 .default-decoration.titlebar:not(headerbar),
 headerbar.default-decoration {
   min-height: 20px;
-  padding: 4px;
+  padding: 4px 4px;
 }
 
 .tiled .default-decoration.titlebar:not(headerbar),
@@ -1927,11 +1927,18 @@ headerbar.default-decoration {
 
 .default-decoration.titlebar:not(headerbar) button.titlebutton,
 headerbar.default-decoration button.titlebutton {
-  min-height: 16px;
-  min-width: 16px;
-  margin: 0 3px;
+  min-height: 24px;
+  min-width: 24px;
+  margin: 0;
   padding: 0;
   transition: 100ms;
+  background-size: 16px 16px;
+}
+
+.default-decoration.titlebar:not(headerbar) button.titlebutton:hover, .default-decoration.titlebar:not(headerbar) button.titlebutton:active,
+headerbar.default-decoration button.titlebutton:hover,
+headerbar.default-decoration button.titlebutton:active {
+  background-size: 22px 22px;
 }
 
 .default-decoration.titlebar:not(headerbar),

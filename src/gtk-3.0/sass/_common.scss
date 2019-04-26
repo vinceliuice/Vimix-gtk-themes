@@ -1331,18 +1331,23 @@ headerbar {
 
   &.default-decoration {
     min-height: $small_size;
-    padding: $container_padding;
+    padding: 4px $container_padding;
 
     .tiled &,
     .maximized &,
     .fullscreen & { box-shadow: none; }
 
     button.titlebutton {
-      min-height: 16px;
-      min-width: 16px;
-      margin: 0 3px;
+      min-height: 24px;
+      min-width: 24px;
+      margin: 0;
       padding: 0;
       transition: $shorter_duration;
+      background-size: 16px 16px;
+
+      &:hover, &:active {
+        background-size: 22px 22px;
+      }
     }
   }
 

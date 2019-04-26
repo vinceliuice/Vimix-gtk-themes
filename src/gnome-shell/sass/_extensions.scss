@@ -90,10 +90,7 @@
                    ('.running4', 'running4') {
     @each $f, $fc in ('', ''),
                      ('.focused', '-focused') {
-      #dashtodockContainer#{$p} #{$n}#{$f} {
-        background-image: none;
-      }
-      #dashtodockContainer#{$p} .default#{$n}#{$f} {
+      #dashtodockContainer#{$p} .dash-item-container > StWidget#{$n}#{$f} {
         background-image: url("assets/dash/#{$pt}-#{$nb}#{$fc}.svg");
       }
     }

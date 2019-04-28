@@ -1350,7 +1350,7 @@ window.background:not(.csd) {
 
   > menu,
   > menu > menu {
-    border: none;
+    // border: none;
     background-color: $base_color;
 
     menuitem {
@@ -1375,6 +1375,7 @@ window.background:not(.csd) {
 //
 // Firefox Quantum
 //
+
 #MozillaGtkWidget.background {
   &, decoration { border-radius: 0 0 0 0; } // enforce radius
 
@@ -1725,10 +1726,10 @@ window.background > box.vertical > toolbar.primary-toolbar {
 .geary-titlebar-right {
   // remove unexpected "hardcoded" vertical separator
   separator { opacity: 0; }
+  // background: none;
 }
 
 .geary-composer-box {
-
   .linked > button:not(.combo) { border-radius: $md_radius; }
   .linked > button.combo { border-radius: 0; }
 

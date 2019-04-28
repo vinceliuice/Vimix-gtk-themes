@@ -112,7 +112,7 @@ $shadow_transition: box-shadow $shorter_duration $deceleration_curve;
   background-color: $base_color;
   color: $fg_color;
 
-//  &:hover, &:active, &:selected { border-radius: 2px; }
+  // &:hover, &:active, &:selected { border-radius: 2px; }
 
   &:disabled {
     // background-color: $alt_base_color;
@@ -1356,18 +1356,20 @@ headerbar {
   .csd &.default-decoration,
   &.default-decoration:backdrop,
   .csd &.default-decoration:backdrop {  // needed under wayland, since all gtk3 windows are csd windows
-    box-shadow: unset;
     box-shadow: inset 0 1px $secondary_highlight_color;
   }
 
   .solid-csd & {
     &:dir(rtl), &:dir(ltr) { // specificity bump
-      margin-left: -2px;
-      margin-right: -2px;
-      margin-top: -2px;
+      margin: 0;
       border-radius: 0;
-      box-shadow: none;
+      box-shadow: $header_shadow;
     }
+  }
+
+  .solid-csd &.default-decoration {
+    box-shadow: none;
+    border-radius: 0;
   }
 
   separator.titlebutton { @extend %header_separator; }
@@ -1494,13 +1496,35 @@ headerbar {
     border-top-right-radius: 2px;
   }
 
-  &, & headerbar {
+  &:not(headerbar), &:not(.solid-csd) headerbar {
     box-shadow: $header_shadow, inset 0 1px $secondary_highlight_color;
 
     .tiled &,
     .maximized &,
-    .fullscreen & { box-shadow: none; }
+    .fullscreen & { box-shadow: $header_shadow; }
   }
+
+  &.solid-csd headerbar {
+    box-shadow: $header_shadow;
+  }
+}
+
+headerbar.titlebar {
+  box-shadow: $header_shadow, inset 0 1px $secondary_highlight_color;
+
+  headerbar {
+    box-shadow: unset;
+    background: none;
+    box-shadow: 0 1px 1px transparent, 0 1px 2px transparent;
+  }
+
+  &.solid-csd headerbar {
+    box-shadow: $header_shadow;
+  }
+
+  .tiled &,
+  .maximized &,
+  .fullscreen & { box-shadow: $header_shadow; }
 }
 
 .background.tiled .titlebar,
@@ -1594,6 +1618,11 @@ window.background > box.vertical > headerbar:not(.titlebar) { // reset headerbar
   &, &:focus {
     background-color: lighten($headerbar_bg_color, 5%);
     color: $headerbar_fg_color;
+  }
+
+  &:disabled {
+    background-color: lighten($headerbar_bg_color, 2.5%);
+    color: $disabled_headerbar_fg_color;
   }
 }
 
@@ -1750,7 +1779,7 @@ menubar,
 .menubar {
   -GtkWidget-window-dragging: true;
   padding: 0;
-//  box-shadow: inset 0 -1px scale-alpha($borders_color, 0.9);
+  // box-shadow: inset 0 -1px scale-alpha($borders_color, 0.9);
   background-color: $headerbar_bg_color;
 
   > menuitem {
@@ -3690,11 +3719,11 @@ decoration {
 
   .solid-csd & {
     margin: 0;
-    padding: 0;
-    border: 2px solid $headerbar_bg_color;
+    padding: 2px;
+    border: 1px solid if($headerbar == 'light', darken($headerbar_bg_color, 18%), darken($headerbar_bg_color, 10%));
     border-radius: 0;
-    box-shadow: none;
-    background: none;
+    box-shadow: inset 0 0 0 2px $headerbar_bg_color, inset 0 1px $secondary_highlight_color;
+    background-color: $solid_borders_color;
   }
 }
 
@@ -3715,38 +3744,40 @@ decoration {
 //
 // Title buttons
 //
+
+%windows_button {
+  margin: 0;
+  padding: 0;
+  min-width: 26px;
+  min-height: 26px;
+  animation: none;
+  box-shadow: none;
+  border: none;
+  color: transparent;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+
+  &:hover, &:active, &:checked {
+    box-shadow: none;
+    border: none;
+    color: transparent;
+    animation: none;
+    transition: background-size $shorter_duration $deceleration_curve;
+    background-color: transparent;
+    background-size: 22px 22px;
+  }
+
+  &:backdrop { opacity: 1; }
+}
+
 %titlebuttons {
   button.titlebutton {
     &:hover { @include button(header-hover); }
     &:active, &:checked { @include button(header-active); }
 
-    @at-root %windows_button,
-    &.close, &.maximize, &.minimize {
-      margin: 0;
-      padding: 0;
-      min-width: 26px;
-      min-height: 26px;
-      animation: none;
-      box-shadow: none;
-      border: none;
-      color: transparent;
-      background-color: transparent;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: 16px 16px;
-
-      &:hover, &:active, &:checked {
-        box-shadow: none;
-        border: none;
-        color: transparent;
-        animation: none;
-        transition: background-size $shorter_duration $deceleration_curve;
-        background-color: transparent;
-        background-size: 22px 22px;
-      }
-
-      &:backdrop { opacity: 1; }
-    }
+    &.close, &.maximize, &.minimize { @extend %windows_button; }
 
     // Load png assets for each button
     @each $k in ('close', 'maximize', 'minimize') {
@@ -3798,6 +3829,7 @@ headerbar,
       }
     }
   }
+
   .csd.maximized &, .solid-csd.maximized & {
     button.titlebutton {
       @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {

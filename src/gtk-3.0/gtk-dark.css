@@ -2118,6 +2118,18 @@ headerbar .entry-tag {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
+.solid-csd > .titlebar.vertical {
+  box-shadow: none;
+}
+
+.solid-csd > .titlebar.vertical headerbar.titlebar {
+  box-shadow: none;
+}
+
+.solid-csd > .titlebar.vertical searchbar {
+  background: none;
+}
+
 headerbar.titlebar {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24), inset 0 1px rgba(255, 255, 255, 0.1);
 }
@@ -6276,10 +6288,6 @@ box.vertical:not(.titlebar) > revealer > toolbar.search-bar {
 
 box.vertical:not(.titlebar) > revealer > toolbar.search-bar button > widget {
   -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
-}
-
-stack widget stack button.toggle {
-  margin: 6px;
 }
 
 box.horizontal.titlebar > headerbar > stack > box.vertical > .title {

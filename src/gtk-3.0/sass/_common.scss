@@ -1507,6 +1507,18 @@ headerbar {
   &.solid-csd headerbar {
     box-shadow: $header_shadow;
   }
+
+  .solid-csd > &.vertical {
+    box-shadow: none;
+
+    headerbar.titlebar {
+      box-shadow: none;
+    }
+
+    searchbar {
+      background: none;
+    }
+  }
 }
 
 headerbar.titlebar {

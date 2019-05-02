@@ -1215,23 +1215,49 @@ searchbar,
 //
 
 %header_button {
-   @include button(header-normal);
-   &:hover { @include button(header-hover); }
-   &:active { @include button(header-active); }
-   &:disabled { @include button(header-disabled); }
-   &:checked { @include button(header-checked); }
-   // &:checked:hover { @include button(header-checked-hover); }
-   &:checked:disabled { @include button(header-checked-disabled); }
-   &:backdrop {
-     color: scale-alpha($secondary_headerbar_fg_color, 0.75);
-     &:disabled { color: scale-alpha($disabled_headerbar_fg_color, 0.75); }
-   }
+  @include button(header-normal);
+  &:hover { @include button(header-hover); }
+  &:active { @include button(header-active); }
+  &:disabled { @include button(header-disabled); }
+  &:checked { @include button(header-checked); }
+  // &:checked:hover { @include button(header-checked-hover); }
+  &:checked:disabled { @include button(header-checked-disabled); }
+  &:backdrop {
+    color: scale-alpha($secondary_headerbar_fg_color, 0.75);
+    &:disabled { color: scale-alpha($disabled_headerbar_fg_color, 0.75); }
+  }
+}
+
+%headerbar_flat_button {
+  border-radius: 0;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                $theme_color 0%,
+                                transparent 0%)
+                                0 0 0 / 0 0 0;
+
+  &:hover {
+    color: lighten($theme_color, 0.85);
+    box-shadow: inset 0 -2px rgba($theme_color, 0.5);
+    &, &:disabled { background-color: transparent; }
+  }
+
+  &:checked, &:active {
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  $theme_color 100%,
+                                  transparent 0%)
+                                  0 0 2 / 0 0 2px;
+    background: none;
+    color: $theme_color;
+    border-radius: 0;
+  }
+
+  &:checked:hover { background: none; }
 }
 
 .titlebar {
   transition: background-color $shorter_duration $deceleration_curve, color $shorter_duration $deceleration_curve;
   min-height: $medium_size;
-  padding: 0 $container_padding;
+  padding: 0 6px;
   box-shadow: $header_shadow;
   background-color: $headerbar_bg_color;
   color: $headerbar_fg_color;
@@ -1399,7 +1425,7 @@ searchbar,
 
   &.default-decoration {
     min-height: $small_size;
-    padding: 4px $container_padding;
+    padding: 2px 6px;
 
     .tiled &,
     .maximized &,
@@ -1451,31 +1477,7 @@ searchbar,
 
   // special case for stack-switchers
   .linked:not(.vertical):not(.path-bar).stack-switcher {
-    > button {
-      border-radius: 0;
-      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    $theme_color 0%,
-                                    transparent 0%)
-                                    0 0 0 / 0 0 0;
-
-      &:hover {
-        color: lighten($theme_color, 0.85);
-        box-shadow: inset 0 -2px rgba($theme_color, 0.5);
-        &, &:disabled { background-color: transparent; }
-      }
-
-      &:checked, &:active {
-        border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                      $theme_color 100%,
-                                      transparent 0%)
-                                      0 0 2 / 0 0 2px;
-        background: none;
-        color: $theme_color;
-        border-radius: 0;
-      }
-
-      &:checked:hover { background: none; }
-    }
+    > button { @extend %headerbar_flat_button; }
   }
 
   // special case for headerbar path-bars
@@ -1514,13 +1516,20 @@ searchbar,
 }
 
 headerbar {
-  // add vertical margins to common widget on the headerbar to avoid them spanning the whole height
+  padding: 0 6px;
+
   entry,
   spinbutton,
   // separator,
   button {
     margin-top: $container_padding;
     margin-bottom: $container_padding;
+  }
+
+  button:not(.suggested-action):not(.destructive-action) { @extend %header_button; }
+
+  .linked:not(.vertical):not(.path-bar).stack-switcher {
+    > button { @extend %headerbar_flat_button; }
   }
 
   switch {

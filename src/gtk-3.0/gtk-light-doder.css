@@ -1732,7 +1732,7 @@ searchbar,
   background-clip: border-box;
 }
 
-.titlebar button:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button, .nemo-window .primary-toolbar button:not(.suggested-action):not(.destructive-action) {
+.titlebar button:not(.suggested-action):not(.destructive-action), headerbar button:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button, .nemo-window .primary-toolbar button:not(.suggested-action):not(.destructive-action) {
   transition: none;
   animation: none;
   box-shadow: none;
@@ -1740,7 +1740,7 @@ searchbar,
   color: rgba(0, 0, 0, 0.6);
 }
 
-.titlebar button:hover:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:hover, .nemo-window .primary-toolbar button:hover:not(.suggested-action):not(.destructive-action) {
+.titlebar button:hover:not(.suggested-action):not(.destructive-action), headerbar button:hover:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:hover, .nemo-window .primary-toolbar button:hover:not(.suggested-action):not(.destructive-action) {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
   animation: none;
   box-shadow: inset 0 0 0 9999px rgba(66, 133, 244, 0.3);
@@ -1749,7 +1749,7 @@ searchbar,
   color: #4285F4;
 }
 
-.titlebar button:active:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:active, .nemo-window .primary-toolbar button:active:not(.suggested-action):not(.destructive-action) {
+.titlebar button:active:not(.suggested-action):not(.destructive-action), headerbar button:active:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:active, .nemo-window .primary-toolbar button:active:not(.suggested-action):not(.destructive-action) {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
   animation: ripple_effect 100ms cubic-bezier(0, 0, 0.2, 1) forwards;
   box-shadow: inset 0 0 0 9999px #4285F4;
@@ -1758,28 +1758,53 @@ searchbar,
   color: #FFFFFF;
 }
 
-.titlebar button:disabled:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:disabled, .nemo-window .primary-toolbar button:disabled:not(.suggested-action):not(.destructive-action) {
+.titlebar button:disabled:not(.suggested-action):not(.destructive-action), headerbar button:disabled:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:disabled, .nemo-window .primary-toolbar button:disabled:not(.suggested-action):not(.destructive-action) {
   box-shadow: none;
   background-color: transparent;
   color: alpha(currentColor, 0.3);
 }
 
-.titlebar button:checked:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:checked, .nemo-window .primary-toolbar button:checked:not(.suggested-action):not(.destructive-action) {
+.titlebar button:checked:not(.suggested-action):not(.destructive-action), headerbar button:checked:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:checked, .nemo-window .primary-toolbar button:checked:not(.suggested-action):not(.destructive-action) {
   background-color: #4285F4;
   color: #FFFFFF;
 }
 
-.titlebar button:checked:disabled:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:checked:disabled, .nemo-window .primary-toolbar button:checked:disabled:not(.suggested-action):not(.destructive-action) {
+.titlebar button:checked:disabled:not(.suggested-action):not(.destructive-action), headerbar button:checked:disabled:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:checked:disabled, .nemo-window .primary-toolbar button:checked:disabled:not(.suggested-action):not(.destructive-action) {
   background-color: rgba(66, 133, 244, 0.4);
   color: alpha(currentColor, 0.4);
 }
 
-.titlebar button:backdrop:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:backdrop, .nemo-window .primary-toolbar button:backdrop:not(.suggested-action):not(.destructive-action) {
+.titlebar button:backdrop:not(.suggested-action):not(.destructive-action), headerbar button:backdrop:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:backdrop, .nemo-window .primary-toolbar button:backdrop:not(.suggested-action):not(.destructive-action) {
   color: rgba(0, 0, 0, 0.45);
 }
 
-.titlebar button:backdrop:disabled:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:backdrop:disabled, .nemo-window .primary-toolbar button:backdrop:disabled:not(.suggested-action):not(.destructive-action) {
+.titlebar button:backdrop:disabled:not(.suggested-action):not(.destructive-action), headerbar button:backdrop:disabled:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:backdrop:disabled, .nemo-window .primary-toolbar button:backdrop:disabled:not(.suggested-action):not(.destructive-action) {
   color: rgba(0, 0, 0, 0.24);
+}
+
+.titlebar .linked:not(.vertical):not(.path-bar).stack-switcher > button, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button {
+  border-radius: 0;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 0%, transparent 0%) 0 0 0/0 0 0;
+}
+
+.titlebar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover {
+  color: #4688f4;
+  box-shadow: inset 0 -2px rgba(66, 133, 244, 0.5);
+}
+
+.titlebar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover, .titlebar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover:disabled, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover:disabled {
+  background-color: transparent;
+}
+
+.titlebar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked, .titlebar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active {
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 100%, transparent 0%) 0 0 2/0 0 2px;
+  background: none;
+  color: #4285F4;
+  border-radius: 0;
+}
+
+.titlebar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked:hover, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked:hover {
+  background: none;
 }
 
 .titlebar {
@@ -1956,7 +1981,7 @@ searchbar,
 
 .titlebar.default-decoration {
   min-height: 24px;
-  padding: 4px 6px;
+  padding: 2px 6px;
 }
 
 .tiled .titlebar.default-decoration,
@@ -2004,31 +2029,6 @@ searchbar,
   border-radius: 3px;
 }
 
-.titlebar .linked:not(.vertical):not(.path-bar).stack-switcher > button {
-  border-radius: 0;
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 0%, transparent 0%) 0 0 0/0 0 0;
-}
-
-.titlebar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover {
-  color: #4688f4;
-  box-shadow: inset 0 -2px rgba(66, 133, 244, 0.5);
-}
-
-.titlebar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover, .titlebar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover:disabled {
-  background-color: transparent;
-}
-
-.titlebar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked, .titlebar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active {
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 100%, transparent 0%) 0 0 2/0 0 2px;
-  background: none;
-  color: #4285F4;
-  border-radius: 0;
-}
-
-.titlebar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked:hover {
-  background: none;
-}
-
 .titlebar .linked:not(.vertical).path-bar > button {
   margin: 0;
   border-radius: 0;
@@ -2059,6 +2059,10 @@ searchbar,
   min-height: 0;
   background-color: #eeeeee;
   border: none;
+}
+
+headerbar {
+  padding: 0 6px;
 }
 
 headerbar entry,

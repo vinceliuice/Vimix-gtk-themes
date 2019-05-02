@@ -1488,69 +1488,25 @@ headerbar {
   }
 
   separator { @extend %header_separator; }
-}
 
-.titlebar {
-  &, &.background {
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-  }
-
-  &:not(headerbar), &:not(.solid-csd) headerbar {
+  &.titlebar {
     box-shadow: $header_shadow, inset 0 1px $secondary_highlight_color;
+
+    headerbar {
+      box-shadow: unset;
+      background: none;
+      box-shadow: 0 1px 1px transparent, 0 1px 2px transparent;
+    }
+
+    &.solid-csd headerbar {
+      box-shadow: $header_shadow;
+    }
 
     .tiled &,
     .maximized &,
     .fullscreen & { box-shadow: $header_shadow; }
   }
 
-  &.solid-csd headerbar {
-    box-shadow: $header_shadow;
-  }
-
-  .solid-csd > &.vertical {
-    box-shadow: none;
-
-    headerbar.titlebar {
-      box-shadow: none;
-    }
-
-    searchbar {
-      background: none;
-    }
-  }
-}
-
-headerbar.titlebar {
-  box-shadow: $header_shadow, inset 0 1px $secondary_highlight_color;
-
-  headerbar {
-    box-shadow: unset;
-    background: none;
-    box-shadow: 0 1px 1px transparent, 0 1px 2px transparent;
-  }
-
-  &.solid-csd headerbar {
-    box-shadow: $header_shadow;
-  }
-
-  .tiled &,
-  .maximized &,
-  .fullscreen & { box-shadow: $header_shadow; }
-}
-
-.background.tiled .titlebar,
-.background.tiled-top .titlebar,
-.background.tiled-right .titlebar,
-.background.tiled-bottom .titlebar,
-.background.tiled-left .titlebar,
-.background.maximized .titlebar,
-.background.solid-csd .titlebar {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-
-headerbar { // headerbar border rounding
   separator:first-child + &, // tackles the paned container case
   &:first-child { border-top-left-radius: 2px; }
   &:last-child { border-top-right-radius: 2px; }
@@ -1582,6 +1538,69 @@ headerbar { // headerbar border rounding
   }
 }
 
+.titlebar {
+  &, &.background {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+  }
+
+  .background.tiled &,
+  .background.tiled-top &,
+  .background.tiled-right &,
+  .background.tiled-bottom &,
+  .background.tiled-left &,
+  .background.maximized &,
+  .background.solid-csd & {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  &:not(headerbar), &:not(headerbar):not(.solid-csd) headerbar {
+    box-shadow: $header_shadow, inset 0 1px $secondary_highlight_color;
+
+    .tiled &,
+    .maximized &,
+    .fullscreen & { box-shadow: $header_shadow; }
+  }
+
+  &:not(headerbar) {
+    window.csd > & {
+      // in csd we assume every titlebar is a headerbar so reset anything, this is needed for split toolbars cases
+      padding: 0;
+      background: none;
+      border: none;
+      box-shadow: none;
+    }
+
+    > separator { // separator between titlebars
+      min-width: 1px;
+      min-height: 1px;
+      background-color: $headerbar_bg_color;
+      background-image: image($headerbar_bg_color);
+      box-shadow: inset 0 -1px $borders_color, inset 0 1px $secondary_highlight_color;
+      border: none;
+    }
+
+    @extend %titlebar;
+  }
+
+  &.solid-csd headerbar {
+    box-shadow: $header_shadow;
+  }
+
+  .solid-csd > &.vertical {
+    box-shadow: none;
+
+    headerbar.titlebar {
+      box-shadow: none;
+    }
+
+    searchbar {
+      background: none;
+    }
+  }
+}
+
 window.background > box.vertical > headerbar:not(.titlebar) { // reset headerbar style for not CSD window
   &, &:backdrop { background-color: $headerbar_bg_color; }
   border-radius: 0 0 0 0;
@@ -1600,27 +1619,6 @@ window.background > box.vertical > headerbar:not(.titlebar) { // reset headerbar
       border-top-right-radius: 0;
     }
   }
-}
-
-.titlebar:not(headerbar) {
-  window.csd > & {
-    // in csd we assume every titlebar is a headerbar so reset anything, this is needed for split toolbars cases
-    padding: 0;
-    background: none;
-    border: none;
-    box-shadow: none;
-  }
-
-  > separator { // separator between titlebars
-    min-width: 1px;
-    min-height: 1px;
-    background-color: $headerbar_bg_color;
-    background-image: image($headerbar_bg_color);
-    box-shadow: inset 0 -1px $borders_color, inset 0 1px $secondary_highlight_color;
-    border: none;
-  }
-
-  @extend %titlebar;
 }
 
 .background .titlebar entry,

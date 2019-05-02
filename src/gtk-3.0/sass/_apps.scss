@@ -251,44 +251,44 @@ filechooser,
 }
 
 // Floating status bar
-.nautilus-window .floating-bar {
-  @extend %osd;
+.nemo-window,
+.nautilus-window {
+  .floating-bar {
+    @extend %osd;
 
-  // @extend .toolbar.osd;
+    min-height: 32px;
+    padding: 0;
+    border: 1px solid $borders_color;
+    border-radius: 0;
+    background-color: $base_color;
+    background-clip: $extra_background_clip;
+    transition: $shorter_transition, border-width 0;
 
-  min-height: 32px;
-  padding: 0;
-  border-style: solid solid none;
-  border-width: 1px;
-  border-color: $borders_color;
-  border-radius: (2px + 1px) (2px + 1px) 0 0;
-  background-color: $base_color;
-  background-clip: $extra_background_clip;
-  transition: $shorter_transition, border-width 0;
+    &.bottom.left { // axes left border and border radius
+      // margin-right: 8px;
+      border-width: 1px 1px 0 0;
+      border-top-right-radius: 3px;
+    }
 
-  &.bottom.left { // axes left border and border radius
-    margin-right: 8px - 1px;
-    border-left-style: none;
-    border-top-left-radius: 0;
-  }
+    &.bottom.right { // axes right border and border radius
+      // margin-left: 8px;
+      border-width: 1px 0 0 1px;
+      border-top-left-radius: 3px;
+    }
 
-  &.bottom.right { // axes right border and border radius
-    margin-left: 8px - 1px;
-    border-right-style: none;
-    border-top-right-radius: 0;
-  }
+    button {
+      margin: 8px;
 
-  button {
-    margin: (32px - $small_size) / 2;
-
-    @extend %small_button;
+      @extend %small_button;
+      @extend %simple_flat_button;
+    }
   }
 }
 
-.disk-space-display {
-  // border-style: solid;
-  // border-width: 2px;
-}
+// .disk-space-display {
+//   border-style: solid;
+//   border-width: 2px;
+// }
 
 .disk-space-display.unknown {
   background-color: $warning_color;
@@ -304,14 +304,14 @@ filechooser,
 }
 
 // View
-.nautilus-list-view .view {
-  // border-bottom: 1px solid $borders_color;
-}
+// .nautilus-list-view .view {
+//   border-bottom: 1px solid $borders_color;
+// }
 
 // Hide superfluous treeview drop target indication
-.nautilus-list-view .view.dnd {
-  // border-style: none;
-}
+// .nautilus-list-view .view.dnd {
+//   border-style: none;
+// }
 
 // Libgd tag entries in the search. Sadly it requires this copy pasted css style.
 // https://git.gnome.org/browse/libgd/tree/libgd/gd-tagged-entry-default.css
@@ -343,11 +343,13 @@ filechooser,
 
 // Workaround for the double border of the searchbar since we use a revealer which
 // always allocates at least 1 pixel
-.nautilus-window searchbar { border-top: 1px solid $borders_color; }
+.nautilus-window {
+  searchbar { border-top: 1px solid $borders_color; }
 
-.nautilus-window .searchbar-container { margin-top: -1px; }
+  .searchbar-container { margin-top: -1px; }
 
-.nautilus-window headerbar > revealer > button { @extend %circular_button; }
+  headerbar > revealer > button { @extend %circular_button; }
+}
 
 
 //

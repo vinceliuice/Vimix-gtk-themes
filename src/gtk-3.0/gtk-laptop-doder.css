@@ -3019,12 +3019,17 @@ switch:focus slider {
 
 switch:focus:hover slider {
   color: #18b8ff;
-  box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 0 0 10px rgba(24, 184, 255, 0.1), 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 switch:checked slider {
   background-color: #18b8ff;
   color: #18b8ff;
+}
+
+switch:checked:hover slider {
+  color: #18b8ff;
+  box-shadow: 0 0 0 10px rgba(24, 184, 255, 0.1), 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 row:selected switch {
@@ -3697,13 +3702,13 @@ radio {
 check:checked, check:indeterminate,
 radio:checked,
 radio:indeterminate {
-  color: #4285F4;
+  color: #18b8ff;
 }
 
 check:checked:disabled, check:indeterminate:disabled,
 radio:checked:disabled,
 radio:indeterminate:disabled {
-  color: rgba(66, 133, 244, 0.4);
+  color: rgba(24, 184, 255, 0.4);
 }
 
 popover check, popover check:hover, popover check:disabled, popover
@@ -3769,13 +3774,13 @@ radio:disabled {
 menu menuitem check:checked, menu menuitem check:indeterminate, menu menuitem
 radio:checked, menu menuitem
 radio:indeterminate {
-  color: #4285F4;
+  color: #18b8ff;
 }
 
 menu menuitem check:checked:disabled, menu menuitem check:indeterminate:disabled, menu menuitem
 radio:checked:disabled, menu menuitem
 radio:indeterminate:disabled {
-  color: rgba(66, 133, 244, 0.4);
+  color: rgba(24, 184, 255, 0.4);
 }
 
 window.background:not(.csd) > widget > checkbutton > check, #MozillaGtkWidget.background > window.background > menu > menuitem > check, #MozillaGtkWidget.background > widget > checkbutton > check,
@@ -3919,13 +3924,13 @@ treeview.view radio:disabled {
 treeview.view check:checked, treeview.view check:indeterminate,
 treeview.view radio:checked,
 treeview.view radio:indeterminate {
-  color: #4285F4;
+  color: #18b8ff;
 }
 
 treeview.view check:checked:disabled, treeview.view check:indeterminate:disabled,
 treeview.view radio:checked:disabled,
 treeview.view radio:indeterminate:disabled {
-  color: rgba(66, 133, 244, 0.4);
+  color: rgba(24, 184, 255, 0.4);
 }
 
 treeview.view radio:checked {

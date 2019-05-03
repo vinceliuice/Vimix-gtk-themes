@@ -2406,11 +2406,9 @@ switch {
 
   &:hover slider { color: $fg_color; box-shadow: 0 0 0 10px rgba($fg_color, 0.1), $z-depth-1; }
   &:focus slider { color: $accent_color; box-shadow: $z-depth-1; }
-  &:focus:hover slider { color: $accent_color; box-shadow: 0 0 0 10px rgba($fg_color, 0.1), $z-depth-1; }
-  &:checked slider {
-    background-color: $accent_color;
-    color: $accent_color;
-  }
+  &:focus:hover slider { color: $accent_color; box-shadow: 0 0 0 10px rgba($accent_color, 0.1), $z-depth-1; }
+  &:checked slider { background-color: $accent_color; color: $accent_color; }
+  &:checked:hover slider { color: $accent_color; box-shadow: 0 0 0 10px rgba($accent_color, 0.1), $z-depth-1; }
 
   row:selected & {
     background-color: rgba($light_contrast_color, 0.2);
@@ -2519,9 +2517,9 @@ radio {
   @extend %row_selected_button;
 
   &:checked, &:indeterminate {
-    color: $inverse_theme_color;
+    color: $alt_inverse_theme_color;
 
-    &:disabled {  color: scale-alpha($inverse_theme_color, $disabled_opacity); }
+    &:disabled {  color: scale-alpha($alt_inverse_theme_color, $disabled_opacity); }
   }
 
   // &:only-child { margin: -12px; }
@@ -2565,8 +2563,8 @@ radio {
     &:disabled { color: gtkalpha($dark_contrast_color, 0.5); }
 
     &:checked, &:indeterminate {
-      color: $theme_color;
-      &:disabled {  color: scale-alpha($theme_color, $disabled_opacity); }
+      color: $alt_theme_color;
+      &:disabled {  color: scale-alpha($alt_theme_color, $disabled_opacity); }
     }
   }
 }
@@ -2663,8 +2661,8 @@ treeview.view radio {
     color: $secondary_fg_color;
     &:hover, &:active { color: $fg_color; }
     &:disabled { color: $disabled_secondary_fg_color; }
-    &:checked, &:indeterminate { color: $inverse_theme_color; }
-    &:checked:disabled, &:indeterminate:disabled { color: scale-alpha($inverse_theme_color, $disabled_opacity); }
+    &:checked, &:indeterminate { color: $alt_inverse_theme_color; }
+    &:checked:disabled, &:indeterminate:disabled { color: scale-alpha($alt_inverse_theme_color, $disabled_opacity); }
   }
 
 }

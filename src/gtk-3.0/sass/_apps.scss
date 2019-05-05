@@ -1453,8 +1453,10 @@ window.background:not(.csd) {
   headerbar.titlebar {
     border-radius: 0 0 0 0;
 
-    &.default-decoration button.titlebutton {
-      @extend %windows_button;
+    &.default-decoration {
+      button.titlebutton {
+        @extend %windows_button;
+      }
     }
   }
 

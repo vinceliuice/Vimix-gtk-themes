@@ -2206,7 +2206,15 @@ menubar.-vala-panel-background {
   }
 
   .sidebar {
-    scrolledwindow.frame { border: none; } // Removed treeview double borders
+    scrolledwindow.frame {
+      border: none;  // Removed treeview double borders
+
+      treeview.view.places-treeview:not(:selected) {
+        color: $tertiary_fg_color;
+
+        &:hover { color: $secondary_fg_color; }
+      }
+    }
   }
 }
 

@@ -7467,6 +7467,14 @@ menubar.-vala-panel-background > menuitem:hover {
   border: none;
 }
 
+.nemo-window .sidebar scrolledwindow.frame treeview.view.places-treeview:not(:selected) {
+  color: rgba(234, 234, 234, 0.6);
+}
+
+.nemo-window .sidebar scrolledwindow.frame treeview.view.places-treeview:not(:selected):hover {
+  color: rgba(234, 234, 234, 0.75);
+}
+
 dialog.background .dialog-vbox grid.horizontal scrolledwindow.frame {
   border: none;
 }

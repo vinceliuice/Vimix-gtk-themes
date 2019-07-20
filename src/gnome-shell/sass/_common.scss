@@ -207,9 +207,18 @@ StScrollBar {
 
 /* Switches */
 .toggle-switch {
-  width: 40px;
+  width: 50px;
   height: 20px;
   background-size: contain;
+  background-image: url("assets/toggle-off.svg");
+
+  &:checked { background-image: url("assets/toggle-on.svg"); }
+
+  .popup-menu-item.selected & {
+    background-image: url("assets/toggle-off.svg");
+
+    &:checked { background-image: url("assets/toggle-on.svg"); }
+  }
 }
 
 @each $v in us, intl {
@@ -580,32 +589,40 @@ StScrollBar {
 
     &:ltr { padding: 0.4em 24px 0.4em 0; }
     &:rtl { padding: 0.4em 0 0.4em 24px; }
+
     &:checked {
       background-color: $primary_color;
       color: $inverse_fg_color;
       box-shadow: $shadow_0;
       font-weight: normal;
+
       &.selected {
         background-color: mix($inverse_fg_color, $primary_color, percentage($lower_opacity / 2));
         color: $inverse_fg_color;
       }
+
       &:active {
         background-color: mix($inverse_fg_color, $primary_color, percentage($lower_opacity));
         color: $inverse_fg_color !important;
       }
+
       &:insensitive { color: $inverse_disabled_fg_color; }
     }
+
     &.selected {
       background-color: $divider_color;
       color: $fg_color;
       transition-duration: 0ms;
     }
+
     &:active {
       background-color: $track_color;
       color: $fg_color;
       transition-duration: $longer_duration;
     }
+
     &.selected:active { color: $fg_color; }
+
     &:insensitive { color: $disabled_fg_color; }
   }
 
@@ -614,6 +631,7 @@ StScrollBar {
 
     &:insensitive { color: $hint_fg_color; }
   }
+
   //.popup-status-menu-item { font-weight: normal;  color: pink; } //dunno what that is
   &.panel-menu {
     -boxpointer-gap: 4px;

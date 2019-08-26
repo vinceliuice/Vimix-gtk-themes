@@ -1816,15 +1816,19 @@ menubar,
   }
 }
 
+.popup.background {
+  background-color: transparent; // without this menus transparency doesn't work
+}
+
 menu,
 .menu,
 .context-menu {
   margin: 4px;
-  padding: 2px 0px;
-  box-shadow: none;
+  padding: 5px 0;
+  box-shadow: inset 0 1px $secondary_highlight_color;
   background-color: $menu_bg_color;
   border: 1px solid $borders_color;
-  border-radius: 0;
+  border-radius: 3px;
 
   .csd & {
     border: none; // axes borders in a composited env

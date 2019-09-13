@@ -1594,11 +1594,11 @@ window.background:not(.csd) {
 //
 // Chrome(ium)
 //
-$chrome_borders_color: darken(white, 10%);
-$chrome_bg_color: #f5f5f5;
-$chrome_fg_color: #666666;
-$chrome_menu_bg_color: #ffffff;
-$chrome_menu_fg_color: #787878;
+$chrome_borders_color: $solid_borders_color;
+$chrome_bg_color: $bg_color;
+$chrome_fg_color: $fg_color;
+$chrome_menu_bg_color: $menu_bg_color;
+$chrome_menu_fg_color: $menu_fg_color;
 
 window.background.chromium {
   // checked-tab & toolbar & button widgets
@@ -1655,9 +1655,10 @@ window.background.chromium {
   }
 
   > menu {
-    border: 1px solid $chrome_borders_color;
+    border: 1px solid darken($chrome_menu_bg_color, 5%);
     background-color: $chrome_menu_bg_color;
     color: $chrome_menu_fg_color;
+    border-radius: 0;
 
     > menuitem, menuitem {
       color: $chrome_menu_fg_color; // Atom/VS-code menubar use this as menubar menuitem color

@@ -1597,8 +1597,8 @@ window.background:not(.csd) {
 $chrome_borders_color: $solid_borders_color;
 $chrome_bg_color: $bg_color;
 $chrome_fg_color: $fg_color;
-$chrome_menu_bg_color: $menu_bg_color;
-$chrome_menu_fg_color: $menu_fg_color;
+$chrome_menu_bg_color: $base_color;
+$chrome_menu_fg_color: $fg_color;
 
 window.background.chromium {
   // checked-tab & toolbar & button widgets
@@ -1655,7 +1655,7 @@ window.background.chromium {
   }
 
   > menu {
-    border: 1px solid darken($chrome_menu_bg_color, 5%);
+    border: 1px solid $chrome_borders_color;
     background-color: $chrome_menu_bg_color;
     color: $chrome_menu_fg_color;
     border-radius: 0;
@@ -1681,7 +1681,7 @@ window.background.chromium {
   // internal region of toolbar's entry widget
   > textview.view {
     color: $chrome_fg_color;
-    background-color: $chrome_menu_bg_color;
+    background-color: $chrome_bg_color;
   }
 
   > textview {

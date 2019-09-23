@@ -154,6 +154,8 @@ StScrollBar {
   -slider-active-border-color: transparent; //active trough border
   -slider-border-width: 0;
   -slider-handle-radius: 7px;
+  -slider-handle-border-width: 0;
+  -slider-handle-border-color: $border_color;
 
   // barlevels are for >= 3.29.90
   -barlevel-height: 2px;
@@ -574,6 +576,7 @@ StScrollBar {
 
 .popup-menu {
   min-width: 200px;
+  color: $secondary_fg_color;
 
   .popup-menu-arrow { } //defined globally in the TOP BAR
   .popup-sub-menu {
@@ -945,7 +948,7 @@ StScrollBar {
       // Trick due to St limitations. It needs a background to draw
       // a box-shadow
       background-color: rgba($bg_color, 0.01);
-      box-shadow: inset 0 -2px 0px $theme_color;
+      box-shadow: inset 0 -2px $theme_color;
       color: $inverse_fg_color;
 
       & > .system-status-icon { icon-shadow: none; }

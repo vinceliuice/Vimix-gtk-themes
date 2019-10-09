@@ -1255,10 +1255,11 @@ searchbar,
   &:checked:hover { background: none; }
 }
 
-.titlebar {
+%titlebar,
+headerbar {
   transition: background-color $shorter_duration $deceleration_curve, color $shorter_duration $deceleration_curve;
   min-height: $medium_size;
-  padding: 0 6px;
+  padding: 0 $container_padding;
   box-shadow: $header_shadow;
   background-color: $headerbar_bg_color;
   color: $headerbar_fg_color;
@@ -1280,12 +1281,6 @@ searchbar,
     font-size: smaller;
 
     @extend .dim-label;
-  }
-
-  // Don't draw titlebar above titlebar
-  .titlebar {
-    background-color: transparent;
-    box-shadow: none;
   }
 
   // .background & button,
@@ -1367,61 +1362,6 @@ searchbar,
   .maximized & {
     border-radius: 0; // squared corners when the window is fullscreen, maximized or tiled
     box-shadow: $header_shadow;
-  }
-
-  &, &.background {
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-  }
-
-  .background.tiled &,
-  .background.tiled-top &,
-  .background.tiled-right &,
-  .background.tiled-bottom &,
-  .background.tiled-left &,
-  .background.maximized &,
-  .background.solid-csd & {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
-
-  &:not(headerbar) {
-    box-shadow: $header_shadow, inset 0 1px $secondary_highlight_color;
-    border: none;
-
-    headerbar.titlebar, headerbar {
-      box-shadow: none;
-      background: none;
-    }
-
-    .tiled &,
-    .maximized &,
-    .fullscreen & { box-shadow: $header_shadow; }
-
-    > separator { // separator between titlebars
-      min-width: 1px;
-      min-height: 1px;
-      background-color: $headerbar_bg_color;
-      background-image: image($headerbar_bg_color);
-      // box-shadow: inset 0 -1px $borders_color, inset 0 1px $secondary_highlight_color;
-      border: none;
-    }
-  }
-
-  &.solid-csd headerbar {
-    box-shadow: $header_shadow;
-  }
-
-  .solid-csd > &.vertical {
-    box-shadow: none;
-
-    headerbar.titlebar {
-      box-shadow: none;
-    }
-
-    searchbar {
-      background: none;
-    }
   }
 
   &.default-decoration {
@@ -1512,8 +1452,6 @@ searchbar,
 }
 
 headerbar {
-  padding: 0 6px;
-
   entry,
   spinbutton,
   // separator,
@@ -1564,10 +1502,10 @@ headerbar {
   &.titlebar {
     box-shadow: $header_shadow, inset 0 1px $secondary_highlight_color;
 
-    headerbar {
-      background: none;
-      box-shadow: 0 1px 1px transparent, 0 1px 2px transparent;
-    }
+    // headerbar {
+    //   background: none;
+    //   box-shadow: 0 1px 1px transparent, 0 1px 2px transparent;
+    // }
 
     &.solid-csd headerbar {
       box-shadow: $header_shadow;
@@ -1606,6 +1544,73 @@ headerbar {
       border-top-right-radius: 0;
     }
   }
+}
+
+.titlebar {
+  &, &.background {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+  }
+
+  .background.tiled &,
+  .background.tiled-top &,
+  .background.tiled-right &,
+  .background.tiled-bottom &,
+  .background.tiled-left &,
+  .background.maximized &,
+  .background.solid-csd & {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  &.solid-csd headerbar {
+    box-shadow: $header_shadow;
+  }
+
+  .solid-csd > &.vertical {
+    box-shadow: none;
+
+    headerbar.titlebar {
+      box-shadow: none;
+    }
+
+    searchbar {
+      background: none;
+    }
+  }
+}
+
+.titlebar:not(headerbar) {
+  box-shadow: $header_shadow, inset 0 1px $secondary_highlight_color;
+  border: none;
+
+  // headerbar.titlebar, headerbar {
+  //   box-shadow: none;
+  //   background: none;
+  // }
+
+  .tiled &,
+  .maximized &,
+  .fullscreen & { box-shadow: $header_shadow; }
+
+  > separator { // separator between titlebars
+    min-width: 1px;
+    min-height: 1px;
+    background-color: $headerbar_bg_color;
+    background-image: image($headerbar_bg_color);
+    // box-shadow: inset 0 -1px $borders_color, inset 0 1px $secondary_highlight_color;
+    border: none;
+  }
+
+  window.csd > & {
+  // in csd we assume every titlebar is a headerbar so reset anything, this is needed for split toolbars cases
+    padding: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+
+  @extend %titlebar;
 }
 
 window.background > box.vertical > headerbar:not(.titlebar) { // reset headerbar style for not CSD window

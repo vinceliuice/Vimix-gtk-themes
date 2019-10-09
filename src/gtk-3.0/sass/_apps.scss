@@ -1019,6 +1019,10 @@ window.background.csd {
       background: none;
       min-width: 0;
     }
+
+    // > hdyleaflet > headerbar { // Gnome 3.34
+    //   box-shadow: inset 0 1px $secondary_highlight_color, inset 0 -1px $borders_color;
+    // }
   }
 
   > box.horizontal > separator.sidebar,
@@ -1206,6 +1210,12 @@ row#ClickMethod,
 row#PrimaryWorkspaceTweak, // for 3.26.0
 row#workspaces-only-on-primary {
   margin-top: 4px;
+}
+
+hdyleaflet {
+  > headerbar { // Gnome 3.34
+    box-shadow: inset 0 1px $secondary_highlight_color, inset 0 -1px $borders_color;
+  }
 }
 
 //

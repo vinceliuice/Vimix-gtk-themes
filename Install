@@ -131,6 +131,9 @@ install() {
   mkdir -p                                                                              ${THEME_DIR}/unity
   cp -ur ${SRC_DIR}/unity                                                               ${THEME_DIR}
 
+  mkdir -p                                                                              ${THEME_DIR}/plank
+  cp -ur ${SRC_DIR}/plank/dock${ELSE_LIGHT}.theme                                       ${THEME_DIR}/plank/dock.theme
+
   #  Install cinnamon theme
   mkdir -p                                                                              ${THEME_DIR}/cinnamon
   cp -ur ${SRC_DIR}/cinnamon/cinnamon${ELSE_DARK}${theme}.css                           ${THEME_DIR}/cinnamon/cinnamon.css

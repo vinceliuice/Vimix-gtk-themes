@@ -983,15 +983,6 @@ box.vertical:not(.titlebar) > revealer > toolbar.search-bar {
 // Gnome Control Center
 //
 
-// users section
-// stack {
-//   widget {
-//     stack {
-//       button.toggle { margin: 6px; }
-//     }
-//   }
-// }
-
 // > 3.25.90
 scrolledwindow.view > viewport.frame > stack > list { // left-pane
   > row.activatable { }
@@ -1020,9 +1011,9 @@ window.background.csd {
       min-width: 0;
     }
 
-    // > hdyleaflet > headerbar { // Gnome 3.34
-    //   box-shadow: inset 0 1px $secondary_highlight_color, inset 0 -1px $borders_color;
-    // }
+    > hdyleaflet > headerbar { // Gnome 3.34
+      box-shadow: inset 0 1px $secondary_highlight_color, inset 0 -1px $borders_color;
+    }
   }
 
   > box.horizontal > separator.sidebar,
@@ -1212,8 +1203,8 @@ row#workspaces-only-on-primary {
   margin-top: 4px;
 }
 
-hdyleaflet {
-  > headerbar { // Gnome 3.34
+window.background.csd {
+  > hdyleaflet.titlebar > headerbar.titlebar { // Gnome 3.34
     box-shadow: inset 0 1px $secondary_highlight_color, inset 0 -1px $borders_color;
   }
 }

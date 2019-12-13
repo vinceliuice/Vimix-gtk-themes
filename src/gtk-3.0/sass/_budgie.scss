@@ -64,17 +64,27 @@
 
 .budgie-container { background-color: transparent; }
 
-.budgie-settings-window buttonbox.inline-toolbar {
-  border-style: none none solid;
+.budgie-settings-window {
+  buttonbox.inline-toolbar {
+    border-style: none none solid;
 
-  button {
-    min-height: 16px;
-    border-radius: 2px;
-    -gtk-outline-radius: 2px;
-    padding: 0;
-    margin: 0;
+    button {
+      min-height: 16px;
+      border-radius: 2px;
+      -gtk-outline-radius: 2px;
+      padding: 0;
+      margin: 0;
 
-    @extend %simple_flat_button;
+      @extend %simple_flat_button;
+    }
+  }
+
+  .settings-page {
+    .settings-frame {
+      .linked > entry {
+        @extend %flat_entry;
+      }
+    }
   }
 }
 

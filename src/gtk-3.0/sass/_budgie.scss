@@ -733,6 +733,19 @@ $stackswitcher_color: if($color == 'black' or $color == 'white', rgba(white, 0.6
       margin-top: 4px;
       margin-bottom: 4px;
     }
+
+    list.devices-list.sound-devices {
+      > row.activatable {
+        &:selected, &:checked {
+          background-color: rgba($fg_color, 0.06);
+          color: $fg_color;
+
+          label { color: $fg_color; }
+        }
+
+        label { padding-left: 12px; }
+      }
+    }
   }
 }
 

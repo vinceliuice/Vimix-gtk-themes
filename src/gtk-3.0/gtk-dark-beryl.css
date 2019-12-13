@@ -2113,6 +2113,10 @@ headerbar.titlebar.solid-csd headerbar {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
+.titlebar > headerbar {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24), inset 0 1px rgba(255, 255, 255, 0.1);
+}
+
 separator:first-child + headerbar, headerbar:first-child {
   border-top-left-radius: 2px;
 }
@@ -7028,6 +7032,11 @@ window.solid-csd > box.vertical > box.vertical > frame {
 window.csd > box.vertical > box.vertical > frame > border,
 window.solid-csd > box.vertical > box.vertical > frame > border {
   border: none;
+}
+
+.geary-titlebar-left,
+.geary-titlebar-right {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24), inset 0 1px rgba(255, 255, 255, 0.1);
 }
 
 .geary-titlebar-left separator,

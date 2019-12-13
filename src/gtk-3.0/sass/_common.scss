@@ -1516,6 +1516,10 @@ headerbar {
     .fullscreen & { box-shadow: $header_shadow; }
   }
 
+  .titlebar > & {
+    box-shadow: $header_shadow, inset 0 1px $secondary_highlight_color;
+  }
+
   separator:first-child + &, // tackles the paned container case
   &:first-child { border-top-left-radius: 2px; }
   &:last-child { border-top-right-radius: 2px; }

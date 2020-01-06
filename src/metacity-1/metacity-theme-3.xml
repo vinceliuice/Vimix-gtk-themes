@@ -171,10 +171,12 @@
 
 <draw_ops name="titlebar_attached_focused"> <!-- titlebar for attached and modal dialogs -->
 	<include name="titlebar_fill_attached_focused" />
+	<include name="highlight"/>
 </draw_ops>
 
 <draw_ops name="rounded_titlebar_focused">
 	<include name="titlebar_fill_focused" />
+	<include name="highlight"/>
 </draw_ops>
 
 <draw_ops name="titlebar_max">
@@ -447,9 +449,9 @@
 	<button function="close" state="normal" draw_ops="close_unfocused" />
 	<button function="close" state="prelight" draw_ops="close_unfocused_prelight" />
 	<button function="close" state="pressed" draw_ops="close_unfocused_pressed" />
-	<button function="maximize" state="normal" draw_ops="unmaximize_focused" />
-	<button function="maximize" state="prelight" draw_ops="unmaximize_focused_prelight" />
-	<button function="maximize" state="pressed" draw_ops="unmaximize_focused_pressed" />
+	<button function="maximize" state="normal" draw_ops="unmaximize_unfocused" />
+	<button function="maximize" state="prelight" draw_ops="unmaximize_unfocused_prelight" />
+	<button function="maximize" state="pressed" draw_ops="unmaximize_unfocused_pressed" />
 	<button function="minimize" state="normal" draw_ops="minimize_unfocused" />
 	<button function="minimize" state="prelight" draw_ops="minimize_unfocused_prelight" />
 	<button function="minimize" state="pressed" draw_ops="minimize_unfocused_pressed" />
@@ -511,9 +513,9 @@
 	<button function="close" state="normal" draw_ops="close_unfocused" />
 	<button function="close" state="prelight" draw_ops="close_unfocused_prelight" />
 	<button function="close" state="pressed" draw_ops="close_unfocused_pressed" />
-	<button function="maximize" state="normal" draw_ops="unmaximize_focused" />
-	<button function="maximize" state="prelight" draw_ops="unmaximize_focused_prelight" />
-	<button function="maximize" state="pressed" draw_ops="unmaximize_focused_pressed" />
+	<button function="maximize" state="normal" draw_ops="unmaximize_unfocused" />
+	<button function="maximize" state="prelight" draw_ops="unmaximize_unfocused_prelight" />
+	<button function="maximize" state="pressed" draw_ops="unmaximize_unfocused_pressed" />
 	<button function="minimize" state="normal" draw_ops="minimize_unfocused" />
 	<button function="minimize" state="prelight" draw_ops="minimize_unfocused_prelight" />
 	<button function="minimize" state="pressed" draw_ops="minimize_unfocused_pressed" />

@@ -2125,7 +2125,12 @@ menubar.-vala-panel-background {
 //
 .nemo-window {
   .toolbar {
-    button { @extend %toolbar_flat_button; }
+    button {
+      @extend %toolbar_flat_button;
+      padding: 0 4px;
+      margin-top: 2px;
+      margin-bottom: 2px;
+    }
   }
 
   .nemo-places-sidebar {

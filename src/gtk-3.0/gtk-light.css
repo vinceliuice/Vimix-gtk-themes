@@ -7430,6 +7430,12 @@ menubar.-vala-panel-background > menuitem:hover {
   border-radius: 0 0 0 0;
 }
 
+.nemo-window .toolbar button {
+  padding: 0 4px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
 .nemo-window .nemo-places-sidebar {
   background-color: #FCFCFC;
 }
@@ -9205,7 +9211,7 @@ treeview.view header box.vertical > stack > box.vertical > .raven-background > v
 @define-color wm_unfocused_title alpha(rgba(0, 0, 0, 0.8), 0.5);
 @define-color wm_bg #eeeeee;
 @define-color wm_bg_unfocused #eeeeee;
-@define-color wm_highlight #f6f6f6;
+@define-color wm_highlight white;
 /* these are pretty self explicative */
 @define-color warning_color #FF6D00;
 @define-color error_color #DD2C00;

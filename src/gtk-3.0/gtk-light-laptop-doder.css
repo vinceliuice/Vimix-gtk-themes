@@ -7565,6 +7565,10 @@ menubar.-vala-panel-background > menuitem:hover {
   color: rgba(0, 0, 0, 0.6);
 }
 
+toolbar.primary-toolbar toolitem.raised stackswitcher.stack-switcher {
+  margin-top: 6px;
+}
+
 dialog.background .dialog-vbox grid.horizontal scrolledwindow.frame {
   border: none;
 }
@@ -7575,6 +7579,10 @@ dialog.background .dialog-vbox grid.horizontal scrolledwindow.frame viewport.fra
 
 dialog.background .dialog-vbox grid.horizontal stack scrolledwindow.frame {
   border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+dialog.background .dialog-vbox stackswitcher.stack-switcher {
+  margin-top: 6px;
 }
 
 dialog.background .dialog-vbox .dialog-action-area button.suggested-action {
@@ -7638,6 +7646,10 @@ window.background stack scrolledwindow button.destructive-action:checked {
 window.background stack scrolledwindow :not(stackswitcher).linked button:not(.combo) {
   border-radius: 3px;
   margin: 0 2px;
+}
+
+window.background stack scrolledwindow stackswitcher.stack-switcher {
+  margin-top: 6px;
 }
 
 window.background stack scrolledwindow .linked button,

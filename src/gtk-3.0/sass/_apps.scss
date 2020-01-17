@@ -2188,6 +2188,11 @@ menubar.-vala-panel-background {
 
     button:not(.suggested-action):not(.destructive-action) { @extend %header_button; }
 
+    > toolitem > .linked.raised > button {
+      margin-left: 1px;
+      margin-right: 1px;
+    }
+
     entry {
       color: $headerbar_fg_color;
       caret-color: $headerbar_fg_color;

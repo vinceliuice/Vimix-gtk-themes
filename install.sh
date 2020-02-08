@@ -49,8 +49,8 @@ install() {
 
   #  Copy LICENSE
   mkdir -p                                                                              ${THEME_DIR}
-  cp -ur ${REO_DIR}/LICENSE                                                             ${THEME_DIR}
-  cp -ur ${REO_DIR}/AUTHORS                                                             ${THEME_DIR}
+  cp -r ${REO_DIR}/LICENSE                                                              ${THEME_DIR}
+  cp -r ${REO_DIR}/AUTHORS                                                              ${THEME_DIR}
 
   #  Install index.theme files
   echo "[Desktop Entry]"                                                             >> ${THEME_DIR}/index.theme
@@ -68,40 +68,50 @@ install() {
 
   #  Install gtk2 theme
   mkdir -p                                                                              ${THEME_DIR}/gtk-2.0
-  cp -ur ${SRC_DIR}/gtk-2.0/common/*.rc                                                 ${THEME_DIR}/gtk-2.0
-  cp -ur ${SRC_DIR}/gtk-2.0/assets/vimix${theme}/assets${ELSE_DARK}                     ${THEME_DIR}/gtk-2.0/assets
+  cp -r ${SRC_DIR}/gtk-2.0/common/*.rc                                                  ${THEME_DIR}/gtk-2.0
+  cp -r ${SRC_DIR}/gtk-2.0/assets/vimix${theme}/assets${ELSE_DARK}                      ${THEME_DIR}/gtk-2.0/assets
 
   [[ ${color} == '' ]] && [[ ${theme} == '' ]] && \
   cp -r ${SRC_DIR}/gtk-2.0/assets/vimix/assets-dark/pathbar_button_active.png           ${THEME_DIR}/gtk-2.0/assets && \
   cp -r ${SRC_DIR}/gtk-2.0/assets/vimix/assets-dark/pathbar_button_prelight.png         ${THEME_DIR}/gtk-2.0/assets
 
-  cp -ur ${SRC_DIR}/gtk-2.0/gtkrc${color}${theme}                                       ${THEME_DIR}/gtk-2.0/gtkrc
+  cp -r ${SRC_DIR}/gtk-2.0/gtkrc${color}${theme}                                        ${THEME_DIR}/gtk-2.0/gtkrc
 
   #  Install gtk3 theme
   mkdir -p                                                                              ${THEME_DIR}/gtk-3.0/assets
-  cp -ur ${SRC_DIR}/gtk-3.0/assets/assets${theme}/*.png                                 ${THEME_DIR}/gtk-3.0/assets
+  cp -r ${SRC_DIR}/gtk-3.0/assets/assets${theme}/*.png                                  ${THEME_DIR}/gtk-3.0/assets
 
   [[ ${no_color} == '' ]] && \
-  cp -ur ${SRC_DIR}/gtk-3.0/assets/window-assets                                        ${THEME_DIR}/gtk-3.0/assets
+  cp -r ${SRC_DIR}/gtk-3.0/assets/window-assets                                         ${THEME_DIR}/gtk-3.0/assets
 
   [[ ${theme} == '' && ${no_color} == 'true' ]] && \
-  cp -ur ${SRC_DIR}/gtk-3.0/assets/window-assets-contrast                               ${THEME_DIR}/gtk-3.0/assets/window-assets
-  cp -ur ${SRC_DIR}/gtk-3.0/assets/scalable                                             ${THEME_DIR}/gtk-3.0/assets
-  cp -ur ${SRC_DIR}/gtk-3.0/gtk${color}${size}${theme}.css                              ${THEME_DIR}/gtk-3.0/gtk.css
+  cp -r ${SRC_DIR}/gtk-3.0/assets/window-assets-contrast                                ${THEME_DIR}/gtk-3.0/assets/window-assets
+  cp -r ${SRC_DIR}/gtk-3.0/assets/scalable                                              ${THEME_DIR}/gtk-3.0/assets
+  cp -r ${SRC_DIR}/gtk-3.0/gtk${color}${size}${theme}.css                               ${THEME_DIR}/gtk-3.0/gtk.css
 
   [[ ${color} != '-dark' ]] && \
-  cp -ur ${SRC_DIR}/gtk-3.0/gtk-dark${size}${theme}.css                                 ${THEME_DIR}/gtk-3.0/gtk-dark.css
-  cp -ur ${SRC_DIR}/gtk-3.0/assets/thumbnails/thumbnail${color}${theme}.png             ${THEME_DIR}/gtk-3.0/thumbnail.png
+  cp -r ${SRC_DIR}/gtk-3.0/gtk-dark${size}${theme}.css                                  ${THEME_DIR}/gtk-3.0/gtk-dark.css
+  cp -r ${SRC_DIR}/gtk-3.0/assets/thumbnails/thumbnail${color}${theme}.png              ${THEME_DIR}/gtk-3.0/thumbnail.png
 
   #  Install gnome-shell theme
   mkdir -p                                                                              ${THEME_DIR}/gnome-shell
-  cp -ur ${SRC_DIR}/gnome-shell/{extensions,message-indicator-symbolic.svg,pad-osd.css} ${THEME_DIR}/gnome-shell
-  cp -ur ${SRC_DIR}/gnome-shell/common-assets                                           ${THEME_DIR}/gnome-shell/assets
-  cp -ur ${SRC_DIR}/gnome-shell/assets${ELSE_DARK}/*.svg                                ${THEME_DIR}/gnome-shell/assets
-  cp -ur ${SRC_DIR}/gnome-shell/color-assets/checkbox${theme}.svg                       ${THEME_DIR}/gnome-shell/assets/checkbox.svg
-  cp -ur ${SRC_DIR}/gnome-shell/color-assets/more-results${theme}.svg                   ${THEME_DIR}/gnome-shell/assets/more-results.svg
-  cp -ur ${SRC_DIR}/gnome-shell/color-assets/toggle-on${theme}.svg                      ${THEME_DIR}/gnome-shell/assets/toggle-on.svg
-  cp -ur ${SRC_DIR}/gnome-shell/gnome-shell${color}${size}${theme}.css                  ${THEME_DIR}/gnome-shell/gnome-shell.css
+  cp -r ${SRC_DIR}/gnome-shell/{extensions,message-indicator-symbolic.svg,pad-osd.css}  ${THEME_DIR}/gnome-shell
+  cp -r ${SRC_DIR}/gnome-shell/common-assets                                            ${THEME_DIR}/gnome-shell/assets
+  cp -r ${SRC_DIR}/gnome-shell/assets${ELSE_DARK}/*.svg                                 ${THEME_DIR}/gnome-shell/assets
+  cp -r ${SRC_DIR}/gnome-shell/color-assets/checkbox${theme}.svg                        ${THEME_DIR}/gnome-shell/assets/checkbox.svg
+  cp -r ${SRC_DIR}/gnome-shell/color-assets/more-results${theme}.svg                    ${THEME_DIR}/gnome-shell/assets/more-results.svg
+  cp -r ${SRC_DIR}/gnome-shell/color-assets/toggle-on${theme}.svg                       ${THEME_DIR}/gnome-shell/assets/toggle-on.svg
+  cp -r ${SRC_DIR}/gnome-shell/color-assets/menu-checked${theme}.svg                    ${THEME_DIR}/gnome-shell/assets/menu-checked.svg
+
+  if [[ ${theme} == '-doder' && ${color} == '-dark' ]] || [[ ${theme} == '-beryl' && ${color} == '-dark' ]]; then
+    cp -r ${SRC_DIR}/gnome-shell/color-assets/menu-doder.svg                            ${THEME_DIR}/gnome-shell/assets/menu.svg
+  fi
+
+  if [[ ${theme} == '' && ${color} == '-dark' ]] || [[ ${theme} == '-ruby' && ${color} == '-dark' ]]; then
+    cp -r ${SRC_DIR}/gnome-shell/color-assets/menu-ruby.svg                             ${THEME_DIR}/gnome-shell/assets/menu.svg
+  fi
+
+  cp -r ${SRC_DIR}/gnome-shell/gnome-shell${color}${size}${theme}.css                   ${THEME_DIR}/gnome-shell/gnome-shell.css
 
   cd ${THEME_DIR}/gnome-shell
   ln -s assets/no-events.svg no-events.svg
@@ -110,39 +120,39 @@ install() {
 
   #  Install metacity theme
   mkdir -p                                                                              ${THEME_DIR}/metacity-1
-  cp -ur ${SRC_DIR}/metacity-1/assets/*.png                                             ${THEME_DIR}/metacity-1
-  cp -ur ${SRC_DIR}/metacity-1/metacity-theme-3.xml                                     ${THEME_DIR}/metacity-1
-  cp -ur ${SRC_DIR}/metacity-1/metacity-theme-1${color}${theme}.xml                     ${THEME_DIR}/metacity-1/metacity-theme-1.xml
-  cp -ur ${SRC_DIR}/metacity-1/thumbnail${color}.png                                    ${THEME_DIR}/metacity-1/thumbnail.png
+  cp -r ${SRC_DIR}/metacity-1/assets/*.png                                              ${THEME_DIR}/metacity-1
+  cp -r ${SRC_DIR}/metacity-1/metacity-theme-3.xml                                      ${THEME_DIR}/metacity-1
+  cp -r ${SRC_DIR}/metacity-1/metacity-theme-1${color}${theme}.xml                      ${THEME_DIR}/metacity-1/metacity-theme-1.xml
+  cp -r ${SRC_DIR}/metacity-1/thumbnail${color}.png                                     ${THEME_DIR}/metacity-1/thumbnail.png
 
   cd ${THEME_DIR}/metacity-1 && ln -s metacity-theme-1.xml metacity-theme-2.xml
 
   #  Install xfwm4 theme
   mkdir -p                                                                              ${THEME_DIR}/xfwm4
-  cp -ur ${SRC_DIR}/xfwm4/themerc${color}                                               ${THEME_DIR}/xfwm4/themerc
+  cp -r ${SRC_DIR}/xfwm4/themerc${color}                                                ${THEME_DIR}/xfwm4/themerc
 
   [[ ${no_color} == '' ]] && \
-  cp -ur ${SRC_DIR}/xfwm4/assets${color}${theme}/*.png                                  ${THEME_DIR}/xfwm4
+  cp -r ${SRC_DIR}/xfwm4/assets${color}${theme}/*.png                                   ${THEME_DIR}/xfwm4
 
   [[ ${theme} == '' && ${no_color} == 'true' ]] && \
-  cp -ur ${SRC_DIR}/xfwm4/assets${color}-contrast/*.png                                 ${THEME_DIR}/xfwm4
+  cp -r ${SRC_DIR}/xfwm4/assets${color}-contrast/*.png                                  ${THEME_DIR}/xfwm4
 
   #  Install unity theme
   mkdir -p                                                                              ${THEME_DIR}/unity
-  cp -ur ${SRC_DIR}/unity                                                               ${THEME_DIR}
+  cp -r ${SRC_DIR}/unity                                                                ${THEME_DIR}
 
   mkdir -p                                                                              ${THEME_DIR}/plank
-  cp -ur ${SRC_DIR}/plank/dock${ELSE_LIGHT}.theme                                       ${THEME_DIR}/plank/dock.theme
+  cp -r ${SRC_DIR}/plank/dock${ELSE_LIGHT}.theme                                        ${THEME_DIR}/plank/dock.theme
 
   #  Install cinnamon theme
   mkdir -p                                                                              ${THEME_DIR}/cinnamon
-  cp -ur ${SRC_DIR}/cinnamon/cinnamon${ELSE_DARK}${theme}.css                           ${THEME_DIR}/cinnamon/cinnamon.css
-  cp -ur ${SRC_DIR}/cinnamon/assets${theme}/common-assets                               ${THEME_DIR}/cinnamon/assets
-  cp -ur ${SRC_DIR}/cinnamon/assets${theme}/assets${ELSE_DARK}/checkbox/*.svg           ${THEME_DIR}/cinnamon/assets/checkbox
-  cp -ur ${SRC_DIR}/cinnamon/assets${theme}/assets${ELSE_DARK}/menu/*.svg               ${THEME_DIR}/cinnamon/assets/menu
-  cp -ur ${SRC_DIR}/cinnamon/assets${theme}/assets${ELSE_DARK}/misc/*.svg               ${THEME_DIR}/cinnamon/assets/misc
-  cp -ur ${SRC_DIR}/cinnamon/assets${theme}/assets${ELSE_DARK}/switch/*.svg             ${THEME_DIR}/cinnamon/assets/switch
-  cp -ur ${SRC_DIR}/cinnamon/thumbnail${ELSE_DARK}${theme}.png                          ${THEME_DIR}/cinnamon/thumbnail.png
+  cp -r ${SRC_DIR}/cinnamon/cinnamon${ELSE_DARK}${theme}.css                            ${THEME_DIR}/cinnamon/cinnamon.css
+  cp -r ${SRC_DIR}/cinnamon/assets${theme}/common-assets                                ${THEME_DIR}/cinnamon/assets
+  cp -r ${SRC_DIR}/cinnamon/assets${theme}/assets${ELSE_DARK}/checkbox/*.svg            ${THEME_DIR}/cinnamon/assets/checkbox
+  cp -r ${SRC_DIR}/cinnamon/assets${theme}/assets${ELSE_DARK}/menu/*.svg                ${THEME_DIR}/cinnamon/assets/menu
+  cp -r ${SRC_DIR}/cinnamon/assets${theme}/assets${ELSE_DARK}/misc/*.svg                ${THEME_DIR}/cinnamon/assets/misc
+  cp -r ${SRC_DIR}/cinnamon/assets${theme}/assets${ELSE_DARK}/switch/*.svg              ${THEME_DIR}/cinnamon/assets/switch
+  cp -r ${SRC_DIR}/cinnamon/thumbnail${ELSE_DARK}${theme}.png                           ${THEME_DIR}/cinnamon/thumbnail.png
 }
 
 #  Check command avalibility

@@ -370,8 +370,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   border-radius: 2px;
   color: #FFFFFF;
   background-color: #2c2e33;
-  border: none;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.24), 0 3px 3px rgba(0, 0, 0, 0.345);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: none;
 }
 
 .modal-dialog .modal-dialog-content-box {
@@ -735,15 +735,18 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .popup-menu {
   min-width: 200px;
   color: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-image: url("assets/menu.svg") 18 18 18 18;
+  padding: 8px 0;
 }
 
 .popup-menu .popup-sub-menu {
-  background-color: #25272b;
-  box-shadow: 0 0 transparent;
+  border-image: url("assets/submenu.svg") 18 18 2 2;
+  box-shadow: none;
 }
 
 .popup-menu .popup-menu-content {
-  padding: 8px 0;
+  padding: 16px 0 6px 0;
 }
 
 .popup-menu .popup-menu-item {
@@ -760,40 +763,30 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .popup-menu .popup-menu-item:checked {
-  background-color: #2EB398;
-  color: #FFFFFF;
-  box-shadow: 0 0 transparent;
+  background: none;
+  box-shadow: none;
   font-weight: normal;
 }
 
-.popup-menu .popup-menu-item:checked.selected {
-  background-color: #4dbea7;
+.popup-menu .popup-menu-item:checked, .popup-menu .popup-menu-item:checked:active, .popup-menu .popup-menu-item:checked.selected {
   color: #FFFFFF;
-}
-
-.popup-menu .popup-menu-item:checked:active {
-  background-color: #6dcab7;
-  color: #FFFFFF !important;
+  border-image: url("assets/menu-checked.svg") 18 18 2 2;
 }
 
 .popup-menu .popup-menu-item:checked:insensitive {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.popup-menu .popup-menu-item.selected {
-  background-color: rgba(255, 255, 255, 0.12);
+.popup-menu .popup-menu-item:hover, .popup-menu .popup-menu-item.selected {
   color: #FFFFFF;
-  transition-duration: 0ms;
+  background-color: transparent;
+  border-image: url("assets/menu-hover.svg") 18 18 2 2;
 }
 
-.popup-menu .popup-menu-item:active {
-  background-color: rgba(255, 255, 255, 0.25);
+.popup-menu .popup-menu-item:active, .popup-menu .popup-menu-item.selected:active {
   color: #FFFFFF;
-  transition-duration: 225ms;
-}
-
-.popup-menu .popup-menu-item.selected:active {
-  color: #FFFFFF;
+  background-color: transparent;
+  border-image: url("assets/menu-checked.svg") 18 18 2 2;
 }
 
 .popup-menu .popup-menu-item:insensitive {
@@ -820,23 +813,16 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .popup-menu-boxpointer {
-  -arrow-border-radius: 0;
+  -arrow-border-radius: 2px;
   -arrow-background-color: transparent;
   -arrow-border-width: 0;
   -arrow-border-color: transparent;
   -arrow-base: 0;
   -arrow-rise: 0;
   -arrow-box-shadow: none;
-  margin: 0;
   background-color: transparent;
   box-shadow: none;
-}
-
-.popup-menu-boxpointer .popup-menu-content {
-  margin: 5px 8px 8px;
-  background-color: #2c2e33;
-  border-radius: 2px;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.24), 0 3px 3px rgba(0, 0, 0, 0.345);
+  border: 0 none transparent;
 }
 
 .candidate-popup-boxpointer {
@@ -850,13 +836,12 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   margin: 0;
   background-color: transparent;
   box-shadow: none;
+  color: #FFFFFF;
+  border-image: url("assets/menu.svg") 18 18 18 18;
 }
 
 .candidate-popup-boxpointer .candidate-popup-content {
-  margin: 8px 8px;
-  background-color: #27292e;
-  border-radius: 2px;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.24), 0 3px 3px rgba(0, 0, 0, 0.345);
+  margin: 6px;
 }
 
 .popup-separator-menu-item {

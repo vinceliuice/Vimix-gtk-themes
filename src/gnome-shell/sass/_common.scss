@@ -254,8 +254,8 @@ StScrollBar {
   border-radius: 2px;
   color: $fg_color;
   background-color: $base_color;
-  border: none;
-  box-shadow: $shadow_2;
+  border: 2px solid rgba(white, 0.15);
+  box-shadow: none;
 
   .modal-dialog-content-box {
     padding: 24px;
@@ -577,14 +577,17 @@ StScrollBar {
 .popup-menu {
   min-width: 200px;
   color: $secondary_fg_color;
+  border: none;
+  border-image: url("assets/menu.svg") 18 18 18 18;
+  padding: 8px 0;
 
   .popup-menu-arrow { } //defined globally in the TOP BAR
   .popup-sub-menu {
-    background-color: $alt_base_color;
-    box-shadow: $shadow_0;
+    border-image: url("assets/submenu.svg") 18 18 2 2;
+    box-shadow: none;
   }
 
-  .popup-menu-content { padding: 8px 0; }
+  .popup-menu-content { padding: 16px 0 6px 0; }
   .popup-menu-item {
     // min-height: $menuitem_size - 4px * 2;
     spacing: 8px;
@@ -594,37 +597,29 @@ StScrollBar {
     &:rtl { padding: 0.4em 0 0.4em 24px; }
 
     &:checked {
-      background-color: $primary_color;
-      color: $inverse_fg_color;
-      box-shadow: $shadow_0;
+      background: none;
+      box-shadow: none;
       font-weight: normal;
 
-      &.selected {
-        background-color: mix($inverse_fg_color, $primary_color, percentage($lower_opacity / 2));
+      &, &:active, &.selected {
         color: $inverse_fg_color;
-      }
-
-      &:active {
-        background-color: mix($inverse_fg_color, $primary_color, percentage($lower_opacity));
-        color: $inverse_fg_color !important;
+        border-image: url("assets/menu-checked.svg") 18 18 2 2;
       }
 
       &:insensitive { color: $inverse_disabled_fg_color; }
     }
 
-    &.selected {
-      background-color: $divider_color;
+    &:hover, &.selected {
       color: $fg_color;
-      transition-duration: 0ms;
+      background-color: transparent;
+      border-image: url("assets/menu-hover.svg") 18 18 2 2;
     }
 
-    &:active {
-      background-color: $track_color;
-      color: $fg_color;
-      transition-duration: $longer_duration;
+    &:active, &.selected:active {
+      color: $inverse_fg_color;
+      background-color: transparent;
+      border-image: url("assets/menu-checked.svg") 18 18 2 2;
     }
-
-    &.selected:active { color: $fg_color; }
 
     &:insensitive { color: $disabled_fg_color; }
   }
@@ -649,22 +644,18 @@ StScrollBar {
 }
 
 .popup-menu-boxpointer {
-  -arrow-border-radius: 0;
+  -arrow-border-radius: 2px;
   -arrow-background-color: transparent;
   -arrow-border-width: 0;
   -arrow-border-color: transparent;
   -arrow-base: 0;
   -arrow-rise: 0;
   -arrow-box-shadow: none; //dreaming. bug #689995
-  margin: 0;
   background-color: transparent;
   box-shadow: none;
+  border: 0 none transparent;
 
   .popup-menu-content {
-    margin: 5px 8px 8px;
-    background-color: $base_color;
-    border-radius: 2px;
-    box-shadow: $shadow_2;
   }
 }
 
@@ -679,12 +670,11 @@ StScrollBar {
   margin: 0;
   background-color: transparent;
   box-shadow: none;
+  color: $fg_color;
+  border-image: url("assets/menu.svg") 18 18 18 18;
 
   .candidate-popup-content {
-    margin: 8px 8px;
-    background-color: if($variant =='dark', darken($base_color, 2%), darken($base_color, 3%));
-    border-radius: 2px;
-    box-shadow: $shadow_2;
+    margin: 6px;
   }
 }
 

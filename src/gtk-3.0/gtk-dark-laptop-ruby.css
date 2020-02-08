@@ -58,7 +58,7 @@
 }
 
 .gtkstyle-fallback:active {
-  background-color: #0f0e0e;
+  background-color: #0f0f0f;
   color: #EAEAEA;
 }
 
@@ -1407,11 +1407,7 @@ button:visited:active {
   color: #E040FB;
 }
 
-infobar.info *:link, infobar.info button:link,
-infobar.info button:visited, infobar.question *:link, infobar.question button:link,
-infobar.question button:visited, infobar.warning *:link, infobar.warning button:link,
-infobar.warning button:visited, infobar.error *:link, infobar.error button:link,
-infobar.error button:visited, *:link:selected, button:selected:link,
+infobar.info :link, infobar.question :link, infobar.warning :link, infobar.error :link, *:link:selected, button:selected:link,
 button:selected:visited, .selection-mode.titlebar:not(headerbar) .subtitle:link,
 headerbar.selection-mode .subtitle:link,
 *:selected *:link,
@@ -5076,7 +5072,7 @@ messagedialog.csd decoration {
 .solid-csd decoration {
   margin: 0;
   padding: 1px 2px 2px;
-  border: 1px solid #1d1c1c;
+  border: 1px solid #1d1d1d;
   border-radius: 0;
   box-shadow: inset 0 0 0 2px #363636, inset 0 1px rgba(255, 255, 255, 0.1);
   background-color: #222222;
@@ -9228,7 +9224,7 @@ treeview.view header box.vertical > stack > box.vertical > .raven-background > v
 @define-color wm_unfocused_title alpha(#EAEAEA, 0.5);
 @define-color wm_bg #363636;
 @define-color wm_bg_unfocused #363636;
-@define-color wm_highlight #504f4f;
+@define-color wm_highlight #505050;
 /* these are pretty self explicative */
 @define-color warning_color #FF6D00;
 @define-color error_color #DD2C00;

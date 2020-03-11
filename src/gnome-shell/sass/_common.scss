@@ -209,7 +209,7 @@ StScrollBar {
 
 /* Switches */
 .toggle-switch {
-  width: 50px;
+  width: 40px;
   height: 20px;
   background-size: contain;
   background-image: url("assets/toggle-off.svg");
@@ -575,7 +575,7 @@ StScrollBar {
 /* Popovers/Menus */
 
 .popup-menu {
-  min-width: 200px;
+  min-width: 15em;
   color: $secondary_fg_color;
   border: none;
   border-image: url("assets/menu.svg") 18 18 18 18;
@@ -593,8 +593,8 @@ StScrollBar {
     spacing: 8px;
     transition-duration: $shorter_duration;
 
-    &:ltr { padding: 0.4em 24px 0.4em 0; }
-    &:rtl { padding: 0.4em 0 0.4em 24px; }
+    &:ltr { padding-right:1.75em; padding-left: 0; }
+    &:rtl { padding-right: 0; padding-left:1.75em; }
 
     &:checked {
       background: none;
@@ -654,9 +654,6 @@ StScrollBar {
   background-color: transparent;
   box-shadow: none;
   border: 0 none transparent;
-
-  .popup-menu-content {
-  }
 }
 
 .candidate-popup-boxpointer {
@@ -679,15 +676,90 @@ StScrollBar {
 }
 
 .popup-separator-menu-item {
-  //-margin-horizontal: 24px;
-  height: 1px; //not really the whole box
+  padding: 0;
+  height: 0; //not really the whole box
   margin: 8px 64px - 24px;
   background-color: transparent;
   border-color: $border_color;
   border-bottom-width: 1px;
   border-bottom-style: solid;
+  
+  .popup-separator-menu-item-separator {
+    height: 0; //not really the whole box
+    margin: 0 0;
+    background: none;
+
+    .popup-sub-menu & { //submenu separators
+      margin: 0 0;
+      background: none;
+    }
+  }
 }
 
+// a little unstructured mess:
+
+.system-switch-user-submenu-icon.user-icon {
+  icon-size: 20px;
+  padding: 0 2px;
+}
+
+.system-switch-user-submenu-icon.default-icon {
+  icon-size: 16px;
+  padding: 0 4px;
+}
+
+.system-switch-user-submenu-icon {
+  icon-size: 16px;
+  padding: 0 4px;
+}
+
+#appMenu {
+  spinner-image: url("process-working.svg");
+  spacing: 4px;
+
+  .label-shadow { color: transparent; }
+}
+
+.aggregate-menu {
+  min-width: 21em;
+
+  // lock screen, shutdown, etc. buttons
+  .popup-menu-icon { 
+    padding: 0;
+    margin: 0 6px;
+    -st-icon-style: symbolic;
+  }
+
+  .popup-sub-menu .popup-menu-item > :first-child {
+    &:ltr { /* 12px spacing + 2*4px padding */
+            padding-left: 24px; margin-left: 1em; }
+    &:rtl { /* 12px spacing + 2*4px padding */
+            padding-right: 24px; margin-right: 1em; }
+  }
+}
+
+.system-menu-action {
+  color: $secondary_fg_color;
+  border-radius: 100px; /* wish we could do 50% */
+  padding: ($large_size - 16px) / 2;
+  border: none;
+  -st-icon-style: symbolic; // >= 3.29.90
+
+  &:hover, &:focus {
+    background-color: $divider_color;
+    color: $fg_color;
+    border: none;
+    padding: ($large_size - 16px) / 2;
+  }
+
+  &:active { background-color: $track_color; color: $fg_color; }
+
+  & > StIcon { icon-size: 16px; }
+}
+
+// symbolic icons in popover
+.popup-menu-arrow,
+.popup-menu-icon { icon-size: em(16px); }
 
 // Background menu
 .background-menu { -boxpointer-gap: 4px; -arrow-rise: 0; }
@@ -1003,6 +1075,9 @@ StScrollBar {
 
 .calendar {
   margin-bottom: 0;
+  border: none;
+  box-shadow: none;
+  background: none;
 }
 
 .calendar,
@@ -1022,15 +1097,6 @@ StScrollBar {
   &:rtl { border-right-width: 0; }
 }
 
-.datemenu-today-button,
-.world-clocks-button,
-.weather-button,
-.events-section-title {
-  min-height: $menuitem_size - 4px * 2;
-  padding: 4px 8px;
-  border-radius: 2px;
-}
-
 .datemenu-today-button {
   min-height: $menuitem_size * 2 - 4px * 2;
 }
@@ -1047,6 +1113,12 @@ StScrollBar {
 .world-clocks-button,
 .weather-button,
 .events-section-title {
+  min-height: $menuitem_size - 4px * 2;
+  padding: 4px 8px;
+  border-radius: 2px;
+  border: none;
+  box-shadow: none;
+
   &:hover,&:focus { color: $fg_color; background-color: $divider_color; }
   &:active {
     color: $fg_color;
@@ -1112,10 +1184,13 @@ StScrollBar {
 .calendar-day-base {
   @include font(caption);
   text-align: center;
-  width: $menuitem_size; height: $menuitem_size;
+  width: 32px;
+  height: 32px;
   padding: 0;
   margin: 2px;
   border-radius: 100px;
+  color: $secondary_fg_color;
+
   &:hover,&:focus { background-color: $divider_color; }
   &:active {
     color: inherit;
@@ -1156,9 +1231,24 @@ StScrollBar {
 
 .calendar-today {
   font-weight: bold !important;
-  //color: $fg_color;
-  //background-color: transparent;
+  color: $inverse_fg_color;
+  background-color: $primary_color;
   border: none;
+
+  &:hover, &:focus {
+    background-color:lighten($primary_color, 3%);
+    color: $inverse_fg_color;
+  }
+
+  &:active, &:selected {
+    background-color: $primary_color;
+    color: $inverse_fg_color;
+
+    &:hover, &:focus {
+      background-color:lighten($primary_color, 3%);
+      color: $inverse_fg_color;
+    }
+  }
 }
 
 .calendar-day-with-events {
@@ -1210,8 +1300,19 @@ StScrollBar {
   min-height: $menuitem_size * 2;
   background-color: transparent;
   border: none;
-  &:hover,&:focus { background-color: $divider_color; }
-  &:active { background-color: $track_color; }
+
+  &:hover,&:focus {
+    border: none;
+    box-shadow: none;
+    background-color: $divider_color;
+  }
+
+  &:active {
+    border: none;
+    box-shadow: none;
+    background-color: $track_color;
+  }
+
   border-radius: 2px;
 }
 
@@ -1307,69 +1408,12 @@ StScrollBar {
   }
 }
 
-
-// a little unstructured mess:
-
-.system-switch-user-submenu-icon.user-icon {
-  icon-size: 20px;
-  padding: 0 2px;
-}
-
-.system-switch-user-submenu-icon.default-icon {
-  icon-size: 16px;
-  padding: 0 4px;
-}
-
-.system-switch-user-submenu-icon {
-  icon-size: 16px;
-  padding: 0 4px;
-}
-
-#appMenu {
-  spinner-image: url("process-working.svg");
-  spacing: 4px;
-
-  .label-shadow { color: transparent; }
-}
-
-.aggregate-menu {
-  min-width: 280px;
-  .popup-menu-icon { padding: 0 4px; }
-  .popup-sub-menu .popup-menu-item :first-child {
-    &:ltr { /* 8px spacing + 2*4px padding */
-      margin-left: 14px;
-    }
-    &:rtl { /* 8px spacing + 2*4px padding */
-      margin-right: 14px;
-    }
-  }
-}
-
-.system-menu-action {
-  color: $secondary_fg_color;
-  border-radius: 100px; /* wish we could do 50% */
-  padding: ($large_size - 16px) / 2;
-  border: none;
-  -st-icon-style: symbolic; // >= 3.29.90
-
-  &:hover, &:focus {
-    background-color: $divider_color;
-    color: $fg_color;
-    border: none;
-    padding: ($large_size - 16px) / 2;
-  }
-
-  &:active { background-color: $track_color; color: $fg_color; }
-
-  & > StIcon { icon-size: 16px; }
-}
-
 //Activities Ripples
 .ripple-box {
   width: 48px;
   height: 48px;
   border-radius: 0 0 48px 0;
-  background-color: $inverse_track_color;
+  background-color: rgba($primary_color, 0.35);
   background-image: none;
   background-size: auto;
 }
@@ -1378,10 +1422,6 @@ StScrollBar {
   border-radius: 0 0 0 48px;
   background-image: none;
 }
-
-// not really top bar only
-.popup-menu-arrow { width: 16px; height: 16px; }
-.popup-menu-icon { icon-size: em(16px); }
 
 //close buttons
 
@@ -1455,7 +1495,12 @@ StScrollBar {
 
 .nm-dialog-airplane-text { color: $fg_color; }
 .nm-dialog-header-icon { icon-size: 32px; }
-.nm-dialog-scroll-view { border: none; }
+.nm-dialog-scroll-view {
+  border: 1px solid $border_color;
+  padding: 0;
+  background-color: if($variant == 'light', rgba(black, 0.05), rgba(black, 0.1));
+  border-radius: 2px;
+}
 .nm-dialog-header { @include font(title); }
 
 .nm-dialog-item {
@@ -1512,6 +1557,9 @@ StScrollBar {
   background-color: $bg_color;
   border-radius: 2px;
   padding: 4px 8px;
+  border: none;
+  font-weight: normal;
+  @include font(body);
 }
 
 //search entry
@@ -1535,6 +1583,11 @@ StScrollBar {
 
   &:hover, &:focus {
     .search-entry-icon { color: $inverse_fg_color; }
+  }
+  
+  &:insensitive {
+    border: none;
+    color: $inverse_disabled_fg_color;
   }
 }
 
@@ -1801,6 +1854,69 @@ StScrollBar {
 .grid-search-result .overview-icon.overview-icon-with-label {
   padding: 10px 8px 5px 8px;
   spacing: 4px;
+}
+
+/* App Folders */
+.app-folder {
+  .overview-icon {
+  }
+}
+
+// expanded folder
+.app-folder-dialog {
+  border-radius: 5px;
+  border: none;
+  spacing: 12px;
+  background-color: $bg_color;
+
+  & .folder-name-container {
+    padding: 24px 36px 0;
+    spacing: 12px;
+
+    & .folder-name-label,
+    & .folder-name-entry {
+      font-size: 18pt;
+      font-weight: bold;
+    }
+
+    & .folder-name-entry {
+      @extend .search-entry;
+    }
+
+    /* FIXME: this is to keep the label in sync with the entry */
+    & .folder-name-label { padding: 5px 7px; color: $inverse_fg_color; }
+
+    & .edit-folder-button {
+      background-color: $inverse_bg_color;
+      color: $inverse_fg_color;
+      border: none;
+
+      padding: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 18px;
+
+      & > StIcon { icon-size: 16px }
+
+      &:hover { background-color: $inverse_divider_color; }
+      &:checked, &:active { background-color: $inverse_track_color; }
+    }
+  }
+
+  & StButton#vhandle,
+  & StButton#vhandle:hover,
+  & StButton#vhandle:active { background-color: transparent; }
+}
+.app-folder-dialog-container {
+  padding: 12px;
+  width: 800px;
+  height: 600px;
+}
+
+.app-folder-icon {
+  padding: 6px;
+  spacing-rows: 6px;
+  spacing-columns: 6px;
 }
 
 // Workspace pager

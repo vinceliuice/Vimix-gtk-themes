@@ -1407,7 +1407,11 @@ button:visited:active {
   color: #E040FB;
 }
 
-infobar.info :link, infobar.question :link, infobar.warning :link, infobar.error :link, *:link:selected, button:selected:link,
+infobar.info *:link, infobar.info button:link,
+infobar.info button:visited, infobar.question *:link, infobar.question button:link,
+infobar.question button:visited, infobar.warning *:link, infobar.warning button:link,
+infobar.warning button:visited, infobar.error *:link, infobar.error button:link,
+infobar.error button:visited, *:link:selected, button:selected:link,
 button:selected:visited, .selection-mode.titlebar:not(headerbar) .subtitle:link,
 headerbar.selection-mode .subtitle:link,
 *:selected *:link,
@@ -2598,20 +2602,20 @@ menuitem accelerator {
   border-radius: 2px;
 }
 
-popover.background button:not(.suggested-action):not(.destructive-action), dialog.background .dialog-vbox .dialog-action-area button, button#show_previous_icon_toolbar_togglebutton,
+popover.background button:not(.suggested-action):not(.destructive-action), button#show_previous_icon_toolbar_togglebutton,
 button#show_show_thumbnails_icon_toolbar_togglebutton {
   box-shadow: none;
   background-color: transparent;
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
 }
 
-popover.background button:hover:not(.suggested-action):not(.destructive-action), dialog.background .dialog-vbox .dialog-action-area button:hover, button#show_previous_icon_toolbar_togglebutton:hover,
+popover.background button:hover:not(.suggested-action):not(.destructive-action), button#show_previous_icon_toolbar_togglebutton:hover,
 button#show_show_thumbnails_icon_toolbar_togglebutton:hover {
   background-color: rgba(0, 0, 0, 0.15);
   color: rgba(0, 0, 0, 0.8);
 }
 
-popover.background button:active:not(.suggested-action):not(.destructive-action), dialog.background .dialog-vbox .dialog-action-area button:active, button#show_previous_icon_toolbar_togglebutton:active,
+popover.background button:active:not(.suggested-action):not(.destructive-action), button#show_previous_icon_toolbar_togglebutton:active,
 button#show_show_thumbnails_icon_toolbar_togglebutton:active {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
   animation: ripple_effect 100ms cubic-bezier(0, 0, 0.2, 1) forwards;
@@ -2621,19 +2625,19 @@ button#show_show_thumbnails_icon_toolbar_togglebutton:active {
   color: #FFFFFF;
 }
 
-popover.background button:checked:not(.suggested-action):not(.destructive-action), dialog.background .dialog-vbox .dialog-action-area button:checked, button#show_previous_icon_toolbar_togglebutton:checked,
+popover.background button:checked:not(.suggested-action):not(.destructive-action), button#show_previous_icon_toolbar_togglebutton:checked,
 button#show_show_thumbnails_icon_toolbar_togglebutton:checked {
   background-color: #686868;
   color: #FFFFFF;
 }
 
-popover.background button:disabled:not(.suggested-action):not(.destructive-action), dialog.background .dialog-vbox .dialog-action-area button:disabled, button#show_previous_icon_toolbar_togglebutton:disabled,
+popover.background button:disabled:not(.suggested-action):not(.destructive-action), button#show_previous_icon_toolbar_togglebutton:disabled,
 button#show_show_thumbnails_icon_toolbar_togglebutton:disabled {
   background-color: transparent;
   color: rgba(0, 0, 0, 0.32);
 }
 
-popover.background button:checked:disabled:not(.suggested-action):not(.destructive-action), dialog.background .dialog-vbox .dialog-action-area button:checked:disabled, button#show_previous_icon_toolbar_togglebutton:checked:disabled,
+popover.background button:checked:disabled:not(.suggested-action):not(.destructive-action), button#show_previous_icon_toolbar_togglebutton:checked:disabled,
 button#show_show_thumbnails_icon_toolbar_togglebutton:checked:disabled {
   background-color: rgba(104, 104, 104, 0.5);
   color: rgba(255, 255, 255, 0.5);

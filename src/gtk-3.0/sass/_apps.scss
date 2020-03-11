@@ -2272,7 +2272,7 @@ dialog.background {
     }
 
     .dialog-action-area {
-      button { @extend %flat_theme_button; }
+      // button { @extend %flat_theme_button; }
 
       @each $b_type, $b_color in (suggested-action, $suggested_color),
                                  (destructive-action, $destructive_color) {

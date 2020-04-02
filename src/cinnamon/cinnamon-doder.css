@@ -25,8 +25,7 @@ stage {
 }
 
 .menu #notification .notification-button,
-.menu #notification .notification-icon-button,
-.popup-menu #notification .notification-button,
+.menu #notification .notification-icon-button, .popup-menu #notification .notification-button,
 .popup-menu #notification .notification-icon-button {
   border-color: transparent;
   color: rgba(0, 0, 0, 0.7569);
@@ -41,8 +40,7 @@ stage {
 }
 
 .menu #notification .notification-button:focus,
-.menu #notification .notification-icon-button:focus,
-.popup-menu #notification .notification-button:focus,
+.menu #notification .notification-icon-button:focus, .popup-menu #notification .notification-button:focus,
 .popup-menu #notification .notification-icon-button:focus {
   color: rgba(0, 0, 0, 0.87);
   box-shadow: 0 0 transparent;
@@ -51,8 +49,7 @@ stage {
 }
 
 .menu #notification .notification-button:hover,
-.menu #notification .notification-icon-button:hover,
-.popup-menu #notification .notification-button:hover,
+.menu #notification .notification-icon-button:hover, .popup-menu #notification .notification-button:hover,
 .popup-menu #notification .notification-icon-button:hover {
   border-color: transparent;
   color: rgba(0, 0, 0, 0.87);
@@ -63,8 +60,7 @@ stage {
 }
 
 .menu #notification .notification-button:active,
-.menu #notification .notification-icon-button:active,
-.popup-menu #notification .notification-button:active,
+.menu #notification .notification-icon-button:active, .popup-menu #notification .notification-button:active,
 .popup-menu #notification .notification-icon-button:active {
   border-color: transparent;
   color: #FFFFFF;
@@ -75,8 +71,7 @@ stage {
 }
 
 .menu #notification .notification-button:insensitive,
-.menu #notification .notification-icon-button:insensitive,
-.popup-menu #notification .notification-button:insensitive,
+.menu #notification .notification-icon-button:insensitive, .popup-menu #notification .notification-button:insensitive,
 .popup-menu #notification .notification-icon-button:insensitive {
   border-color: transparent;
   color: rgba(0, 0, 0, 0.211932);
@@ -87,31 +82,12 @@ stage {
 }
 
 .menu #notification .notification-button,
-.menu #notification .notification-icon-button,
-.popup-menu #notification .notification-button,
-.popup-menu #notification .notification-icon-button, .menu #notification .notification-button:focus,
-.menu #notification .notification-icon-button:focus,
-.popup-menu #notification .notification-button:focus,
-.popup-menu #notification .notification-icon-button:focus, .menu #notification .notification-button:hover,
-.menu #notification .notification-icon-button:hover,
-.popup-menu #notification .notification-button:hover,
-.popup-menu #notification .notification-icon-button:hover, .menu #notification .notification-button:hover:focus,
-.menu #notification .notification-icon-button:hover:focus,
-.popup-menu #notification .notification-button:hover:focus,
-.popup-menu #notification .notification-icon-button:hover:focus, .menu #notification .notification-button:active,
-.menu #notification .notification-icon-button:active,
-.popup-menu #notification .notification-button:active,
-.popup-menu #notification .notification-icon-button:active, .menu #notification .notification-button:active:focus,
-.menu #notification .notification-icon-button:active:focus,
-.popup-menu #notification .notification-button:active:focus,
-.popup-menu #notification .notification-icon-button:active:focus, .menu #notification .notification-button:insensitive,
-.menu #notification .notification-icon-button:insensitive,
-.popup-menu #notification .notification-button:insensitive,
-.popup-menu #notification .notification-icon-button:insensitive {
+.menu #notification .notification-icon-button, .popup-menu #notification .notification-button,
+.popup-menu #notification .notification-icon-button {
   border-radius: 2px;
 }
 
-.notification-button, .notification-icon-button, .modal-dialog-button-box .modal-dialog-button {
+.modal-dialog-button-box .modal-dialog-button, .notification-button, .notification-icon-button {
   border-color: transparent;
   color: rgba(234, 234, 234, 0.87);
   background-color: transparent;
@@ -123,14 +99,14 @@ stage {
   border-radius: 3px;
 }
 
-.notification-button:focus, .notification-icon-button:focus, .modal-dialog-button-box .modal-dialog-button:focus {
+.modal-dialog-button-box .modal-dialog-button:focus, .notification-button:focus, .notification-icon-button:focus {
   color: #EAEAEA;
   box-shadow: 0 0 transparent;
   text-shadow: none;
   icon-shadow: none;
 }
 
-.notification-button:hover, .notification-icon-button:hover, .modal-dialog-button-box .modal-dialog-button:hover {
+.modal-dialog-button-box .modal-dialog-button:hover, .notification-button:hover, .notification-icon-button:hover {
   border-color: transparent;
   color: #EAEAEA;
   background-color: rgba(234, 234, 234, 0.12);
@@ -139,7 +115,7 @@ stage {
   icon-shadow: none;
 }
 
-.notification-button:active, .notification-icon-button:active, .modal-dialog-button-box .modal-dialog-button:active {
+.modal-dialog-button-box .modal-dialog-button:active, .notification-button:active, .notification-icon-button:active {
   border-color: transparent;
   color: #FFFFFF;
   background-color: rgba(234, 234, 234, 0.25);
@@ -148,7 +124,7 @@ stage {
   icon-shadow: none;
 }
 
-.notification-button:insensitive, .notification-icon-button:insensitive, .modal-dialog-button-box .modal-dialog-button:insensitive {
+.modal-dialog-button-box .modal-dialog-button:insensitive, .notification-button:insensitive, .notification-icon-button:insensitive {
   border-color: transparent;
   color: rgba(234, 234, 234, 0.2436);
   background-color: transparent;
@@ -157,8 +133,7 @@ stage {
   icon-shadow: none;
 }
 
-.menu #notification StEntry,
-.popup-menu #notification StEntry, #menu-search-entry {
+#menu-search-entry, .menu #notification StEntry, .popup-menu #notification StEntry {
   border-color: transparent;
   background-color: rgba(0, 0, 0, 0.01);
   box-shadow: inset 0 -1px rgba(0, 0, 0, 0.174);
@@ -173,35 +148,27 @@ stage {
   selected-color: #FFFFFF;
 }
 
-.menu #notification StEntry:focus,
-.popup-menu #notification StEntry:focus, #menu-search-entry:focus, .menu #notification StEntry:focus:hover,
-.popup-menu #notification StEntry:focus:hover, #menu-search-entry:focus:hover {
+#menu-search-entry:focus, .menu #notification StEntry:focus, .popup-menu #notification StEntry:focus {
   border-color: transparent;
   box-shadow: inset 0 -2px #4586D8;
 }
 
-.menu #notification StEntry:hover,
-.popup-menu #notification StEntry:hover, #menu-search-entry:hover {
+#menu-search-entry:hover, .menu #notification StEntry:hover, .popup-menu #notification StEntry:hover {
   border-color: transparent;
   box-shadow: inset 0 -2px rgba(0, 0, 0, 0.174);
 }
 
-.menu #notification StEntry:insensitive,
-.popup-menu #notification StEntry:insensitive, #menu-search-entry:insensitive {
+#menu-search-entry:insensitive, .menu #notification StEntry:insensitive, .popup-menu #notification StEntry:insensitive {
   border-color: transparent;
   color: rgba(0, 0, 0, 0.2436);
   box-shadow: inset 0 -1px rgba(0, 0, 0, 0.04872);
 }
 
-.menu #notification StEntry,
-.popup-menu #notification StEntry, #menu-search-entry, .menu #notification StEntry:focus,
-.popup-menu #notification StEntry:focus, #menu-search-entry:focus, .menu #notification StEntry:hover,
-.popup-menu #notification StEntry:hover, #menu-search-entry:hover, .menu #notification StEntry:insensitive,
-.popup-menu #notification StEntry:insensitive, #menu-search-entry:insensitive {
+#menu-search-entry, .menu #notification StEntry, .popup-menu #notification StEntry, .menu #notification StEntry:focus, .popup-menu #notification StEntry:focus, .menu #notification StEntry:hover, .popup-menu #notification StEntry:hover, .menu #notification StEntry:insensitive, .popup-menu #notification StEntry:insensitive {
   background-color: rgba(255, 255, 255, 0.01);
 }
 
-.menu #notification StEntry StIcon.capslock-warning, .popup-menu #notification StEntry StIcon.capslock-warning, #menu-search-entry StIcon.capslock-warning {
+#menu-search-entry StIcon.capslock-warning, .menu #notification StEntry StIcon.capslock-warning, .popup-menu #notification StEntry StIcon.capslock-warning {
   icon-size: 16px;
   padding: 0 2px;
   warning-color: #FF6D00;
@@ -980,16 +947,13 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   color: #EAEAEA;
 }
 
-.menu #notification, .menu #notification.multi-line-notification,
-.popup-menu #notification,
-.popup-menu #notification.multi-line-notification {
+.menu #notification, .menu #notification.multi-line-notification, .popup-menu #notification, .popup-menu #notification.multi-line-notification {
   border-image: url("assets/misc/message.svg") 9 9 9 9;
   color: rgba(0, 0, 0, 0.87);
 }
 
 .menu #notification .notification-button,
-.menu #notification .notification-icon-button,
-.popup-menu #notification .notification-button,
+.menu #notification .notification-icon-button, .popup-menu #notification .notification-button,
 .popup-menu #notification .notification-icon-button {
   padding: 5px;
 }
@@ -1627,8 +1591,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   padding-left: 10px;
 }
 
-.panel-bottom .window-list-box,
-.panel-top .window-list-box {
+.panel-bottom .window-list-box, .panel-top .window-list-box {
   padding-top: 2px;
   padding-bottom: 2px;
 }
@@ -1696,16 +1659,11 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   box-shadow: inset -2px 0 #4586D8;
 }
 
-.panel-top .window-list-item-box StIcon,
-.panel-bottom .window-list-item-box StIcon, .panel-top
-.window-list-item-box StBin,
-.panel-bottom
-.window-list-item-box StBin {
+.panel-top .window-list-item-box StIcon, .panel-bottom .window-list-item-box StIcon, .panel-top .window-list-item-box StBin, .panel-bottom .window-list-item-box StBin {
   padding: 2px;
 }
 
-.window-list-item-box.vertical StIcon,
-.window-list-item-box.vertical StBin {
+.window-list-item-box.vertical StIcon, .window-list-item-box.vertical StBin {
   padding: 0;
 }
 
@@ -1713,13 +1671,11 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   font-weight: 400;
 }
 
-.panel-top .window-list-item-box StLabel:ltr,
-.panel-bottom .window-list-item-box StLabel:ltr {
+.panel-top .window-list-item-box StLabel:ltr, .panel-bottom .window-list-item-box StLabel:ltr {
   padding: 0 4px 0 0;
 }
 
-.panel-top .window-list-item-box StLabel:rtl,
-.panel-bottom .window-list-item-box StLabel:rtl {
+.panel-top .window-list-item-box StLabel:rtl, .panel-bottom .window-list-item-box StLabel:rtl {
   padding: 0 0 0 4px;
 }
 
@@ -1880,16 +1836,11 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   box-shadow: inset -2px 0 #4586D8;
 }
 
-.panel-top .grouped-window-list-item-box StIcon,
-.panel-bottom .grouped-window-list-item-box StIcon, .panel-top
-.grouped-window-list-item-box StBin,
-.panel-bottom
-.grouped-window-list-item-box StBin {
+.panel-top .grouped-window-list-item-box StIcon, .panel-bottom .grouped-window-list-item-box StIcon, .panel-top .grouped-window-list-item-box StBin, .panel-bottom .grouped-window-list-item-box StBin {
   padding: 2px;
 }
 
-.grouped-window-list-item-box.vertical StIcon,
-.grouped-window-list-item-box.vertical StBin {
+.grouped-window-list-item-box.vertical StIcon, .grouped-window-list-item-box.vertical StBin {
   padding: 0;
 }
 
@@ -1897,13 +1848,11 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   font-weight: 400;
 }
 
-.panel-top .grouped-window-list-item-box StLabel:ltr,
-.panel-bottom .grouped-window-list-item-box StLabel:ltr {
+.panel-top .grouped-window-list-item-box StLabel:ltr, .panel-bottom .grouped-window-list-item-box StLabel:ltr {
   padding: 0 4px 0 0;
 }
 
-.panel-top .grouped-window-list-item-box StLabel:rtl,
-.panel-bottom .grouped-window-list-item-box StLabel:rtl {
+.panel-top .grouped-window-list-item-box StLabel:rtl, .panel-bottom .grouped-window-list-item-box StLabel:rtl {
   padding: 0 0 0 4px;
 }
 
@@ -2008,14 +1957,12 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   padding: 3px;
 }
 
-.panel-top .workspace-switcher,
-.panel-bottom .workspace-switcher {
+.panel-top .workspace-switcher, .panel-bottom .workspace-switcher {
   padding-left: 3px;
   padding-right: 3px;
 }
 
-.panel-left .workspace-switcher,
-.panel-right .workspace-switcher {
+.panel-left .workspace-switcher, .panel-right .workspace-switcher {
   padding-top: 3px;
   padding-bottom: 3px;
 }
@@ -2285,9 +2232,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   font-weight: 700;
 }
 
-.applet-label:hover,
-.applet-box:hover .applet-label,
-.applet-box:checked .applet-label {
+.applet-label:hover, .applet-box:hover .applet-label, .applet-box:checked .applet-label {
   color: #FFFFFF;
   text-shadow: none;
 }
@@ -2297,9 +2242,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   color: #EAEAEA;
 }
 
-.applet-icon:hover,
-.applet-box:hover > .applet-icon,
-.applet-box:checked > .applet-icon {
+.applet-icon:hover, .applet-box:hover > .applet-icon, .applet-box:checked > .applet-icon {
   color: #FFFFFF;
   text-shadow: none;
 }
@@ -2591,13 +2534,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   margin: 3px 0;
 }
 
-.panel-top .applet-box .window-list-item-box StIcon, .panel-top .applet-box .window-list-item-box StBin,
-.panel-bottom .applet-box .window-list-item-box StIcon,
-.panel-bottom .applet-box .window-list-item-box StBin,
-.panel-left .applet-box .window-list-item-box StIcon,
-.panel-left .applet-box .window-list-item-box StBin,
-.panel-right .applet-box .window-list-item-box StIcon,
-.panel-right .applet-box .window-list-item-box StBin {
+.panel-top .applet-box .window-list-item-box StIcon, .panel-top .applet-box .window-list-item-box StBin, .panel-bottom .applet-box .window-list-item-box StIcon, .panel-bottom .applet-box .window-list-item-box StBin, .panel-left .applet-box .window-list-item-box StIcon, .panel-left .applet-box .window-list-item-box StBin, .panel-right .applet-box .window-list-item-box StIcon, .panel-right .applet-box .window-list-item-box StBin {
   padding: 0;
 }
 

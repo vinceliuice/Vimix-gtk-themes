@@ -155,12 +155,6 @@
     &.width-maximized {
       color: $secondary_headerbar_fg_color;
       background-color: rgba($headerbar_fg_color, 0.06);
-
-      // button {
-      //   margin: 0;
-      //   border-radius: 0;
-      //   @extend %pathbar_widthbox_button;
-      // }
     }
 
     // workaround for 3.30.1
@@ -200,15 +194,15 @@
   &:selected, &:selected:focus { color: mix($inversed_fg_color, $primary_color, 80%); }
 }
 
+%desktop-canvas-item,
 .nautilus-desktop.nautilus-canvas-item {
   // background-color: scale-alpha(#000000, $lower_opacity);
   color: $inversed_fg_color;
   text-shadow: $z-depth-1;
-}
 
-.nautilus-desktop.nautilus-canvas-item:selected {
-  // color: $inversed_fg_color;
-  text-shadow: none;
+  &:selected {
+    text-shadow: none;
+  }
 }
 
 // places sidebar
@@ -963,7 +957,7 @@ overlay grid.horizontal > revealer > scrolledwindow.frame {
 }
 
 frame.documents-dropdown {
-  @extend toolbar.osd;
+  @extend %toolbar_osd;
 
   margin: 8px;
 
@@ -2076,10 +2070,6 @@ window.thunar {
 
   .sidebar {
     border-top: none;
-
-    // treeview.view {
-    //   @extend treeview.view;
-    // }
   }
 
   toolbar#location-toolbar {
@@ -2137,7 +2127,6 @@ menubar.-vala-panel-background {
     background-color: $lighter_bg_color;
 
     &.frame { border-width: 0; }
-    // .places-treeview { @extend row.activatable; }
   }
 
   notebook {

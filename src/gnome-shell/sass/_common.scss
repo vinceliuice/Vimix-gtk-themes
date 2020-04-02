@@ -96,6 +96,14 @@ StEntry {
     warning-color: $warning_color;
     padding: 0 0;
   }
+  StIcon.peek-password {
+    icon-size: 16px;
+    padding: 0 4px;
+  }
+  StLabel.hint-text {
+    margin-left: 2px;
+    color: $secondary_fg_color;
+  }
 }
 
 
@@ -591,7 +599,7 @@ StScrollBar {
   .popup-menu-item {
     // min-height: $menuitem_size - 4px * 2;
     spacing: 8px;
-    transition-duration: $shorter_duration;
+    transition-duration: 0ms;
 
     &:ltr { padding-right:1.75em; padding-left: 0; }
     &:rtl { padding-right: 0; padding-left:1.75em; }
@@ -627,7 +635,7 @@ StScrollBar {
   .popup-inactive-menu-item { //all icons and other graphical elements
     color: $fg_color;
 
-    &:insensitive { color: $hint_fg_color; }
+    &:insensitive { color: transparent; }
   }
 
   //.popup-status-menu-item { font-weight: normal;  color: pink; } //dunno what that is
@@ -678,12 +686,12 @@ StScrollBar {
 .popup-separator-menu-item {
   padding: 0;
   height: 0; //not really the whole box
-  margin: 8px 64px - 24px;
+  margin: 8px 40px;
   background-color: transparent;
   border-color: $border_color;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  
+
   .popup-separator-menu-item-separator {
     height: 0; //not really the whole box
     margin: 0 0;
@@ -724,7 +732,7 @@ StScrollBar {
   min-width: 21em;
 
   // lock screen, shutdown, etc. buttons
-  .popup-menu-icon { 
+  .popup-menu-icon {
     padding: 0;
     margin: 0 6px;
     -st-icon-style: symbolic;
@@ -1025,6 +1033,15 @@ StScrollBar {
     }
   }
 
+  .panel-button.clock-display {
+    &:active, &:overview, &:focus, &:checked {
+      .clock {
+        background: none;
+        box-shadow: none;
+      }
+    }
+  }
+
   .panel-status-indicators-box,
   .panel-status-menu-box {
     spacing: 2px;
@@ -1118,6 +1135,8 @@ StScrollBar {
   border-radius: 2px;
   border: none;
   box-shadow: none;
+  background: none;
+  color: $secondary_fg_color;
 
   &:hover,&:focus { color: $fg_color; background-color: $divider_color; }
   &:active {
@@ -1298,10 +1317,12 @@ StScrollBar {
 
 .message {
   min-height: $menuitem_size * 2;
-  background-color: transparent;
   border: none;
+  box-shadow: none;
+  background: none;
+  color: $secondary_fg_color;
 
-  &:hover,&:focus {
+  &:hover, &:focus {
     border: none;
     box-shadow: none;
     background-color: $divider_color;
@@ -1353,6 +1374,18 @@ StScrollBar {
   color: $fg_color;
   font-weight: bold;
   font-size: 1em;
+}
+
+// close button
+.message-close-button {
+  color: lighten($fg_color, 15%);
+  &:hover { color: if($variant=='light', lighten($fg_color, 30%), darken($fg_color, 10%)); }
+  &:active { color: if($variant=='light', lighten($fg_color, 40%), darken($fg_color, 20%)); }
+}
+
+// body
+.message-body {
+  color: $secondary_fg_color;
 }
 
 .message-content {
@@ -1568,6 +1601,7 @@ StScrollBar {
   padding: 0 8px;
   border-radius: 0;
   color: $inverse_hint_fg_color;
+  caret-color: $inverse_fg_color;
   selection-background-color: $inverse_track_color;
   selected-color: $inverse_fg_color;
   @include entry(normal, $fc:$inverse_track_color);
@@ -1584,10 +1618,14 @@ StScrollBar {
   &:hover, &:focus {
     .search-entry-icon { color: $inverse_fg_color; }
   }
-  
+
   &:insensitive {
     border: none;
     color: $inverse_disabled_fg_color;
+  }
+
+  StLabel.hint-text {
+    color: $inverse_hint_fg_color;
   }
 }
 
@@ -1605,7 +1643,12 @@ StScrollBar {
 }
 
 .search-section { spacing: 16px; } // This should be equal to #searchResultsContent spacing
-.search-section-content { spacing: 32px; } // This is the space between the provider icon and the results container
+.search-section-content {
+  spacing: 32px;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
 .search-statustext { // "no results"
   @extend %status_text;
 }
@@ -1795,11 +1838,6 @@ StScrollBar {
 }
 
 .app-folder-popup-bin { padding: 5px; }
-.app-folder-icon {
-  padding: 5px;
-  spacing-rows: 5px;
-  spacing-columns: 5px;
-}
 
 .page-indicator {
   padding: 15px 20px;
@@ -1850,9 +1888,8 @@ StScrollBar {
 
 .no-frequent-applications-label { @extend %status_text; }
 
-.app-well-app > .overview-icon.overview-icon-with-label,
-.grid-search-result .overview-icon.overview-icon-with-label {
-  padding: 10px 8px 5px 8px;
+.overview-icon.overview-icon-with-label {
+  padding: 10px 8px 20px 8px;
   spacing: 4px;
 }
 
@@ -1914,7 +1951,7 @@ StScrollBar {
 }
 
 .app-folder-icon {
-  padding: 6px;
+  padding: 6px 6px 0px;
   spacing-rows: 6px;
   spacing-columns: 6px;
 }
@@ -2437,6 +2474,7 @@ StScrollBar {
 // Looking Glass
 #LookingGlassDialog {
   background-color: $base_color;
+  color: $secondary_fg_color;
   spacing: 4px;
   padding: 0;
   border: none;

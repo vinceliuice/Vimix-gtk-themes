@@ -176,6 +176,16 @@ StEntry StIcon.capslock-warning {
   padding: 0 0;
 }
 
+StEntry StIcon.peek-password {
+  icon-size: 16px;
+  padding: 0 4px;
+}
+
+StEntry StLabel.hint-text {
+  margin-left: 2px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
 /* Scrollbars */
 StScrollView.vfade {
   -st-vfade-offset: 32px;
@@ -214,19 +224,19 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   background-color: #FFFFFF;
 }
 
-#overview StScrollBar StBin#trough, #screenShieldNotifications StScrollBar StBin#trough {
+#screenShieldNotifications StScrollBar StBin#trough, #overview StScrollBar StBin#trough {
   background-color: rgba(255, 255, 255, 0.12);
 }
 
-#overview StScrollBar StButton#vhandle, #screenShieldNotifications StScrollBar StButton#vhandle, #overview StScrollBar StButton#hhandle, #screenShieldNotifications StScrollBar StButton#hhandle {
+#screenShieldNotifications StScrollBar StButton#vhandle, #overview StScrollBar StButton#vhandle, #screenShieldNotifications StScrollBar StButton#hhandle, #overview StScrollBar StButton#hhandle {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-#overview StScrollBar StButton#vhandle:hover, #screenShieldNotifications StScrollBar StButton#vhandle:hover, #overview StScrollBar StButton#hhandle:hover, #screenShieldNotifications StScrollBar StButton#hhandle:hover {
+#screenShieldNotifications StScrollBar StButton#vhandle:hover, #overview StScrollBar StButton#vhandle:hover, #screenShieldNotifications StScrollBar StButton#hhandle:hover, #overview StScrollBar StButton#hhandle:hover {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
-#overview StScrollBar StButton#vhandle:active, #screenShieldNotifications StScrollBar StButton#vhandle:active, #overview StScrollBar StButton#hhandle:active, #screenShieldNotifications StScrollBar StButton#hhandle:active {
+#screenShieldNotifications StScrollBar StButton#vhandle:active, #overview StScrollBar StButton#vhandle:active, #screenShieldNotifications StScrollBar StButton#hhandle:active, #overview StScrollBar StButton#hhandle:active {
   background-color: #FFFFFF;
 }
 
@@ -751,7 +761,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .popup-menu .popup-menu-item {
   spacing: 8px;
-  transition-duration: 100ms;
+  transition-duration: 0ms;
 }
 
 .popup-menu .popup-menu-item:ltr {
@@ -800,7 +810,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .popup-menu .popup-inactive-menu-item:insensitive {
-  color: rgba(255, 255, 255, 0.5);
+  color: transparent;
 }
 
 .popup-menu.panel-menu {
@@ -940,7 +950,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .popup-menu-arrow,
 .popup-menu-icon {
-  icon-size: 1.14286em;
+  icon-size: 1.1428571429em;
 }
 
 .background-menu {
@@ -1200,24 +1210,21 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 #panel .panel-button .system-status-icon {
-  icon-size: 1.14286em;
+  icon-size: 1.1428571429em;
   padding: 0 4px;
 }
 
-.unlock-screen #panel .panel-button,
-.login-screen #panel .panel-button,
-.lock-screen #panel .panel-button {
+.unlock-screen #panel .panel-button, .login-screen #panel .panel-button, .lock-screen #panel .panel-button {
   color: rgba(255, 255, 255, 0.7);
 }
 
-.unlock-screen #panel .panel-button:focus, .unlock-screen #panel .panel-button:hover, .unlock-screen #panel .panel-button:active,
-.login-screen #panel .panel-button:focus,
-.login-screen #panel .panel-button:hover,
-.login-screen #panel .panel-button:active,
-.lock-screen #panel .panel-button:focus,
-.lock-screen #panel .panel-button:hover,
-.lock-screen #panel .panel-button:active {
+.unlock-screen #panel .panel-button:focus, .unlock-screen #panel .panel-button:hover, .unlock-screen #panel .panel-button:active, .login-screen #panel .panel-button:focus, .login-screen #panel .panel-button:hover, .login-screen #panel .panel-button:active, .lock-screen #panel .panel-button:focus, .lock-screen #panel .panel-button:hover, .lock-screen #panel .panel-button:active {
   color: #FFFFFF;
+}
+
+#panel .panel-button.clock-display:active .clock, #panel .panel-button.clock-display:overview .clock, #panel .panel-button.clock-display:focus .clock, #panel .panel-button.clock-display:checked .clock {
+  background: none;
+  box-shadow: none;
 }
 
 #panel .panel-status-indicators-box,
@@ -1331,6 +1338,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   border-radius: 2px;
   border: none;
   box-shadow: none;
+  background: none;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .datemenu-today-button:hover, .datemenu-today-button:focus,
@@ -1555,8 +1564,10 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .message {
   min-height: 64px;
-  background-color: transparent;
   border: none;
+  box-shadow: none;
+  background: none;
+  color: rgba(255, 255, 255, 0.7);
   border-radius: 2px;
 }
 
@@ -1582,7 +1593,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .message-icon-bin > StIcon {
   color: #FFFFFF;
-  icon-size: 1.14286em;
+  icon-size: 1.1428571429em;
   -st-icon-style: requested;
   margin: 4px 0px 4px 4px;
 }
@@ -1606,7 +1617,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .message-secondary-bin > StIcon {
-  icon-size: 1.14286em;
+  icon-size: 1.1428571429em;
 }
 
 .message-title {
@@ -1615,6 +1626,22 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   color: #FFFFFF;
   font-weight: bold;
   font-size: 1em;
+}
+
+.message-close-button {
+  color: white;
+}
+
+.message-close-button:hover {
+  color: #e6e6e6;
+}
+
+.message-close-button:active {
+  color: #cccccc;
+}
+
+.message-body {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .message-content {
@@ -1869,6 +1896,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   padding: 0 8px;
   border-radius: 0;
   color: rgba(255, 255, 255, 0.5);
+  caret-color: #FFFFFF;
   selection-background-color: rgba(255, 255, 255, 0.3);
   selected-color: #FFFFFF;
   background-color: rgba(0, 0, 0, 0.01);
@@ -1899,6 +1927,10 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   color: rgba(255, 255, 255, 0.5);
 }
 
+.search-entry StLabel.hint-text, .app-folder-dialog .folder-name-container .folder-name-entry StLabel.hint-text {
+  color: rgba(255, 255, 255, 0.5);
+}
+
 #searchResultsContent {
   max-width: 1000px;
   padding-left: 20px;
@@ -1912,6 +1944,9 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .search-section-content {
   spacing: 32px;
+  background: none;
+  border: none;
+  box-shadow: none;
 }
 
 .list-search-results {
@@ -2070,9 +2105,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   transition-duration: 225ms;
 }
 
-.app-well-app:hover .overview-icon,
-.app-well-app:focus .overview-icon,
-.app-well-app:selected .overview-icon,
+.app-well-app:hover .overview-icon, .app-well-app:focus .overview-icon, .app-well-app:selected .overview-icon,
 .app-well-app.app-folder:hover .overview-icon,
 .app-well-app.app-folder:focus .overview-icon,
 .app-well-app.app-folder:selected .overview-icon,
@@ -2088,8 +2121,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   background-image: none;
 }
 
-.app-well-app:active .overview-icon,
-.app-well-app:checked .overview-icon,
+.app-well-app:active .overview-icon, .app-well-app:checked .overview-icon,
 .app-well-app.app-folder:active .overview-icon,
 .app-well-app.app-folder:checked .overview-icon,
 .show-apps:active .overview-icon,
@@ -2148,12 +2180,6 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   padding: 5px;
 }
 
-.app-folder-icon {
-  padding: 5px;
-  spacing-rows: 5px;
-  spacing-columns: 5px;
-}
-
 .page-indicator {
   padding: 15px 20px;
 }
@@ -2201,9 +2227,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   background-image: none;
 }
 
-.app-well-app > .overview-icon.overview-icon-with-label,
-.grid-search-result .overview-icon.overview-icon-with-label {
-  padding: 10px 8px 5px 8px;
+.overview-icon.overview-icon-with-label {
+  padding: 10px 8px 20px 8px;
   spacing: 4px;
 }
 
@@ -2221,8 +2246,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   /* FIXME: this is to keep the label in sync with the entry */
 }
 
-.app-folder-dialog .folder-name-container .folder-name-label,
-.app-folder-dialog .folder-name-container .folder-name-entry {
+.app-folder-dialog .folder-name-container .folder-name-label, .app-folder-dialog .folder-name-container .folder-name-entry {
   font-size: 18pt;
   font-weight: bold;
 }
@@ -2254,9 +2278,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-.app-folder-dialog StButton#vhandle,
-.app-folder-dialog StButton#vhandle:hover,
-.app-folder-dialog StButton#vhandle:active {
+.app-folder-dialog StButton#vhandle, .app-folder-dialog StButton#vhandle:hover, .app-folder-dialog StButton#vhandle:active {
   background-color: transparent;
 }
 
@@ -2267,7 +2289,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .app-folder-icon {
-  padding: 6px;
+  padding: 6px 6px 0px;
   spacing-rows: 6px;
   spacing-columns: 6px;
 }
@@ -2343,7 +2365,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .notification-banner .secondary-icon {
-  icon-size: 1.14286em;
+  icon-size: 1.1428571429em;
 }
 
 .notification-banner .notification-actions {
@@ -2394,7 +2416,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .secondary-icon {
-  icon-size: 1.14286em;
+  icon-size: 1.1428571429em;
 }
 
 .chat-body {
@@ -2684,7 +2706,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .candidate-page-button-icon {
-  icon-size: 1.14286em;
+  icon-size: 1.1428571429em;
 }
 
 /* Auth Dialogs & Screen Shield */
@@ -2842,8 +2864,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   padding-left: 2px;
 }
 
-.login-dialog-not-listed-button:focus .login-dialog-not-listed-label,
-.login-dialog-not-listed-button:hover .login-dialog-not-listed-label {
+.login-dialog-not-listed-button:focus .login-dialog-not-listed-label, .login-dialog-not-listed-button:hover .login-dialog-not-listed-label {
   color: #FFFFFF;
 }
 
@@ -3055,6 +3076,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 #LookingGlassDialog {
   background-color: #2c2e33;
+  color: rgba(255, 255, 255, 0.7);
   spacing: 4px;
   padding: 0;
   border: none;
@@ -3223,52 +3245,41 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   border: none;
 }
 
-#dashtodockContainer #dash,
-#dashtodockContainer:overview #dash,
-#dashtodockContainer.extended #dash,
-#dashtodockContainer.extended:overview #dash {
+#dashtodockContainer #dash, #dashtodockContainer:overview #dash, #dashtodockContainer.extended #dash, #dashtodockContainer.extended:overview #dash {
   padding: 0;
   border: none;
   transition-duration: 225ms;
 }
 
-#dashtodockContainer.top #dash,
-#dashtodockContainer.top:overview #dash {
+#dashtodockContainer.top #dash, #dashtodockContainer.top:overview #dash {
   border-radius: 0 0 3px 3px;
 }
 
-#dashtodockContainer.top.extended #dash,
-#dashtodockContainer.top.extended:overview #dash {
+#dashtodockContainer.top.extended #dash, #dashtodockContainer.top.extended:overview #dash {
   border-radius: 3px;
 }
 
-#dashtodockContainer.bottom #dash,
-#dashtodockContainer.bottom:overview #dash {
+#dashtodockContainer.bottom #dash, #dashtodockContainer.bottom:overview #dash {
   border-radius: 3px 3px 0 0;
 }
 
-#dashtodockContainer.bottom.extended #dash,
-#dashtodockContainer.bottom.extended:overview #dash {
+#dashtodockContainer.bottom.extended #dash, #dashtodockContainer.bottom.extended:overview #dash {
   border-radius: 3px;
 }
 
-#dashtodockContainer.left #dash,
-#dashtodockContainer.left:overview #dash {
+#dashtodockContainer.left #dash, #dashtodockContainer.left:overview #dash {
   border-radius: 0 3px 3px 0;
 }
 
-#dashtodockContainer.left.extended #dash,
-#dashtodockContainer.left.extended:overview #dash {
+#dashtodockContainer.left.extended #dash, #dashtodockContainer.left.extended:overview #dash {
   border-radius: 3px;
 }
 
-#dashtodockContainer.right #dash,
-#dashtodockContainer.right:overview #dash {
+#dashtodockContainer.right #dash, #dashtodockContainer.right:overview #dash {
   border-radius: 3px 0 0 3px;
 }
 
-#dashtodockContainer.right.extended #dash,
-#dashtodockContainer.right.extended:overview #dash {
+#dashtodockContainer.right.extended #dash, #dashtodockContainer.right.extended:overview #dash {
   border-radius: 3px;
 }
 

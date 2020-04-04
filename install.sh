@@ -16,7 +16,7 @@ SRC_DIR=${REO_DIR}/src
 THEME_NAME=vimix
 COLOR_VARIANTS=('' '-light' '-dark')
 SIZE_VARIANTS=('' '-laptop')
-THEME_VARIANTS=('' '-doder' '-beryl' '-ruby')
+THEME_VARIANTS=('' '-doder' '-beryl' '-ruby' '-amethyst')
 
 usage() {
   printf "%s\n" "Usage: $0 [OPTIONS...]"
@@ -259,6 +259,10 @@ while [[ $# -gt 0 ]]; do
             ;;
           ruby)
             themes+=("${THEME_VARIANTS[3]}")
+            shift 1
+            ;;
+          amethyst)
+            themes+=("${THEME_VARIANTS[4]}")
             shift 1
             ;;
           -*|--*)

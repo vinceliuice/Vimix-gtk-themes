@@ -61,6 +61,7 @@ $accent_color: #444444;
 @if $color == 'doder' { $primary_color: #4586D8; $alt_primary_color: #03a9f4; $accent_color: #0CAAF0; }
 @if $color == 'beryl' { $primary_color: #2EB398; $alt_primary_color: #1eba9b; $accent_color: #0fd1ab; }
 @if $color == 'black' { $primary_color: #555555; $alt_primary_color: #666666; $accent_color: #EEEEEE; }
+@if $color == 'amethyst' { $primary_color: #892eb3; $alt_primary_color: #7c1eba; $accent_color: #a40fd1; }
 
 $theme_color: if($color == 'black' or $color == 'white', $inverse_fg_color, $primary_color);
 

@@ -37,7 +37,7 @@ $inverse_track_color:                 rgba($white, 0.3);
 $inverse_divider_color:               rgba($white, 0.12);
 
 // Background colors
-$base_color:     if($variant =='dark', if($color =='doder' or $color =='beryl', #2c2e33, #282828), #ffffff);
+$base_color:     if($variant =='dark', if($color =='doder' or $color =='beryl' or $color =='amethyst', #2c2e33, #282828), #ffffff);
 $alt_base_color: if($variant =='dark', darken($base_color, 3%), darken($base_color, 6%));
 
 $bg_color:         rgba($black, $middle_opacity);
@@ -46,7 +46,7 @@ $inverse_bg_color: rgba($inverse_fg_color, 0.1);
 
 $panel_bg_color: rgba(black, 0.45);
 @if ($color == 'ruby' or $color == 'black') and $panel =='dark' { $panel_bg_color: #282828; }
-@if ($color == 'doder' or $color == 'beryl') and $panel =='dark' { $panel_bg_color: #27282d; }
+@if ($color == 'doder' or $color == 'beryl' or $color == 'amethyst') and $panel =='dark' { $panel_bg_color: #27282d; }
 
 $keyboard_bg_color:  if($variant == 'light', $grey_50, fade($grey_600));
 $alt_keyboard_bg_color:  if($variant == 'light', $grey_300, fade($grey_900));

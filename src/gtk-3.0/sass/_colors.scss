@@ -60,7 +60,7 @@ $disabled_headerbar_fg_color: if($headerbar =='dark', $disabled_secondary_invers
 
 $headerbar_bg_color: #eeeeee;
 @if ($color == 'ruby' or $color == 'black') and $headerbar =='dark' { $headerbar_bg_color: if($variant =='light', #383838, #363636); }
-@if ($color == 'doder' or $color == 'beryl') and $headerbar =='dark' { $headerbar_bg_color: if($variant =='light', #36393e, #36383e); }
+@if ($color == 'doder' or $color == 'beryl' or $color == 'amethyst') and $headerbar =='dark' { $headerbar_bg_color: if($variant =='light', #36393e, #36383e); }
 
 // Selected and Theme colors
 $primary_color: #686868;
@@ -93,7 +93,7 @@ $tab_color: $inverse_theme_color;
 $secondary_titlebar_color: $primary_color;
 $topbar_bg_color: #222222;
 @if $color == 'ruby' or $color == 'black' { $topbar_bg_color: #222222; }
-@if $color == 'doder' or $color == 'beryl' { $topbar_bg_color: #212329; }
+@if $color == 'doder' or $color == 'beryl' or $color == 'amethyst' { $topbar_bg_color: #212329; }
 $topbar_fg_color: $dark_contrast_color;
 $alt_topbar_fg_color: $darker_contrast_color;
 

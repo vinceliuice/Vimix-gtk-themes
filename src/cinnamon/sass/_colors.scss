@@ -36,10 +36,11 @@ $insensitive_osd_secondary_fg_color: shellopacity($osd_secondary_fg_color, 0.28)
 //
 
 $accent_color: #555555;
-@if $color =='ruby' { $accent_color: #F0544C; }
-@if $color =='doder' {  $accent_color: #4586D8; }
-@if $color =='beryl' { $accent_color: #2EB398; }
-@if $color =='black' {  $accent_color: #555555; }
+@if $color =='ruby'     { $accent_color: #F0544C; }
+@if $color =='doder'    { $accent_color: #4586D8; }
+@if $color =='beryl'    { $accent_color: #2EB398; }
+@if $color =='amethyst' { $accent_color: #892eb3; }
+@if $color =='black'    { $accent_color: #555555; }
 
 $accent_label_color: if($variant == light, mix($accent_color, $fg_color, 80%), mix($accent_color, $fg_color, 60%));
 $secondary_accent_color: shellopacity($accent_color, 0.87);
@@ -80,7 +81,7 @@ $insensitive_outline_fill_color: shellopacity($outline_fill_color, 0.28);
 
 $osd_bg_color: #222222;
 @if $color == 'ruby' or $color == 'black' { $osd_bg_color: #222222; }
-@if $color == 'doder' or $color == 'beryl' { $osd_bg_color: #212329; }
+@if $color == 'doder' or $color == 'beryl' or $color == 'amethyst' { $osd_bg_color: #212329; }
 
 $osd_fill_color: shellopacity($osd_fg_color, 0.25);
 $osd_semi_fill_color: shellopacity($osd_fg_color, 0.12);

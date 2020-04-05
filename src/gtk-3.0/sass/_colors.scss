@@ -60,15 +60,16 @@ $disabled_headerbar_fg_color: if($headerbar =='dark', $disabled_secondary_invers
 
 $headerbar_bg_color: #eeeeee;
 @if ($color == 'ruby' or $color == 'black') and $headerbar =='dark' { $headerbar_bg_color: if($variant =='light', #383838, #363636); }
-@if ($color == 'doder' or $color == 'beryl') and $headerbar =='dark' { $headerbar_bg_color: if($variant =='light', #36393e, #36383e); }
+@if ($color == 'doder' or $color == 'beryl' or $color == 'amethyst') and $headerbar =='dark' { $headerbar_bg_color: if($variant =='light', #36393e, #36383e); }
 
 // Selected and Theme colors
 $primary_color: #686868;
 $alt_primary_color: #777777;
 $accent_color: #666666;
-@if $color == 'ruby' { $primary_color: #F0544C; $alt_primary_color: #FF615A; $accent_color: #FF626C; }
-@if $color == 'doder' { $primary_color: #4285F4; $alt_primary_color: #03a9f4; $accent_color: #18b8ff; }
-@if $color == 'beryl' { $primary_color: #2EB398; $alt_primary_color: #1eba9b; $accent_color: #0fd1ab; }
+@if $color == 'ruby'     { $primary_color: #F0544C; $alt_primary_color: #FF615A; $accent_color: #FF626C; }
+@if $color == 'doder'    { $primary_color: #4285F4; $alt_primary_color: #03a9f4; $accent_color: #18b8ff; }
+@if $color == 'beryl'    { $primary_color: #2EB398; $alt_primary_color: #1eba9b; $accent_color: #0fd1ab; }
+@if $color == 'amethyst' { $primary_color: #892eb3; $alt_primary_color: #7c1eba; $accent_color: #a40fd1; }
 
 @if $color == 'black' {
     $primary_color: if($variant =='light', #686868, #686868);
@@ -92,7 +93,7 @@ $tab_color: $inverse_theme_color;
 $secondary_titlebar_color: $primary_color;
 $topbar_bg_color: #222222;
 @if $color == 'ruby' or $color == 'black' { $topbar_bg_color: #222222; }
-@if $color == 'doder' or $color == 'beryl' { $topbar_bg_color: #212329; }
+@if $color == 'doder' or $color == 'beryl' or $color == 'amethyst' { $topbar_bg_color: #212329; }
 $topbar_fg_color: $dark_contrast_color;
 $alt_topbar_fg_color: $darker_contrast_color;
 

@@ -6,7 +6,7 @@ OPTIPNG="/usr/bin/optipng"
 INDEX="assets.txt"
 
 for variant in '' '-dark'; do
-  for color in '' '-ruby' '-doder' '-beryl'; do
+  for color in '' '-ruby' '-doder' '-beryl' '-amethyst'; do
 
     ASSETS_DIR="vimix${color}/assets${variant}"
     SRC_FILE="vimix${color}/assets${variant}.svg"

@@ -12,6 +12,7 @@ materia gtk theme: https://github.com/nana-4/materia-theme
 ### GTK+ 3.20 or later
 
 ### GTK2 engines requirment
+
 - GTK2 engine Murrine 0.98.1.1 or later.
 - GTK2 pixbuf engine or the gtk(2)-engines package.
 
@@ -29,6 +30,7 @@ ArchLinux:
 
 Other:
 Search for the engines in your distributions repository or install the engines from source.
+
 ## Install Or Uninstall
 
 Open the terminal at current directory.
@@ -43,8 +45,9 @@ Usage:  `./install.sh`  **[OPTIONS...]**
 |:---------------|:-------------|
 | -d, --dest     | Specify theme destination directory (Default: $HOME/.themes) |
 | -n, --name     | Specify theme name (Default: vimix) |
+| -a, --all      | install all theme variant(s) |
 | -c, --color    | Specify theme color variant(s) **[standard/light/dark]** (Default: All variants) |
-| -t, --theme    | Specify hue theme variant(s) **[standard/doder/beryl/ruby]** (Default: All variants) |
+| -t, --theme    | Specify hue theme variant(s) **[standard/doder/beryl/ruby/amethyst]** (Default: doder) |
 | -s, --size     | Specify theme size variant(s) **[standard/laptop]** (Default: All variants) |
 | -f, --flat     | Specify theme with flat and normal titlebutton style |
 | -o, --no-color | Use grey titlebuttons in standard variants |
@@ -64,6 +67,7 @@ Run
 ![3](https://cn.pling.com/img/9/1/d/b/e37013349e0f0bd76b9a0afc8e98222f8504.png?raw=true)
 ![4](https://cn.pling.com/img/4/b/7/9/6f4bf294ae650b3a70f571e89077014d4007.png?raw=true)
 ![5](https://cn.pling.com/img/5/9/6/2/a71edf571bd7b8ba46c6a7440ada75b2eced.png?raw=true)
+
 ## Icon 
 Vimix icon theme is based on Paper-Icon-Theme: https://github.com/snwh/paper-icon-theme
 

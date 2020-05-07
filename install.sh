@@ -1,7 +1,6 @@
 #!/bin/bash
 
 ROOT_UID=0
-DEST_DIR=
 
 # Destination directory
 if [ "$UID" -eq "$ROOT_UID" ]; then
@@ -56,7 +55,7 @@ install() {
   echo "[Desktop Entry]"                                                             >> ${THEME_DIR}/index.theme
   echo "Type=X-GNOME-Metatheme"                                                      >> ${THEME_DIR}/index.theme
   echo "Name=${name}${color}${size}${theme}"                                         >> ${THEME_DIR}/index.theme
-  echo "Comment=An Clean Gtk+ theme based on Flat Design"                            >> ${THEME_DIR}/index.theme
+  echo "Comment=An Clean Gtk+ theme based on Material Design"                        >> ${THEME_DIR}/index.theme
   echo "Encoding=UTF-8"                                                              >> ${THEME_DIR}/index.theme
   echo ""                                                                            >> ${THEME_DIR}/index.theme
   echo "[X-GNOME-Metatheme]"                                                         >> ${THEME_DIR}/index.theme
@@ -163,18 +162,18 @@ function has_command() {
 #  Install needed packages
 install_package() {
   if [ ! "$(which sassc 2> /dev/null)" ]; then
-     echo sassc needs to be installed to generate the css.
-     if has_command zypper; then
+    echo sassc needs to be installed to generate the css.
+    if has_command zypper; then
       sudo zypper in sassc
-        elif has_command apt-get; then
+    elif has_command apt-get; then
       sudo apt-get install sassc
-        elif has_command dnf; then
+    elif has_command dnf; then
       sudo dnf install sassc
-        elif has_command yum; then
-      sudo yum install sassc
-        elif has_command pacman; then
+    elif has_command dnf; then
+      sudo dnf install sassc
+    elif has_command pacman; then
       sudo pacman -S --noconfirm sassc
-      fi
+    fi
   fi
 }
 
@@ -185,20 +184,28 @@ parse_sass() {
 
 #  Install theme
 install_theme() {
-for color in "${colors[@]:-${COLOR_VARIANTS[@]}}"; do
-  for size in "${sizes[@]:-${SIZE_VARIANTS[@]}}"; do
-    for theme in "${themes[@]:-${THEME_VARIANTS[@]}}"; do
-      install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${size}" "${theme}"
+  for color in "${colors[@]:-${COLOR_VARIANTS[@]}}"; do
+    for size in "${sizes[@]:-${SIZE_VARIANTS[@]}}"; do
+      for theme in "${themes[@]:-${THEME_VARIANTS[@]}}"; do
+        install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${size}" "${theme}"
+      done
     done
   done
-done
+}
+
+install_default() {
+  for color in "${colors[@]:-${COLOR_VARIANTS[@]}}"; do
+    for size in "${sizes[@]:-${SIZE_VARIANTS[@]}}"; do
+      install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${size}" "-doder"
+    done
+  done
 }
 
 #  Install flat version theme
 install_flat() {
   OLD_TITLE_1="@extend %titlebuttons;"
   OLD_TITLE_2="@extend %solid_titlebuttons;"
-  OLD_TITLE_3="@extend %windows_button;" 
+  OLD_TITLE_3="@extend %windows_button;"
   NEW_TITLE=""
 
   ##  change titlebutton style
@@ -227,20 +234,24 @@ while [[ $# -gt 0 ]]; do
         echo "ERROR: Destination directory does not exist."
         exit 1
       fi
-      shift 2
+      shift
       ;;
     -n|--name)
       name="${2}"
-      shift 2
+      shift
+      ;;
+    -a|--all)
+      all="true"
+      shift
       ;;
     -f|--flat)
-      flat='true'
-      shift 1
+      flat="true"
+      shift
       ;;
     -o|--no-color)
-      no_color='true'
-      shift 1
-      ;; 
+      no_color="true"
+      shift
+      ;;
     -t|--theme)
       shift
       for theme in "${@}"; do
@@ -338,10 +349,20 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-if [[ "${flat:-}" == 'true' ]]; then
+if [[ "${flat}" == 'true' && "${all}" != 'true' ]]; then
+  install_package && install_flat && parse_sass && install_default && restore_flat && parse_sass
+fi
+
+if [[ "${flat}" == 'true' && "${all}" == 'true' ]]; then
   install_package && install_flat && parse_sass && install_theme && restore_flat && parse_sass
-else
+fi
+
+if [[ "${flat}" != 'true' && "${all}" == 'true' ]]; then
   install_theme
+fi
+
+if [[ "${flat}" != 'true' && "${all}" != 'true' ]]; then
+  install_default
 fi
 
 echo

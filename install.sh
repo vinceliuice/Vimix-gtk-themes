@@ -235,11 +235,11 @@ while [[ $# -gt 0 ]]; do
         echo "ERROR: Destination directory does not exist."
         exit 1
       fi
-      shift
+      shift 2
       ;;
     -n|--name)
       name="${2}"
-      shift
+      shift 2
       ;;
     -a|--all)
       all="true"

@@ -103,7 +103,7 @@ install() {
   cp -r ${SRC_DIR}/gnome-shell/color-assets/toggle-on${theme}.svg                       ${THEME_DIR}/gnome-shell/assets/toggle-on.svg
   cp -r ${SRC_DIR}/gnome-shell/color-assets/menu-checked${theme}.svg                    ${THEME_DIR}/gnome-shell/assets/menu-checked.svg
 
-  if [[ ${theme} == '-doder' && ${color} == '-dark' ]] || [[ ${theme} == '-beryl' && ${color} == '-dark' ]]; then
+  if [[ ${theme} == '-doder' && ${color} == '-dark' ]] || [[ ${theme} == '-beryl' && ${color} == '-dark' ]] || [[ ${theme} == '-amethyst' && ${color} == '-dark' ]]; then
     cp -r ${SRC_DIR}/gnome-shell/color-assets/menu-doder.svg                            ${THEME_DIR}/gnome-shell/assets/menu.svg
   fi
 

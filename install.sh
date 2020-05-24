@@ -138,7 +138,7 @@ install() {
   cp -r ${SRC_DIR}/xfwm4/assets${color}-contrast/*.png                                  ${THEME_DIR}/xfwm4
 
   #  Install unity theme
-  mkdir -p                                                                              ${THEME_DIR}/unity
+  # mkdir -p                                                                              ${THEME_DIR}/unity
   cp -r ${SRC_DIR}/unity                                                                ${THEME_DIR}
 
   mkdir -p                                                                              ${THEME_DIR}/plank

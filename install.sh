@@ -185,9 +185,9 @@ parse_sass() {
 
 #  Install theme
 install_theme() {
-  for color in "${colors[@]:-${COLOR_VARIANTS[@]}}"; do
-    for size in "${sizes[@]:-${SIZE_VARIANTS[@]}}"; do
-      for theme in "${themes[@]:-${THEME_VARIANTS[@]}}"; do
+  for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
+    for size in "${sizes[@]-${SIZE_VARIANTS[@]}}"; do
+      for theme in "${themes[@]-${THEME_VARIANTS[@]}}"; do
         install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${size}" "${theme}"
       done
     done
@@ -195,8 +195,8 @@ install_theme() {
 }
 
 install_default() {
-  for color in "${colors[@]:-${COLOR_VARIANTS[@]}}"; do
-    for size in "${sizes[@]:-${SIZE_VARIANTS[@]}}"; do
+  for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
+    for size in "${sizes[@]-${SIZE_VARIANTS[@]}}"; do
       install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${size}" "-doder"
     done
   done

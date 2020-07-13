@@ -36,7 +36,11 @@ install() {
   local name=${2}
   local color=${3}
   local size=${4}
-  local theme=${5}
+
+  # Appends a dash if the variables are not empty
+  if [[ "$5" != "-t" ]]; then
+    local -r theme="$5"
+  fi
 
   [[ ${color} == '-dark' ]] && local ELSE_DARK=${color}
   [[ ${color} == '-light' ]] && local ELSE_LIGHT=${color}
@@ -187,17 +191,9 @@ parse_sass() {
 install_theme() {
   for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
     for size in "${sizes[@]-${SIZE_VARIANTS[@]}}"; do
-      for theme in "${themes[@]-${THEME_VARIANTS[@]}}"; do
+      for theme in "${themes[@]:--doder}"; do
         install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${size}" "${theme}"
       done
-    done
-  done
-}
-
-install_default() {
-  for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
-    for size in "${sizes[@]-${SIZE_VARIANTS[@]}}"; do
-      install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${size}" "-doder"
     done
   done
 }
@@ -227,7 +223,7 @@ restore_flat() {
   echo -e "Restore scss files ..."
 }
 
-while [[ $# -gt 0 ]]; do
+while [ $# -gt 0 ]; do
   case "${1}" in
     -d|--dest)
       dest="${2}"
@@ -242,16 +238,15 @@ while [[ $# -gt 0 ]]; do
       shift 2
       ;;
     -a|--all)
-      all="true"
-      shift
+      themes=("${THEME_VARIANTS[@]}")
       ;;
     -f|--flat)
       flat="true"
-      shift
+      shift 1
       ;;
-    -o|--no-color)
+    -o|--nocolor)
       no_color="true"
-      shift
+      shift 1
       ;;
     -t|--theme)
       shift
@@ -281,30 +276,7 @@ while [[ $# -gt 0 ]]; do
             break
             ;;
           *)
-            echo "ERROR: Unrecognized thin variant '$1'."
-            echo "Try '$0 --help' for more information."
-            exit 1
-            ;;
-        esac
-      done
-      ;;
-    -s|--size)
-      shift
-      for size in "${@}"; do
-        case "${size}" in
-          standard)
-            sizes+=("${SIZE_VARIANTS[0]}")
-            shift 1
-            ;;
-          laptop)
-            sizes+=("${SIZE_VARIANTS[1]}")
-            shift 1
-            ;;
-          -*|--*)
-            break
-            ;;
-          *)
-            echo "ERROR: Unrecognized thin variant '$1'."
+            echo "ERROR: Unrecognized color variant '$1'."
             echo "Try '$0 --help' for more information."
             exit 1
             ;;
@@ -350,20 +322,12 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-if [[ "${flat}" == 'true' && "${all}" != 'true' ]]; then
-  install_package && install_flat && parse_sass && install_default && restore_flat && parse_sass
-fi
-
-if [[ "${flat}" == 'true' && "${all}" == 'true' ]]; then
+if [[ "${flat}" == 'true' ]]; then
   install_package && install_flat && parse_sass && install_theme && restore_flat && parse_sass
 fi
 
-if [[ "${flat}" != 'true' && "${all}" == 'true' ]]; then
+if [[ "${flat}" != 'true' ]]; then
   install_theme
-fi
-
-if [[ "${flat}" != 'true' && "${all}" != 'true' ]]; then
-  install_default
 fi
 
 echo

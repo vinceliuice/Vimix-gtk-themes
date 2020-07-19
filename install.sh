@@ -310,6 +310,56 @@ while [ $# -gt 0 ]; do
         esac
       done
       ;;
+    -s|--size)
+      shift
+      for size in "${@}"; do
+        case "${size}" in
+          standard)
+            sizes+=("${SIZE_VARIANTS[0]}")
+            shift 1
+            ;;
+          laptop)
+            sizes+=("${SIZE_VARIANTS[1]}")
+            shift 1
+            ;;
+          -*|--*)
+            break
+            ;;
+          *)
+            echo "ERROR: Unrecognized color variant '$1'."
+            echo "Try '$0 --help' for more information."
+            exit 1
+            ;;
+        esac
+      done
+      ;;
+      -c|--color)
+        shift
+        for color in "${@}"; do
+          case "${color}" in
+            standard)
+              colors+=("${COLOR_VARIANTS[0]}")
+              shift 1
+              ;;
+            light)
+              colors+=("${COLOR_VARIANTS[1]}")
+              shift 1
+              ;;
+            dark)
+              colors+=("${COLOR_VARIANTS[2]}")
+              shift 1
+              ;;
+            -*|--*)
+              break
+              ;;
+            *)
+              echo "ERROR: Unrecognized color variant '$1'."
+              echo "Try '$0 --help' for more information."
+              exit 1
+              ;;
+          esac
+        done
+        ;;
     -h|--help)
       usage
       exit 0

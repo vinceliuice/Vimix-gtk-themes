@@ -239,6 +239,7 @@ while [ $# -gt 0 ]; do
       ;;
     -a|--all)
       themes=("${THEME_VARIANTS[@]}")
+      shift 1
       ;;
     -f|--flat)
       flat="true"

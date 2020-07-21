@@ -6,5 +6,5 @@ rm -Rf /tmp/vimix-gtk-themes-master/ 2>/dev/null;
 wget https://github.com/vinceliuice/vimix-gtk-themes/archive/master.zip -O vimix-gtk-themes.zip; 
 unzip vimix-gtk-themes.zip; 
 cd vimix-gtk-themes-master; 
-./Install; 
+./install.sh; 
 notify-send "All done!" "Enjoy the latest version of Vimix!" -i face-smile

@@ -2266,7 +2266,13 @@ menubar,
 .menubar {
   -GtkWidget-window-dragging: true;
   padding: 0;
+  color: rgba(255, 255, 255, 0.75);
   background-color: #383838;
+}
+
+menubar:backdrop,
+.menubar:backdrop {
+  color: rgba(255, 255, 255, 0.4);
 }
 
 menubar > menuitem,
@@ -2294,6 +2300,11 @@ menubar > menuitem > window.background.csd.popup > menu,
 .menubar > menuitem > window.background.csd.popup > decoration,
 .menubar > menuitem > window.background.csd.popup > menu {
   border-radius: 0 0 3px 3px;
+}
+
+menubar > menuitem > window.popup.background.csd > menu menuitem,
+.menubar > menuitem > window.popup.background.csd > menu menuitem {
+  transition: none;
 }
 
 .popup.background {
@@ -2975,36 +2986,14 @@ row:selected switch:checked slider {
   -gtk-icon-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
 }
 
-.view.content-view.check:not(list) .view.content-view.check:not(list),
-.content-view .tile check:not(list) .view.content-view.check:not(list) {
-  -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-selectionmode.png"), url("assets/checkbox-selectionmode@2.png"));
-  margin: 8px;
-  background-color: transparent;
+.view.content-view.check:not(list),
+.content-view .tile check:not(list) {
+  -gtk-icon-source: -gtk-scaled(url("assets/selectionmode-checkbox-unchecked.png"), url("assets/selectionmode-checkbox-unchecked@2.png"));
 }
 
-.view.content-view.check:not(list) .view.content-view.check:hover:not(list),
-.content-view .tile check:not(list) .view.content-view.check:hover:not(list) {
-  -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-hover-selectionmode.png"), url("assets/checkbox-hover-selectionmode@2.png"));
-  margin: 8px;
-  background-color: transparent;
-}
-
-.view.content-view.check:not(list) .view.content-view.check:checked:not(list),
-.content-view .tile check:not(list) .view.content-view.check:checked:not(list) {
-  -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-selectionmode.png"), url("assets/checkbox-checked-selectionmode@2.png"));
-  margin: 8px;
-  background-color: transparent;
-}
-
-.view.content-view.check:not(list) .view.content-view.check:checked:hover:not(list),
-.content-view .tile check:not(list) .view.content-view.check:checked:hover:not(list) {
-  -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-hover-selectionmode.png"), url("assets/checkbox-checked-hover-selectionmode@2.png"));
-  margin: 8px;
-  background-color: transparent;
+.view.content-view.check:not(list):checked,
+.content-view .tile check:not(list):checked {
+  -gtk-icon-source: -gtk-scaled(url("assets/selectionmode-checkbox-checked.png"), url("assets/selectionmode-checkbox-checked@2.png"));
 }
 
 checkbutton,
@@ -3156,10 +3145,6 @@ menu menuitem check, menu menuitem radio {
   transition: none;
   margin: 0;
   padding: 0;
-  box-shadow: none;
-  border-image: none;
-  background-image: none;
-  color: alpha(currentColor, 0.6);
 }
 
 menu menuitem check:dir(ltr), menu menuitem radio:dir(ltr) {
@@ -3186,103 +3171,87 @@ menu menuitem check:checked:disabled, menu menuitem check:indeterminate:disabled
   color: rgba(255, 255, 255, 0.4);
 }
 
+
+check {
+  -gtk-icon-source: url("assets/scalable/checkbox-unchecked-symbolic.svg");
+}
+
+
+check:checked {
+  -gtk-icon-source: -gtk-recolor(url("assets/scalable/checkbox-checked-symbolic.svg"));
+}
+
+
+check:indeterminate {
+  -gtk-icon-source: -gtk-recolor(url("assets/scalable/checkbox-mixed-symbolic.svg"));
+}
+
+
+radio {
+  -gtk-icon-source: -gtk-recolor(url("assets/scalable/radio-unchecked-symbolic.svg"));
+  border-image-slice: 20;
+  border-image-width: 20px;
+}
+
+
+radio:checked {
+  -gtk-icon-source: -gtk-recolor(url("assets/scalable/radio-checked-symbolic.svg"));
+}
+
+
+radio:indeterminate {
+  -gtk-icon-source: -gtk-recolor(url("assets/scalable/radio-mixed-symbolic.svg"));
+}
+
+
+radio {
+  border-image-source: -gtk-gradient(radial, center center, 0, center center, 0.001, to(#FFFFFF), to(transparent));
+}
+
+
+radio:checked:not(:indeterminate) {
+  border-image-source: -gtk-gradient(radial, center center, 0, center center, 0.125, to(#FFFFFF), to(transparent));
+}
+
+
+radio:checked:not(:indeterminate):disabled {
+  border-image-source: -gtk-gradient(radial, center center, 0, center center, 0.125, to(rgba(255, 255, 255, 0.4)), to(transparent));
+}
+
 #MozillaGtkWidget.background > widget > checkbutton > check, #MozillaGtkWidget.background > window.background > menu > menuitem > check, window.background:not(.csd) > widget > checkbutton > check,
 menu menuitem check {
   min-height: 16px;
   min-width: 16px;
-  padding: 0;
-  margin: 0;
   border-radius: 2px;
-  -gtk-outline-radius: 2px;
-  -gtk-icon-shadow: none;
-  border-image: none;
-  background-image: none;
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.svg")));
+  -gtk-icon-source: -gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.svg"));
 }
 
 #MozillaGtkWidget.background > widget > checkbutton > check:checked, #MozillaGtkWidget.background > window.background > menu > menuitem > check:checked, window.background:not(.csd) > widget > checkbutton > check:checked,
 menu menuitem check:checked {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-checked-symbolic.svg")));
+  -gtk-icon-source: -gtk-recolor(url("assets/scalable/small-checkbox-checked-symbolic.svg"));
 }
 
 #MozillaGtkWidget.background > widget > checkbutton > check:indeterminate, #MozillaGtkWidget.background > window.background > menu > menuitem > check:indeterminate, window.background:not(.csd) > widget > checkbutton > check:indeterminate,
 menu menuitem check:indeterminate {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-checkbox-mixed-symbolic.svg")));
+  -gtk-icon-source: -gtk-recolor(url("assets/scalable/small-checkbox-mixed-symbolic.svg"));
 }
 
 #MozillaGtkWidget.background > widget > radiobutton > radio, #MozillaGtkWidget.background > window.background > menu > menuitem > radio, window.background:not(.csd) > widget > radiobutton > radio,
 menu menuitem radio {
   min-height: 16px;
   min-width: 16px;
-  padding: 0;
-  margin: 0;
-  -gtk-icon-shadow: none;
   border-image: none;
-  background-image: none;
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.svg")));
+  -gtk-icon-source: -gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.svg"));
 }
 
 #MozillaGtkWidget.background > widget > radiobutton > radio:checked, #MozillaGtkWidget.background > window.background > menu > menuitem > radio:checked, window.background:not(.csd) > widget > radiobutton > radio:checked,
 menu menuitem radio:checked {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-checked-symbolic.svg")));
+  -gtk-icon-source: -gtk-recolor(url("assets/scalable/small-radio-checked-symbolic.svg"));
 }
 
 #MozillaGtkWidget.background > widget > radiobutton > radio:indeterminate, #MozillaGtkWidget.background > window.background > menu > menuitem > radio:indeterminate, window.background:not(.csd) > widget > radiobutton > radio:indeterminate,
 menu menuitem radio:indeterminate {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic.svg")));
-}
-
-
-check {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/check-unchecked-symbolic.svg")));
-}
-
-
-check:checked {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/check-checked-symbolic.svg")));
-}
-
-
-check:indeterminate {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/check-dash-symbolic.svg")));
-}
-
-
-radio {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-unchecked-symbolic.svg")));
-}
-
-
-radio:checked {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-checked-symbolic.svg")));
-}
-
-
-radio:indeterminate {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-dash-symbolic.svg")));
-}
-
-check:not(:checked):active {
-  -gtk-icon-transform: rotate(90deg);
-}
-
-check:not(:checked):indeterminate:active,
-radio:not(:checked):indeterminate:active {
-  -gtk-icon-transform: scaleX(-1);
-}
-
-check:not(:checked),
-radio:not(:checked) {
-  transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 300ms cubic-bezier(0, 0, 0.2, 1), background-image 600ms cubic-bezier(0, 0, 0.2, 1), -gtk-icon-transform 0;
-}
-
-check:not(:checked):active,
-radio:not(:checked):active {
-  transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0, -gtk-icon-transform 0;
-}
-
-menu menuitem check:not(:checked), menu menuitem radio:not(:checked) {
-  transition: none;
+  -gtk-icon-source: -gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic.svg"));
 }
 
 treeview.view check,
@@ -6659,6 +6628,7 @@ menubar.-vala-panel-background {
   background: none;
   border: none;
   box-shadow: none;
+  animation: none;
 }
 
 menubar.-vala-panel-appmenu-private > menuitem,
@@ -6671,6 +6641,11 @@ menubar.-vala-panel-appmenu-private > menuitem:hover,
 menubar.-vala-panel-background > menuitem:hover {
   color: #FFFFFF;
   border-radius: 0 0 0 0;
+}
+
+menubar.-vala-panel-appmenu-private > menuitem:disabled,
+menubar.-vala-panel-background > menuitem:disabled {
+  color: rgba(234, 234, 234, 0.4);
 }
 
 .nemo-window .toolbar button {

@@ -94,7 +94,7 @@
   box-shadow: $z-depth-2;
   background-color: $lighter_bg_color;
 
-  .container { padding: 2px; }
+  .container { border: none; }
 
   border { border: none; }
 
@@ -106,13 +106,31 @@
     &:hover { box-shadow: none; }
   }
 
+  .linked.raised > button.toggle {
+    border-radius: $md_radius;
+  }
+
+  treeview.view.sidebar {
+    min-height: 36px;
+    background: none;
+    border-right: none;
+    color: $fg_color;
+
+    &:hover { background-color: rgba($fg_color, 0.05); }
+
+    &:selected, &:selected:hover {
+      color: $inversed_fg_color;
+      background-color: $primary_color;
+    }
+  }
+
   switch { margin-left: 56px; margin-right: 6px; }
 
   button {
     @extend %simple_flat_button;
 
     &:checked {
-      color: white;
+      color: $inversed_fg_color;
       background-color: $primary_color;
     }
   }
@@ -153,6 +171,10 @@
 
   &.sound-popover {
     separator { margin: 3px 0; }
+  }
+
+  &.caffeine-popover {
+    .container { padding: 8px; }
   }
 
   &.night-light-indicator {

@@ -1713,7 +1713,7 @@ headerbar .linked.stack-switcher:not(.vertical):not(.path-bar) > button:checked:
 headerbar {
   transition: background-color 100ms cubic-bezier(0, 0, 0.2, 1), color 100ms cubic-bezier(0, 0, 0.2, 1);
   min-height: 36px;
-  padding: 0 6px;
+  padding: 0 12px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   background-color: #363636;
   color: #EAEAEA;
@@ -3087,8 +3087,8 @@ check,
 radio {
   min-height: 24px;
   min-width: 24px;
-  margin: -9px;
-  padding: 9px;
+  margin: -8px;
+  padding: 8px;
 }
 
 check:checked, check:indeterminate,
@@ -3103,23 +3103,27 @@ radio:indeterminate:disabled {
   color: rgba(255, 98, 108, 0.4);
 }
 
-popover check, popover check:hover, popover check:disabled, popover radio, popover radio:hover, popover radio:disabled {
-  box-shadow: none;
-  background-image: none;
-  border-image: none;
-  background-color: transparent;
+check:not(:hover):focus,
+radio:not(:hover):focus {
+  box-shadow: inset 0 0 0 9999px transparent;
 }
 
-popover check:not(:checked):not(:indeterminate):not(:disabled), popover radio:not(:checked):not(:indeterminate):not(:disabled) {
+popover modelbutton.flat check, popover modelbutton.flat check:focus, popover modelbutton.flat check:hover, popover modelbutton.flat check:focus:hover, popover modelbutton.flat check:active, popover modelbutton.flat check:disabled, popover modelbutton.flat radio, popover modelbutton.flat radio:focus, popover modelbutton.flat radio:hover, popover modelbutton.flat radio:focus:hover, popover modelbutton.flat radio:active, popover modelbutton.flat radio:disabled {
+  transition: none;
+  box-shadow: none;
+  background-image: none;
+}
+
+popover modelbutton.flat check:not(:checked):not(:indeterminate):not(:disabled), popover modelbutton.flat radio:not(:checked):not(:indeterminate):not(:disabled) {
   color: rgba(234, 234, 234, 0.75);
 }
 
-popover check.left:dir(rtl), popover radio.left:dir(rtl) {
+popover modelbutton.flat check.left:dir(rtl), popover modelbutton.flat radio.left:dir(rtl) {
   margin-left: -16px;
   margin-right: -8px;
 }
 
-popover check.right:dir(ltr), popover radio.right:dir(ltr) {
+popover modelbutton.flat check.right:dir(ltr), popover modelbutton.flat radio.right:dir(ltr) {
   margin-left: -8px;
   margin-right: -16px;
 }
@@ -3156,7 +3160,7 @@ menu menuitem check:checked:disabled, menu menuitem check:indeterminate:disabled
 
 
 check {
-  -gtk-icon-source: url("assets/scalable/checkbox-unchecked-symbolic-dark.svg");
+  -gtk-icon-source: -gtk-scaled(url("assets/scalable/checkbox-unchecked-symbolic-dark.svg"), url("assets/scalable/checkbox-unchecked-symbolic-dark@2.svg"));
 }
 
 
@@ -3174,11 +3178,6 @@ radio {
   -gtk-icon-source: -gtk-recolor(url("assets/scalable/radio-unchecked-symbolic.svg"));
   border-image-slice: 20;
   border-image-width: 20px;
-}
-
-
-radio:checked {
-  -gtk-icon-source: -gtk-recolor(url("assets/scalable/radio-checked-symbolic.svg"));
 }
 
 
@@ -3288,7 +3287,7 @@ treeview.view radio:indeterminate:disabled {
 }
 
 treeview.view radio:checked {
-  -gtk-icon-source: image(-gtk-recolor(url("assets/scalable/radio-checked-symbolic.svg")));
+  -gtk-icon-source: -gtk-recolor(url("assets/scalable/radio-checked-symbolic.svg"));
   border-image: none;
 }
 
@@ -7266,7 +7265,7 @@ na-tray-applet {
 }
 
 .budgie-popover .container {
-  padding: 2px;
+  border: none;
 }
 
 .budgie-popover border {
@@ -7285,13 +7284,33 @@ na-tray-applet {
   box-shadow: none;
 }
 
+.budgie-popover .linked.raised > button.toggle {
+  border-radius: 3px;
+}
+
+.budgie-popover treeview.view.sidebar {
+  min-height: 36px;
+  background: none;
+  border-right: none;
+  color: #EAEAEA;
+}
+
+.budgie-popover treeview.view.sidebar:hover {
+  background-color: rgba(234, 234, 234, 0.05);
+}
+
+.budgie-popover treeview.view.sidebar:selected, .budgie-popover treeview.view.sidebar:selected:hover {
+  color: #FFFFFF;
+  background-color: #F0544C;
+}
+
 .budgie-popover switch {
   margin-left: 56px;
   margin-right: 6px;
 }
 
 .budgie-popover button:checked {
-  color: white;
+  color: #FFFFFF;
   background-color: #F0544C;
 }
 
@@ -7340,6 +7359,10 @@ na-tray-applet {
 
 .budgie-popover.sound-popover separator {
   margin: 3px 0;
+}
+
+.budgie-popover.caffeine-popover .container {
+  padding: 8px;
 }
 
 .budgie-popover.night-light-indicator .container {

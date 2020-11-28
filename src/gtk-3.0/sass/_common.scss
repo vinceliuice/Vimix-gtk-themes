@@ -1196,7 +1196,7 @@ toolbar {
   background-color: $alt_base_color;
 }
 
-searchbar,
+searchbar > revealer > box,
 .location-bar {
   padding: $container_padding;
   border-style: solid;
@@ -1204,6 +1204,12 @@ searchbar,
   border-color: $borders_color;
   background-color: $bg_color;
   background-clip: border-box;
+}
+
+searchbar > revealer > box {
+  // workaround: undo the GtkContainer:border-width and use CSS padding instead
+  margin: -6px;
+  padding: $container_padding;
 }
 
 //

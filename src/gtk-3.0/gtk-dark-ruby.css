@@ -1566,7 +1566,7 @@ window.background stack scrolledwindow .linked:not(stackswitcher) button:checked
   background-color: #2c2c2c;
 }
 
-searchbar,
+searchbar > revealer > box,
 .location-bar {
   padding: 6px;
   border-style: solid;
@@ -1574,6 +1574,11 @@ searchbar,
   border-color: rgba(0, 0, 0, 0.18);
   background-color: #282828;
   background-clip: border-box;
+}
+
+searchbar > revealer > box {
+  margin: -6px;
+  padding: 6px;
 }
 
 .nemo-window .primary-toolbar button:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button,

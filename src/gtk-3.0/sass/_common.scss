@@ -302,13 +302,7 @@ entry {
 
     // standard linked-entries for native Gtk+ apps
     .background .linked > &,
-    .background .linked.vertical > &, {
-      @include entry(normal);
-      border: none;
-      &:focus { @include entry(focus); }
-      &:disabled { @include entry(disabled); }
-    }
-
+    .background .linked.vertical > &,
     .background .linked > &.flat,
     .background .linked.vertical > &.flat {
       @include entry(flat-normal);
@@ -386,9 +380,7 @@ entry {
       &:dir(rtl) { margin: 3px 8px 3px -4px; }
 
       &.button {
-        &,
-        &:hover,
-        &:active { // unset styling
+        &, &:hover, &:active { // unset styling
           background-color: transparent;
           background-image: none;
           border-image: none;
@@ -401,12 +393,12 @@ entry {
         }
 
         &:not(:hover):not(:active) { color: $secondary_inversed_fg_color; }
-        &:hover,
-        &:active { color: $inversed_fg_color; }
+
+        &:hover, &:active { color: $inversed_fg_color; }
       }
     }
 
-    .osd & { }
+    // .osd & { }
   }
 
   progress {
@@ -420,12 +412,8 @@ entry {
     // background-image: none;
   }
 
-   // linked entries
-  .linked:not(.vertical) > & { @extend %linked; }
-
-  // Vertically linked entries
-  .linked.vertical > & { @extend %linked_vertical; }
-
+  .linked:not(.vertical) > &,  // linked entries
+  .linked.vertical > &,  // Vertically linked entries
   .linked:not(.vertical) > &.flat,
   .linked.vertical > &.flat { border-radius: 0; }
 }
@@ -549,9 +537,15 @@ button {
       @extend %circular_button;
     }
 
-    .linked > & { @extend %linked; }
+    .linked > & {
+      // @extend %linked;
+      @extend %flat_button;
+    }
 
-    .linked.vertical > & { @extend %linked_vertical; }
+    .linked.vertical > & {
+      // @extend %linked_vertical;
+      @extend %flat_button;
+    }
 
     .linked > &.flat,
     .linked.vertical > &.flat {
@@ -568,9 +562,9 @@ button {
       }
     }
 
-    &:drop(active) {
-      // box-shadow: inset 0 0 0 2px $accent_color;
-    }
+    // &:drop(active) {
+    //   box-shadow: inset 0 0 0 2px $accent_color;
+    // }
   }
 
   @at-root %button_selected, row:selected & {
@@ -615,7 +609,7 @@ button {
       background-color: $b_color;
       color: $inversed_fg_color;
       box-shadow: $z-depth-1;
-//      @include button(normal, $b_color, $inversed_fg_color);
+      // @include button(normal, $b_color, $inversed_fg_color);
 
       &:hover {
         @include button(hover, $b_color, $inversed_fg_color);
@@ -623,11 +617,11 @@ button {
         color: $inversed_fg_color;
       }
 
-//      &:active, &:checked {
-//        @include button(active, $b_color, $inversed_fg_color);
-//        background-color: $b_color;
-//        color: $inversed_fg_color;
-//      }
+      // &:active, &:checked {
+      //   @include button(active, $b_color, $inversed_fg_color);
+      //   background-color: $b_color;
+      //   color: $inversed_fg_color;
+      // }
 
       &:disabled { @include button(disabled, $b_color, $inversed_fg_color); }
 
@@ -643,8 +637,8 @@ button {
         &:disabled { @include button(flat-disabled, $b_color, $inversed_fg_color); }
       }
 
-      .osd & {
-      }
+      // .osd & {
+      // }
     }
   }
 
@@ -701,7 +695,7 @@ button {
     background: none;
   }
 
-//  make the row image-button be circular
+  // make the row image-button be circular
   row &.image-button {
     border-radius: $circular_radius;
     -gtk-outline-radius: $circular_radius;
@@ -733,10 +727,10 @@ button {
   &:dir(rtl) { background-position: left 3px; }
 }
 
-row {
-  .linked > button { @extend %linked; }
-  .linked.vertical > button { @extend %linked_vertical; }
-}
+// row {
+//   .linked > button { @extend %linked; }
+//   .linked.vertical > button { @extend %linked_vertical; }
+// }
 
 toolbutton {
   button,
@@ -878,13 +872,24 @@ spinbutton {
     // behaves as the entry, so we extend the entry styling
     // and nuke the style on the internal entry
     @extend %entry_fallback;
-    @extend %entry_native;
+
+    .background &,
+    .background &.flat {
+      @extend %flat_entry;
+
+      &, &:focus, &:disabled {
+        entry {
+          &, &:focus, &:disabled {
+            box-shadow: none;
+            background: none;
+          }
+        }
+      }
+    }
 
     %spinbutton_entry,
     entry {
-      &, // unset all of fallback mode
-      &:focus,
-      &:disabled {
+      &, &:focus, &:disabled {
         min-width: $large_size - 8px * 2;
         // reset all the other props since the spinbutton node is styled here
         margin: 0;
@@ -913,9 +918,9 @@ spinbutton {
   }
 
   // OSD horizontal
-  .osd &:not(.vertical) {
-    button { }
-  }
+  // .osd &:not(.vertical) {
+  //   button { }
+  // }
 
   // Vertical
   &.vertical {
@@ -950,7 +955,7 @@ spinbutton {
   }
 
   // OSD vertical
-  .osd &.vertical button:first-child { }
+  // .osd &.vertical button:first-child { }
 
   // Misc
   treeview &:not(.vertical) {
@@ -997,10 +1002,10 @@ combobox {
 
   // standard combo-entries for native Gtk+ apps
   .background & entry.combo {
-    @include entry(normal);
+    @include entry(flat-normal);
     border: none;
-    &:focus { @include entry(focus); }
-    &:disabled { @include entry(disabled); }
+    &:focus { @include entry(flat-focus); }
+    &:disabled { @include entry(flat-disabled); }
 
     selection {
       &, &:focus { @extend %selected_items; }
@@ -1055,38 +1060,6 @@ combobox {
 // work, special case needed. See
 // https://bugzilla.gnome.org/show_bug.cgi?id=733979
 
-.linked:not(.vertical) > combobox {
-  > box > button.combo { @extend %linked_middle; }
-
-  &:first-child > box > button.combo {
-    border-top-left-radius: $md_radius;
-    border-bottom-left-radius: $md_radius;
-  }
-  &:last-child > box > button.combo {
-    border-top-right-radius: $md_radius;
-    border-bottom-right-radius: $md_radius;
-  }
-  &:only-child > box > button.combo {
-    border-radius: $md_radius;
-  }
-}
-
-.linked.vertical > combobox {
-  > box > button.combo { @extend %linked_vertical_middle; }
-
-  &:first-child > box > button.combo {
-    border-top-left-radius: $md_radius;
-    border-top-right-radius: $md_radius;
-  }
-  &:last-child > box > button.combo {
-    border-bottom-left-radius: $md_radius;
-    border-bottom-right-radius: $md_radius;
-  }
-  &:only-child > box > button.combo {
-    border-radius: $md_radius;
-  }
-}
-
 %combo_flat {
   border-radius: 0;
   background: none;
@@ -1094,25 +1067,24 @@ combobox {
 
   @include entry(flat-normal);
 
+  &:first-child, &:last-child, &:only-child { border-radius: 0; }
+
   &:hover {
     box-shadow: inset 0 -2px $high_track_color;
     background: none;
   }
 
   &:checked {
-    background: none;
-    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                  $primary_color 100%,
-                                  transparent 0%)
-                                  0 0 2 / 0 0 2px;
+    @include entry(flat-focus);
   }
 
   &:disabled {
-    box-shadow: inset 0 -1px $semi_track_color;
-    color: $disabled_fg_color;
-    background: none;
+    @include entry(flat-disabled);
   }
 }
+
+button.combo,
+.linked > combobox > box > button.combo { @extend %combo_flat; }
 
 //
 // Toolbars
@@ -1191,15 +1163,15 @@ toolbar {
 
 .primary-toolbar {
   button { @extend %toolbar_flat_button; }
-  button.combo { @extend %combo_flat; }
+  // button.combo { @extend %combo_flat; }
 
-  .linked button:not(.combo) { border-radius: $md_radius; }
-  .linked button.combo { border-radius: 0; }
+  // .linked button:not(.combo) { border-radius: $md_radius; }
+  // .linked button.combo { border-radius: 0; }
 
-  entry,
-  spinbutton:not(.vertical) { @extend %flat_entry; }
+  // entry,
+  // spinbutton:not(.vertical) { @extend %flat_entry; }
 
-  spinbutton:not(.vertical) entry { @extend %spinbutton_entry; }
+  // spinbutton:not(.vertical) entry { @extend %spinbutton_entry; }
 }
 
 //searchbar, location-bar & inline-toolbar
@@ -1648,18 +1620,22 @@ window.background > box.vertical > headerbar:not(.titlebar) { // reset headerbar
   }
 }
 
-.background .titlebar entry,
-.background headerbar entry {
-  caret-color: $headerbar_fg_color;
+.titlebar, headerbar {
+  .background &:not(.horizontal) entry {
+    &, &:focus {
+      background-color: rgba($headerbar_fg_color, 0.06);
+      color: $headerbar_fg_color;
+      caret-color: $headerbar_fg_color;
+      border-image: none;
+      box-shadow: none;
+    }
 
-  &, &:focus {
-    background-color: lighten($headerbar_bg_color, 5%);
-    color: $headerbar_fg_color;
-  }
-
-  &:disabled {
-    background-color: lighten($headerbar_bg_color, 2.5%);
-    color: $disabled_headerbar_fg_color;
+    &:disabled {
+      background-color: rgba($headerbar_fg_color, 0.03);
+      color: $disabled_headerbar_fg_color;
+      border-image: none;
+      box-shadow: none;
+    }
   }
 }
 
@@ -2014,11 +1990,11 @@ popover.background {
     &.osd { @extend %osd; }
   }
 
-  entry { @extend %flat_entry; }
-  button.combo { @extend %combo_flat; }
-
-  .linked button:not(.combo) { border-radius: $md_radius; margin: 0 2px; }
-  .linked button { border-radius: 0; }
+  // entry { @extend %flat_entry; }
+  // button.combo { @extend %combo_flat; }
+  //
+  // .linked button:not(.combo) { border-radius: $md_radius; margin: 0 2px; }
+  // .linked button { border-radius: 0; }
 
   button:not(.suggested-action):not(.destructive-action) {
     @extend %flat_theme_button;
@@ -2275,8 +2251,8 @@ notebook {
     revealer entry,
     revealer spinbutton:not(.vertical) { @extend %entry; }
 
-    spinbutton:not(.vertical) entry { @extend %spinbutton_entry; }
-    button.combo { @extend %combo_flat; }
+    // spinbutton:not(.vertical) entry { @extend %spinbutton_entry; }
+    // button.combo { @extend %combo_flat; }
   }
 }
 
@@ -2574,6 +2550,7 @@ radio {
     transition: none;
     margin: 0; // this is a workaround for a menu check/radio size allocation issue
     padding: 0;
+    color: $menu_fg_color;
 
     &:dir(ltr) { margin-right: 8px; }
 
@@ -3477,10 +3454,10 @@ paned {
 infobar {
   border-style: none;
 
-  &.info { background-color: $info_bg_color; }
-  &.question { background-color: $question_bg_color; }
-  &.warning { background-color: $warning_bg_color; }
-  &.error { background-color: $error_bg_color; }
+  &.info > revealer > box { background-color: $info_bg_color; }
+  &.question > revealer > box { background-color: $question_bg_color; }
+  &.warning > revealer > box { background-color: $warning_bg_color; }
+  &.error > revealer > box { background-color: $error_bg_color; }
 
   &.info,
   &.question,
@@ -3699,7 +3676,7 @@ colorchooser .popover.osd {
 
   &:backdrop { box-shadow: $z-depth-1, inset 0 1px $highlight_color; }
 
-  spinbutton:not(.vertical) { @extend %flat_entry; }
+  // spinbutton:not(.vertical) { @extend %flat_entry; }
 }
 
 //
@@ -3730,7 +3707,7 @@ colorchooser .popover.osd {
 decoration {
   transition: $shadow_transition;
   border-radius: 2px 2px 0 0;
-  box-shadow: $z-depth-4, 0 10px 12px transparent;
+  box-shadow: $z-depth-5, 0 16px 16px 2px rgba(black, 0), 0 6px 18px 5px rgba(black, 0);
 
   // FIXME rationalize shadows
 
@@ -3742,7 +3719,7 @@ decoration {
     // change when we go to backdrop, to prevent jumping windows.
     // The biggest shadow should be in the same order then in the active state
     // or the jumping will happen during the transition.
-    box-shadow: $z-depth-2, 0 10px 12px transparent;
+    box-shadow: $z-depth-4, 0 16px 16px 2px rgba(black, 0), 0 6px 18px 5px rgba(black, 0);
   }
 
   .maximized &,

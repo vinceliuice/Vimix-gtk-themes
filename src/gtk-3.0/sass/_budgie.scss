@@ -110,11 +110,13 @@
     border-radius: $md_radius;
   }
 
-  treeview.view.sidebar {
+  .sidebar {
     min-height: 36px;
     background: none;
     border-right: none;
     color: $fg_color;
+
+    list row.activatable { padding: $container_padding; }
 
     &:hover { background-color: rgba($fg_color, 0.05); }
 
@@ -604,9 +606,9 @@ $pos_list: ((top, bottom), (bottom, top), (left, right), (right, left));
   // .#{$pos} .budgie-panel { border-#{$b_pos}: 1px solid $borders_color; }
 
   // Raven borders
-  .#{$pos} frame.raven-frame > border {
-    // border-#{$b_pos}: 1px solid $borders_color;
-  }
+  // .#{$pos} frame.raven-frame > border {
+  //   border-#{$b_pos}: 1px solid $borders_color;
+  // }
 
   // Shadows
    .#{$pos} .shadow-block { background-image: linear-gradient(to $b_pos, rgba(black, 0.25), rgba(black, 0.08), transparent); }

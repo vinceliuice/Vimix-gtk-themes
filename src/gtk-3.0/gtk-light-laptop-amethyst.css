@@ -246,29 +246,33 @@ entry:disabled {
   color: rgba(0, 0, 0, 0.32);
 }
 
-.background spinbutton:not(.vertical), .background notebook > stack:not(:only-child) revealer entry, notebook > stack:not(:only-child) revealer .background entry,
+.background notebook > stack:not(:only-child) revealer entry, notebook > stack:not(:only-child) revealer .background entry,
 .background notebook > stack:not(:only-child) revealer spinbutton:not(.vertical),
 notebook > stack:not(:only-child) revealer .background spinbutton:not(.vertical),
 .background entry {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
   border: none;
   border-image: none;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
   background-color: #FFFFFF;
   color: rgba(0, 0, 0, 0.6);
 }
 
-.background spinbutton:focus:not(.vertical),
+
+.background notebook > stack:not(:only-child) revealer spinbutton:focus:not(.vertical),
+notebook > stack:not(:only-child) revealer .background spinbutton:focus:not(.vertical),
 .background entry:focus {
   border: none;
   border-image: none;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12);
   color: rgba(0, 0, 0, 0.8);
 }
 
-.background spinbutton:disabled:not(.vertical),
+
+.background notebook > stack:not(:only-child) revealer spinbutton:disabled:not(.vertical),
+notebook > stack:not(:only-child) revealer .background spinbutton:disabled:not(.vertical),
 .background entry:disabled {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
   background-color: #fafafa;
   color: rgba(0, 0, 0, 0.32);
 }
@@ -279,9 +283,8 @@ window.background stack scrolledwindow spinbutton:not(.vertical), dialog.backgro
 dialog.background .dialog-vbox stack spinbutton:not(.vertical), window#whiskermenu-window entry, .tilix-search-frame entry,
 .tilix-search-frame .linked entry,
 .tilix-search-frame .linked entry.search, .geary-composer-box entry,
-.geary-composer-box spinbutton:not(.vertical), editortweak entry.search, layoutpane entry.search, colorchooser .popover.osd spinbutton:not(.vertical), messagedialog entry, notebook > stack:not(:only-child) entry,
-notebook > stack:not(:only-child) spinbutton:not(.vertical), popover.background entry, .primary-toolbar entry,
-.primary-toolbar spinbutton:not(.vertical), .background spinbutton.flat:not(.vertical),
+.geary-composer-box spinbutton:not(.vertical), editortweak entry.search, layoutpane entry.search, messagedialog entry, notebook > stack:not(:only-child) entry,
+notebook > stack:not(:only-child) spinbutton:not(.vertical), .background spinbutton:not(.vertical), .background spinbutton.flat:not(.vertical),
 .background entry.flat {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1);
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #AB47BC 0%, transparent 0%) 0 0 0/0 0 0px;
@@ -292,24 +295,20 @@ notebook > stack:not(:only-child) spinbutton:not(.vertical), popover.background 
 }
 
 #login_window entry:focus, .budgie-run-dialog entry:focus, .budgie-polkit-dialog entry:focus, .budgie-session-dialog entry:focus, .raven .raven-background spinbutton:focus:not(.vertical), .budgie-popover entry:focus,
-.budgie-popover spinbutton:focus:not(.vertical), .budgie-settings-window .settings-page .settings-frame .linked > entry:focus, window.background stack scrolledwindow entry:focus,
-window.background stack scrolledwindow spinbutton:focus:not(.vertical), dialog.background .dialog-vbox stack entry:focus,
+.budgie-popover spinbutton:focus:not(.vertical), .budgie-settings-window .settings-page .settings-frame .linked > entry:focus, window.background stack scrolledwindow entry:focus, dialog.background .dialog-vbox stack entry:focus,
 dialog.background .dialog-vbox stack spinbutton:focus:not(.vertical), window#whiskermenu-window entry:focus, .tilix-search-frame entry:focus, .geary-composer-box entry:focus,
-.geary-composer-box spinbutton:focus:not(.vertical), editortweak entry.search:focus, layoutpane entry.search:focus, colorchooser .popover.osd spinbutton:focus:not(.vertical), messagedialog entry:focus, notebook > stack:not(:only-child) entry:focus,
-notebook > stack:not(:only-child) spinbutton:focus:not(.vertical), popover.background entry:focus, .primary-toolbar entry:focus,
-.primary-toolbar spinbutton:focus:not(.vertical), .background spinbutton.flat:focus:not(.vertical),
+.geary-composer-box spinbutton:focus:not(.vertical), editortweak entry.search:focus, layoutpane entry.search:focus, messagedialog entry:focus, notebook > stack:not(:only-child) entry:focus,
+notebook > stack:not(:only-child) spinbutton:focus:not(.vertical), .background spinbutton:focus:not(.vertical),
 .background entry.flat:focus {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #AB47BC 100%, transparent 0%) 0 0 2/0 0 2px;
   box-shadow: inset 0 -1px alpha(currentColor, 0.24);
 }
 
 #login_window entry:disabled, .budgie-run-dialog entry:disabled, .budgie-polkit-dialog entry:disabled, .budgie-session-dialog entry:disabled, .raven .raven-background spinbutton:disabled:not(.vertical), .budgie-popover entry:disabled,
-.budgie-popover spinbutton:disabled:not(.vertical), .budgie-settings-window .settings-page .settings-frame .linked > entry:disabled, window.background stack scrolledwindow entry:disabled,
-window.background stack scrolledwindow spinbutton:disabled:not(.vertical), dialog.background .dialog-vbox stack entry:disabled,
+.budgie-popover spinbutton:disabled:not(.vertical), .budgie-settings-window .settings-page .settings-frame .linked > entry:disabled, window.background stack scrolledwindow entry:disabled, dialog.background .dialog-vbox stack entry:disabled,
 dialog.background .dialog-vbox stack spinbutton:disabled:not(.vertical), window#whiskermenu-window entry:disabled, .tilix-search-frame entry:disabled, .geary-composer-box entry:disabled,
-.geary-composer-box spinbutton:disabled:not(.vertical), editortweak entry.search:disabled, layoutpane entry.search:disabled, colorchooser .popover.osd spinbutton:disabled:not(.vertical), messagedialog entry:disabled, notebook > stack:not(:only-child) entry:disabled,
-notebook > stack:not(:only-child) spinbutton:disabled:not(.vertical), popover.background entry:disabled, .primary-toolbar entry:disabled,
-.primary-toolbar spinbutton:disabled:not(.vertical), .background spinbutton.flat:disabled:not(.vertical),
+.geary-composer-box spinbutton:disabled:not(.vertical), editortweak entry.search:disabled, layoutpane entry.search:disabled, messagedialog entry:disabled, notebook > stack:not(:only-child) entry:disabled,
+notebook > stack:not(:only-child) spinbutton:disabled:not(.vertical), .background spinbutton:disabled:not(.vertical),
 .background entry.flat:disabled {
   box-shadow: inset 0 -1px alpha(currentColor, 0.24);
   background-color: transparent;
@@ -362,35 +361,6 @@ entry.flat:disabled {
 .background notebook > stack:not(:only-child) revealer .linked > entry,
 .background notebook > stack:not(:only-child) revealer .linked > spinbutton:not(.vertical),
 notebook > stack:not(:only-child) revealer .background .linked > spinbutton:not(.vertical), .background .linked > entry {
-  transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
-  border: none;
-  border-image: none;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
-  background-color: #FFFFFF;
-  color: rgba(0, 0, 0, 0.6);
-  border: none;
-}
-
-.background notebook > stack:not(:only-child) revealer .linked > entry:focus,
-.background notebook > stack:not(:only-child) revealer .linked > spinbutton:focus:not(.vertical),
-notebook > stack:not(:only-child) revealer .background .linked > spinbutton:focus:not(.vertical), .background .linked > entry:focus {
-  border: none;
-  border-image: none;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
-  color: rgba(0, 0, 0, 0.8);
-}
-
-.background notebook > stack:not(:only-child) revealer .linked > entry:disabled,
-.background notebook > stack:not(:only-child) revealer .linked > spinbutton:disabled:not(.vertical),
-notebook > stack:not(:only-child) revealer .background .linked > spinbutton:disabled:not(.vertical), .background .linked > entry:disabled {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
-  background-color: #fafafa;
-  color: rgba(0, 0, 0, 0.32);
-}
-
-.background notebook > stack:not(:only-child) revealer .linked > entry.flat,
-.background notebook > stack:not(:only-child) revealer .linked > spinbutton.flat:not(.vertical),
-notebook > stack:not(:only-child) revealer .background .linked > spinbutton.flat:not(.vertical), .background .linked > entry.flat {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1);
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #AB47BC 0%, transparent 0%) 0 0 0/0 0 0px;
   box-shadow: inset 0 -1px alpha(currentColor, 0.24);
@@ -399,16 +369,16 @@ notebook > stack:not(:only-child) revealer .background .linked > spinbutton.flat
   border: none;
 }
 
-.background notebook > stack:not(:only-child) revealer .linked > entry.flat:focus,
-.background notebook > stack:not(:only-child) revealer .linked > spinbutton.flat:focus:not(.vertical),
-notebook > stack:not(:only-child) revealer .background .linked > spinbutton.flat:focus:not(.vertical), .background .linked > entry.flat:focus {
+.background notebook > stack:not(:only-child) revealer .linked > entry:focus,
+.background notebook > stack:not(:only-child) revealer .linked > spinbutton:focus:not(.vertical),
+notebook > stack:not(:only-child) revealer .background .linked > spinbutton:focus:not(.vertical), .background .linked > entry:focus {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #AB47BC 100%, transparent 0%) 0 0 2/0 0 2px;
   box-shadow: inset 0 -1px alpha(currentColor, 0.24);
 }
 
-.background notebook > stack:not(:only-child) revealer .linked > entry.flat:disabled,
-.background notebook > stack:not(:only-child) revealer .linked > spinbutton.flat:disabled:not(.vertical),
-notebook > stack:not(:only-child) revealer .background .linked > spinbutton.flat:disabled:not(.vertical), .background .linked > entry.flat:disabled {
+.background notebook > stack:not(:only-child) revealer .linked > entry:disabled,
+.background notebook > stack:not(:only-child) revealer .linked > spinbutton:disabled:not(.vertical),
+notebook > stack:not(:only-child) revealer .background .linked > spinbutton:disabled:not(.vertical), .background .linked > entry:disabled {
   box-shadow: inset 0 -1px alpha(currentColor, 0.24);
   background-color: transparent;
   color: rgba(0, 0, 0, 0.32);
@@ -478,7 +448,7 @@ entry.error {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
   border: none;
   border-image: none;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
   background-color: #DD2C00;
   color: #FFFFFF;
 }
@@ -488,14 +458,14 @@ notebook > stack:not(:only-child) revealer spinbutton.error:focus:not(.vertical)
 entry.error:focus {
   border: none;
   border-image: none;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12);
   color: #FFFFFF;
 }
 
 
 notebook > stack:not(:only-child) revealer spinbutton.error:disabled:not(.vertical),
 entry.error:disabled {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
   background-color: #fafafa;
   color: rgba(0, 0, 0, 0.32);
 }
@@ -531,7 +501,7 @@ entry.warning {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
   border: none;
   border-image: none;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
   background-color: #FF6D00;
   color: #FFFFFF;
 }
@@ -541,14 +511,14 @@ notebook > stack:not(:only-child) revealer spinbutton.warning:focus:not(.vertica
 entry.warning:focus {
   border: none;
   border-image: none;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12);
   color: #FFFFFF;
 }
 
 
 notebook > stack:not(:only-child) revealer spinbutton.warning:disabled:not(.vertical),
 entry.warning:disabled {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
   background-color: #fafafa;
   color: rgba(0, 0, 0, 0.32);
 }
@@ -591,7 +561,7 @@ entry.entry-tag {
 
 notebook > stack:not(:only-child) revealer spinbutton.entry-tag:hover:not(.vertical),
 entry.entry-tag:hover {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
 }
 
 
@@ -644,9 +614,9 @@ entry progress {
   background-color: transparent;
 }
 
-notebook > stack:not(:only-child) revealer .linked:not(.vertical) > entry.flat,
-notebook > stack:not(:only-child) revealer .linked:not(.vertical) > spinbutton.flat:not(.vertical), notebook > stack:not(:only-child) revealer .linked.vertical > entry.flat,
-notebook > stack:not(:only-child) revealer .linked.vertical > spinbutton.flat:not(.vertical), .linked:not(.vertical) > entry.flat, .linked.vertical > entry.flat {
+notebook > stack:not(:only-child) revealer .linked:not(.vertical) > entry,
+notebook > stack:not(:only-child) revealer .linked:not(.vertical) > spinbutton:not(.vertical), notebook > stack:not(:only-child) revealer .linked.vertical > entry,
+notebook > stack:not(:only-child) revealer .linked.vertical > spinbutton:not(.vertical), .linked:not(.vertical) > entry, .linked.vertical > entry {
   border-radius: 0;
 }
 
@@ -716,7 +686,7 @@ button:checked:disabled {
 
 .background button {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1), background-size 300ms cubic-bezier(0, 0, 0.2, 1), background-image 600ms cubic-bezier(0, 0, 0.2, 1);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 0 0 9999px transparent;
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08), inset 0 0 0 9999px transparent;
   background-color: #FCFCFC;
   background-image: radial-gradient(circle farthest-corner at center, transparent 100%, transparent 0%);
   background-repeat: no-repeat;
@@ -727,7 +697,7 @@ button:checked:disabled {
 }
 
 .background button:hover {
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23), inset 0 0 0 9999px transparent;
+  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12), inset 0 0 0 9999px transparent;
   color: rgba(0, 0, 0, 0.8);
   background-color: white;
 }
@@ -735,7 +705,7 @@ button:checked:disabled {
 .background button:active {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
   animation: ripple_effect 100ms cubic-bezier(0, 0, 0.2, 1) forwards;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23), inset 0 0 0 9999px alpha(currentColor, 0.12);
+  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12), inset 0 0 0 9999px alpha(currentColor, 0.12);
   background-image: radial-gradient(circle farthest-corner at center, alpha(currentColor, 0.12) 10%, transparent 0%);
   background-size: 0% 0%;
   color: rgba(0, 0, 0, 0.8);
@@ -767,7 +737,7 @@ window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button, .sid
 .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.image-button.text-button, .nautilus-window headerbar .path-bar-box button, .app-notification button, actionbar > revealer > box button:not(.suggested-action):not(.destructive-action):not(.server-list-button), .caja-pathbar button,
 .path-bar button, toolbar button, toolbutton button,
 toolbutton button.image-button,
-toolbutton button.image-button.toggle, .osd button,
+toolbutton button.image-button.toggle, .osd button, .linked.vertical > button, .linked > button,
 button.flat {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 300ms cubic-bezier(0, 0, 0.2, 1), background-image 600ms cubic-bezier(0, 0, 0.2, 1);
   box-shadow: inset 0 0 0 9999px transparent;
@@ -786,7 +756,7 @@ radio:hover, scrollbar button:hover, notebook > header > tabs > arrow:hover, spi
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:hover:not(.toggle):not(.raised):not(.flat), window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:hover, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:hover, window.csd > box.vertical > box.vertical > toolbar.horizontal button:hover,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:hover, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:hover, layouttabbar button:hover, .nemo-window .primary-toolbar .linked.path-bar:not(.vertical):not(.stack-switcher) button:hover,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:hover, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:hover, .nautilus-window headerbar .path-bar-box button:hover, .app-notification button:hover, actionbar > revealer > box button:hover:not(.suggested-action):not(.destructive-action):not(.server-list-button), .caja-pathbar button:hover,
-.path-bar button:hover, toolbar button:hover, toolbutton button:hover, .osd button:hover,
+.path-bar button:hover, toolbar button:hover, toolbutton button:hover, .osd button:hover, .linked.vertical > button:hover, .linked > button:hover,
 button.flat:hover {
   box-shadow: inset 0 0 0 9999px alpha(currentColor, 0.12);
   color: rgba(0, 0, 0, 0.8);
@@ -799,7 +769,7 @@ radio:active, scrollbar button:active, notebook > header > tabs > arrow:active, 
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:active:not(.toggle):not(.raised):not(.flat), window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:active, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:active, window.csd > box.vertical > box.vertical > toolbar.horizontal button:active,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:active, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:active, layouttabbar button:active, .nemo-window .primary-toolbar .linked.path-bar:not(.vertical):not(.stack-switcher) button:active,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:active, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:active, .nautilus-window headerbar .path-bar-box button:active, .app-notification button:active, actionbar > revealer > box button:active:not(.suggested-action):not(.destructive-action):not(.server-list-button), .caja-pathbar button:active,
-.path-bar button:active, toolbar button:active, toolbutton button:active, .osd button:active,
+.path-bar button:active, toolbar button:active, toolbutton button:active, .osd button:active, .linked.vertical > button:active, .linked > button:active,
 button.flat:active {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
   animation: ripple_effect 100ms cubic-bezier(0, 0, 0.2, 1) forwards;
@@ -816,7 +786,7 @@ radio:disabled, scrollbar button:disabled, notebook > header > tabs > arrow:disa
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:disabled:not(.toggle):not(.raised):not(.flat), window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:disabled, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:disabled, window.csd > box.vertical > box.vertical > toolbar.horizontal button:disabled,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:disabled, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:disabled, layouttabbar button:disabled, .nemo-window .primary-toolbar .linked.path-bar:not(.vertical):not(.stack-switcher) button:disabled,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:disabled, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:disabled, .nautilus-window headerbar .path-bar-box button:disabled, .app-notification button:disabled, actionbar > revealer > box button:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), .caja-pathbar button:disabled,
-.path-bar button:disabled, toolbar button:disabled, toolbutton button:disabled, .osd button:disabled,
+.path-bar button:disabled, toolbar button:disabled, toolbutton button:disabled, .osd button:disabled, .linked.vertical > button:disabled, .linked > button:disabled,
 button.flat:disabled {
   box-shadow: none;
   background-color: transparent;
@@ -827,7 +797,7 @@ button.flat:disabled {
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:checked:not(.toggle):not(.raised):not(.flat), window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:checked, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:checked, window.csd > box.vertical > box.vertical > toolbar.horizontal button:checked,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:checked, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:checked, layouttabbar button:checked, .nemo-window .primary-toolbar .linked.path-bar:not(.vertical):not(.stack-switcher) button:checked,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:checked, .nautilus-window headerbar .path-bar-box button:checked, .app-notification button:checked, actionbar > revealer > box button:checked:not(.suggested-action):not(.destructive-action):not(.server-list-button), .caja-pathbar button:checked,
-.path-bar button:checked, toolbar button:checked, toolbutton button:checked, .osd button:checked,
+.path-bar button:checked, toolbar button:checked, toolbutton button:checked, .osd button:checked, .linked.vertical > button:checked, .linked > button:checked,
 button.flat:checked {
   color: rgba(0, 0, 0, 0.8);
   background-color: rgba(0, 0, 0, 0.2);
@@ -837,7 +807,7 @@ button.flat:checked {
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:checked:disabled:not(.toggle):not(.raised):not(.flat), window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:checked:disabled, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:checked:disabled, window.csd > box.vertical > box.vertical > toolbar.horizontal button:checked:disabled,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:checked:disabled, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:checked:disabled, layouttabbar button:checked:disabled, .nemo-window .primary-toolbar .linked.path-bar:not(.vertical):not(.stack-switcher) button:checked:disabled,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked:disabled, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:checked:disabled, .nautilus-window headerbar .path-bar-box button:checked:disabled, .app-notification button:checked:disabled, actionbar > revealer > box button:checked:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), .caja-pathbar button:checked:disabled,
-.path-bar button:checked:disabled, toolbar button:checked:disabled, toolbutton button:checked:disabled, .osd button:checked:disabled,
+.path-bar button:checked:disabled, toolbar button:checked:disabled, toolbutton button:checked:disabled, .osd button:checked:disabled, .linked > button:checked:disabled,
 button.flat:checked:disabled {
   background-color: rgba(0, 0, 0, 0.15);
   color: rgba(0, 0, 0, 0.32);
@@ -946,12 +916,12 @@ button.osd:disabled {
 button.suggested-action {
   background-color: #4CAF50;
   color: #FFFFFF;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
 }
 
 
 button.suggested-action:hover {
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23), inset 0 0 0 9999px transparent;
+  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12), inset 0 0 0 9999px transparent;
   color: rgba(0, 0, 0, 0.8);
   background-color: white;
   background-color: #5cb860;
@@ -1012,12 +982,12 @@ button.suggested-action.flat:disabled {
 button.destructive-action {
   background-color: #FF5252;
   color: #FFFFFF;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
 }
 
 
 button.destructive-action:hover {
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23), inset 0 0 0 9999px transparent;
+  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12), inset 0 0 0 9999px transparent;
   color: rgba(0, 0, 0, 0.8);
   background-color: white;
   background-color: #ff6c6c;
@@ -1135,49 +1105,22 @@ stacksidebar row.needs-attention > label:dir(rtl), .stack-switcher > button.need
   background-position: left 3px;
 }
 
-.linked:not(.vertical) > combobox > box > button.combo, .gedit-search-slider button:dir(ltr), .gedit-search-slider button:dir(rtl), notebook > stack:not(:only-child) revealer .linked:not(.vertical) > entry,
-notebook > stack:not(:only-child) revealer .linked:not(.vertical) > spinbutton:not(.vertical), .linked:not(.vertical) > entry, .linked > button, row .linked > button {
+.gedit-search-slider button:dir(ltr), .gedit-search-slider button:dir(rtl) {
   border-radius: 0;
   -gtk-outline-radius: 3px;
 }
 
-.gedit-search-slider button:first-child:dir(ltr), .gedit-search-slider button:first-child:dir(rtl), notebook > stack:not(:only-child) revealer .linked:not(.vertical) > entry:first-child,
-notebook > stack:not(:only-child) revealer .linked:not(.vertical) > spinbutton:first-child:not(.vertical), .linked:not(.vertical) > entry:first-child, .linked > button:first-child, row .linked > button:first-child {
+.gedit-search-slider button:first-child:dir(ltr), .gedit-search-slider button:first-child:dir(rtl) {
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
 }
 
-.gedit-search-slider button:last-child:dir(ltr), .gedit-search-slider button:last-child:dir(rtl), notebook > stack:not(:only-child) revealer .linked:not(.vertical) > entry:last-child,
-notebook > stack:not(:only-child) revealer .linked:not(.vertical) > spinbutton:last-child:not(.vertical), .linked:not(.vertical) > entry:last-child, .linked > button:last-child, row .linked > button:last-child {
+.gedit-search-slider button:last-child:dir(ltr), .gedit-search-slider button:last-child:dir(rtl) {
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
 }
 
-.gedit-search-slider button:only-child:dir(ltr), .gedit-search-slider button:only-child:dir(rtl), notebook > stack:not(:only-child) revealer .linked:not(.vertical) > entry:only-child,
-notebook > stack:not(:only-child) revealer .linked:not(.vertical) > spinbutton:only-child:not(.vertical), .linked:not(.vertical) > entry:only-child, .linked > button:only-child, row .linked > button:only-child {
-  border-radius: 3px;
-}
-
-.linked.vertical > combobox > box > button.combo, notebook > stack:not(:only-child) revealer .linked.vertical > entry,
-notebook > stack:not(:only-child) revealer .linked.vertical > spinbutton:not(.vertical), .linked.vertical > entry, .linked.vertical > button, row .linked.vertical > button {
-  border-radius: 0;
-  -gtk-outline-radius: 3px;
-}
-
-notebook > stack:not(:only-child) revealer .linked.vertical > entry:first-child,
-notebook > stack:not(:only-child) revealer .linked.vertical > spinbutton:first-child:not(.vertical), .linked.vertical > entry:first-child, .linked.vertical > button:first-child, row .linked.vertical > button:first-child {
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-}
-
-notebook > stack:not(:only-child) revealer .linked.vertical > entry:last-child,
-notebook > stack:not(:only-child) revealer .linked.vertical > spinbutton:last-child:not(.vertical), .linked.vertical > entry:last-child, .linked.vertical > button:last-child, row .linked.vertical > button:last-child {
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-}
-
-notebook > stack:not(:only-child) revealer .linked.vertical > entry:only-child,
-notebook > stack:not(:only-child) revealer .linked.vertical > spinbutton:only-child:not(.vertical), .linked.vertical > entry:only-child, .linked.vertical > button:only-child, row .linked.vertical > button:only-child {
+.gedit-search-slider button:only-child:dir(ltr), .gedit-search-slider button:only-child:dir(rtl) {
   border-radius: 3px;
 }
 
@@ -1278,7 +1221,12 @@ spinbutton:not(.vertical) {
   padding: 0;
 }
 
-.budgie-popover spinbutton:not(.vertical) entry, window.background stack scrolledwindow spinbutton:not(.vertical) entry, dialog.background .dialog-vbox stack spinbutton:not(.vertical) entry, .geary-composer-box spinbutton:not(.vertical) entry, notebook > stack:not(:only-child) spinbutton:not(.vertical) entry, .primary-toolbar spinbutton:not(.vertical) entry,
+.background spinbutton:not(.vertical) entry, .background spinbutton:not(.vertical) entry:focus, .background spinbutton:not(.vertical) entry:disabled, .background spinbutton:not(.vertical):focus entry, .background spinbutton:not(.vertical):focus entry:focus, .background spinbutton:not(.vertical):focus entry:disabled, .background spinbutton:not(.vertical):disabled entry, .background spinbutton:not(.vertical):disabled entry:focus, .background spinbutton:not(.vertical):disabled entry:disabled, .background spinbutton.flat:not(.vertical) entry, .background spinbutton.flat:not(.vertical) entry:focus, .background spinbutton.flat:not(.vertical) entry:disabled, .background spinbutton.flat:not(.vertical):focus entry, .background spinbutton.flat:not(.vertical):focus entry:focus, .background spinbutton.flat:not(.vertical):focus entry:disabled, .background spinbutton.flat:not(.vertical):disabled entry, .background spinbutton.flat:not(.vertical):disabled entry:focus, .background spinbutton.flat:not(.vertical):disabled entry:disabled {
+  box-shadow: none;
+  background: none;
+}
+
+.budgie-popover spinbutton:not(.vertical) entry, window.background stack scrolledwindow spinbutton:not(.vertical) entry, dialog.background .dialog-vbox stack spinbutton:not(.vertical) entry, .geary-composer-box spinbutton:not(.vertical) entry,
 spinbutton:not(.vertical) entry {
   min-width: 22px;
   margin: 0;
@@ -1382,25 +1330,22 @@ combobox entry.combo:disabled {
 }
 
 .background combobox entry.combo {
-  transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
-  border: none;
-  border-image: none;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
-  background-color: #FFFFFF;
-  color: rgba(0, 0, 0, 0.6);
+  transition: all 100ms cubic-bezier(0, 0, 0.2, 1);
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #AB47BC 0%, transparent 0%) 0 0 0/0 0 0px;
+  box-shadow: inset 0 -1px alpha(currentColor, 0.24);
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.8);
   border: none;
 }
 
 .background combobox entry.combo:focus {
-  border: none;
-  border-image: none;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
-  color: rgba(0, 0, 0, 0.8);
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #AB47BC 100%, transparent 0%) 0 0 2/0 0 2px;
+  box-shadow: inset 0 -1px alpha(currentColor, 0.24);
 }
 
 .background combobox entry.combo:disabled {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
-  background-color: #fafafa;
+  box-shadow: inset 0 -1px alpha(currentColor, 0.24);
+  background-color: transparent;
   color: rgba(0, 0, 0, 0.32);
 }
 
@@ -1456,35 +1401,8 @@ combobox:drop(active) {
   border-width: 1px;
 }
 
-.linked:not(.vertical) > combobox:first-child > box > button.combo {
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-}
-
-.linked:not(.vertical) > combobox:last-child > box > button.combo {
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-}
-
-.linked:not(.vertical) > combobox:only-child > box > button.combo {
-  border-radius: 3px;
-}
-
-.linked.vertical > combobox:first-child > box > button.combo {
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-}
-
-.linked.vertical > combobox:last-child > box > button.combo {
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-}
-
-.linked.vertical > combobox:only-child > box > button.combo {
-  border-radius: 3px;
-}
-
-#login_window #user_combobox button, .raven .raven-background button.combo, .budgie-popover button.combo, window.background stack scrolledwindow button.combo, dialog.background .dialog-vbox stack button.combo, .tilix-search-frame button.combo, .geary-composer-box button.combo, notebook > stack:not(:only-child) button.combo, popover.background button.combo, .primary-toolbar button.combo {
+#login_window #user_combobox button, .raven .raven-background button.combo, .budgie-popover button.combo, window.background stack scrolledwindow button.combo, dialog.background .dialog-vbox stack button.combo, .tilix-search-frame button.combo, .geary-composer-box button.combo, button.combo,
+.linked > combobox > box > button.combo {
   border-radius: 0;
   background: none;
   font-weight: inherit;
@@ -1495,20 +1413,30 @@ combobox:drop(active) {
   color: rgba(0, 0, 0, 0.8);
 }
 
-#login_window #user_combobox button:hover, .raven .raven-background button.combo:hover, .budgie-popover button.combo:hover, window.background stack scrolledwindow button.combo:hover, dialog.background .dialog-vbox stack button.combo:hover, .tilix-search-frame button.combo:hover, .geary-composer-box button.combo:hover, notebook > stack:not(:only-child) button.combo:hover, popover.background button.combo:hover, .primary-toolbar button.combo:hover {
+#login_window #user_combobox button:first-child, .raven .raven-background button.combo:first-child, window.background stack scrolledwindow button.combo:first-child, dialog.background .dialog-vbox stack button.combo:first-child, button.combo:first-child,
+.linked > combobox > box > button.combo:first-child, #login_window #user_combobox button:last-child, .raven .raven-background button.combo:last-child, window.background stack scrolledwindow button.combo:last-child, dialog.background .dialog-vbox stack button.combo:last-child, button.combo:last-child,
+.linked > combobox > box > button.combo:last-child, #login_window #user_combobox button:only-child, .raven .raven-background button.combo:only-child, window.background stack scrolledwindow button.combo:only-child, dialog.background .dialog-vbox stack button.combo:only-child, button.combo:only-child,
+.linked > combobox > box > button.combo:only-child {
+  border-radius: 0;
+}
+
+#login_window #user_combobox button:hover, .raven .raven-background button.combo:hover, window.background stack scrolledwindow button.combo:hover, dialog.background .dialog-vbox stack button.combo:hover, button.combo:hover,
+.linked > combobox > box > button.combo:hover {
   box-shadow: inset 0 -2px alpha(currentColor, 0.4);
   background: none;
 }
 
-#login_window #user_combobox button:checked, .raven .raven-background button.combo:checked, .budgie-popover button.combo:checked, window.background stack scrolledwindow button.combo:checked, dialog.background .dialog-vbox stack button.combo:checked, .tilix-search-frame button.combo:checked, .geary-composer-box button.combo:checked, notebook > stack:not(:only-child) button.combo:checked, popover.background button.combo:checked, .primary-toolbar button.combo:checked {
-  background: none;
+#login_window #user_combobox button:checked, .raven .raven-background button.combo:checked, window.background stack scrolledwindow button.combo:checked, dialog.background .dialog-vbox stack button.combo:checked, button.combo:checked,
+.linked > combobox > box > button.combo:checked {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #AB47BC 100%, transparent 0%) 0 0 2/0 0 2px;
+  box-shadow: inset 0 -1px alpha(currentColor, 0.24);
 }
 
-#login_window #user_combobox button:disabled, .raven .raven-background button.combo:disabled, .budgie-popover button.combo:disabled, window.background stack scrolledwindow button.combo:disabled, dialog.background .dialog-vbox stack button.combo:disabled, .tilix-search-frame button.combo:disabled, .geary-composer-box button.combo:disabled, notebook > stack:not(:only-child) button.combo:disabled, popover.background button.combo:disabled, .primary-toolbar button.combo:disabled {
-  box-shadow: inset 0 -1px alpha(currentColor, 0.12);
+#login_window #user_combobox button:disabled, .raven .raven-background button.combo:disabled, window.background stack scrolledwindow button.combo:disabled, dialog.background .dialog-vbox stack button.combo:disabled, button.combo:disabled,
+.linked > combobox > box > button.combo:disabled {
+  box-shadow: inset 0 -1px alpha(currentColor, 0.24);
+  background-color: transparent;
   color: rgba(0, 0, 0, 0.32);
-  background: none;
 }
 
 toolbar {
@@ -1524,12 +1452,12 @@ toolbar {
 frame.documents-dropdown, .app-notification, toolbar.osd {
   padding: 4px;
   border-radius: 2px;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23), inset 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.1);
   background-color: #FFFFFF;
 }
 
 frame.documents-dropdown:backdrop, .app-notification:backdrop, toolbar.osd:backdrop {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08), inset 0 1px rgba(255, 255, 255, 0.1);
 }
 
 frame.left.documents-dropdown, .left.app-notification, frame.right.documents-dropdown, .right.app-notification, frame.top.documents-dropdown, .top.app-notification, frame.bottom.documents-dropdown, .bottom.app-notification, toolbar.osd.left, toolbar.osd.right, toolbar.osd.top, toolbar.osd.bottom {
@@ -1591,14 +1519,6 @@ window.background stack scrolledwindow .linked:not(stackswitcher) button:checked
   color: rgba(0, 0, 0, 0.5);
   background-color: rgba(0, 0, 0, 0.1);
   box-shadow: none;
-}
-
-.primary-toolbar .linked button:not(.combo) {
-  border-radius: 3px;
-}
-
-.primary-toolbar .linked button.combo {
-  border-radius: 0;
 }
 
 .inline-toolbar {
@@ -1762,7 +1682,7 @@ headerbar button.destructive-action:disabled > label {
 headerbar.selection-mode {
   transition: background-color 0.00001s 100ms, color 100ms cubic-bezier(0, 0, 0.2, 1);
   animation: header_ripple_effect 100ms cubic-bezier(0, 0, 0.2, 1);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08), inset 0 1px rgba(255, 255, 255, 0.1);
   background-color: #AB47BC;
   color: #FFFFFF;
 }
@@ -2058,22 +1978,19 @@ window.background > box.vertical > headerbar:not(.titlebar):last-child, window.b
   border-top-right-radius: 0;
 }
 
-.background .titlebar entry,
-.background headerbar entry {
-  caret-color: rgba(0, 0, 0, 0.8);
-}
-
-.background .titlebar entry, .background .titlebar entry:focus,
-.background headerbar entry,
-.background headerbar entry:focus {
-  background-color: #fbfbfb;
+.background .titlebar:not(.horizontal) entry, .background .titlebar:not(.horizontal) entry:focus, .background headerbar:not(.horizontal) entry, .background headerbar:not(.horizontal) entry:focus {
+  background-color: rgba(0, 0, 0, 0.06);
   color: rgba(0, 0, 0, 0.8);
+  caret-color: rgba(0, 0, 0, 0.8);
+  border-image: none;
+  box-shadow: none;
 }
 
-.background .titlebar entry:disabled,
-.background headerbar entry:disabled {
-  background-color: #f4f4f4;
+.background .titlebar:not(.horizontal) entry:disabled, .background headerbar:not(.horizontal) entry:disabled {
+  background-color: rgba(0, 0, 0, 0.03);
   color: rgba(0, 0, 0, 0.32);
+  border-image: none;
+  box-shadow: none;
 }
 
 .caja-pathbar button,
@@ -2469,12 +2386,12 @@ button#show_show_thumbnails_icon_toolbar_togglebutton:checked:disabled, popover.
 popover.background {
   transition: box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
   padding: 0;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12);
   background-color: #FCFCFC;
 }
 
 popover.background:backdrop {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
 }
 
 popover.background, .csd popover.background {
@@ -2490,15 +2407,6 @@ popover.background > toolbar {
   border-style: none;
   box-shadow: none;
   background-color: transparent;
-}
-
-popover.background .linked button:not(.combo) {
-  border-radius: 3px;
-  margin: 0 2px;
-}
-
-popover.background .linked button {
-  border-radius: 0;
 }
 
 popover.background.menu button,
@@ -2904,24 +2812,24 @@ switch slider {
   min-height: 20px;
   margin: -3px -2px;
   border-radius: 100px;
-  box-shadow: 0 0 0 10px transparent, 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0 10px transparent, 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
   background-color: #FCFCFC;
   color: #FCFCFC;
 }
 
 switch:hover slider {
   color: rgba(0, 0, 0, 0.8);
-  box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1), 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
 }
 
 switch:focus slider {
   color: #EC407A;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
 }
 
 switch:focus:hover slider {
   color: #EC407A;
-  box-shadow: 0 0 0 10px rgba(236, 64, 122, 0.1), 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0 10px rgba(236, 64, 122, 0.1), 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
 }
 
 switch:checked slider {
@@ -2931,7 +2839,7 @@ switch:checked slider {
 
 switch:checked:hover slider {
   color: #EC407A;
-  box-shadow: 0 0 0 10px rgba(236, 64, 122, 0.1), 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0 10px rgba(236, 64, 122, 0.1), 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
 }
 
 row:selected switch {
@@ -2960,13 +2868,13 @@ row:selected switch:checked slider {
   box-shadow: none;
   background-color: transparent;
   background-image: none;
-  -gtk-icon-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  -gtk-icon-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
 }
 
 .view.content-view.check:not(list):hover, .view.content-view.check:not(list):active,
 .content-view .tile check:not(list):hover,
 .content-view .tile check:not(list):active {
-  -gtk-icon-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+  -gtk-icon-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
 .view.content-view.check:not(list),
@@ -3132,6 +3040,7 @@ menu menuitem check, menu menuitem radio {
   transition: none;
   margin: 0;
   padding: 0;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 menu menuitem check:dir(ltr), menu menuitem radio:dir(ltr) {
@@ -3516,13 +3425,13 @@ levelbar trough {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
   border: none;
   border-image: none;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
   background-color: #FFFFFF;
   color: rgba(0, 0, 0, 0.6);
 }
 
 levelbar trough:disabled {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
   background-color: #fafafa;
   color: rgba(0, 0, 0, 0.32);
 }
@@ -4103,19 +4012,19 @@ infobar {
   border-style: none;
 }
 
-infobar.info {
+infobar.info > revealer > box {
   background-color: #66BB6A;
 }
 
-infobar.question {
+infobar.question > revealer > box {
   background-color: #42A5F5;
 }
 
-infobar.warning {
+infobar.warning > revealer > box {
   background-color: #FFA726;
 }
 
-infobar.error {
+infobar.error > revealer > box {
   background-color: #EF5350;
 }
 
@@ -4261,20 +4170,20 @@ colorswatch:drop(active) {
 }
 
 colorswatch.light:drop(active) overlay {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 0 2px #EC407A;
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08), 0 0 0 2px #EC407A;
 }
 
 colorswatch.dark:drop(active) overlay {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 0 2px #EC407A;
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08), 0 0 0 2px #EC407A;
 }
 
 colorswatch overlay {
   transition: box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
 }
 
 colorswatch overlay:hover {
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
 colorswatch#add-color-button {
@@ -4310,12 +4219,12 @@ colorswatch#editor-color-sample overlay {
 colorchooser .popover.osd {
   transition: box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
   border-radius: 2px;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23), inset 0 1px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.4);
   background-color: #FFFFFF;
 }
 
 colorchooser .popover.osd:backdrop {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08), inset 0 1px rgba(255, 255, 255, 0.4);
 }
 
 .content-view {
@@ -4325,12 +4234,12 @@ colorchooser .popover.osd:backdrop {
 decoration {
   transition: box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
   border-radius: 2px 2px 0 0;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22), 0 10px 12px transparent;
+  box-shadow: 0 8px 6px -5px rgba(0, 0, 0, 0.2), 0 16px 16px 2px rgba(0, 0, 0, 0.14), 0 6px 18px 5px rgba(0, 0, 0, 0.12), 0 16px 16px 2px rgba(0, 0, 0, 0), 0 6px 18px 5px rgba(0, 0, 0, 0);
   margin: 4px;
 }
 
 decoration:backdrop {
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23), 0 10px 12px transparent;
+  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.2), 0 4px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 16px 16px 2px rgba(0, 0, 0, 0), 0 6px 18px 5px rgba(0, 0, 0, 0);
 }
 
 .maximized decoration, .fullscreen decoration, .tiled decoration {
@@ -4347,12 +4256,12 @@ decoration:backdrop {
 
 .csd.popup decoration {
   border-radius: 2px;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
 tooltip.csd decoration {
   border-radius: 2px;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
 messagedialog.csd decoration {
@@ -4690,7 +4599,7 @@ row button.circular {
 
 :not(decoration):not(window):drop(active) {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 0 0 2px #EC407A;
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08), inset 0 0 0 2px #EC407A;
   caret-color: #EC407A;
 }
 
@@ -4845,6 +4754,8 @@ window.background stack scrolledwindow stackswitcher.stack-switcher button:check
   margin-top: 4px;
   margin-bottom: 4px;
   border-radius: 3px;
+  color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.06);
 }
 
 .nautilus-window headerbar .path-bar-box button {
@@ -4910,7 +4821,7 @@ headerbar .nautilus-canvas-item.subtitle:selected, .nautilus-canvas-item.dim-lab
 .caja-desktop.caja-canvas-item,
 .nautilus-desktop.nautilus-canvas-item {
   color: #FFFFFF;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
 }
 
 .caja-desktop.caja-canvas-item:selected,
@@ -5032,7 +4943,7 @@ filechooser placessidebar.sidebar row.sidebar-row:selected:hover,
 }
 
 .documents-entry-tag:hover, .photos-entry-tag:hover {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
 }
 
 .documents-entry-tag.button, .button.photos-entry-tag {
@@ -5113,7 +5024,7 @@ paned.titlebar.horizontal > separator {
 .gedit-search-slider popover.background {
   transition: box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
   padding: 0;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12);
   background-color: #FFFFFF;
 }
 
@@ -5163,7 +5074,7 @@ paned.titlebar.horizontal > separator {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
   border: none;
   border-image: none;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
   background-color: #DD2C00;
   color: #FFFFFF;
 }
@@ -5171,12 +5082,12 @@ paned.titlebar.horizontal > separator {
 .gedit-search-slider entry.search.error:focus {
   border: none;
   border-image: none;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12);
   color: #FFFFFF;
 }
 
 .gedit-search-slider entry.search.error:disabled {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
   background-color: #fafafa;
   color: rgba(0, 0, 0, 0.32);
 }
@@ -5204,7 +5115,7 @@ paned.titlebar.horizontal > separator {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
   border: none;
   border-image: none;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
   background-color: #FF6D00;
   color: #FFFFFF;
 }
@@ -5212,12 +5123,12 @@ paned.titlebar.horizontal > separator {
 .gedit-search-slider entry.search.warning:focus {
   border: none;
   border-image: none;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12);
   color: #FFFFFF;
 }
 
 .gedit-search-slider entry.search.warning:disabled {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
   background-color: #fafafa;
   color: rgba(0, 0, 0, 0.32);
 }
@@ -5543,7 +5454,7 @@ GdMainIconView.content-view {
 .documents-counter {
   margin: 8px;
   border-radius: 100px;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12);
   background-color: #EC407A;
   color: #FFFFFF;
   font-weight: bold;
@@ -5630,56 +5541,92 @@ dialog.background.csd > headerbar.titlebar > label:not(.title):not(.subtitle) {
 }
 
 window.background.csd > headerbar.titlebar > box.horizontal > separator.sidebar,
-window.background.csd > headerbar.titlebar > hdyleaflet > separator.sidebar {
+window.background.csd > headerbar.titlebar > hdyleaflet > separator.sidebar,
+window.background.csd > headerbar.titlebar > leaflet > separator.sidebar {
   border-right-style: none;
   background: none;
   min-width: 0;
 }
 
+window.background.csd > headerbar.titlebar > leaflet > headerbar,
 window.background.csd > headerbar.titlebar > hdyleaflet > headerbar {
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), inset 0 -1px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.1);
 }
 
 window.background.csd > box.horizontal > separator.sidebar,
-window.background.csd > hdyleaflet > separator.sidebar {
+window.background.csd > hdyleaflet > separator.sidebar,
+window.background.csd > leaflet > separator.sidebar {
   background: none;
   min-width: 0;
 }
 
-headerbar.titlebar.selection-mode hdyleaflet headerbar separator.titlebutton {
-  border: none;
+headerbar.titlebar.selection-mode hdyleaflet > headerbar, headerbar.titlebar.selection-mode leaflet > headerbar {
   background-color: #AB47BC;
-  color: #AB47BC;
+  color: rgba(255, 255, 255, 0.75);
 }
 
-headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.close, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.maximize, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.minimize {
+headerbar.titlebar.selection-mode hdyleaflet > headerbar separator.titlebutton, headerbar.titlebar.selection-mode leaflet > headerbar separator.titlebutton {
+  background: none;
+}
+
+headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.close, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.minimize, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.close, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.minimize {
   color: #FFFFFF;
 }
 
-headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.close, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.close:hover, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.close:active, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.close:disabled, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.close:backdrop, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.maximize, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.maximize:hover, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.maximize:active, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.maximize:disabled, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.maximize:backdrop, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.minimize, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.minimize:hover, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.minimize:active, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.minimize:disabled, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.minimize:backdrop {
+headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.close, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.close:hover, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.close:active, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.close:disabled, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.close:backdrop, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize:hover, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize:active, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize:disabled, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize:backdrop, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.minimize, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.minimize:hover, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.minimize:active, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.minimize:disabled, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.minimize:backdrop, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.close, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.close:hover, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.close:active, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.close:disabled, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.close:backdrop, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize:hover, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize:active, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize:disabled, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize:backdrop, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.minimize, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.minimize:hover, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.minimize:active, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.minimize:disabled, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.minimize:backdrop {
   background-image: none;
 }
 
-headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.close:disabled, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.close:backdrop, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.maximize:disabled, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.maximize:backdrop, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.minimize:disabled, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.minimize:backdrop {
+headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.close:disabled, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.close:backdrop, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize:disabled, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize:backdrop, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.minimize:disabled, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.minimize:backdrop, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.close:disabled, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.close:backdrop, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize:disabled, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize:backdrop, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.minimize:disabled, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.minimize:backdrop {
   color: alpha(#FFFFFF, 0.4);
 }
 
-headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.close:disabled > label, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.close:backdrop > label, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.maximize:disabled > label, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.maximize:backdrop > label, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.minimize:disabled > label, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.minimize:backdrop > label {
+headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.close:disabled > label, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.close:backdrop > label, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize:disabled > label, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize:backdrop > label, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.minimize:disabled > label, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.minimize:backdrop > label, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.close:disabled > label, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.close:backdrop > label, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize:disabled > label, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize:backdrop > label, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.minimize:disabled > label, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.minimize:backdrop > label {
   color: inherit;
 }
 
-headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.close:hover, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.maximize:hover, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.minimize:hover {
+headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.close:hover, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize:hover, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.minimize:hover, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.close:hover, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize:hover, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.minimize:hover {
   color: #FFFFFF;
   background-color: alpha(#FFFFFF, 0.15);
 }
 
-headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.close:active, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.maximize:active, headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.minimize:active {
+headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.close:active, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize:active, headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.minimize:active, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.close:active, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize:active, headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.minimize:active {
   color: #FFFFFF;
   background-color: alpha(#FFFFFF, 0.25);
 }
 
-.fullscreen headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.maximize, .fullscreen headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.maximize:hover, .fullscreen headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.maximize:active, .fullscreen headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.maximize:disabled, .fullscreen headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.maximize:backdrop, .maximized headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.maximize, .maximized headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.maximize:hover, .maximized headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.maximize:active, .maximized headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.maximize:disabled, .maximized headerbar.titlebar.selection-mode hdyleaflet headerbar button.titlebutton.maximize:backdrop {
+.fullscreen headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize, .fullscreen headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize:hover, .fullscreen headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize:active, .fullscreen headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize:disabled, .fullscreen headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize:backdrop, .maximized headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize, .maximized headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize:hover, .maximized headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize:active, .maximized headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize:disabled, .maximized headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize:backdrop, .fullscreen headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize, .fullscreen headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize:hover, .fullscreen headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize:active, .fullscreen headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize:disabled, .fullscreen headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize:backdrop, .maximized headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize, .maximized headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize:hover, .maximized headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize:active, .maximized headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize:disabled, .maximized headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize:backdrop {
   background-image: none;
+}
+
+.main-window > headerbar.titlebar > stack > hdyleaflet > headerbar {
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.main-window > headerbar.titlebar > stack > hdyleaflet > separator {
+  background: none;
+  min-width: 0;
+}
+
+window.background.csd.unified {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+window.background.csd.unified > deck > deck > deck > box.vertical > headerbar.titlebar.windowhandle {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.1);
+}
+
+window.background.csd.unified > deck > deck > deck > box.vertical > headerbar.titlebar.windowhandle > viewswitchertitle > squeezer > viewswitcher > box.horizontal > button.radio {
+  min-height: 0;
+  padding: 0 12px;
+  margin: 0;
+  border-radius: 0;
+}
+
+window.background.csd.unified > deck > deck > deck > box.vertical > headerbar.titlebar.windowhandle > viewswitchertitle > squeezer > viewswitcher > box.horizontal > button.radio:checked:backdrop {
+  background-color: rgba(171, 71, 188, 0.5);
+  color: rgba(255, 255, 255, 0.4);
 }
 
 task-row {
@@ -5841,7 +5788,7 @@ button.image-button.session-new-button {
 overlay > revealer.left > scrolledwindow.frame,
 overlay > revealer.right > scrolledwindow.frame {
   border-style: none;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.2), 0 4px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
 }
 
 overlay > revealer.left > scrolledwindow.frame {
@@ -6327,6 +6274,12 @@ window.solid-csd > box.vertical > box.vertical > frame > border {
   border: none;
 }
 
+window.background.csd.geary-main-window > headerbar.titlebar > box.horizontal > headerbar,
+window#GearyMainWindow.background.csd > headerbar.titlebar > box.horizontal > headerbar {
+  box-shadow: none;
+  background: none;
+}
+
 .geary-titlebar-left,
 .geary-titlebar-right {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.1);
@@ -6355,7 +6308,7 @@ popover.background list.geary-folder-popover-list row.activatable.geary-folder-p
 
 overlay > revealer.left > scrolledwindow.frame, overlay > revealer.right > scrolledwindow.frame {
   border-style: none;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
 overlay > revealer.left > scrolledwindow.frame {
@@ -6406,7 +6359,7 @@ list.tilix-session-sidebar row.activatable:selected button.tilix-sidebar-close-b
 list.tilix-session-sidebar row.activatable button.tilix-sidebar-close-button:hover,
 list.tilix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button:hover {
   background-color: #ff6c6c;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
 }
 
 .terminix-session-sidebar row.activatable button.tilix-sidebar-close-button:active, .terminix-session-sidebar row.activatable button.tilix-sidebar-close-button:checked, .terminix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button:active, .terminix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button:checked,
@@ -6415,7 +6368,7 @@ list.tilix-session-sidebar row.activatable button.tilix-sidebar-close-button:che
 list.tilix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button:active,
 list.tilix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button:checked {
   background-color: #ff1f1f;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
 }
 
 button.image-button.session-new-button {
@@ -6655,7 +6608,7 @@ menubar.-vala-panel-background > menuitem:disabled {
 .nemo-window notebook .primary-toolbar button,
 .nemo-window notebook .primary-toolbar combobox > .linked > button.combo {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1), background-size 300ms cubic-bezier(0, 0, 0.2, 1), background-image 600ms cubic-bezier(0, 0, 0.2, 1);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 0 0 9999px transparent;
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08), inset 0 0 0 9999px transparent;
   background-color: #FCFCFC;
   background-image: radial-gradient(circle farthest-corner at center, transparent 100%, transparent 0%);
   background-repeat: no-repeat;
@@ -6667,7 +6620,7 @@ menubar.-vala-panel-background > menuitem:disabled {
 
 .nemo-window notebook .primary-toolbar button:hover,
 .nemo-window notebook .primary-toolbar combobox > .linked > button.combo:hover {
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23), inset 0 0 0 9999px transparent;
+  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12), inset 0 0 0 9999px transparent;
   color: rgba(0, 0, 0, 0.8);
   background-color: white;
 }
@@ -6676,7 +6629,7 @@ menubar.-vala-panel-background > menuitem:disabled {
 .nemo-window notebook .primary-toolbar combobox > .linked > button.combo:active {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
   animation: ripple_effect 100ms cubic-bezier(0, 0, 0.2, 1) forwards;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23), inset 0 0 0 9999px alpha(currentColor, 0.12);
+  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12), inset 0 0 0 9999px alpha(currentColor, 0.12);
   background-image: radial-gradient(circle farthest-corner at center, alpha(currentColor, 0.12) 10%, transparent 0%);
   background-size: 0% 0%;
   color: rgba(0, 0, 0, 0.8);
@@ -6705,7 +6658,7 @@ menubar.-vala-panel-background > menuitem:disabled {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
   border: none;
   border-image: none;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
   background-color: #FFFFFF;
   color: rgba(0, 0, 0, 0.6);
 }
@@ -6713,12 +6666,12 @@ menubar.-vala-panel-background > menuitem:disabled {
 .nemo-window notebook .primary-toolbar entry:focus {
   border: none;
   border-image: none;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12);
   color: rgba(0, 0, 0, 0.8);
 }
 
 .nemo-window notebook .primary-toolbar entry:disabled {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
   background-color: #fafafa;
   color: rgba(0, 0, 0, 0.32);
 }
@@ -6847,7 +6800,7 @@ window.background stack scrolledwindow button.suggested-action:hover, window.bac
 window.background stack scrolledwindow button.destructive-action:hover,
 window.background stack scrolledwindow button.destructive-action:active,
 window.background stack scrolledwindow button.destructive-action:checked {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
 }
 
 window.background stack scrolledwindow .linked:not(stackswitcher) button:not(.combo) {
@@ -7163,7 +7116,7 @@ na-tray-applet {
 /* mate-screensaver lock dialog */
 .lock-dialog {
   border-radius: 3px;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22), inset 0 1px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.2), 0 4px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 6px 0 rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.4);
 }
 
 .lock-dialog frame > border {
@@ -7260,7 +7213,7 @@ na-tray-applet {
 .budgie-popover {
   border-color: #FCFCFC;
   border-radius: 4px;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12);
   background-color: #FCFCFC;
 }
 
@@ -7288,18 +7241,22 @@ na-tray-applet {
   border-radius: 3px;
 }
 
-.budgie-popover treeview.view.sidebar {
+.budgie-popover .sidebar {
   min-height: 36px;
   background: none;
   border-right: none;
   color: rgba(0, 0, 0, 0.8);
 }
 
-.budgie-popover treeview.view.sidebar:hover {
+.budgie-popover .sidebar list row.activatable {
+  padding: 4px;
+}
+
+.budgie-popover .sidebar:hover {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-.budgie-popover treeview.view.sidebar:selected, .budgie-popover treeview.view.sidebar:selected:hover {
+.budgie-popover .sidebar:selected, .budgie-popover .sidebar:selected:hover {
   color: #FFFFFF;
   background-color: #AB47BC;
 }
@@ -8137,7 +8094,7 @@ box.vertical > stack > box.vertical > .raven-background > viewport.frame > list 
   margin: 5px 9px;
   padding: 3px;
   border-radius: 2px;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23), inset 0 1px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.4);
   background-color: #FCFCFC;
 }
 
@@ -8328,7 +8285,7 @@ headerbar .budgie-run-dialog list .subtitle, .budgie-run-dialog list .budgie-not
 #restart_dialog {
   margin: 8px;
   border-radius: 2px;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23), inset 0 1px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.4);
   background-color: #FCFCFC;
 }
 

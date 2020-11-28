@@ -2198,7 +2198,7 @@ menubar.-vala-panel-background {
         &:active { @include button(active); }
         &:disabled { @include button(disabled); }
         &:checked { @include button(checked); }
-        &:checked:disabled { @include button(checked-disabled); }
+        &:checked:disabled, &:checked:backdrop { @include button(checked-disabled); }
       }
 
       entry {
@@ -2405,7 +2405,7 @@ window.background {
       spinbutton:not(.vertical) { @extend %flat_entry; }
       spinbutton:not(.vertical) entry { @extend %spinbutton_entry; }
 
-      infobar { button { @extend %selected_button; }}
+      infobar { button { @extend %selected_button; } }
     }
   }
 }

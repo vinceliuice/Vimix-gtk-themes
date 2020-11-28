@@ -342,7 +342,7 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
 
   @if $t == header-checked-disabled {
     background-color: rgba($primary_color, $disabled_opacity);
-    color: gtkalpha(currentColor, $disabled_opacity);
+    color: gtkalpha($inversed_fg_color, $disabled_opacity);
   }
 }
 

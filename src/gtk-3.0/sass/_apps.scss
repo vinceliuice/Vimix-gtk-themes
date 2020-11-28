@@ -1519,13 +1519,6 @@ window.background:not(.csd) {
 
   scrollbar { background-color: $darker_bg_color; }
 
-  *:not(menuitem):hover, // exclude menuitem node
-  *:focus,
-  *:active,
-  *:checked {
-    &, button { color: $fg_color; } // enforce opaque foregrounds
-  }
-
   > window.background > menu { // context-menus
     background-color: $base_color;
 

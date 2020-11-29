@@ -458,13 +458,17 @@ treeview entry {
   }
 }
 
-%flat_button {
+@mixin -flat_button {
   @include button(flat-normal);
   &:hover { @include button(flat-hover); }
   &:active { @include button(flat-active); }
   &:disabled { @include button(flat-disabled); }
   &:checked { @include button(flat-checked); }
   &:checked:disabled { @include button(flat-checked-disabled); }
+}
+
+%flat_button {
+  @include -flat-button;
 }
 
 %simple_flat_button {
@@ -749,7 +753,7 @@ button {
 toolbutton {
   button,
   button.image-button,
-  button.image-button.toggle { @extend %flat_button; } // Use flat button for all toolbuttons
+  button.image-button.toggle { @include -flat_button; } // Use flat button for all toolbuttons
 }
 
 // all the following is for the +|- buttons on inline toolbars, that way

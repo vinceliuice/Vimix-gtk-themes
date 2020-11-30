@@ -468,7 +468,7 @@ treeview entry {
 }
 
 %flat_button {
-  @include -flat-button;
+  @include -flat_button;
 }
 
 %simple_flat_button {
@@ -758,9 +758,9 @@ toolbutton {
 
 // all the following is for the +|- buttons on inline toolbars, that way
 // should really be deprecated...
-.inline-toolbar toolbutton > button { // redefining the button look is
-                                      // needed since those are flat...
-}
+// .inline-toolbar toolbutton > button { // redefining the button look is
+//                                       // needed since those are flat...
+// }
 
 // More inline toolbar buttons
 // toolbar.inline-toolbar toolbutton {

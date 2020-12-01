@@ -2120,8 +2120,7 @@ menubar.-vala-panel-background {
     .primary-toolbar {
       background-color: $bg_color;
 
-      button,
-      combobox > .linked > button.combo {
+      button {
         @include button(normal);
         &:hover { @include button(hover); }
         &:active { @include button(active); }
@@ -2160,7 +2159,10 @@ menubar.-vala-panel-background {
     background-color: $headerbar_bg_color;
     box-shadow: $header_shadow;
 
-    button:not(.suggested-action):not(.destructive-action) { @extend %header_button; }
+    button:not(.suggested-action):not(.destructive-action) {
+      border-radius: $md_radius;
+      @extend %header_button;
+    }
 
     > toolitem > .linked.raised > button {
       margin-left: 1px;

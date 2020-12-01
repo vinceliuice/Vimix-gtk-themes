@@ -590,8 +590,8 @@ button {
   .background .linked entry + &,
   .background .linked entry + & + & { @extend %combo_flat; }
 
-  .background paned .linked > &:not(.combo),
-  .background paned .linked.vertical > &:not(.combo) {
+  .background .linked.stack-switcher > &,
+  .background buttonbox.linked > & {
     border-radius: $md_radius;
     -gtk-outline-radius: $md_radius;
     @extend %flat_theme_button;

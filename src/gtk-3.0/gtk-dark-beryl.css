@@ -844,7 +844,7 @@ button.text-button.image-button image:not(:only-child):last-child {
   -gtk-outline-radius: 3px;
 }
 
-.background paned .linked > button:not(.combo), .background paned .linked.vertical > button:not(.combo) {
+.background .linked.stack-switcher > button, .background buttonbox.linked > button {
   border-radius: 3px;
   -gtk-outline-radius: 3px;
 }
@@ -2320,20 +2320,20 @@ menuitem accelerator {
 }
 
 button#show_previous_icon_toolbar_togglebutton,
-button#show_show_thumbnails_icon_toolbar_togglebutton, popover.background button:not(.suggested-action):not(.destructive-action), .background paned .linked > button:not(.combo), .background paned .linked.vertical > button:not(.combo) {
+button#show_show_thumbnails_icon_toolbar_togglebutton, popover.background button:not(.suggested-action):not(.destructive-action), .background .linked.stack-switcher > button, .background buttonbox.linked > button {
   box-shadow: none;
   background-color: transparent;
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
 }
 
 button#show_previous_icon_toolbar_togglebutton:hover,
-button#show_show_thumbnails_icon_toolbar_togglebutton:hover, popover.background button:hover:not(.suggested-action):not(.destructive-action), .background paned .linked > button:hover:not(.combo) {
+button#show_show_thumbnails_icon_toolbar_togglebutton:hover, popover.background button:hover:not(.suggested-action):not(.destructive-action), .background .linked.stack-switcher > button:hover, .background buttonbox.linked > button:hover {
   background-color: rgba(234, 234, 234, 0.15);
   color: #EAEAEA;
 }
 
 button#show_previous_icon_toolbar_togglebutton:active,
-button#show_show_thumbnails_icon_toolbar_togglebutton:active, popover.background button:active:not(.suggested-action):not(.destructive-action), .background paned .linked > button:active:not(.combo) {
+button#show_show_thumbnails_icon_toolbar_togglebutton:active, popover.background button:active:not(.suggested-action):not(.destructive-action), .background .linked.stack-switcher > button:active, .background buttonbox.linked > button:active {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
   animation: ripple_effect 100ms cubic-bezier(0, 0, 0.2, 1) forwards;
   box-shadow: inset 0 0 0 9999px #2EB398;
@@ -2343,19 +2343,19 @@ button#show_show_thumbnails_icon_toolbar_togglebutton:active, popover.background
 }
 
 button#show_previous_icon_toolbar_togglebutton:checked,
-button#show_show_thumbnails_icon_toolbar_togglebutton:checked, popover.background button:checked:not(.suggested-action):not(.destructive-action), .background paned .linked > button:checked:not(.combo) {
+button#show_show_thumbnails_icon_toolbar_togglebutton:checked, popover.background button:checked:not(.suggested-action):not(.destructive-action), .background .linked.stack-switcher > button:checked, .background buttonbox.linked > button:checked {
   background-color: #2EB398;
   color: #FFFFFF;
 }
 
 button#show_previous_icon_toolbar_togglebutton:disabled,
-button#show_show_thumbnails_icon_toolbar_togglebutton:disabled, popover.background button:disabled:not(.suggested-action):not(.destructive-action), .background paned .linked > button:disabled:not(.combo) {
+button#show_show_thumbnails_icon_toolbar_togglebutton:disabled, popover.background button:disabled:not(.suggested-action):not(.destructive-action), .background .linked.stack-switcher > button:disabled, .background buttonbox.linked > button:disabled {
   background-color: transparent;
   color: rgba(234, 234, 234, 0.4);
 }
 
 button#show_previous_icon_toolbar_togglebutton:checked:disabled,
-button#show_show_thumbnails_icon_toolbar_togglebutton:checked:disabled, popover.background button:checked:disabled:not(.suggested-action):not(.destructive-action), .background paned .linked > button:checked:disabled:not(.combo) {
+button#show_show_thumbnails_icon_toolbar_togglebutton:checked:disabled, popover.background button:checked:disabled:not(.suggested-action):not(.destructive-action), .background .linked.stack-switcher > button:checked:disabled, .background buttonbox.linked > button:checked:disabled {
   background-color: rgba(46, 179, 152, 0.5);
   color: rgba(255, 255, 255, 0.5);
 }

@@ -1313,68 +1313,6 @@ $firefox_theme_color: if($color == 'black', #666666, $primary_color);
 $firefox_fg_color: if($variant =='light', $secondary_fg_color, #bababa);
 $firefox_bg_color: if($variant =='light', $lighter_bg_color, #666666);
 
-// templates for the fallback mode buttons
-%button_fallback_normal {
-  border: 1px solid $borders_color;
-  background-color: $lighter_bg_color;
-  color: $secondary_fg_color;
-  box-shadow: none;
-}
-
-%button_fallback_hover {
-  border: 1px solid $borders_color;
-  background-color: mix($lighter_bg_color, $fg_color, 96%);
-  color: $fg_color;
-  box-shadow: none;
-}
-
-%button_fallback_active {
-  border: 1px solid $borders_color;
-  background-color: mix($lighter_bg_color, $fg_color, 92%);
-  color: $fg_color; // do not use inverted colours
-  box-shadow: none;
-  animation: none;
-}
-
-%button_fallback_insensitive {
-  border: none;
-  background-color: mix($bg_color, $fg_color, 96%);
-  color: $disabled_fg_color;
-  box-shadow: none;
-}
-
-%button_fallback_checked_insensitive {
-  border: none;
-  background-color: mix($primary_color, $lighter_bg_color, 20%);
-  color: mix($primary_color, $lighter_bg_color, 40%);
-  box-shadow: none;
-}
-
-// templates for the fallback mode entries
-%entry_fallback_normal {
-  border: 1px solid $borders_color;
-  border-image: none;
-  background-color: $lighter_bg_color;
-  color: $secondary_fg_color;
-  box-shadow: none;
-}
-
-%entry_fallback_focus {
-  border: 1px solid $primary_color;
-  border-image: none;
-  background-color: $lighter_bg_color;
-  color: $fg_color;
-  box-shadow: none;
-}
-
-%entry_fallback_insensitive {
-  border: 1px solid $borders_color;
-  border-image: none;
-  background-color: mix($bg_color, $fg_color, 96%);
-  color: $disabled_fg_color;
-  box-shadow: none;
-}
-
 %_html_button_spacing {
   min-width: unset; // do not set min-width/height
   min-height: unset;
@@ -1420,23 +1358,19 @@ window.background:not(.csd) {
     > entry {
       @extend %_html_entry_spacing;
       // enforce fallback entries inside the HTML pages
-      @extend %entry_fallback_normal;
-      border-radius: 2px;
-      &:focus { @extend %entry_fallback_focus; }
-      &:disabled { @extend %entry_fallback_insensitive; }
+      @include entry(fallback-normal);
+      &:focus { @include entry(fallback-focus); }
+      &:disabled { @include entry(fallback-disabled); }
     }
 
     > button {
       &, &.combo {
         > button { // enforce fallback buttons inside the HTML pages
-          @extend %button_fallback_normal;
-          &:hover { @extend %button_fallback_hover; }
-          &:active,
-          &:checked { @extend %button_fallback_active; }
-          &:disabled { @extend %button_fallback_insensitive; }
-          &:checked:disabled {
-            @extend %button_fallback_checked_insensitive;
-          }
+          @include button(fallback-normal);
+          &:hover { @include button(fallback-hover); }
+          &:active, &:checked { @include button(fallback-active); }
+          &:disabled { @include button(fallback-disabled); }
+          &:checked:disabled { @include button(fallback-checked-disabled); }
         }
       }
 
@@ -1577,14 +1511,11 @@ window.background:not(.csd) {
     > button {
       &, &.combo {
         > button { // enforce fallback buttons inside the HTML pages
-          @extend %button_fallback_normal;
-          &:hover { @extend %button_fallback_hover; }
-          &:active,
-          &:checked { @extend %button_fallback_active; }
-          &:disabled { @extend %button_fallback_insensitive; }
-          &:checked:disabled {
-            @extend %button_fallback_checked_insensitive;
-          }
+          @include button(fallback-normal);
+          &:hover { @include button(fallback-hover); }
+          &:active, &:checked { @include button(fallback-active); }
+          &:disabled { @include button(fallback-disabled); }
+          &:checked:disabled { @include button(fallback-checked-disabled); }
         }
       }
 
@@ -1597,11 +1528,9 @@ window.background:not(.csd) {
 
     > entry {
       @extend %_html_entry_spacing;
-      // enforce fallback entries inside the HTML pages
-      @extend %entry_fallback_normal;
-      border-radius: 2px;
-      &:focus { @extend %entry_fallback_focus; }
-      &:disabled { @extend %entry_fallback_insensitive; }
+      @include entry(fallback-normal);
+      &:focus { @include entry(fallback-focus); }
+      &:disabled { @include entry(fallback-disabled); }
     }
 
     %firefox_check_radio {
@@ -2238,23 +2167,13 @@ menubar.-vala-panel-background {
       margin-right: 1px;
     }
 
-    entry {
-      color: $headerbar_fg_color;
-      caret-color: $headerbar_fg_color;
-      box-shadow: inset 0 -1px rgba($headerbar_fg_color, 0.35);
-
-      &:focus {
-        color: $headerbar_fg_color;
-      }
-
-      &:disabled {
-        color: $disabled_headerbar_fg_color;
-      }
+    &:not(.inline-toolbar):not(.osd) entry {
+      min-height: 28px;
+      margin: 0 0;
+      @extend %headerbar_entry;
     }
 
-    button, entry {
-      min-height: 24px;
-    }
+    button { min-height: 24px; }
   }
 
   // Pathbar

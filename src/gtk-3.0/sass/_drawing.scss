@@ -108,7 +108,7 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
   }
 
   @if $t == flat-normal {
-    transition: $shorter_transition;
+    transition: $shorter_transition, border-image $longer_transition $standard_curve;
     border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                   $fc 0%,
                                   transparent 0%)
@@ -116,17 +116,27 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
     box-shadow: inset 0 -1px if($fc != $primary_color, $fc, $track_color);
     background-color: transparent;
     color: $fg_color;
+    border-width: 0;
+  }
+
+  @if $t == flat-hover {
+    background: none;
+    border-width: 0;
+    box-shadow: inset 0 -2px if($fc != $primary_color, $fc, $high_track_color);
   }
 
   @if $t == flat-focus {
+    background: none;
+    border-width: 0;
+    box-shadow: none;
     border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                   $fc 100%,
                                   transparent 0%)
                                   0 0 2 / 0 0 2px;
-    box-shadow: inset 0 -1px if($fc != $primary_color, $fc, $track_color);
   }
 
   @if $t == flat-disabled {
+    border-width: 0;
     box-shadow: inset 0 -1px $track_color;
     background-color: transparent;
     color: $disabled_fg_color;

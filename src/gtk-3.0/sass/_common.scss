@@ -251,6 +251,14 @@ spinner {
 //
 // Entries
 //
+%flat_entry {
+  @include entry(flat-normal);
+  border-radius: 0;
+  &:focus { @include entry(flat-focus); }
+  &:drop(active) { @include entry(flat-hover); }
+  &:disabled { @include entry(flat-disabled); }
+}
+
 %entry_fallback {
   &, &.flat {
     @include entry(fallback-normal);
@@ -262,148 +270,129 @@ spinner {
 %entry_native {
   .background & {
     @include entry(normal);
-    &:focus {
-      @include entry(focus);
-    }
-    &:disabled {
-      @include entry(disabled);
-    }
+    &:focus { @include entry(focus); }
+    &:disabled { @include entry(disabled); }
   }
 
-  @at-root %flat_entry,
-  .background &.flat {
-    @include entry(flat-normal);
-    border-radius: 0;
-    &:focus {
-      @include entry(flat-focus);
-    }
-    &:disabled {
-      @include entry(flat-disabled);
-    }
-  }
+  .background &.flat { @extend %flat_entry; }
 }
 
-%entry,
 entry {
-  %entry_basic, & {
-    min-height: $medium_size;
-    padding: 0 8px;
+  min-height: $medium_size;
+  padding: 0 8px;
 
-    // fallback entries for non-native apps
-    @extend %entry_fallback;
+  // fallback entries for non-native apps
+  @extend %entry_fallback;
 
-    // standard entries for native Gtk+ apps
-    @extend %entry_native;
+  // standard entries for native Gtk+ apps
+  @extend %entry_native;
 
-    // fallback linked-entries for non-native apps
-    .linked > &, &.flat,
-    .linked.vertical > &, &.flat {
-      @include entry(fallback-normal);
-      border-radius: 2px;
-      &:focus { @include entry(fallback-focus); }
-      &:disabled { @include entry(fallback-disabled); }
-    }
+  // fallback linked-entries for non-native apps
+  // .linked > &,
+  // .linked.vertical > &,
+  // .linked > &.flat,
+  // .linked.vertical > &.flat {
+  //   @include entry(fallback-normal);
+  //   &:focus { @include entry(fallback-focus); }
+  //   &:disabled { @include entry(fallback-disabled); }
+  // }
 
-    // standard linked-entries for native Gtk+ apps
-    .background .linked > &,
-    .background .linked.vertical > &,
-    .background .linked > &.flat,
-    .background .linked.vertical > &.flat {
-      @include entry(flat-normal);
-      border: none;
-      &:focus { @include entry(flat-focus); }
-      &:disabled { @include entry(flat-disabled); }
-    }
-
-    image { // icons inside the entry
-      // @extend %simple_flat_button;
-
-      // min-height: $small_size;
-      // min-width: $small_size;
-      // border-radius: $md_radius;
-      // -gtk-outline-radius: $md_radius;
-      color: gtkalpha(currentColor, $enabled_opacity);
-
-      &:hover, &:active { color: currentColor; }
-
-      &:disabled { color: gtkalpha(currentColor, $hint_opacity); }
-
-       &.left {
-        margin-left: ($medium_size - 16px) / 2 - 8px;
-        margin-right: 6px;
-      }
-
-      &.right {
-        margin-left: 6px;
-        margin-right: ($medium_size - 16px) / 2 - 8px;
-      }
-    }
-
-    undershoot {
-      &.left { @include undershoot(left); }
-
-      &.right { @include undershoot(right); }
-    }
-
-    selection { @extend %selected_items; }
-
-    // entry error and warning style
-    @each $e_type, $e_color in (error, $error_color),
-                               (warning, $warning_color) {
-      &.#{$e_type}, &.search.#{$e_type} {
-        @include entry(normal, $e_color);
-
-        &:focus { @include entry(focus, $e_color); }
-
-        &:disabled { @include entry(disabled, $e_color); }
-
-        &.flat {
-          @include entry(flat-normal, $e_color);
-
-          &:focus { @include entry(flat-focus, $e_color); }
-
-          &:disabled { @include entry(flat-disabled, $e_color); }
-        }
-      }
-    }
-
-    &:drop(active) {
-      // box-shadow: inset 0 0 0 2px $accent_color;
-    }
-
-    &.entry-tag { // for libgd apps
-      padding: 0 8px;
-      border-radius: $circular_radius;
-      box-shadow: none;
-      background-color: $primary_color;
-      color: $inversed_fg_color;
-
-      &:hover { box-shadow: $z-depth-1; }
-
-      &:dir(ltr) { margin: 3px -4px 3px 8px; }
-      &:dir(rtl) { margin: 3px 8px 3px -4px; }
-
-      &.button {
-        &, &:hover, &:active { // unset styling
-          background-color: transparent;
-          background-image: none;
-          border-image: none;
-          border: none;
-          box-shadow: none;
-          animation: none;
-          margin: 0 -2px;
-          padding: 4px;
-          border-radius: $circular_radius;
-        }
-
-        &:not(:hover):not(:active) { color: $secondary_inversed_fg_color; }
-
-        &:hover, &:active { color: $inversed_fg_color; }
-      }
-    }
-
-    // .osd & { }
+  // standard linked-entries for native Gtk+ apps
+  .background .linked > &,
+  .background .linked.vertical > &,
+  .background .linked > &.flat,
+  .background .linked.vertical > &.flat {
+    @extend %flat_entry;
   }
+
+  image { // icons inside the entry
+    // @extend %simple_flat_button;
+
+    // min-height: $small_size;
+    // min-width: $small_size;
+    // border-radius: $md_radius;
+    // -gtk-outline-radius: $md_radius;
+    color: gtkalpha(currentColor, $enabled_opacity);
+
+    &:hover, &:active { color: currentColor; }
+
+    &:disabled { color: gtkalpha(currentColor, $hint_opacity); }
+
+     &.left {
+      margin-left: ($medium_size - 16px) / 2 - 8px;
+      margin-right: 6px;
+    }
+
+    &.right {
+      margin-left: 6px;
+      margin-right: ($medium_size - 16px) / 2 - 8px;
+    }
+  }
+
+  undershoot {
+    &.left { @include undershoot(left); }
+
+    &.right { @include undershoot(right); }
+  }
+
+  selection { @extend %selected_items; }
+
+  // entry error and warning style
+  @each $e_type, $e_color in (error, $error_color),
+                             (warning, $warning_color) {
+    .background &.#{$e_type}, .background &.search.#{$e_type} {
+      @include entry(normal, $e_color);
+
+      &:focus { @include entry(focus, $e_color); }
+
+      &:disabled { @include entry(disabled, $e_color); }
+
+      &.flat {
+        @include entry(flat-normal, $e_color);
+
+        &:focus { @include entry(flat-focus, $e_color); }
+
+        &:disabled { @include entry(flat-disabled, $e_color); }
+      }
+    }
+  }
+
+  // &:drop(active) {
+  //   box-shadow: inset 0 0 0 2px $accent_color;
+  // }
+
+  &.entry-tag { // for libgd apps
+    padding: 0 8px;
+    border-radius: $circular_radius;
+    box-shadow: none;
+    background-color: $primary_color;
+    color: $inversed_fg_color;
+
+    &:hover { box-shadow: $z-depth-1; }
+
+    &:dir(ltr) { margin: 3px -4px 3px 8px; }
+    &:dir(rtl) { margin: 3px 8px 3px -4px; }
+
+    &.button {
+      &, &:hover, &:active { // unset styling
+        background-color: transparent;
+        background-image: none;
+        border-image: none;
+        border: none;
+        box-shadow: none;
+        animation: none;
+        margin: 0 -2px;
+        padding: 4px;
+        border-radius: $circular_radius;
+      }
+
+      &:not(:hover):not(:active) { color: $secondary_inversed_fg_color; }
+
+      &:hover, &:active { color: $inversed_fg_color; }
+    }
+  }
+
+  // .osd & { }
 
   progress {
     margin: 2px (2px - 8px);
@@ -458,7 +447,7 @@ treeview entry {
   }
 }
 
-@mixin -flat_button {
+%flat_button {
   @include button(flat-normal);
   &:hover { @include button(flat-hover); }
   &:active { @include button(flat-active); }
@@ -467,15 +456,31 @@ treeview entry {
   &:checked:disabled { @include button(flat-checked-disabled); }
 }
 
-%flat_button {
-  @include -flat_button;
-}
-
 %simple_flat_button {
   @include button(flat-normal);
   &:hover { @include button(flat-hover); }
   &:active { @include button(flat-active); }
   &:disabled { @include button(flat-disabled); }
+}
+
+%combo_flat {
+  border-radius: 0;
+  background: none;
+  font-weight: normal;
+
+  @include entry(flat-normal);
+
+  &:hover {
+    @include entry(flat-hover);
+  }
+
+  &:checked {
+    @include entry(flat-focus);
+  }
+
+  &:disabled {
+    @include entry(flat-disabled);
+  }
 }
 
 button {
@@ -581,6 +586,10 @@ button {
       -gtk-outline-radius: $md_radius;
     }
   }
+
+  .background &.combo,
+  .background .linked entry + &,
+  .background .linked entry + & + & { @extend %combo_flat; }
 
   // &:drop(active) {
   //   box-shadow: inset 0 0 0 2px $accent_color;
@@ -751,9 +760,11 @@ button {
 // }
 
 toolbutton {
-  button,
-  button.image-button,
-  button.image-button.toggle { @include -flat_button; } // Use flat button for all toolbuttons
+  button {
+    &, &.image-button, &.toggle {
+      @extend %flat_button; // Use flat button for all toolbuttons
+    }
+  }
 }
 
 // all the following is for the +|- buttons on inline toolbars, that way
@@ -893,19 +904,22 @@ spinbutton {
     .background &,
     .background &.flat {
       @extend %flat_entry;
+      transition: $longer_transition, border-image $longer_duration $standard_curve;
 
       &, &:focus, &:disabled {
         entry {
           &, &:focus, &:disabled {
             box-shadow: none;
             background: none;
+            border-image: none;
+            transition: none;
           }
         }
       }
     }
 
     %spinbutton_entry,
-    entry {
+    > entry {
       &, &:focus, &:disabled {
         min-width: $large_size - 8px * 2;
         // reset all the other props since the spinbutton node is styled here
@@ -917,7 +931,7 @@ spinbutton {
       }
     }
 
-    button {
+    > button {
       // margin: $container_padding;
       @extend %simple_flat_button;
 
@@ -931,6 +945,16 @@ spinbutton {
 
       &.up:dir(rtl),
       &.down:dir(ltr) { margin-right: -3px; }
+    }
+
+    .linked > & > button.up,
+    .linked > & > button.down { // Reset
+      @extend %flat_button;
+
+      &, &:hover, &:active, &:checked, &:disabled {
+        @extend %small_button;
+        border: solid 6px transparent;
+      }
     }
   }
 
@@ -998,7 +1022,7 @@ combobox {
   }
 
   // fallback combo node for non-native apps
-  @extend %entry_fallback_normal;
+  // @include entry(fallback-normal);
 
   .background & { // unset all properties in combobox node
     border: unset;
@@ -1012,25 +1036,32 @@ combobox {
   // fallback combo-entries for non-native apps
   entry.combo {
     border-radius: 2px;
+    margin-right: -32px;
     @include entry(fallback-normal);
     &:focus { @include entry(fallback-focus); }
     &:disabled { @include entry(fallback-disabled); }
   }
 
+  > .linked:not(.vertical) > button:not(:only-child).combo {
+    border: none;
+    border-image: none;
+    box-shadow: none;
+    min-height: 16px;
+    min-width: 16px;
+    margin: 4px;
+    padding: $container_padding;
+    @extend %flat_button;
+    @extend %circular_button;
+  }
+
   // standard combo-entries for native Gtk+ apps
   .background & entry.combo {
     @include entry(flat-normal);
-    border: none;
     &:focus { @include entry(flat-focus); }
     &:disabled { @include entry(flat-disabled); }
-
-    selection {
-      &, &:focus { @extend %selected_items; }
-    }
   }
 
-  decoration,
-  button.combo:checked { transition: none; } // workaround for menuitem selection
+  decoration { transition: none; } // workaround for menuitem selection
 
   button.combo cellview {
     &:dir(ltr) { margin-left: 8px - ($medium_size - 16px) / 2; }
@@ -1072,36 +1103,6 @@ combobox {
     &:only-child { border-width: 1px; }
   }
 }
-
-// the combo is a composite widget so the way we do button linking doesn't
-// work, special case needed. See
-// https://bugzilla.gnome.org/show_bug.cgi?id=733979
-
-%combo_flat {
-  border-radius: 0;
-  background: none;
-  font-weight: inherit;
-
-  @include entry(flat-normal);
-
-  &:first-child, &:last-child, &:only-child { border-radius: 0; }
-
-  &:hover {
-    box-shadow: inset 0 -2px $high_track_color;
-    background: none;
-  }
-
-  &:checked {
-    @include entry(flat-focus);
-  }
-
-  &:disabled {
-    @include entry(flat-disabled);
-  }
-}
-
-button.combo,
-.linked > combobox > box > button.combo { @extend %combo_flat; }
 
 //
 // Toolbars
@@ -1417,6 +1418,14 @@ headerbar {
     }
   }
 
+  .background & .linked entry + button,
+  .background & .linked entry + button + button {
+    &, &:hover, &:active, &:checked, &:disabled {
+      border-radius: $md_radius;
+      border-image: none;
+    }
+  }
+
   // special case for stack-switchers
   .linked:not(.vertical):not(.path-bar).stack-switcher {
     > button { @extend %headerbar_flat_button; }
@@ -1643,22 +1652,30 @@ window.background > box.vertical > headerbar:not(.titlebar) { // reset headerbar
   }
 }
 
+%headerbar_entry {
+  background-color: rgba($headerbar_fg_color, 0.06);
+  color: $headerbar_fg_color;
+  caret-color: $headerbar_fg_color;
+  border-image: none;
+  box-shadow: none;
+
+  &:focus {
+    background-color: rgba($headerbar_fg_color, 0.09);
+    border-image: none;
+    box-shadow: none;
+  }
+
+  &:disabled {
+    background-color: rgba($headerbar_fg_color, 0.03);
+    color: $disabled_headerbar_fg_color;
+    border-image: none;
+    box-shadow: none;
+  }
+}
+
 .titlebar, headerbar {
   .background &:not(.horizontal) entry {
-    &, &:focus {
-      background-color: rgba($headerbar_fg_color, 0.06);
-      color: $headerbar_fg_color;
-      caret-color: $headerbar_fg_color;
-      border-image: none;
-      box-shadow: none;
-    }
-
-    &:disabled {
-      background-color: rgba($headerbar_fg_color, 0.03);
-      color: $disabled_headerbar_fg_color;
-      border-image: none;
-      box-shadow: none;
-    }
+    @extend %headerbar_entry;
   }
 }
 
@@ -1666,7 +1683,7 @@ window.background > box.vertical > headerbar:not(.titlebar) { // reset headerbar
 // Pathbars
 //
 %pathbar_button,
-.path-bar button {
+.background .path-bar button {
   @extend %flat_button;
   border-radius: 2px;
   padding-left: ($medium_size - 24px) / 2;
@@ -2013,7 +2030,7 @@ popover.background {
     &.osd { @extend %osd; }
   }
 
-  // entry { @extend %flat_entry; }
+  entry { @extend %flat_entry; }
   // button.combo { @extend %combo_flat; }
   //
   // .linked button:not(.combo) { border-radius: $md_radius; margin: 0 2px; }
@@ -2271,8 +2288,8 @@ notebook {
     entry,
     spinbutton:not(.vertical) { @extend %flat_entry; }
 
-    revealer entry,
-    revealer spinbutton:not(.vertical) { @extend %entry; }
+    // revealer entry,
+    // revealer spinbutton:not(.vertical) { @extend %entry_native; }
 
     // spinbutton:not(.vertical) entry { @extend %spinbutton_entry; }
     // button.combo { @extend %combo_flat; }

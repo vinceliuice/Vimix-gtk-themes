@@ -563,13 +563,11 @@ button {
   }
 
   .linked > & {
-    // @extend %linked;
-    @extend %flat_button;
+    @extend %linked;
   }
 
   .linked.vertical > & {
-    // @extend %linked_vertical;
-    @extend %flat_button;
+    @extend %linked_vertical;
   }
 
   .linked > &.flat,
@@ -588,8 +586,16 @@ button {
   }
 
   .background &.combo,
+  .background .linked > &.combo,
   .background .linked entry + &,
   .background .linked entry + & + & { @extend %combo_flat; }
+
+  .background paned .linked > &:not(.combo),
+  .background paned .linked.vertical > &:not(.combo) {
+    border-radius: $md_radius;
+    -gtk-outline-radius: $md_radius;
+    @extend %flat_theme_button;
+  }
 
   // &:drop(active) {
   //   box-shadow: inset 0 0 0 2px $accent_color;

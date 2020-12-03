@@ -229,7 +229,7 @@ dialog.background .dialog-vbox stack spinbutton:not(.vertical), window#whiskerme
 .tilix-search-frame .linked entry.search, .geary-composer-box entry,
 .geary-composer-box spinbutton:not(.vertical), editortweak entry.search, layoutpane entry.search, messagedialog entry, notebook > stack:not(:only-child) entry,
 notebook > stack:not(:only-child) spinbutton:not(.vertical), popover.background entry, .background spinbutton:not(.vertical), .background spinbutton.flat:not(.vertical), .background .linked > entry, .background .linked.vertical > entry, .background .linked > entry.flat, .background .linked.vertical > entry.flat, .background entry.flat {
-  transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image all 225ms cubic-bezier(0, 0, 0.2, 1) cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0.4, 0, 0.2, 1);
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #686868 0%, transparent 0%) 0 0 0/0 0 0px;
   box-shadow: inset 0 -1px alpha(currentColor, 0.24);
   background-color: transparent;
@@ -388,7 +388,7 @@ entry undershoot.right {
 }
 
 .background entry.error.flat, .background entry.search.error.flat {
-  transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image all 225ms cubic-bezier(0, 0, 0.2, 1) cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0.4, 0, 0.2, 1);
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #DD2C00 0%, transparent 0%) 0 0 0/0 0 0px;
   box-shadow: inset 0 -1px #DD2C00;
   background-color: transparent;
@@ -433,7 +433,7 @@ entry undershoot.right {
 }
 
 .background entry.warning.flat, .background entry.search.warning.flat {
-  transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image all 225ms cubic-bezier(0, 0, 0.2, 1) cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0.4, 0, 0.2, 1);
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FF6D00 0%, transparent 0%) 0 0 0/0 0 0px;
   box-shadow: inset 0 -1px #FF6D00;
   background-color: transparent;
@@ -641,7 +641,7 @@ radio:disabled, scrollbar button:disabled, notebook > header > tabs > arrow:disa
   border-radius: 0;
   background: none;
   font-weight: normal;
-  transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image all 225ms cubic-bezier(0, 0, 0.2, 1) cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0.4, 0, 0.2, 1);
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #686868 0%, transparent 0%) 0 0 0/0 0 0px;
   box-shadow: inset 0 -1px alpha(currentColor, 0.24);
   background-color: transparent;
@@ -1321,7 +1321,7 @@ combobox > .linked:not(.vertical) > button.combo:not(:only-child) {
 }
 
 .background combobox entry.combo {
-  transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image all 225ms cubic-bezier(0, 0, 0.2, 1) cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0.4, 0, 0.2, 1);
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #686868 0%, transparent 0%) 0 0 0/0 0 0px;
   box-shadow: inset 0 -1px alpha(currentColor, 0.24);
   background-color: transparent;
@@ -2862,13 +2862,6 @@ row:selected switch:checked slider {
   box-shadow: none;
   background-color: transparent;
   background-image: none;
-  -gtk-icon-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 2px -1px rgba(0, 0, 0, 0.22), 0 1px 2px -0.6px rgba(0, 0, 0, 0.12);
-}
-
-.view.content-view.check:not(list):hover, .view.content-view.check:not(list):active,
-.content-view .tile check:not(list):hover,
-.content-view .tile check:not(list):active {
-  -gtk-icon-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
 .view.content-view.check:not(list),
@@ -4806,7 +4799,7 @@ headerbar .nautilus-canvas-item.subtitle:selected, .nautilus-canvas-item.dim-lab
 .caja-desktop.caja-canvas-item,
 .nautilus-desktop.nautilus-canvas-item {
   color: #FFFFFF;
-  text-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 2px -1px rgba(0, 0, 0, 0.22), 0 1px 2px -0.6px rgba(0, 0, 0, 0.12);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .caja-desktop.caja-canvas-item:selected,
@@ -5078,7 +5071,7 @@ paned.titlebar.horizontal > separator {
 }
 
 .gedit-search-slider entry.search.error.flat {
-  transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image all 225ms cubic-bezier(0, 0, 0.2, 1) cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0.4, 0, 0.2, 1);
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #DD2C00 0%, transparent 0%) 0 0 0/0 0 0px;
   box-shadow: inset 0 -1px #DD2C00;
   background-color: transparent;
@@ -5123,7 +5116,7 @@ paned.titlebar.horizontal > separator {
 }
 
 .gedit-search-slider entry.search.warning.flat {
-  transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image all 225ms cubic-bezier(0, 0, 0.2, 1) cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0.4, 0, 0.2, 1);
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FF6D00 0%, transparent 0%) 0 0 0/0 0 0px;
   box-shadow: inset 0 -1px #FF6D00;
   background-color: transparent;

@@ -2496,9 +2496,6 @@ switch {
   box-shadow: none;
   background-color: transparent;
   background-image: none;
-  -gtk-icon-shadow: $z-depth-1;
-
-  &:hover, &:active { -gtk-icon-shadow: $z-depth-2; }
 
   @each $s, $as in ('', '-unchecked'),
                    (':checked', '-checked') {

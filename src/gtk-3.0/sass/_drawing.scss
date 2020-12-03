@@ -108,7 +108,7 @@ $header_shadow: if($headerbar =='light', $depth_light, $z-depth-dark);
   }
 
   @if $t == flat-normal {
-    transition: $shorter_transition, border-image $longer_transition $standard_curve;
+    transition: $shorter_transition, border-image $longer_duration $standard_curve;
     border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                   $fc 0%,
                                   transparent 0%)

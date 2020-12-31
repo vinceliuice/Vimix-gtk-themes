@@ -595,7 +595,7 @@ window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:check
 }
 
 .lightdm-gtk-greeter button, .budgie-run-dialog .linked.horizontal > button, .budgie-polkit-dialog .linked.horizontal > button, .budgie-session-dialog .linked.horizontal > button, .drop-shadow button, .raven .raven-header.top stackswitcher button, .raven .raven-header:not(.top) button, .budgie-popover button, .budgie-settings-window buttonbox.inline-toolbar button, PanelToplevel > widget > button, .gedit-search-slider button, .gedit-search-slider entry.error ~ button, .nemo-window .floating-bar button,
-.nautilus-window .floating-bar button, button.sidebar-button, messagedialog.csd .dialog-action-area button, messagedialog .dialog-action-area button, calendar.button, check,
+.nautilus-window .floating-bar button, placessidebar row button.sidebar-button, messagedialog.csd .dialog-action-area button, messagedialog .dialog-action-area button, calendar.button, check,
 radio, scrollbar button, notebook > header > tabs > arrow, spinbutton.vertical button, spinbutton:not(.vertical) > button, modelbutton.flat,
 .menuitem.button.flat, .inline-toolbar button:not(.text-button), .osd button.flat {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 300ms cubic-bezier(0, 0, 0.2, 1), background-image 600ms cubic-bezier(0, 0, 0.2, 1);
@@ -609,7 +609,7 @@ radio, scrollbar button, notebook > header > tabs > arrow, spinbutton.vertical b
 }
 
 .lightdm-gtk-greeter button:hover, .budgie-run-dialog .linked.horizontal > button:hover, .budgie-polkit-dialog .linked.horizontal > button:hover, .budgie-session-dialog .linked.horizontal > button:hover, .drop-shadow button:hover, .raven .raven-header.top stackswitcher button:hover, .raven .raven-header:not(.top) button:hover, .budgie-popover button:hover, .budgie-settings-window buttonbox.inline-toolbar button:hover, PanelToplevel > widget > button:hover, .gedit-search-slider button:hover, .gedit-search-slider entry.error ~ button:hover, .nemo-window .floating-bar button:hover,
-.nautilus-window .floating-bar button:hover, button.sidebar-button:hover, messagedialog .dialog-action-area button:hover, calendar.button:hover, check:hover,
+.nautilus-window .floating-bar button:hover, placessidebar row button.sidebar-button:hover, messagedialog .dialog-action-area button:hover, calendar.button:hover, check:hover,
 radio:hover, scrollbar button:hover, notebook > header > tabs > arrow:hover, spinbutton.vertical button:hover, spinbutton:not(.vertical) > button:hover, modelbutton.flat:hover,
 .menuitem.button.flat:hover, .inline-toolbar button:hover:not(.text-button), .osd button.flat:hover {
   box-shadow: inset 0 0 0 9999px alpha(currentColor, 0.12);
@@ -617,7 +617,7 @@ radio:hover, scrollbar button:hover, notebook > header > tabs > arrow:hover, spi
 }
 
 .lightdm-gtk-greeter button:active, .budgie-run-dialog .linked.horizontal > button:active, .budgie-polkit-dialog .linked.horizontal > button:active, .budgie-session-dialog .linked.horizontal > button:active, .drop-shadow button:active, .raven .raven-header.top stackswitcher button:active, .raven .raven-header:not(.top) button:active, .budgie-popover button:active, .budgie-settings-window buttonbox.inline-toolbar button:active, PanelToplevel > widget > button:active, .gedit-search-slider button:active, .gedit-search-slider entry.error ~ button:active, .nemo-window .floating-bar button:active,
-.nautilus-window .floating-bar button:active, button.sidebar-button:active, messagedialog .dialog-action-area button:active, calendar.button:active, check:active,
+.nautilus-window .floating-bar button:active, placessidebar row button.sidebar-button:active, messagedialog .dialog-action-area button:active, calendar.button:active, check:active,
 radio:active, scrollbar button:active, notebook > header > tabs > arrow:active, spinbutton.vertical button:active, spinbutton:not(.vertical) > button:active, modelbutton.flat:active,
 .menuitem.button.flat:active, .inline-toolbar button:active:not(.text-button), .osd button.flat:active {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
@@ -629,7 +629,7 @@ radio:active, scrollbar button:active, notebook > header > tabs > arrow:active, 
 }
 
 .lightdm-gtk-greeter button:disabled, .budgie-run-dialog .linked.horizontal > button:disabled, .budgie-polkit-dialog .linked.horizontal > button:disabled, .budgie-session-dialog .linked.horizontal > button:disabled, .drop-shadow button:disabled, .raven .raven-header.top stackswitcher button:disabled, .raven .raven-header:not(.top) button:disabled, .budgie-popover button:disabled, .budgie-settings-window buttonbox.inline-toolbar button:disabled, PanelToplevel > widget > button:disabled, .gedit-search-slider button:disabled, .gedit-search-slider entry.error ~ button:disabled, .nemo-window .floating-bar button:disabled,
-.nautilus-window .floating-bar button:disabled, button.sidebar-button:disabled, messagedialog .dialog-action-area button:disabled, calendar.button:disabled, check:disabled,
+.nautilus-window .floating-bar button:disabled, placessidebar row button.sidebar-button:disabled, messagedialog .dialog-action-area button:disabled, calendar.button:disabled, check:disabled,
 radio:disabled, scrollbar button:disabled, notebook > header > tabs > arrow:disabled, spinbutton.vertical button:disabled, spinbutton:not(.vertical) > button:disabled, modelbutton.flat:disabled,
 .menuitem.button.flat:disabled, .inline-toolbar button:disabled:not(.text-button), .osd button.flat:disabled {
   box-shadow: none;
@@ -1285,6 +1285,7 @@ combobox arrow {
 combobox entry.combo {
   border-radius: 2px;
   margin-right: -32px;
+  padding-right: 32px;
   border: 1px solid #cfcfcf;
   box-shadow: none;
   border-image: none;
@@ -2384,6 +2385,11 @@ popover.background > toolbar {
   border-style: none;
   box-shadow: none;
   background-color: transparent;
+}
+
+popover.background .linked button:not(.combo) {
+  border-radius: 3px;
+  margin: 0 2px;
 }
 
 popover.background.menu button,
@@ -3853,6 +3859,24 @@ placessidebar row:selected {
   color: #FFFFFF;
 }
 
+placessidebar row:selected button.sidebar-button {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+placessidebar row:selected button.sidebar-button:hover, placessidebar row:selected button.sidebar-button:active, placessidebar row:selected button.sidebar-button:checked {
+  background-color: alpha(currentColor, 0.24);
+  color: #FFFFFF;
+}
+
+placessidebar row:selected button.sidebar-button:disabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+placessidebar row:selected button.sidebar-button:checked:disabled {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.4);
+}
+
 placessidebar row:disabled {
   color: rgba(0, 0, 0, 0.32);
 }
@@ -3875,24 +3899,6 @@ placessidebar row label.sidebar-label:dir(ltr) {
 
 placessidebar row label.sidebar-label:dir(rtl) {
   padding-left: 2px;
-}
-
-row:selected button.sidebar-button {
-  color: rgba(255, 255, 255, 0.75);
-}
-
-row:selected button.sidebar-button:hover, row:selected button.sidebar-button:active, row:selected button.sidebar-button:checked {
-  background-color: alpha(currentColor, 0.24);
-  color: #FFFFFF;
-}
-
-row:selected button.sidebar-button:disabled {
-  color: rgba(255, 255, 255, 0.3);
-}
-
-row:selected button.sidebar-button:checked:disabled {
-  background-color: rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.4);
 }
 
 placessidebar row.sidebar-placeholder-row {
@@ -4535,7 +4541,7 @@ row button.circular {
 }
 
 .pluma-window paned.horizontal box.vertical box.horizontal button.flat, .gedit-document-panel row button.flat, .nemo-window .floating-bar button,
-.nautilus-window .floating-bar button, spinbutton:not(.vertical) > button, spinbutton:not(.vertical) > button:hover, spinbutton:not(.vertical) > button:active, spinbutton:not(.vertical) > button:checked, spinbutton:not(.vertical) > button:disabled, .linked > spinbutton:not(.vertical) > button.up, .linked > spinbutton:not(.vertical) > button.up:hover, .linked > spinbutton:not(.vertical) > button.up:active, .linked > spinbutton:not(.vertical) > button.up:checked, .linked > spinbutton:not(.vertical) > button.up:disabled, .linked > spinbutton:not(.vertical) > button.down, .linked > spinbutton:not(.vertical) > button.down:hover, .linked > spinbutton:not(.vertical) > button.down:active, .linked > spinbutton:not(.vertical) > button.down:checked, .linked > spinbutton:not(.vertical) > button.down:disabled, button.sidebar-button {
+.nautilus-window .floating-bar button, spinbutton:not(.vertical) > button, spinbutton:not(.vertical) > button:hover, spinbutton:not(.vertical) > button:active, spinbutton:not(.vertical) > button:checked, spinbutton:not(.vertical) > button:disabled, .linked > spinbutton:not(.vertical) > button.up, .linked > spinbutton:not(.vertical) > button.up:hover, .linked > spinbutton:not(.vertical) > button.up:active, .linked > spinbutton:not(.vertical) > button.up:checked, .linked > spinbutton:not(.vertical) > button.up:disabled, .linked > spinbutton:not(.vertical) > button.down, .linked > spinbutton:not(.vertical) > button.down:hover, .linked > spinbutton:not(.vertical) > button.down:active, .linked > spinbutton:not(.vertical) > button.down:checked, .linked > spinbutton:not(.vertical) > button.down:disabled, placessidebar row button.sidebar-button {
   min-height: 20px;
   min-width: 20px;
   padding: 0;

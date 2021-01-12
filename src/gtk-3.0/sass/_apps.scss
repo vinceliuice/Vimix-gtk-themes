@@ -627,35 +627,25 @@ window.background > box.vertical box.horizontal {
 //
 // Builder
 //
-// based css:
-// https://git.gnome.org/browse/gnome-builder/tree/data/theme
-// hard-coded css:
-// https://git.gnome.org/browse/gnome-builder/tree/data/theme/shared.css
-
-// Titlebar adjustments for workbench
-//
-// This is needed due to our placement of headerbar inside of a
-// stack. We were seeing black edges around the header bar, and
-// improper radius on the headerbar.
-//
-workbench.csd > stack.titlebar:not(headerbar) {
-  padding: 0;
-  background: none;
-  border: none;
-  box-shadow: none;
-  border-radius: 2px 2px 0 0;
+workbench.csd,
+window.csd.org-gnome-Builder {
+  > stack.titlebar {
+    box-shadow: 0 2px 3px -2px rgba(black, 0), 0 1px 2px -1px rgba(black, 0), 0 1px 2px -.6px rgba(black, 0);
+  }
 }
 
-workbench.csd:not(.tiled):not(.maximized):not(.fullscreen) > stack.titlebar:not(headerbar) {
-  headerbar {
-    &,
-    &:first-child,
-    &:last-child {
-      border-radius: 2px 2px 0 0;
-      border-bottom: 1px solid $borders_color;
+// Popover
+popover.background.dzlmenubutton {
+  button.dzlmenubuttonitem {
+    &:active, &:checked, &:hover {
+      label {
+        color: $fg_color;
+        transition: none;
+      }
     }
   }
 }
+
 
 perspectiveswitcher {
   background-color: $bg_color;
@@ -819,10 +809,6 @@ editortweak entry.search {
   box-shadow: none;
 }
 
-//
-// let's tweak hard-coded elements
-//
-
 // styling for editor search
 frame.gb-search-frame {
   // border-bottom-left-radius: 5px;
@@ -837,18 +823,6 @@ frame.gb-search-frame {
 // Keep search bar and layouttab height in sync.
 docktabstrip {
   min-height: 39px;
-}
-
-layouttabbar > box {
-  // min-height: 39px;
-}
-
-eggsearchbar > revealer > box {
-  // min-height: 39px;
-}
-
-eggsearchbar entry {
-  // min-height: 24px;
 }
 
 workbench preferences preferencesgroup list entry {

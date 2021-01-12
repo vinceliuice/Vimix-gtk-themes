@@ -590,7 +590,22 @@ button {
   .background .linked entry + &,
   .background .linked entry + & + & { @extend %combo_flat; }
 
-  .background .linked.stack-switcher > &,
+  .background .linked.stack-switcher > & {
+    @extend %flat_button;
+    border-radius: 0;
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  $primary_color 0%,
+                                  transparent 0%)
+                                  0 0 0 / 0 0 0px;
+    &:checked {
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    $primary_color 100%,
+                                    transparent 0%)
+                                    0 0 2 / 0 0 2px;
+      background-color: transparent;
+    }
+  }
+
   .background buttonbox.linked > & {
     border-radius: $md_radius;
     -gtk-outline-radius: $md_radius;

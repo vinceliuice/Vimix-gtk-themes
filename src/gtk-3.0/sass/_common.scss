@@ -3196,11 +3196,11 @@ messagedialog { // Message Dialog styling
     &:backdrop { color: $secondary_fg_color; }
   }
 
-  .dialog-action-area button {
+  .linked:not(.vertical).dialog-action-area > button {
     padding: 4px 12px;
     border-top: 1px solid $borders_color;
     border-radius: 0;
-    @extend %simple_flat_button;
+    @extend %flat_button;
 
     &:first-child {
       border-bottom-left-radius: 0;
@@ -3215,7 +3215,7 @@ messagedialog { // Message Dialog styling
 
   @each $b_type, $b_color in (suggested-action, $suggested_color),
                              (destructive-action, $destructive_color) {
-    .dialog-action-area button.#{$b_type} {
+    .linked:not(.vertical).dialog-action-area > button.#{$b_type} {
       color: $b_color;
       transition: $shorter_transition,
                   $shadow_transition,
@@ -3252,11 +3252,11 @@ messagedialog { // Message Dialog styling
       border-bottom-right-radius: 2px;
     }
 
-    .dialog-action-area button {
+    .linked:not(.vertical).dialog-action-area > button {
       padding: 8px 16px;
       border-top: 1px solid $borders_color;
       border-radius: 0;
-      @extend %simple_flat_button;
+      @extend %flat_button;
 
       &:first-child {
         border-bottom-left-radius: 2px;

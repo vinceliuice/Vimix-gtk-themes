@@ -367,12 +367,12 @@ paned.titlebar.horizontal { // show border
   }
 }
 
-/* Only normal state is handle */
+// Only normal state is handle
 .open-document-selector-name-label {
   font-weight: bold;
 }
 
-/* Only normal state is handle */
+// Only normal state is handle
 .open-document-selector-path-label {
   color: gtkalpha(currentColor, $hint_opacity);
   font-size: smaller;
@@ -400,7 +400,7 @@ paned.titlebar.horizontal { // show border
   border-top: 0px;
 }
 
-/* Try to look as the notebook tab close button */
+// Try to look as the notebook tab close button
 .gedit-document-panel row button.flat {
   @extend %small_button;
 }
@@ -409,7 +409,7 @@ paned.titlebar.horizontal { // show border
   border-top: 1px solid $borders_color;
 }
 
-.gedit-search-slider {
+.background .gedit-search-slider {
   margin: 4px 4px 8px;
 
   .gedit-search-entry-occurrences-tag {
@@ -423,11 +423,13 @@ paned.titlebar.horizontal { // show border
   popover.background {
     transition: $shadow_transition;
     padding: 0;
-    box-shadow:  $z-depth-2; // TODO: this should really have a highlight
-    background-color: $dark_contrast_color;
+    box-shadow: $z-depth-2; // TODO: this should really have a highlight
+    background-color: $lighter_bg_color;
   }
 
-  entry {
+  > .linked:not(.vertical) > entry {
+    @extend %entry_native;
+
     &:dir(ltr) {
       margin-right: -$medium_size * 2;
       padding-right: $medium_size * 2 + 8px;
@@ -487,7 +489,7 @@ paned.titlebar.horizontal { // show border
     }
   }
 
-  button {
+  > .linked:not(.vertical) > button {
     @extend %simple_flat_button;
 
     &:dir(ltr),
@@ -498,7 +500,7 @@ paned.titlebar.horizontal { // show border
 // Yeah this is ugly
 .gedit-search-slider .linked:not(.vertical) > entry,
 notebook > stack:not(:only-child) revealer .gedit-search-slider .linked:not(.vertical) > entry {
-  border-radius: 2px;
+  border-radius: $md_radius;
 }
 
 //

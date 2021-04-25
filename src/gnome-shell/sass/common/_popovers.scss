@@ -14,7 +14,7 @@
 
 // container of the popover menu
 .popup-menu {
-  min-width: 12em;
+  min-width: if($laptop == 'true', 10em, 12em);
   color: $text-secondary;
   padding: $base_padding 0 !important;
   font-weight: normal;
@@ -136,7 +136,7 @@
 
 // system status popover menu
 .aggregate-menu {
-  min-width: 21em;
+  min-width: if($laptop == 'true', 17em, 21em);
 
   // lock screen, shutdown, etc. buttons
   .popup-menu-icon {

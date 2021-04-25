@@ -66,7 +66,7 @@
 
 // End Session Dialog
 .end-session-dialog {
-  width: 30em;
+  width: if($laptop == 'true', 25em, 30em);
   // border: none;
 
   .end-session-dialog-battery-warning,
@@ -136,7 +136,7 @@
 // Password or Authentication Dialog
 .prompt-dialog {
   //this is the width of the entire modal popup
-  width: 28em;
+  width: if($laptop == 'true', 22em, 28em);
   // border: none;
 
   .modal-dialog-content-box {
@@ -162,7 +162,7 @@
 }
 
 .prompt-dialog-password-entry {
-  width: 20em;
+  width: if($laptop == 'true', 16em, 20em);
 }
 
 .prompt-dialog-error-label,

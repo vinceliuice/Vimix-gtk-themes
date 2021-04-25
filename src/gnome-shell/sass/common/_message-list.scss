@@ -2,7 +2,7 @@
 // a.k.a. notifications in the menu
 
 .message-list {
-  width: 31.5em;
+  width: if($laptop == 'true', 25.5em, 31.5em);
   padding: 0 $base_padding * 2;
   text-shadow: none;
 
@@ -29,7 +29,7 @@
 
 // message bubbles
 .message {
-  margin: 0;
+  margin: $base_spacing / 2 0;
 
   .popup-menu & {
     @extend %popover_bubble;

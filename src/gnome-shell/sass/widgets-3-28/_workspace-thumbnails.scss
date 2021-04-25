@@ -1,0 +1,34 @@
+// Workspace pager
+
+.workspace-thumbnails { //container ala dash
+  color: on(black, secondary);
+  background-color: on(black, divider);
+  border: none;
+  visible-width: 32px; //amount visible before hover
+  spacing: 12px;
+  padding: 16px;
+  border-radius: $modal_radius;
+  margin: 6px;
+  // border-width: 0; //fixme: can't have non unoform borders :(
+  // &:rtl { border-radius: $bt_radius; }
+
+  .placeholder {
+    background-image: url("assets/dash-placeholder.svg");
+    background-size: contain;
+    height: 24px;
+  }
+}
+
+.workspace-thumbnail-indicator {
+  border: 2px solid $primary;
+  padding: $base_padding;
+  border-radius: $base_radius;
+}
+
+//Some hacks I don't even
+.all-apps,
+.search-display > StBoxLayout,
+.frequent-apps > StBoxLayout {
+  // horizontal padding to make sure scrollbars or dash don't overlap content
+  padding: 0px 88px 10px 88px;
+}

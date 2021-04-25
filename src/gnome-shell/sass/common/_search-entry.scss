@@ -1,0 +1,81 @@
+// Search entry
+%search-entry, .search-entry {
+  width: 320px;
+  min-height: $item_size;
+  padding: 2px $base_padding * 2;
+  border-color: transparent;
+  color: on(black, secondary);
+  caret-color: on(black, secondary);
+  selection-background-color: on(black, track);
+  selected-color: on(black);
+  @include entry(flat-normal, $bc:on(black, fill), $tc:on(black, secondary));
+  border-radius: $menu_radius $menu_radius 0 0 !important;
+
+  &:hover {
+    @include entry(flat-hover, $bc:on(black, fill), $tc:on(black, secondary));
+    color: on(black, secondary);
+  }
+
+  &:focus {
+    @include entry(flat-focus, $fc:$indicator, $bc:on(black, divider), $tc:on(black, secondary));
+    color: on(black, secondary);
+  }
+
+  .search-entry-icon {
+    icon-size: 16px;
+    padding: 0 0;
+    color: on(black, disabled);
+  }
+
+  &:hover, &:focus {
+    .search-entry-icon { color: on(black, secondary); }
+  }
+
+  &:insensitive {
+    border: none;
+    color: on(black, secondary-disabled);
+  }
+
+  StLabel.hint-text {
+    color: on(black, disabled);
+  }
+}
+
+.popup-menu .search-entry {
+  margin: 0 0 !important;
+  color: on($popover, secondary);
+  caret-color: on($popover, secondary);
+  selection-background-color: $primary;
+  selected-color: on($primary);
+  @include entry(flat-normal, $bc:on($popover, fill), $tc:on($popover, secondary));
+
+  &:hover {
+    @include entry(flat-hover, $bc:on($popover, fill), $tc:on($popover, secondary));
+    color: on($popover, secondary);
+  }
+
+  &:focus {
+    @if $variant == 'light' {
+      @include entry(flat-focus, $bc:on($popover, divider), $tc:on($popover, secondary));
+    } @else {
+      @include entry(flat-focus, $fc:white, $bc:on($popover, divider), $tc:on($popover, secondary));
+    }
+    color: on($popover, secondary);
+  }
+
+  .search-entry-icon {
+    color: on($popover, disabled);
+  }
+
+  &:hover, &:focus {
+    .search-entry-icon { color: on($popover, secondary); }
+  }
+
+  &:insensitive {
+    color: on($popover, secondary-disabled);
+  }
+
+  StLabel.hint-text {
+    color: on($popover, disabled);
+  }
+}

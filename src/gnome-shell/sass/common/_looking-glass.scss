@@ -1,0 +1,115 @@
+/* Looking Glass */
+
+// Dialog
+#LookingGlassDialog {
+  background-color: $base;
+  spacing: 4px;
+  padding: 0;
+  border: none;
+  border-radius: $base_radius;
+  box-shadow: 0 3px 8px 0 rgba(black, 0.25);
+  color: $text;
+
+  & > #Toolbar {
+    padding: 0 8px;
+    border: none;
+    border-radius: 0;
+    background-color: $background;
+    box-shadow: inset 0 -1px 0 $border;
+  }
+
+  .labels { spacing: 0; }
+  .notebook-tab {
+    -natural-hpadding: 12px;
+    -minimum-hpadding: 6px;
+    font-weight: bold;
+    color: $text-disabled;
+    padding-left: 16px;
+    padding-right: 16px;
+    min-height: $item_size;
+    padding: 0 32px;
+    transition-duration: 100ms;
+
+    &:hover {
+      box-shadow: inset 0 -2px 0px $track;
+      color: $text;
+      text-shadow: none;
+    }
+    &:selected {
+      border-bottom-width: 0;
+      border-color: transparent;
+      background-color: $background;
+      box-shadow: inset 0 -2px 0px on(black, secondary);
+      color: $text;
+      text-shadow: none;
+    }
+  }
+  StBoxLayout#EvalBox { padding: 4px; spacing: 4px; }
+  StBoxLayout#ResultsArea { spacing: 4px; }
+}
+
+.lg-dialog {
+  StEntry {
+    min-height: 22px;
+    selection-background-color: $primary;
+    selected-color: on($primary);
+  }
+  .shell-link {
+    color: $link;
+    &:hover { color: lighten($link, 10%); }
+    &:active { color: darken($link, 10%); }
+   }
+  .actor-link {
+    color: $text-secondary;
+    &:hover { color: $text; }
+    &:active { color: $text-secondary; }
+   }
+}
+
+.lg-completions-text {
+  font-size: .9em;
+  font-style: italic;
+}
+
+.lg-obj-inspector-title {
+  spacing: $base_spacing;
+}
+
+.lg-obj-inspector-button {
+  padding: 0 16px;
+  border: none;
+  border-radius: $base_radius;
+
+  &:hover { border: none; }
+}
+
+// Extensions
+#lookingGlassExtensions { padding: 4px; }
+
+.lg-extensions-list {
+  padding: 4px;
+  spacing: 6px;
+}
+
+.lg-extension {
+  border: none;
+  border-radius: $base_radius;
+  padding: 4px;
+}
+
+.lg-extension-name {
+  font-weight: bold;
+}
+
+.lg-extension-meta {
+  spacing: $base_spacing;
+}
+
+// Inspector
+#LookingGlassPropertyInspector {
+  background: $base;
+  border: none;
+  border-radius: $base_radius;
+  padding: $base_padding;
+  box-shadow: 0 3px 8px 0 rgba(black, 0.25);
+}

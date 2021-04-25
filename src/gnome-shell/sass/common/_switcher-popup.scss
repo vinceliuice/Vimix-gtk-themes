@@ -1,0 +1,67 @@
+/* App Switcher */
+
+.switcher-popup {
+  padding: 8px;
+  spacing: $base_spacing * 4;
+}
+
+// switcher onscreen panel
+.switcher-list {
+  @extend %osd_panel;
+
+  .item-box {
+    padding: 8px;
+    border-radius: $base_radius;
+    border: 1px solid transparent;
+
+    &:outlined {
+      background-color: $divider;
+      color: $text; // for Ubuntu session
+    }
+
+    &:selected {
+      background-color: $primary;
+      color: on($primary);
+    }
+  }
+
+  // window thumbnails
+  .thumbnail-box {
+    padding: 2px;
+    spacing: $base_spacing;
+  }
+
+  .thumbnail {
+    width: 256px;
+  }
+
+  .separator {
+    width: 1px;
+    background: $border;
+  }
+
+  .switcher-list-item-container {
+    spacing: $base_spacing * 2;
+  }
+}
+
+.switcher-arrow {
+  border-color: rgba(0,0,0,0);
+  color: $text-disabled;
+
+  &:highlighted {
+    color: $text;
+  }
+}
+
+// Input Source Switcher
+.input-source-switcher-symbol {
+  font-size: 34pt;
+  width: 96px;
+  height: 96px;
+}
+
+// Window cycler highlight
+.cycler-highlight {
+  border: 5px solid $primary;
+}

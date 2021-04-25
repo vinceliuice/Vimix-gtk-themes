@@ -1,0 +1,51 @@
+// IBus Candidate Popup
+.candidate-popup-boxpointer {
+  -arrow-border-radius: 2px;
+  -arrow-background-color: transparent;
+  -arrow-border-width: 0;
+  -arrow-border-color: transparent;
+  -arrow-base: 64px;
+  -arrow-rise: 12px;
+}
+
+.candidate-popup-content {
+  @extend %theme_dialogs;
+  color: $text-secondary;
+  box-shadow: 0 5px 12px 0 rgba(black, 0.35);
+  border: none;
+  margin: ($base_padding / 2) 8px;
+  padding: $base_padding;
+  spacing: $base_padding;
+}
+
+.candidate-index {
+  padding: 0 0.5em 0 0;
+  color: $text-secondary;
+  .candidate-box:selected & { color: on($primary, secondary); }
+}
+
+.candidate-box {
+  padding: 0.3em 0.5em 0.3em 0.5em;
+  margin-right: 2px;
+  border-radius: $base_radius;
+  color: $text-secondary;
+  &:hover { background-color: $divider; color: $text; }
+  &:active { background-color: $track; color: $text; }
+  &:selected { background-color: $primary; color: on($primary); }
+  &:last-child { margin-right: 0; }
+}
+
+.candidate-page-button-box {
+  height: 2em;
+  .vertical & { padding-top: 0.5em; }
+  .horizontal & { padding-left: 0.5em; }
+}
+
+.candidate-page-button {
+  padding: 4px;
+  @extend %flat_button;
+}
+
+.candidate-page-button-previous,
+.candidate-page-button-next { border-radius: $base_radius;  }
+.candidate-page-button-icon { icon-size: 1em; }

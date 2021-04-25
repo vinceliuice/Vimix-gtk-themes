@@ -1,0 +1,150 @@
+
+$app_icon_size: 96px;
+$app_icon_padding: 24px;
+$app_icon_spacing: 6px;
+
+// app icons
+.icon-grid {
+  row-spacing: $app_icon_spacing * 6;
+  column-spacing: $app_icon_spacing * 6;
+  max-row-spacing: $app_icon_spacing * 12;
+  max-column-spacing: $app_icon_spacing * 12;
+
+  // for 3.26
+  -shell-grid-horizontal-item-size: $app_icon_size + $app_icon_padding * 2;
+  -shell-grid-vertical-item-size: $app_icon_size + $app_icon_padding * 2;
+  spacing: $app_icon_spacing * 4;
+
+  .overview-icon {
+    icon-size: $app_icon_size;
+  }
+}
+
+.app-folder-icon {
+  padding: $app_icon_spacing;
+  spacing-rows: $app_icon_spacing;
+  spacing-columns: $app_icon_spacing;
+}
+
+// expanded folder
+.app-folder-dialog {
+  & .page-indicators {
+    .page-indicator {
+      padding: 15px 12px;
+    }
+  }
+
+  & StButton#vhandle,
+  & StButton#vhandle:hover,
+  & StButton#vhandle:active { background-color: transparent; }
+}
+
+.page-indicator {
+  padding: 15px 20px;
+
+  .page-indicator-icon {
+    width: 12px;
+    height: 12px;
+    border-radius: 12px;
+    margin: 0;
+    padding: 0;
+    background-image: none;
+    color: transparent;
+    border: none;
+    box-shadow: none;
+    background-color: on(black, secondary-disabled);
+  }
+  &:hover .page-indicator-icon {
+    background-image: none;
+    background-color: on(black, disabled);
+  }
+  &:active .page-indicator-icon {
+    margin: 0;
+    padding: 0;
+    background-image: none;
+    color: transparent;
+    border: none;
+    box-shadow: none;
+    background-color: on(black);
+  }
+  &:checked .page-indicator-icon {
+    background-image: none;
+    background-color: on(black, secondary);
+  }
+  &:checked:active { background-image: none; }
+}
+
+//Some hacks I don't even
+.all-apps,
+.search-display > StBoxLayout,
+.frequent-apps > StBoxLayout {
+  // horizontal padding to make sure scrollbars or dash don't overlap content
+  padding: 0px 88px 10px 88px;
+}
+
+//
+// gnome-shell 3.36
+//
+.app-view-controls { //favorties | all toggle container
+  width: 320px;
+  padding-bottom: 32px;
+  margin: 0 0;
+}
+
+.app-view-control { //favorties | all toggle button
+  padding: 0 16px;
+  margin: 0 0;
+  font-weight: bold;
+  color: on(black, secondary);
+  background-color: overlay(black);
+
+  &:hover {
+    color: on(black);
+    background-color: overlay(black, hover);
+  }
+
+  &:active {
+    color: on(black);
+    background-color: darken($primary, 3%);
+  }
+
+  &:checked {
+    color: on($primary);
+    background-color: $primary;
+    box-shadow: none;
+  }
+
+  &:first-child {
+    border-right-width: 0;
+    border-radius: $menu_radius 0 0 $menu_radius;
+  }
+
+  &:last-child {
+    border-radius: 0 $menu_radius $menu_radius 0;
+  }
+}
+
+// Collections
+.app-folder-popup { //expanded collection
+  -arrow-border-radius: $menu_radius * 2;
+  -arrow-background-color: on(black, divider);
+  -arrow-base: 0;
+  -arrow-rise: 12px;
+}
+
+.app-folder-popup-bin { padding: 5px; }
+
+.no-frequent-applications-label {
+  @include fontsize($font_size - 2);
+  color: on(black, disabled);
+}
+
+.overview-icon.overview-icon-with-label,
+.grid-search-result .overview-icon.overview-icon-with-label {
+  padding: 10px 8px 5px 8px;
+  spacing: 6px;
+
+  > StBoxLayout {
+    spacing: 6px;
+  }
+}

@@ -1,0 +1,23 @@
+#dash {
+  color: on(black, secondary);
+  background-color: on(black, divider);
+  border-left: 0;
+  border-radius: 0 $modal_radius $modal_radius 0;
+  padding: 6px;
+  border: none;
+  box-shadow: none;
+
+  &:rtl {
+    border-radius: $modal_radius 0 0 $modal_radius;
+  }
+
+  .placeholder {
+    background-image: url("assets/dash-placeholder.svg");
+    background-size: contain;
+    height: 24px;
+  }
+}
+
+.dash-item-container > StWidget {
+  padding: 3px 6px;
+}

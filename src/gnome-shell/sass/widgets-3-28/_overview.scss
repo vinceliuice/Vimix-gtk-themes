@@ -1,0 +1,17 @@
+
+%overview_scrollbar {
+  StBin#trough {
+    background-color: on($osd, divider);
+  }
+
+  StButton#vhandle, StButton#hhandle {
+    background-color: on($osd, disabled);
+    &:hover { background-color: on($osd, secondary); }
+    &:active { background-color: on($osd); }
+  }
+}
+
+#overview {
+  spacing: 24px;
+  StScrollBar { @extend %overview_scrollbar; }
+}

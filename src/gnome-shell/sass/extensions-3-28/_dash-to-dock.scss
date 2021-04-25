@@ -1,0 +1,161 @@
+// Dash to Dock
+
+// Scrollview style
+.bottom #dashtodockDashScrollview,
+.top #dashtodockDashScrollview {
+  -st-hfade-offset: 24px;
+}
+
+.left #dashtodockDashScrollview,
+.right #dashtodockDashScrollview {
+  -st-vfade-offset: 24px;
+}
+
+#dashtodockContainer {
+  background-color: transparent;
+
+  .app-well-app-running-dot {
+    background-color: on(black, track);
+  }
+
+  .number-overlay {
+    color: $panel-text;
+    background-color: rgba(black, 0.75);
+    text-align: center;
+  }
+
+  .notification-badge {
+    color: on($primary);
+    background-color: $primary;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.25);
+    border-radius: $circular_radius;
+    margin: 2px;
+    padding: 0.2em 0.6em;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &.straight-corner #dash,
+  &.shrink.straight-corner #dash {
+    border-radius: 0;
+    margin: 0;
+  }
+
+  &.extended.top,
+  &.extended.bottom {
+    #dash {
+      border-left: 0;
+      border-right: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  &.extended.right,
+  &.extended.left {
+    #dash {
+      border-top: 0;
+      border-bottom: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  &.dashtodock #dash { background-color: $panel; }
+
+  #dash { // default-mode
+    background-color: $panel;
+
+    .app-well-app-running-dot {
+      background-color: $panel-text-secondary;
+    }
+
+    StWidget.focused .app-well-app-running-dot {
+      background-color: $indicator;
+    }
+  }
+
+  &.opaque #dash { // solid-mode
+    background-color: $panel;
+  }
+
+  &.transparent #dash { // translucent-mode
+    background-color: rgba($panel, 0.35); // does not work
+  }
+
+  &:overview #dash { // overview-mode #1
+    background-color: on(black, divider);
+
+    .app-well-app-running-dot {
+      background-color: on(black, track);
+    }
+
+    StWidget.focused .app-well-app-running-dot {
+      background-color: $indicator;
+    }
+  }
+
+  &.opaque:overview,
+  &.transparent:overview { // overview-mode #2
+    #dash {
+      background-color: transparent !important;
+      box-shadow: none !important;
+    }
+  }
+
+  &.extended:overview, // overview-mode #3
+  &.opaque.extended:overview,
+  &.transparent.extended:overview {
+    #dash {
+      background-color: $panel;
+    }
+  }
+
+  &.running-dots,
+  &.dashtodock {
+    .dash-item-container > StButton {
+      transition-duration: 250ms;
+      background-size: contain;
+    }
+  }
+
+  &.shrink,
+  &.dashtodock {
+    .dash-item-container > StButton {
+       padding: 1px 2px;
+    }
+  }
+
+  .app-well-app,
+  .show-apps {
+    .overview-icon {
+      padding: 8px;
+      background-size: contain;
+    }
+  }
+
+  &.extended,
+  &.extended:overview {
+    .app-well-app,
+    .show-apps {
+      .overview-icon {
+        border-radius: $base_radius;
+      }
+    }
+  }
+
+  .metro .overview-icon {
+    border-radius: 0;
+  }
+}
+
+.dashtodock-app-well-preview-menu-item {
+  padding: 1em 1em 0.5em 1em;
+}
+
+#dashtodockPreviewSeparator.popup-separator-menu-item-horizontal {
+  width: 1px;
+  height: auto;
+  border-right-width: 1px;
+  margin: 32px 0;
+}

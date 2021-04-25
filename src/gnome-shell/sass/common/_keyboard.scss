@@ -1,0 +1,123 @@
+/* On-screen Keyboard */
+
+$key_size: 1.2em;
+$key_border_radius: $base_radius + 3px;
+$default_key_bg_color: if($variant=='light', $base, lighten($base, 2%));
+
+
+// draw keys using button function
+#keyboard {
+  background-color: $scrim;
+  box-shadow: none;
+
+  .page-indicator {
+    padding: $base_padding;
+
+    .page-indicator-icon {
+      width: 8px;
+      height: 8px;
+    }
+  }
+}
+
+// the container for individual keys
+.key-container,
+.keyboard-layout {
+  padding: $base_margin;
+  spacing: $base_margin;
+}
+
+// the keys
+.keyboard-key {
+  @include fontsize($font_size + 5);
+  font-weight: bold;
+  min-height: $key_size;
+  min-width: $key_size;
+  border-radius: $key_border_radius;
+  border: none;
+  color: $text-secondary;
+  background-color: $default_key_bg_color;
+  box-shadow: 0 1px 3px rgba(black, 0.15);
+
+  &:focus, &:hover {
+    color: $text;
+    background-color: if($variant == 'light', darken($background, 5%), lighten($default_key_bg_color, 10%));
+  }
+
+  &:checked, &:active {
+    color: $text;
+    background-color: if($variant == 'light', darken($background, 10%), lighten($default_key_bg_color, 15%));
+  }
+
+  &:grayed { //FIXME
+    background-color: $background;
+    color: $text-secondary;
+  }
+
+  &.default-key { // non-character keys
+    background-color: darken($background, 2%);
+    box-shadow: 0 2px 3px rgba(black, 0.15);
+
+    &:focus, &:hover {
+      color: $text;
+      background-color: if($variant == 'light', darken($background, 8%), lighten($background, 8%));
+    }
+
+    &:checked, &:active {
+      color: $text;
+      background-color: if($variant == 'light', darken($background, 15%), lighten($background, 15%));
+    }
+  }
+
+  &.enter-key { // enter key is suggested-action
+    color: on($primary);
+    background-color: $primary;
+    box-shadow: 0 2px 3px rgba(black, 0.15);
+
+    &:focus, &:hover { color: on($primary); background-color: lighten($primary, 5%); }
+    &:checked, &:active { color: on($primary); background-color: darken($primary, 10%); }
+  }
+
+  &.shift-key-uppercase {
+    &, &:focus, &:hover, &:checked, &:active {
+      color: $primary;
+    }
+  }
+
+  StIcon { icon-size: 1.125em; }
+}
+
+.keyboard-subkeys { //long press on a key popup
+  color: inherit;
+  -arrow-border-radius: $menu_radius;
+  -arrow-background-color: $scrim;
+  -arrow-border-width: 0;
+  -arrow-border-color: transparent;
+  -arrow-base: 20px;
+  -arrow-rise: 10px;
+  -boxpointer-gap: 5px;
+  box-shadow: 0 2px 5px rgba(black, 0.25);
+}
+
+// emoji
+.emoji-page {
+  .keyboard-key {
+    background-color: transparent;
+    border: none;
+    color: initial;
+  }
+}
+
+.emoji-panel {
+  .keyboard-key:latched {
+    border: none;
+    background-color: $primary;
+  }
+}
+
+// On-screen Keyboard
+.word-suggestions {
+  font-size: 14pt;
+  spacing: $base_spacing * 2;
+  min-height: 20pt;
+}

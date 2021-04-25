@@ -1,0 +1,29 @@
+// hotplug
+
+.hotplug-notification-item {
+  padding: $base_padding * 2;
+  border-style: solid;
+  border-width: 0;
+  border-left-width: 0;
+  border-bottom-width: 0;
+  @extend %button;
+
+  // radius is 2 pixel less to fit in bubble
+  &:first-child {
+    border-radius: 0 0 0 $base_radius;
+  }
+
+  &:last-child {
+    border-right-width: 0;
+    border-radius: 0 0 $base_radius 0;
+  }
+
+  &:first-child:last-child {
+    border-radius: 0 0 $base_radius $base_radius;
+  }
+}
+
+.hotplug-notification-item-icon {
+  icon-size: 24px;
+  padding: 0 4px;
+}

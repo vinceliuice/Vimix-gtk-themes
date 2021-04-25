@@ -1,0 +1,175 @@
+/* Login Dialog */
+
+#lockDialogGroup {
+  background-color: $osd;
+}
+
+.login-dialog-banner-view {
+  padding-top: $base_padding * 4;
+  max-width: 23em;
+}
+
+.login-dialog,
+.unlock-dialog {
+  //reset
+  border: none;
+  background-color: transparent;
+
+  StEntry {
+    selection-background-color: $primary;
+    selected-color: on($primary);
+    padding: 4px 8px;
+    min-height: $item_size - $base_padding;
+    border-radius: $circular_radius;
+    caret-color: on($primary);
+
+    @include entry(flat-normal, $tc: on($primary));
+    &:focus { @include entry(flat-focus, $tc: on($primary)); }
+    &:insensitive { @include entry(flat-insensitive, $tc: on($primary, disabled)); }
+
+    StLabel.hint-text {
+      color: on($primary, disabled);
+    }
+  }
+
+  .modal-dialog-button-box { spacing: 3px; }
+
+  .modal-dialog-button {
+    padding: 0 16px;
+    border: none;
+    @include button(flat-normal, $tc: on($primary));
+    &:hover, &:focus { @include button(flat-hover, $tc: on($primary)); }
+    &:active { @include button(flat-active, $tc: on($primary)); }
+    &:insensitive { @include button(flat-insensitive, $tc: on($primary, disabled)); }
+
+    &:default {
+      @include button(normal, $tc: on($primary));
+      &:hover, &:focus { @include button(hover, $tc: on($primary)); }
+      &:active { @include button(active, $tc: on($primary)); }
+      &:insensitive { @include button(insensitive, $tc: on($primary, disabled)); }
+    }
+  }
+
+  .cancel-button,
+  .switch-user-button,
+  .login-dialog-session-list-button {
+    padding: 0;
+    border-radius: 100px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background-color: $divider;
+    color: on(black);
+
+    StIcon { icon-size: 16px; }
+  }
+
+  .login-dialog-message-warning {
+    color: on(black, secondary);
+  }
+}
+
+.login-dialog-logo-bin { padding: 24px 0px; }
+.login-dialog-banner { color: on(black, secondary); }
+.login-dialog-button-box { spacing: 5px; }
+.login-dialog-message { text-align: center; }
+.login-dialog-message-warning { color: $warning; }
+.login-dialog-message-hint { padding-top: 0; padding-bottom: 20px; }
+.login-dialog-user-selection-box { padding: 100px 0px; }
+.login-dialog-not-listed-label {
+  padding-left: 2px;
+  .login-dialog-not-listed-button:focus &,
+  .login-dialog-not-listed-button:hover & {
+    color: on(black);
+  }
+}
+
+.login-dialog-not-listed-label {
+  font-size: 1em;
+  font-weight: bold;
+  color: on(black, secondary);
+  padding-top: 1em;
+  &:hover { color: on(black, secondary); }
+  &:focus { background-color: on(black, divider); }
+}
+
+.login-dialog-user-list-view { -st-vfade-offset: 1em; }
+.login-dialog-user-list {
+  spacing: 12px;
+  padding: .2em;
+  width: 23em;
+  &:expanded .login-dialog-user-list-item:selected,
+  &:expanded .login-dialog-user-list-item:hover,
+  &:expanded .login-dialog-user-list-item:active { background-color: on(black, track); color: on(black, secondary); }
+  &:expanded .login-dialog-user-list-item:logged-in { border-right: 2px solid $primary; }
+}
+
+.login-dialog-user-list-item {
+  border-radius: $menu_radius;
+  padding: 6px;
+  color: on(black, secondary);
+
+  &:ltr .user-widget { padding-right: 1em; }
+  &:rtl .user-widget { padding-left: 1em; }
+
+  &:focus {
+    background-color: $fill !important;
+
+    // .login-dialog-timed-login-indicator {
+    //   background-color: $track;
+    // }
+  }
+
+  &:hover, &:focus:hover {
+    background-color: $divider !important;
+    color: on(black, secondary);
+  }
+
+  &:active, &:focus:active {
+    background-color: $track !important;
+    color: on(black, secondary);
+  }
+
+  .login-dialog-timed-login-indicator {
+    height: 2px;
+    margin: 6px 0 0 0;
+    background-color: overlay(black, hover) !important;
+  }
+}
+
+.user-widget-label {
+  color: on(black, secondary);
+}
+
+.user-widget.horizontal .user-widget-label {
+  @include fontsize($font_size + 2);
+  font-weight: bold;
+  padding-left: 15px;
+
+  &:ltr { padding-left: 14px; text-align: left; }
+  &:rtl { padding-right: 14px; text-align: right; }
+}
+
+.user-widget.vertical .user-widget-label {
+  @include fontsize($font_size + 5);
+  text-align: center;
+  font-weight: normal;
+  padding-top: 16px;
+}
+
+.login-dialog-prompt-layout {
+  padding-top: 24px;
+  padding-bottom: 12px;
+  spacing: $base_spacing * 2;
+  width: 23em;
+}
+
+.login-dialog-prompt-entry {
+  height: 1.5em;
+}
+
+.login-dialog-prompt-label {
+  color: on(black, secondary);
+  @include fontsize($font_size + 1);
+  padding-top: 1em;
+}

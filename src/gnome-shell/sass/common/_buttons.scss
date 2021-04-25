@@ -1,0 +1,28 @@
+/* Buttons */
+
+%button {
+  @include button(normal);
+  &:focus { @include button(focus); }
+  &:hover { @include button(hover); }
+  &:active { @include button(active); }
+  &:insensitive { @include button(insensitive); }
+}
+
+%flat_button {
+  @include button(flat-normal);
+  &:focus { @include button(flat-focus); }
+  &:hover { @include button(flat-hover); }
+  &:active { @include button(flat-active); }
+  &:insensitive { @include button(flat-insensitive); }
+}
+
+.button {
+  min-height: $item_size;
+  padding: 0 $base_padding * 2;
+  border-radius: $base_radius;
+  border: none;
+
+  .popup-menu & {
+    @extend %flat_button;
+  }
+}

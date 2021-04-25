@@ -1,0 +1,227 @@
+/* Modal Dialogs */
+
+%theme_dialogs {
+  background-color: $popover;
+  border-radius: $window_radius;
+  border: none;
+  box-shadow: 3px 3px 8px -3px rgba(black, 0.65);
+}
+
+%last_dialog_button {
+  color: on($primary);
+  background-color: $primary;
+
+  &:hover {
+    color: on($primary);
+    background-color: lighten($primary, 9%);
+  }
+
+  &:active {
+    color: on($primary);
+    background-color: darken($primary, 5%);
+  }
+
+  &:insensitive {
+    background-color: rgba($primary, 0.05);
+    color: rgba($primary, 0.35);
+  }
+}
+
+.headline {
+  @include fontsize($font_size + 1);
+}
+
+// modal dialog
+.modal-dialog {
+  color: $text-secondary;
+  padding: 0 $base_padding $base_padding $base_padding;
+  @extend %theme_dialogs;
+
+  &-linked-button {
+    min-height: $item_size;
+    padding: $base_padding;
+    margin: $base_padding / 2;
+    border: none !important;
+    border-radius: $base_radius * 2;
+    @extend %flat_button;
+  }
+
+  &-linked-button:first-child {
+    background-color: $fill;
+    &:focus { @include button(flat-focus); }
+    &:hover { @include button(flat-hover); }
+    &:active { @include button(flat-active); }
+  }
+
+  &-linked-button:last-child {
+    @extend %last_dialog_button;
+  }
+
+  .modal-dialog-content-box {
+    margin: $base_padding * 5 $base_padding * 7;
+    spacing: $base_padding * 5;
+    max-width: 28em;
+  }
+}
+
+// End Session Dialog
+.end-session-dialog {
+  width: 30em;
+  // border: none;
+
+  .end-session-dialog-battery-warning,
+  .dialog-list-title {
+    color: $warning;
+  }
+}
+
+// Message Dialog
+.message-dialog-content {
+  spacing: 18px;
+
+  .message-dialog-title {
+    text-align: center;
+    font-size: 18pt;
+    font-weight: 800;
+
+    &.lightweight {
+      font-size: 13pt;
+      font-weight: 800;
+    }
+  }
+
+  .message-dialog-description { text-align: center; }
+}
+
+// Dialog List
+.dialog-list {
+  spacing: $base_spacing * 3;
+
+  .dialog-list-title {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .dialog-list-scrollview { max-height: 200px; }
+  .dialog-list-box {
+    spacing: 1em;
+
+    .dialog-list-item {
+      spacing: 1em;
+
+      .dialog-list-item-title { font-weight: bold; }
+      .dialog-list-item-description {
+        color: $text-secondary;
+        @include fontsize($font_size - 1);
+      }
+    }
+  }
+}
+
+// Run Dialog
+.run-dialog {
+  .modal-dialog-content-box {
+    margin-top: $base_margin * 6;
+    margin-bottom: $base_margin * 3;
+  }
+
+  .run-dialog-entry { width: 20em; }
+  .run-dialog-description {
+    text-align: center;
+    color: $text-secondary;
+    @include fontsize($font_size - 1);
+  }
+}
+
+// Password or Authentication Dialog
+.prompt-dialog {
+  //this is the width of the entire modal popup
+  width: 28em;
+  // border: none;
+
+  .modal-dialog-content-box {
+    margin-bottom: $base_margin * 6;
+  }
+}
+
+.prompt-dialog-password-grid {
+  spacing-rows: $base_margin * 2;
+  spacing-columns: $base_margin;
+
+  .prompt-dialog-password-entry {
+    width: auto;
+
+    // 4px (spacing) + 16px (spinner-width)
+    &:ltr { margin-left: $base_margin * 5; }
+    &:rtl { margin-right: $base_margin * 5; }
+  }
+}
+
+.prompt-dialog-password-layout {
+  spacing: $base_margin * 2;
+}
+
+.prompt-dialog-password-entry {
+  width: 20em;
+}
+
+.prompt-dialog-error-label,
+.prompt-dialog-info-label,
+.prompt-dialog-null-label {
+  text-align: center;
+  @include fontsize($font_size - 1);
+  margin: $base_padding;
+}
+
+.prompt-dialog-error-label {
+  color: $error;
+}
+
+.prompt-dialog-info-label,
+.prompt-dialog-null-label {
+  color: $text-disabled;
+}
+
+// Polkit Dialog
+.polkit-dialog-user-layout {
+  text-align: center;
+  spacing: $base_margin * 2;
+  margin-bottom: $base_margin * 1.5;
+
+  .polkit-dialog-user-root-label {
+    color: $warning;
+  }
+}
+
+// Audio selection dialog
+.audio-device-selection-dialog {
+  .modal-dialog-content-box { margin-bottom: $base_margin * 7; }
+  .audio-selection-box { spacing: $base_margin * 5; }
+}
+
+.audio-selection-device {
+  border: 1px solid $border;
+  border-radius: $base_radius;
+  &:hover, &:focus { background-color: overlay($popover, hover); }
+  &:active {
+    background-color: $primary;
+    color: on($primary);
+  }
+}
+
+.audio-selection-device-box {
+  padding: $base_padding * 3;
+  spacing: $base_padding * 3;
+}
+
+.audio-selection-device-icon {
+  icon-size: $base_icon_size * 4;
+}
+
+// Welcome dialog
+.welcome-dialog-image {
+  background-image: url("resource:///org/gnome/shell/theme/gnome-shell-start.svg");
+  background-size: contain;
+  height: 300px;
+  width: 300px;
+}

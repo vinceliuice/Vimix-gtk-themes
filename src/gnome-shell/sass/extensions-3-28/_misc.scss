@@ -1,0 +1,58 @@
+// Simple Dock
+#dash:desktop {
+  background-color: $panel;
+}
+
+//  OpenWeather Extension
+.openweather {
+  &-button,
+  &-button-action,
+  &-menu-button-container,
+  &-button-box {
+    border: 1px solid transparent;
+  }
+
+  &-provider {
+    // generic text buttons are allocated with y-expand-ed
+    padding: 0 16px;
+    font-weight: 500;
+    border: 1px solid transparent;
+  }
+
+  &-current {
+    &-icon,
+    &-summary,
+    &-summarybox {
+      background: none;
+      color: $text;
+    }
+
+    &-databox-values {
+      background: none;
+      color: $text-disabled;
+    }
+
+    &-databox-captions {
+      background: none;
+      color: $text-disabled;
+    }
+  }
+
+  &-forecast {
+    &-icon,
+    &-summary {
+      background: none;
+      color: $text-secondary;
+    }
+
+    &-day,
+    &-temperature {
+      background: none;
+      color: $text-disabled;
+    }
+  }
+
+  &-sunrise-icon,
+  &-sunset-icon,
+  &-build-icon { color: $text-secondary; }
+}

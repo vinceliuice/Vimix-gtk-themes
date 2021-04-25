@@ -17,6 +17,18 @@ COLOR_VARIANTS=('' '-light' '-dark')
 SIZE_VARIANTS=('' '-laptop')
 THEME_VARIANTS=('' '-doder' '-beryl' '-ruby' '-amethyst')
 
+if [[ "$(command -v gnome-shell)" ]]; then
+  SHELL_VERSION="$(gnome-shell --version | cut -d ' ' -f 3 | cut -d . -f -1)"
+  if [[ "${SHELL_VERSION:-}" -ge "40" ]]; then
+    GS_VERSION="new"
+  else
+    GS_VERSION="old"
+  fi
+  else
+    echo "'gnome-shell' not found, using styles for last gnome-shell version available."
+    GS_VERSION="new"
+fi
+
 usage() {
   printf "%s\n" "Usage: $0 [OPTIONS...]"
   printf "\n%s\n" "OPTIONS:"
@@ -83,39 +95,52 @@ install() {
 
   #  Install gtk3 theme
   mkdir -p                                                                              ${THEME_DIR}/gtk-3.0/assets
-  cp -r ${SRC_DIR}/gtk-3.0/assets/assets${theme}/*.png                                  ${THEME_DIR}/gtk-3.0/assets
+  cp -r ${SRC_DIR}/gtk/assets/assets${theme}/*.png                                      ${THEME_DIR}/gtk-3.0/assets
 
   [[ ${no_color} == '' ]] && \
-  cp -r ${SRC_DIR}/gtk-3.0/assets/window-assets                                         ${THEME_DIR}/gtk-3.0/assets
+  cp -r ${SRC_DIR}/gtk/assets/window-assets                                             ${THEME_DIR}/gtk-3.0/assets
 
   [[ ${theme} == '' && ${no_color} == 'true' ]] && \
-  cp -r ${SRC_DIR}/gtk-3.0/assets/window-assets-contrast                                ${THEME_DIR}/gtk-3.0/assets/window-assets
-  cp -r ${SRC_DIR}/gtk-3.0/assets/scalable                                              ${THEME_DIR}/gtk-3.0/assets
-  cp -r ${SRC_DIR}/gtk-3.0/gtk${color}${size}${theme}.css                               ${THEME_DIR}/gtk-3.0/gtk.css
+  cp -r ${SRC_DIR}/gtk/assets/window-assets-contrast                                    ${THEME_DIR}/gtk-3.0/assets/window-assets
+
+  cp -r ${SRC_DIR}/gtk/assets/scalable                                                  ${THEME_DIR}/gtk-3.0/assets
+  cp -r ${SRC_DIR}/gtk/3.0/gtk${color}${size}${theme}.css                               ${THEME_DIR}/gtk-3.0/gtk.css
 
   [[ ${color} != '-dark' ]] && \
-  cp -r ${SRC_DIR}/gtk-3.0/gtk-dark${size}${theme}.css                                  ${THEME_DIR}/gtk-3.0/gtk-dark.css
-  cp -r ${SRC_DIR}/gtk-3.0/assets/thumbnails/thumbnail${color}${theme}.png              ${THEME_DIR}/gtk-3.0/thumbnail.png
+  cp -r ${SRC_DIR}/gtk/3.0/gtk-dark${size}${theme}.css                                  ${THEME_DIR}/gtk-3.0/gtk-dark.css
+  cp -r ${SRC_DIR}/gtk/assets/thumbnails/thumbnail${color}${theme}.png                  ${THEME_DIR}/gtk-3.0/thumbnail.png
+
+  #  Install gtk4 theme
+  mkdir -p                                                                              ${THEME_DIR}/gtk-4.0/assets
+  cp -r ${SRC_DIR}/gtk/assets/assets${theme}/*.png                                      ${THEME_DIR}/gtk-4.0/assets
+
+  [[ ${no_color} == '' ]] && \
+  cp -r ${SRC_DIR}/gtk/assets/window-assets                                             ${THEME_DIR}/gtk-4.0/assets
+
+  [[ ${theme} == '' && ${no_color} == 'true' ]] && \
+  cp -r ${SRC_DIR}/gtk/assets/window-assets-contrast                                    ${THEME_DIR}/gtk-4.0/assets/window-assets
+
+  cp -r ${SRC_DIR}/gtk/assets/scalable                                                  ${THEME_DIR}/gtk-4.0/assets
+  cp -r ${SRC_DIR}/gtk/4.0/gtk${color}${size}${theme}.css                               ${THEME_DIR}/gtk-4.0/gtk.css
+
+  [[ ${color} != '-dark' ]] && \
+  cp -r ${SRC_DIR}/gtk/4.0/gtk-dark${size}${theme}.css                                  ${THEME_DIR}/gtk-4.0/gtk-dark.css
+  cp -r ${SRC_DIR}/gtk/assets/thumbnails/thumbnail${color}${theme}.png                  ${THEME_DIR}/gtk-4.0/thumbnail.png
 
   #  Install gnome-shell theme
   mkdir -p                                                                              ${THEME_DIR}/gnome-shell
-  cp -r ${SRC_DIR}/gnome-shell/{extensions,message-indicator-symbolic.svg,pad-osd.css}  ${THEME_DIR}/gnome-shell
+  cp -r ${SRC_DIR}/gnome-shell/pad-osd.css                                              ${THEME_DIR}/gnome-shell
   cp -r ${SRC_DIR}/gnome-shell/common-assets                                            ${THEME_DIR}/gnome-shell/assets
   cp -r ${SRC_DIR}/gnome-shell/assets${ELSE_DARK}/*.svg                                 ${THEME_DIR}/gnome-shell/assets
   cp -r ${SRC_DIR}/gnome-shell/color-assets/checkbox${theme}.svg                        ${THEME_DIR}/gnome-shell/assets/checkbox.svg
   cp -r ${SRC_DIR}/gnome-shell/color-assets/more-results${theme}.svg                    ${THEME_DIR}/gnome-shell/assets/more-results.svg
   cp -r ${SRC_DIR}/gnome-shell/color-assets/toggle-on${theme}.svg                       ${THEME_DIR}/gnome-shell/assets/toggle-on.svg
-  cp -r ${SRC_DIR}/gnome-shell/color-assets/menu-checked${theme}.svg                    ${THEME_DIR}/gnome-shell/assets/menu-checked.svg
 
-  if [[ ${theme} == '-doder' && ${color} == '-dark' ]] || [[ ${theme} == '-beryl' && ${color} == '-dark' ]] || [[ ${theme} == '-amethyst' && ${color} == '-dark' ]]; then
-    cp -r ${SRC_DIR}/gnome-shell/color-assets/menu-doder.svg                            ${THEME_DIR}/gnome-shell/assets/menu.svg
+  if [[ "${GS_VERSION:-}" == 'new' ]]; then
+    cp -r ${SRC_DIR}/gnome-shell/shell-40-0/gnome-shell${color}${size}${theme}.css      ${THEME_DIR}/gnome-shell/gnome-shell.css
+  else
+    cp -r ${SRC_DIR}/gnome-shell/shell-3-28/gnome-shell${color}${size}${theme}.css      ${THEME_DIR}/gnome-shell/gnome-shell.css
   fi
-
-  if [[ ${theme} == '' && ${color} == '-dark' ]] || [[ ${theme} == '-ruby' && ${color} == '-dark' ]]; then
-    cp -r ${SRC_DIR}/gnome-shell/color-assets/menu-ruby.svg                             ${THEME_DIR}/gnome-shell/assets/menu.svg
-  fi
-
-  cp -r ${SRC_DIR}/gnome-shell/gnome-shell${color}${size}${theme}.css                   ${THEME_DIR}/gnome-shell/gnome-shell.css
 
   cd ${THEME_DIR}/gnome-shell
   ln -s assets/no-events.svg no-events.svg
@@ -142,7 +167,6 @@ install() {
   cp -r ${SRC_DIR}/xfwm4/assets${color}-contrast/*.png                                  ${THEME_DIR}/xfwm4
 
   #  Install unity theme
-  # mkdir -p                                                                              ${THEME_DIR}/unity
   cp -r ${SRC_DIR}/unity                                                                ${THEME_DIR}
 
   mkdir -p                                                                              ${THEME_DIR}/plank

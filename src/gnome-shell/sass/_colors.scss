@@ -3,89 +3,142 @@
 
 @import 'color-palette';
 
-@function fade($c) {
-  @return mix($c, $grey_900, 50%);
+// Theme colors
+$theme-blue:       #4285F4;
+$theme-green:      #2EB398;
+$theme-red:        #F0544C;
+$theme-purple:     #AB47BC;
+$theme-contrast:   #686868;
+$theme-base:       if($variant == 'light', #FFFFFF, #333333);
+$theme-background: if($variant == 'light', #F2F2F2, #282828);
+
+// Color functions
+@function on($color, $state: 'primary') {
+  // Allow 'light' or 'dark' to $color
+  @if ($color == 'light') { $color: white; }
+  @if ($color == 'dark') { $color: black; }
+
+  // Calculate color brightness according to https://www.w3.org/TR/AERT/#color-contrast
+  $brightness: (red($color) * 299 + green($color) * 587 + blue($color) * 114) / 1000;
+
+  @if ($brightness >= 156) {
+    @if ($state == 'primary') { @return rgba(black, 0.87); }
+    @if ($state == 'secondary') { @return rgba(black, 0.6); }
+    @if ($state == 'disabled') { @return rgba(black, 0.38); }
+    @if ($state == 'secondary-disabled') { @return rgba(black, 0.26); }
+    @if ($state == 'track') { @return rgba(black, 0.26); }
+    @if ($state == 'track-disabled') { @return rgba(black, 0.12); }
+    @if ($state == 'divider') { @return rgba(black, 0.12); }
+    @if ($state == 'fill') { @return rgba(black, 0.05); }
+  } @else {
+    @if ($state == 'primary') { @return white; }
+    @if ($state == 'secondary') { @return rgba(white, 0.7); }
+    @if ($state == 'disabled') { @return rgba(white, 0.45); }
+    @if ($state == 'secondary-disabled') { @return rgba(white, 0.3); }
+    @if ($state == 'track') { @return rgba(white, 0.3); }
+    @if ($state == 'track-disabled') { @return rgba(white, 0.12); }
+    @if ($state == 'divider') { @return rgba(white, 0.12); }
+    @if ($state == 'fill') { @return rgba(white, 0.05); }
+  }
 }
 
-// Foreground colors
-$dark_fg_color:   rgba($black, 0.87);
-$light_fg_color:  $white;
-$button_fg_color: if($variant == 'light', rgba($black, 0.62), rgba($white, 0.8)); // extra fg color for raised buttons
+$weight: 3%; // theme color weight
 
-$fg_color:                    if($variant == 'light', rgba($black, 0.87), $white);
-$secondary_fg_color:          if($variant == 'light', rgba($black, 0.54), rgba($white, 0.7));
-$hint_fg_color:               if($variant == 'light', rgba($black, 0.38), rgba($white, 0.5));
-$disabled_fg_color:           if($variant == 'light', rgba($black, 0.38), rgba($white, 0.35));
-$disabled_secondary_fg_color: if($variant == 'light', rgba($black, 0.26), rgba($white, 0.25));
-$track_color:                 if($variant == 'light', rgba($black, 0.26), rgba($white, 0.25));
-$divider_color:               if($variant == 'light', rgba($black, 0.12), rgba($white, 0.12));
+@function theme($state: 'primary') {
+  @if ($state == 'primary') {
+    @if ($theme == 'doder')    { @return $theme-blue; }
+    @if ($theme == 'beryl')    { @return $theme-green; }
+    @if ($theme == 'ruby')     { @return $theme-red; }
+    @if ($theme == 'amethyst') { @return $theme-purple; }
+    @if ($theme == 'black') or ($theme == 'white') { @return $theme-contrast; }
+  }
+  @if ($state == 'indicator') {
+    @if ($theme == 'doder')    { @return $theme-blue; }
+    @if ($theme == 'beryl')    { @return $theme-green; }
+    @if ($theme == 'ruby')     { @return $theme-red; }
+    @if ($theme == 'amethyst') { @return $theme-purple; }
+    @if ($theme == 'black') or ($theme == 'white') { @return white; }
+  }
+  @if ($state == 'base') {
+    @if ($variant == 'dark') and ($theme != 'black') and ($theme != 'white') {
+      @if ($theme == 'doder')    { @return mix($theme-blue, $theme-base, $weight); }
+      @if ($theme == 'beryl')    { @return mix($theme-green, $theme-base, $weight); }
+      @if ($theme == 'ruby')     { @return mix($theme-red, $theme-base, $weight); }
+      @if ($theme == 'amethyst') { @return mix($theme-purple, $theme-base, $weight); }
+    }
+    @return $theme-base;
+  }
+  @if ($state == 'background') {
+    @if ($variant == 'dark') and ($theme != 'black') {
+      @if ($theme == 'doder')    { @return mix($theme-blue, $theme-background, $weight); }
+      @if ($theme == 'beryl')    { @return mix($theme-green, $theme-background, $weight); }
+      @if ($theme == 'ruby')     { @return mix($theme-red, $theme-background, $weight); }
+      @if ($theme == 'amethyst') { @return mix($theme-purple, $theme-background, $weight); }
+    }
+    @return $theme-background;
+  }
+}
 
-$titlebar_fg_color:                    if($panel == 'light', rgba($black, 0.87), $white);
-$titlebar_secondary_fg_color:          if($panel == 'light', rgba($black, 0.54), rgba($white, 0.7));
-$titlebar_hint_fg_color:               if($panel == 'light', rgba($black, 0.38), rgba($white, 0.5));
-$titlebar_disabled_fg_color:           if($panel == 'light', rgba($black, 0.38), rgba($white, 0.5));
-$titlebar_disabled_secondary_fg_color: if($panel == 'light', rgba($black, 0.26), rgba($white, 0.3));
-$titlebar_track_color:                 if($panel == 'light', rgba($black, 0.26), rgba($white, 0.3));
-$titlebar_divider_color:               if($panel == 'light', rgba($black, 0.12), rgba($white, 0.12));
+@function overlay($color, $state: 'normal') {
+  @if ($state == 'normal') { @return rgba(on($color), 0.05); }
+  @if ($state == 'hover') { @return rgba(on($color), 0.1); }
+  @if ($state == 'focus') { @return rgba(on($color), 0.08); }
+  @if ($state == 'active') { @return rgba(on($color), 0.15); }
+  @if ($state == 'checked') { @return rgba(on($color), 0.12); }
+  @if ($state == 'selected') { @return rgba(on($color), 0.08); }
+}
 
-$inverse_fg_color:                    $white;
-$inverse_secondary_fg_color:          rgba($white, 0.7);
-$inverse_hint_fg_color:               rgba($white, 0.5);
-$inverse_disabled_fg_color:           rgba($white, 0.5);
-$inverse_disabled_secondary_fg_color: rgba($white, 0.3);
-$inverse_track_color:                 rgba($white, 0.3);
-$inverse_divider_color:               rgba($white, 0.12);
+//
+// Basic colors
+//
 
-// Background colors
-$base_color:     if($variant =='dark', if($color =='doder' or $color =='beryl' or $color =='amethyst', #2c2e33, #282828), #ffffff);
-$alt_base_color: if($variant =='dark', darken($base_color, 3%), darken($base_color, 6%));
+$primary:                               theme(primary);
+$base:                                  theme(base);
+$background:                            theme(background);
+$popover:                               if($variant == 'light', $base, $base);
 
-$bg_color:         rgba($black, $middle_opacity);
-$alt_bg_color:     rgba($black, $lower_opacity);
-$inverse_bg_color: rgba($inverse_fg_color, 0.1);
+$osd:                                   mix($primary, #202020, $weight);
+$scrim:                                 rgba(black, 0.6);
+$panel:                                 if($topbar == 'dark', mix($primary, #181818, $weight), $scrim);
 
-$panel_bg_color: rgba(black, 0.45);
-@if ($color == 'ruby' or $color == 'black') and $panel =='dark' { $panel_bg_color: #282828; }
-@if ($color == 'doder' or $color == 'beryl' or $color == 'amethyst') and $panel =='dark' { $panel_bg_color: #27282d; }
-
-$keyboard_bg_color:  if($variant == 'light', $grey_50, fade($grey_600));
-$alt_keyboard_bg_color:  if($variant == 'light', $grey_300, fade($grey_900));
-
+//
 // Misc colors
+//
 
-$primary_color: #555555;
-$alt_primary_color: #666666;
-$accent_color: #444444;
+$link:                                  $primary;
+$link-visited:                          if($variant == 'light', $purple-500, $purple-200);
 
-@if $color == 'ruby' { $primary_color: #F0544C; $alt_primary_color: #FF615A; $accent_color: #FF626C; }
-@if $color == 'doder' { $primary_color: #4586D8; $alt_primary_color: #03a9f4; $accent_color: #0CAAF0; }
-@if $color == 'beryl' { $primary_color: #2EB398; $alt_primary_color: #1eba9b; $accent_color: #0fd1ab; }
-@if $color == 'black' { $primary_color: #555555; $alt_primary_color: #666666; $accent_color: #EEEEEE; }
-@if $color == 'amethyst' { $primary_color: #AB47BC; $alt_primary_color: #7c1eba; $accent_color: #a40fd1; }
+$warning:                               if($variant == 'light', #F4B400, #FDD633);
+$error:                                 if($variant == 'light', #DD2C00, #F28B82);
+$success:                               if($variant == 'light', #0F9D58, #81C995);
 
-$theme_color: if($color == 'black' or $color == 'white', $inverse_fg_color, $primary_color);
+$suggested:                             $primary;
+$destructive:                           #FF5252;
 
-$theme_primary_color: $theme_color;
+$frame:                                 if($variant == 'light', rgba(black, 0.12), rgba(black, 0.2));
+$border:                                if($variant == 'light', rgba(black, 0.12), rgba(white, 0.12));
+$solid-border:                          if($variant == 'light', darken($background, 10%), lighten($background, 12%));
 
-@if ($color == 'black' or $color == 'white') and $variant == 'light' {
-  $theme_primary_color: $primary_color;
-}
+$indicator:                             theme(indicator);
 
-$link_color:         $primary_color;
-$visited_link_color: $purple_A200;
+//
+// Text and derivative colors
+//
 
-$warning_color: $orange_A700;
-$error_color:   $deep_orange_A700;
-$success_color: $green_A700;
+$text:                                  on($background);
+$text-secondary:                        on($background, secondary);
+$text-disabled:                         on($background, disabled);
+$text-secondary-disabled:               on($background, secondary-disabled);
+$track:                                 on($background, track);
+$track-disabled:                        on($background, track-disabled);
+$divider:                               on($background, divider);
+$fill:                                  on($background, fill);
 
-$suggested_color:   if($color == 'black', #424242, $accent_color);
-$destructive_color: $red_A200;
-
-$info_bg_color:     $green_400;
-$question_bg_color: $blue_400;
-$warning_bg_color:  $orange_400;
-$error_bg_color:    $red_400;
-
-$border_color:        if($variant == 'light', rgba($black, 0.12), rgba($black, 0.26));
-$highlight_color:     if($variant == 'light', rgba($white, 0.4),  rgba($white, 0.1));
-$alt_highlight_color: rgba($white, 0.2);
+$panel-text:                            on($panel);
+$panel-text-secondary:                  on($panel, secondary);
+$panel-text-disabled:                   on($panel, disabled);
+$panel-text-secondary-disabled:         on($panel, secondary-disabled);
+$panel-track:                           on($panel, track);
+$panel-track-disabled:                  on($panel, track-disabled);
+$panel-divider:                         on($panel, divider);
+$panel-fill:                            on($panel, fill);

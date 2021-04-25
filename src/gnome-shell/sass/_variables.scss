@@ -1,62 +1,28 @@
+
 $asset_suffix: if($variant == 'dark', '-dark', '');
-$extra_background_clip: if($variant == 'light', padding-box, border-box);
-
-$panel-corner-radius: 0;
-
-// font families
-$font-family: "M+ 1c", Roboto, Cantarell, Sans-Serif;
-$large-font-family: Roboto, "M+ 1c", Cantarell, Sans-Serif;
-
-// font sizes
-$root-font-size: if($laptop == 'false', 14px, 13px);
-$subheading-size: if($laptop == 'false', 16px, 15px);
-
-// opacities
-$higher_opacity: 0.9;
-$middle_opacity: 0.6;
-$lower_opacity: 0.3;
-
-$secondary_opacity: 0.75;
-$hint_opacity: 0.6;
-$disabled_opacity: 0.5;
 
 // sizes
-$small_size: if($laptop == 'false', 24px, 20px);
-$medium_size: if($laptop == 'false', 36px, 32px);
-$large_size: if($laptop == 'false', 42px, 38px);
+$item_size: if($laptop == 'false', 32px, 28px);
+$font_size: if($laptop == 'false', 11, 10);
 
-$container_padding: if($laptop == 'false', 6px, 4px);
-
-$bar_size: 4px;
-$menuitem_size: if($laptop == 'false', 32px, 28px);
+// padding, margin and spacing
+$base_padding: if($laptop == 'false', 6px, 4px);
+$base_margin: if($laptop == 'false', 4px, 3px);
+$base_spacing: if($laptop == 'false', 6px, 4px);
 
 // radiuses
-$material_radius: 2px;
 $circular_radius: 9999px;
+$base_radius: 2px;
+$window_radius: 5px;
+$menu_radius: 3px;
+$modal_radius: 6px;
+
+// icons
+$base_icon_size: 16px;
 
 // durations
 $shorter_duration: 100ms;
-$longer_duration: 225ms;
-$ripple_duration: 300ms;
+$longer_duration: 150ms;
+$ripple_duration: 250ms;
 
-// timing functions
-$standard_curve: cubic-bezier(0.4, 0.0, 0.2, 1);
-$deceleration_curve: cubic-bezier(0.0, 0.0, 0.2, 1);
-$acceleration_curve: cubic-bezier(0.4, 0.0, 1, 1);
-$sharp_curve: cubic-bezier(0.4, 0.0, 0.6, 1);
-
-// transition shorthands
-$shorter_transition: all $shorter_duration $deceleration_curve;
-$longer_transition: all $longer_duration $deceleration_curve;
-$shadow_transition: box-shadow $shorter_duration $deceleration_curve;
-
-// shadows
-// based shadow values:
-// https://material-design.storage.googleapis.com/images/layout-principles-dimensionality-shadows-08_large_mdpi.png
-
-$shadow_0: 0 0 transparent;
-$shadow_1: 0 1px 1.5px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.24);
-$shadow_2: 0 3px 3px rgba(0, 0, 0, 0.16 * 1.5), 0 3px 3px rgba(0, 0, 0, 0.23 * 1.5);
-$shadow_3: 0 10px 10px rgba(0, 0, 0, 0.19 * 1.5), 0 6px 3px rgba(0, 0, 0, 0.23 * 1.5);
-$shadow_4: 0 14px 14px rgba(0, 0, 0, 0.25 * 2), 0 10px 5px rgba(0, 0, 0, 0.22 * 2);
-$shadow_5: 0 19px 19px rgba(0, 0, 0, 0.30 * 2), 0 15px 6px rgba(0, 0, 0, 0.22 * 2);
+// Shadow

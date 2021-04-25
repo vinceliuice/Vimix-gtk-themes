@@ -1,0 +1,60 @@
+.window-picker { //container around window thumbnails
+  -horizontal-spacing: 16px;
+  -vertical-spacing: 16px;
+  padding: 0 16px 32px;
+  spacing: 12px;
+
+  &.external-monitor { padding: 16px; }
+}
+
+.window-caption {
+  spacing: 25px;
+  color: on(black, secondary);
+  background-color: $scrim;
+  border-radius: $base_radius;
+  padding: $base_padding / 2 $base_padding * 2;
+  border: none;
+  font-weight: normal;
+  @include fontsize($font_size - 1);
+}
+
+.window-clone-border {
+  border: 4px solid on(black, track);
+  border-radius: $base_radius + 3px;
+  // For window decorations with round corners we can't match
+  // the exact shape when the window is scaled. So apply a shadow
+  // to fix that case
+  box-shadow: inset 0 0 0 1px on(black, track);
+}
+
+$_close_size: 42px;
+
+//close buttons
+.window-close {
+  background-size: $_close_size;
+  height: $_close_size;
+  width: $_close_size;
+  -shell-close-overlap: $_close_size / 2;
+  border-radius: 0;
+  border: 0 none transparent;
+  background-color: transparent;
+  color: transparent;
+  box-shadow: none;
+  StIcon { icon-size: $_close_size; } // for safety
+  background-image: url("assets/window-close.svg");
+  transition-duration: 300ms;
+
+  &:hover {
+    background-size: $_close_size;
+    height: $_close_size;
+    width: $_close_size;
+    background-image: url("assets/window-close-hover.svg");
+  }
+
+  &:active {
+    background-size: $_close_size;
+    height: $_close_size;
+    width: $_close_size;
+    background-image: url("assets/window-close-active.svg");
+  }
+}

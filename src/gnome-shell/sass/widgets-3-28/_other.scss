@@ -1,0 +1,223 @@
+
+// ShellMountOperation Dialogs
+.shell-mount-operation-icon { icon-size: 48px; }
+
+.mount-dialog {
+  spacing: 24px;
+
+  .message-dialog-title {
+    padding-top: 10px;
+    padding-left: 17px;
+    padding-bottom: 6px;
+    max-width: 34em;
+  }
+
+  .message-dialog-title:rtl {
+    padding-left: 0px;
+    padding-right: 17px;
+  }
+
+  .message-dialog-body {
+    padding-left: 17px;
+    width: 28em;
+  }
+
+  .message-dialog-body:rtl {
+    padding-left: 0px;
+    padding-right: 17px;
+  }
+}
+
+.mount-dialog-app-list {
+  max-height: 200px;
+  padding-top: 24px;
+  padding-left: 49px;
+  padding-right: 32px;
+}
+
+.mount-dialog-app-list:rtl {
+  padding-right: 49px;
+  padding-left: 32px;
+}
+
+.mount-dialog-app-list-item {
+  color: $text;
+  &:hover { color: $text; }
+  &:ltr { padding-right: 1em; }
+  &:rtl { padding-left: 1em; }
+}
+
+.mount-dialog-app-list-item-icon {
+  &:ltr { padding-right: 17px; }
+  &:rtl { padding-left: 17px; }
+}
+
+.mount-dialog-app-list-item-name {
+  font-size: 1em;
+}
+
+// Access Dialog
+.access-dialog {
+  spacing: 30px;
+}
+
+// Geolocation Dialog
+.geolocation-dialog {
+  spacing: 30px;
+}
+
+// Extension Dialog
+.extension-dialog {
+  .message-dialog-main-layout { spacing: 24px; padding: 10px; }
+  .message-dialog-title { color: $text-secondary; }
+}
+
+// Inhibit-Shortcuts Dialog
+.inhibit-shortcuts-dialog {
+  spacing: 30px;
+}
+
+// Network Agent Dialog
+.network-dialog-secret-table {
+  spacing-rows: 15px;
+  spacing-columns: 1em;
+}
+
+.keyring-dialog-control-table {
+  spacing-rows: 15px;
+  spacing-columns: 1em;
+}
+
+.secondary-icon { icon-size: em(16px); }
+
+//hotplug
+.hotplug-resident-box { spacing: 8px; }
+
+.hotplug-resident-mount {
+  spacing: 8px;
+  border-radius: $base_radius;
+  &:hover { background-color: $divider; }
+  &:active { background-color: $track; }
+}
+
+.hotplug-resident-mount-label {
+  color: inherit;
+  padding-left: 6px;
+}
+
+.hotplug-resident-mount-icon {
+  icon-size: 24px;
+  padding-left: 6px;
+}
+
+.hotplug-resident-eject-icon {
+  icon-size: 16px;
+}
+
+.hotplug-resident-eject-button {
+  padding: 7px;
+  border-radius: $base_radius;
+  color: $text;
+}
+
+.url-highlighter { link-color: $link; }
+
+// a little unstructured mess:
+.system-switch-user-submenu-icon.user-icon {
+  icon-size: 20px;
+  padding: 0 2px;
+}
+
+.system-switch-user-submenu-icon.default-icon {
+  icon-size: 16px;
+  padding: 0 4px;
+}
+
+.system-switch-user-submenu-icon {
+  icon-size: 16px;
+  padding: 0 4px;
+}
+
+.system-menu-action {
+  color: $text-secondary;
+  border-radius: $circular_radius; /* wish we could do 50% */
+  padding: $base_padding * 2;
+  border: none;
+  -st-icon-style: symbolic; // >= 3.29.90
+
+  &:hover, &:focus {
+    background-color: $divider;
+    color: $text;
+    border: none;
+    padding: $base_padding * 2;
+  }
+
+  &:active { background-color: $track; color: $text; }
+
+  & > StIcon { icon-size: 16px; }
+}
+
+.screen-shield-arrows {
+  padding-bottom: 3em;
+}
+
+.screen-shield-arrows Gjs_Arrow {
+  color: white;
+  width: 80px;
+  height: 48px;
+  -arrow-thickness: 12px;
+}
+
+.screen-shield-clock {
+  color: white;
+  text-shadow: none;
+  font-weight: normal;
+  text-align: center;
+  padding-bottom: 1.5em;
+}
+
+.screen-shield-clock-time {
+  @include fontsize($font_size - 4);
+  text-shadow: none;
+}
+
+.screen-shield-clock-date { @include fontsize($font_size - 2); }
+
+.screen-shield-notifications-container {
+  spacing: $base_spacing;
+  width: 30em;
+  background-color: transparent;
+  max-height: 500px;
+  .summary-notification-stack-scrollview {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .notification,
+  .screen-shield-notification-source {
+    padding: 8px;
+    border: none;
+    background-color: $osd;
+    color: on($osd, secondary);
+    border-radius: $menu_radius;
+  }
+  .notification { margin-right: 16px; } //compensate for space allocated to the scrollbar
+}
+
+.screen-shield-notification-label {
+  min-height: $item_size;
+  padding: 2px 0px 0px 16px;
+  font-weight: bold;
+}
+
+.screen-shield-notification-count-text {
+  min-height: $item_size;
+  padding: 2px 0px 0px 16px;
+  color: on($osd, secondary);
+}
+
+#panel.lock-screen { background-color: $osd; }
+
+#screenShieldNotifications {
+  StScrollBar { @extend %overview_scrollbar; }
+}

@@ -35,7 +35,7 @@ $frame:                                 if($variant == 'light', rgba(black, 0.12
 $border:                                if($variant == 'light', rgba(black, 0.12), rgba(white, 0.12));
 $solid-border:                          if($variant == 'light', darken($background, 10%), lighten($background, 12%));
 
-$indicator:                             indicator();
+$indicator:                             indicator(light);
 
 //
 // Text and derivative colors

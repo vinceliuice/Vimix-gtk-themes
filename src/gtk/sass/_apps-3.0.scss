@@ -52,21 +52,21 @@
   animation: ripple_effect $shorter_duration $deceleration_curve forwards;
   color: on($topbar, secondary);
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                $indicator 0%,
+                                indicator(header) 0%,
                                 transparent 0%)
                                 0 0 0 / 0 0 0;
 
   &:hover {
     color: on($topbar);
     background: none;
-    box-shadow: inset 0 -2px rgba($indicator, 0.5);
+    box-shadow: inset 0 -2px gtkalpha(indicator(header), 0.5);
   }
 
   &:checked, &:active {
     color: on($topbar);
     background: none;
     border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                  $indicator 100%,
+                                  indicator(header) 100%,
                                   transparent 0%)
                                   0 0 2 / 0 0 2px;
   }
@@ -87,7 +87,7 @@
   color: on($topbar, secondary);
   background-color: transparent;
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                $indicator 0%,
+                                indicator(header) 0%,
                                 transparent 0%)
                                 0 0 0 / 0 0 0;
   &:hover {
@@ -101,7 +101,7 @@
     background-color: transparent;
     box-shadow: inset 0 0 0 9999px rgba(on($topbar), 0.12);
     border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                  $indicator 100%,
+                                  indicator(header) 100%,
                                   transparent 0%)
                                   0 0 2 / 0 0 2px;
     background-image: radial-gradient(circle farthest-corner at center,
@@ -143,7 +143,7 @@
 
         &:not(:only-child):last-child {
           border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                        $indicator 100%,
+                                        indicator(header) 100%,
                                         transparent 0%)
                                         0 0 2 / 0 0 2px;
         }
@@ -218,12 +218,12 @@ filechooser,
 
       &:hover {
         transition: none;
-        color: indicator(light);
+        color: $indicator;
         background-color: transparent;
-        box-shadow: inset 3px 0 indicator(light);
+        box-shadow: inset 3px 0 $indicator;
       }
 
-      &:active { box-shadow: inset 3px 0 $primary; }
+      &:active { box-shadow: inset 3px 0 $indicator; }
 
       &:backdrop { opacity: 0.85; }
 

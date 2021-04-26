@@ -252,7 +252,7 @@ window.dialog.message entry:focus-within, notebook > stack:not(:only-child) entr
 notebook > stack:not(:only-child) spinbutton:focus-within:not(.vertical), popover.background entry:focus-within, .background spinbutton:focus-within:not(.vertical), .background .linked > entry:focus-within, .background entry.flat:focus-within {
   background: none;
   border-width: 0;
-  box-shadow: inset 0 -2px #666666;
+  box-shadow: inset 0 -2px rgba(0, 0, 0, 0.65);
 }
 
 window.dialog.message entry:drop(active), notebook > stack:not(:only-child) entry:drop(active),
@@ -275,12 +275,12 @@ spinbutton.vertical > text, spinbutton:not(.vertical), entry {
   box-shadow: none;
   border-image: none;
   border-radius: 2px;
-  background-color: #FFFFFF;
+  background-color: rgba(0, 0, 0, 0.65);
   color: rgba(0, 0, 0, 0.6);
 }
 
 spinbutton.vertical > text:focus-within, spinbutton:focus-within:not(.vertical), entry:focus-within {
-  border: 1px solid #666666;
+  border: 1px solid rgba(0, 0, 0, 0.65);
   box-shadow: none;
   border-image: none;
   border-radius: 2px;
@@ -301,7 +301,7 @@ spinbutton.vertical > text:disabled, spinbutton:disabled:not(.vertical), entry:d
   border: none;
   border-image: none;
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
-  background-color: #FFFFFF;
+  background-color: rgba(0, 0, 0, 0.65);
   color: rgba(0, 0, 0, 0.6);
 }
 
@@ -521,7 +521,7 @@ editablelabel > stack > text {
   border: none;
   border-image: none;
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
-  background-color: #FFFFFF;
+  background-color: rgba(0, 0, 0, 0.65);
   color: rgba(0, 0, 0, 0.6);
 }
 
@@ -661,7 +661,7 @@ radio:disabled, scrollbar button:disabled, notebook > header > tabs > arrow:disa
 .background button.combo:checked, .background .linked entry + button:checked, .background .linked entry + button + button:checked {
   background: none;
   border-width: 0;
-  box-shadow: inset 0 -2px #666666;
+  box-shadow: inset 0 -2px rgba(0, 0, 0, 0.65);
 }
 
 .background button.combo:disabled, .background .linked entry + button:disabled, .background .linked entry + button + button:disabled {
@@ -1393,13 +1393,13 @@ combobox entry.combo {
   box-shadow: none;
   border-image: none;
   border-radius: 2px;
-  background-color: #FFFFFF;
+  background-color: rgba(0, 0, 0, 0.65);
   color: rgba(0, 0, 0, 0.6);
 }
 
 dropdown entry.combo:focus,
 combobox entry.combo:focus {
-  border: 1px solid #666666;
+  border: 1px solid rgba(0, 0, 0, 0.65);
   box-shadow: none;
   border-image: none;
   border-radius: 2px;
@@ -1438,7 +1438,7 @@ combobox > .linked:not(.vertical) > button.combo:not(:only-child) {
 .background dropdown entry.combo:focus, .background combobox entry.combo:focus {
   background: none;
   border-width: 0;
-  box-shadow: inset 0 -2px #666666;
+  box-shadow: inset 0 -2px rgba(0, 0, 0, 0.65);
 }
 
 .background dropdown entry.combo:disabled, .background combobox entry.combo:disabled {
@@ -1653,8 +1653,8 @@ headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-acti
 
 headerbar.windowhandle viewswitcher button:hover:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar windowhandle stackswitcher.linked > button:hover:not(.suggested-action):not(.destructive-action) {
   border-radius: 0;
-  color: rgba(2, 2, 2, 0.65);
-  box-shadow: inset 0 -2px rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.65);
+  box-shadow: inset 0 -2px alpha(rgba(0, 0, 0, 0.65), 0.5);
 }
 
 headerbar.windowhandle viewswitcher button:hover:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar windowhandle stackswitcher.linked > button:hover:not(.suggested-action):not(.destructive-action) {
@@ -1670,8 +1670,8 @@ headerbar.windowhandle viewswitcher button:checked:not(.titlebutton):not(.sugges
 
 headerbar.windowhandle viewswitcher button:checked:disabled:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar windowhandle stackswitcher.linked > button:checked:disabled:not(.suggested-action):not(.destructive-action), headerbar.windowhandle viewswitcher button:checked:backdrop:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar windowhandle stackswitcher.linked > button:checked:backdrop:not(.suggested-action):not(.destructive-action), headerbar.windowhandle viewswitcher button:active:disabled:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar windowhandle stackswitcher.linked > button:active:disabled:not(.suggested-action):not(.destructive-action), headerbar.windowhandle viewswitcher button:active:backdrop:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar windowhandle stackswitcher.linked > button:active:backdrop:not(.suggested-action):not(.destructive-action) {
   background: none;
-  color: rgba(0, 0, 0, 0.35);
-  box-shadow: inset 0 -2px rgba(0, 0, 0, 0.35);
+  color: alpha(rgba(0, 0, 0, 0.65), 0.35);
+  box-shadow: inset 0 -2px alpha(rgba(0, 0, 0, 0.65), 0.35);
 }
 
 headerbar.windowhandle viewswitcher button:checked:hover:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar windowhandle stackswitcher.linked > button:checked:hover:not(.suggested-action):not(.destructive-action) {
@@ -3191,13 +3191,13 @@ treeview.view radio:disabled {
 treeview.view check:checked, treeview.view check:indeterminate,
 treeview.view radio:checked,
 treeview.view radio:indeterminate {
-  color: white;
+  color: rgba(0, 0, 0, 0.58);
 }
 
 treeview.view check:checked:disabled, treeview.view check:indeterminate:disabled,
 treeview.view radio:checked:disabled,
 treeview.view radio:indeterminate:disabled {
-  color: alpha(white, 0.3);
+  color: alpha(rgba(0, 0, 0, 0.58), 0.3);
 }
 
 treeview.view radio:checked {
@@ -3452,7 +3452,7 @@ levelbar > trough {
   border: none;
   border-image: none;
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
-  background-color: #FFFFFF;
+  background-color: rgba(0, 0, 0, 0.65);
   color: rgba(0, 0, 0, 0.6);
 }
 

@@ -89,6 +89,13 @@ $mixstate: default;
     @if ($theme != 'black') and ($theme != 'white') { @return primary(main); }
     @else { @return white; }
   }
+  @if ($state == 'header') {
+    @if ($theme != 'black') and ($theme != 'white') { @return primary(main); }
+    @else {
+      @if ($headerbar == 'light')  { @return rgba(black, 0.65); }
+      @if ($headerbar == 'dark')   { @return rgba(white, 1); }
+    }
+  }
 }
 
 @function themecolor($color, $state: 'normal') {

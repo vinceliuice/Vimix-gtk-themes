@@ -1186,24 +1186,24 @@ searchbar > revealer > box {
               border-image $longer_duration $standard_curve;
   box-shadow: inset 0 -2px transparent;
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                $indicator 0%,
+                                indicator(header) 0%,
                                 transparent 0%)
                                 0 0 0 / 0 0 0;
 
   &:hover {
     border-radius: 0;
-    color: lighten($indicator, 0.85);
-    box-shadow: inset 0 -2px rgba($indicator, 0.5);
+    color: indicator(header);
+    box-shadow: inset 0 -2px gtkalpha(indicator(header), 0.5);
     &, &:disabled { background-color: transparent; }
   }
 
   &:checked, &:active {
     border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                  $indicator 100%,
+                                  indicator(header) 100%,
                                   transparent 0%)
                                   0 0 2 / 0 0 2px;
     background: none;
-    color: $indicator;
+    color: indicator(header);
     border-radius: 0;
   }
 
@@ -2617,8 +2617,8 @@ treeview.view radio {
     color: $text_secondary;
     &:hover, &:active { color: $text; }
     &:disabled { color: $text_secondary_disabled; }
-    &:checked, &:indeterminate { color: indicator(light); }
-    &:checked:disabled, &:indeterminate:disabled { color: gtkalpha(indicator(light), 0.3); }
+    &:checked, &:indeterminate { color: indicator(accent); }
+    &:checked:disabled, &:indeterminate:disabled { color: gtkalpha(indicator(accent), 0.3); }
   }
 
 }

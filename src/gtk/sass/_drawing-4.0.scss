@@ -9,7 +9,7 @@
 }
 
 // Drawing mixins
-@mixin entry($t, $fc:$primary) {
+@mixin entry($t, $fc:$indicator) {
 //
 // Entries drawing function
 //
@@ -26,14 +26,14 @@
     border-image: none;
     box-shadow: $shadow_1;
     background-color: if($fc != $primary, $fc, $base);
-    color: if($fc != $primary, on($primary), $text_secondary);
+    color: if($fc != $indicator, on($indicator), $text_secondary);
   }
 
   @if $t == focus {
     border: none;
     border-image: none;
     box-shadow: $shadow_2;
-    color: if($fc != $primary, on($primary), $text);
+    color: if($fc != $indicator, on($indicator), $text);
   }
 
   @if $t == disabled {
@@ -48,16 +48,16 @@
     border-image: none;
     border-radius: 2px;
     background-color: if($fc != $primary, $fc, $base);
-    color: if($fc != $primary, on($primary), $text_secondary);
+    color: if($fc != $indicator, on($indicator), $text_secondary);
   }
 
   @if $t == fallback-focus {
-    border: 1px solid $primary;
+    border: 1px solid $indicator;
     box-shadow: none;
     border-image: none;
     border-radius: 2px;
-    background-color: if($fc != $primary, $fc, $base);
-    color: if($fc != $primary, on($primary), $text);
+    background-color: if($fc != $indicator, $fc, $base);
+    color: if($fc != $indicator, on($indicator), $text);
   }
 
   @if $t == fallback-disabled {
@@ -71,7 +71,7 @@
   @if $t == flat-normal {
     transition: $shorter_transition,
                 $shadow_transition;
-    box-shadow: inset 0 -1px if($fc != $primary, $fc, $track);
+    box-shadow: inset 0 -1px if($fc != $indicator, $fc, $track);
     background-color: transparent;
     color: $text;
     border-width: 0;
@@ -80,7 +80,7 @@
   @if $t == flat-hover {
     background: none;
     border-width: 0;
-    box-shadow: inset 0 -2px if($fc != $primary, $fc, $text_disabled);
+    box-shadow: inset 0 -2px if($fc != $indicator, $fc, $text_disabled);
   }
 
   @if $t == flat-focus {
@@ -269,7 +269,7 @@
   @if $t == header-hover {
     transition: $shorter_transition;
     box-shadow: inset 0 0 0 9999px rgba($primary, 0.3);
-    color: $indicator;
+    color: indicator(header);
   }
 
   @if $t == header-active {

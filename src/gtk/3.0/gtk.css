@@ -229,7 +229,7 @@ dialog.background .dialog-vbox stack spinbutton:not(.vertical), window#whiskerme
 .geary-composer-box spinbutton:not(.vertical), editortweak entry.search, layoutpane entry.search, messagedialog entry, notebook > stack:not(:only-child) entry,
 notebook > stack:not(:only-child) spinbutton:not(.vertical), popover.background entry, .background spinbutton:not(.vertical), .background spinbutton.flat:not(.vertical), .background .linked > entry, .background .linked.vertical > entry, .background .linked > entry.flat, .background .linked.vertical > entry.flat, .background .gedit-search-slider > .linked:not(.vertical) > entry.flat, .background entry.flat {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0.4, 0, 0.2, 1);
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #666666 0%, transparent 0%) 0 0 0/0 0 0px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), rgba(0, 0, 0, 0.65) 0%, transparent 0%) 0 0 0/0 0 0px;
   box-shadow: inset 0 -1px rgba(0, 0, 0, 0.26);
   background-color: transparent;
   color: rgba(0, 0, 0, 0.87);
@@ -245,7 +245,7 @@ notebook > stack:not(:only-child) spinbutton:focus:not(.vertical), popover.backg
   background: none;
   border-width: 0;
   box-shadow: none;
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #666666 100%, transparent 0%) 0 0 2/0 0 2px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), rgba(0, 0, 0, 0.65) 100%, transparent 0%) 0 0 2/0 0 2px;
 }
 
 #login_window entry:drop(active), .budgie-run-dialog entry:drop(active), .budgie-polkit-dialog entry:drop(active), .budgie-session-dialog entry:drop(active), .raven .raven-background spinbutton:drop(active):not(.vertical), .budgie-popover entry:drop(active),
@@ -641,7 +641,7 @@ radio:disabled, scrollbar button:disabled, notebook > header > tabs > arrow:disa
   background: none;
   font-weight: normal;
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0.4, 0, 0.2, 1);
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #666666 0%, transparent 0%) 0 0 0/0 0 0px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), rgba(0, 0, 0, 0.65) 0%, transparent 0%) 0 0 0/0 0 0px;
   box-shadow: inset 0 -1px rgba(0, 0, 0, 0.26);
   background-color: transparent;
   color: rgba(0, 0, 0, 0.87);
@@ -658,7 +658,7 @@ radio:disabled, scrollbar button:disabled, notebook > header > tabs > arrow:disa
   background: none;
   border-width: 0;
   box-shadow: none;
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #666666 100%, transparent 0%) 0 0 2/0 0 2px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), rgba(0, 0, 0, 0.65) 100%, transparent 0%) 0 0 2/0 0 2px;
 }
 
 #login_window #user_combobox button:disabled, .raven .raven-background button.combo:disabled, .budgie-popover button.combo:disabled, dialog.background .dialog-vbox stack button.combo:disabled, .tilix-search-frame button.combo:disabled, .geary-composer-box button.combo:disabled, .background button.combo:disabled, .background .linked entry + button:disabled, .background .linked entry + button + button:disabled {
@@ -1332,7 +1332,7 @@ combobox > .linked:not(.vertical) > button.combo:not(:only-child) {
 
 .background combobox entry.combo {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0.4, 0, 0.2, 1);
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #666666 0%, transparent 0%) 0 0 0/0 0 0px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), rgba(0, 0, 0, 0.65) 0%, transparent 0%) 0 0 0/0 0 0px;
   box-shadow: inset 0 -1px rgba(0, 0, 0, 0.26);
   background-color: transparent;
   color: rgba(0, 0, 0, 0.87);
@@ -1343,7 +1343,7 @@ combobox > .linked:not(.vertical) > button.combo:not(:only-child) {
   background: none;
   border-width: 0;
   box-shadow: none;
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #666666 100%, transparent 0%) 0 0 2/0 0 2px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), rgba(0, 0, 0, 0.65) 100%, transparent 0%) 0 0 2/0 0 2px;
 }
 
 .background combobox entry.combo:disabled {
@@ -1523,7 +1523,7 @@ searchbar > revealer > box {
   box-shadow: inset 0 0 0 9999px rgba(102, 102, 102, 0.3);
   background-image: radial-gradient(circle farthest-corner at center, rgba(102, 102, 102, 0.3) 10%, transparent 0%);
   background-size: 0% 0%;
-  color: rgba(0, 0, 0, 0.65);
+  color: white;
 }
 
 .nemo-window .primary-toolbar button:active:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:active, headerbar button:active:not(.suggested-action):not(.destructive-action) {
@@ -1564,13 +1564,13 @@ headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-acti
   color: rgba(255, 255, 255, 0.7);
   transition: background-color 0, background-image 0, color 225ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 225ms cubic-bezier(0.4, 0, 0.2, 1), border-image 225ms cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: inset 0 -2px transparent;
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), rgba(0, 0, 0, 0.65) 0%, transparent 0%) 0 0 0/0 0 0;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), white 0%, transparent 0%) 0 0 0/0 0 0;
 }
 
 headerbar.windowhandle viewswitcher button:hover:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar .linked.stack-switcher:not(.vertical):not(.path-bar) > button:hover {
   border-radius: 0;
-  color: rgba(2, 2, 2, 0.65);
-  box-shadow: inset 0 -2px rgba(0, 0, 0, 0.5);
+  color: white;
+  box-shadow: inset 0 -2px alpha(white, 0.5);
 }
 
 headerbar.windowhandle viewswitcher button:hover:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar .linked.stack-switcher:not(.vertical):not(.path-bar) > button:hover {
@@ -1578,9 +1578,9 @@ headerbar.windowhandle viewswitcher button:hover:not(.titlebutton):not(.suggeste
 }
 
 headerbar.windowhandle viewswitcher button:checked:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar .linked.stack-switcher:not(.vertical):not(.path-bar) > button:checked, headerbar.windowhandle viewswitcher button:active:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar .linked.stack-switcher:not(.vertical):not(.path-bar) > button:active {
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), rgba(0, 0, 0, 0.65) 100%, transparent 0%) 0 0 2/0 0 2px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), white 100%, transparent 0%) 0 0 2/0 0 2px;
   background: none;
-  color: rgba(0, 0, 0, 0.65);
+  color: white;
   border-radius: 0;
 }
 
@@ -3146,13 +3146,13 @@ treeview.view radio:disabled {
 treeview.view check:checked, treeview.view check:indeterminate,
 treeview.view radio:checked,
 treeview.view radio:indeterminate {
-  color: white;
+  color: rgba(0, 0, 0, 0.58);
 }
 
 treeview.view check:checked:disabled, treeview.view check:indeterminate:disabled,
 treeview.view radio:checked:disabled,
 treeview.view radio:indeterminate:disabled {
-  color: alpha(white, 0.3);
+  color: alpha(rgba(0, 0, 0, 0.58), 0.3);
 }
 
 treeview.view radio:checked {
@@ -4365,7 +4365,7 @@ headerbar button.titlebutton:hover, .csd headerbar button.titlebutton:hover, .so
   box-shadow: inset 0 0 0 9999px rgba(102, 102, 102, 0.3);
   background-image: radial-gradient(circle farthest-corner at center, rgba(102, 102, 102, 0.3) 10%, transparent 0%);
   background-size: 0% 0%;
-  color: rgba(0, 0, 0, 0.65);
+  color: white;
 }
 
 headerbar button.titlebutton:active, .csd headerbar button.titlebutton:active, .solid-csd headerbar button.titlebutton:active, headerbar.default-decoration button.titlebutton:active,
@@ -4713,7 +4713,7 @@ window.background stack scrolledwindow stackswitcher.stack-switcher button:check
 .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.image-button.text-button, .nautilus-window headerbar .path-bar-box button {
   color: rgba(255, 255, 255, 0.7);
   background-color: transparent;
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), rgba(0, 0, 0, 0.65) 0%, transparent 0%) 0 0 0/0 0 0;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), white 0%, transparent 0%) 0 0 0/0 0 0;
 }
 
 .nemo-window .primary-toolbar .linked.path-bar:not(.vertical):not(.stack-switcher) button:hover,
@@ -4729,7 +4729,7 @@ window.background stack scrolledwindow stackswitcher.stack-switcher button:check
   color: white;
   background-color: transparent;
   box-shadow: inset 0 0 0 9999px rgba(255, 255, 255, 0.12);
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), rgba(0, 0, 0, 0.65) 100%, transparent 0%) 0 0 2/0 0 2px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), white 100%, transparent 0%) 0 0 2/0 0 2px;
   background-image: radial-gradient(circle farthest-corner at center, rgba(255, 255, 255, 0.12) 10%, transparent 0%);
 }
 
@@ -4769,7 +4769,7 @@ window.background stack scrolledwindow stackswitcher.stack-switcher button:check
 
 .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:not(:only-child):last-child,
 .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.image-button.text-button:not(:only-child):last-child {
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), rgba(0, 0, 0, 0.65) 100%, transparent 0%) 0 0 2/0 0 2px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), white 100%, transparent 0%) 0 0 2/0 0 2px;
 }
 
 .nautilus-window headerbar .path-bar-box.width-maximized {
@@ -4843,14 +4843,14 @@ filechooser placessidebar.sidebar row.sidebar-row,
 filechooser placessidebar.sidebar row.sidebar-row:hover,
 .nautilus-window placessidebar.sidebar row.sidebar-row:hover {
   transition: none;
-  color: white;
+  color: rgba(0, 0, 0, 0.65);
   background-color: transparent;
-  box-shadow: inset 3px 0 white;
+  box-shadow: inset 3px 0 rgba(0, 0, 0, 0.65);
 }
 
 filechooser placessidebar.sidebar row.sidebar-row:active,
 .nautilus-window placessidebar.sidebar row.sidebar-row:active {
-  box-shadow: inset 3px 0 #666666;
+  box-shadow: inset 3px 0 rgba(0, 0, 0, 0.65);
 }
 
 filechooser placessidebar.sidebar row.sidebar-row:backdrop,

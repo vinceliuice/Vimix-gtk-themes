@@ -1653,8 +1653,8 @@ headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-acti
 
 headerbar.windowhandle viewswitcher button:hover:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar windowhandle stackswitcher.linked > button:hover:not(.suggested-action):not(.destructive-action) {
   border-radius: 0;
-  color: #f05850;
-  box-shadow: inset 0 -2px rgba(240, 84, 76, 0.5);
+  color: #F0544C;
+  box-shadow: inset 0 -2px alpha(#F0544C, 0.5);
 }
 
 headerbar.windowhandle viewswitcher button:hover:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar windowhandle stackswitcher.linked > button:hover:not(.suggested-action):not(.destructive-action) {
@@ -1670,8 +1670,8 @@ headerbar.windowhandle viewswitcher button:checked:not(.titlebutton):not(.sugges
 
 headerbar.windowhandle viewswitcher button:checked:disabled:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar windowhandle stackswitcher.linked > button:checked:disabled:not(.suggested-action):not(.destructive-action), headerbar.windowhandle viewswitcher button:checked:backdrop:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar windowhandle stackswitcher.linked > button:checked:backdrop:not(.suggested-action):not(.destructive-action), headerbar.windowhandle viewswitcher button:active:disabled:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar windowhandle stackswitcher.linked > button:active:disabled:not(.suggested-action):not(.destructive-action), headerbar.windowhandle viewswitcher button:active:backdrop:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar windowhandle stackswitcher.linked > button:active:backdrop:not(.suggested-action):not(.destructive-action) {
   background: none;
-  color: rgba(240, 84, 76, 0.35);
-  box-shadow: inset 0 -2px rgba(240, 84, 76, 0.35);
+  color: alpha(#F0544C, 0.35);
+  box-shadow: inset 0 -2px alpha(#F0544C, 0.35);
 }
 
 headerbar.windowhandle viewswitcher button:checked:hover:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar windowhandle stackswitcher.linked > button:checked:hover:not(.suggested-action):not(.destructive-action) {
@@ -3191,13 +3191,13 @@ treeview.view radio:disabled {
 treeview.view check:checked, treeview.view check:indeterminate,
 treeview.view radio:checked,
 treeview.view radio:indeterminate {
-  color: #F0544C;
+  color: #FF626C;
 }
 
 treeview.view check:checked:disabled, treeview.view check:indeterminate:disabled,
 treeview.view radio:checked:disabled,
 treeview.view radio:indeterminate:disabled {
-  color: alpha(#F0544C, 0.3);
+  color: alpha(#FF626C, 0.3);
 }
 
 treeview.view radio:checked {

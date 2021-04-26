@@ -118,7 +118,7 @@
 }
 
 
-@mixin button($t, $c:$suface, $tc:$text) {
+@mixin button($t, $c:$base, $tc:$text) {
 //
 // Button drawing function
 //
@@ -151,7 +151,7 @@
   @if $t == hover {
     box-shadow: $shadow_2, inset 0 0 0 9999px transparent;
     color: $text;
-    background-color: lighten($suface, 5%);
+    background-color: lighten($c, 5%);
   }
 
   @if $t == active {

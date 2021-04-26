@@ -1485,8 +1485,8 @@ headerbar {
 
 .titlebar {
   &, &.background {
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
+    border-top-left-radius: $modal_radius;
+    border-top-right-radius: $modal_radius;
   }
 
   .background.tiled &,
@@ -3772,7 +3772,7 @@ window {
 
   &.csd {
     transition: $shadow_transition;
-    border-radius: 2px 2px 0 0;
+    border-radius: $modal_radius $modal_radius 0 0;
     box-shadow: $shadow_5, 0 16px 16px 2px rgba(black, 0), 0 6px 18px 5px rgba(black, 0);
     margin: 0;
 
@@ -3782,7 +3782,7 @@ window {
 
     &.popup {
       border-radius: $modal_radius;
-      box-shadow: $shadow_2;
+      box-shadow: $shadow_4;
     }
 
     &.dialog.message {

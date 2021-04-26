@@ -110,12 +110,12 @@ $weight: 3%; // theme color weight
 $base:               themecolor($theme_base, primary);
 $background:         themecolor($theme_background, primary);
 $base_alt:           mix($base, $background, 50%);
-$suface:             lighten($background, 10%);
+$suface:             if($headerbar == 'light', darken($base, 2%), lighten($base, 2%));
 $scrim:              darken($background, 5%);
 $osd:                themecolor(#222222);
 $panel:              themecolor(#202020);
 $topbar:             if($headerbar == 'light', #eeeeee, themecolor(#363636));
-$menu:               if($headerbar == 'light', $base, $topbar);
+$menu:               if($headerbar == 'light', $base, $suface);
 
 // Theme colors
 $primary: primary();

@@ -679,7 +679,7 @@ button {
   font-weight: 500;
   border: 1px solid #d9d9d9;
   box-shadow: none;
-  background-color: white;
+  background-color: #FFFFFF;
   color: rgba(0, 0, 0, 0.6);
 }
 
@@ -711,7 +711,7 @@ button:checked:disabled {
 .background button {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08), inset 0 0 0 9999px transparent;
-  background-color: white;
+  background-color: #FFFFFF;
   color: rgba(0, 0, 0, 0.6);
   border: none;
 }
@@ -958,7 +958,7 @@ button.suggested-action {
 button.suggested-action:hover {
   box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px -1px rgba(0, 0, 0, 0.14), 0 3px 4px -1px rgba(0, 0, 0, 0.12), inset 0 0 0 9999px transparent;
   color: rgba(0, 0, 0, 0.87);
-  background-color: white;
+  background-color: #5cb860;
   background-color: #5cb860;
   color: white;
 }
@@ -1010,7 +1010,7 @@ button.destructive-action {
 button.destructive-action:hover {
   box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px -1px rgba(0, 0, 0, 0.14), 0 3px 4px -1px rgba(0, 0, 0, 0.12), inset 0 0 0 9999px transparent;
   color: rgba(0, 0, 0, 0.87);
-  background-color: white;
+  background-color: #ff6c6c;
   background-color: #ff6c6c;
   color: white;
 }
@@ -1912,8 +1912,8 @@ window.tiled headerbar, window.tiled headerbar:first-child, window.tiled headerb
 }
 
 .titlebar, .titlebar.background {
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 
 .background.tiled .titlebar, .background.tiled-top .titlebar, .background.tiled-right .titlebar, .background.tiled-bottom .titlebar, .background.tiled-left .titlebar, .background.maximized .titlebar, .background.solid-csd .titlebar {
@@ -2393,7 +2393,7 @@ popover.background > contents {
   transition: box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
   padding: 0;
   box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.2), 0 4px 3px -1px rgba(0, 0, 0, 0.14), 0 1px 6px -1px rgba(0, 0, 0, 0.12);
-  background-color: white;
+  background-color: #fafafa;
   border: none;
 }
 
@@ -2833,8 +2833,8 @@ switch > slider {
   margin: -2px;
   border-radius: 1000px;
   box-shadow: 0 0 0 6px transparent, 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08);
-  background-color: white;
-  color: white;
+  background-color: #fafafa;
+  color: #fafafa;
 }
 
 switch:hover > slider {
@@ -3791,7 +3791,7 @@ calendar > grid > label.day-number.other-month {
 }
 
 window.dialog.message.background {
-  background-color: white;
+  background-color: #fafafa;
 }
 
 window.dialog.message box.dialog-vbox.vertical {
@@ -3802,7 +3802,7 @@ window.dialog.message .titlebar {
   min-height: 20px;
   border-style: none;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.35);
-  background-color: white;
+  background-color: #fafafa;
   color: rgba(0, 0, 0, 0.87);
 }
 
@@ -3909,7 +3909,7 @@ filechooserbutton:drop(active) {
 
 .sidebar {
   border-style: none;
-  background-color: white;
+  background-color: #fafafa;
 }
 
 .sidebar:dir(ltr), .sidebar.left, .sidebar.left:dir(rtl) {
@@ -4430,7 +4430,7 @@ window {
 
 window.csd {
   transition: box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
-  border-radius: 2px 2px 0 0;
+  border-radius: 3px 3px 0 0;
   box-shadow: 0 8px 6px -5px rgba(0, 0, 0, 0.2), 0 16px 16px 2px rgba(0, 0, 0, 0.14), 0 6px 18px 5px rgba(0, 0, 0, 0.12), 0 16px 16px 2px rgba(0, 0, 0, 0), 0 6px 18px 5px rgba(0, 0, 0, 0);
   margin: 0;
 }
@@ -4441,7 +4441,7 @@ window.csd:backdrop {
 
 window.csd.popup {
   border-radius: 3px;
-  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px -1px rgba(0, 0, 0, 0.14), 0 3px 4px -1px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.2), 0 4px 3px -1px rgba(0, 0, 0, 0.14), 0 1px 6px -1px rgba(0, 0, 0, 0.12);
 }
 
 window.csd.dialog.message {

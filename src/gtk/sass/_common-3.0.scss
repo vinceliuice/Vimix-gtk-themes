@@ -1222,7 +1222,7 @@ headerbar {
 
   &:backdrop {
     color: on($topbar, disabled);
-    &:disabled { color: ($topbar, secondary_disabled); }
+    &:disabled { color: on($topbar, secondary_disabled); }
   }
 
   &:disabled { color: on($topbar, disabled); }

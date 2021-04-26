@@ -1454,13 +1454,13 @@ headerbar {
   }
 
   separator:first-child + &, // tackles the paned container case
-  &:first-child { border-top-left-radius: 2px; }
-  &:last-child { border-top-right-radius: 2px; }
+  &:first-child { border-top-left-radius: $modal_radius; }
+  &:last-child { border-top-right-radius: $modal_radius; }
 
   stack & { // tackles the stacked headerbars case
     &:first-child, &:last-child {
-      border-top-left-radius: 2px;
-      border-top-right-radius: 2px;
+      border-top-left-radius: $modal_radius;
+      border-top-right-radius: $modal_radius;
       border: none;
     }
   }

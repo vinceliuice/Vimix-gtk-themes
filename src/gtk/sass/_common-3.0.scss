@@ -1210,7 +1210,6 @@ searchbar > revealer > box {
   &:checked:hover { background: none; }
 }
 
-%titlebar,
 headerbar {
   transition: background-color $shorter_duration $deceleration_curve,
               color $shorter_duration $deceleration_curve;
@@ -1239,8 +1238,6 @@ headerbar {
     @extend .dim-label;
   }
 
-  // .background & button,
-  // button.flat.toggle.popup,
   button:not(.suggested-action):not(.destructive-action) { @extend %header_button; }
 
   button.suggested-action, button.destructive-action {
@@ -1484,13 +1481,13 @@ headerbar {
   }
 
   separator:first-child + &, // tackles the paned container case
-  &:first-child { border-top-left-radius: 2px; }
-  &:last-child { border-top-right-radius: 2px; }
+  &:first-child { border-top-left-radius: $modal_radius; }
+  &:last-child { border-top-right-radius: $modal_radius; }
 
   stack & { // tackles the stacked headerbars case
     &:first-child, &:last-child {
-      border-top-left-radius: 2px;
-      border-top-right-radius: 2px;
+      border-top-left-radius: $modal_radius;
+      border-top-right-radius: $modal_radius;
       border: none;
     }
   }
@@ -1786,7 +1783,6 @@ menubar,
 
     &:hover { //Seems like it :hover even with keyboard focus
       transition: background-color $shorter_duration $deceleration_curve;
-      border-radius: 2px 2px 0 0;
       background-color: $primary;
       color: on(dark);
     }
@@ -1794,7 +1790,7 @@ menubar,
     &:disabled { color: on($topbar, disabled); }
 
     > window.background.csd.popup > decoration,
-    > window.background.csd.popup > menu { border-radius: 0 0 3px 3px; }
+    > window.background.csd.popup > menu { border-radius: 0 0 $modal_radius $modal_radius; }
 
     > window.popup.background.csd > menu {
       menuitem { transition: none; }

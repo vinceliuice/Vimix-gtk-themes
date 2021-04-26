@@ -2,104 +2,20 @@
 // it gets @if ed depending on $variant
 
 @import 'color-palette';
-
-// Theme colors
-$theme-blue:       #4285F4;
-$theme-green:      #2EB398;
-$theme-red:        #F0544C;
-$theme-purple:     #AB47BC;
-$theme-contrast:   #686868;
-$theme-base:       if($variant == 'light', #FFFFFF, #333333);
-$theme-background: if($variant == 'light', #F2F2F2, #282828);
-
-// Color functions
-@function on($color, $state: 'primary') {
-  // Allow 'light' or 'dark' to $color
-  @if ($color == 'light') { $color: white; }
-  @if ($color == 'dark') { $color: black; }
-
-  // Calculate color brightness according to https://www.w3.org/TR/AERT/#color-contrast
-  $brightness: (red($color) * 299 + green($color) * 587 + blue($color) * 114) / 1000;
-
-  @if ($brightness >= 156) {
-    @if ($state == 'primary') { @return rgba(black, 0.87); }
-    @if ($state == 'secondary') { @return rgba(black, 0.6); }
-    @if ($state == 'disabled') { @return rgba(black, 0.38); }
-    @if ($state == 'secondary-disabled') { @return rgba(black, 0.26); }
-    @if ($state == 'track') { @return rgba(black, 0.26); }
-    @if ($state == 'track-disabled') { @return rgba(black, 0.12); }
-    @if ($state == 'divider') { @return rgba(black, 0.12); }
-    @if ($state == 'fill') { @return rgba(black, 0.05); }
-  } @else {
-    @if ($state == 'primary') { @return white; }
-    @if ($state == 'secondary') { @return rgba(white, 0.7); }
-    @if ($state == 'disabled') { @return rgba(white, 0.45); }
-    @if ($state == 'secondary-disabled') { @return rgba(white, 0.3); }
-    @if ($state == 'track') { @return rgba(white, 0.3); }
-    @if ($state == 'track-disabled') { @return rgba(white, 0.12); }
-    @if ($state == 'divider') { @return rgba(white, 0.12); }
-    @if ($state == 'fill') { @return rgba(white, 0.05); }
-  }
-}
-
-$weight: 3%; // theme color weight
-
-@function theme($state: 'primary') {
-  @if ($state == 'primary') {
-    @if ($theme == 'doder')    { @return $theme-blue; }
-    @if ($theme == 'beryl')    { @return $theme-green; }
-    @if ($theme == 'ruby')     { @return $theme-red; }
-    @if ($theme == 'amethyst') { @return $theme-purple; }
-    @if ($theme == 'black') or ($theme == 'white') { @return $theme-contrast; }
-  }
-  @if ($state == 'indicator') {
-    @if ($theme == 'doder')    { @return $theme-blue; }
-    @if ($theme == 'beryl')    { @return $theme-green; }
-    @if ($theme == 'ruby')     { @return $theme-red; }
-    @if ($theme == 'amethyst') { @return $theme-purple; }
-    @if ($theme == 'black') or ($theme == 'white') { @return white; }
-  }
-  @if ($state == 'base') {
-    @if ($variant == 'dark') and ($theme != 'black') and ($theme != 'white') {
-      @if ($theme == 'doder')    { @return mix($theme-blue, $theme-base, $weight); }
-      @if ($theme == 'beryl')    { @return mix($theme-green, $theme-base, $weight); }
-      @if ($theme == 'ruby')     { @return mix($theme-red, $theme-base, $weight); }
-      @if ($theme == 'amethyst') { @return mix($theme-purple, $theme-base, $weight); }
-    }
-    @return $theme-base;
-  }
-  @if ($state == 'background') {
-    @if ($variant == 'dark') and ($theme != 'black') {
-      @if ($theme == 'doder')    { @return mix($theme-blue, $theme-background, $weight); }
-      @if ($theme == 'beryl')    { @return mix($theme-green, $theme-background, $weight); }
-      @if ($theme == 'ruby')     { @return mix($theme-red, $theme-background, $weight); }
-      @if ($theme == 'amethyst') { @return mix($theme-purple, $theme-background, $weight); }
-    }
-    @return $theme-background;
-  }
-}
-
-@function overlay($color, $state: 'normal') {
-  @if ($state == 'normal') { @return rgba(on($color), 0.05); }
-  @if ($state == 'hover') { @return rgba(on($color), 0.1); }
-  @if ($state == 'focus') { @return rgba(on($color), 0.08); }
-  @if ($state == 'active') { @return rgba(on($color), 0.15); }
-  @if ($state == 'checked') { @return rgba(on($color), 0.12); }
-  @if ($state == 'selected') { @return rgba(on($color), 0.08); }
-}
+@import 'colors-base';
 
 //
 // Basic colors
 //
 
-$primary:                               theme(primary);
-$base:                                  theme(base);
-$background:                            theme(background);
+$primary:                               primary();
+$base:                                  themecolor($theme_base, $mixstate);
+$background:                            themecolor($theme_background, $mixstate);
 $popover:                               if($variant == 'light', $base, $base);
 
-$osd:                                   mix($primary, #202020, $weight);
+$osd:                                   themecolor(#202020, $mixstate);
 $scrim:                                 rgba(black, 0.6);
-$panel:                                 if($topbar == 'dark', mix($primary, #181818, $weight), $scrim);
+$panel:                                 if($topbar == 'dark', themecolor(#181818, $mixstate), $scrim);
 
 //
 // Misc colors
@@ -119,7 +35,7 @@ $frame:                                 if($variant == 'light', rgba(black, 0.12
 $border:                                if($variant == 'light', rgba(black, 0.12), rgba(white, 0.12));
 $solid-border:                          if($variant == 'light', darken($background, 10%), lighten($background, 12%));
 
-$indicator:                             theme(indicator);
+$indicator:                             indicator();
 
 //
 // Text and derivative colors

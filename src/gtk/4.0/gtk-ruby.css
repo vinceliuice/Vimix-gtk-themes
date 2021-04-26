@@ -164,7 +164,7 @@ popover.background.touch-selection > contents, popover.background.magnifier > ar
 popover.background.magnifier > contents, .osd {
   color: white;
   border: none;
-  background-color: #282423;
+  background-color: #222222;
   background-clip: padding-box;
   border-radius: 4.5px;
   padding: 6px;
@@ -474,7 +474,7 @@ entry:drop(active):focus-within, entry:drop(active) {
   border: none;
   border-image: none;
   box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 2px -1px rgba(0, 0, 0, 0.22), 0 1px 2px -0.6px rgba(0, 0, 0, 0.12);
-  background-color: #574f4f;
+  background-color: #505050;
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -482,7 +482,7 @@ entry:drop(active):focus-within, entry:drop(active) {
   border: none;
   border-image: none;
   box-shadow: inset 0 0 0 2px #F0544C;
-  background-color: #645c5c;
+  background-color: #5c5c5c;
   color: white;
 }
 
@@ -1687,7 +1687,7 @@ headerbar {
   min-height: 36px;
   padding: 0 12px;
   box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 2px -1px rgba(0, 0, 0, 0.22), 0 1px 2px -0.6px rgba(0, 0, 0, 0.12);
-  background-color: #3c3737;
+  background-color: #363636;
   color: white;
 }
 
@@ -1949,8 +1949,8 @@ window.tiled headerbar, window.tiled headerbar:first-child, window.tiled headerb
 .titlebar:not(headerbar) > separator {
   min-width: 1px;
   min-height: 1px;
-  background-color: #3c3737;
-  background-image: image(#3c3737);
+  background-color: #363636;
+  background-image: image(#363636);
   border: none;
 }
 
@@ -1967,7 +1967,7 @@ window.background > box.vertical > headerbar:not(.titlebar) {
 }
 
 window.background > box.vertical > headerbar:not(.titlebar), window.background > box.vertical > headerbar:not(.titlebar):backdrop {
-  background-color: #3c3737;
+  background-color: #363636;
 }
 
 separator:first-child + window.background > box.vertical > headerbar:not(.titlebar), separator:first-child + window.background > box.vertical > headerbar:not(.titlebar):backdrop, window.background > box.vertical > headerbar:not(.titlebar):first-child, window.background > box.vertical > headerbar:not(.titlebar):first-child:backdrop {
@@ -1981,7 +1981,7 @@ window.background > box.vertical > headerbar:not(.titlebar):last-child, window.b
 headerbar separator.titlebutton, headerbar separator {
   min-width: 0;
   min-height: 0;
-  background-color: #3c3737;
+  background-color: #363636;
   border: none;
 }
 
@@ -2231,7 +2231,7 @@ treeview.view acceleditor > label {
 menubar {
   padding: 0;
   color: rgba(255, 255, 255, 0.7);
-  background-color: #3c3737;
+  background-color: #363636;
   transition: none;
 }
 
@@ -4452,9 +4452,9 @@ window.csd.dialog.message {
 window.csd.solid-csd {
   margin: 0;
   padding: 1px 2px 2px;
-  border: 1px solid #211f1f;
+  border: 1px solid #1d1d1d;
   border-radius: 0;
-  box-shadow: inset 0 0 0 2px #3c3737, inset 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 0 2px #363636, inset 0 1px rgba(255, 255, 255, 0.1);
   background-color: #d9d9d9;
 }
 
@@ -4918,9 +4918,9 @@ statusbar {
 /* WM */
 @define-color wm_title alpha(white, 0.8);
 @define-color wm_unfocused_title alpha(white, 0.5);
-@define-color wm_bg #3c3737;
-@define-color wm_bg_unfocused #3c3737;
-@define-color wm_highlight #574f4f;
+@define-color wm_bg #363636;
+@define-color wm_bg_unfocused #363636;
+@define-color wm_highlight #505050;
 /* these are pretty self explicative */
 @define-color warning_color #FF6D00;
 @define-color error_color #DD2C00;
@@ -4931,5 +4931,5 @@ statusbar {
 @define-color text_view_bg #FFFFFF;
 @define-color budgie_tasklist_indicator_color #F0544C;
 @define-color budgie_tasklist_indicator_color_active #F0544C;
-@define-color budgie_tasklist_indicator_color_active_window #9d4742;
+@define-color budgie_tasklist_indicator_color_active_window #9a4642;
 @define-color budgie_tasklist_indicator_color_attention #FF6D00;

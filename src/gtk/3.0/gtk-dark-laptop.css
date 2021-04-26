@@ -1604,7 +1604,7 @@ headerbar {
   min-height: 32px;
   padding: 0 8px;
   box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 2px -1px rgba(0, 0, 0, 0.22), 0 1px 2px -0.6px rgba(0, 0, 0, 0.12);
-  background-color: #373737;
+  background-color: #363636;
   color: white;
 }
 
@@ -1615,7 +1615,7 @@ headerbar:backdrop {
 
 
 headerbar:backdrop:disabled {
-  color: #373737, secondary_disabled;
+  color: #363636, secondary_disabled;
 }
 
 
@@ -1829,7 +1829,7 @@ headerbar separator,
 headerbar separator.titlebutton {
   min-width: 0;
   min-height: 0;
-  background-color: #373737;
+  background-color: #363636;
   border: none;
 }
 
@@ -1953,8 +1953,8 @@ window.tiled headerbar, window.tiled headerbar:first-child, window.tiled headerb
 .titlebar:not(headerbar) > separator {
   min-width: 1px;
   min-height: 1px;
-  background-color: #373737;
-  background-image: image(#373737);
+  background-color: #363636;
+  background-image: image(#363636);
   border: none;
 }
 
@@ -1971,7 +1971,7 @@ window.background > box.vertical > headerbar:not(.titlebar) {
 }
 
 window.background > box.vertical > headerbar:not(.titlebar), window.background > box.vertical > headerbar:not(.titlebar):backdrop {
-  background-color: #373737;
+  background-color: #363636;
 }
 
 separator:first-child + window.background > box.vertical > headerbar:not(.titlebar), separator:first-child + window.background > box.vertical > headerbar:not(.titlebar):backdrop, window.background > box.vertical > headerbar:not(.titlebar):first-child, window.background > box.vertical > headerbar:not(.titlebar):first-child:backdrop {
@@ -2178,7 +2178,7 @@ menubar,
   -GtkWidget-window-dragging: true;
   padding: 0;
   color: rgba(255, 255, 255, 0.7);
-  background-color: #373737;
+  background-color: #363636;
 }
 
 menubar:backdrop,
@@ -4338,9 +4338,9 @@ messagedialog.csd decoration {
 .solid-csd decoration {
   margin: 0;
   padding: 1px 2px 2px;
-  border: 1px solid #1e1e1e;
+  border: 1px solid #1d1d1d;
   border-radius: 0;
-  box-shadow: inset 0 0 0 2px #373737, inset 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 0 2px #363636, inset 0 1px rgba(255, 255, 255, 0.1);
   background-color: #222222;
 }
 
@@ -6281,7 +6281,7 @@ window.background.chromium entry.chromium:focus {
 }
 
 window.background.chromium > menubar {
-  background-color: #373737;
+  background-color: #363636;
 }
 
 window.background.chromium > menu {
@@ -6328,7 +6328,7 @@ window.background > box.vertical > widget > widget:selected {
 }
 
 window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal {
-  background-color: #373737;
+  background-color: #363636;
 }
 
 window.background:not(.solid-csd) > notebook:not(.frame) {
@@ -6548,7 +6548,7 @@ widget > box.terminal-titlebar > button.image-button, widget > box.terminal-titl
 }
 
 .xfce4-panel {
-  background-color: #222222;
+  background-color: #202020;
   color: rgba(255, 255, 255, 0.7);
   font-weight: 700;
   text-shadow: none;
@@ -6561,7 +6561,7 @@ widget > box.terminal-titlebar > button.image-button, widget > box.terminal-titl
 }
 
 #XfcePanelWindow.xfce4-panel {
-  border: 1px solid #222222;
+  border: 1px solid #202020;
 }
 
 #XfcePanelWindow.xfce4-panel, #XfcePanelWindow.xfce4-panel.marching-ants {
@@ -6780,7 +6780,7 @@ menubar.-vala-panel-background > menuitem:disabled {
   padding-bottom: 4px;
   border: none;
   color: white;
-  background-color: #373737;
+  background-color: #363636;
   box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 2px -1px rgba(0, 0, 0, 0.22), 0 1px 2px -0.6px rgba(0, 0, 0, 0.12);
 }
 
@@ -6924,7 +6924,7 @@ UnityDecoration .top {
   padding: 3px 8px 3px 8px;
   border-radius: 2px 2px 0px 0px;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.1);
-  background-color: #373737;
+  background-color: #363636;
   color: white;
 }
 
@@ -6935,7 +6935,7 @@ UnityDecoration .top:backdrop {
 UnityDecoration .left,
 UnityDecoration .right,
 UnityDecoration .bottom {
-  background-color: #373737;
+  background-color: #363636;
 }
 
 UnityDecoration.menuitem,
@@ -6961,8 +6961,8 @@ UnityDecoration.menubar .menuitem *:hover {
 
 UnityPanelWidget,
 .unity-panel {
-  background-color: #222222;
-  background-image: image(#222222);
+  background-color: #202020;
+  background-image: image(#202020);
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -7624,13 +7624,13 @@ popover.background.places-menu row {
 
 .budgie-panel {
   transition: background-color 100ms cubic-bezier(0, 0, 0.2, 1);
-  background-color: #222222;
+  background-color: #202020;
   color: rgba(255, 255, 255, 0.7);
   font-weight: 500;
 }
 
 .budgie-panel.transparent {
-  background-color: rgba(34, 34, 34, 0.85);
+  background-color: rgba(32, 32, 32, 0.85);
 }
 
 .budgie-panel button {
@@ -8440,9 +8440,9 @@ headerbar .budgie-run-dialog list .subtitle, .budgie-run-dialog list .budgie-not
 /* WM */
 @define-color wm_title alpha(white, 0.8);
 @define-color wm_unfocused_title alpha(white, 0.5);
-@define-color wm_bg #373737;
-@define-color wm_bg_unfocused #373737;
-@define-color wm_highlight #515151;
+@define-color wm_bg #363636;
+@define-color wm_bg_unfocused #363636;
+@define-color wm_highlight #505050;
 /* these are pretty self explicative */
 @define-color warning_color #FF6D00;
 @define-color error_color #DD2C00;

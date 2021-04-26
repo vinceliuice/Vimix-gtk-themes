@@ -6,8 +6,8 @@
  ************************/
 // the panel widget at the top
 #panel_window {
-   background-color: scale-alpha(black, $lower_opacity);
-   color: scale-alpha(white, 0.8);
+   background-color: gtkalpha(black, 0.3);
+   color: gtkalpha(white, 0.8);
   // font-weight: bold;
 }
 
@@ -23,14 +23,14 @@
 #restart_dialog {
   margin: 8px;
   border-radius: 2px;
-  box-shadow: $z-depth-2, inset 0 1px $highlight_color;
-  background-color: $lighter_bg_color;
+  box-shadow: $shadow_2, inset 0 1px $highlight;
+  background-color: $suface;
 }
 
 // the top half of the login-window, in GtkDialog terms, the content
 #content_frame {
   padding-bottom: 20px;
-  border-bottom: 1px solid $borders_color;
+  border-bottom: 1px solid $border;
 }
 
 // the user-combobox

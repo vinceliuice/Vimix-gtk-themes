@@ -9,7 +9,7 @@
 }
 
 // Drawing mixins
-@mixin entry($t, $fc:$primary_color) {
+@mixin entry($t, $fc:$primary) {
 //
 // Entries drawing function
 //
@@ -24,63 +24,63 @@
     transition: $shorter_transition, $shadow_transition;
     border: none;
     border-image: none;
-    box-shadow: $z-depth-1;
-    background-color: if($fc != $primary_color, $fc, $base_color);
-    color: if($fc != $primary_color, $inversed_fg_color, $secondary_fg_color);
+    box-shadow: $shadow_1;
+    background-color: if($fc != $primary, $fc, $base);
+    color: if($fc != $primary, on($primary), $text_secondary);
   }
 
   @if $t == focus {
     border: none;
     border-image: none;
-    box-shadow: $z-depth-2;
-    color: if($fc != $primary_color, $inversed_fg_color, $fg_color);
+    box-shadow: $shadow_2;
+    color: if($fc != $primary, on($primary), $text);
   }
 
   @if $t == disabled {
-    box-shadow: $z-depth-1;
-    background-color: $alt_base_color;
-    color: $disabled_fg_color;
+    box-shadow: $shadow_1;
+    background-color: $base_alt;
+    color: $text_disabled;
   }
 
   @if $t == fallback-normal {
-    border: 1px solid $darker_borders_color;
+    border: 1px solid $border_solid;
     box-shadow: none;
     border-image: none;
     border-radius: 2px;
-    background-color: if($fc != $primary_color, $fc, $base_color);
-    color: if($fc != $primary_color, $inversed_fg_color, $secondary_fg_color);
+    background-color: if($fc != $primary, $fc, $base);
+    color: if($fc != $primary, on($primary), $text_secondary);
   }
 
   @if $t == fallback-focus {
-    border: 1px solid $primary_color;
+    border: 1px solid $primary;
     box-shadow: none;
     border-image: none;
     border-radius: 2px;
-    background-color: if($fc != $primary_color, $fc, $base_color);
-    color: if($fc != $primary_color, $inversed_fg_color, $fg_color);
+    background-color: if($fc != $primary, $fc, $base);
+    color: if($fc != $primary, on($primary), $text);
   }
 
   @if $t == fallback-disabled {
-    border: 1px solid $darker_borders_color;
+    border: 1px solid $border_solid;
     box-shadow: none;
     border-image: none;
-    background-color: $alt_base_color;
-    color: $disabled_fg_color;
+    background-color: $base_alt;
+    color: $text_disabled;
   }
 
   @if $t == flat-normal {
     transition: $shorter_transition,
                 $shadow_transition;
-    box-shadow: inset 0 -1px if($fc != $primary_color, $fc, $track_color);
+    box-shadow: inset 0 -1px if($fc != $primary, $fc, $track);
     background-color: transparent;
-    color: $fg_color;
+    color: $text;
     border-width: 0;
   }
 
   @if $t == flat-hover {
     background: none;
     border-width: 0;
-    box-shadow: inset 0 -2px if($fc != $primary_color, $fc, $high_track_color);
+    box-shadow: inset 0 -2px if($fc != $primary, $fc, $text_disabled);
   }
 
   @if $t == flat-focus {
@@ -91,37 +91,37 @@
 
   @if $t == flat-disabled {
     border-width: 0;
-    box-shadow: inset 0 -1px $track_color;
+    box-shadow: inset 0 -1px $track;
     background-color: transparent;
-    color: $disabled_fg_color;
+    color: $text_disabled;
   }
 
   @if $t == osd {
     transition: $shorter_transition, $shadow_transition;
     border: none;
     border-image: none;
-    box-shadow: $z-depth-1;
-    background-color: lighten($topbar_bg_color, 10%);
-    color: $secondary_inversed_fg_color;
+    box-shadow: $shadow_1;
+    background-color: lighten($topbar, 10%);
+    color: on($primary, secondary);
   }
 
   @if $t == osd-focus {
     border: none;
     border-image: none;
-    box-shadow: inset 0 0 0 2px $primary_color;
-    background-color: lighten($topbar_bg_color, 15%);
-    color: $inversed_fg_color;
+    box-shadow: inset 0 0 0 2px $primary;
+    background-color: lighten($topbar, 15%);
+    color: on($primary);
   }
 
   @if $t == osd-disabled {
     box-shadow: none;
-    background-color: lighten($topbar_bg_color, 5%);
-    color: $disabled_inversed_fg_color;
+    background-color: lighten($topbar, 5%);
+    color: on($primary, disabled);
   }
 }
 
 
-@mixin button($t, $c:$lighter_bg_color, $tc:$fg_color) {
+@mixin button($t, $c:$suface, $tc:$text) {
 //
 // Button drawing function
 //
@@ -137,42 +137,42 @@
   @if $t == normal {
     transition: $shorter_transition,
                 $shadow_transition;
-    box-shadow: $z-depth-1, inset 0 0 0 9999px transparent;
+    box-shadow: $shadow_1, inset 0 0 0 9999px transparent;
     background-color: $c;
-    color: $secondary_fg_color;
+    color: $text_secondary;
     border: none;
   }
 
   @if $t == hover {
-    box-shadow: $z-depth-2, inset 0 0 0 9999px transparent;
-    color: $fg_color;
-    background-color: lighten($lighter_bg_color, 5%);
+    box-shadow: $shadow_2, inset 0 0 0 9999px transparent;
+    color: $text;
+    background-color: $suface;
   }
 
   @if $t == focus {
-    color: $fg_color;
+    color: $text;
   }
 
   @if $t == active {
     transition: $shorter_transition;
-    box-shadow: $z-depth-2, inset 0 0 0 9999px $semi_track_color;
-    color: $fg_color;
+    box-shadow: $shadow_2, inset 0 0 0 9999px $track_disabled;
+    color: $text;
   }
 
   @if $t == disabled {
     box-shadow: none;
-    background-color: $semi_track_color;
-    color: if($tc != $fg_color, $disabled_fg_color, $disabled_secondary_fg_color);
+    background-color: $track_disabled;
+    color: if($tc != $text, $text_disabled, $text_secondary_disabled);
   }
 
   @if $t == checked {
-    background-color: $primary_color;
-    color: $inversed_fg_color;
+    background-color: $primary;
+    color: on($primary);
   }
 
   @if $t == checked-disabled {
-    background-color: $track_color;
-    color: scale-alpha($primary_color, $disabled_opacity);
+    background-color: gtkalpha($primary, 0.25);
+    color: gtkalpha($primary, 0.5);
   }
 
   // flat buttons
@@ -180,12 +180,12 @@
     transition: $shorter_transition;
     box-shadow: inset 0 0 0 9999px transparent;
     background-color: transparent;
-    color: $secondary_fg_color;
+    color: $text_secondary;
   }
 
   @if $t == flat-hover {
-    box-shadow: inset 0 0 0 9999px $row_track_color;
-    color: $fg_color;
+    box-shadow: inset 0 0 0 9999px $overlay_hover;
+    color: $text;
     background-color: transparent;
   }
 
@@ -197,64 +197,64 @@
 
   @if $t == flat-active {
     transition: $shorter_transition;
-    box-shadow: inset 0 0 0 9999px $semi_track_color;
-    color: $fg_color;
+    box-shadow: inset 0 0 0 9999px $overlay_active;
+    color: $text;
     background-color: transparent;
   }
 
   @if $t == flat-disabled {
     box-shadow: none;
     background-color: transparent;
-    color: if($tc != $fg_color, gtkalpha(currentColor, $disabled_opacity), gtkalpha(currentColor, $enabled_opacity * $disabled_opacity));
+    color: if($tc != $text, gtkalpha(currentColor, 0.3), gtkalpha(currentColor, 0.9 * 0.3));
   }
 
   @if $t == flat-checked {
-    color: $fg_color;
-    background-color: rgba($fg_color, 0.20);
+    color: $text;
+    background-color: $overlay_checked;
   }
 
   @if $t == flat-checked-disabled {
-    background-color: rgba($fg_color, 0.15);
-    color: $disabled_fg_color;
+    background-color: $overlay_normal;
+    color: $text_disabled;
   }
 
   // fallback buttons
   @if $t == fallback-normal {
-    border: 1px solid $darker_borders_color;
+    border: 1px solid $border_solid;
     box-shadow: none;
     background-color: $c;
-    color: $secondary_fg_color;
+    color: $text_secondary;
   }
 
   @if $t == fallback-hover {
     box-shadow: none;
-    background-color: mix($c, $fg_color, 96%);
-    color: $fg_color;
+    background-color: mix($c, $text, 96%);
+    color: $text;
   }
 
   @if $t == fallback-active {
     box-shadow: none;
-    background-color: mix($c, $fg_color, 92%);
-    color: $fg_color;
+    background-color: mix($c, $text, 92%);
+    color: $text;
     animation: none;
   }
 
   @if $t == fallback-disabled {
     box-shadow: none;
-    background-color: mix($bg_color, $fg_color, 96%);
-    color: $fg_color;
+    background-color: mix($background, $text, 96%);
+    color: $text;
   }
 
   @if $t == fallback-checked {
     box-shadow: none;
-    background-color: $primary_color;
-    color: $inversed_fg_color;
+    background-color: $primary;
+    color: on($primary);
   }
 
   @if $t == fallback-checked-disabled {
     box-shadow: none;
-    background-color: rgba($primary_color, 0.5);
-    color: $tertiary_inversed_fg_color;
+    background-color: rgba($primary, 0.5);
+    color: on($primary, disabled);
   }
 
   // headerbar buttons
@@ -263,45 +263,45 @@
     animation: none;
     box-shadow: none;
     background-color: transparent;
-    color: $secondary_headerbar_fg_color;
+    color: on($topbar, secondary);
   }
 
   @if $t == header-hover {
     transition: $shorter_transition;
-    box-shadow: inset 0 0 0 9999px rgba($primary_color, 0.3);
-    color: $theme_color;
+    box-shadow: inset 0 0 0 9999px rgba($primary, 0.3);
+    color: $indicator;
   }
 
   @if $t == header-active {
     transition: $shorter_transition;
-    box-shadow: inset 0 0 0 9999px $primary_color;
-    color: $inversed_fg_color;
+    box-shadow: inset 0 0 0 9999px $primary;
+    color: on($primary);
   }
 
   @if $t == header-disabled {
     box-shadow: none;
     background-color: transparent;
-    color: if($tc != $fg_color, gtkalpha(currentColor, $disabled_opacity), gtkalpha(currentColor, $enabled_opacity * $disabled_opacity));
+    color: if($tc != $text, gtkalpha(currentColor, 0.3), gtkalpha(currentColor, 0.9 * 0.3));
   }
 
   @if $t == header-checked {
-    background-color: $primary_color;
-    color: $inversed_fg_color;
+    background-color: $primary;
+    color: on($primary);
   }
 
   @if $t == header-checked-hover {
-    background-color: lighten($primary_color, 5%);
+    background-color: lighten($primary, 5%);
     background-image: none;
     box-shadow: none;
   }
 
   @if $t == header-checked-disabled {
-    background-color: rgba($primary_color, $disabled_opacity);
-    color: gtkalpha($inversed_fg_color, $disabled_opacity);
+    background-color: rgba($primary, 0.3);
+    color: gtkalpha(on($primary), 0.3);
   }
 }
 
-@mixin overshoot($p, $t:normal, $c:$alt_primary_color) {
+@mixin overshoot($p, $t:normal, $c:$text) {
 //
 // overshoot
 //
@@ -316,20 +316,47 @@
 // normal, backdrop
 //
 
-  $_position: center $p;
+  $_small_gradient_length: 3%;
+  $_big_gradient_length: 50%;
 
-  @if ($p == left) or ($p == right) {
-    $_position: $p center;
+  $_small_gradient_size: 100% $_small_gradient_length;
+  $_big_gradient_size: 100% $_big_gradient_length;
+
+  @if $p==right or $p==left {
+    $_small_gradient_size: $_small_gradient_length 100%;
+    $_big_gradient_size: $_big_gradient_length 100%;
   }
 
-  background-image: -gtk-gradient(radial,
-                                  $_position, 0,
-                                  $_position, 0.75,
-                                  to(scale-alpha($c, $lower_opacity)),
-                                  to(transparent));
+  $_small_gradient_color: $c;
+  $_big_gradient_color: transparentize($c, 0.93);
+
+  @if $c==$text {
+    $_small_gradient_color: darken($border, 10%);
+    $_big_gradient_color: transparentize($text, 0.93);
+
+    @if $t==backdrop { $_small_gradient_color: $border; }
+  }
+
+  $_small_gradient: radial-gradient(farthest-side at $p,
+                                    $_small_gradient_color 85%,
+                                    transparentize($_small_gradient_color, 1));
+
+  $_big_gradient: radial-gradient(farthest-side at $p,
+                                  $_big_gradient_color,
+                                  transparentize($_big_gradient_color, 1));
+
+  @if $t==normal {
+    background-image: $_small_gradient, $_big_gradient;
+    background-size: $_small_gradient_size, $_big_gradient_size;
+  }
+
+  @else if $t==backdrop {
+    background-image: $_small_gradient;
+    background-size: $_small_gradient_size;
+  }
 
   background-repeat: no-repeat;
-  background-position: $_position;
+  background-position: $p;
 
   background-color: transparent; // reset some properties to be sure to not inherit them somehow
   border: none;                  //
@@ -347,8 +374,8 @@
 // top, bottom, right, left
 //
 
-  $_undershoot_color_dark: scale-alpha($fg_color, $lower_opacity);
-  $_undershoot_color_light: scale-alpha($base_color, $lower_opacity);
+  $_undershoot_color_dark: gtkalpha($text, 0.3);
+  $_undershoot_color_light: gtkalpha($base, 0.3);
 
   $_gradient_dir: left;
   $_dash_bg_size: 12px 1px;

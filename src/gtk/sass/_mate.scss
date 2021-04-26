@@ -14,8 +14,8 @@
 // let's start it
 #PanelPlug,
 PanelToplevel.background {
-  background-color: $bg_color;
-  color: $secondary_fg_color;
+  background-color: $background;
+  color: $text_secondary;
   font-weight: 500;
 }
 
@@ -32,14 +32,14 @@ PanelToplevel > widget > button {
 }
 
 PanelSeparator {
-  color: $borders_color;
+  color: $border;
 }
 
 // the grid left from na-tray and wncktasklist
 MatePanelAppletFrameDBus {
   border-style: solid;
   border-width: 0 1px;
-  border-color: $borders_color;
+  border-color: $border;
 }
 
 // main menu
@@ -66,13 +66,13 @@ MatePanelAppletFrameDBus {
 // WnckPager
 PanelApplet.wnck-applet .wnck-pager {
   background-color: transparent;
-  color: $alt_primary_color;
+  color: $primary;
 
-  &:hover { background-color: $semi_track_color; }
+  &:hover { background-color: $track_disabled; }
 
-  &:active { background-color: $track_color; }
+  &:active { background-color: $track; }
 
-  &:selected { background-color: $primary_color; }
+  &:selected { background-color: $primary; }
 }
 
 #clock-applet-button {
@@ -80,14 +80,14 @@ PanelApplet.wnck-applet .wnck-pager {
 }
 
 #MatePanelPopupWindow {
-  border: 1px solid $borders_color;
-  border-radius: $md_radius + 1px;
-  box-shadow: inset 0 1px $highlight_color;
+  border: 1px solid $border;
+  border-radius: $modal_radius + 1px;
+  box-shadow: inset 0 1px $highlight;
 
   frame > border { border-style: none; }
 
   // FIXME, does not work
-  ClockMap { border: 1px solid $borders_color; }
+  ClockMap { border: 1px solid $border; }
 }
 
 na-tray-applet {
@@ -115,10 +115,10 @@ na-tray-applet widget box widget {
   background: transparent;
 
   frame {
-    border: 1px solid $borders_color;
-    border-radius: $md_radius + 1px;
-    box-shadow: inset 0 1px $highlight_color;
-    background-color: $bg_color;
+    border: 1px solid $border;
+    border-radius: $modal_radius + 1px;
+    box-shadow: inset 0 1px $highlight;
+    background-color: $background;
 
     frame { all: unset; }
 
@@ -132,7 +132,7 @@ na-tray-applet widget box widget {
 
 // pathpar toggle button
 .caja-navigation-window button.toggle.image-button {
-  border-radius: $md_radius;
+  border-radius: $modal_radius;
 }
 
 // pathbar
@@ -155,7 +155,7 @@ na-tray-applet widget box widget {
 // .caja-side-pane notebook textview.view text,
 .caja-side-pane notebook viewport.frame,
 .caja-side-pane notebook widget .vertical {
-  background-color: $base_color;
+  background-color: $base;
 }
 
 // treeview rows
@@ -170,7 +170,7 @@ na-tray-applet widget box widget {
 
 .caja-side-pane notebook,
 .caja-notebook {
-  border-top: 1px solid $borders_color;
+  border-top: 1px solid $border;
 }
 
 // window and desktop mode
@@ -190,7 +190,7 @@ na-tray-applet widget box widget {
 .caja-navigation-window statusbar {
   margin: 0 -10px;
   padding: 0 4px;
-  border-top: 1px solid $borders_color;
+  border-top: 1px solid $border;
 }
 
 // infobar
@@ -199,8 +199,8 @@ na-tray-applet widget box widget {
 }
 
 #caja-extra-view-widget {
-  border-bottom: 1px solid $borders_color;
-  background-color: $bg_color; // needs overriding
+  border-bottom: 1px solid $border;
+  background-color: $background; // needs overriding
 
   > box > box > label { font-weight: bold; }
 }
@@ -213,7 +213,7 @@ na-tray-applet widget box widget {
 .pluma-window statusbar {
   margin: 0 -10px;
   padding: 0 4px;
-  border-top: 1px solid $borders_color;
+  border-top: 1px solid $border;
 }
 
 .pluma-window statusbar frame > border {
@@ -232,11 +232,11 @@ na-tray-applet widget box widget {
 
 // Printpreview
 .pluma-print-preview toolbar {
-  border-bottom: 1px solid $borders_color;
+  border-bottom: 1px solid $border;
 }
 
 .pluma-print-preview scrolledwindow {
-  // background-color: $base_color;
+  // background-color: $base;
 }
 
 // sidebar file-browser
@@ -252,11 +252,11 @@ na-tray-applet widget box widget {
 
 .pluma-window paned.horizontal box.vertical notebook.frame {
   margin-top: -1px;
-  border-top: 1px solid $borders_color;
+  border-top: 1px solid $border;
 }
 
 .pluma-window paned.horizontal box.vertical notebook.frame box.vertical toolbar.horizontal {
-  border-bottom: 1px solid $borders_color;
+  border-bottom: 1px solid $border;
 }
 
 //
@@ -268,15 +268,15 @@ na-tray-applet widget box widget {
 }
 
 .atril-window paned.horizontal box.vertical notebook .frame {
-  border-top: 1px solid $borders_color;
+  border-top: 1px solid $border;
 }
 
 /* mate-screensaver lock dialog */
 
 .lock-dialog {
-  border-radius: $md_radius;
+  border-radius: $modal_radius;
   // not sure if box-shadow works here
-  box-shadow: $z-depth-4, inset 0 1px $highlight_color;
+  box-shadow: $shadow_4, inset 0 1px $highlight;
 
   frame > border { border-style: none; }
 }

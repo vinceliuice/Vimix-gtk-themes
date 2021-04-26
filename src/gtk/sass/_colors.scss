@@ -1,199 +1,160 @@
+// Theme colors
+$theme_blue:       #4285F4;
+$theme_green:      #2EB398;
+$theme_red:        #F0544C;
+$theme_purple:     #AB47BC;
+$theme_grey:       #666666;
+$theme_base:       if($variant == 'light', #FFFFFF, #333333);
+$theme_background: if($variant == 'light', #F2F2F2, #282828);
 
-$higher_opacity: 0.87;
-$middle_opacity: 0.54;
-$lower_opacity: 0.24;
-
-$enabled_opacity: 0.75;
-$hint_opacity: 0.6;
-$disabled_opacity: 0.4;
+$weight: 3%; // theme color weight
 
 @function gtkalpha($c, $a) {
   @return unquote("alpha(#{$c}, #{$a})");
 }
 
-@function scale-alpha($c, $a) {
-  @return scale-color($c, $alpha: percentage(-1 + $a));
-}
-
-// Theme colors
-$theme-blue:       #4285F4;
-$theme-green:      #2EB398;
-$theme-red:        #F0544C;
-$theme-purple:     #AB47BC;
-$theme-contrast:   #686868;
-$theme-base:       if($variant == 'light', #FFFFFF, #333333);
-$theme-background: if($variant == 'light', #F2F2F2, #282828);
-
 // Color functions
 @function on($color, $state: 'primary') {
-  // Allow 'light' or 'dark' to $color
+  // Allow 'light' or 'dark' to $theme
   @if ($color == 'light') { $color: white; }
   @if ($color == 'dark') { $color: black; }
 
-  // Calculate color brightness according to https://www.w3.org/TR/AERT/#color-contrast
+  // Calculate color brightness according to https://www.w3.org/TR/AERT/#color_contrast
   $brightness: (red($color) * 299 + green($color) * 587 + blue($color) * 114) / 1000;
 
   @if ($brightness >= 156) {
     @if ($state == 'primary') { @return rgba(black, 0.87); }
     @if ($state == 'secondary') { @return rgba(black, 0.6); }
     @if ($state == 'disabled') { @return rgba(black, 0.38); }
-    @if ($state == 'secondary-disabled') { @return rgba(black, 0.26); }
+    @if ($state == 'secondary_disabled') { @return rgba(black, 0.26); }
     @if ($state == 'track') { @return rgba(black, 0.26); }
-    @if ($state == 'track-disabled') { @return rgba(black, 0.12); }
+    @if ($state == 'track_disabled') { @return rgba(black, 0.12); }
     @if ($state == 'divider') { @return rgba(black, 0.12); }
     @if ($state == 'fill') { @return rgba(black, 0.05); }
   } @else {
     @if ($state == 'primary') { @return white; }
     @if ($state == 'secondary') { @return rgba(white, 0.7); }
     @if ($state == 'disabled') { @return rgba(white, 0.45); }
-    @if ($state == 'secondary-disabled') { @return rgba(white, 0.3); }
+    @if ($state == 'secondary_disabled') { @return rgba(white, 0.3); }
     @if ($state == 'track') { @return rgba(white, 0.3); }
-    @if ($state == 'track-disabled') { @return rgba(white, 0.12); }
+    @if ($state == 'track_disabled') { @return rgba(white, 0.12); }
     @if ($state == 'divider') { @return rgba(white, 0.12); }
     @if ($state == 'fill') { @return rgba(white, 0.05); }
   }
 }
 
-$weight: 3%; // theme color weight
+@function primary($state: 'main') {
+  @if ($state == 'main') {
+    @if ($theme == 'doder')    { @return $theme_blue; }
+    @if ($theme == 'beryl')    { @return $theme_green; }
+    @if ($theme == 'ruby')     { @return $theme_red; }
+    @if ($theme == 'amethyst') { @return $theme_purple; }
+    @if ($theme == 'black') or ($theme == 'white') { @return $theme_grey; }
+  }
+  @if ($state == 'contrast') { // entry/slider (focus)
+    @if ($variant == 'light')  { @return rgba(black, 0.65); }
+    @if ($variant == 'dark')   { @return rgba(white, 1); }
+  }
+}
 
-@function theme($state: 'primary') {
+@function accent($state: 'main') {
+  @if ($state == 'main') {
+    @if ($theme == 'doder')    { @return #18b8ff; }
+    @if ($theme == 'beryl')    { @return #0fd1ab; }
+    @if ($theme == 'ruby')     { @return #FF626C; }
+    @if ($theme == 'amethyst') { @return #EC407A; }
+    @if ($theme == 'black') or ($theme == 'white') { @return lighten($theme_grey, 8%); }
+  }
+  @if ($state == 'contrast') {
+    @if ($variant == 'light')  { @return rgba(black, 0.58); }
+    @if ($variant == 'dark')   { @return rgba(white, 0.86); }
+  }
+}
+
+@function indicator($state: 'primary') {
   @if ($state == 'primary') {
-    @if ($color == 'doder')    { @return $theme-blue; }
-    @if ($color == 'beryl')    { @return $theme-green; }
-    @if ($color == 'ruby')     { @return $theme-red; }
-    @if ($color == 'amethyst') { @return $theme-purple; }
-    @if ($color == 'black') or ($color == 'white') { @return $theme-contrast; }
+    @if ($theme != 'black') and ($theme != 'white') { @return primary(main); }
+    @else { @return primary(contrast); }
   }
   @if ($state == 'accent') {
-    @if ($color == 'doder')    { @return #18b8ff; }
-    @if ($color == 'beryl')    { @return #0fd1ab; }
-    @if ($color == 'ruby')     { @return #FF626C; }
-    @if ($color == 'amethyst') { @return #EC407A; }
-    @if ($color == 'black') or ($color == 'white') { @return #666666; }
+    @if ($theme != 'black') and ($theme != 'white') { @return accent(main); }
+    @else { @return accent(contrast); }
   }
-  @if ($state == 'indicator') {
-    @if ($color == 'doder')    { @return $theme-blue; }
-    @if ($color == 'beryl')    { @return $theme-green; }
-    @if ($color == 'ruby')     { @return $theme-red; }
-    @if ($color == 'amethyst') { @return $theme-purple; }
-    @if ($color == 'black') or ($color == 'white') { @return white; }
+  @if ($state == 'light') {
+    @if ($theme != 'black') and ($theme != 'white') { @return primary(main); }
+    @else { @return white; }
   }
-  @if ($state == 'base') {
-    @if ($variant == 'dark') and ($color != 'black') and ($color != 'white') {
-      @if ($color == 'doder')    { @return mix($theme-blue, $theme-base, $weight); }
-      @if ($color == 'beryl')    { @return mix($theme-green, $theme-base, $weight); }
-      @if ($color == 'ruby')     { @return mix($theme-red, $theme-base, $weight); }
-      @if ($color == 'amethyst') { @return mix($theme-purple, $theme-base, $weight); }
-    }
-    @return $theme-base;
+}
+
+@function themecolor($color, $state: 'normal') {
+  @if ($state == 'normal') {
+    @return mix(primary(main), $color, $weight);
   }
-  @if ($state == 'background') {
-    @if ($variant == 'dark') and ($color != 'black') {
-      @if ($color == 'doder')    { @return mix($theme-blue, $theme-background, $weight); }
-      @if ($color == 'beryl')    { @return mix($theme-green, $theme-background, $weight); }
-      @if ($color == 'ruby')     { @return mix($theme-red, $theme-background, $weight); }
-      @if ($color == 'amethyst') { @return mix($theme-purple, $theme-background, $weight); }
-    }
-    @return $theme-background;
+  @if ($state == 'primary') {
+    @if ($theme != 'black') and ($theme != 'white') and ($variant == 'dark') {
+      @return mix(primary(main), $color, $weight);
+    } @else { @return $color; }
   }
 }
 
 @function overlay($color, $state: 'normal') {
-  @if ($state == 'normal') { @return rgba(on($color), 0.05); }
-  @if ($state == 'hover') { @return rgba(on($color), 0.1); }
+  @if ($state == 'normal') { @return rgba(on($color), 0.06); }
+  @if ($state == 'hover') { @return rgba(on($color), 0.12); }
   @if ($state == 'focus') { @return rgba(on($color), 0.08); }
-  @if ($state == 'active') { @return rgba(on($color), 0.15); }
-  @if ($state == 'checked') { @return rgba(on($color), 0.12); }
-  @if ($state == 'selected') { @return rgba(on($color), 0.08); }
+  @if ($state == 'active') { @return rgba(on($color), 0.20); }
+  @if ($state == 'checked') { @return rgba(on($color), 0.15); }
+  @if ($state == 'selected') { @return rgba(on($color), 0.1); }
 }
 
-// Foreground colors
-$light_contrast_color: scale-alpha(#000000, 0.8);
-$dark_contrast_color: #FFFFFF;
-$darker_contrast_color: #EAEAEA;
-$darkest_contrast_color: #000000;
-
-$fg_color: if($variant == 'light', $light_contrast_color, $darker_contrast_color);
-$secondary_fg_color: scale-alpha($fg_color, $enabled_opacity);
-$tertiary_fg_color: scale-alpha($fg_color, $hint_opacity);
-
-$inversed_fg_color: $dark_contrast_color;
-$secondary_inversed_fg_color: scale-alpha($inversed_fg_color, $enabled_opacity);
-$tertiary_inversed_fg_color: scale-alpha($inversed_fg_color, $hint_opacity);
-
-$disabled_fg_color: scale-alpha($fg_color, $disabled_opacity);
-$disabled_secondary_fg_color: scale-alpha($secondary_fg_color, $disabled_opacity);
-$disabled_tertiary_fg_color: scale-alpha($tertiary_fg_color, $disabled_opacity);
-
-$disabled_inversed_fg_color: scale-alpha($inversed_fg_color, $disabled_opacity);
-$disabled_secondary_inversed_fg_color: scale-alpha($secondary_inversed_fg_color, $disabled_opacity);
-$disabled_tertiary_inversed_fg_color: scale-alpha($tertiary_inversed_fg_color, $disabled_opacity);
-
 // Background colors
-$base_color: theme(base);
-$bg_color: theme(background);
-$alt_base_color: mix($base_color, $bg_color, 50%);
-$lighter_bg_color: lighten($bg_color, 5%);
-$darker_bg_color: darken($bg_color, 5%);
-$darker_fg_color: if($variant =='light', mix(theme(primary), #222222, $weight), #DDDDDD);
+$base:               themecolor($theme_base, primary);
+$background:         themecolor($theme_background, primary);
+$base_alt:           mix($base, $background, 50%);
+$suface:             lighten($background, 10%);
+$scrim:              darken($background, 5%);
+$osd:                themecolor(#222222);
+$panel:              themecolor(#202020);
+$topbar:             if($headerbar == 'light', #eeeeee, themecolor(#363636));
+$menu:               if($headerbar == 'light', $base, $topbar);
 
-// Headerbar colors
-$headerbar_fg_color: if($headerbar =='dark', $darker_contrast_color, $fg_color);
-$secondary_headerbar_fg_color: if($headerbar =='dark', $secondary_inversed_fg_color, $secondary_fg_color);
-$disabled_headerbar_fg_color: if($headerbar =='dark', $disabled_secondary_inversed_fg_color, $disabled_fg_color);
-
-$headerbar_bg_color: #eeeeee;
-@if $headerbar =='dark' { $headerbar_bg_color: mix(theme(primary), #363636, $weight); }
-
-// Selected and Theme colors
-$primary_color: theme(primary);
-$alt_primary_color: lighten($primary_color, 5%);
-$accent_color: theme(accent);
-
-$theme_color: if($color == 'black', $dark_contrast_color, $primary_color);
-$alt_theme_color: if($color == 'black', $dark_contrast_color, $accent_color);
-
-$inverse_theme_color: if($color == 'black' and $variant =='dark', $dark_contrast_color, $primary_color);
-$alt_inverse_theme_color: if($color == 'black' and $variant =='dark', $dark_contrast_color, $accent_color);
-
-$topbar_theme_color: if($color == 'black' or $color =='white', $darker_contrast_color, $primary_color);
-$alt_topbar_theme_color: if($color == 'black' and $color =='white', $darker_contrast_color, $accent_color);
-
-$menu_bg_color: if($headerbar == 'light', $base_color, $headerbar_bg_color);
-$menu_fg_color: if($headerbar == 'light', $secondary_fg_color, $secondary_headerbar_fg_color);
-$disabled_menu_fg_color: rgba($menu_fg_color, 0.3);
-
-$tab_color: $inverse_theme_color;
-$secondary_titlebar_color: $primary_color;
-$topbar_bg_color: mix($primary_color, #222222, $weight);
-$topbar_fg_color: $dark_contrast_color;
-$alt_topbar_fg_color: $darker_contrast_color;
+// Theme colors
+$primary: primary();
+$accent: accent();
+$indicator: indicator();
 
 // Misc colors
-$track_color: gtkalpha(currentColor, $lower_opacity);
-$high_track_color: gtkalpha(currentColor, $disabled_opacity);
-$semi_track_color: gtkalpha(currentColor, $lower_opacity / 2);
-$zero_track_color: gtkalpha(currentColor, 0);
-$row_track_color: gtkalpha(currentColor, 0.05);
-$borders_color: if($variant == 'light', scale-alpha(#000000, 0.1), scale-alpha(#000000, 0.18));
-$solid_borders_color: if($variant == 'light', darken($bg_color, 10%), darken($bg_color, 2.5%));
-$darker_borders_color: if($variant == 'light', darken($bg_color, 15%), darken($bg_color, 3.5%));
-$highlight_color: if($variant == 'light', scale-alpha(#FFFFFF, 0.4), scale-alpha(#FFFFFF, 0.3));
-$secondary_highlight_color: scale-alpha(#FFFFFF, 0.1);
+$border:             if($variant == 'light', rgba(black, 0.12), rgba(black, 0.20));
+$border_solid:       if($variant == 'light', darken($background, 10%), darken($background, 2.5%));
+$highlight:          if($headerbar == 'light', rgba(white, 0.35), rgba(white, 0.1));
 
-$placeholder_text_color: mix($fg_color, $base_color, percentage($hint_opacity));
-$drop_target_color: #FF6D00;
-$warning_color: #FF6D00;
-$error_color: #DD2C00;
-$success_color: #00C853;
+$error:       #DD2C00;
+$warning:     #FF6D00;
+$success:     #00C853;
 
-$suggested_color: #4CAF50;
-$destructive_color: #FF5252;
+$suggested:   #4CAF50;
+$destructive: #FF5252;
 
-$info_bg_color: #66BB6A;
-$question_bg_color: #42A5F5;
-$warning_bg_color: #FFA726;
-$error_bg_color: #EF5350;
+$info:        #66BB6A;
+$question:    #42A5F5;
 
-$link_color: if($color == 'black' or $color == 'white', $question_bg_color, $primary_color);
-$link_visited_color: #E040FB;
+$link:        $theme_blue;
+$link_visited: #E040FB;
+
+// Overlay state colors
+$overlay_normal:                        gtkalpha(currentColor, 0.06);
+$overlay_hover:                         gtkalpha(currentColor, 0.1);
+$overlay_focus:                         gtkalpha(currentColor, 0.08);
+$overlay_focus_hover:                   gtkalpha(currentColor, 0.16);
+$overlay_active:                        gtkalpha(currentColor, 0.16);
+$overlay_checked:                       gtkalpha(currentColor, 0.12);
+$overlay_selected:                      gtkalpha(currentColor, 0.1);
+
+// Text and derivative colors
+$text:                                  on($background);
+$text_secondary:                        on($background, secondary);
+$text_disabled:                         on($background, disabled);
+$text_secondary_disabled:               on($background, secondary_disabled);
+$track:                                 on($background, track);
+$track_disabled:                        on($background, track_disabled);
+$divider:                               on($background, divider);
+$fill:                                  on($background, fill);

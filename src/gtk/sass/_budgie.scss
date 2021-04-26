@@ -8,31 +8,31 @@
 // this transparent..
 
 %budgie_button {
-  color: $alt_topbar_fg_color;
+  color: on($panel, secondary);
   background-color: transparent;
   box-shadow: none;
   &:hover {
-    color: $topbar_fg_color;
-    background-color: rgba($topbar_fg_color, 0.1);
+    color: on($topbar, secondary);
+    background-color: rgba(on($topbar, secondary), 0.1);
     box-shadow: none;
   }
   &:disabled {
-    color: rgba($topbar_fg_color, 0.5);
+    color: rgba(on($topbar, secondary), 0.5);
     background-color: transparent;
   }
   &:checked {
-    background-color: rgba($topbar_fg_color, 0.12);
-    color: $topbar_fg_color;
+    background-color: rgba(on($topbar, secondary), 0.12);
+    color: on($topbar, secondary);
     box-shadow: none;
   }
   &:active {
-    background-color: rgba($topbar_fg_color, 0.15);
-    color: $topbar_fg_color;
+    background-color: rgba(on($topbar, secondary), 0.15);
+    color: on($topbar, secondary);
     box-shadow: none;
   }
   &:checked:disabled {
-    background-color: rgba($topbar_fg_color, 0.06);
-    color: rgba($topbar_fg_color, 0.65);
+    background-color: rgba(on($topbar, secondary), 0.06);
+    color: rgba(on($topbar, secondary), 0.65);
     box-shadow: none;
   }
 }
@@ -89,10 +89,10 @@
 }
 
 .budgie-popover {
-  border-color: $lighter_bg_color;
-  border-radius: $md_radius + 1px;
-  box-shadow: $z-depth-2;
-  background-color: $lighter_bg_color;
+  border-color: $suface;
+  border-radius: $modal_radius + 1px;
+  box-shadow: $shadow_2;
+  background-color: $suface;
 
   .container { border: none; }
 
@@ -107,22 +107,22 @@
   }
 
   .linked.raised > button.toggle {
-    border-radius: $md_radius;
+    border-radius: $modal_radius;
   }
 
   .sidebar {
     min-height: 36px;
     background: none;
     border-right: none;
-    color: $fg_color;
+    color: $text;
 
-    list row.activatable { padding: $container_padding; }
+    list row.activatable { padding: $space_size; }
 
-    &:hover { background-color: rgba($fg_color, 0.05); }
+    &:hover { background-color: rgba($text, 0.05); }
 
     &:selected, &:selected:hover {
-      color: $inversed_fg_color;
-      background-color: $primary_color;
+      color: on($primary);
+      background-color: $primary;
     }
   }
 
@@ -132,8 +132,8 @@
     @extend %simple_flat_button;
 
     &:checked {
-      color: $inversed_fg_color;
-      background-color: $primary_color;
+      color: on($primary);
+      background-color: $primary;
     }
   }
 
@@ -153,12 +153,12 @@
   }
 
   &:not(.budgie-menu) button.flat:not(.image-button) {
-    min-height: $menuitem_size;
+    min-height: $item_size;
     padding: 0 8px;
-    color: $fg_color;
+    color: $text;
     font-weight: normal;
 
-    &:disabled { color: $disabled_fg_color; }
+    &:disabled { color: $text_disabled; }
   }
 
   &.budgie-menu {
@@ -189,7 +189,7 @@
     .places-list:not(.always-expand) {
       margin-top: 4px;
       padding-top: 4px;
-      border-top: 1px solid $borders_color;
+      border-top: 1px solid $border;
     }
 
     // I guess this really should be hard-coded as well as other dim-labels.
@@ -226,7 +226,7 @@ window.budgie-popover:not(.csd) {
 // FIXME: workspace has unnecessary/unknown margin
 .workspace-switcher {
   .workspace-layout {
-    border: 0 solid $borders_color;
+    border: 0 solid $border;
 
     .top &,
     .bottom & {
@@ -241,7 +241,7 @@ window.budgie-popover:not(.csd) {
 
   .workspace-item,
   .workspace-add-button {
-    border: 0 solid $borders_color;
+    border: 0 solid $border;
 
     .top &,
     .bottom & {
@@ -257,7 +257,7 @@ window.budgie-popover:not(.csd) {
   .workspace-item {
     transition: $shorter_transition;
 
-    &.current-workspace { background-color: gtkalpha(currentColor, 0.12); }
+    &.current-workspace { background-color: $overlay_active; }
   }
 
   .workspace-add-button {
@@ -284,23 +284,23 @@ window.budgie-popover:not(.csd) {
 .budgie-menu {
   &.background {
     padding: 0;
-    background-color: $base_color;
+    background-color: $base;
   }
 
   scrollbar,
   entry.search { background-color: transparent; }
 
   entry.search {
-    border-bottom: 1px solid $borders_color;
+    border-bottom: 1px solid $border;
     border-radius: 0;
     box-shadow: none;
     font-size: 120%;
   }
 
   .categories {
-    &:dir(ltr) { border-bottom-left-radius: $md_radius; }
+    &:dir(ltr) { border-bottom-left-radius: $modal_radius; }
 
-    &:dir(rtl) { border-bottom-right-radius: $md_radius; }
+    &:dir(rtl) { border-bottom-right-radius: $modal_radius; }
   }
 
   button {
@@ -309,14 +309,14 @@ window.budgie-popover:not(.csd) {
     min-height: 32px;
     padding: 0 8px;
     border-radius: 0;
-    color: $fg_color;
+    color: $text;
     font-weight: normal;
 
-    &:disabled { color: $disabled_fg_color; }
+    &:disabled { color: $text_disabled; }
 
     &:checked { @extend %selected_items; }
 
-    &:checked:disabled { background-color: $primary_color; } // overriding
+    &:checked:disabled { background-color: $primary; } // overriding
   }
 
   row {
@@ -384,7 +384,7 @@ popover.background.places-menu {
   .places-list {
     margin-top: 4px;
     padding-top: 4px;
-    border-top: 1px solid $borders_color;
+    border-top: 1px solid $border;
     background-color: transparent;
   }
 
@@ -407,11 +407,11 @@ popover.background.places-menu {
 // Panel
 .budgie-panel {
   transition: background-color $shorter_duration $deceleration_curve;
-  background-color: $topbar_bg_color;
-  color: $alt_topbar_fg_color;
+  background-color: $panel;
+  color: on($panel, secondary);
   font-weight: 500;
 
-  &.transparent { background-color: rgba($topbar_bg_color, 0.85); }
+  &.transparent { background-color: rgba($panel, 0.85); }
 
   button {
     @extend %budgie_button;
@@ -425,7 +425,7 @@ popover.background.places-menu {
 
   &.vertical button { padding: 4px 0; }
 
-  separator { background-color: $borders_color; }
+  separator { background-color: $border; }
 
   // Budgie styled Gtk Menus
   menubar,
@@ -433,21 +433,21 @@ popover.background.places-menu {
 
     > menuitem {
       border-radius: 0;
-      color: $alt_topbar_fg_color;
+      color: on($panel, secondary);
 
       &:hover {
-        color: $topbar_fg_color;
-        background-color: rgba($topbar_fg_color, 0.12);
-        box-shadow: inset 0 -3px $topbar_theme_color;
+        color: on($topbar, secondary);
+        background-color: rgba(on($topbar, secondary), 0.12);
+        box-shadow: inset 0 -3px indicator(light);
       }
       &:disabled {
-        color: transparentize($topbar_fg_color, 0.5);
+        color: transparentize(on($topbar, secondary), 0.5);
       }
     }
   }
 
   // used to indicate unread notifications
-  .alert { color: $destructive_color; }
+  .alert { color: $destructive; }
 
   // End Section needs to be fancy
   .end-region {
@@ -471,11 +471,11 @@ popover.background.places-menu {
 
     // for indicator colors
     &:not(:checked) {
-      color: rgba($topbar_fg_color, 0.5);
+      color: rgba(on($topbar, secondary), 0.5);
 
-      &:hover, &:active { color: rgba($topbar_fg_color, 0.7); }
+      &:hover, &:active { color: rgba(on($topbar, secondary), 0.7); }
 
-      &:disabled { color: rgba($topbar_fg_color, 0.3); }
+      &:disabled { color: rgba(on($topbar, secondary), 0.3); }
     }
   }
 }
@@ -488,14 +488,14 @@ popover.background.places-menu {
     .#{$pos} & {
       & {
         border-image: radial-gradient(circle closest-corner at #{$b_pos},
-                                      $topbar_theme_color 0%,
+                                      indicator(light) 0%,
                                       transparent 0%)
                                       0 0 0 0 / 0 0 0 0;
       }
 
       &:checked {
         border-image: radial-gradient(circle closest-corner at #{$b_pos},
-                                      $topbar_theme_color 100%,
+                                      indicator(light) 100%,
                                       transparent 0%)
                                       #{$b_wid};
       }
@@ -556,7 +556,7 @@ popover.background.places-menu {
     .pinned button.flat.launcher.running,
     .pinned button.launcher.running.sidebar-button {
       > image {
-        background-image: image($theme_color);
+        background-image: image($indicator);
         background-size: #{$_dot};
         background-position: #{$position} center;
       }
@@ -577,8 +577,8 @@ box.pinned { // drop-target
   &:drop(active) {
     border: none;
     border-radius: 0;
-    background-color: rgba($warning_bg_color, 0.2);
-    box-shadow: inset 0 0 0 1px $warning_bg_color;
+    background-color: rgba($warning, 0.2);
+    box-shadow: inset 0 0 0 1px $warning;
   }
 }
 
@@ -591,7 +591,7 @@ widget.icon-tasklist {
 
 *:drop(active):focus,
 *:drop(active) {
-    box-shadow: inset 0 0 0 1px $warning_bg_color;
+    box-shadow: inset 0 0 0 1px $warning;
 }
 
 frame.raven-frame > border {
@@ -603,11 +603,11 @@ $pos_list: ((top, bottom), (bottom, top), (left, right), (right, left));
 
 @each $pos, $b_pos in $pos_list {
   // Panel borders
-  // .#{$pos} .budgie-panel { border-#{$b_pos}: 1px solid $borders_color; }
+  // .#{$pos} .budgie-panel { border-#{$b_pos}: 1px solid $border; }
 
   // Raven borders
   // .#{$pos} frame.raven-frame > border {
-  //   border-#{$b_pos}: 1px solid $borders_color;
+  //   border-#{$b_pos}: 1px solid $border;
   // }
 
   // Shadows
@@ -616,10 +616,10 @@ $pos_list: ((top, bottom), (bottom, top), (left, right), (right, left));
 
 // Raven
 
-$stackswitcher_color: if($color == 'black' or $color == 'white', rgba(white, 0.65), $warning_bg_color);
+$stackswitcher_color: if($theme == 'black' or $theme == 'white', rgba(white, 0.65), $warning);
 
 .raven {
-  background-color: $lighter_bg_color;
+  background-color: $suface;
 
   // for >=10.4
   > box { margin-bottom: -10px; }
@@ -632,7 +632,7 @@ $stackswitcher_color: if($color == 'black' or $color == 'white', rgba(white, 0.6
   button.image-button { @extend %circular_button; }
 
   stackswitcher {
-    box-shadow: inset 0 -1px $borders_color;
+    box-shadow: inset 0 -1px $border;
 
     &.stack-switcher {
       background-image: none;
@@ -644,12 +644,12 @@ $stackswitcher_color: if($color == 'black' or $color == 'white', rgba(white, 0.6
       @extend %flat_button;
       border-radius: 0;
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    $primary_color 0%,
+                                    $primary 0%,
                                     transparent 0%)
                                     0 0 0 / 0 0 0px;
       &:checked {
         border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                      $primary_color 100%,
+                                      $primary 100%,
                                       transparent 0%)
                                       0 0 2 / 0 0 2px;
         background-color: transparent;
@@ -673,9 +673,9 @@ $stackswitcher_color: if($color == 'black' or $color == 'white', rgba(white, 0.6
 
     &.top {
       padding: 0;
-      // background-color: $headerbar_bg_color;
-      // color: $headerbar_fg_color;
-      box-shadow: inset 0 -1px $borders_color;
+      // background-color: $topbar;
+      // color: on($topbar);
+      box-shadow: inset 0 -1px $border;
 
       stackswitcher {
         box-shadow: none;
@@ -703,7 +703,7 @@ $stackswitcher_color: if($color == 'black' or $color == 'white', rgba(white, 0.6
       }
     }
 
-    &.bottom { border-top: 1px solid $borders_color; }
+    &.bottom { border-top: 1px solid $border; }
   }
 
   viewport.frame .raven-header { margin-top: -8px; }
@@ -713,15 +713,15 @@ $stackswitcher_color: if($color == 'black' or $color == 'white', rgba(white, 0.6
   .raven-background {
     border-style: solid none;
     border-width: 1px;
-    border-color: $borders_color;
-    background-color: $base_color;
+    border-color: $border;
+    background-color: $base;
 
     // &.middle { border-bottom-style: none; } // applet background between two headers
 
     // for <10.4
     &.frame { border-style: solid none; }
 
-    > overlay > widget > image { color: $semi_track_color; }
+    > overlay > widget > image { color: $track_disabled; }
 
     // for <10.4
     grid > label:first-child { min-height: $medium_size; } // workaround to fix vertical-align
@@ -738,8 +738,8 @@ $stackswitcher_color: if($color == 'black' or $color == 'white', rgba(white, 0.6
   // for <10.4
   .raven-header.top + .raven-background {
     border-style: none;
-    // background-color: $primary_color;
-    // color: $inversed_fg_color;
+    // background-color: $primary;
+    // color: on($primary);
 
     stackswitcher button { margin: -4px 0; }
   }
@@ -771,10 +771,10 @@ $stackswitcher_color: if($color == 'black' or $color == 'white', rgba(white, 0.6
     list.devices-list.sound-devices {
       > row.activatable {
         &:selected, &:checked {
-          background-color: rgba($fg_color, 0.06);
-          color: $fg_color;
+          background-color: rgba($text, 0.06);
+          color: $text;
 
-          label { color: $fg_color; }
+          label { color: $text; }
         }
 
         label { padding-left: 12px; }
@@ -792,14 +792,14 @@ calendar.raven-calendar {
 
   &:selected {
     border-radius: 3px;
-    background-color: $primary_color;
+    background-color: $primary;
   }
 }
 
 // MPRIS Applet
 .raven-mpris {
-  background-color: rgba(black, $middle_opacity);
-  color: $inversed_fg_color;
+  background-color: rgba(black, 0.6);
+  color: on($primary);
 
   label { min-height: 24px; }
 
@@ -823,7 +823,7 @@ box.vertical > stack > box.vertical {
       background-color: transparent;
 
       > grid > *, // legacy
-      > box.vertical * { color: $fg_color; }
+      > box.vertical * { color: $text; }
 
       image { padding-left: 8px; }
 
@@ -837,15 +837,15 @@ box.vertical > stack > box.vertical {
       // sub-list rows grouping
       list {
         border-radius: 2px;
-        border-top: 1px solid $borders_color;
-        border-bottom: 1px solid $borders_color;
+        border-top: 1px solid $border;
+        border-bottom: 1px solid $border;
 
         > row.activatable {
-          border-bottom: 1px solid $borders_color;
+          border-bottom: 1px solid $border;
           &:last-child { border-bottom: none; }
 
           &:selected {
-            background-color: rgba($fg_color, 0.06);
+            background-color: rgba($text, 0.06);
           }
 
           label { padding: 0 16px; }
@@ -861,7 +861,7 @@ box.vertical > stack > box.vertical {
       }
 
       &:selected {
-        background-color: rgba($primary_color, 0.75);
+        background-color: rgba($primary, 0.75);
 
         > grid > *,
         > box.vertical * { color: white; }
@@ -881,7 +881,7 @@ box.vertical > stack > box.vertical {
             &:last-child { border-bottom: none; }
 
             &:selected {
-              background-color: rgba($primary_color, 0.65);
+              background-color: rgba($primary, 0.65);
             }
           }
         }
@@ -929,8 +929,8 @@ box.vertical > stack > box.vertical {
   margin: 5px 9px;
   padding: 3px;
   border-radius: 2px;
-  box-shadow: $z-depth-2, inset 0 1px $highlight_color;
-  background-color: $lighter_bg_color;
+  box-shadow: $shadow_2, inset 0 1px $highlight;
+  background-color: $suface;
 
   button { @extend %simple_flat_button; }
 
@@ -939,7 +939,7 @@ box.vertical > stack > box.vertical {
 
 %budgie_dialog {
   border-radius: 2px;
-  background-color: $lighter_bg_color;
+  background-color: $suface;
 
   decoration { border-radius: 2px; }
 
@@ -948,7 +948,7 @@ box.vertical > stack > box.vertical {
 
   .linked.horizontal > button {
     padding: 8px 16px;
-    border-top: 1px solid $borders_color;
+    border-top: 1px solid $border;
     border-radius: 0;
 
     @extend %simple_flat_button;
@@ -957,8 +957,8 @@ box.vertical > stack > box.vertical {
     &:last-child { border-bottom-right-radius: 2px; }
   }
 
-  @each $b_type, $b_color in (suggested-action, $suggested_color),
-                             (destructive-action, $destructive_color) {
+  @each $b_type, $b_color in (suggested-action, $suggested),
+                             (destructive-action, $destructive) {
     .linked.horizontal > button.#{$b_type} {
 
       &, &:hover { color: $b_color; }
@@ -987,26 +987,26 @@ box.vertical > stack > box.vertical {
 .budgie-polkit-dialog {
   @extend %budgie_dialog;
 
-  .message { color: $tertiary_fg_color; }
-  .failure { color: $destructive_color; }
+  .message { color: $text_disabled; }
+  .failure { color: $destructive; }
 }
 
 // Run Dialog
 .budgie-run-dialog {
   @extend %budgie_dialog;
 
-  background-color: $base_color;
+  background-color: $base;
 
   entry.search {
     font-size: 120%;
-    padding: $container_padding 8px + $container_padding;
-    box-shadow: inset 0 1px $highlight_color;
+    padding: $space_size $space_size * 2;
+    box-shadow: inset 0 1px $highlight;
     background-color: transparent;
   }
 
   list .dim-label { opacity: 1; }
 
-  scrolledwindow { border-top: 1px solid $borders_color; }
+  scrolledwindow { border-top: 1px solid $border; }
 }
 
 // pixel-saver(?) applet
@@ -1018,16 +1018,16 @@ box.vertical > stack > box.vertical {
   box-shadow: none;
   border: none;
 
-  > widget > label { color: $inversed_fg_color; } // titles
+  > widget > label { color: on($primary); } // titles
 
   > button.image-button.titlebutton {
     min-width: 16px;
     min-height: 16px;
     padding: 0 0;
-    margin: 0 $container_padding;
+    margin: 0 $space_size;
     background: none;
     box-shadow: none;
-    color: $inversed_fg_color;
+    color: on($primary);
 
     image {
       border-radius: 100px;
@@ -1041,24 +1041,24 @@ box.vertical > stack > box.vertical {
     &:active {
       background: none;
       box-shadow: none;
-      color: $inversed_fg_color;
+      color: on($primary);
       animation: none;
 
       image { -gtk-icon-shadow: none; }
     }
 
     &.close {
-      &:hover image { background-image: image($destructive_color); }
-      &:active image { background-image: image(darken($destructive_color, 10%)); }
+      &:hover image { background-image: image($destructive); }
+      &:active image { background-image: image(darken($destructive, 10%)); }
     }
 
     &:not(.close) {
       &:hover image {
-        background-image: image(rgba($inversed_fg_color, 0.2));
+        background-image: image(rgba(on($primary), 0.2));
       }
 
       &:active image {
-        background-image: image($primary_color);
+        background-image: image($primary);
       }
     }
 

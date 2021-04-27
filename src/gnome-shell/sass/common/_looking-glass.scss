@@ -29,17 +29,18 @@
     min-height: $item_size;
     padding: 0 32px;
     transition-duration: 100ms;
+    border-bottom-width: 0;
 
     &:hover {
-      box-shadow: inset 0 -2px 0px $track;
+      background-color: $fill;
       color: $text;
       text-shadow: none;
     }
+
     &:selected {
-      border-bottom-width: 0;
       border-color: transparent;
-      background-color: $background;
-      box-shadow: inset 0 -2px 0px on(black, secondary);
+      background-color: $divider;
+      box-shadow: inset 0 -2px 0px $indicator;
       color: $text;
       text-shadow: none;
     }
@@ -79,22 +80,24 @@
   padding: 0 16px;
   border: none;
   border-radius: $base_radius;
+  @extend %flat_button;
 
   &:hover { border: none; }
 }
 
 // Extensions
-#lookingGlassExtensions { padding: 4px; }
+#lookingGlassExtensions { padding: $base_padding; }
 
 .lg-extensions-list {
-  padding: 4px;
-  spacing: 6px;
+  padding: $base_padding;
+  spacing: $base_padding;
 }
 
 .lg-extension {
   border: none;
   border-radius: $base_radius;
-  padding: 4px;
+  background-color: $background;
+  padding: $base_padding * 2;
 }
 
 .lg-extension-name {
@@ -107,9 +110,11 @@
 
 // Inspector
 #LookingGlassPropertyInspector {
+  color: $text_secondary;
   background: $base;
   border: none;
   border-radius: $base_radius;
   padding: $base_padding;
+  margin: 5px 8px 11px;
   box-shadow: 0 3px 8px 0 rgba(black, 0.25);
 }

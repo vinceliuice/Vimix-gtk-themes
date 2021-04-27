@@ -3115,15 +3115,50 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   text-align: center;
 }
 
-#dashtodockContainer.straight-corner #dash .dash-background, #dashtodockContainer.shrink.straight-corner #dash .dash-background {
+#dashtodockContainer.straight-corner #dash, #dashtodockContainer.shrink.straight-corner #dash {
   border-radius: 0;
   margin: 0;
 }
 
-#dashtodockContainer.extended #dash .dash-background {
-  border: none;
-  padding: 0;
+#dashtodockContainer.straight-corner #dash .dash-background, #dashtodockContainer.shrink.straight-corner #dash .dash-background {
   border-radius: 0;
+}
+
+#dashtodockContainer.extended.top #dash, #dashtodockContainer.extended.bottom #dash, #dashtodockContainer.extended.right #dash, #dashtodockContainer.extended.left #dash {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0 0;
+}
+
+#dashtodockContainer.extended.top #dash .dash-background, #dashtodockContainer.extended.bottom #dash .dash-background, #dashtodockContainer.extended.right #dash .dash-background, #dashtodockContainer.extended.left #dash .dash-background {
+  border-radius: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#dashtodockContainer.left #dash, #dashtodockContainer.right #dash {
+  margin-top: 0;
+  padding: 10px 0;
+}
+
+#dashtodockContainer.left #dash .dash-background, #dashtodockContainer.right #dash .dash-background {
+  margin-bottom: 0;
+}
+
+#dashtodockContainer.left .dash-item-container .app-well-app, #dashtodockContainer.left .show-apps, #dashtodockContainer.right .dash-item-container .app-well-app, #dashtodockContainer.right .show-apps {
+  padding: 5px;
+}
+
+#dashtodockContainer.left #dash {
+  margin-left: 4px;
+}
+
+#dashtodockContainer.right #dash {
+  margin-right: 4px;
 }
 
 #dashtodockContainer.dashtodock #dash .dash-background {
@@ -3174,7 +3209,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 #dashtodockContainer .app-well-app .overview-icon,
 #dashtodockContainer .show-apps .overview-icon {
-  padding: 8px;
+  padding: 4px;
   background-size: contain;
 }
 

@@ -12,6 +12,8 @@ fi
 REO_DIR=$(cd $(dirname $0) && pwd)
 SRC_DIR=${REO_DIR}/src
 
+SASSC_OPT="-M -t expanded"
+
 THEME_NAME=vimix
 COLOR_VARIANTS=('' '-light' '-dark')
 SIZE_VARIANTS=('' '-laptop')
@@ -39,7 +41,7 @@ usage() {
   printf "  %-25s%s\n" "-t, --theme VARIANTS" "Specify hue theme variant(s) [standard|doder|beryl|ruby|amethyst] (Default: doder)"
   printf "  %-25s%s\n" "-s, --size VARIANTS" "Specify theme size variant(s) [standard|laptop] (Default: All variants)"
   printf "  %-25s%s\n" "-f, --flat" "Specify theme with flat and normal titlebutton style"
-  printf "  %-25s%s\n" "-o, --no-color" "Use grey titlebuttons in standard variants"
+  printf "  %-25s%s\n" "-g, --grey" "Use grey titlebuttons in standard variants"
   printf "  %-25s%s\n" "-h, --help" "Show this help"
 }
 
@@ -97,34 +99,56 @@ install() {
   mkdir -p                                                                              ${THEME_DIR}/gtk-3.0/assets
   cp -r ${SRC_DIR}/gtk/assets/assets${theme}/*.png                                      ${THEME_DIR}/gtk-3.0/assets
 
-  [[ ${no_color} == '' ]] && \
-  cp -r ${SRC_DIR}/gtk/assets/window-assets                                             ${THEME_DIR}/gtk-3.0/assets
-
-  [[ ${theme} == '' && ${no_color} == 'true' ]] && \
-  cp -r ${SRC_DIR}/gtk/assets/window-assets-contrast                                    ${THEME_DIR}/gtk-3.0/assets/window-assets
+  if [[ ${flat} != 'true' ]]; then
+    if [[ ${grey} == 'true' ]] && [[ ${theme} == '' ]]; then
+      cp -r ${SRC_DIR}/gtk/assets/window-assets-contrast                                ${THEME_DIR}/gtk-3.0/assets/window-assets
+    else
+      cp -r ${SRC_DIR}/gtk/assets/window-assets                                         ${THEME_DIR}/gtk-3.0/assets
+    fi
+  fi
 
   cp -r ${SRC_DIR}/gtk/assets/scalable                                                  ${THEME_DIR}/gtk-3.0/assets
-  cp -r ${SRC_DIR}/gtk/3.0/gtk${color}${size}${theme}.css                               ${THEME_DIR}/gtk-3.0/gtk.css
 
-  [[ ${color} != '-dark' ]] && \
-  cp -r ${SRC_DIR}/gtk/3.0/gtk-dark${size}${theme}.css                                  ${THEME_DIR}/gtk-3.0/gtk-dark.css
+  if [[ ${flat} == 'true' ]]; then
+    sassc $SASSC_OPT ${SRC_DIR}/gtk/3.0/gtk${color}${size}${theme}.scss                 ${THEME_DIR}/gtk-3.0/gtk.css
+
+    [[ ${color} != '-dark' ]] && \
+    sassc $SASSC_OPT ${SRC_DIR}/gtk/3.0/gtk-dark${size}${theme}.scss                    ${THEME_DIR}/gtk-3.0/gtk-dark.css
+  else
+    cp -r ${SRC_DIR}/gtk/3.0/gtk${color}${size}${theme}.css                             ${THEME_DIR}/gtk-3.0/gtk.css
+
+    [[ ${color} != '-dark' ]] && \
+    cp -r ${SRC_DIR}/gtk/3.0/gtk-dark${size}${theme}.css                                ${THEME_DIR}/gtk-3.0/gtk-dark.css
+  fi
+
   cp -r ${SRC_DIR}/gtk/assets/thumbnails/thumbnail${color}${theme}.png                  ${THEME_DIR}/gtk-3.0/thumbnail.png
 
   #  Install gtk4 theme
   mkdir -p                                                                              ${THEME_DIR}/gtk-4.0/assets
   cp -r ${SRC_DIR}/gtk/assets/assets${theme}/*.png                                      ${THEME_DIR}/gtk-4.0/assets
 
-  [[ ${no_color} == '' ]] && \
-  cp -r ${SRC_DIR}/gtk/assets/window-assets                                             ${THEME_DIR}/gtk-4.0/assets
-
-  [[ ${theme} == '' && ${no_color} == 'true' ]] && \
-  cp -r ${SRC_DIR}/gtk/assets/window-assets-contrast                                    ${THEME_DIR}/gtk-4.0/assets/window-assets
+  if [[ ${flat} != 'true' ]]; then
+    if [[ ${grey} == 'true' ]] && [[ ${theme} == '' ]]; then
+      cp -r ${SRC_DIR}/gtk/assets/window-assets-contrast                                ${THEME_DIR}/gtk-4.0/assets/window-assets
+    else
+      cp -r ${SRC_DIR}/gtk/assets/window-assets                                         ${THEME_DIR}/gtk-4.0/assets
+    fi
+  fi
 
   cp -r ${SRC_DIR}/gtk/assets/scalable                                                  ${THEME_DIR}/gtk-4.0/assets
-  cp -r ${SRC_DIR}/gtk/4.0/gtk${color}${size}${theme}.css                               ${THEME_DIR}/gtk-4.0/gtk.css
 
-  [[ ${color} != '-dark' ]] && \
-  cp -r ${SRC_DIR}/gtk/4.0/gtk-dark${size}${theme}.css                                  ${THEME_DIR}/gtk-4.0/gtk-dark.css
+  if [[ ${flat} == 'true' ]]; then
+    sassc $SASSC_OPT ${SRC_DIR}/gtk/4.0/gtk${color}${size}${theme}.scss                 ${THEME_DIR}/gtk-4.0/gtk.css
+
+    [[ ${color} != '-dark' ]] && \
+    sassc $SASSC_OPT ${SRC_DIR}/gtk/4.0/gtk-dark${size}${theme}.scss                    ${THEME_DIR}/gtk-4.0/gtk-dark.css
+  else
+    cp -r ${SRC_DIR}/gtk/4.0/gtk${color}${size}${theme}.css                             ${THEME_DIR}/gtk-4.0/gtk.css
+
+    [[ ${color} != '-dark' ]] && \
+    cp -r ${SRC_DIR}/gtk/4.0/gtk-dark${size}${theme}.css                                ${THEME_DIR}/gtk-4.0/gtk-dark.css
+  fi
+
   cp -r ${SRC_DIR}/gtk/assets/thumbnails/thumbnail${color}${theme}.png                  ${THEME_DIR}/gtk-4.0/thumbnail.png
 
   #  Install gnome-shell theme
@@ -160,10 +184,10 @@ install() {
   mkdir -p                                                                              ${THEME_DIR}/xfwm4
   cp -r ${SRC_DIR}/xfwm4/themerc${color}                                                ${THEME_DIR}/xfwm4/themerc
 
-  [[ ${no_color} == '' ]] && \
+  [[ ${grey} == '' ]] && \
   cp -r ${SRC_DIR}/xfwm4/assets${color}${theme}/*.png                                   ${THEME_DIR}/xfwm4
 
-  [[ ${theme} == '' && ${no_color} == 'true' ]] && \
+  [[ ${theme} == '' && ${grey} == 'true' ]] && \
   cp -r ${SRC_DIR}/xfwm4/assets${color}-contrast/*.png                                  ${THEME_DIR}/xfwm4
 
   #  Install unity theme
@@ -222,29 +246,18 @@ install_theme() {
   done
 }
 
-#  Install flat version theme
 install_flat() {
-  OLD_TITLE_1="@extend %titlebuttons;"
-  OLD_TITLE_2="@extend %solid_titlebuttons;"
-  OLD_TITLE_3="@extend %windows_button;"
-  NEW_TITLE=""
-
-  ##  change titlebutton style
-  cd ${SRC_DIR}/gtk-3.0/sass
-  cp -an _common.scss _common.scss.bak
-  cp -an _apps.scss _apps.scss.bak
-  sed -i "s/$OLD_TITLE_1/$NEW_TITLE/g" _common.scss
-  sed -i "s/$OLD_TITLE_2/$NEW_TITLE/g" _common.scss
-  sed -i "s/$OLD_TITLE_3/$NEW_TITLE/g" _apps.scss
+  cd ${SRC_DIR}/gtk/sass
+  cp -an _tweaks.scss _tweaks.scss.bak
+  sed -i "/\$titlebutton:/s/default/flat/" _tweaks.scss
+  echo -e "Install flat version ..."
 }
 
 restore_flat() {
-  cd ${SRC_DIR}/gtk-3.0/sass
-  [[ -d _apps.scss.bak ]] && rm -rf _apps.scss
-  [[ -d _common.scss.bak ]] && rm -rf _common.scss
-  mv _apps.scss.bak _apps.scss
-  mv _common.scss.bak _common.scss
-  echo -e "Restore scss files ..."
+  cd ${SRC_DIR}/gtk/sass
+  [[ -f _tweaks.scss.bak ]] && rm -rf _tweaks.scss
+  mv _tweaks.scss.bak _tweaks.scss
+  echo -e "Restore _tweaks.scss file ..."
 }
 
 while [ $# -gt 0 ]; do
@@ -269,8 +282,8 @@ while [ $# -gt 0 ]; do
       flat="true"
       shift 1
       ;;
-    -o|--nocolor)
-      no_color="true"
+    -g|--grey)
+      grey="true"
       shift 1
       ;;
     -t|--theme)
@@ -398,7 +411,7 @@ while [ $# -gt 0 ]; do
 done
 
 if [[ "${flat}" == 'true' ]]; then
-  install_package && install_flat && parse_sass && install_theme && restore_flat && parse_sass
+  install_package && install_flat && install_theme && restore_flat
 fi
 
 if [[ "${flat}" != 'true' ]]; then

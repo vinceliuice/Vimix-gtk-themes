@@ -7,9 +7,6 @@ $theme_grey:       #666666;
 $theme_base:       if($variant == 'light', #FFFFFF, #333333);
 $theme_background: if($variant == 'light', #F2F2F2, #282828);
 
-$weight: 3%; // theme color weight
-$mixstate: default;
-
 @function gtkalpha($c, $a) {
   @return unquote("alpha(#{$c}, #{$a})");
 }

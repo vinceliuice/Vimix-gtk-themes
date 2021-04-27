@@ -1366,11 +1366,12 @@ window.background:not(.csd) {
   // until upstream stops rendering useless (weird) icons
   headerbar.titlebar {
     border-radius: 0 0 0 0;
-
+    @if $titlebutton == 'defult' {
     &.default-decoration {
       button.titlebutton {
         @extend %windows_button;
       }
+    }
     }
   }
 
@@ -2371,3 +2372,21 @@ menuitem calendar .view {
   color: on($menu, secondary);
   padding: 2px $space_size;
 }
+
+//
+// Kooha
+//
+headerbar.flat {
+  background: none;
+  color: $text;
+  border: none;
+  box-shadow: none;
+
+  button:not(.close):not(.maximize):not(.minimize):not(:hover):not(:active):not(:checked) {
+    &, image, label { color: $text_secondary; }
+  }
+}
+
+// stackswitcher.tall {
+//   margin-top: $space_size;
+// }

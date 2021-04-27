@@ -1858,7 +1858,7 @@ menu,
     padding: 4px;
     border-radius: 0;
     background-color: $menu;
-    color: on($topbar, secondary);
+    color: on($menu, secondary);
 
     &.top {
       margin-top: -4px;
@@ -1874,7 +1874,7 @@ menu,
 
     &:hover {
       background-image: image(gtkalpha(currentColor, 0.3 / 2));
-      color: on($topbar);
+      color: on($menu);
     }
 
     &:disabled {

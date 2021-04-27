@@ -224,28 +224,28 @@ StWidget.focused .app-well-app-running-dot {
   background-color: #FFFFFF;
 }
 
-.candidate-page-button, .modal-dialog-linked-button, .popup-menu .button {
+.lg-obj-inspector-button, .candidate-page-button, .modal-dialog-linked-button, .popup-menu .button {
   color: rgba(0, 0, 0, 0.87);
   background-color: transparent;
 }
 
-.candidate-page-button:focus, .modal-dialog-linked-button:focus, .popup-menu .button:focus {
+.lg-obj-inspector-button:focus, .candidate-page-button:focus, .modal-dialog-linked-button:focus, .popup-menu .button:focus {
   color: rgba(0, 0, 0, 0.87);
   background-color: rgba(0, 0, 0, 0.08);
   box-shadow: none;
 }
 
-.candidate-page-button:hover, .modal-dialog-linked-button:hover, .popup-menu .button:hover {
+.lg-obj-inspector-button:hover, .candidate-page-button:hover, .modal-dialog-linked-button:hover, .popup-menu .button:hover {
   color: rgba(0, 0, 0, 0.87);
   background-color: rgba(0, 0, 0, 0.12);
 }
 
-.candidate-page-button:active, .modal-dialog-linked-button:active, .popup-menu .button:active {
+.lg-obj-inspector-button:active, .candidate-page-button:active, .modal-dialog-linked-button:active, .popup-menu .button:active {
   color: rgba(0, 0, 0, 0.87);
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.candidate-page-button:insensitive, .modal-dialog-linked-button:insensitive, .popup-menu .button:insensitive {
+.lg-obj-inspector-button:insensitive, .candidate-page-button:insensitive, .modal-dialog-linked-button:insensitive, .popup-menu .button:insensitive {
   background-color: transparent;
   color: rgba(0, 0, 0, 0.35);
 }
@@ -1546,19 +1546,19 @@ StEntry StLabel.hint-text {
   min-height: 32px;
   padding: 0 32px;
   transition-duration: 100ms;
+  border-bottom-width: 0;
 }
 
 #LookingGlassDialog .notebook-tab:hover {
-  box-shadow: inset 0 -2px 0px rgba(0, 0, 0, 0.26);
+  background-color: rgba(0, 0, 0, 0.05);
   color: rgba(0, 0, 0, 0.87);
   text-shadow: none;
 }
 
 #LookingGlassDialog .notebook-tab:selected {
-  border-bottom-width: 0;
   border-color: transparent;
-  background-color: #F2F2F2;
-  box-shadow: inset 0 -2px 0px rgba(255, 255, 255, 0.7);
+  background-color: rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 -2px 0px #F0544C;
   color: rgba(0, 0, 0, 0.87);
   text-shadow: none;
 }
@@ -1622,18 +1622,19 @@ StEntry StLabel.hint-text {
 }
 
 #lookingGlassExtensions {
-  padding: 4px;
+  padding: 6px;
 }
 
 .lg-extensions-list {
-  padding: 4px;
+  padding: 6px;
   spacing: 6px;
 }
 
 .lg-extension {
   border: none;
   border-radius: 2px;
-  padding: 4px;
+  background-color: #F2F2F2;
+  padding: 12px;
 }
 
 .lg-extension-name {
@@ -1645,10 +1646,12 @@ StEntry StLabel.hint-text {
 }
 
 #LookingGlassPropertyInspector {
+  color: rgba(0, 0, 0, 0.6);
   background: #FFFFFF;
   border: none;
   border-radius: 2px;
   padding: 6px;
+  margin: 5px 8px 11px;
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.25);
 }
 

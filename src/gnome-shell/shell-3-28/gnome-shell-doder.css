@@ -2187,12 +2187,12 @@ StEntry StLabel.hint-text {
 
 #panel .panel-button:hover {
   color: white;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.08);
   box-shadow: none;
 }
 
 #panel .panel-button:active, #panel .panel-button:active:hover, #panel .panel-button:overview, #panel .panel-button:overview:hover, #panel .panel-button:focus, #panel .panel-button:focus:hover, #panel .panel-button:checked, #panel .panel-button:checked:hover {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(255, 255, 255, 0.15);
   color: white;
   box-shadow: inset 0 -2px #4285F4;
   border: none;
@@ -2568,6 +2568,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   padding: 2px 12px;
   border-color: transparent;
   color: rgba(255, 255, 255, 0.7);
+  border-radius: 5px 5px 0 0 !important;
+  transition-duration: 150ms;
   caret-color: rgba(255, 255, 255, 0.7);
   selection-background-color: rgba(255, 255, 255, 0.3);
   selected-color: white;
@@ -2576,7 +2578,6 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   border: none;
   box-shadow: inset 0 -1px rgba(255, 255, 255, 0.15);
   color: rgba(255, 255, 255, 0.7);
-  border-radius: 3px 3px 0 0 !important;
 }
 
 .app-folder-dialog .folder-name-container .folder-name-entry:hover, .search-entry:hover {

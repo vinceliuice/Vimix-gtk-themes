@@ -1,6 +1,7 @@
 /* Slider */
 
 $slide_active_color: if($variant == 'dark' and $theme == 'black', rgba(white, 0.85), $primary);
+$slide_size: if($laptop == 'false', 7px, 6px);
 
 .slider {
   height: 20px;
@@ -12,7 +13,7 @@ $slide_active_color: if($variant == 'dark' and $theme == 'black', rgba(white, 0.
   -slider-active-background-color: $slide_active_color; //active trough fill
   -slider-active-border-color: transparent; //active trough border
   -slider-border-width: 0;
-  -slider-handle-radius: 7px;
+  -slider-handle-radius: $slide_size;
   -slider-handle-border-width: 0;
   -slider-handle-border-color: $border;
 

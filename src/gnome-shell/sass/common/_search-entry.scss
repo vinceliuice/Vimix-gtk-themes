@@ -5,11 +5,12 @@
   padding: 2px $base_padding * 2;
   border-color: transparent;
   color: on(black, secondary);
+  border-radius: $window_radius $window_radius 0 0 !important;
+  transition-duration: 150ms;
   caret-color: on(black, secondary);
   selection-background-color: on(black, track);
   selected-color: on(black);
   @include entry(flat-normal, $bc:on(black, fill), $tc:on(black, secondary));
-  border-radius: $menu_radius $menu_radius 0 0 !important;
 
   &:hover {
     @include entry(flat-hover, $bc:on(black, fill), $tc:on(black, secondary));

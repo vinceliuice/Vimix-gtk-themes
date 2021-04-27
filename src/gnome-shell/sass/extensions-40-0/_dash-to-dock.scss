@@ -35,17 +35,61 @@
     text-align: center;
   }
 
-  &.straight-corner #dash .dash-background,
-  &.shrink.straight-corner #dash .dash-background {
+  &.straight-corner #dash,
+  &.shrink.straight-corner #dash {
     border-radius: 0;
     margin: 0;
+
+    .dash-background {
+      border-radius: 0;
+    }
   }
 
-  &.extended #dash .dash-background {
-    border: none;
-    padding: 0;
-    border-radius: 0;
+  &.extended.top,
+  &.extended.bottom,
+  &.extended.right,
+  &.extended.left {
+    #dash {
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding: 0 0;
+
+      .dash-background {
+        border-radius: 0;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
   }
+
+  &.left,
+  &.right {
+    #dash {
+      margin-top: 0;
+      padding: $dash_padding 0;
+
+      .dash-background { // default-mode
+        margin-bottom: 0;
+      }
+    }
+
+    .dash-item-container .app-well-app, .show-apps {
+      padding: $dash_padding / 2;
+    }
+  }
+
+  &.left #dash {
+    margin-left: $base_padding;
+  }
+
+  &.right #dash {
+    margin-right: $base_padding;
+  }
+
 
   &.dashtodock #dash .dash-background { background-color: $panel; }
 
@@ -107,7 +151,7 @@
   .app-well-app,
   .show-apps {
     .overview-icon {
-      padding: 8px;
+      padding: $base_padding;
       background-size: contain;
     }
   }

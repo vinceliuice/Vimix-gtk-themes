@@ -100,7 +100,7 @@ install() {
   cp -r ${SRC_DIR}/gtk/assets/assets${theme}/*.png                                      ${THEME_DIR}/gtk-3.0/assets
 
   if [[ ${flat} != 'true' ]]; then
-    if [[ ${grey} == 'true' ]] && [[ ${theme} == '' ]]; then
+    if [[ ${grey} == 'true' ]]; then
       cp -r ${SRC_DIR}/gtk/assets/window-assets-contrast                                ${THEME_DIR}/gtk-3.0/assets/window-assets
     else
       cp -r ${SRC_DIR}/gtk/assets/window-assets                                         ${THEME_DIR}/gtk-3.0/assets
@@ -128,7 +128,7 @@ install() {
   cp -r ${SRC_DIR}/gtk/assets/assets${theme}/*.png                                      ${THEME_DIR}/gtk-4.0/assets
 
   if [[ ${flat} != 'true' ]]; then
-    if [[ ${grey} == 'true' ]] && [[ ${theme} == '' ]]; then
+    if [[ ${grey} == 'true' ]]; then
       cp -r ${SRC_DIR}/gtk/assets/window-assets-contrast                                ${THEME_DIR}/gtk-4.0/assets/window-assets
     else
       cp -r ${SRC_DIR}/gtk/assets/window-assets                                         ${THEME_DIR}/gtk-4.0/assets

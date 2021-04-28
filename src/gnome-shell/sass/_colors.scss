@@ -9,8 +9,8 @@
 //
 
 $primary:                               primary();
-$base:                                  themecolor($theme_base, $mixstate);
-$background:                            themecolor($theme_background, $mixstate);
+$base:                                  themecolor($theme-base, $mixstate);
+$background:                            themecolor($theme-background, $mixstate);
 $popover:                               if($variant == 'light', $base, $base);
 
 $osd:                                   themecolor(#202020, $mixstate);

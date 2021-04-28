@@ -101,22 +101,21 @@
   border: none;
   box-shadow: none;
   background-color: transparent;
-  padding: $base_padding !important;
+  padding: 0 $base_padding !important;
   margin: 0 !important;
   text-shadow: none;
   border-radius: $menu_radius;
 
   // month
   .calendar-month-label {
-    margin: 0;
     padding: $base_padding 0;
     color: $text-secondary;
     font-weight: bold;
     text-align: center;
     text-shadow: none;
-    @include fontsize($font_size + 2);
+    @include fontsize($font_size + 1);
 
-    &:focus { background-color: $divider; }
+    &:focus {}
   }
 
   // prev/next month icons
@@ -126,7 +125,7 @@
     margin: ($base_padding / 2) 0 !important;
 
     StIcon {
-      icon-size: $base_icon_size !important;
+      icon-size: $base_icon_size;
     }
   }
 
@@ -142,12 +141,12 @@
   }
 
   .calendar-day-base {
-    @include fontsize($font_size - 2);
+    @include fontsize($font_size - 1);
     text-align: center;
     width: $item_size + 2px;
     height: $item_size + 2px;
-    padding: 0 !important;
-    margin: 1px !important;
+    padding: 0;
+    margin: 2px;
     border-radius: $circular_radius;
     color: $text-secondary;
     border: none;
@@ -155,13 +154,7 @@
 
     &:hover, &:focus { background-color: $divider; }
 
-    &:active {
-      color: $text;
-      background-color: $track;
-      border-color: transparent; //avoid jumparound due to today
-    }
-
-    &:selected {
+    &:active, &:selected {
       color: $text;
       background-color: $track;
       border-color: transparent; //avoid jumparound due to today
@@ -169,12 +162,8 @@
 
     &.calendar-day-heading {  //day of week heading
       margin-top: 1em;
-      border-radius: $circular_radius;
-      background-color: transparent;
       color: $text-disabled;
-      @include fontsize($font_size - 2);
-      font-weight: bold;
-      text-align: center;
+      @include fontsize($font_size - 1);
     }
   }
 
@@ -190,7 +179,7 @@
     border-left-width: 0;
   }
 
-  // .calendar-work-day {}
+  .calendar-work-day {}
 
   .calendar-nonwork-day {
     color: $text-disabled;
@@ -241,12 +230,12 @@
   }
 
   .calendar-week-number {
-    width: 22px;
-    height: 16px;
-    margin: $base_padding $base_margin !important;
+    width: $item_size - 6px;
+    height: $item_size - 12px;
+    margin: 6px $base_margin/2 !important;
     padding: 0 0;
     border-radius: $base_radius;
-    background-color: $divider;
+    background-color: $fill;
     color: $text-disabled;
     font-size: inherit;
     font-weight: bold;

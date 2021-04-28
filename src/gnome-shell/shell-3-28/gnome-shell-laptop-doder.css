@@ -372,24 +372,19 @@ StWidget.focused .app-well-app-running-dot {
   border: none;
   box-shadow: none;
   background-color: transparent;
-  padding: 4px !important;
+  padding: 0 4px !important;
   margin: 0 !important;
   text-shadow: none;
   border-radius: 3px;
 }
 
 .calendar .calendar-month-label {
-  margin: 0;
   padding: 4px 0;
   color: rgba(0, 0, 0, 0.6);
   font-weight: bold;
   text-align: center;
   text-shadow: none;
-  font-size: 12pt;
-}
-
-.calendar .calendar-month-label:focus {
-  background-color: rgba(0, 0, 0, 0.12);
+  font-size: 11pt;
 }
 
 .calendar .calendar-change-month-back,
@@ -400,7 +395,7 @@ StWidget.focused .app-well-app-running-dot {
 
 .calendar .calendar-change-month-back StIcon,
 .calendar .calendar-change-month-forward StIcon {
-  icon-size: 16px !important;
+  icon-size: 16px;
 }
 
 .calendar .pager-button {
@@ -421,12 +416,12 @@ StWidget.focused .app-well-app-running-dot {
 }
 
 .calendar .calendar-day-base {
-  font-size: 8pt;
+  font-size: 9pt;
   text-align: center;
   width: 30px;
   height: 30px;
-  padding: 0 !important;
-  margin: 1px !important;
+  padding: 0;
+  margin: 2px;
   border-radius: 9999px;
   color: rgba(0, 0, 0, 0.6);
   border: none;
@@ -437,13 +432,7 @@ StWidget.focused .app-well-app-running-dot {
   background-color: rgba(0, 0, 0, 0.12);
 }
 
-.calendar .calendar-day-base:active {
-  color: rgba(0, 0, 0, 0.87);
-  background-color: rgba(0, 0, 0, 0.26);
-  border-color: transparent;
-}
-
-.calendar .calendar-day-base:selected {
+.calendar .calendar-day-base:active, .calendar .calendar-day-base:selected {
   color: rgba(0, 0, 0, 0.87);
   background-color: rgba(0, 0, 0, 0.26);
   border-color: transparent;
@@ -451,12 +440,8 @@ StWidget.focused .app-well-app-running-dot {
 
 .calendar .calendar-day-base.calendar-day-heading {
   margin-top: 1em;
-  border-radius: 9999px;
-  background-color: transparent;
   color: rgba(0, 0, 0, 0.38);
-  font-size: 8pt;
-  font-weight: bold;
-  text-align: center;
+  font-size: 9pt;
 }
 
 .calendar .calendar-day {
@@ -521,10 +506,10 @@ StWidget.focused .app-well-app-running-dot {
 .calendar .calendar-week-number {
   width: 22px;
   height: 16px;
-  margin: 4px 3px !important;
+  margin: 6px 1.5px !important;
   padding: 0 0;
   border-radius: 2px;
-  background-color: rgba(0, 0, 0, 0.12);
+  background-color: rgba(0, 0, 0, 0.05);
   color: rgba(0, 0, 0, 0.38);
   font-size: inherit;
   font-weight: bold;
@@ -2427,7 +2412,7 @@ StEntry StLabel.hint-text {
 }
 
 .aggregate-menu {
-  min-width: 19em;
+  min-width: 20em;
 }
 
 .aggregate-menu .popup-menu-icon {

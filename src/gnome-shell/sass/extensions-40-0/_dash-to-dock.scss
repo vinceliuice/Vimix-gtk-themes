@@ -78,7 +78,7 @@
     }
 
     .dash-item-container .app-well-app, .show-apps {
-      padding: $dash_padding / 2;
+      padding: $base_padding;
     }
   }
 
@@ -89,7 +89,6 @@
   &.right #dash {
     margin-right: $base_padding;
   }
-
 
   &.dashtodock #dash .dash-background { background-color: $panel; }
 
@@ -145,14 +144,6 @@
   &.dashtodock {
     .dash-item-container > StButton {
        padding: 1px 2px;
-    }
-  }
-
-  .app-well-app,
-  .show-apps {
-    .overview-icon {
-      padding: $base_padding;
-      background-size: contain;
     }
   }
 

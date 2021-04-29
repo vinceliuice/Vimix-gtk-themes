@@ -50,7 +50,7 @@ Usage:  `./install.sh`  **[OPTIONS...]**
 | -t, --theme    | Specify hue theme variant(s) **[standard/doder/beryl/ruby/amethyst]** (Default: doder) |
 | -s, --size     | Specify theme size variant(s) **[standard/laptop]** (Default: All variants) |
 | -f, --flat     | Specify theme with flat and normal titlebutton style |
-| -o, --no-color | Use grey titlebuttons in standard variants |
+| -g, --grey     | Use grey color titlebutton style |
 | -h, --help     | Show this help |
 
 if you want to get the last vimix theme version online, you can

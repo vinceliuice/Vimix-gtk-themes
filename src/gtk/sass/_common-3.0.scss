@@ -584,12 +584,6 @@ button {
         color: on($primary);
       }
 
-      // &:active, &:checked {
-      //   @include button(active, $b_color, on($primary));
-      //   background-color: $b_color;
-      //   color: on($primary);
-      // }
-
       &:disabled { @include button(disabled, $b_color, on($primary)); }
 
       &:checked { background-color: mix(on($primary), $b_color, percentage(0.3)); }
@@ -668,15 +662,8 @@ button {
     -gtk-outline-radius: $circular_radius;
   }
 
-  // &.font,
-  // &.file { separator { background-color: transparent; }}
-
-  // &.font { > box > box > label { font-weight: bold; }}
-
   // inline-toolbar buttons
   .inline-toolbar & {
-    // @extend %flat_button;
-
     &:not(.text-button) { @extend %simple_flat_button; }
   }
 
@@ -694,11 +681,6 @@ button {
   &:dir(rtl) { background-position: left 3px; }
 }
 
-// row {
-//   .linked > button { @extend %linked; }
-//   .linked.vertical > button { @extend %linked_vertical; }
-// }
-
 toolbutton {
   button {
     &, &.image-button, &.toggle {
@@ -706,16 +688,6 @@ toolbutton {
     }
   }
 }
-
-// all the following is for the +|- buttons on inline toolbars, that way
-// should really be deprecated...
-// .inline-toolbar toolbutton > button { // redefining the button look is
-//                                       // needed since those are flat...
-// }
-
-// More inline toolbar buttons
-// toolbar.inline-toolbar toolbutton {
-// }
 
 %linked_middle {
   border-radius: 0;

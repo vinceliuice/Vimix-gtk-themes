@@ -230,11 +230,6 @@ install_package() {
   fi
 }
 
-#  Parse sass to css
-parse_sass() {
-  cd ${REO_DIR} && ./parse-sass.sh
-}
-
 #  Install theme
 install_theme() {
   for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do

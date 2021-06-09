@@ -339,7 +339,7 @@ treeview entry {
   &.flat, & {
     min-height: 0;
     padding: 2px;
-    border-radius: 0;
+    border-radius: $button_radius;
     background-color: $base;
 
     &, &:focus {
@@ -411,7 +411,7 @@ button {
   min-height: 24px;
   min-width: 16px;
   padding: ($medium_size - 24px) / 2 ($medium_size - 16px) / 2;
-  border-radius: $modal_radius;
+  border-radius: $button_radius;
   font-weight: 500;
 
   // fallback buttons for non-native apps

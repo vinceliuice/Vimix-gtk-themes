@@ -2071,15 +2071,32 @@ menubar.-vala-panel-background {
   }
 
   // Rename entry
-  .nemo-window-pane widget.entry {
-    border-radius: 3px;
-    padding: 3px 10px;
-    border: 2px solid $primary;
-    background-color: rgba($primary, 0.1);
+  .nemo-window-pane {
+    widget.entry {
+      border-radius: $button_radius;
+      padding: 3px 10px;
+      border: 2px solid $primary;
+      background-color: rgba($primary, 0.1);
 
-    &:selected {
-      &:focus, & {
-        @extend %selected_items;
+      &:selected {
+        &:focus, & {
+          @extend %selected_items;
+        }
+      }
+    }
+
+    treeview.view { // Treeview rename entry
+      &, &:selected {
+        entry {
+          color: $text;
+          background-color: $base;
+          border-radius: $button_radius;
+
+          &, &:focus {
+            border-image: none;
+            box-shadow: none;
+          }
+        }
       }
     }
   }

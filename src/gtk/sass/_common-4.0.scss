@@ -459,7 +459,7 @@ button {
   min-height: 24px;
   min-width: 16px;
   padding: $space_size $space_size * 1.5;
-  border-radius: $modal_radius;
+  border-radius: $button_radius;
   font-weight: 500;
 
   // fallback buttons for non-native apps
@@ -497,11 +497,11 @@ button {
   &.image-button {
     min-width: 24px;
     padding: ($medium_size - 24px) / 2;
-    border-radius: $modal_radius;
+    border-radius: $button_radius;
   }
 
   &.text-button.image-button {
-    border-radius: $modal_radius;
+    border-radius: $button_radius;
 
     label {
       &:first-child {

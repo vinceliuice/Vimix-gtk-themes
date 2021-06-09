@@ -59,7 +59,7 @@
     border: 1px solid $border_solid;
     box-shadow: none;
     border-image: none;
-    border-radius: 2px;
+    border-radius: $button_radius;
     background-color: if($fc != $indicator, $fc, $base);
     color: if($fc != $indicator, on($fc), $text_secondary);
   }
@@ -68,7 +68,7 @@
     border: 1px solid $primary;
     box-shadow: none;
     border-image: none;
-    border-radius: 2px;
+    border-radius: $button_radius;
     background-color: if($fc != $indicator, $fc, $base);
     color: if($fc != $indicator, on($fc), $text);
   }

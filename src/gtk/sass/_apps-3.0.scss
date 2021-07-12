@@ -943,13 +943,12 @@ window.background.csd {
     > leaflet > separator.sidebar {
       border-right-style: none;
       background: none;
-      min-width: 0;
     }
 
     > leaflet > headerbar, // Gnome 3.38
     > hdyleaflet > headerbar { // Gnome 3.34
       background: none;
-      box-shadow: none;
+      box-shadow: inset 0 -1px $border;
     }
   }
 
@@ -1007,6 +1006,22 @@ hdyleaflet, leaflet {
           background-image: none;
         }
       }
+    }
+  }
+}
+
+//
+// Gnome Contacts
+//
+
+window.background.csd.unified {
+  > deck > box > leaflet { // >= 40.0
+    > headerbar {
+      box-shadow: inset 0 -1px $border;
+    }
+
+    > separator.sidebar {
+      border-right: none;
     }
   }
 }
@@ -1359,6 +1374,15 @@ window.background:not(.csd) {
 // Firefox Quantum
 //
 
+%firefox_check_radio {
+  color: #888888;
+  &:hover { color: gtkalpha(#888888, 0.75); }
+  &:checked, &:indeterminate { color: $firefox_theme_color; }
+  &:checked:hover, &:indeterminate:hover { color: gtkalpha($firefox_theme_color, 0.8); }
+  &:disabled { color: gtkalpha(#888888, 0.45); }
+  &:checked:disabled, &:indeterminate:disabled { color: gtkalpha($firefox_theme_color, 0.45); }
+}
+
 #MozillaGtkWidget.background {
   &, decoration { border-radius: 0 0 0 0; } // enforce radius
 
@@ -1367,11 +1391,11 @@ window.background:not(.csd) {
   headerbar.titlebar {
     border-radius: 0 0 0 0;
     @if $titlebutton == 'defult' {
-    &.default-decoration {
-      button.titlebutton {
-        @extend %windows_button;
+      &.default-decoration {
+        button.titlebutton {
+          @extend %windows_button;
+        }
       }
-    }
     }
   }
 
@@ -1398,9 +1422,6 @@ window.background:not(.csd) {
       border: none;
       background-color: $firefox_border_color;
     }
-
-    > menuitem > radio { @extend %small_radio; }
-    > menuitem > check { @extend %small_check; }
 
     // check/radio inside selected-menu
     @each $w in ('check'),
@@ -1469,21 +1490,12 @@ window.background:not(.csd) {
       &:disabled { @include entry(fallback-disabled); }
     }
 
-    %firefox_check_radio {
-      color: #888888;
-      &:hover { color: gtkalpha(#888888, 0.75); }
-      &:checked, &:indeterminate { color: $firefox_theme_color; }
-      &:checked:hover, &:indeterminate:hover { color: gtkalpha($firefox_theme_color, 0.8); }
-      &:disabled { color: gtkalpha(#888888, 0.45); }
-      &:checked:disabled, &:indeterminate:disabled { color: gtkalpha($firefox_theme_color, 0.45); }
-    }
-
     // use 16px assets for hard-coded sizing
     > checkbutton > check { @extend %small_check; @extend %firefox_check_radio; }
     > radiobutton > radio { @extend %small_radio; @extend %firefox_check_radio; }
 
-    > check,
-    > radio { // unset all
+    > checkbutton > check,
+    > radiobutton > radio {
       min-width: 16px;
       min-height: 16px;
       margin: 0;
@@ -1724,6 +1736,59 @@ window#GearyMainWindow.background.csd {
 
   spinbutton:not(.vertical) entry { @extend %spinbutton_entry; }
   button.combo { @extend %combo_flat; }
+}
+
+.geary-main-window.background.csd.unified {
+  > deck > overlay > .geary-main-layout {
+    background-color: $base_alt;
+
+    headerbar {
+      box-shadow: inset 0 -1px $border;
+    }
+
+    frame.geary-folder-frame { // left side
+      scrolledwindow {
+        treeview.view.sidebar:not(:hover):not(:selected) {
+          background-color: transparent;
+        }
+      }
+    }
+
+    > leaflet > separator.sidebar, // centry
+    > leaflet > leaflet > separator.sidebar { // left
+      border-right: none;
+      background-color: $topbar;
+
+      // &:backdrop { background-color: $topbar; }
+    }
+
+    > leaflet > leaflet > box.vertical + separator.sidebar {
+      border-right: 1px solid $border;
+    }
+
+    > leaflet > leaflet > box.vertical > .geary-conversation-frame {
+      > scrolledwindow {
+        margin: -1px 0; // hide .view top border
+        // > treeview.view {}
+      }
+    }
+
+    geary-conversation-viewer#conversation_viewer { // right side
+      list.background.conversation-listbox.content {
+        > row.activatable {
+          &:not(:hover):not(:selected){ background-color: $base; }
+
+          border: 1px solid $border;
+          border-bottom-width: 0;
+
+          &:first-child {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+          }
+        }
+      }
+    }
+  }
 }
 
 // Popover

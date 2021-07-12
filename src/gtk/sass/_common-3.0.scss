@@ -1126,8 +1126,7 @@ searchbar > revealer > box,
 
 searchbar > revealer > box {
   // workaround: undo the GtkContainer:border-width and use CSS padding instead
-  margin: -$space_size;
-  padding: $space_size;
+  margin: -6px;
 }
 
 //
@@ -1397,9 +1396,12 @@ headerbar {
     viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action) {
       margin-top: 0;
       margin-bottom: 0;
-      padding-top: 0;
-      padding-bottom: 0;
+      padding: 0;
+      min-width: 120px;
       @extend %headerbar_flat_button;
+
+      image { padding-left: 10px; }
+      label { padding-right: 10px; }
     }
   }
 
@@ -2925,6 +2927,15 @@ frame {
       &:last-child { border-radius: 0 0 $modal_radius $modal_radius; }
     }
   }
+
+  leaflet > stack > & list { // reset
+    border-radius: 0;
+
+    > row {
+      &:first-child { border-radius: 0 0 0 0; }
+      &:last-child { border-radius: 0 0 0 0; }
+    }
+  }
 }
 
 actionbar > revealer >  box {
@@ -2977,6 +2988,11 @@ separator {
   min-width: 1px;
   min-height: 1px;
   background-color: $border;
+
+  &.selection-mode.sidebar {
+    background-color: $primary;
+    border-color: $primary;
+  }
 }
 
 //
@@ -2986,7 +3002,7 @@ list {
   border-color: $border;
   background-color: $base;
 
-  &.content {
+  &.content:not(.conversation-listbox) {
     border: 1px solid $border;
     border-radius: $modal_radius;
 
@@ -3965,5 +3981,48 @@ button.emoji-section {
     transition: $shorter_transition;
 
     &:hover { font-size: larger; }
+  }
+}
+
+//
+// Unified window (> = Gnome 40)
+//
+
+window.background.csd.unified {
+  headerbar {
+    box-shadow: $header_shadow;
+
+    &.selection-mode {
+      box-shadow: $header_shadow;
+    }
+  }
+
+  // ...and add it on the window itself
+  > decoration-overlay {
+    box-shadow: inset 0 1px $highlight;
+  }
+
+  &,
+  > decoration,
+  > decoration-overlay {
+    border-radius: $modal_radius;
+  }
+
+  &.tiled,
+  &.tiled-top,
+  &.tiled-right,
+  &.tiled-bottom,
+  &.tiled-left,
+  &.maximized,
+  &.fullscreen {
+    > decoration-overlay {
+      box-shadow: none;
+    }
+
+    &,
+    > decoration,
+    > decoration-overlay {
+      border-radius: 0;
+    }
   }
 }

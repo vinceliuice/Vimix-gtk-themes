@@ -1505,8 +1505,7 @@ searchbar > revealer > box,
 }
 
 searchbar > revealer > box {
-  margin: -4px;
-  padding: 4px;
+  margin: -6px;
 }
 
 .nemo-window .primary-toolbar button:not(.suggested-action):not(.destructive-action), window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button, headerbar button:not(.suggested-action):not(.destructive-action) {
@@ -1790,8 +1789,16 @@ headerbar button {
 headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action) {
   margin-top: 0;
   margin-bottom: 0;
-  padding-top: 0;
-  padding-bottom: 0;
+  padding: 0;
+  min-width: 120px;
+}
+
+headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action) image {
+  padding-left: 10px;
+}
+
+headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action) label {
+  padding-right: 10px;
 }
 
 headerbar switch {
@@ -3060,7 +3067,7 @@ radio:checked:not(:indeterminate):disabled {
   border-image-source: -gtk-gradient(radial, center center, 0, center center, 0.125, to(alpha(#EC407A, 0.3)), to(transparent));
 }
 
-#MozillaGtkWidget.background > widget > checkbutton > check, #MozillaGtkWidget.background > window.background > menu > menuitem > check, window.background:not(.csd) > widget > checkbutton > check,
+#MozillaGtkWidget.background > widget > checkbutton > check, window.background:not(.csd) > widget > checkbutton > check,
 menu menuitem check {
   min-height: 16px;
   min-width: 16px;
@@ -3068,17 +3075,17 @@ menu menuitem check {
   -gtk-icon-source: -gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.svg"));
 }
 
-#MozillaGtkWidget.background > widget > checkbutton > check:checked, #MozillaGtkWidget.background > window.background > menu > menuitem > check:checked, window.background:not(.csd) > widget > checkbutton > check:checked,
+#MozillaGtkWidget.background > widget > checkbutton > check:checked, window.background:not(.csd) > widget > checkbutton > check:checked,
 menu menuitem check:checked {
   -gtk-icon-source: -gtk-recolor(url("assets/scalable/small-checkbox-checked-symbolic.svg"));
 }
 
-#MozillaGtkWidget.background > widget > checkbutton > check:indeterminate, #MozillaGtkWidget.background > window.background > menu > menuitem > check:indeterminate, window.background:not(.csd) > widget > checkbutton > check:indeterminate,
+#MozillaGtkWidget.background > widget > checkbutton > check:indeterminate, window.background:not(.csd) > widget > checkbutton > check:indeterminate,
 menu menuitem check:indeterminate {
   -gtk-icon-source: -gtk-recolor(url("assets/scalable/small-checkbox-mixed-symbolic.svg"));
 }
 
-#MozillaGtkWidget.background > widget > radiobutton > radio, #MozillaGtkWidget.background > window.background > menu > menuitem > radio, window.background:not(.csd) > widget > radiobutton > radio,
+#MozillaGtkWidget.background > widget > radiobutton > radio, window.background:not(.csd) > widget > radiobutton > radio,
 menu menuitem radio {
   min-height: 16px;
   min-width: 16px;
@@ -3086,12 +3093,12 @@ menu menuitem radio {
   -gtk-icon-source: -gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.svg"));
 }
 
-#MozillaGtkWidget.background > widget > radiobutton > radio:checked, #MozillaGtkWidget.background > window.background > menu > menuitem > radio:checked, window.background:not(.csd) > widget > radiobutton > radio:checked,
+#MozillaGtkWidget.background > widget > radiobutton > radio:checked, window.background:not(.csd) > widget > radiobutton > radio:checked,
 menu menuitem radio:checked {
   -gtk-icon-source: -gtk-recolor(url("assets/scalable/small-radio-checked-symbolic.svg"));
 }
 
-#MozillaGtkWidget.background > widget > radiobutton > radio:indeterminate, #MozillaGtkWidget.background > window.background > menu > menuitem > radio:indeterminate, window.background:not(.csd) > widget > radiobutton > radio:indeterminate,
+#MozillaGtkWidget.background > widget > radiobutton > radio:indeterminate, window.background:not(.csd) > widget > radiobutton > radio:indeterminate,
 menu menuitem radio:indeterminate {
   -gtk-icon-source: -gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic.svg"));
 }
@@ -3467,6 +3474,18 @@ frame list > row:last-child {
   border-radius: 0 0 3px 3px;
 }
 
+leaflet > stack > frame list {
+  border-radius: 0;
+}
+
+leaflet > stack > frame list > row:first-child {
+  border-radius: 0 0 0 0;
+}
+
+leaflet > stack > frame list > row:last-child {
+  border-radius: 0 0 0 0;
+}
+
 actionbar > revealer > box {
   padding: 4px;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
@@ -3569,17 +3588,22 @@ separator {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
+separator.selection-mode.sidebar {
+  background-color: #AB47BC;
+  border-color: #AB47BC;
+}
+
 list {
   border-color: rgba(0, 0, 0, 0.2);
   background-color: #353535;
 }
 
-list.content {
+list.content:not(.conversation-listbox) {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 3px;
 }
 
-list.content > row:not(:first-child) {
+list.content:not(.conversation-listbox) > row:not(:first-child) {
   border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 
@@ -4660,6 +4684,46 @@ button.emoji-section:last-child {
   font-size: larger;
 }
 
+window.background.csd.unified headerbar {
+  box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 2px -1px rgba(0, 0, 0, 0.22), 0 1px 2px -0.6px rgba(0, 0, 0, 0.12);
+}
+
+window.background.csd.unified headerbar.selection-mode {
+  box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 2px -1px rgba(0, 0, 0, 0.22), 0 1px 2px -0.6px rgba(0, 0, 0, 0.12);
+}
+
+window.background.csd.unified > decoration-overlay {
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.1);
+}
+
+window.background.csd.unified,
+window.background.csd.unified > decoration,
+window.background.csd.unified > decoration-overlay {
+  border-radius: 3px;
+}
+
+window.background.csd.unified.tiled > decoration-overlay, window.background.csd.unified.tiled-top > decoration-overlay, window.background.csd.unified.tiled-right > decoration-overlay, window.background.csd.unified.tiled-bottom > decoration-overlay, window.background.csd.unified.tiled-left > decoration-overlay, window.background.csd.unified.maximized > decoration-overlay, window.background.csd.unified.fullscreen > decoration-overlay {
+  box-shadow: none;
+}
+
+window.background.csd.unified.tiled,
+window.background.csd.unified.tiled > decoration,
+window.background.csd.unified.tiled > decoration-overlay, window.background.csd.unified.tiled-top,
+window.background.csd.unified.tiled-top > decoration,
+window.background.csd.unified.tiled-top > decoration-overlay, window.background.csd.unified.tiled-right,
+window.background.csd.unified.tiled-right > decoration,
+window.background.csd.unified.tiled-right > decoration-overlay, window.background.csd.unified.tiled-bottom,
+window.background.csd.unified.tiled-bottom > decoration,
+window.background.csd.unified.tiled-bottom > decoration-overlay, window.background.csd.unified.tiled-left,
+window.background.csd.unified.tiled-left > decoration,
+window.background.csd.unified.tiled-left > decoration-overlay, window.background.csd.unified.maximized,
+window.background.csd.unified.maximized > decoration,
+window.background.csd.unified.maximized > decoration-overlay, window.background.csd.unified.fullscreen,
+window.background.csd.unified.fullscreen > decoration,
+window.background.csd.unified.fullscreen > decoration-overlay {
+  border-radius: 0;
+}
+
 window.background stack scrolledwindow stackswitcher.stack-switcher, dialog.background .dialog-vbox stackswitcher.stack-switcher, toolbar.primary-toolbar toolitem.raised stackswitcher.stack-switcher, dzldockpaned stackswitcher.linked.stack-switcher {
   background-color: #3a3a3a;
   border-radius: 3px;
@@ -5528,13 +5592,12 @@ window.background.csd > headerbar.titlebar > hdyleaflet > separator.sidebar,
 window.background.csd > headerbar.titlebar > leaflet > separator.sidebar {
   border-right-style: none;
   background: none;
-  min-width: 0;
 }
 
 window.background.csd > headerbar.titlebar > leaflet > headerbar,
 window.background.csd > headerbar.titlebar > hdyleaflet > headerbar {
   background: none;
-  box-shadow: none;
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.2);
 }
 
 window.background.csd > box.horizontal > separator.sidebar,
@@ -5581,6 +5644,14 @@ headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.clos
 
 .fullscreen headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize, .fullscreen headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize:hover, .fullscreen headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize:active, .fullscreen headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize:disabled, .fullscreen headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize:backdrop, .maximized headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize, .maximized headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize:hover, .maximized headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize:active, .maximized headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize:disabled, .maximized headerbar.titlebar.selection-mode hdyleaflet > headerbar button.titlebutton.maximize:backdrop, .fullscreen headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize, .fullscreen headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize:hover, .fullscreen headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize:active, .fullscreen headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize:disabled, .fullscreen headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize:backdrop, .maximized headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize, .maximized headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize:hover, .maximized headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize:active, .maximized headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize:disabled, .maximized headerbar.titlebar.selection-mode leaflet > headerbar button.titlebutton.maximize:backdrop {
   background-image: none;
+}
+
+window.background.csd.unified > deck > box > leaflet > headerbar {
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.2);
+}
+
+window.background.csd.unified > deck > box > leaflet > separator.sidebar {
+  border-right: none;
 }
 
 .main-window > headerbar.titlebar > stack > hdyleaflet > headerbar {
@@ -5953,6 +6024,30 @@ window.background:not(.csd) > menu > separator {
   color: rgba(0, 0, 0, 0.2);
 }
 
+#MozillaGtkWidget.background > widget > radiobutton > radio, #MozillaGtkWidget.background > widget > checkbutton > check {
+  color: #888888;
+}
+
+#MozillaGtkWidget.background > widget > radiobutton > radio:hover, #MozillaGtkWidget.background > widget > checkbutton > check:hover {
+  color: alpha(#888888, 0.75);
+}
+
+#MozillaGtkWidget.background > widget > radiobutton > radio:checked, #MozillaGtkWidget.background > widget > checkbutton > check:checked, #MozillaGtkWidget.background > widget > radiobutton > radio:indeterminate, #MozillaGtkWidget.background > widget > checkbutton > check:indeterminate {
+  color: #AB47BC;
+}
+
+#MozillaGtkWidget.background > widget > radiobutton > radio:checked:hover, #MozillaGtkWidget.background > widget > checkbutton > check:checked:hover, #MozillaGtkWidget.background > widget > radiobutton > radio:indeterminate:hover, #MozillaGtkWidget.background > widget > checkbutton > check:indeterminate:hover {
+  color: alpha(#AB47BC, 0.8);
+}
+
+#MozillaGtkWidget.background > widget > radiobutton > radio:disabled, #MozillaGtkWidget.background > widget > checkbutton > check:disabled {
+  color: alpha(#888888, 0.45);
+}
+
+#MozillaGtkWidget.background > widget > radiobutton > radio:checked:disabled, #MozillaGtkWidget.background > widget > checkbutton > check:checked:disabled, #MozillaGtkWidget.background > widget > radiobutton > radio:indeterminate:disabled, #MozillaGtkWidget.background > widget > checkbutton > check:indeterminate:disabled {
+  color: alpha(#AB47BC, 0.45);
+}
+
 #MozillaGtkWidget.background {
   background-color: #303030;
 }
@@ -6133,32 +6228,8 @@ window.background:not(.csd) > menu > separator {
   color: rgba(255, 255, 255, 0.45);
 }
 
-#MozillaGtkWidget.background > widget > radiobutton > radio, #MozillaGtkWidget.background > widget > checkbutton > check {
-  color: #888888;
-}
-
-#MozillaGtkWidget.background > widget > radiobutton > radio:hover, #MozillaGtkWidget.background > widget > checkbutton > check:hover {
-  color: alpha(#888888, 0.75);
-}
-
-#MozillaGtkWidget.background > widget > radiobutton > radio:checked, #MozillaGtkWidget.background > widget > checkbutton > check:checked, #MozillaGtkWidget.background > widget > radiobutton > radio:indeterminate, #MozillaGtkWidget.background > widget > checkbutton > check:indeterminate {
-  color: #AB47BC;
-}
-
-#MozillaGtkWidget.background > widget > radiobutton > radio:checked:hover, #MozillaGtkWidget.background > widget > checkbutton > check:checked:hover, #MozillaGtkWidget.background > widget > radiobutton > radio:indeterminate:hover, #MozillaGtkWidget.background > widget > checkbutton > check:indeterminate:hover {
-  color: alpha(#AB47BC, 0.8);
-}
-
-#MozillaGtkWidget.background > widget > radiobutton > radio:disabled, #MozillaGtkWidget.background > widget > checkbutton > check:disabled {
-  color: alpha(#888888, 0.45);
-}
-
-#MozillaGtkWidget.background > widget > radiobutton > radio:checked:disabled, #MozillaGtkWidget.background > widget > checkbutton > check:checked:disabled, #MozillaGtkWidget.background > widget > radiobutton > radio:indeterminate:disabled, #MozillaGtkWidget.background > widget > checkbutton > check:indeterminate:disabled {
-  color: alpha(#AB47BC, 0.45);
-}
-
-#MozillaGtkWidget.background > widget > check,
-#MozillaGtkWidget.background > widget > radio {
+#MozillaGtkWidget.background > widget > checkbutton > check,
+#MozillaGtkWidget.background > widget > radiobutton > radio {
   min-width: 16px;
   min-height: 16px;
   margin: 0;
@@ -6322,6 +6393,46 @@ window#GearyMainWindow.background.csd statusbar frame {
 
 .geary-composer-box .linked > button.combo {
   border-radius: 0;
+}
+
+.geary-main-window.background.csd.unified > deck > overlay > .geary-main-layout {
+  background-color: #303030;
+}
+
+.geary-main-window.background.csd.unified > deck > overlay > .geary-main-layout headerbar {
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.2);
+}
+
+.geary-main-window.background.csd.unified > deck > overlay > .geary-main-layout frame.geary-folder-frame scrolledwindow treeview.view.sidebar:not(:hover):not(:selected) {
+  background-color: transparent;
+}
+
+.geary-main-window.background.csd.unified > deck > overlay > .geary-main-layout > leaflet > separator.sidebar,
+.geary-main-window.background.csd.unified > deck > overlay > .geary-main-layout > leaflet > leaflet > separator.sidebar {
+  border-right: none;
+  background-color: #373737;
+}
+
+.geary-main-window.background.csd.unified > deck > overlay > .geary-main-layout > leaflet > leaflet > box.vertical + separator.sidebar {
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.geary-main-window.background.csd.unified > deck > overlay > .geary-main-layout > leaflet > leaflet > box.vertical > .geary-conversation-frame > scrolledwindow {
+  margin: -1px 0;
+}
+
+.geary-main-window.background.csd.unified > deck > overlay > .geary-main-layout geary-conversation-viewer#conversation_viewer list.background.conversation-listbox.content > row.activatable {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom-width: 0;
+}
+
+.geary-main-window.background.csd.unified > deck > overlay > .geary-main-layout geary-conversation-viewer#conversation_viewer list.background.conversation-listbox.content > row.activatable:not(:hover):not(:selected) {
+  background-color: #353535;
+}
+
+.geary-main-window.background.csd.unified > deck > overlay > .geary-main-layout geary-conversation-viewer#conversation_viewer list.background.conversation-listbox.content > row.activatable:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 popover.background list.geary-folder-popover-list row.activatable.geary-folder-popover-list-row {

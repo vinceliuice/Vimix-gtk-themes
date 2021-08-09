@@ -72,38 +72,43 @@
   @if $t == normal {
     color: $tc;
     background-color: $bc;
+    box-shadow: none !important;
   }
 
   @if $t == focus {
     color: $tc;
     background-color: overlay($bc, focus);
-    box-shadow: none;
+    box-shadow: none !important;
   }
 
   @if $t == hover {
     color: $tc;
     background-color: overlay($bc, hover);
+    box-shadow: none !important;
   }
 
   @if $t == active {
     color: $tc;
     background-color: overlay($bc, active);
+    box-shadow: none !important;
   }
 
   @if $t == insensitive {
     color: rgba($tc, 0.35);
     background-color: $bc;
+    box-shadow: none !important;
   }
 
   @if $t == flat-normal {
     color: $tc;
     background-color: transparent;
+    box-shadow: none !important;
   }
 
   @if $t == flat-focus {
     color: $tc;
     background-color: overlay($bc, focus);
-    box-shadow: none;
+    box-shadow: none !important;
   }
 
   @if $t == flat-hover {
@@ -114,10 +119,12 @@
   @if $t == flat-active {
     color: $tc;
     background-color: overlay($bc, active);
+    box-shadow: none !important;
   }
 
   @if $t == flat-insensitive {
     background-color: transparent;
     color: rgba($tc, 0.35);
+    box-shadow: none !important;
   }
 }

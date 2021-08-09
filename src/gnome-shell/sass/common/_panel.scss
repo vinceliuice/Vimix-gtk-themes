@@ -6,10 +6,13 @@
   font-weight: bold;
   height: $item_size;
   color: $panel-text-secondary;
-  box-shadow: 0 3px 8px rgba(black, 0.35);
   font-feature-settings: "tnum";
   transition-duration: 250ms;
   @include fontsize($font_size - 1);
+
+  @if $variant == "dark" {
+    box-shadow: 0 3px 8px rgba(black, 0.15);
+  }
 
   // the rounded outset corners
   .panel-corner {
@@ -93,6 +96,7 @@
   &.login-screen,
   &.lock-screen {
     background-color: transparent;
+    box-shadow: none;
 
     StLabel, StIcon { color: $panel-text-secondary; }
 

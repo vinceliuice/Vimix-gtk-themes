@@ -309,7 +309,7 @@ while [ $# -gt 0 ]; do
             break
             ;;
           *)
-            echo "ERROR: Unrecognized color variant '$1'."
+            echo "ERROR: Unrecognized theme variant '$1'."
             echo "Try '$0 --help' for more information."
             exit 1
             ;;

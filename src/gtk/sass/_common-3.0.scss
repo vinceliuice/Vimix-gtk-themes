@@ -70,13 +70,19 @@
 }
 
 %view, .view {
-  @extend %row_activatable;
   background-color: $base;
   color: $text;
 
+  &:hover {
+    background-color: $divider;
+    color: $text_secondary;
+  }
+
   &:disabled { color: $text_disabled; }
 
-  &:selected { @extend %selected_items; }
+  &:selected {
+    @extend %selected_items;
+  }
 }
 
 textview {

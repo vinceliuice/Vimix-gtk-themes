@@ -77,6 +77,11 @@ iconview, .view {
   color: rgba(0, 0, 0, 0.87);
 }
 
+iconview:hover, .view:hover {
+  background-color: rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.6);
+}
+
 iconview:disabled, .view:disabled {
   color: rgba(0, 0, 0, 0.38);
 }
@@ -3608,20 +3613,22 @@ list row {
   padding: 2px;
 }
 
-.budgie-menu button, .view, iconview, treeview.view header button, row.activatable {
+.budgie-menu button, .background.budgie-popover scrolledwindow > viewport.frame > list > row.activatable, .background.budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable, treeview.view header button, row.activatable {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1);
   background-image: none;
 }
 
-.budgie-menu button:hover, .view:hover, iconview:hover, treeview.view header button:hover, row.activatable:hover {
+.budgie-menu button:hover, .background.budgie-popover scrolledwindow > viewport.frame > list > row.activatable:hover, .background.budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable:hover, treeview.view header button:hover, row.activatable:hover {
   background-color: rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.6);
 }
 
-.budgie-menu button.has-open-popup, .has-open-popup.view, iconview.has-open-popup, treeview.view header button.has-open-popup, .budgie-menu button:active, .view:active, iconview:active, treeview.view header button:active, row.activatable.has-open-popup, row.activatable:active {
+.budgie-menu button.has-open-popup, .background.budgie-popover scrolledwindow > viewport.frame > list > row.has-open-popup.activatable, .background.budgie-popover scrolledwindow.sidebar:not(.categories) list > row.has-open-popup.activatable, treeview.view header button.has-open-popup, .budgie-menu button:active, .background.budgie-popover scrolledwindow > viewport.frame > list > row.activatable:active, .background.budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable:active, treeview.view header button:active, row.activatable.has-open-popup, row.activatable:active {
   background-color: rgba(0, 0, 0, 0.26);
+  color: rgba(0, 0, 0, 0.87);
 }
 
-row:selected:hover {
+.budgie-menu button:selected:hover, .background.budgie-popover scrolledwindow > viewport.frame > list > row.activatable:selected:hover, .background.budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable:selected:hover, treeview.view header button:selected:hover, row.activatable:selected:hover {
   background-color: #737373;
 }
 
@@ -4302,13 +4309,13 @@ messagedialog.csd decoration {
 }
 
 .budgie-menu button:checked, .nemo-window .nemo-window-pane widget.entry:selected:focus, .nemo-window .nemo-window-pane widget.entry:selected, .view:selected, textview text selection, iconview:selected, flowbox flowboxchild:selected, entry selection, modelbutton.flat:selected,
-.menuitem.button.flat:selected, row:selected, calendar:selected {
+.menuitem.button.flat:selected, .budgie-menu button:selected, .background.budgie-popover scrolledwindow > viewport.frame > list > row.activatable:selected, .background.budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable:selected, treeview.view header button:selected, row.activatable:selected, calendar:selected {
   background-color: #666666;
   color: white;
 }
 
 .budgie-menu button:disabled:checked, .nemo-window .nemo-window-pane widget.entry:disabled:selected, .view:disabled:selected, textview text selection:disabled, iconview:disabled:selected, flowbox flowboxchild:disabled:selected, entry selection:disabled, modelbutton.flat:disabled:selected,
-.menuitem.button.flat:disabled:selected, row:disabled:selected, calendar:disabled:selected {
+.menuitem.button.flat:disabled:selected, .budgie-menu button:disabled:selected, .background.budgie-popover scrolledwindow > viewport.frame > list > row.activatable:disabled:selected, .background.budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable:disabled:selected, treeview.view header button:disabled:selected, row.activatable:disabled:selected, calendar:disabled:selected {
   color: rgba(255, 255, 255, 0.45);
 }
 
@@ -4851,13 +4858,13 @@ window.background stack scrolledwindow stackswitcher.stack-switcher button:check
 
 .nautilus-canvas-item.dim-label, .budgie-notification .nautilus-canvas-item.notification-body, .budgie-switcher .nautilus-canvas-item.notification-body, label.nautilus-canvas-item.separator, headerbar .nautilus-canvas-item.subtitle,
 .nautilus-list-dim-label {
-  color: rgba(137, 137, 137, 0.935);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .nautilus-canvas-item.dim-label:selected, .budgie-notification .nautilus-canvas-item.notification-body:selected, .budgie-switcher .nautilus-canvas-item.notification-body:selected, label.nautilus-canvas-item.separator:selected, headerbar .nautilus-canvas-item.subtitle:selected, .nautilus-canvas-item.dim-label:selected:focus,
 .nautilus-list-dim-label:selected,
 .nautilus-list-dim-label:selected:focus {
-  color: #e0e0e0;
+  color: white;
 }
 
 .caja-desktop.caja-canvas-item,
@@ -4869,6 +4876,7 @@ window.background stack scrolledwindow stackswitcher.stack-switcher button:check
 .caja-desktop.caja-canvas-item:selected,
 .nautilus-desktop.nautilus-canvas-item:selected {
   text-shadow: none;
+  color: white;
 }
 
 filechooser placessidebar.sidebar separator,
@@ -7363,7 +7371,7 @@ na-tray-applet {
 }
 
 .background.budgie-popover .container {
-  padding: 4px;
+  padding: 0;
   border: none;
 }
 
@@ -7385,8 +7393,6 @@ na-tray-applet {
 
 .background.budgie-popover row:hover {
   box-shadow: none;
-  background-color: transparent;
-  background-image: none;
 }
 
 .background.budgie-popover row button {
@@ -7437,8 +7443,52 @@ na-tray-applet {
   color: rgba(0, 0, 0, 0.38);
 }
 
+.background.budgie-popover scrolledwindow.sidebar:not(.categories) {
+  border-right: none;
+  border-bottom-left-radius: 3px;
+  padding: 0;
+}
+
+.background.budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable {
+  padding: 4px 8px;
+  border-radius: 0;
+}
+
+.background.budgie-popover scrolledwindow > viewport.frame > list > row.activatable {
+  border-radius: 0;
+}
+
+.background.budgie-popover scrolledwindow > viewport.frame > list > row.activatable button {
+  background: none;
+  box-shadow: none;
+}
+
+.background.budgie-popover.bottom scrolledwindow.sidebar:not(.categories) {
+  padding-top: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 0;
+}
+
+.background.budgie-popover > frame.container > grid.horizontal > grid.horizontal > widget > grid.horizontal > stack {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.background.budgie-popover.bottom > frame.container > grid.horizontal > grid.horizontal > widget > grid.horizontal > stack {
+  border-top: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
 .background.budgie-popover.budgie-menu .container {
   padding: 0;
+}
+
+.background.budgie-popover.budgie-menu entry.search {
+  border-bottom: 0 none transparent;
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.12);
+}
+
+.background.budgie-popover.budgie-menu entry.search:focus {
+  box-shadow: none;
 }
 
 .background.budgie-popover.budgie-menu .sidebar {
@@ -7460,14 +7510,38 @@ na-tray-applet {
   background-color: #666666;
 }
 
+.background.budgie-popover.user-menu .container {
+  padding: 4px;
+}
+
 .background.budgie-popover.user-menu list, .background.budgie-popover.user-menu row {
   border: none;
   background: none;
   box-shadow: none;
 }
 
+.background.budgie-popover.sound-popover .container {
+  padding: 4px;
+}
+
+.background.budgie-popover.caffeine-popover .container {
+  padding: 4px;
+}
+
 .background.budgie-popover.caffeine-popover .view-header {
   margin: 0 4px;
+}
+
+.background.budgie-popover.night-light-indicator .container {
+  padding: 4px;
+}
+
+.background.budgie-popover.places-menu .container {
+  padding: 4px;
+}
+
+.background.budgie-popover.places-menu row {
+  background: none;
 }
 
 .background.budgie-popover.places-menu .places-list:not(.always-expand) {

@@ -77,6 +77,11 @@ iconview, .view {
   color: rgba(0, 0, 0, 0.87);
 }
 
+iconview:hover, .view:hover {
+  background-color: rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.6);
+}
+
 iconview:disabled, .view:disabled {
   color: rgba(0, 0, 0, 0.38);
 }
@@ -3608,22 +3613,22 @@ list row {
   padding: 2px;
 }
 
-.budgie-menu button, .background.budgie-popover scrolledwindow > viewport.frame > list > row.activatable, .background.budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable, .view, iconview, treeview.view header button, row.activatable {
+.budgie-menu button, .background.budgie-popover scrolledwindow > viewport.frame > list > row.activatable, .background.budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable, treeview.view header button, row.activatable {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1);
   background-image: none;
 }
 
-.budgie-menu button:hover, .background.budgie-popover scrolledwindow > viewport.frame > list > row.activatable:hover, .background.budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable:hover, .view:hover, iconview:hover, treeview.view header button:hover, row.activatable:hover {
+.budgie-menu button:hover, .background.budgie-popover scrolledwindow > viewport.frame > list > row.activatable:hover, .background.budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable:hover, treeview.view header button:hover, row.activatable:hover {
   background-color: rgba(0, 0, 0, 0.12);
   color: rgba(0, 0, 0, 0.6);
 }
 
-.budgie-menu button.has-open-popup, .background.budgie-popover scrolledwindow > viewport.frame > list > row.has-open-popup.activatable, .background.budgie-popover scrolledwindow.sidebar:not(.categories) list > row.has-open-popup.activatable, .has-open-popup.view, iconview.has-open-popup, treeview.view header button.has-open-popup, .budgie-menu button:active, .background.budgie-popover scrolledwindow > viewport.frame > list > row.activatable:active, .background.budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable:active, .view:active, iconview:active, treeview.view header button:active, row.activatable.has-open-popup, row.activatable:active {
+.budgie-menu button.has-open-popup, .background.budgie-popover scrolledwindow > viewport.frame > list > row.has-open-popup.activatable, .background.budgie-popover scrolledwindow.sidebar:not(.categories) list > row.has-open-popup.activatable, treeview.view header button.has-open-popup, .budgie-menu button:active, .background.budgie-popover scrolledwindow > viewport.frame > list > row.activatable:active, .background.budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable:active, treeview.view header button:active, row.activatable.has-open-popup, row.activatable:active {
   background-color: rgba(0, 0, 0, 0.26);
   color: rgba(0, 0, 0, 0.87);
 }
 
-.budgie-menu button:selected:hover, .background.budgie-popover scrolledwindow > viewport.frame > list > row.activatable:selected:hover, .background.budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable:selected:hover, .view:selected:hover, iconview:selected:hover, treeview.view header button:selected:hover, row.activatable:selected:hover {
+.budgie-menu button:selected:hover, .background.budgie-popover scrolledwindow > viewport.frame > list > row.activatable:selected:hover, .background.budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable:selected:hover, treeview.view header button:selected:hover, row.activatable:selected:hover {
   background-color: #5a95f5;
 }
 
@@ -4853,13 +4858,13 @@ window.background stack scrolledwindow stackswitcher.stack-switcher button:check
 
 .nautilus-canvas-item.dim-label, .budgie-notification .nautilus-canvas-item.notification-body, .budgie-switcher .nautilus-canvas-item.notification-body, label.nautilus-canvas-item.separator, headerbar .nautilus-canvas-item.subtitle,
 .nautilus-list-dim-label {
-  color: rgba(137, 137, 137, 0.935);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .nautilus-canvas-item.dim-label:selected, .budgie-notification .nautilus-canvas-item.notification-body:selected, .budgie-switcher .nautilus-canvas-item.notification-body:selected, label.nautilus-canvas-item.separator:selected, headerbar .nautilus-canvas-item.subtitle:selected, .nautilus-canvas-item.dim-label:selected:focus,
 .nautilus-list-dim-label:selected,
 .nautilus-list-dim-label:selected:focus {
-  color: #d9e7fd;
+  color: white;
 }
 
 .caja-desktop.caja-canvas-item,
@@ -4871,6 +4876,7 @@ window.background stack scrolledwindow stackswitcher.stack-switcher button:check
 .caja-desktop.caja-canvas-item:selected,
 .nautilus-desktop.nautilus-canvas-item:selected {
   text-shadow: none;
+  color: white;
 }
 
 filechooser placessidebar.sidebar separator,

@@ -187,9 +187,9 @@
 
 .nautilus-canvas-item.dim-label,
 .nautilus-list-dim-label {
-  color: mix($text, $background, 50%);
+  color: $text_secondary;
 
-  &:selected, &:selected:focus { color: mix(on($primary), $primary, 80%); }
+  &:selected, &:selected:focus { color: on($primary); }
 }
 
 %desktop-canvas-item,
@@ -199,6 +199,7 @@
 
   &:selected {
     text-shadow: none;
+    color: on($primary);
   }
 }
 

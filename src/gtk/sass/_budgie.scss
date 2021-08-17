@@ -12,27 +12,27 @@
   background-color: transparent;
   box-shadow: none;
   &:hover {
-    color: on($topbar, secondary);
-    background-color: rgba(on($topbar, secondary), 0.1);
+    color: on($panel, secondary);
+    background-color: rgba(on($panel, secondary), 0.1);
     box-shadow: none;
   }
   &:disabled {
-    color: rgba(on($topbar, secondary), 0.5);
+    color: rgba(on($panel, secondary), 0.5);
     background-color: transparent;
   }
   &:checked {
-    background-color: rgba(on($topbar, secondary), 0.12);
-    color: on($topbar, secondary);
+    background-color: rgba(on($panel, secondary), 0.12);
+    color: on($panel, secondary);
     box-shadow: none;
   }
   &:active {
-    background-color: rgba(on($topbar, secondary), 0.15);
-    color: on($topbar, secondary);
+    background-color: rgba(on($panel, secondary), 0.15);
+    color: on($panel, secondary);
     box-shadow: none;
   }
   &:checked:disabled {
-    background-color: rgba(on($topbar, secondary), 0.06);
-    color: rgba(on($topbar, secondary), 0.65);
+    background-color: rgba(on($panel, secondary), 0.06);
+    color: rgba(on($panel, secondary), 0.65);
     box-shadow: none;
   }
 }
@@ -88,13 +88,18 @@
   }
 }
 
-.budgie-popover {
+.background.budgie-popover {
   border-color: $suface;
   border-radius: $modal_radius + 1px;
   box-shadow: $shadow_2;
   background-color: $suface;
 
-  .container { border: none; }
+  .container {
+    padding: 0;
+    border: none;
+  }
+
+  separator { margin: $space_size / 2 0; }
 
   border { border: none; }
 
@@ -103,30 +108,23 @@
   row {
     padding: 0;
 
-    &:hover { box-shadow: none; }
+    &:hover {
+      box-shadow: none;
+    }
+
+    button {
+      @extend %simple_flat_button;
+      border-radius: $button_radius;
+    }
+
+    button.flat { border-radius: $button_radius; }
   }
 
   .linked.raised > button.toggle {
     border-radius: $modal_radius;
   }
 
-  .sidebar {
-    min-height: 36px;
-    background: none;
-    border-right: none;
-    color: $text;
-
-    list row.activatable { padding: $space_size; }
-
-    &:hover { background-color: rgba($text, 0.05); }
-
-    &:selected, &:selected:hover {
-      color: on($primary);
-      background-color: $primary;
-    }
-  }
-
-  switch { margin-left: 56px; margin-right: 6px; }
+  // switch { margin-left: 56px; margin-right: 6px; }
 
   button {
     @extend %simple_flat_button;
@@ -161,30 +159,102 @@
     &:disabled { color: $text_disabled; }
   }
 
+  // AppMenu (Elementary)
+  scrolledwindow.sidebar:not(.categories) {
+    // background-color: $fill;
+    border-right: none;
+    border-bottom-left-radius: $modal_radius;
+    padding: 0;
+
+    list > row.activatable {
+      @extend %row_activatable;
+      padding: $space_size $space_size * 2;
+      border-radius: 0;
+    }
+  }
+
+  scrolledwindow > viewport.frame > list > row.activatable {
+    @extend %row_activatable;
+    border-radius: 0;
+
+    button {
+      background: none;
+      box-shadow: none;
+    }
+  }
+
+  &.bottom scrolledwindow.sidebar:not(.categories) {
+    padding-top: $modal_radius;
+    border-top-left-radius: $modal_radius;
+    border-bottom-left-radius: 0;
+  }
+
+  > frame.container > grid.horizontal > grid.horizontal {
+    > widget > grid.horizontal > stack {
+      border-top: 1px solid $border;
+    }
+  }
+
+  &.bottom > frame.container > grid.horizontal > grid.horizontal {
+    > widget > grid.horizontal > stack {
+      border-top: none;
+      border-bottom: 1px solid $border;
+    }
+  }
+
   &.budgie-menu {
     .container { padding: 0; }
+
+    entry.search {
+      border-bottom: 0 none transparent;
+      box-shadow: inset 0 -1px $border;
+
+      &:focus { box-shadow: none; }
+    }
+
+    .sidebar {
+      min-height: 36px;
+      background: none;
+      color: $text;
+
+      list row.activatable { padding: $space_size; }
+
+      &:hover { background-color: rgba($text, 0.05); }
+
+      &:selected, &:selected:hover {
+        color: on($primary);
+        background-color: $primary;
+      }
+    }
   }
 
   &.user-menu {
-    .container { padding: 8px; }
+    .container { padding: $space_size; }
 
-    separator { margin: 4px 0; }
+    list, row { // reset styling
+      border: none;
+      background: none;
+      box-shadow: none;
+    }
   }
 
   &.sound-popover {
-    separator { margin: 3px 0; }
+    .container { padding: $space_size; }
   }
 
   &.caffeine-popover {
-    .container { padding: 8px; }
+    .container { padding: $space_size; }
+    .view-header { margin: 0 $space_size; }
   }
 
   &.night-light-indicator {
-    .container { padding: 8px; }
+    .container { padding: $space_size; }
   }
 
   &.places-menu {
-    .container { padding: 8px; }
+    .container { padding: $space_size; }
+
+    row { background: none; }
 
     .places-list:not(.always-expand) {
       margin-top: 4px;
@@ -200,9 +270,7 @@
   }
 
   &.workspace-popover {
-    .container { padding: 2px 8px 8px; }
-
-    separator { margin: 4px 0; }
+    .container { padding: 2px $space_size $space_size; }
 
     flowboxchild { padding: 0; }
   }
@@ -210,7 +278,6 @@
 
 // budgie specific popover widgets
 window.budgie-popover:not(.csd) {
-
   > frame.container {
     margin: 0 -1px -1px; // remove gap
 
@@ -430,18 +497,18 @@ popover.background.places-menu {
   // Budgie styled Gtk Menus
   menubar,
   .menubar {
-
     > menuitem {
       border-radius: 0;
       color: on($panel, secondary);
 
       &:hover {
-        color: on($topbar, secondary);
-        background-color: rgba(on($topbar, secondary), 0.12);
+        color: on($panel, secondary);
+        background-color: rgba(on($panel, secondary), 0.12);
         box-shadow: inset 0 -3px indicator(light);
       }
+
       &:disabled {
-        color: transparentize(on($topbar, secondary), 0.5);
+        color: transparentize(on($panel, secondary), 0.5);
       }
     }
   }
@@ -811,7 +878,6 @@ calendar.raven-calendar {
 
 // notification list
 box.vertical > stack > box.vertical {
-
   > .raven-background > viewport.frame {
     padding: 0; // reset padding for full-width list node
 

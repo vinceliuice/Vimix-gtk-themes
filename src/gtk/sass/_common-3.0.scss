@@ -3019,15 +3019,21 @@ row {
 
     &:hover {
       background-color: $divider;
+      color: $text_secondary;
     }
 
     &.has-open-popup,
     &:active {
       background-color: $track;
+      color: $text;
+    }
+
+    &:selected {
+      @extend %selected_items;
+
+      &:hover { background-color: lighten($primary, 5%); }
     }
   }
-
-  &:selected { @extend %selected_items; &:hover { background-color: lighten($primary, 5%); } }
 }
 
 //

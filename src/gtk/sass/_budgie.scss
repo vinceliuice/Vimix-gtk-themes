@@ -84,6 +84,10 @@
       .linked > entry {
         @extend %flat_entry;
       }
+
+      > box.vertical { padding: $space_size * 2; }
+
+      > grid { padding: $space_size; }
     }
   }
 }
@@ -103,7 +107,12 @@
 
   border { border: none; }
 
-  list { background-color: transparent; }
+  list {
+    background-color: transparent;
+    border-radius: 0;
+  }
+
+  frame { border-radius: 0; }
 
   row {
     padding: 0;
@@ -249,6 +258,8 @@
 
   &.night-light-indicator {
     .container { padding: $space_size; }
+
+    .view-header { margin: 0 $space_size; }
   }
 
   &.places-menu {
@@ -273,6 +284,16 @@
     .container { padding: 2px $space_size $space_size; }
 
     flowboxchild { padding: 0; }
+  }
+
+  > .container { // Paste
+    > box.vertical > box.vertical > box.vertical {
+      padding: 0 $space_size $space_size;
+    }
+
+    > box.vertical > box.vertical > box.horizontal > button.toggle {
+      margin-right: $space_size;
+    }
   }
 }
 
@@ -685,7 +706,7 @@ $pos_list: ((top, bottom), (bottom, top), (left, right), (right, left));
 
 $stackswitcher_color: if($theme == 'black' or $theme == 'white', rgba(white, 0.65), $warning);
 
-.raven {
+.background .raven {
   background-color: $suface;
 
   // for >=10.4
@@ -709,7 +730,6 @@ $stackswitcher_color: if($theme == 'black' or $theme == 'white', rgba(white, 0.6
 
     &.linked > button {
       @extend %flat_button;
-      border-radius: 0;
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                     $primary 0%,
                                     transparent 0%)
@@ -749,6 +769,7 @@ $stackswitcher_color: if($theme == 'black' or $theme == 'white', rgba(white, 0.6
 
         button {
           @extend %simple_flat_button;
+          border-radius: 0;
           margin: -4px 0;
           min-height: $medium_size;
         }

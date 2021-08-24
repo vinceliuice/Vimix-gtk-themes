@@ -522,7 +522,7 @@ button {
 
   .background .linked.stack-switcher > & {
     @extend %flat_button;
-    border-radius: 0;
+    border-radius: $button_radius;
     border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                   $primary 0%,
                                   transparent 0%)
@@ -2934,7 +2934,8 @@ frame {
     }
   }
 
-  leaflet > stack > & list { // reset
+  leaflet > stack > & list,
+  viewport.frame > list { // reset
     border-radius: 0;
 
     > row {

@@ -225,7 +225,7 @@ spinner:checked:disabled {
   opacity: 0.3;
 }
 
-#login_window entry, .budgie-run-dialog entry, .budgie-polkit-dialog entry, .budgie-session-dialog entry, .raven .raven-background spinbutton:not(.vertical), .background.budgie-popover entry,
+#login_window entry, .budgie-run-dialog entry, .budgie-polkit-dialog entry, .budgie-session-dialog entry, .background .raven .raven-background spinbutton:not(.vertical), .background.budgie-popover entry,
 .background.budgie-popover spinbutton:not(.vertical), .budgie-settings-window .settings-page .settings-frame .linked > entry, window.background stack scrolledwindow entry,
 window.background stack scrolledwindow spinbutton:not(.vertical), dialog.background .dialog-vbox stack entry,
 dialog.background .dialog-vbox stack spinbutton:not(.vertical), window#whiskermenu-window entry, .tilix-search-frame entry,
@@ -242,7 +242,7 @@ notebook > stack:not(:only-child) spinbutton:not(.vertical), popover.background 
   border-radius: 0;
 }
 
-#login_window entry:focus, .budgie-run-dialog entry:focus, .budgie-polkit-dialog entry:focus, .budgie-session-dialog entry:focus, .raven .raven-background spinbutton:focus:not(.vertical), .background.budgie-popover entry:focus, .budgie-settings-window .settings-page .settings-frame .linked > entry:focus, window.background stack scrolledwindow entry:focus, dialog.background .dialog-vbox stack entry:focus,
+#login_window entry:focus, .budgie-run-dialog entry:focus, .budgie-polkit-dialog entry:focus, .budgie-session-dialog entry:focus, .background .raven .raven-background spinbutton:focus:not(.vertical), .background.budgie-popover entry:focus, .budgie-settings-window .settings-page .settings-frame .linked > entry:focus, window.background stack scrolledwindow entry:focus, dialog.background .dialog-vbox stack entry:focus,
 dialog.background .dialog-vbox stack spinbutton:focus:not(.vertical), window#whiskermenu-window entry:focus, .tilix-search-frame entry:focus, .geary-composer-box entry:focus,
 .geary-composer-box spinbutton:focus:not(.vertical), editortweak entry.search:focus, layoutpane entry.search:focus, messagedialog entry:focus, notebook > stack:not(:only-child) entry:focus,
 notebook > stack:not(:only-child) spinbutton:focus:not(.vertical), popover.background entry:focus, .background spinbutton:focus:not(.vertical), .background .linked > entry:focus, .background .gedit-search-slider > .linked:not(.vertical) > entry.flat:focus, .background entry.flat:focus {
@@ -252,7 +252,7 @@ notebook > stack:not(:only-child) spinbutton:focus:not(.vertical), popover.backg
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), rgba(0, 0, 0, 0.65) 100%, transparent 0%) 0 0 2/0 0 2px;
 }
 
-#login_window entry:drop(active), .budgie-run-dialog entry:drop(active), .budgie-polkit-dialog entry:drop(active), .budgie-session-dialog entry:drop(active), .raven .raven-background spinbutton:drop(active):not(.vertical), .background.budgie-popover entry:drop(active), .budgie-settings-window .settings-page .settings-frame .linked > entry:drop(active), window.background stack scrolledwindow entry:drop(active), dialog.background .dialog-vbox stack entry:drop(active),
+#login_window entry:drop(active), .budgie-run-dialog entry:drop(active), .budgie-polkit-dialog entry:drop(active), .budgie-session-dialog entry:drop(active), .background .raven .raven-background spinbutton:drop(active):not(.vertical), .background.budgie-popover entry:drop(active), .budgie-settings-window .settings-page .settings-frame .linked > entry:drop(active), window.background stack scrolledwindow entry:drop(active), dialog.background .dialog-vbox stack entry:drop(active),
 dialog.background .dialog-vbox stack spinbutton:drop(active):not(.vertical), window#whiskermenu-window entry:drop(active), .tilix-search-frame entry:drop(active), .geary-composer-box entry:drop(active),
 .geary-composer-box spinbutton:drop(active):not(.vertical), editortweak entry.search:drop(active), layoutpane entry.search:drop(active), messagedialog entry:drop(active), notebook > stack:not(:only-child) entry:drop(active),
 notebook > stack:not(:only-child) spinbutton:drop(active):not(.vertical), popover.background entry:drop(active), .background spinbutton:drop(active):not(.vertical), .background .linked > entry:drop(active), .background .gedit-search-slider > .linked:not(.vertical) > entry.flat:drop(active), .background entry.flat:drop(active) {
@@ -261,7 +261,7 @@ notebook > stack:not(:only-child) spinbutton:drop(active):not(.vertical), popove
   box-shadow: inset 0 -2px rgba(0, 0, 0, 0.38);
 }
 
-#login_window entry:disabled, .budgie-run-dialog entry:disabled, .budgie-polkit-dialog entry:disabled, .budgie-session-dialog entry:disabled, .raven .raven-background spinbutton:disabled:not(.vertical), .background.budgie-popover entry:disabled, .budgie-settings-window .settings-page .settings-frame .linked > entry:disabled, window.background stack scrolledwindow entry:disabled, dialog.background .dialog-vbox stack entry:disabled,
+#login_window entry:disabled, .budgie-run-dialog entry:disabled, .budgie-polkit-dialog entry:disabled, .budgie-session-dialog entry:disabled, .background .raven .raven-background spinbutton:disabled:not(.vertical), .background.budgie-popover entry:disabled, .budgie-settings-window .settings-page .settings-frame .linked > entry:disabled, window.background stack scrolledwindow entry:disabled, dialog.background .dialog-vbox stack entry:disabled,
 dialog.background .dialog-vbox stack spinbutton:disabled:not(.vertical), window#whiskermenu-window entry:disabled, .tilix-search-frame entry:disabled, .geary-composer-box entry:disabled,
 .geary-composer-box spinbutton:disabled:not(.vertical), editortweak entry.search:disabled, layoutpane entry.search:disabled, messagedialog entry:disabled, notebook > stack:not(:only-child) entry:disabled,
 notebook > stack:not(:only-child) spinbutton:disabled:not(.vertical), popover.background entry:disabled, .background spinbutton:disabled:not(.vertical), .background .linked > entry:disabled, .background .gedit-search-slider > .linked:not(.vertical) > entry.flat:disabled, .background entry.flat:disabled {
@@ -529,7 +529,7 @@ treeview entry.flat, treeview entry.flat:focus, treeview entry, treeview entry:f
   }
 }
 
-.budgie-run-dialog button, .budgie-polkit-dialog button, .budgie-session-dialog button, .raven stackswitcher.linked > button, .mate-panel-menu-bar #PanelApplet button:not(.flat), .tilix-search-frame button, .geary-composer-box button:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle,
+.budgie-run-dialog button, .budgie-polkit-dialog button, .budgie-session-dialog button, .background .raven stackswitcher.linked > button, .mate-panel-menu-bar #PanelApplet button:not(.flat), .tilix-search-frame button, .geary-composer-box button:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle,
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:not(.toggle):not(.raised):not(.flat), window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised, window.csd > box.vertical > box.vertical > toolbar.horizontal button,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button, layouttabbar button, .nemo-window .primary-toolbar .linked.path-bar:not(.vertical):not(.stack-switcher) button,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button,
@@ -545,7 +545,7 @@ window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button, .sid
   color: rgba(0, 0, 0, 0.6);
 }
 
-.budgie-run-dialog button:hover, .budgie-polkit-dialog button:hover, .budgie-session-dialog button:hover, .raven stackswitcher.linked > button:hover, .mate-panel-menu-bar #PanelApplet button:hover:not(.flat), .tilix-search-frame button:hover, .geary-composer-box button:hover:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:hover,
+.budgie-run-dialog button:hover, .budgie-polkit-dialog button:hover, .budgie-session-dialog button:hover, .background .raven stackswitcher.linked > button:hover, .mate-panel-menu-bar #PanelApplet button:hover:not(.flat), .tilix-search-frame button:hover, .geary-composer-box button:hover:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:hover,
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:hover:not(.toggle):not(.raised):not(.flat), window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:hover, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:hover, window.csd > box.vertical > box.vertical > toolbar.horizontal button:hover,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:hover, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:hover, layouttabbar button:hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:hover,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:hover, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:hover, .nautilus-window headerbar .path-bar-box button:hover, messagedialog .linked:not(.vertical).dialog-action-area > button:hover, .app-notification button:hover, actionbar > revealer > box button:hover:not(.suggested-action):not(.destructive-action):not(.server-list-button), .caja-pathbar button:hover,
@@ -554,7 +554,7 @@ window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:hover
   color: rgba(0, 0, 0, 0.87);
 }
 
-.budgie-run-dialog button:active, .budgie-polkit-dialog button:active, .budgie-session-dialog button:active, .raven stackswitcher.linked > button:active, .mate-panel-menu-bar #PanelApplet button:active:not(.flat), .tilix-search-frame button:active, .geary-composer-box button:active:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:active,
+.budgie-run-dialog button:active, .budgie-polkit-dialog button:active, .budgie-session-dialog button:active, .background .raven stackswitcher.linked > button:active, .mate-panel-menu-bar #PanelApplet button:active:not(.flat), .tilix-search-frame button:active, .geary-composer-box button:active:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:active,
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:active:not(.toggle):not(.raised):not(.flat), window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:active, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:active, window.csd > box.vertical > box.vertical > toolbar.horizontal button:active,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:active, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:active, layouttabbar button:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:active,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:active, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:active, .nautilus-window headerbar .path-bar-box button:active, messagedialog .linked:not(.vertical).dialog-action-area > button:active, .app-notification button:active, actionbar > revealer > box button:active:not(.suggested-action):not(.destructive-action):not(.server-list-button), .caja-pathbar button:active,
@@ -567,7 +567,7 @@ window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:activ
   color: rgba(0, 0, 0, 0.87);
 }
 
-.budgie-run-dialog button:disabled, .budgie-polkit-dialog button:disabled, .budgie-session-dialog button:disabled, .raven stackswitcher.linked > button:disabled, .mate-panel-menu-bar #PanelApplet button:disabled:not(.flat), .tilix-search-frame button:disabled, .geary-composer-box button:disabled:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:disabled,
+.budgie-run-dialog button:disabled, .budgie-polkit-dialog button:disabled, .budgie-session-dialog button:disabled, .background .raven stackswitcher.linked > button:disabled, .mate-panel-menu-bar #PanelApplet button:disabled:not(.flat), .tilix-search-frame button:disabled, .geary-composer-box button:disabled:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:disabled,
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:disabled:not(.toggle):not(.raised):not(.flat), window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:disabled, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:disabled, window.csd > box.vertical > box.vertical > toolbar.horizontal button:disabled,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:disabled, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:disabled, layouttabbar button:disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:disabled,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:disabled, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:disabled, .nautilus-window headerbar .path-bar-box button:disabled, messagedialog .linked:not(.vertical).dialog-action-area > button:disabled, .app-notification button:disabled, actionbar > revealer > box button:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), .caja-pathbar button:disabled,
@@ -577,7 +577,7 @@ window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:disab
   color: alpha(currentColor, 0.27);
 }
 
-.budgie-run-dialog button:checked, .budgie-polkit-dialog button:checked, .budgie-session-dialog button:checked, .raven stackswitcher.linked > button:checked, .mate-panel-menu-bar #PanelApplet button:checked:not(.flat), .tilix-search-frame button:checked, .geary-composer-box button:checked:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:checked,
+.budgie-run-dialog button:checked, .budgie-polkit-dialog button:checked, .budgie-session-dialog button:checked, .background .raven stackswitcher.linked > button:checked, .mate-panel-menu-bar #PanelApplet button:checked:not(.flat), .tilix-search-frame button:checked, .geary-composer-box button:checked:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:checked,
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:checked:not(.toggle):not(.raised):not(.flat), window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:checked, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:checked, window.csd > box.vertical > box.vertical > toolbar.horizontal button:checked,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:checked, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:checked, layouttabbar button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:checked, .nautilus-window headerbar .path-bar-box button:checked, messagedialog .linked:not(.vertical).dialog-action-area > button:checked, .app-notification button:checked, actionbar > revealer > box button:checked:not(.suggested-action):not(.destructive-action):not(.server-list-button), .caja-pathbar button:checked,
@@ -586,7 +586,7 @@ window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:check
   background-color: alpha(currentColor, 0.12);
 }
 
-.budgie-run-dialog button:checked:disabled, .budgie-polkit-dialog button:checked:disabled, .budgie-session-dialog button:checked:disabled, .raven stackswitcher.linked > button:checked:disabled, .mate-panel-menu-bar #PanelApplet button:checked:disabled:not(.flat), .tilix-search-frame button:checked:disabled, .geary-composer-box button:checked:disabled:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:checked:disabled,
+.budgie-run-dialog button:checked:disabled, .budgie-polkit-dialog button:checked:disabled, .budgie-session-dialog button:checked:disabled, .background .raven stackswitcher.linked > button:checked:disabled, .mate-panel-menu-bar #PanelApplet button:checked:disabled:not(.flat), .tilix-search-frame button:checked:disabled, .geary-composer-box button:checked:disabled:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:checked:disabled,
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:checked:disabled:not(.toggle):not(.raised):not(.flat), window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:checked:disabled, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:checked:disabled, window.csd > box.vertical > box.vertical > toolbar.horizontal button:checked:disabled,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:checked:disabled, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:checked:disabled, layouttabbar button:checked:disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked:disabled,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked:disabled, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:checked:disabled, .nautilus-window headerbar .path-bar-box button:checked:disabled, messagedialog .linked:not(.vertical).dialog-action-area > button:checked:disabled, .app-notification button:checked:disabled, actionbar > revealer > box button:checked:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), .caja-pathbar button:checked:disabled,
@@ -595,7 +595,7 @@ window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:check
   color: rgba(0, 0, 0, 0.38);
 }
 
-.lightdm-gtk-greeter button, .budgie-run-dialog .linked.horizontal > button, .budgie-polkit-dialog .linked.horizontal > button, .budgie-session-dialog .linked.horizontal > button, .drop-shadow button, .raven .raven-header.top stackswitcher button, .raven .raven-header:not(.top) button, .background.budgie-popover button, .background.budgie-popover row button, .budgie-settings-window buttonbox.inline-toolbar button, PanelToplevel > widget > button, .background .gedit-search-slider > .linked:not(.vertical) > button, .background .gedit-search-slider > .linked:not(.vertical) > entry.error ~ button, .nemo-window .floating-bar button,
+.lightdm-gtk-greeter button, .budgie-run-dialog .linked.horizontal > button, .budgie-polkit-dialog .linked.horizontal > button, .budgie-session-dialog .linked.horizontal > button, .drop-shadow button, .background .raven .raven-header.top stackswitcher button, .background .raven .raven-header:not(.top) button, .background.budgie-popover button, .background.budgie-popover row button, .budgie-settings-window buttonbox.inline-toolbar button, PanelToplevel > widget > button, .background .gedit-search-slider > .linked:not(.vertical) > button, .background .gedit-search-slider > .linked:not(.vertical) > entry.error ~ button, .nemo-window .floating-bar button,
 .nautilus-window .floating-bar button, placessidebar row button.sidebar-button, calendar.button, check,
 radio, scrollbar button, notebook > header > tabs > arrow, spinbutton.vertical button, spinbutton:not(.vertical) > button, modelbutton.flat,
 .menuitem.button.flat, .inline-toolbar button:not(.text-button), .osd button.flat {
@@ -609,7 +609,7 @@ radio, scrollbar button, notebook > header > tabs > arrow, spinbutton.vertical b
   color: rgba(0, 0, 0, 0.6);
 }
 
-.lightdm-gtk-greeter button:hover, .budgie-run-dialog .linked.horizontal > button:hover, .budgie-polkit-dialog .linked.horizontal > button:hover, .budgie-session-dialog .linked.horizontal > button:hover, .drop-shadow button:hover, .raven .raven-header.top stackswitcher button:hover, .raven .raven-header:not(.top) button:hover, .background.budgie-popover button:hover, .budgie-settings-window buttonbox.inline-toolbar button:hover, PanelToplevel > widget > button:hover, .background .gedit-search-slider > .linked:not(.vertical) > button:hover, .background .gedit-search-slider > .linked:not(.vertical) > entry.error ~ button:hover, .nemo-window .floating-bar button:hover,
+.lightdm-gtk-greeter button:hover, .budgie-run-dialog .linked.horizontal > button:hover, .budgie-polkit-dialog .linked.horizontal > button:hover, .budgie-session-dialog .linked.horizontal > button:hover, .drop-shadow button:hover, .background .raven .raven-header.top stackswitcher button:hover, .background .raven .raven-header:not(.top) button:hover, .background.budgie-popover button:hover, .budgie-settings-window buttonbox.inline-toolbar button:hover, PanelToplevel > widget > button:hover, .background .gedit-search-slider > .linked:not(.vertical) > button:hover, .background .gedit-search-slider > .linked:not(.vertical) > entry.error ~ button:hover, .nemo-window .floating-bar button:hover,
 .nautilus-window .floating-bar button:hover, placessidebar row button.sidebar-button:hover, calendar.button:hover, check:hover,
 radio:hover, scrollbar button:hover, notebook > header > tabs > arrow:hover, spinbutton.vertical button:hover, spinbutton:not(.vertical) > button:hover, modelbutton.flat:hover,
 .menuitem.button.flat:hover, .inline-toolbar button:hover:not(.text-button), .osd button.flat:hover {
@@ -617,7 +617,7 @@ radio:hover, scrollbar button:hover, notebook > header > tabs > arrow:hover, spi
   color: rgba(0, 0, 0, 0.87);
 }
 
-.lightdm-gtk-greeter button:active, .budgie-run-dialog .linked.horizontal > button:active, .budgie-polkit-dialog .linked.horizontal > button:active, .budgie-session-dialog .linked.horizontal > button:active, .drop-shadow button:active, .raven .raven-header.top stackswitcher button:active, .raven .raven-header:not(.top) button:active, .background.budgie-popover button:active, .budgie-settings-window buttonbox.inline-toolbar button:active, PanelToplevel > widget > button:active, .background .gedit-search-slider > .linked:not(.vertical) > button:active, .background .gedit-search-slider > .linked:not(.vertical) > entry.error ~ button:active, .nemo-window .floating-bar button:active,
+.lightdm-gtk-greeter button:active, .budgie-run-dialog .linked.horizontal > button:active, .budgie-polkit-dialog .linked.horizontal > button:active, .budgie-session-dialog .linked.horizontal > button:active, .drop-shadow button:active, .background .raven .raven-header.top stackswitcher button:active, .background .raven .raven-header:not(.top) button:active, .background.budgie-popover button:active, .budgie-settings-window buttonbox.inline-toolbar button:active, PanelToplevel > widget > button:active, .background .gedit-search-slider > .linked:not(.vertical) > button:active, .background .gedit-search-slider > .linked:not(.vertical) > entry.error ~ button:active, .nemo-window .floating-bar button:active,
 .nautilus-window .floating-bar button:active, placessidebar row button.sidebar-button:active, calendar.button:active, check:active,
 radio:active, scrollbar button:active, notebook > header > tabs > arrow:active, spinbutton.vertical button:active, spinbutton:not(.vertical) > button:active, modelbutton.flat:active,
 .menuitem.button.flat:active, .inline-toolbar button:active:not(.text-button), .osd button.flat:active {
@@ -629,7 +629,7 @@ radio:active, scrollbar button:active, notebook > header > tabs > arrow:active, 
   color: rgba(0, 0, 0, 0.87);
 }
 
-.lightdm-gtk-greeter button:disabled, .budgie-run-dialog .linked.horizontal > button:disabled, .budgie-polkit-dialog .linked.horizontal > button:disabled, .budgie-session-dialog .linked.horizontal > button:disabled, .drop-shadow button:disabled, .raven .raven-header.top stackswitcher button:disabled, .raven .raven-header:not(.top) button:disabled, .background.budgie-popover button:disabled, .budgie-settings-window buttonbox.inline-toolbar button:disabled, PanelToplevel > widget > button:disabled, .background .gedit-search-slider > .linked:not(.vertical) > button:disabled, .background .gedit-search-slider > .linked:not(.vertical) > entry.error ~ button:disabled, .nemo-window .floating-bar button:disabled,
+.lightdm-gtk-greeter button:disabled, .budgie-run-dialog .linked.horizontal > button:disabled, .budgie-polkit-dialog .linked.horizontal > button:disabled, .budgie-session-dialog .linked.horizontal > button:disabled, .drop-shadow button:disabled, .background .raven .raven-header.top stackswitcher button:disabled, .background .raven .raven-header:not(.top) button:disabled, .background.budgie-popover button:disabled, .budgie-settings-window buttonbox.inline-toolbar button:disabled, PanelToplevel > widget > button:disabled, .background .gedit-search-slider > .linked:not(.vertical) > button:disabled, .background .gedit-search-slider > .linked:not(.vertical) > entry.error ~ button:disabled, .nemo-window .floating-bar button:disabled,
 .nautilus-window .floating-bar button:disabled, placessidebar row button.sidebar-button:disabled, calendar.button:disabled, check:disabled,
 radio:disabled, scrollbar button:disabled, notebook > header > tabs > arrow:disabled, spinbutton.vertical button:disabled, spinbutton:not(.vertical) > button:disabled, modelbutton.flat:disabled,
 .menuitem.button.flat:disabled, .inline-toolbar button:disabled:not(.text-button), .osd button.flat:disabled {
@@ -638,7 +638,7 @@ radio:disabled, scrollbar button:disabled, notebook > header > tabs > arrow:disa
   color: alpha(currentColor, 0.27);
 }
 
-#login_window #user_combobox button, .raven .raven-background button.combo, .background.budgie-popover button.combo, window.background stack scrolledwindow button.combo, dialog.background .dialog-vbox stack button.combo, .tilix-search-frame button.combo, .geary-composer-box button.combo, .background button.combo, .background .linked > button.combo, .background .linked entry + button, .background .linked entry + button + button {
+#login_window #user_combobox button, .background .raven .raven-background button.combo, .background.budgie-popover button.combo, window.background stack scrolledwindow button.combo, dialog.background .dialog-vbox stack button.combo, .tilix-search-frame button.combo, .geary-composer-box button.combo, .background button.combo, .background .linked > button.combo, .background .linked entry + button, .background .linked entry + button + button {
   border-radius: 0;
   background: none;
   font-weight: normal;
@@ -650,20 +650,20 @@ radio:disabled, scrollbar button:disabled, notebook > header > tabs > arrow:disa
   border-width: 0;
 }
 
-#login_window #user_combobox button:hover, .raven .raven-background button.combo:hover, dialog.background .dialog-vbox stack button.combo:hover, .tilix-search-frame button.combo:hover, .geary-composer-box button.combo:hover, .background button.combo:hover, .background .linked entry + button:hover, .background .linked entry + button + button:hover {
+#login_window #user_combobox button:hover, .background .raven .raven-background button.combo:hover, dialog.background .dialog-vbox stack button.combo:hover, .tilix-search-frame button.combo:hover, .geary-composer-box button.combo:hover, .background button.combo:hover, .background .linked entry + button:hover, .background .linked entry + button + button:hover {
   background: none;
   border-width: 0;
   box-shadow: inset 0 -2px rgba(0, 0, 0, 0.38);
 }
 
-#login_window #user_combobox button:checked, .raven .raven-background button.combo:checked, dialog.background .dialog-vbox stack button.combo:checked, .tilix-search-frame button.combo:checked, .geary-composer-box button.combo:checked, .background button.combo:checked, .background .linked entry + button:checked, .background .linked entry + button + button:checked {
+#login_window #user_combobox button:checked, .background .raven .raven-background button.combo:checked, dialog.background .dialog-vbox stack button.combo:checked, .tilix-search-frame button.combo:checked, .geary-composer-box button.combo:checked, .background button.combo:checked, .background .linked entry + button:checked, .background .linked entry + button + button:checked {
   background: none;
   border-width: 0;
   box-shadow: none;
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), rgba(0, 0, 0, 0.65) 100%, transparent 0%) 0 0 2/0 0 2px;
 }
 
-#login_window #user_combobox button:disabled, .raven .raven-background button.combo:disabled, dialog.background .dialog-vbox stack button.combo:disabled, .tilix-search-frame button.combo:disabled, .geary-composer-box button.combo:disabled, .background button.combo:disabled, .background .linked entry + button:disabled, .background .linked entry + button + button:disabled {
+#login_window #user_combobox button:disabled, .background .raven .raven-background button.combo:disabled, dialog.background .dialog-vbox stack button.combo:disabled, .tilix-search-frame button.combo:disabled, .geary-composer-box button.combo:disabled, .background button.combo:disabled, .background .linked entry + button:disabled, .background .linked entry + button + button:disabled {
   border-width: 0;
   box-shadow: inset 0 -1px rgba(0, 0, 0, 0.26);
   background-color: transparent;
@@ -846,7 +846,7 @@ button.text-button.image-button image:not(:only-child):last-child {
 }
 
 .background .linked.stack-switcher > button {
-  border-radius: 0;
+  border-radius: 3px;
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #666666 0%, transparent 0%) 0 0 0/0 0 0px;
 }
 
@@ -3476,15 +3476,18 @@ frame list > row:last-child {
   border-radius: 0 0 3px 3px;
 }
 
-leaflet > stack > frame list {
+leaflet > stack > frame list,
+frame viewport.frame > list {
   border-radius: 0;
 }
 
-leaflet > stack > frame list > row:first-child {
+leaflet > stack > frame list > row:first-child,
+frame viewport.frame > list > row:first-child {
   border-radius: 0 0 0 0;
 }
 
-leaflet > stack > frame list > row:last-child {
+leaflet > stack > frame list > row:last-child,
+frame viewport.frame > list > row:last-child {
   border-radius: 0 0 0 0;
 }
 
@@ -4572,7 +4575,7 @@ cursor-handle.insertion-cursor:dir(ltr), cursor-handle.insertion-cursor:dir(rtl)
   font: initial;
 }
 
-.budgie-notification-window button.image-button, .budgie-switcher-window button.image-button, .budgie-osd-window button.image-button, .raven .expander-button, .raven .raven-header:not(.top) button.image-button, .raven button.image-button, widget > box.terminal-titlebar > button.image-button, widget > box.terminal-titlebar > button.image-button.toggle, .terminix-session-sidebar row.activatable button.tilix-sidebar-close-button, .terminix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button,
+.budgie-notification-window button.image-button, .budgie-switcher-window button.image-button, .budgie-osd-window button.image-button, .background .raven .expander-button, .background .raven .raven-header:not(.top) button.image-button, .background .raven button.image-button, widget > box.terminal-titlebar > button.image-button, widget > box.terminal-titlebar > button.image-button.toggle, .terminix-session-sidebar row.activatable button.tilix-sidebar-close-button, .terminix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button,
 list.tilix-session-sidebar row.activatable button.tilix-sidebar-close-button,
 list.tilix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button, .nautilus-window headerbar > revealer > button, button.close, button.round-button, button.circular, combobox > .linked:not(.vertical) > button.combo:not(:only-child), check,
 radio {
@@ -7363,6 +7366,14 @@ na-tray-applet {
   margin: 0;
 }
 
+.budgie-settings-window .settings-page .settings-frame > box.vertical {
+  padding: 12px;
+}
+
+.budgie-settings-window .settings-page .settings-frame > grid {
+  padding: 6px;
+}
+
 .background.budgie-popover {
   border-color: #fafafa;
   border-radius: 4px;
@@ -7385,6 +7396,11 @@ na-tray-applet {
 
 .background.budgie-popover list {
   background-color: transparent;
+  border-radius: 0;
+}
+
+.background.budgie-popover frame {
+  border-radius: 0;
 }
 
 .background.budgie-popover row {
@@ -7536,6 +7552,10 @@ na-tray-applet {
   padding: 6px;
 }
 
+.background.budgie-popover.night-light-indicator .view-header {
+  margin: 0 6px;
+}
+
 .background.budgie-popover.places-menu .container {
   padding: 6px;
 }
@@ -7561,6 +7581,14 @@ na-tray-applet {
 
 .background.budgie-popover.workspace-popover flowboxchild {
   padding: 0;
+}
+
+.background.budgie-popover > .container > box.vertical > box.vertical > box.vertical {
+  padding: 0 6px 6px;
+}
+
+.background.budgie-popover > .container > box.vertical > box.vertical > box.horizontal > button.toggle {
+  margin-right: 6px;
 }
 
 window.budgie-popover:not(.csd) > frame.container {
@@ -8013,152 +8041,152 @@ frame.raven-frame > border {
   background-image: linear-gradient(to left, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.08), transparent);
 }
 
-.raven {
+.background .raven {
   background-color: #fafafa;
 }
 
-.raven > box {
+.background .raven > box {
   margin-bottom: -10px;
 }
 
-.raven > stack {
+.background .raven > stack {
   margin-bottom: -10px;
 }
 
-.raven stackswitcher {
+.background .raven stackswitcher {
   box-shadow: inset 0 -1px rgba(0, 0, 0, 0.12);
 }
 
-.raven stackswitcher.stack-switcher {
+.background .raven stackswitcher.stack-switcher {
   background-image: none;
   background-color: transparent;
   border-radius: 0;
 }
 
-.raven stackswitcher.linked > button {
-  border-radius: 0;
+.background .raven stackswitcher.linked > button {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #666666 0%, transparent 0%) 0 0 0/0 0 0px;
 }
 
-.raven stackswitcher.linked > button:checked {
+.background .raven stackswitcher.linked > button:checked {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #666666 100%, transparent 0%) 0 0 2/0 0 2px;
   background-color: transparent;
 }
 
-.raven .raven-header {
+.background .raven .raven-header {
   min-height: 36px;
   padding: 3px;
 }
 
-.raven .raven-header:not(.top) {
+.background .raven .raven-header:not(.top) {
   margin-top: -6px;
 }
 
-.raven .raven-header.top {
+.background .raven .raven-header.top {
   padding: 0;
   box-shadow: inset 0 -1px rgba(0, 0, 0, 0.12);
 }
 
-.raven .raven-header.top stackswitcher {
+.background .raven .raven-header.top stackswitcher {
   box-shadow: none;
 }
 
-.raven .raven-header.top stackswitcher button {
+.background .raven .raven-header.top stackswitcher button {
+  border-radius: 0;
   margin: -4px 0;
   min-height: 36px;
 }
 
-.raven .raven-header.top button.image-button:dir(ltr) {
+.background .raven .raven-header.top button.image-button:dir(ltr) {
   margin-right: 2px;
 }
 
-.raven .raven-header.top button.image-button:dir(rtl) {
+.background .raven .raven-header.top button.image-button:dir(rtl) {
   margin-left: 2px;
 }
 
-.raven .raven-header.top > image {
+.background .raven .raven-header.top > image {
   margin: 0 8px;
 }
 
-.raven .raven-header.top > label {
+.background .raven .raven-header.top > label {
   margin: 0 -8px;
   font-weight: bold;
 }
 
-.raven .raven-header.bottom {
+.background .raven .raven-header.bottom {
   border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
 
-.raven viewport.frame .raven-header {
+.background .raven viewport.frame .raven-header {
   margin-top: -8px;
 }
 
-.raven .raven-background {
+.background .raven .raven-background {
   border-style: solid none;
   border-width: 1px;
   border-color: rgba(0, 0, 0, 0.12);
   background-color: #FFFFFF;
 }
 
-.raven .raven-background.frame {
+.background .raven .raven-background.frame {
   border-style: solid none;
 }
 
-.raven .raven-background > overlay > widget > image {
+.background .raven .raven-background > overlay > widget > image {
   color: rgba(0, 0, 0, 0.12);
 }
 
-.raven .raven-background grid > label:first-child {
+.background .raven .raven-background grid > label:first-child {
   min-height: 36px;
 }
 
-.raven scrolledwindow.raven-background {
+.background .raven scrolledwindow.raven-background {
   border-bottom-style: none;
 }
 
-.raven .raven-header.top + .raven-background {
+.background .raven .raven-header.top + .raven-background {
   border-style: none;
 }
 
-.raven .raven-header.top + .raven-background stackswitcher button {
+.background .raven .raven-header.top + .raven-background stackswitcher button {
   margin: -4px 0;
 }
 
-.raven .powerstrip button {
+.background .raven .powerstrip button {
   margin: 2px 0 1px;
   padding: 9px;
 }
 
-.raven .option-subtitle {
+.background .raven .option-subtitle {
   font-size: smaller;
 }
 
-.raven .audio-widget scale.marks-after {
+.background .raven .audio-widget scale.marks-after {
   padding-top: 0;
   padding-bottom: 0;
 }
 
-.raven .audio-widget scale.marks-after label {
+.background .raven .audio-widget scale.marks-after label {
   font-size: 90%;
   padding: 0;
   margin: -10px 0 0 6px;
 }
 
-.raven .audio-widget button.flat.expander-button {
+.background .raven .audio-widget button.flat.expander-button {
   margin-top: 4px;
   margin-bottom: 4px;
 }
 
-.raven .audio-widget list.devices-list.sound-devices > row.activatable:selected, .raven .audio-widget list.devices-list.sound-devices > row.activatable:checked {
+.background .raven .audio-widget list.devices-list.sound-devices > row.activatable:selected, .background .raven .audio-widget list.devices-list.sound-devices > row.activatable:checked {
   background-color: rgba(0, 0, 0, 0.06);
   color: rgba(0, 0, 0, 0.87);
 }
 
-.raven .audio-widget list.devices-list.sound-devices > row.activatable:selected label, .raven .audio-widget list.devices-list.sound-devices > row.activatable:checked label {
+.background .raven .audio-widget list.devices-list.sound-devices > row.activatable:selected label, .background .raven .audio-widget list.devices-list.sound-devices > row.activatable:checked label {
   color: rgba(0, 0, 0, 0.87);
 }
 
-.raven .audio-widget list.devices-list.sound-devices > row.activatable label {
+.background .raven .audio-widget list.devices-list.sound-devices > row.activatable label {
   padding-left: 12px;
 }
 

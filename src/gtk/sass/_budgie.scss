@@ -509,11 +509,35 @@ popover.background.places-menu {
     border-radius: 0;
   }
 
-  &.horizontal button { padding: 0 4px; }
+  &.horizontal button { padding: 0 $space_size; }
 
-  &.vertical button { padding: 4px 0; }
+  &.vertical button { padding: $space_size 0; }
 
   separator { background-color: $border; }
+
+  .icon-tasklist {
+    .launcher {
+      border-radius: $modal_radius;
+    }
+  }
+
+  .bottom & {
+    &.dock-mode {
+      border-radius: $modal_radius $modal_radius 0 0;
+    }
+  }
+
+  .left & {
+    &.dock-mode {
+      border-radius: 0 $modal_radius $modal_radius 0;
+    }
+  }
+
+  .right & {
+    &.dock-mode {
+      border-radius: $modal_radius 0 0 $modal_radius;
+    }
+  }
 
   // Budgie styled Gtk Menus
   menubar,

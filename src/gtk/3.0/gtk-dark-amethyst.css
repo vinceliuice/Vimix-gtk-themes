@@ -7792,15 +7792,31 @@ popover.background.places-menu row {
 }
 
 .budgie-panel.horizontal button {
-  padding: 0 4px;
+  padding: 0 6px;
 }
 
 .budgie-panel.vertical button {
-  padding: 4px 0;
+  padding: 6px 0;
 }
 
 .budgie-panel separator {
   background-color: rgba(0, 0, 0, 0.2);
+}
+
+.budgie-panel .icon-tasklist .launcher {
+  border-radius: 3px;
+}
+
+.bottom .budgie-panel.dock-mode {
+  border-radius: 3px 3px 0 0;
+}
+
+.left .budgie-panel.dock-mode {
+  border-radius: 0 3px 3px 0;
+}
+
+.right .budgie-panel.dock-mode {
+  border-radius: 3px 0 0 3px;
 }
 
 .budgie-panel menubar > menuitem,

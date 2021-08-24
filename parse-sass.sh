@@ -22,6 +22,9 @@ if [ ! -z "${THEME_VARIANTS:-}" ]; then
   IFS=', ' read -r -a _THEME_VARIANTS <<< "${THEME_VARIANTS:-}"
 fi
 
+cp -rf src/gtk/sass/_tweaks.scss src/gtk/sass/_tweaks-temp.scss
+cp -rf src/gnome-shell/sass/_tweaks.scss src/gnome-shell/sass/_tweaks-temp.scss
+
 for color in "${_COLOR_VARIANTS[@]}"; do
   for size in "${_SIZE_VARIANTS[@]}"; do
     for theme in "${_THEME_VARIANTS[@]}"; do

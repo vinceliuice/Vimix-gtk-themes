@@ -1,3 +1,6 @@
+
+@import 'tweaks-temp';
+
 // Theme colors
 $theme-blue:       #4285F4;
 $theme-green:      #2EB398;
@@ -6,9 +9,6 @@ $theme-purple:     #AB47BC;
 $theme-grey:       #666666;
 $theme-base:       if($variant == 'light', #FFFFFF, #333333);
 $theme-background: if($variant == 'light', #F2F2F2, #282828);
-
-$weight: 3%; // theme color weight
-$mixstate: default;
 
 @function gtkalpha($c, $a) {
   @return unquote("alpha(#{$c}, #{$a})");
@@ -91,8 +91,8 @@ $mixstate: default;
   }
 }
 
-@function themecolor($color, $state: 'normal') {
-  @if ($state == 'normal') {
+@function themecolor($color, $state: 'default') {
+  @if ($state == 'main') {
     @return mix(primary(main), $color, $weight);
   }
   @if ($state == 'primary') {

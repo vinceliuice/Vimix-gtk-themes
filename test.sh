@@ -159,6 +159,11 @@ install_theme() {
   done
 }
 
+tweaks_temp() {
+  cp -rf ${SRC_DIR}/gtk/sass/_tweaks.scss ${SRC_DIR}/gtk/sass/_tweaks-temp.scss
+  cp -rf ${SRC_DIR}/gnome-shell/sass/_tweaks.scss ${SRC_DIR}/gnome-shell/sass/_tweaks-temp.scss
+}
+
 parse_theme() {
   for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
     for size in "${sizes[@]-${SIZE_VARIANTS[@]}}"; do
@@ -183,7 +188,7 @@ parse_theme() {
   done
 }
 
-parse_theme && install_theme
+tweaks_temp && parse_theme && install_theme
 
 echo
 echo Done.

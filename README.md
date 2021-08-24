@@ -41,17 +41,19 @@ Run
 
 Usage:  `./install.sh`  **[OPTIONS...]**
 
-|  OPTIONS:      | |
-|:---------------|:-------------|
-| -d, --dest     | Specify theme destination directory (Default: $HOME/.themes) |
-| -n, --name     | Specify theme name (Default: vimix) |
-| -a, --all      | install all theme variant(s) |
-| -c, --color    | Specify theme color variant(s) **[standard/light/dark]** (Default: All variants) |
-| -t, --theme    | Specify hue theme variant(s) **[standard/doder/beryl/ruby/amethyst]** (Default: doder) |
-| -s, --size     | Specify theme size variant(s) **[standard/laptop]** (Default: All variants) |
-| -f, --flat     | Specify theme with flat and normal titlebutton style |
-| -g, --grey     | Use grey color titlebutton style |
-| -h, --help     | Show this help |
+|  OPTIONS:         |              |
+|:------------------|:-------------|
+| -d, --dest        | Specify theme destination directory (Default: $HOME/.themes) |
+| -n, --name        | Specify theme name (Default: vimix) |
+| -a, --all         | install all theme variant(s) |
+| -c, --color       | Specify theme color variant(s) **[standard/light/dark]** (Default: All variants) |
+| -t, --theme       | Specify hue theme variant(s) **[standard/doder/beryl/ruby/amethyst]** (Default: doder) |
+| -s, --size        | Specify theme size variant(s) **[standard/laptop]** (Default: All variants) |
+| -tweaks, --tweaks | Specify theme tweaks: [flat|grey|mix] |
+|                   | flat: Specify theme with flat and normal titlebutton style |
+|                   | grey: Use grey titlebuttons in standard variants |
+|                   | mix:  Mix theme color and dark grey color for dark background color variants |
+| -h, --help        | Show this help |
 
 if you want to get the last vimix theme version online, you can
 

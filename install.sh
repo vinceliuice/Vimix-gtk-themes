@@ -40,8 +40,12 @@ usage() {
   printf "  %-25s%s\n" "-c, --color VARIANTS" "Specify theme color variant(s) [standard|light|dark] (Default: All variants)"
   printf "  %-25s%s\n" "-t, --theme VARIANTS" "Specify hue theme variant(s) [standard|doder|beryl|ruby|amethyst] (Default: doder)"
   printf "  %-25s%s\n" "-s, --size VARIANTS" "Specify theme size variant(s) [standard|laptop] (Default: All variants)"
-  printf "  %-25s%s\n" "-f, --flat" "Specify theme with flat and normal titlebutton style"
-  printf "  %-25s%s\n" "-g, --grey" "Use grey titlebuttons in standard variants"
+  printf "  %-25s%s\n"
+  printf "  %-25s%s\n" "-tweaks, --tweaks" "Specify theme tweaks: [flat|grey|mix]"
+  printf "  %-25s%s\n" " flat" "Specify theme with flat and normal titlebutton style"
+  printf "  %-25s%s\n" " grey" "Use grey titlebuttons in standard variants"
+  printf "  %-25s%s\n" " mix"  "Mix theme color and dark grey color for dark background color variants"
+  printf "  %-25s%s\n"
   printf "  %-25s%s\n" "-h, --help" "Show this help"
 }
 
@@ -109,7 +113,7 @@ install() {
 
   cp -r ${SRC_DIR}/gtk/assets/scalable                                                  ${THEME_DIR}/gtk-3.0/assets
 
-  if [[ ${flat} == 'true' ]]; then
+  if [[ ${flat} == 'true' || ${mix} == 'true' ]]; then
     sassc $SASSC_OPT ${SRC_DIR}/gtk/3.0/gtk${color}${size}${theme}.scss                 ${THEME_DIR}/gtk-3.0/gtk.css
 
     [[ ${color} != '-dark' ]] && \
@@ -137,7 +141,7 @@ install() {
 
   cp -r ${SRC_DIR}/gtk/assets/scalable                                                  ${THEME_DIR}/gtk-4.0/assets
 
-  if [[ ${flat} == 'true' ]]; then
+  if [[ ${flat} == 'true' || ${mix} == 'true' ]]; then
     sassc $SASSC_OPT ${SRC_DIR}/gtk/4.0/gtk${color}${size}${theme}.scss                 ${THEME_DIR}/gtk-4.0/gtk.css
 
     [[ ${color} != '-dark' ]] && \
@@ -161,9 +165,17 @@ install() {
   cp -r ${SRC_DIR}/gnome-shell/color-assets/toggle-on${theme}.svg                       ${THEME_DIR}/gnome-shell/assets/toggle-on.svg
 
   if [[ "${GS_VERSION:-}" == 'new' ]]; then
-    cp -r ${SRC_DIR}/gnome-shell/shell-40-0/gnome-shell${color}${size}${theme}.css      ${THEME_DIR}/gnome-shell/gnome-shell.css
+    if [[ ${mix} == 'true' ]]; then
+      sassc $SASSC_OPT ${SRC_DIR}/gnome-shell/shell-40-0/gnome-shell${color}${size}${theme}.scss ${THEME_DIR}/gnome-shell/gnome-shell.css
+    else
+      cp -r ${SRC_DIR}/gnome-shell/shell-40-0/gnome-shell${color}${size}${theme}.css    ${THEME_DIR}/gnome-shell/gnome-shell.css
+    fi
   else
-    cp -r ${SRC_DIR}/gnome-shell/shell-3-28/gnome-shell${color}${size}${theme}.css      ${THEME_DIR}/gnome-shell/gnome-shell.css
+    if [[ ${mix} == 'true' ]]; then
+      sassc $SASSC_OPT ${SRC_DIR}/gnome-shell/shell-3-28/gnome-shell${color}${size}${theme}.scss ${THEME_DIR}/gnome-shell/gnome-shell.css
+    else
+      cp -r ${SRC_DIR}/gnome-shell/shell-3-28/gnome-shell${color}${size}${theme}.css    ${THEME_DIR}/gnome-shell/gnome-shell.css
+    fi
   fi
 
   cd ${THEME_DIR}/gnome-shell
@@ -241,18 +253,20 @@ install_theme() {
   done
 }
 
+tweaks_temp() {
+  cp -rf ${SRC_DIR}/gtk/sass/_tweaks.scss ${SRC_DIR}/gtk/sass/_tweaks-temp.scss
+  cp -rf ${SRC_DIR}/gnome-shell/sass/_tweaks.scss ${SRC_DIR}/gnome-shell/sass/_tweaks-temp.scss
+}
+
 install_flat() {
-  cd ${SRC_DIR}/gtk/sass
-  cp -an _tweaks.scss _tweaks.scss.bak
-  sed -i "/\$titlebutton:/s/default/flat/" _tweaks.scss
+  sed -i "/\$titlebutton:/s/default/flat/" ${SRC_DIR}/gtk/sass/_tweaks-temp.scss
   echo -e "Install flat version ..."
 }
 
-restore_flat() {
-  cd ${SRC_DIR}/gtk/sass
-  [[ -f _tweaks.scss.bak ]] && rm -rf _tweaks.scss
-  mv _tweaks.scss.bak _tweaks.scss
-  echo -e "Restore _tweaks.scss file ..."
+install_mix() {
+  sed -i "/\$mixstate:/s/default/main/" ${SRC_DIR}/gtk/sass/_tweaks-temp.scss
+  sed -i "/\$mixstate:/s/default/main/" ${SRC_DIR}/gnome-shell/sass/_tweaks-temp.scss
+  echo -e "Install mix dark grey version ..."
 }
 
 while [ $# -gt 0 ]; do
@@ -273,13 +287,36 @@ while [ $# -gt 0 ]; do
       themes=("${THEME_VARIANTS[@]}")
       shift 1
       ;;
-    -f|--flat)
-      flat="true"
-      shift 1
-      ;;
-    -g|--grey)
-      grey="true"
-      shift 1
+    -tweaks|--tweaks)
+      shift
+      for tweaks in "$@"; do
+        case "$tweaks" in
+          solid)
+            opacity="solid"
+            shift
+            ;;
+          grey)
+            grey="true"
+            shift
+            ;;
+          flat)
+            flat="true"
+            shift
+            ;;
+          mix)
+            mix="true"
+            shift
+            ;;
+          -*)
+            break
+            ;;
+          *)
+            echo "ERROR: Unrecognized tweaks variant '$1'."
+            echo "Try '$0 --help' for more information."
+            exit 1
+            ;;
+        esac
+      done
       ;;
     -t|--theme)
       shift
@@ -406,12 +443,14 @@ while [ $# -gt 0 ]; do
 done
 
 if [[ "${flat}" == 'true' ]]; then
-  install_package && install_flat && install_theme && restore_flat
+  install_package && tweaks_temp && install_flat
 fi
 
-if [[ "${flat}" != 'true' ]]; then
-  install_theme
+if [[ "${mix}" == 'true' ]]; then
+  install_package && tweaks_temp && install_mix
 fi
+
+install_theme
 
 echo
 echo Done.

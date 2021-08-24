@@ -1,3 +1,6 @@
+
+@import 'tweaks-temp';
+
 // Theme colors
 $theme_blue:       #4285F4;
 $theme_green:      #2EB398;
@@ -95,8 +98,8 @@ $theme_background: if($variant == 'light', #F2F2F2, #282828);
   }
 }
 
-@function themecolor($color, $state: 'normal') {
-  @if ($state == 'normal') {
+@function themecolor($color, $state: 'default') {
+  @if ($state == 'main') {
     @return mix(primary(main), $color, $weight);
   }
   @if ($state == 'primary') {

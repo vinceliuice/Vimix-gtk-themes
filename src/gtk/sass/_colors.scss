@@ -3,8 +3,8 @@
 @import 'colors-base';
 
 // Background colors
-$base:               themecolor($theme_base, $mixstate);
-$background:         themecolor($theme_background, $mixstate);
+$base:               themecolor($theme_base, if($variant == 'light', default, $mixstate));
+$background:         themecolor($theme_background, if($variant == 'light', default, $mixstate));
 $base_alt:           mix($base, $background, 50%);
 $suface:             if($headerbar == 'light', darken($base, 2%), lighten($base, 2%));
 $scrim:              darken($background, 5%);

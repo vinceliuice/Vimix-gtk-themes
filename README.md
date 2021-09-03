@@ -48,7 +48,7 @@ Usage:  `./install.sh`  **[OPTIONS...]**
 | -a, --all         | install all theme variant(s) |
 | -c, --color       | Specify theme color variant(s) **[standard/light/dark]** (Default: All variants) |
 | -t, --theme       | Specify hue theme variant(s) **[standard/doder/beryl/ruby/amethyst]** (Default: doder) |
-| -s, --size        | Specify theme size variant(s) **[standard/laptop]** (Default: All variants) |
+| -s, --size        | Specify theme size variant(s) **[standard/compact]** (Default: standard) |
 | -tweaks, --tweaks | Specify theme tweaks: [flat|grey|mix] |
 |                   | flat: Specify theme with flat and normal titlebutton style |
 |                   | grey: Use grey titlebuttons in standard variants |

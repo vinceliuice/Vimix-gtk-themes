@@ -1,0 +1,149 @@
+/* Top Bar */
+// a.k.a. the panel
+
+#panel {
+  background-color: $panel;
+  font-weight: bold;
+  height: $item_size;
+  color: $panel-text-secondary;
+  font-feature-settings: "tnum";
+  transition-duration: 250ms;
+  @include fontsize($font_size - 1);
+
+  @if $topbar == "dark" {
+    box-shadow: 0 3px 8px rgba(black, 0.2);
+  } @else {
+    box-shadow: 0 3px 8px rgba(black, 0.1);
+  }
+
+  // the rounded outset corners
+  .panel-corner {
+    -panel-corner-radius: 0;
+    -panel-corner-background-color: $panel;
+    -panel-corner-border-width: 2px;
+    -panel-corner-border-color: transparent;
+    -panel-corner-opacity: 1;
+    transition-duration: 250ms;
+  }
+
+  // panel menus
+  .panel-button {
+    -natural-hpadding: 8px;
+    -minimum-hpadding: 8px;
+    font-weight: bold;
+    color: $panel-text-secondary;
+    transition-duration: 150ms;
+    border-radius: 0;
+    text-shadow: none;
+    border: none;
+
+    &.clock-display {
+      .clock {
+        transition-duration: 0;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        background: none;
+      }
+    }
+
+    &:hover {
+      color: $panel-text;
+      background-color: overlay($panel, focus);
+      box-shadow: none;
+    }
+
+    &:active, &:overview, &:focus, &:checked {
+      &, &:hover {
+        background-color: overlay($panel, checked);
+        color: $panel-text;
+        box-shadow: inset 0 -2px $indicator;
+        border: none;
+      }
+    }
+
+    .unlock-screen &,
+    .login-screen &,
+    .lock-screen & {
+      color: $panel-text;
+      &:focus, &:hover, &:active { color: $panel-text; }
+    }
+
+    // status area icons
+    .system-status-icon {
+      icon-size: $base_icon_size;
+      padding: $base_padding - 1px;
+      margin: 0 $base_margin;
+    }
+
+    .panel-status-indicators-box .system-status-icon,
+    .panel-status-menu-box .system-status-icon {
+      margin: 0;
+    }
+
+    // app menu icon
+    .app-menu-icon {
+      -st-icon-style: symbolic;
+      // dimensions of the icon are hardcoded
+    }
+
+    &#panelActivities {
+      -natural-hpadding: $base_padding * 3;
+    }
+  }
+
+  // transparent panel on lock & login screens
+  &:overview,
+  &.unlock-screen,
+  &.login-screen,
+  &.lock-screen {
+    background-color: transparent;
+    box-shadow: none;
+
+    StLabel, StIcon { color: on(dark, secondary); }
+
+    .panel-button {
+      &:hover {
+        color: on(dark);
+        background-color: overlay(dark, hover);
+        box-shadow: none;
+      }
+
+      &:active, &:overview, &:focus, &:checked {
+        color: on(dark);
+        background-color: overlay(dark, active);
+        box-shadow: none;
+      }
+
+      &:hover, &:active, &:overview, &:focus, &:checked {
+        &.clock-display {
+          box-shadow: none;
+
+          .clock {
+            box-shadow: none;
+          }
+        }
+      }
+    }
+
+    .panel-corner {
+      -panel-corner-radius: 0;
+      -panel-corner-background-color: transparent;
+      -panel-corner-border-color: transparent;
+    }
+  }
+
+  .panel-status-indicators-box,
+  .panel-status-menu-box {
+    spacing: 2px;
+  }
+
+  // spacing between power icon and (optional) percentage label
+  .power-status.panel-status-indicators-box {
+    spacing: 0;
+  }
+
+  // indicator for active
+  .screencast-indicator,
+  .remote-access-indicator { color: $warning; }
+}

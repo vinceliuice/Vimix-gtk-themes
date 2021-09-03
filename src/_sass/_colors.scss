@@ -1,0 +1,68 @@
+
+@import 'tweaks-temp';
+@import 'color-palette';
+@import 'colors-base';
+
+// Background colors
+$base:                                  themecolor($theme_base, if($variant == 'light', default, $mixstate));
+$background:                            themecolor($theme_background, if($variant == 'light', default, $mixstate));
+$base-alt:                              mix($base, $background, 50%);
+$suface:                                if($topbar == 'light', darken($base, 2%), lighten($base, 2%));
+$scrim:                                 darken($background, 5%);
+$osd:                                   themecolor(#222222, $mixstate);
+$panel:                                 if($topbar == 'light', #f2f2f2, themecolor(#202020, $mixstate));
+$header:                                if($topbar == 'light', #eeeeee, themecolor(#363636, $mixstate));
+$menu:                                  if($topbar == 'light', $base, $suface);
+$popover:                               if($variant == 'light', $base, $base);
+
+// Theme colors
+$primary:                               primary();
+$accent:                                accent();
+$indicator:                             indicator();
+
+// Misc colors
+$frame:                                 if($variant == 'light', rgba(black, 0.12), rgba(black, 0.2));
+$border:                                if($variant == 'light', rgba(black, 0.12), rgba(white, 0.12));
+$solid-border:                          if($variant == 'light', darken($background, 10%), lighten($background, 12%));
+$highlight:                             if($topbar == 'light', rgba(white, 0.35), rgba(white, 0.1));
+
+$warning:                               if($variant == 'light', #F4B400, #FDD633);
+$error:                                 if($variant == 'light', #DD2C00, #F28B82);
+$success:                               if($variant == 'light', #0F9D58, #81C995);
+
+$suggested:                             $primary;
+$destructive:                           #FF5252;
+
+$info:                                  #66BB6A;
+$question:                              #42A5F5;
+
+$link:                                  $primary;
+$link-visited:                          #E040FB;
+
+// Overlay state colors
+$overlay-normal:                        gtkalpha(currentColor, 0.06);
+$overlay-hover:                         gtkalpha(currentColor, 0.1);
+$overlay-focus:                         gtkalpha(currentColor, 0.08);
+$overlay-focus-hover:                   gtkalpha(currentColor, 0.16);
+$overlay-active:                        gtkalpha(currentColor, 0.16);
+$overlay-checked:                       gtkalpha(currentColor, 0.12);
+$overlay-selected:                      gtkalpha(currentColor, 0.1);
+
+// Text and derivative colors
+$text:                                  on($background);
+$text-secondary:                        on($background, secondary);
+$text-disabled:                         on($background, disabled);
+$text-secondary-disabled:               on($background, secondary-disabled);
+$track:                                 on($background, track);
+$track-disabled:                        on($background, track-disabled);
+$divider:                               on($background, divider);
+$fill:                                  on($background, fill);
+
+$panel-text:                            on($panel);
+$panel-text-secondary:                  on($panel, secondary);
+$panel-text-disabled:                   on($panel, disabled);
+$panel-text-secondary-disabled:         on($panel, secondary-disabled);
+$panel-track:                           on($panel, track);
+$panel-track-disabled:                  on($panel, track-disabled);
+$panel-divider:                         on($panel, divider);
+$panel-fill:                            on($panel, fill);

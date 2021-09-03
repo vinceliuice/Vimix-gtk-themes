@@ -1,0 +1,301 @@
+/*
+ *  This file is part of adapta-gtk-theme
+ *
+ * Copyright (C) 2016-2018 Tista <tista.gma500@gmail.com>
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ */
+
+//
+// Drawing mixins
+//
+
+// generic drawing of more complex things
+
+// provide font size in rem, with px fallback
+$ref_size: 13.33;
+
+@mixin fontscaling($size: $ref_size) {
+  font-size: round( $size * 72 / 96 * 10 ) / 10 + pt;
+}
+
+
+//
+// shadows
+//
+
+$z-depth-1: 0 1px 2px rgba(0, 0, 0, 0.28);
+$z-depth-2: 0 2.5px 4.5px rgba(0, 0, 0, 0.34);
+$z-depth-3: 0 4.5px 5.5px rgba(0, 0, 0, 0.38);
+$z-depth-4: 0 10px 14px rgba(0, 0, 0, 0.44);
+$z-depth-5: 0 14px 19px rgba(0, 0, 0, 0.50);
+
+
+//
+// tiransition timing
+//
+
+$slope_slow: cubic-bezier(0.0, 0.0, 0.2, 1.0);
+$slope_medium: cubic-bezier(0.4, 0.0, 0.2, 1.0);
+$slope_quick: cubic-bezier(0.4, 0.0, 0.6, 1.0);
+
+$duration_long: 0.4s;
+$duration_medium: 0.15s; // 0.2s seems too slow
+$duration_short: 0.1s;
+
+//
+// entries
+//
+
+@mixin entry($t, $fc:$primary) {
+//
+// Entries drawing function
+//
+// $t: entry type
+// $fc: focus color
+//
+// possible $t values:
+// normal, focus, hover, insensitive,
+// osd-normal, osd-focus, osd-insensitive
+//
+  @if $t == normal {
+    border-color: transparent;
+    background-color: $fill;
+    box-shadow: inset 0 -1px if($fc!=$primary, $fc, $track);
+  }
+  @if $t == focus {
+    border-color: transparent;
+    box-shadow: inset 0 -2px if($fc!=$primary, $fc, $primary);
+  }
+  @if $t == hover {
+    border-color: transparent;
+    box-shadow: inset 0 -2px if($fc!=$primary, $fc, $track);
+  }
+  @if $t == insensitive {
+    border-color: transparent;
+    color: $text-disabled;
+    box-shadow: inset 0 -1px if($fc!=$primary, $fc, $track-disabled);
+  }
+  @if $t == osd-normal {
+    border-color: transparent;
+    background-color: $fill;
+    box-shadow: inset 0 -1px if($fc!=$primary, $fc, on($osd, track));
+  }
+  @if $t == osd-focus {
+    border-color: transparent;
+    background-color: $fill;
+    color: on($primary);
+    caret-color: on($primary);
+    box-shadow: inset 0 -2px if($fc!=$primary, $fc, $primary);
+  }
+  @if $t == osd-insensitive {
+    border-color: transparent;
+    background-color: $fill;
+    color: on($osd, disabled);
+    box-shadow: inset 0 -1px if($fc!=$primary, $fc, on($osd, track-disabled));
+  }
+}
+
+//
+// buttons
+//
+
+@mixin button($t, $c:$background, $tc:$text) {
+//
+// Button drawing function
+//
+// $t:    button type,
+// $c:    base button color for colored* types
+// $tc:   optional text color for colored* types
+//
+// possible $t values:
+// normal, hover, active, insensitive, undecorated,
+// flat-normal, flat-hover, flat-active, flat-insensitive,
+// undecorated
+//
+  @if $t == normal {
+  //
+  // normal button
+  //
+    border-color: transparent;
+    border-top: 1px solid $highlight;
+    color: if($tc!=$text, $tc, $text-secondary);
+    background-color: $c;
+    box-shadow: $z-depth-1;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+  @else if $t == focus {
+  //
+  // focused button
+  //
+    color: $text;
+    background-color: $c;
+    box-shadow: none;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+
+  @else if $t == hover {
+  //
+  // hovered button
+  //
+    border-color: transparent;
+    border-top: 1px solid $highlight;
+    color: if($tc!=$text, $tc, $text);
+    background-color: $c;
+    box-shadow: $z-depth-2;
+    text-shadow: none;
+    icon-shadow: none;
+
+  }
+  @else if $t == active {
+  //
+  // pushed button
+  //
+    border-color: transparent;
+    border-top: 1px solid $highlight;
+    color: if($tc!=$text, $tc, on($primary));
+    background-color: $c;
+    box-shadow: $z-depth-2;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+  @else if $t == insensitive {
+  //
+  // insensitive button
+  //
+    border-color: transparent;
+    color: if($tc!=$text, $tc, $text-secondary-disabled);
+    background-color: if($c!=$background,
+                         $c,
+                         rgba($text-secondary-disabled, 0.12));
+    box-shadow: none;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+  @else if $t == flat-normal {
+  //
+  // normal flat button
+  //
+    border-color: transparent;
+    color: if($tc!=$text, $tc, $text-secondary);
+    background-color: transparent;
+    box-shadow: none;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+  @else if $t == flat-focus {
+  //
+  // focused flat button
+  //
+    color: $text;
+    box-shadow: none;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+
+  @else if $t == flat-hover {
+  //
+  // hovered flat button
+  //
+    border-color: transparent;
+    color: if($tc!=$text, $tc, $text);
+    background-color: if($c!=$background, $c, $divider);
+    box-shadow: none;
+    text-shadow: none;
+    icon-shadow: none;
+
+  }
+  @else if $t == flat-active {
+  //
+  // pushed flat button
+  //
+    border-color: transparent;
+    color: if($tc!=$text, $tc, on($primary));
+    background-color: if($c!=$background, $c, $track);
+    box-shadow: none;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+  @else if $t == flat-insensitive {
+  //
+  // insensitive flat button
+  //
+    border-color: transparent;
+    color: if($tc!=$text, $tc, $text-secondary-disabled);
+    background-color: transparent;
+    box-shadow: none;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+  @else if $t == osd-normal {
+  //
+  // osd flat button
+  //
+    border-color: transparent;
+    color: if($tc!=$text, $tc, on($osd, secondary));
+    background-color: transparent;
+    box-shadow: none;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+  @else if $t == osd-focus {
+  //
+  // focused osd flat button
+  //
+    color: on($osd);
+    box-shadow: none;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+
+  @else if $t == osd-hover {
+  //
+  // hovered osd flat button
+  //
+    border-color: transparent;
+    color: if($tc!=$text, $tc, on($osd));
+    background-color: if($c!=$background, $tc, on($osd, divider));
+    box-shadow: none;
+    text-shadow: none;
+    icon-shadow: none;
+
+  }
+  @else if $t == osd-active {
+  //
+  // pushed osd flat button
+  //
+    border-color: transparent;
+    color: if($tc!=$text, $tc, on($primary));
+    background-color: if($c!=$background, $tc, on($osd, track));
+    box-shadow: none;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+  @else if $t == osd-insensitive {
+  //
+  // insensitive osd flat button
+  //
+    border-color: transparent;
+    color: if($tc!=$text, $tc, on($osd, secondary-disabled));
+    background-color: transparent;
+    box-shadow: none;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+  @else if $t == undecorated {
+  //
+  // reset
+  //
+    color: inherit;
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+}

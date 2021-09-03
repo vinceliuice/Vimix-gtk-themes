@@ -1,0 +1,2475 @@
+
+%flat_stackswitcher {
+  background-color: $suface;
+  border-radius: 3px;
+  border: none;
+  padding: 0 8px;
+
+  button {
+    margin: 0;
+    border-radius: 0;
+    background-image: none;
+    background-color: transparent;
+    box-shadow: none;
+    transition: $ripple_duration,
+                background-size 0,
+                background-image 0,
+                background-color 0;
+    animation: ripple_effect $ripple_duration $deceleration_curve forwards;
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  $primary 0%,
+                                  transparent 0%)
+                                  0 0 0 / 0 0 0;
+
+    &:hover {
+      box-shadow: inset 0 -2px rgba($primary, 0.5);
+      background-image: none;
+      background-color: transparent;
+    }
+
+    &:checked, &:active {
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    $primary 100%,
+                                    transparent 0%)
+                                    0 0 2 / 0 0 2px;
+      background-image: none;
+      background-color: transparent;
+      box-shadow: none;
+      color: $text;
+    }
+  }
+}
+
+//
+// Nautilus
+//
+
+%pathbar_widthbox_button {
+  transition: $shorter_transition,
+              background-size 0,
+              background-image 0,
+              background-color 0;
+  animation: ripple_effect $shorter_duration $deceleration_curve forwards;
+  color: on($topbar, secondary);
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                indicator(header) 0%,
+                                transparent 0%)
+                                0 0 0 / 0 0 0;
+
+  &:hover {
+    color: on($topbar);
+    background: none;
+    box-shadow: inset 0 -2px gtkalpha(indicator(header), 0.5);
+  }
+
+  &:checked, &:active {
+    color: on($topbar);
+    background: none;
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  indicator(header) 100%,
+                                  transparent 0%)
+                                  0 0 2 / 0 0 2px;
+  }
+
+  &:checked:hover {
+    background: none;
+    box-shadow: none;
+  }
+
+  &:backdrop {
+    color: on($topbar, disabled);
+    &:disabled { color: on($topbar, secondary-disabled); }
+  }
+}
+
+%pathbar_box_button {
+  @extend %flat_button;
+  color: on($topbar, secondary);
+  background-color: transparent;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                indicator(header) 0%,
+                                transparent 0%)
+                                0 0 0 / 0 0 0;
+  &:hover {
+    background-color: transparent;
+    color: on($topbar);
+    box-shadow: inset 0 0 0 9999px rgba(on($topbar), 0.12);
+  }
+
+  &:active, &:checked {
+    color: on($topbar);
+    background-color: transparent;
+    box-shadow: inset 0 0 0 9999px rgba(on($topbar), 0.12);
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  indicator(header) 100%,
+                                  transparent 0%)
+                                  0 0 2 / 0 0 2px;
+    background-image: radial-gradient(circle farthest-corner at center,
+                                      rgba(on($topbar), 0.12) 10%,
+                                      transparent 0%);
+  }
+
+  &:checked, &:checked:hover { // Reset checked buttons
+    background: none;
+    box-shadow: none;
+  }
+
+  &:backdrop {
+    color: on($topbar, disabled);
+    &:disabled { color: on($topbar, secondary-disabled); }
+  }
+}
+
+// path-bar-box for > 3.30
+.nautilus-window headerbar {
+  .path-bar-box {
+    margin-top: $space_size;
+    margin-bottom: $space_size;
+    border-radius: $button_radius;
+    color: on($topbar, secondary);
+    background-color: rgba(on($topbar), 0.06);
+
+    button {
+      margin: 0;
+      @extend %pathbar_box_button;
+    }
+
+    .linked.nautilus-path-bar { // for ≥ 3.31.90
+      button.text-button,
+      button.image-button.text-button {
+        margin-top: 0;
+        margin-bottom: 0;
+        @extend %pathbar_box_button;
+
+        &:not(:only-child):last-child {
+          border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                        indicator(header) 100%,
+                                        transparent 0%)
+                                        0 0 2 / 0 0 2px;
+        }
+      }
+    }
+
+    &.width-maximized {
+      color: on($topbar, secondary);
+      background-color: rgba(on($topbar), 0.06);
+    }
+
+    // workaround for 3.30.1
+    &.background.frame {
+      border: none;
+      background-color: transparent;
+    }
+  }
+}
+
+.nautilus-window,
+.nautilus-window notebook,
+.nautilus-window notebook > stack {
+  background: $base;
+}
+
+.nautilus-window notebook > header.top tabs,
+.nautilus-window notebook > header.bottom tabs {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.nautilus-window notebook > header.left tabs,
+.nautilus-window notebook > header.right tabs {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.nautilus-canvas-item {
+  border-radius: $button_radius;
+}
+
+.nautilus-canvas-item.dim-label,
+.nautilus-list-dim-label {
+  color: $text-secondary;
+
+  &:selected, &:selected:focus { color: on($primary); }
+}
+
+%desktop-canvas-item,
+.nautilus-desktop.nautilus-canvas-item {
+  color: on($primary);
+  text-shadow: 0 1px 2px rgba(black, 0.2);
+
+  &:selected {
+    text-shadow: none;
+    color: on($primary);
+  }
+}
+
+// places sidebar
+filechooser,
+.nautilus-window {
+  placessidebar.sidebar {
+     separator,
+     .separator {
+       min-height: 1px;
+       border-color: $border;
+       background-color: $border;
+     }
+
+    row.sidebar-row {
+      padding: 0;
+
+      &:hover {
+        transition: none;
+        color: $indicator;
+        background-color: transparent;
+        box-shadow: inset 3px 0 $indicator;
+      }
+
+      &:active { box-shadow: inset 3px 0 $indicator; }
+
+      &:backdrop { opacity: 0.85; }
+
+      &:selected {
+        &:active { box-shadow: none; }
+        &:hover { box-shadow: none; color: on(dark); background-color: gtkalpha($primary, 0.8); }
+      }
+    }
+  }
+}
+
+// Toolbar
+@keyframes needs_attention_keyframes {
+  from { background-color: transparent; }
+  to { background-color: $track; }
+}
+
+.nautilus-operations-button-needs-attention {
+  color: $accent;
+  animation: needs_attention_keyframes $shorter_duration $standard_curve 2 alternate;
+}
+
+.nautilus-operations-button-needs-attention-multiple {
+  color: $accent;
+  animation: needs_attention_keyframes $shorter_duration $standard_curve 4 alternate;
+}
+
+// Floating status bar
+.nemo-window,
+.nautilus-window {
+  .floating-bar {
+    @extend %osd;
+
+    min-height: 32px;
+    padding: 0;
+    border: 1px solid $border;
+    border-radius: 0;
+    background-color: $base;
+    background-clip: $extra_background_clip;
+    transition: $shorter_transition, border-width 0;
+
+    &.bottom.left { // axes left border and border radius
+      border-width: 1px 1px 0 0;
+      border-top-right-radius: 3px;
+    }
+
+    &.bottom.right { // axes right border and border radius
+      border-width: 1px 0 0 1px;
+      border-top-left-radius: 3px;
+    }
+
+    button {
+      margin: 8px;
+
+      @extend %small_button;
+      @extend %simple_flat_button;
+    }
+  }
+}
+
+.disk-space-display.unknown {
+  background-color: $warning;
+}
+
+.disk-space-display.used {
+  background-color: $primary;
+}
+
+.disk-space-display.free {
+  background-color: $track;
+  color: $text-disabled;
+}
+
+// Libgd tag entries in the search. Sadly it requires this copy pasted css style.
+// https://git.gnome.org/browse/libgd/tree/libgd/gd-tagged-entry-default.css
+.documents-entry-tag {
+  margin: 3px -2px 3px 8px;
+  padding: 0 8px;
+  border-radius: $circular_radius;
+  box-shadow: none;
+  background-color: $primary;
+  color: on($primary);
+
+  &:hover { box-shadow: $shadow_1; }
+}
+
+.documents-entry-tag.button {
+  margin: 0 -2px;
+  padding: 4px;
+  border-radius: $circular_radius;
+  box-shadow: none;
+  color: on($primary, secondary);
+
+  &:hover, &:active { color: on($primary); }
+}
+
+// Workaround for the double border of the searchbar since we use a revealer which
+// always allocates at least 1 pixel
+.nautilus-window {
+  searchbar { border-top: 1px solid $border; }
+
+  .searchbar-container { margin-top: -1px; }
+
+  headerbar > revealer > button { @extend %circular_button; }
+}
+
+
+//
+// gedit
+//
+paned.titlebar.horizontal { // show border
+  > headerbar {
+    box-shadow: inset 0 -1px $border, inset 0 1px $highlight;
+  }
+
+  > separator {
+    box-shadow: inset 0 1px $highlight;
+  }
+}
+
+// Only normal state is handle
+.open-document-selector-name-label {
+  font-weight: bold;
+}
+
+// Only normal state is handle
+.open-document-selector-path-label {
+  color: gtkalpha(currentColor, 0.45);
+  font-size: smaller;
+}
+
+.gedit-document-panel {
+  background-color: $suface;
+  box-shadow: inset 1px 0 $border;
+
+  row.activatable { padding: $space_size ($space_size - 2px); }
+}
+
+.gedit-document-panel row:selected {
+}
+
+.gedit-document-panel-group-row,
+.gedit-document-panel-group-row:hover {
+  border-top: 1px solid gtkalpha(currentColor, 0.3);
+}
+
+.gedit-document-panel-group-row:first-child,
+.gedit-document-panel-group-row:first-child:hover {
+  border-top: 0px;
+}
+
+// Try to look as the notebook tab close button
+.gedit-document-panel row button.flat {
+  @extend %small_button;
+}
+
+.gedit-side-panel-paned statusbar {
+  border-top: 1px solid $border;
+}
+
+.background .gedit-search-slider {
+  margin: 4px 4px 8px;
+
+  .gedit-search-entry-occurrences-tag {
+    all: unset;
+    border: none;
+    box-shadow: none;
+    padding: 0 4px;
+    color: gtkalpha(currentColor, 0.45);
+  }
+
+  popover.background {
+    transition: $shadow_transition;
+    padding: 0;
+    box-shadow: $shadow_2; // TODO: this should really have a highlight
+    background-color: $suface;
+  }
+
+  > .linked:not(.vertical) > entry {
+    @extend %entry_native;
+
+    &:dir(ltr) {
+      margin-right: -$medium_size * 2;
+      padding-right: $medium_size * 2 + 8px;
+
+      .gedit-search-entry-occurrences-tag { box-shadow: none; margin-right: -8px; }
+    }
+
+    &:dir(rtl) {
+      margin-left: -$medium_size * 2;
+      padding-left: $medium_size * 2 + 8px;
+
+      .gedit-search-entry-occurrences-tag { box-shadow: none; margin-left: -8px; }
+    }
+
+    &.error ~ button {
+      @extend %simple_flat_button;
+
+      color: on($primary, secondary);
+
+      &:hover {
+        background-image: none;
+        box-shadow: none;
+        color: on($primary);
+        background-color: $track-disabled;
+      }
+
+      &:active {
+        background-image: radial-gradient(circle farthest-corner at center,
+                                          $track-disabled 10%,
+                                          transparent 0%);
+        box-shadow: none;
+        color: on($primary);
+        background-color: $track-disabled;
+      }
+
+      &:disabled { color: on($primary, secondary-disabled); }
+    }
+
+    // entry error and warning style
+    @each $e_type, $e_color in (error, $error),
+                               (warning, $warning) {
+      &.search.#{$e_type} {
+        @include entry(normal, $e_color);
+
+        &:focus { @include entry(focus, $e_color); }
+
+        &:disabled { @include entry(disabled, $e_color); }
+
+        &.flat {
+          @include entry(flat-normal, $e_color);
+
+          &:focus { @include entry(flat-focus, $e_color); }
+
+          &:disabled { @include entry(flat-disabled, $e_color); }
+        }
+      }
+    }
+  }
+
+  > .linked:not(.vertical) > button {
+    @extend %simple_flat_button;
+
+    &:dir(ltr),
+    &:dir(rtl) { @extend %linked; }
+  }
+}
+
+// Yeah this is ugly
+.gedit-search-slider .linked:not(.vertical) > entry,
+notebook > stack:not(:only-child) revealer .gedit-search-slider .linked:not(.vertical) > entry {
+  border-radius: $button_radius;
+}
+
+//
+// Gnome-Software
+//
+window.background > box.vertical > overlay > stack > widget > stack {
+
+  // "Installed" stack
+  > box.vertical > scrolledwindow > viewport.frame > widget > list {
+    background-color: $background; // override $base
+
+    // use asymmetrical separators
+    > separator {
+      border-left: 100px solid transparent;
+      border-right: 100px solid transparent;
+    }
+  }
+
+  // "Updates" stack
+  widget > box.vertical.app-list {
+    // override $base
+    background-image: image($background);
+
+    > box.vertical > list { background-color: $background; }
+
+    // use asymmetrical separators
+    separator {
+      border-left: 100px solid transparent;
+      border-right: 100px solid transparent;
+    }
+  }
+}
+
+.category_page_header_filter_box {
+  background-image: image($background);
+  border-image: linear-gradient(to bottom, $solid-border, $solid-border) 0 0 1 0 / 0 0 1px 0 stretch;
+
+  button {
+    color: $text-secondary;
+    background-image: image($background);
+    &:hover { color: mix($text, rgba($text, 0.5), 50%); }
+    &:checked { color: $text; }
+    &:disabled { color: rgba($text-secondary, 0.55); }
+  }
+}
+
+.application-details-infobar {
+  background-image: image($base);
+  border-image: linear-gradient(to bottom, $solid-border, $solid-border) 1 1 1 1 / 1px 1px 1px 1px stretch;
+}
+
+//
+// Gnome-Logs
+//
+window.background > box.vertical box.horizontal {
+  > box.vertical > scrolledwindow > viewport.frame > list { // right-pane
+
+    // > 3.25.90
+    row.event.activatable {
+      color: $text;
+      transition-duration: 0.1s;
+      &:hover,
+      &:active { color: $text; }
+
+      label.compressed-entries-label { // hard-coded background-color?
+        background-image: image($suggested);
+        color: on(dark);
+        font-weight: 700;
+      }
+
+      &.compressed-row {
+        background-image: image(darken($background, 3%));
+        color: darken($text, 20%);
+        transition-property: opacity, // exclude background-color
+                             border-image,
+                             background-image,
+                             box-shadow;
+        &:hover {
+          background-image: image(mix($text, $background, 5%));
+          color: $text;
+        }
+        &:active {
+          &, &:focus {
+            background-image: image(mix($text,
+                                        $background, 10%));
+            color: $text;
+            animation: none;
+          }
+        }
+
+        &.popover-activated-row {
+          background-image: image($primary);
+          color: on(dark);
+        }
+
+        &-header {
+          background-image: image($base); // stop highlighting
+          background-color: $base; // stop highlighting
+          color: $primary;
+          &:hover {
+            background-image: image(mix($primary,
+                                        $base, 5%));
+          }
+          &:active {
+            &, &:focus {
+              background-image: image(mix($primary,
+                                          $base, 10%));
+              color: $primary;
+              animation: none;
+            }
+          }
+
+          label.compressed-entries-label {
+            background-image: image($primary);
+            color: on(dark);
+            transition-duration: 0s;
+          }
+        }
+      }
+    }
+  }
+}
+
+//
+// Builder
+//
+workbench.csd,
+window.csd.org-gnome-Builder {
+  > stack.titlebar {
+    box-shadow: 0 2px 3px -2px rgba(black, 0), 0 1px 2px -1px rgba(black, 0), 0 1px 2px -.6px rgba(black, 0);
+  }
+}
+
+// Popover
+popover.background.dzlmenubutton {
+  button.dzlmenubuttonitem {
+    &:active, &:checked, &:hover {
+      label {
+        color: $text;
+        transition: none;
+      }
+    }
+  }
+}
+
+
+perspectiveswitcher {
+  background-color: $background;
+}
+
+perspectiveswitcher button:checked {
+  color: $primary;
+}
+
+// Layout tab and tab bar tweaks
+// The following makes the layout stack header look similar to a tab bar.
+layouttabbar {
+  border-bottom: 1px solid $border;
+  background-color: $background;
+}
+
+layouttabbar button { @extend %flat_button; }
+
+layouttabbar > box > button {
+  margin: (40px - $medium_size) / 2 0;
+  // border-radius: 0;
+}
+
+layouttab {
+  margin: 0 8px; // not working
+  border-style: none solid;
+  border-width: 1px;
+  border-color: $border;
+  box-shadow: inset 0 -2px $primary;
+  background-color: $base;
+}
+
+layouttab separator.vertical {
+  margin: 8px 4px;
+}
+
+layouttab button {
+  &.text-button, &.image-button, & {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 0 4px;
+  }
+}
+
+// Close button styling for layouttab.
+layouttab > box > button.close {
+  border-radius: $circular_radius;
+}
+
+layout {
+  border: 1px solid $border;
+  -PnlDockBin-handle-size: 1;
+}
+
+entry.search-missing {
+  background-color: $error;
+  color: on($primary);
+}
+
+entry.search.preferences-search {
+  box-shadow: none;
+}
+
+dzldockpaned {
+  stackswitcher.linked.stack-switcher {
+    @extend %flat_stackswitcher;
+  }
+}
+
+// tweak icons for treeviews
+workbench treeview.image { color: gtkalpha(currentColor, 0.45); }
+workbench treeview.image:selected { color: on($primary, disabled); }
+
+dockbin {
+  border: 1px solid $border;
+  -PnlDockBin-handle-size: 1;
+}
+
+dockpaned {
+  border: 1px solid $border;
+}
+
+eggsearchbar box.search-bar {
+  padding: 0 8px;
+  border-bottom: 1px solid $border;
+  background-color: $background;
+}
+
+docktabstrip {
+  padding: 0 8px;
+  border-bottom: 1px solid $border;
+  background-color: $background;
+}
+
+docktab {
+  transition: $shorter_transition;
+  min-height: $small_size;
+  min-width: $small_size;
+  margin-bottom: -1px;
+  padding: $space_size;
+
+  outline-offset: -6px;
+
+  border-width: 1px;         // for reorderable tabs
+  border-color: transparent; //
+
+  color: $text-secondary;
+  font-weight: 500;
+
+  &:hover {
+    box-shadow: inset 0 -2px $track;
+    color: $text;
+  }
+
+  &:checked {
+    animation: tab_ripple_effect $shorter_duration * 3 $deceleration_curve;
+    box-shadow: inset 0 -2px $primary;
+    color: $text;
+  }
+}
+
+dockoverlayedge {
+  background-color: $background;
+}
+
+dockoverlayedge docktabstrip {
+  padding: 0;
+  border: none;
+}
+
+dockoverlayedge.left-edge docktab {
+  &:hover { box-shadow: inset -2px 0 $track; }
+  &:checked { box-shadow: inset -2px 0 $primary; }
+}
+
+dockoverlayedge.right-edge docktab {
+  &:hover { box-shadow: inset 2px 0 $track; }
+  &:checked { box-shadow: inset 2px 0 $primary; }
+}
+
+pillbox {
+  background-color: $background;
+  border-radius: 2px;
+}
+
+buildperspective row {
+  padding: 10px;
+}
+
+layoutpane entry.search {
+  @extend %flat_entry;
+
+  box-shadow: inset 0 -1px $border;
+  background-color: $base;
+}
+
+editortweak entry.search {
+  @extend %flat_entry;
+
+  margin-bottom: -1px;
+  box-shadow: none;
+}
+
+// styling for editor search
+frame.gb-search-frame {
+  // border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.gb-search-entry-occurrences-tag {
+  box-shadow: none;
+  background-color: transparent;
+}
+
+// Keep search bar and layouttab height in sync.
+docktabstrip {
+  min-height: 39px;
+}
+
+workbench preferences preferencesgroup list entry {
+  // background: none;
+  // min-height: 0px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+//
+// Photos
+//
+// based css:
+// https://git.gnome.org/browse/gnome-photos/tree/data/Adwaita.css
+
+GdMainIconView.content-view {
+  -GdMainIconView-icon-size: 48;
+}
+
+// Make spinner visible on both dark and bright backgrounds w/o making
+// it look ugly/weird.
+GdMainIconView.content-view.cell:active {
+  // color: $text-disabled;
+}
+
+.documents-counter {
+  margin: 8px;
+  border-radius: $circular_radius;
+  box-shadow: $shadow_2;
+  background-color: $accent;
+  color: on($primary);
+  font-weight: bold;
+}
+
+.photos-entry-tag {
+  @extend .documents-entry-tag;
+}
+
+.documents-scrolledwin.frame {
+  border-style: none;
+}
+
+.photos-icon-bg {
+}
+
+.photos-fade-in {
+  opacity: 1;
+  transition: opacity $shorter_duration $deceleration_curve;
+}
+
+.photos-fade-out {
+  opacity: 0;
+  transition: opacity $shorter_duration $deceleration_curve;
+}
+
+.photos-collection-icon {
+}
+
+overlay grid.horizontal > revealer > scrolledwindow.frame {
+  &:dir(ltr) { border-style: none none none solid; }
+  &:dir(rtl) { border-style: none solid none none; }
+}
+
+
+//
+// Music
+//
+// hard-coded css:
+// https://git.gnome.org/browse/gnome-music/tree/data/application.css
+
+.side-panel:dir(ltr) {
+  border-style: solid;
+  border-color: $border;
+}
+
+.side-panel:dir(rtl) {
+  border-style: solid;
+  border-color: $border;
+}
+
+.side-panel .view {
+  background-image: image($suface);
+
+  &:hover { background-image: image(mix($text, $suface, percentage(0.05))); }
+}
+
+.side-panel .view:selected {
+  background-image: image($primary);
+
+  &:hover { background-image: image(mix(on($primary), $primary, percentage(0.05))); }
+}
+
+.playlists-list {
+}
+
+.songs-list {
+  &:hover { background-image: image($track); }
+}
+
+frame.documents-dropdown {
+  @extend %toolbar_osd;
+
+  margin: 8px;
+
+  > border { border: none; }
+}
+
+box.vertical:not(.titlebar) > revealer > toolbar.search-bar {
+  border-bottom: 1px solid $border;
+
+  button > widget {
+    -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+  }
+}
+
+//
+// Gnome Control Center
+//
+
+// > 3.25.90
+// scrolledwindow.view > viewport.frame > stack > list { // left-pane
+//   > row.activatable { }
+// }
+
+box.horizontal.titlebar > headerbar > stack > box.vertical {
+  > .title { margin: 0; }
+  > .subtitle { margin: -3px 0; }
+}
+
+dialog.background.csd {
+  > headerbar.titlebar {
+
+    > label:not(.title):not(.subtitle) {
+      font-weight: 700;
+    }
+  }
+}
+
+window.background.csd {
+  > headerbar.titlebar { // gnome 3.32
+    > box.horizontal > separator.sidebar,
+    > hdyleaflet > separator.sidebar,
+    > leaflet > separator.sidebar {
+      border-right-style: none;
+      background: none;
+    }
+
+    > leaflet > headerbar, // Gnome 3.38
+    > hdyleaflet > headerbar { // Gnome 3.34
+      background: none;
+      box-shadow: inset 0 -1px $border;
+    }
+  }
+
+  > box.horizontal > separator.sidebar,
+  > hdyleaflet > separator.sidebar,
+  > leaflet > separator.sidebar {
+    background: none;
+    min-width: 0;
+  }
+}
+
+//
+// Contacts
+//
+
+// box.horizontal, // gnome 3.30
+hdyleaflet, leaflet {
+  // selection-mode
+  headerbar.titlebar.selection-mode & > headerbar {
+    background-color: $primary;
+    color: on($primary, secondary);
+
+    separator.titlebutton { background: none; }
+
+    button.titlebutton {
+      &.close, &.maximize, &.minimize {
+        &, &:hover, &:active, &:disabled, &:backdrop {
+          background-image: none;
+        }
+
+        color: on($primary);
+
+        &:disabled, &:backdrop {
+          color: on($primary, track);
+
+          > label { color: inherit; }
+        }
+
+        &:hover {
+          color: on($primary);
+          background-color:overlay($primary, hover);
+        }
+
+        &:active {
+          color: on($primary);
+          background-color: overlay($primary, active);
+        }
+      }
+    }
+
+    .fullscreen &,
+    .maximized & {
+      button.titlebutton.maximize {
+        &, &:hover, &:active, &:disabled, &:backdrop {
+          background-image: none;
+        }
+      }
+    }
+  }
+}
+
+//
+// Gnome Contacts
+//
+
+window.background.csd.unified {
+  > deck > box > leaflet { // >= 40.0
+    > headerbar {
+      box-shadow: inset 0 -1px $border;
+    }
+
+    > separator.sidebar {
+      border-right: none;
+    }
+  }
+}
+
+//
+// Fractal
+//
+.main-window {
+  > headerbar.titlebar {
+    > stack > hdyleaflet {
+      > headerbar {
+        box-shadow: inset 0 1px $highlight;
+      }
+
+      > separator {
+        background: none;
+        min-width: 0;
+      }
+    }
+  }
+}
+
+//
+// Gnome Clocks
+//
+window.background.csd.unified {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+
+  > deck > deck > deck {
+    > box.vertical > headerbar.titlebar.windowhandle {
+      box-shadow: $header_shadow, inset 0 1px $highlight;
+
+      > viewswitchertitle > squeezer {
+        > viewswitcher > box.horizontal {
+          > button.radio {
+            min-height: 0;
+            padding: 0 12px;
+            margin: 0;
+            border-radius: 0;
+
+            &:checked:backdrop {
+              background-color: rgba($primary, 0.5);
+              color: on($primary, disabled);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//
+// To Do
+//
+task-row {
+  transition: $shorter_transition;
+  margin: 0 -4px;
+
+  &:hover { transition: none; }
+
+  label { margin: 0 8px; }
+  image { margin: 0 4px; }
+}
+
+task-list-view > box > revealer > box > button {
+  min-height: $medium_size;
+  margin: -4px;
+  padding: 0 12px;
+
+  label { margin: 0 8px; }
+  image { margin: 0 4px; }
+}
+
+
+//
+// eog
+//
+#eog-thumb-nav {
+  scrolledwindow { border-top: none; }
+
+  button { -gtk-outline-radius: 2px; }
+}
+
+
+//
+// Evolution
+//
+frame.taskbar > border { border-style: solid none none; }
+
+box.vertical > paned.horizontal notebook widget .frame { border-style: none; }
+
+
+//
+// gitg
+//
+frame.commit-frame > border { border-style: solid none none; }
+
+
+//
+// Characters
+//
+box.dialog-vbox scrolledwindow.related { border: 1px solid $border; }
+
+list.categories { background-image: image($suface); }
+
+
+//
+// Calculator
+//
+button.title label { min-height: $medium_size; }
+
+
+//
+// Gnome Tweaks
+//
+
+// the sidebar
+.tweak-categories {
+  background-image: image($base_alt);
+
+  separator {
+    min-width: 0;
+    min-height: 0;
+    background-color: transparent;
+  }
+}
+
+.tweak {
+  padding: 3px;
+
+  &.title:hover { box-shadow: none; }
+}
+
+.tweak-group-white,
+.tweak-white,
+.tweak-white:hover {
+  background-image: image($base);
+}
+
+.tweak-startup,
+.tweak-startup:hover {
+  background-image: image($base);
+}
+
+.tweak-group-startup {
+  background-image: image($base);
+  border: 1px solid $border;
+}
+
+// Workaround for 3.26
+row#Focus,
+row#ClickMethod,
+row#StaticWorkspaceTweak, // for 3.26.0
+row#dynamic-workspaces,
+row#PrimaryWorkspaceTweak, // for 3.26.0
+row#workspaces-only-on-primary {
+  padding: 0;
+  border: 1px solid $border;
+
+  row:not(:last-child) { border-bottom: 1px solid $border; }
+
+  &.tweak > list { margin-top: -3px; }
+}
+
+// Add more spaces between title and list
+row#Focus,
+row#ClickMethod,
+row#PrimaryWorkspaceTweak, // for 3.26.0
+row#workspaces-only-on-primary {
+  margin-top: 4px;
+}
+
+window.background.csd {
+  > leaflet.titlebar,
+  > hdyleaflet.titlebar {
+    > headerbar.titlebar { // Gnome 3.34
+      box-shadow: inset 0 1px $highlight, inset 0 -1px $border;
+    }
+  }
+}
+
+//
+// Terminix
+//
+.terminix-background box.vertical > widget > box.horizontal {
+  padding: 3px 0 2px;
+
+  button {
+    padding: 4px 8px;
+
+    &.image-button { padding: 4px; }
+  }
+}
+
+.terminix-background revealer > frame > border {
+  // border-style: none none solid;
+  border-style: none;
+}
+
+button.image-button.session-new-button { min-width: $medium_size - 4px; }
+
+overlay > revealer.left > scrolledwindow.frame,
+overlay > revealer.right > scrolledwindow.frame {
+  border-style: none;
+  box-shadow: $shadow_4;
+}
+
+overlay > revealer.left > scrolledwindow.frame {
+  margin-right: 32px;
+  // border-style: none solid none none;
+}
+
+overlay > revealer.right > scrolledwindow.frame {
+  margin-left: 32px;
+  // border-style: none none none solid;
+}
+
+.terminix-session-sidebar { background-image: image($suface); }
+
+
+//
+// Eclipse
+//
+window.background > box.vertical > scrolledwindow > widget toolbar {
+  padding: 2px;
+
+  separator,
+  button { margin: 2px; }
+
+  button { border-radius: 2px; }
+}
+
+//
+// Firefox and Thunderbird
+//
+$firefox_border_color: $solid-border;
+$firefox_theme_color: if($theme == 'black', #666666, $primary);
+$firefox_fg_color: if($variant =='light', $text-secondary, #bababa);
+$firefox_bg_color: if($variant =='light', $suface, #666666);
+
+%_html_button_spacing {
+  min-width: unset; // do not set min-width/height
+  min-height: unset;
+  padding: 4px 8px 5px;
+}
+
+%_html_entry_spacing {
+  min-width: 24px;
+  min-height: 24px;
+  padding: 0 4px;
+}
+
+%html_selection_items {
+  background-color: if($theme == 'black' or $theme == 'white', $question, $primary);
+  color: on($primary);
+  &:disabled { color: on($primary, disabled); }
+}
+
+%firefox_selected_items {
+  background-color: $primary;
+  color: on($primary);
+  &:disabled { color: on($primary, disabled); }
+}
+
+window.background:not(.csd) {
+  > widget {
+    // for the bookmark toolbar's separators
+    > separator { color: $firefox_border_color; }
+
+    // avoid black border
+    > scrollbar { background-clip: border-box; }
+
+    // emphasize borders color
+    > scrollbar,
+    > frame > border { border-color: $firefox_border_color; }
+
+    > button > button {
+      border: 1px solid $firefox_border_color;
+      border-radius: 2px + 1px;
+      box-shadow: none;
+    }
+
+    > entry {
+      @extend %_html_entry_spacing;
+      // enforce fallback entries inside the HTML pages
+      @include entry(fallback-normal);
+      &:focus { @include entry(fallback-focus); }
+      &:disabled { @include entry(fallback-disabled); }
+    }
+
+    > button {
+      &, &.combo {
+        > button { // enforce fallback buttons inside the HTML pages
+          @include button(fallback-normal);
+          &:hover { @include button(fallback-hover); }
+          &:active, &:checked { @include button(fallback-active); }
+          &:disabled { @include button(fallback-disabled); }
+          &:checked:disabled { @include button(fallback-checked-disabled); }
+        }
+      }
+
+      &.combo, // generic button and combo spacing
+      & { @extend %_html_button_spacing; }
+
+      // toolbar combo buttons in 'downloads' sub-window
+      &:not(.combo) > button { @extend %_html_button_spacing; }
+    }
+
+    // use 16px assets for hard-coded sizing
+    > checkbutton > check { @extend %small_check; }
+    > radiobutton > radio { @extend %small_radio; }
+
+    // for backwards compatibility
+    > menubar {
+      color: on($topbar, secondary);
+
+      &:hover { color: on($topbar); }
+      &:disabled { color: on($topbar, disabled); }
+    }
+
+    > frame { color: $firefox_border_color; }
+  }
+
+  > menu,
+  > menu > menu {
+    // border: none;
+    background-color: $base;
+
+    menuitem {
+      color: $text-secondary;
+      &:hover { color: on($primary); }
+      &:disabled, label:disabled { color: $text-secondary-disabled; }
+    }
+  }
+
+  > window > menu {
+    menuitem {
+      transition: none; // Fixed plank menu background issue
+    }
+  }
+
+  // Firefox now uses this for selected items
+  text:selected { @extend %firefox_selected_items; }
+
+  > menu > separator { color: $border; }
+}
+
+//
+// Firefox Quantum
+//
+
+%firefox_check_radio {
+  color: #888888;
+  &:hover { color: gtkalpha(#888888, 0.75); }
+  &:checked, &:indeterminate { color: $firefox_theme_color; }
+  &:checked:hover, &:indeterminate:hover { color: gtkalpha($firefox_theme_color, 0.8); }
+  &:disabled { color: gtkalpha(#888888, 0.45); }
+  &:checked:disabled, &:indeterminate:disabled { color: gtkalpha($firefox_theme_color, 0.45); }
+}
+
+#MozillaGtkWidget.background {
+  &, decoration { border-radius: 0 0 0 0; } // enforce radius
+
+  // FIXME: unset all our specific titlebuttons
+  // until upstream stops rendering useless (weird) icons
+  headerbar.titlebar {
+    border-radius: 0 0 0 0;
+    @if $titlebutton == 'defult' {
+      &.default-decoration {
+        button.titlebutton {
+          @extend %windows_button;
+        }
+      }
+    }
+  }
+
+  // blend with weird toolbar backgrounds
+  background-color: $base_alt;
+
+  // FIXME: resetting child elements background is not fully functional yet
+  // because WidgetStyleCache keeps holding initial background-color.
+  // the stem of this incorrect colouring seems to be caused by their
+  // gdk_rgba to ns_rgba conversion. I don't think theme's fault.
+  .background,
+  frame,
+  separator,
+  scrolledwindow { background-color: $background; }
+
+  scrollbar { background-color: $scrim; }
+
+  > window.background > menu { // context-menus
+    background-color: $base;
+
+    // revert to standard separators
+    > separator {
+      padding: 0;
+      border: none;
+      background-color: $firefox_border_color;
+    }
+
+    // check/radio inside selected-menu
+    @each $w in ('check'),
+                ('radio') {
+
+      // standard checks and radios
+      @each $s, $c in ('', on(dark, secondary)),
+                      (':indeterminate', indicator(accent)),
+                      (':checked', indicator(accent)),
+                      (':hover', on(dark)),
+                      (':indeterminate:hover', on(dark)),
+                      (':checked:hover', on(dark)),
+                      (':disabled', on(dark, disabled)),
+                      (':indeterminate:disabled', on(dark, disabled)),
+                      (':checked:disabled', on(dark, disabled)) {
+        > menuitem > #{$w}#{$s} { color: $c; }
+      }
+    }
+  }
+
+  > widget {
+    border { border-color: $firefox_border_color; }
+    separator { background-color: $firefox_border_color; }
+
+    // FIXME: this affected to popover widget as well,
+    // so we can not set $suface to search-bar...
+    > scrolledwindow > textview {
+      background-color: if($variant == 'light', $base, lighten($base, 0%));
+
+      text {
+        background-color: transparent;
+        color: $firefox_fg_color;
+
+        &:selected {
+          &, &:focus {
+            @extend %firefox_selected_items;
+          }
+        }
+
+        selection { @extend %html_selection_items; }
+      }
+    }
+
+    > button {
+      &, &.combo {
+        > button { // enforce fallback buttons inside the HTML pages
+          @include button(fallback-normal);
+          &:hover { @include button(fallback-hover); }
+          &:active, &:checked { @include button(fallback-active); }
+          &:disabled { @include button(fallback-disabled); }
+          &:checked:disabled { @include button(fallback-checked-disabled); }
+        }
+      }
+
+      &.combo, // generic button and combo spacing
+      & { @extend %_html_button_spacing; }
+
+      // toolbar combo buttons in 'downloads' sub-window
+      &:not(.combo) > button { @extend %_html_button_spacing; }
+    }
+
+    > entry {
+      @extend %_html_entry_spacing;
+      @include entry(fallback-normal);
+      &:focus { @include entry(fallback-focus); }
+      &:disabled { @include entry(fallback-disabled); }
+    }
+
+    // use 16px assets for hard-coded sizing
+    > checkbutton > check { @extend %small_check; @extend %firefox_check_radio; }
+    > radiobutton > radio { @extend %small_radio; @extend %firefox_check_radio; }
+
+    > checkbutton > check,
+    > radiobutton > radio {
+      min-width: 16px;
+      min-height: 16px;
+      margin: 0;
+      padding: 0;
+      background-image: none;
+      transition: none;
+    }
+  }
+}
+
+//
+// Chrome(ium)
+//
+$chrome_borders_color: $solid-border;
+$chrome_bg_color: $background;
+$chrome_fg_color: $text;
+$chrome_menu_bg_color: $base;
+$chrome_menu_fg_color: $text;
+
+window.background.chromium {
+  // checked-tab & toolbar & button widgets
+  background-color: $chrome_bg_color;
+  color: $chrome_fg_color;
+
+  headerbar.titlebar {
+    button.toggle { // account-button (> 64.0.3282?)
+      border: none;
+      min-height: 22px;
+      margin: $space_size 0;
+      padding: 0 ($space_size + 4px);
+    }
+
+    // from nav_button_provider_gtk3.cc (> 62.0.3202?)
+    button.titlebutton { // title-buttons
+      // define global titlebutton class sizing
+      border: none;
+      @extend %windows_button;
+    }
+  }
+
+  // FIXME: not for actual button widgets but for toolbar's separators
+  // crazy: src/+/master/chrome/browser/ui/libgtkui/gtk_ui.cc#891
+  button { // for active-tab borders
+    border-width: 1px;
+    border-style: solid;
+    border-color: $chrome_borders_color;
+    color: $chrome_fg_color;
+    background-color: lighten($chrome_bg_color, 5%);
+  }
+
+  entry.chromium {
+    color: $chrome_fg_color;
+    background-color: darken($chrome_bg_color, 5%);
+
+    & { // overrides standard borders
+      color: $chrome_fg_color;
+      border-image: none;
+      border: 1px solid $chrome_borders_color;
+    }
+
+    &:focus { // overrides standard borders
+      color: $chrome_fg_color;
+      border-image: none;
+      border: 1px solid $primary;
+    }
+  }
+
+  // Fixed Atom/VS-code chromium based app menubar issues
+  > menubar {
+    background-color: $topbar;
+    // color: on($topbar); // Not use
+  }
+
+  > menu {
+    border: 1px solid $chrome_borders_color;
+    background-color: $chrome_menu_bg_color;
+    color: $chrome_menu_fg_color;
+    border-radius: 0;
+
+    > menuitem, menuitem {
+      color: $chrome_menu_fg_color; // Atom/VS-code menubar use this as menubar menuitem color
+
+      &:hover {
+        color: on($primary);
+        background-color: $primary;
+      }
+
+      &:disabled {
+        color: rgba($chrome_menu_fg_color, 0.45);
+      }
+
+      label {
+        &:disabled { color: rgba($chrome_menu_fg_color, 0.45); }
+      }
+    }
+  }
+
+  // internal region of toolbar's entry widget
+  > textview.view {
+    color: $chrome_fg_color;
+    background-color: $chrome_bg_color;
+  }
+
+  > textview {
+    color: $chrome_fg_color;
+    background-color: $chrome_bg_color;
+
+    text {
+      color: $chrome_fg_color;
+      background-color: $chrome_bg_color;
+
+      selection { @extend %html_selection_items; }
+    }
+  }
+}
+
+
+//
+// Synapse
+//
+window.background > box.vertical > widget > widget:selected { background-color: $primary; }
+
+//
+// Libre-Office
+//
+window.background:not(.csd):not(.solid-csd) {
+// reserved area at the most-right side of GtkMenuBar
+  > grid.horizontal > grid.horizontal {
+    background-color: $topbar;
+
+    > button.flat.small-button { // 'close' button
+      @extend %header_button;
+    }
+  }
+}
+
+window.background:not(.solid-csd) {
+  // for 'Notebookbar' toolbar
+  > notebook:not(.frame) {
+    border: 0 none transparent; // unset borders
+    background-color: $base;
+
+    > stack {
+      border: none;
+      box-shadow: none;
+    }
+  }
+}
+
+//
+// rhythmbox
+//
+// add top-border to inline-toolbar
+.sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar {
+  box-shadow: inset 0 1px $border;
+  padding: 4px;
+  background-color: darken($background, 1%);
+
+  button.image-button {
+    @extend %flat_button;
+  }
+}
+
+// tweak sidebar styling
+.sidebar-paned {
+  scrolledwindow { border: none; }
+}
+
+// tweak border and frame in alt-toolbar
+window.csd > box.vertical > box.vertical,
+window.solid-csd > box.vertical > box.vertical {
+  > toolbar.horizontal {
+    margin: -1px 0;
+    border-top: 1px solid $border;
+    box-shadow: none;
+//    background-color: transparent;
+
+    button {
+      @extend %flat_button;
+    }
+  }
+
+  > frame {
+    margin: -1px 0;
+    padding: 0;
+
+    > border { border: none; }
+  }
+}
+
+// hard-coded spacing depends on non-scalable unit,
+// seems cover-art widget is the most biggest thing?
+window.background > box.vertical > toolbar.primary-toolbar {
+  toolitem {
+    .linked > button.image-button.raised { // 'shuffle/repeat'
+      @extend %flat_button;
+    }
+
+    button.flat.scale { // 'volume'
+      @extend %flat_button;
+    }
+
+    > box.horizontal:not(.linked) > button.toggle,
+    > .linked > button:not(.toggle):not(.raised):not(.flat) {
+      @extend %flat_button;
+    }
+  }
+}
+
+
+//
+// Geary
+//
+window.background.csd.geary-main-window,
+window#GearyMainWindow.background.csd {
+  > headerbar.titlebar {
+    > box.horizontal > headerbar,
+    > leaflet > headerbar,
+    > leaflet > leaflet > headerbar {
+      box-shadow: none;
+      background: none;
+    }
+  }
+
+  .geary-folder-frame,
+  .geary-conversation-frame,
+  statusbar frame { border: none; }
+}
+
+.geary-composer-box {
+  .linked > button:not(.combo) { border-radius: $button_radius; }
+  .linked > button.combo { border-radius: 0; }
+
+  button:not(.combo) { @extend %flat_button; }
+
+  entry,
+  spinbutton:not(.vertical) { @extend %flat_entry; }
+
+  spinbutton:not(.vertical) entry { @extend %spinbutton_entry; }
+  button.combo { @extend %combo_flat; }
+}
+
+.geary-main-window.background.csd.unified {
+  > deck > overlay > .geary-main-layout {
+    background-color: $base_alt;
+
+    headerbar {
+      box-shadow: inset 0 -1px $border;
+    }
+
+    frame.geary-folder-frame { // left side
+      scrolledwindow {
+        treeview.view.sidebar:not(:hover):not(:selected) {
+          background-color: transparent;
+        }
+      }
+    }
+
+    > leaflet > separator.sidebar, // centry
+    > leaflet > leaflet > separator.sidebar { // left
+      border-right: none;
+      background-color: $topbar;
+
+      // &:backdrop { background-color: $topbar; }
+    }
+
+    > leaflet > leaflet > box.vertical + separator.sidebar {
+      border-right: 1px solid $border;
+    }
+
+    > leaflet > leaflet > box.vertical > .geary-conversation-frame {
+      > scrolledwindow {
+        margin: -1px 0; // hide .view top border
+        // > treeview.view {}
+      }
+    }
+
+    geary-conversation-viewer#conversation_viewer { // right side
+      list.background.conversation-listbox.content {
+        > row.activatable {
+          &:not(:hover):not(:selected){ background-color: $base; }
+
+          border: 1px solid $border;
+          border-bottom-width: 0;
+
+          &:first-child {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Popover
+popover.background {
+  list.geary-folder-popover-list {
+    row.activatable.geary-folder-popover-list-row {
+      color: $text;
+      &:disabled { color: $text-disabled; }
+    }
+  }
+}
+
+//
+// Tilix
+//
+overlay > revealer {
+  &.left > scrolledwindow.frame,
+  &.right > scrolledwindow.frame {
+    border-style: none;
+    box-shadow: $shadow_2;
+  }
+
+  &.left > scrolledwindow.frame { margin-right: 32px; }
+  &.right > scrolledwindow.frame { margin-left: 32px; }
+}
+
+.tilix-search-frame {
+  button { @extend %flat_button; }
+  button.combo { @extend %combo_flat; }
+
+  entry,
+  .linked entry,
+  .linked entry.search {
+    @extend %flat_entry;
+    border-radius: 0;
+  }
+
+  .linked button { border-radius: $button_radius; }
+}
+
+.terminix-session-sidebar, // for backwards compatibility
+list.tilix-session-sidebar {
+  // use -image property instead
+  background-color: $suface;
+
+  row.activatable {
+    &, &:selected {
+      button.tilix-sidebar-close-button {
+        min-height: 20px;
+        min-width: 20px;
+        padding: 0;
+        background-color: $destructive;
+        @extend %circular_button;
+
+        &, &:hover, &:active, &:checked { color: white; }
+
+        &:hover {
+          background-color: lighten($destructive, 5%);
+          box-shadow: $shadow_1;
+        }
+
+        &:active,
+        &:checked {
+          background-color: darken($destructive, 10%);
+          box-shadow: $shadow_1;
+        }
+      }
+    }
+  }
+}
+
+button.image-button.session-new-button { min-width: $medium_size - 4px; }
+
+// in-line titlebars
+widget > box.terminal-titlebar {
+  padding: 0 $space_size;
+
+  > button.flat.popup.toggle {
+    border: none;
+    border-radius: 0;
+    padding: 0 8px;
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  $primary 0%,
+                                  transparent 0%)
+                                  0 0 0 / 0 0 0;
+
+    &:dir(ltr) { padding-right: $space_size; }
+    &:dir(rtl) { padding-left: $space_size; }
+
+    &:checked, &:active {
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    $primary 100%,
+                                    transparent 0%)
+                                    0 0 2 / 0 0 2px;
+      background-color: transparent;
+      color: $text;
+    }
+  }
+
+  > button.image-button { // 'plus' and 'close'
+    &, &.toggle {
+      margin: 2px 0;
+      padding: 0;
+      min-height: 24px;
+      min-width: 24px;
+      @extend %circular_button;
+    }
+  }
+}
+
+
+//
+// Xfce4
+//
+$text-shadow: 0 0 1px rgba(0, 0, 0, 0.26),
+              0 1px 2px rgba(0, 0, 0, 0.32),
+              0 2px 3px rgba(0, 0, 0, 0.12);
+
+%panelbutton {
+  color: on($topbar, secondary);
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+
+  &:hover:not(:active):not(:checked) {
+    color: on($topbar, secondary);
+    box-shadow: inset 0 -2px rgba(indicator(light), 0.5);
+    background-color: transparent;
+  }
+  &:checked, &:active {
+    color: on($topbar, secondary);
+    box-shadow: inset 0 -2px indicator(light);
+    background-color: transparent;
+    label, image { color: inherit; }
+  }
+  &:disabled {
+    color: rgba(on($topbar, secondary), 0.5);
+    box-shadow: none;
+    background-color: transparent;
+  }
+  &:checked:disabled {
+    color: rgba(on($topbar, secondary), 0.5);
+    box-shadow: inset 0 -2px rgba(indicator(light), 0.5);
+    background-color: transparent;
+  }
+}
+
+.XfceHeading {
+  border: 0 none transparent;
+  background-color: $background;
+  color: $text;
+}
+
+.xfce4-panel {
+  background-color: $panel;
+  color: on($topbar, secondary);
+  font-weight: 700;
+  text-shadow: none;
+  -gtk-icon-shadow: none;
+
+  &, // unset borders
+  frame > border { border: none; }
+
+  &#XfcePanelWindow { // main panel container >= 4.13.3?
+    // FIXME: unneeded 1px borders are reserved by its code itself
+    border: 1px solid $panel;
+
+    &, &.marching-ants { transition: none; } // unset transitions
+  }
+
+  button.flat { @extend %panelbutton; }
+
+  button {
+    font-weight: 700;
+    @extend %panelbutton;
+
+    &#launcher-arrow { // launcher applet
+      // FIXME: quite weird pseudo-classe transitions, especially :hover
+      // state can't be cleared properly ( -> an upstream issue)
+      &, + button.toggle {
+        &:hover { box-shadow: none; } // hide indicators
+      }
+
+      + button.toggle:checked { // 'arrow' toggle button
+        color: indicator(light);
+        box-shadow: none;
+      }
+    }
+
+    &#xfce4-notification-plugin {
+      padding: 0 1px; // for 4.12.2
+    }
+  }
+
+  menu {
+    font-weight: 400; // for enforcing regular weight
+    text-shadow: none;
+    -gtk-icon-effect: none;
+  }
+
+  widget.tasklist > button.toggle { font-weight: 400; }
+}
+
+XfdesktopIconView.view {
+  border-radius: 2px;
+  background: transparent;
+  color: on($primary);
+  text-shadow: $text-shadow;
+
+  &:active, &:checked {
+    background-color: indicator(light);
+    text-shadow: none;
+  }
+
+  .rubberband { @extend rubberband; }
+}
+
+window#whiskermenu-window {
+  background-color: $base;
+
+  // no CSD class even if the sw compositor was enabled.
+  > frame > border {
+    border-radius: 0;
+  }
+
+  entry { @extend %flat_entry; }
+
+  scrolledwindow {
+    > viewport button.radio {
+      &:hover { background-color: $track-disabled; }
+      &:checked {
+        background-color: $primary;
+        color: on($primary);
+      }
+    }
+
+    treeview.view {
+      &:selected:hover {
+        background-color: $track-disabled;
+        color: $text;
+      }
+    }
+  }
+}
+
+#xfce4-weather-plugin *,
+//#pulseaudio-button *,
+#xfce4-power-manager-plugin *,
+#xfce4-clipman-plugin * {
+  -gtk-icon-transform: scale(.8);
+}
+
+//
+// Thunar
+//
+window.thunar {
+  .sidebar {
+    border-top: none;
+  }
+
+  toolbar#location-toolbar {
+    border-bottom: 1px solid $border;
+
+    // FIXME: need to unset for weird allocation height
+    entry { min-height: 0; }
+  }
+
+  notebook {
+    // hide unneeded border
+    stack > scrolledwindow.frame.standard-view {
+      border-top-width: 0;
+      border-right-width: 0;
+    }
+
+    // an allocation height of label node affects to close button's
+    // image height (it's quite weird).
+    header.top tab.reorderable-page > box > label { min-height: 0; }
+  }
+}
+
+// vala-panel-appmenu
+menubar.-vala-panel-appmenu-private, // xfce4 appmenu plugin
+menubar.-vala-panel-background {
+  background: none;
+  border: none;
+  box-shadow: none;
+  animation: none;
+
+  > menuitem {
+    color: on($panel, secondary);
+    font-weight: normal;
+
+    &:hover {
+      color: on($primary);
+      border-radius: 0 0 0 0 ;
+    }
+
+    &:disabled {
+      color: transparentize(on($panel, secondary), 0.6);
+    }
+  }
+}
+
+//
+// Nemo
+//
+.nemo-window {
+  .toolbar {
+    button {
+      @extend %toolbar_flat_button;
+      padding: 0 4px;
+      margin-top: 2px;
+      margin-bottom: 2px;
+    }
+  }
+
+  .nemo-places-sidebar {
+    background-color: $suface;
+
+    &.frame { border-width: 0; }
+  }
+
+  notebook {
+    background-color: $base;
+
+    .primary-toolbar {
+      background-color: $background;
+
+      button {
+        @include button(normal);
+        &:hover { @include button(hover); }
+        &:active { @include button(active); }
+        &:disabled { @include button(disabled); }
+        &:checked { @include button(checked); }
+        &:checked:disabled, &:checked:backdrop { @include button(checked-disabled); }
+      }
+
+      entry {
+        @include entry(normal);
+        &:focus { @include entry(focus); }
+        &:disabled { @include entry(disabled); }
+      }
+    }
+  }
+
+  // Rename entry
+  .nemo-window-pane {
+    widget.entry {
+      border-radius: $button_radius;
+      padding: 3px 10px;
+      border: 2px solid $primary;
+      background-color: rgba($primary, 0.1);
+
+      &:selected {
+        &:focus, & {
+          @extend %selected_items;
+        }
+      }
+    }
+
+    treeview.view { // Treeview rename entry
+      &, &:selected {
+        entry {
+          color: $text;
+          background-color: $base;
+          border-radius: $button_radius;
+
+          &, &:focus {
+            border-image: none;
+            box-shadow: none;
+          }
+        }
+      }
+    }
+  }
+
+  .primary-toolbar {
+    padding-top: $space_size;
+    padding-bottom: $space_size;
+    border: none;
+    color: on($topbar);
+    background-color: $topbar;
+    box-shadow: $header_shadow;
+
+    button:not(.suggested-action):not(.destructive-action) {
+      border-radius: $button_radius;
+      @extend %header_button;
+    }
+
+    > toolitem > .linked.raised > button {
+      margin-left: 1px;
+      margin-right: 1px;
+    }
+
+    &:not(.inline-toolbar):not(.osd) entry {
+      min-height: 28px;
+      margin: 0 0;
+      @extend %headerbar_entry;
+    }
+
+    button { min-height: 24px; }
+  }
+
+  // Pathbar
+  .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar,
+  .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) {
+    button { @extend %pathbar_box_button; }
+  }
+
+  .sidebar {
+    scrolledwindow.frame {
+      border: none;  // Removed treeview double borders
+
+      treeview.view.places-treeview:not(:selected) {
+        color: $text-secondary;
+
+        // &:hover { color: $text-secondary; }
+      }
+    }
+  }
+}
+
+//
+// Primary-toolbar (Cinnamon-settings)
+//
+toolbar.primary-toolbar {
+  toolitem.raised {
+
+    button { @extend %toolbar_flat_button; }
+
+    stackswitcher.stack-switcher {
+      margin-top: $space_size;
+      @extend %flat_stackswitcher;
+    }
+  }
+}
+
+//
+// Dialogs
+//
+dialog.background {
+  .dialog-vbox {
+    grid.horizontal {
+      scrolledwindow.frame { //removed ugly boders for nautilus batch renaming dialog
+        border: none;
+        viewport.frame {
+          border: none;
+        }
+      }
+
+      stack {
+        scrolledwindow.frame { // reset border for totem setting dialog
+          border: 1px solid $border;
+        }
+      }
+    }
+
+    stackswitcher.stack-switcher {
+      margin-top: $space_size;
+      @extend %flat_stackswitcher; // Cinnamon-settings stackswitcher button
+    }
+
+    .dialog-action-area {
+      @each $b_type, $b_color in (suggested-action, $suggested),
+                                 (destructive-action, $destructive) {
+        button.#{$b_type} {
+          color: $b_color;
+          background-color: $suface;
+
+          &:hover {
+            color: $b_color;
+            background-color: rgba($b_color, 0.15);
+          }
+
+          &:active {
+            color: on($primary);
+            box-shadow: inset 0 0 0 9999px rgba($b_color, 0.5);
+            background-image: radial-gradient(circle farthest-corner at center,
+                                              rgba($b_color, 0.5) 10%,
+                                              transparent 0%);
+          }
+
+          &:disabled { opacity: 0.65; }
+        }
+      }
+    }
+
+    stack {
+      // button:not(.combo) { @extend %toolbar_flat_button; }
+
+      entry,
+      spinbutton:not(.vertical) { @extend %flat_entry; }
+
+      .linked entry { border-radius: 0; }
+
+      spinbutton:not(.vertical) entry { @extend %spinbutton_entry; }
+      button.combo { @extend %combo_flat; }
+    }
+
+    filechooser {
+      .search-bar { box-shadow: inset 0 -1px $border; }
+    }
+  }
+}
+
+// Nemo settings stack buttons
+button#show_previous_icon_toolbar_togglebutton,
+button#show_show_thumbnails_icon_toolbar_togglebutton {
+  @extend %flat_theme_button;
+}
+
+//
+// scrolledwindows
+//
+window.background {
+  stack {
+    scrolledwindow {
+      button.suggested-action,
+      button.destructive-action {
+        box-shadow: none;
+        &:hover, &:active, &:checked { box-shadow: $shadow_1; }
+      }
+
+      button.combo { @extend %combo_flat; }
+
+      :not(stackswitcher).linked button:not(.combo) {
+        border-radius: $button_radius;
+        margin: 0 2px;
+        @extend %toolbar_flat_button;
+      }
+
+      stackswitcher.stack-switcher {
+        margin-top: $space_size;
+        @extend %flat_stackswitcher; // Cinnamon-settings stackswitcher button
+      }
+
+      .linked button,
+      .linked entry { border-radius: 0; }
+
+      entry,
+      spinbutton:not(.vertical) { @extend %flat_entry; }
+      spinbutton:not(.vertical) entry { @extend %spinbutton_entry; }
+
+      infobar { button { @extend %selected_button; } }
+    }
+  }
+}
+
+
+//
+// Unity
+//
+// based css:
+// http://bazaar.launchpad.net/~ubuntu-art-pkg/ubuntu-themes/trunk/view/head:/Ambiance/gtk-3.20/apps/unity.css
+
+// Decorations
+UnityDecoration {
+  -UnityDecoration-extents: 28px 0 0 0;
+  -UnityDecoration-input-extents: 10px;
+
+  -UnityDecoration-shadow-offset-x: 0;
+  -UnityDecoration-shadow-offset-y: 3px;
+  -UnityDecoration-active-shadow-color: rgba(0, 0, 0, 0.48);
+  -UnityDecoration-active-shadow-radius: 12px;
+  -UnityDecoration-inactive-shadow-color: rgba(0, 0, 0, 0.32);
+  -UnityDecoration-inactive-shadow-radius: 6px;
+
+  -UnityDecoration-glow-size: 8px;
+  -UnityDecoration-glow-color: $primary;
+
+  -UnityDecoration-title-indent: 10px;
+  -UnityDecoration-title-fade: 35px;
+  -UnityDecoration-title-alignment: 0.0;
+}
+
+UnityDecoration .top {
+  padding: 3px 8px 3px 8px;
+  border-radius: 2px 2px 0px 0px;
+  box-shadow: inset 0 1px $highlight;
+  background-color: $topbar;
+  color: on($topbar);
+}
+
+UnityDecoration .top:backdrop {
+  color: gtkalpha(on($topbar), 0.9);
+}
+
+UnityDecoration .left,
+UnityDecoration .right,
+UnityDecoration .bottom {
+  background-color: $topbar;
+}
+
+UnityDecoration.menuitem,
+UnityDecoration .menuitem {
+  color: gtkalpha(currentColor, 0.9);
+}
+
+UnityDecoration.menubar.menuitem:hover,
+UnityDecoration.menubar .menuitem *:hover {
+  box-shadow: inset 0 -2px $primary;
+  background-color: transparent;
+  color: currentColor;
+}
+
+.background:not(.csd) headerbar:not(.titlebar) {
+  border-radius: 0;
+  box-shadow: none;
+
+  &.inline-toolbar { border-style: none; }
+}
+
+SheetStyleDialog.unity-force-quit {
+  // background-color: $background;
+}
+
+// Panel Style
+UnityPanelWidget,
+.unity-panel {
+  background-color: $panel;
+  background-image: image($panel);
+  color: on($topbar, secondary);
+}
+
+UnityPanelWidget:backdrop,
+.unity-panel:backdrop {
+  color: on($topbar, secondary);
+}
+
+.unity-panel.menubar,
+.unity-panel .menubar {
+}
+
+.unity-panel.menuitem,
+.unity-panel .menuitem {
+  color: gtkalpha(currentColor, 0.9);
+}
+
+.unity-panel.menubar.menuitem:hover,
+.unity-panel.menubar .menuitem *:hover {
+  box-shadow: inset 0 -2px $primary;
+  background-color: transparent;
+  color: currentColor;
+}
+
+@keyframes playbackmenuitem_spinner {
+  to { -gtk-icon-transform: rotate(1turn); }
+}
+
+.menu IdoPlaybackMenuItem.menuitem:active {
+  -gtk-icon-source: -gtk-icontheme("process-working-symbolic");
+  animation: playbackmenuitem_spinner 1s infinite linear;
+  color: $primary;
+}
+
+// Unity Calendar //
+menuitem calendar,
+menuitem calendar .button,
+menuitem calendar .header,
+menuitem calendar .view {
+  background-color: $menu;
+  color: on($menu, secondary);
+  padding: 2px $space_size;
+}
+
+//
+// Kooha
+//
+headerbar.flat {
+  background: none;
+  color: $text;
+  border: none;
+  box-shadow: none;
+
+  button:not(.close):not(.maximize):not(.minimize):not(:hover):not(:active):not(:checked) {
+    &, image, label { color: $text-secondary; }
+  }
+}
+
+// stackswitcher.tall {
+//   margin-top: $space_size;
+// }

@@ -1,0 +1,30 @@
+/* Slider */
+
+$slide_active_color: if($variant == 'dark' and $theme == 'grey', rgba(white, 0.85), $primary);
+$slide_size: if($compact == 'false', 7px, 6px);
+
+.slider {
+  height: 20px;
+  color: if($variant == 'dark' and $theme == 'grey', white, $primary);
+
+  -slider-height: 2px;
+  -slider-background-color: $track; //background of the trough
+  -slider-border-color: transparent; //trough border color
+  -slider-active-background-color: $slide_active_color; //active trough fill
+  -slider-active-border-color: transparent; //active trough border
+  -slider-border-width: 0;
+  -slider-handle-radius: $slide_size;
+  -slider-handle-border-width: 0;
+  -slider-handle-border-color: $border;
+
+  // barlevels are for >= 3.29.90
+  -barlevel-height: 2px;
+  -barlevel-background-color: $track;
+  -barlevel-border-color: transparent;
+  -barlevel-active-background-color: $slide_active_color;
+  -barlevel-active-border-color: transparent;
+  -barlevel-overdrive-color: $destructive;
+  -barlevel-overdrive-border-color: transparent;
+  -barlevel-overdrive-separator-width: 2px;
+  -barlevel-border-width: 0;
+}

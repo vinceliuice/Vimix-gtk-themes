@@ -16,7 +16,7 @@ SASSC_OPT="-M -t expanded"
 
 THEME_NAME=vimix
 COLOR_VARIANTS=('' '-light' '-dark')
-SIZE_VARIANTS=('' '-laptop')
+SIZE_VARIANTS=('' '-compact')
 THEME_VARIANTS=('' '-doder' '-beryl' '-ruby' '-amethyst')
 
 if [[ "$(command -v gnome-shell)" ]]; then
@@ -69,6 +69,8 @@ install() {
 
   echo "Installing '${THEME_DIR}'..."
 
+  theme_tweaks
+
   #  Copy LICENSE
   mkdir -p                                                                              ${THEME_DIR}
   cp -r ${REO_DIR}/LICENSE                                                              ${THEME_DIR}
@@ -113,16 +115,16 @@ install() {
 
   cp -r ${SRC_DIR}/gtk/assets/scalable                                                  ${THEME_DIR}/gtk-3.0/assets
 
-  if [[ ${flat} == 'true' || ${mix} == 'true' ]]; then
-    sassc $SASSC_OPT ${SRC_DIR}/gtk/3.0/gtk${color}${size}${theme}.scss                 ${THEME_DIR}/gtk-3.0/gtk.css
+  if [[ ${tweaks} == 'true' ]]; then
+    sassc $SASSC_OPT ${SRC_DIR}/gtk/3.0/gtk${color}.scss                                ${THEME_DIR}/gtk-3.0/gtk.css
 
     [[ ${color} != '-dark' ]] && \
-    sassc $SASSC_OPT ${SRC_DIR}/gtk/3.0/gtk-dark${size}${theme}.scss                    ${THEME_DIR}/gtk-3.0/gtk-dark.css
+    sassc $SASSC_OPT ${SRC_DIR}/gtk/3.0/gtk-dark.scss                                   ${THEME_DIR}/gtk-3.0/gtk-dark.css
   else
-    cp -r ${SRC_DIR}/gtk/3.0/gtk${color}${size}${theme}.css                             ${THEME_DIR}/gtk-3.0/gtk.css
+    cp -r ${SRC_DIR}/gtk/3.0/gtk${color}.css                                            ${THEME_DIR}/gtk-3.0/gtk.css
 
     [[ ${color} != '-dark' ]] && \
-    cp -r ${SRC_DIR}/gtk/3.0/gtk-dark${size}${theme}.css                                ${THEME_DIR}/gtk-3.0/gtk-dark.css
+    cp -r ${SRC_DIR}/gtk/3.0/gtk-dark.css                                               ${THEME_DIR}/gtk-3.0/gtk-dark.css
   fi
 
   cp -r ${SRC_DIR}/gtk/assets/thumbnails/thumbnail${color}${theme}.png                  ${THEME_DIR}/gtk-3.0/thumbnail.png
@@ -141,16 +143,16 @@ install() {
 
   cp -r ${SRC_DIR}/gtk/assets/scalable                                                  ${THEME_DIR}/gtk-4.0/assets
 
-  if [[ ${flat} == 'true' || ${mix} == 'true' ]]; then
-    sassc $SASSC_OPT ${SRC_DIR}/gtk/4.0/gtk${color}${size}${theme}.scss                 ${THEME_DIR}/gtk-4.0/gtk.css
+  if [[ ${tweaks} == 'true' ]]; then
+    sassc $SASSC_OPT ${SRC_DIR}/gtk/4.0/gtk${color}.scss                                ${THEME_DIR}/gtk-4.0/gtk.css
 
     [[ ${color} != '-dark' ]] && \
-    sassc $SASSC_OPT ${SRC_DIR}/gtk/4.0/gtk-dark${size}${theme}.scss                    ${THEME_DIR}/gtk-4.0/gtk-dark.css
+    sassc $SASSC_OPT ${SRC_DIR}/gtk/4.0/gtk-dark.scss                                   ${THEME_DIR}/gtk-4.0/gtk-dark.css
   else
-    cp -r ${SRC_DIR}/gtk/4.0/gtk${color}${size}${theme}.css                             ${THEME_DIR}/gtk-4.0/gtk.css
+    cp -r ${SRC_DIR}/gtk/4.0/gtk${color}.css                                            ${THEME_DIR}/gtk-4.0/gtk.css
 
     [[ ${color} != '-dark' ]] && \
-    cp -r ${SRC_DIR}/gtk/4.0/gtk-dark${size}${theme}.css                                ${THEME_DIR}/gtk-4.0/gtk-dark.css
+    cp -r ${SRC_DIR}/gtk/4.0/gtk-dark.css                                               ${THEME_DIR}/gtk-4.0/gtk-dark.css
   fi
 
   cp -r ${SRC_DIR}/gtk/assets/thumbnails/thumbnail${color}${theme}.png                  ${THEME_DIR}/gtk-4.0/thumbnail.png
@@ -165,16 +167,16 @@ install() {
   cp -r ${SRC_DIR}/gnome-shell/color-assets/toggle-on${theme}.svg                       ${THEME_DIR}/gnome-shell/assets/toggle-on.svg
 
   if [[ "${GS_VERSION:-}" == 'new' ]]; then
-    if [[ ${mix} == 'true' ]]; then
-      sassc $SASSC_OPT ${SRC_DIR}/gnome-shell/shell-40-0/gnome-shell${color}${size}${theme}.scss ${THEME_DIR}/gnome-shell/gnome-shell.css
+    if [[ ${tweaks} == 'true' ]]; then
+      sassc $SASSC_OPT ${SRC_DIR}/gnome-shell/shell-40-0/gnome-shell${color}.scss       ${THEME_DIR}/gnome-shell/gnome-shell.css
     else
-      cp -r ${SRC_DIR}/gnome-shell/shell-40-0/gnome-shell${color}${size}${theme}.css    ${THEME_DIR}/gnome-shell/gnome-shell.css
+      cp -r ${SRC_DIR}/gnome-shell/shell-40-0/gnome-shell${color}.css                   ${THEME_DIR}/gnome-shell/gnome-shell.css
     fi
   else
-    if [[ ${mix} == 'true' ]]; then
-      sassc $SASSC_OPT ${SRC_DIR}/gnome-shell/shell-3-28/gnome-shell${color}${size}${theme}.scss ${THEME_DIR}/gnome-shell/gnome-shell.css
+    if [[ ${tweaks} == 'true' ]]; then
+      sassc $SASSC_OPT ${SRC_DIR}/gnome-shell/shell-3-28/gnome-shell${color}.scss       ${THEME_DIR}/gnome-shell/gnome-shell.css
     else
-      cp -r ${SRC_DIR}/gnome-shell/shell-3-28/gnome-shell${color}${size}${theme}.css    ${THEME_DIR}/gnome-shell/gnome-shell.css
+      cp -r ${SRC_DIR}/gnome-shell/shell-3-28/gnome-shell${color}.css                   ${THEME_DIR}/gnome-shell/gnome-shell.css
     fi
   fi
 
@@ -210,63 +212,19 @@ install() {
 
   #  Install cinnamon theme
   mkdir -p                                                                              ${THEME_DIR}/cinnamon
-  cp -r ${SRC_DIR}/cinnamon/cinnamon${ELSE_DARK}${theme}.css                            ${THEME_DIR}/cinnamon/cinnamon.css
+
+  if [[ ${tweaks} == 'true' ]]; then
+    sassc $SASSC_OPT ${SRC_DIR}/cinnamon/cinnamon${color}.scss                          ${THEME_DIR}/cinnamon/cinnamon.css
+  else
+    cp -r ${SRC_DIR}/cinnamon/cinnamon${color}.css                                      ${THEME_DIR}/cinnamon/cinnamon.css
+  fi
+
   cp -r ${SRC_DIR}/cinnamon/assets${theme}/common-assets                                ${THEME_DIR}/cinnamon/assets
   cp -r ${SRC_DIR}/cinnamon/assets${theme}/assets${ELSE_DARK}/checkbox/*.svg            ${THEME_DIR}/cinnamon/assets/checkbox
   cp -r ${SRC_DIR}/cinnamon/assets${theme}/assets${ELSE_DARK}/menu/*.svg                ${THEME_DIR}/cinnamon/assets/menu
   cp -r ${SRC_DIR}/cinnamon/assets${theme}/assets${ELSE_DARK}/misc/*.svg                ${THEME_DIR}/cinnamon/assets/misc
   cp -r ${SRC_DIR}/cinnamon/assets${theme}/assets${ELSE_DARK}/switch/*.svg              ${THEME_DIR}/cinnamon/assets/switch
   cp -r ${SRC_DIR}/cinnamon/thumbnail${ELSE_DARK}${theme}.png                           ${THEME_DIR}/cinnamon/thumbnail.png
-}
-
-#  Check command avalibility
-function has_command() {
-  command -v $1 > /dev/null
-}
-
-#  Install needed packages
-install_package() {
-  if [ ! "$(which sassc 2> /dev/null)" ]; then
-    echo sassc needs to be installed to generate the css.
-    if has_command zypper; then
-      sudo zypper in sassc
-    elif has_command apt-get; then
-      sudo apt-get install sassc
-    elif has_command dnf; then
-      sudo dnf install sassc
-    elif has_command dnf; then
-      sudo dnf install sassc
-    elif has_command pacman; then
-      sudo pacman -S --noconfirm sassc
-    fi
-  fi
-}
-
-#  Install theme
-install_theme() {
-  for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
-    for size in "${sizes[@]-${SIZE_VARIANTS[@]}}"; do
-      for theme in "${themes[@]:--doder}"; do
-        install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${size}" "${theme}"
-      done
-    done
-  done
-}
-
-tweaks_temp() {
-  cp -rf ${SRC_DIR}/gtk/sass/_tweaks.scss ${SRC_DIR}/gtk/sass/_tweaks-temp.scss
-  cp -rf ${SRC_DIR}/gnome-shell/sass/_tweaks.scss ${SRC_DIR}/gnome-shell/sass/_tweaks-temp.scss
-}
-
-install_flat() {
-  sed -i "/\$titlebutton:/s/default/flat/" ${SRC_DIR}/gtk/sass/_tweaks-temp.scss
-  echo -e "Install flat version ..."
-}
-
-install_mix() {
-  sed -i "/\$mixstate:/s/default/main/" ${SRC_DIR}/gtk/sass/_tweaks-temp.scss
-  sed -i "/\$mixstate:/s/default/main/" ${SRC_DIR}/gnome-shell/sass/_tweaks-temp.scss
-  echo -e "Install mix dark grey version ..."
 }
 
 while [ $# -gt 0 ]; do
@@ -284,6 +242,7 @@ while [ $# -gt 0 ]; do
       shift 2
       ;;
     -a|--all)
+      accent='true'
       themes=("${THEME_VARIANTS[@]}")
       shift 1
       ;;
@@ -319,6 +278,7 @@ while [ $# -gt 0 ]; do
       done
       ;;
     -t|--theme)
+      accent='true'
       shift
       for theme in "${@}"; do
         case "${theme}" in
@@ -388,8 +348,9 @@ while [ $# -gt 0 ]; do
             sizes+=("${SIZE_VARIANTS[0]}")
             shift 1
             ;;
-          laptop)
+          compact)
             sizes+=("${SIZE_VARIANTS[1]}")
+            compact='true'
             shift 1
             ;;
           -*|--*)
@@ -442,13 +403,101 @@ while [ $# -gt 0 ]; do
   esac
 done
 
-if [[ "${flat}" == 'true' ]]; then
-  install_package && tweaks_temp && install_flat
-fi
+#  Check command avalibility
+function has_command() {
+  command -v $1 > /dev/null
+}
 
-if [[ "${mix}" == 'true' ]]; then
-  install_package && tweaks_temp && install_mix
-fi
+#  Install needed packages
+install_package() {
+  if [ ! "$(which sassc 2> /dev/null)" ]; then
+    echo sassc needs to be installed to generate the css.
+    if has_command zypper; then
+      sudo zypper in sassc
+    elif has_command apt-get; then
+      sudo apt-get install sassc
+    elif has_command dnf; then
+      sudo dnf install sassc
+    elif has_command dnf; then
+      sudo dnf install sassc
+    elif has_command pacman; then
+      sudo pacman -S --noconfirm sassc
+    fi
+  fi
+}
+
+#  Install theme
+install_theme() {
+  for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
+    for size in "${sizes[@]-${SIZE_VARIANTS[0]}}"; do
+      for theme in "${themes[@]-${THEME_VARIANTS[1]}}"; do
+        install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${size}" "${theme}"
+      done
+    done
+  done
+}
+
+tweaks_temp() {
+  cp -rf ${SRC_DIR}/_sass/_tweaks.scss ${SRC_DIR}/_sass/_tweaks-temp.scss
+}
+
+install_flat() {
+  sed -i "/\$titlebutton:/s/default/flat/" ${SRC_DIR}/_sass/_tweaks-temp.scss
+  echo -e "Install flat version ..."
+}
+
+install_mix() {
+  sed -i "/\$mixstate:/s/default/main/" ${SRC_DIR}/_sass/_tweaks-temp.scss
+  echo -e "Install mix dark grey version ..."
+}
+
+install_compact() {
+  sed -i "/\$compact:/s/false/true/" ${SRC_DIR}/_sass/_tweaks-temp.scss
+  echo -e "Install compact version ..."
+}
+
+install_theme_color() {
+  if [[ "$theme" != '-doder' ]]; then
+    case "$theme" in
+      '')
+        theme_color='grey'
+        ;;
+      -beryl)
+        theme_color='beryl'
+        ;;
+      -ruby)
+        theme_color='ruby'
+        ;;
+      -amethyst)
+        theme_color='amethyst'
+        ;;
+    esac
+    sed -i "/\$theme:/s/doder/${theme_color}/" ${SRC_DIR}/_sass/_tweaks-temp.scss
+  fi
+}
+
+theme_tweaks() {
+  if [[ "${flat}" == 'true' || "${mix}" == 'true' || "${accent}" == 'true' || "${compact}" == 'true' ]]; then
+    install_package && tweaks_temp
+    tweaks='true'
+  fi
+
+  if [[ "${flat}" == 'true' ]]; then
+    install_flat
+  fi
+
+  if [[ "${mix}" == 'true' ]]; then
+    install_mix
+  fi
+
+  if [[ "${compact}" == 'true' ]]; then
+    install_compact
+  fi
+
+  if [[ "${accent}" == 'true' ]]; then
+    install_theme_color
+  fi
+}
 
 install_theme
 

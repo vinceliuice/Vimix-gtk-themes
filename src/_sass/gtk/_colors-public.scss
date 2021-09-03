@@ -1,0 +1,104 @@
+//apps rely on some named colors to be exported
+/* GTK NAMED COLORS
+   ----------------
+   use responsibly! */
+
+// Sass thinks we're using the colors in the variables as strings and may shoot
+// warning, it's innocuous and can be defeated by using "" + $var
+
+$theme_text: currentColor;
+
+/* widget text/foreground color */
+@define-color theme_fg_color #{"" +$text};
+
+/* text color for entries, views and content in general */
+@define-color theme_text_color #{"" +$theme_text};
+
+/* widget base background color */
+@define-color theme_bg_color #{"" +$background};
+
+/* text widgets and the like base background color */
+@define-color theme_base_color #{"" +$base};
+
+/* base background color of selections */
+@define-color theme_selected_bg_color #{"" +$primary};
+
+/* text/foreground color of selections */
+@define-color theme_selected_fg_color #{"" +on($primary)};
+
+/* base background color of insensitive widgets */
+@define-color insensitive_bg_color #{"" +$background};
+
+/* text foreground color of insensitive widgets */
+@define-color insensitive_fg_color #{"" +$text-disabled};
+
+/* insensitive text widgets and the like base background color */
+@define-color insensitive_base_color #{"" +$base_alt};
+
+/* widget text/foreground color on backdrop windows */
+@define-color theme_unfocused_fg_color #{"" +$text};
+
+/* text color for entries, views and content in general on backdrop windows */
+@define-color theme_unfocused_text_color #{"" +$theme_text};
+
+/* widget base background color on backdrop windows */
+@define-color theme_unfocused_bg_color #{"" +$background};
+
+/* text widgets and the like base background color on backdrop windows */
+@define-color theme_unfocused_base_color #{"" +$base};
+
+/* base background color of selections on backdrop windows */
+@define-color theme_unfocused_selected_bg_color #{"" +$primary};
+
+/* text/foreground color of selections on backdrop windows */
+@define-color theme_unfocused_selected_fg_color #{"" + on($primary)};
+
+/* insensitive color on backdrop windows*/
+@define-color unfocused_insensitive_color #{"" + $text-disabled};
+
+/* widgets main borders color */
+@define-color borders #{"" +$border};
+
+/* widgets main borders color on backdrop windows */
+@define-color unfocused_borders #{"" +$border};
+
+/* widgets */
+@define-color fg_color #{"" + $text};
+@define-color text_color #{"" + $theme_text};
+@define-color bg_color #{"" + $background};
+@define-color base_color #{"" + $base};
+
+/* WM */
+$wm_highlight: lighten($header, 10%);
+$wm_bg_unfocused: $header;
+
+@define-color wm_title alpha(#{"" + on($header)}, 0.8);
+@define-color wm_unfocused_title alpha(#{"" + on($header)}, 0.5);
+@define-color wm_bg #{"" + $header};
+@define-color wm_bg_unfocused #{"" + $wm_bg_unfocused};
+@define-color wm_highlight #{"" + $wm_highlight};
+
+/* these are pretty self explicative */
+@define-color warning_color #{"" +$warning};
+@define-color error_color #{"" +$error};
+@define-color success_color #{"" +$success};
+//@define-color destructive_color #{"" +$destructive}
+
+//FIXME this is really an API
+@define-color content_view_bg #{"" + $base};
+@define-color placeholder_text_color #{"" + themecolor(#999999)};
+
+/* Very contrasty background for text views (@theme_text foreground) */
+@define-color text_view_bg #{"" + if($variant == 'light', $base, darken($base,6%))};
+
+//
+// Budgie-desktop specific indicator colours
+//
+
+// unfocused window 'dot(s)'
+@define-color budgie_tasklist_indicator_color #{"" + indicator(light)};
+// focused window 'line'
+@define-color budgie_tasklist_indicator_color_active #{"" + indicator(light)};
+// group-ed and unfocused window 'line(s)'
+@define-color budgie_tasklist_indicator_color_active_window #{"" + mix(indicator(light), $header, 54%)};
+@define-color budgie_tasklist_indicator_color_attention #{"" + $warning};

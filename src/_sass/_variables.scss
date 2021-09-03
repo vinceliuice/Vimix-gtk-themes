@@ -1,0 +1,61 @@
+
+@import 'tweaks-temp';
+
+// variables
+$asset_suffix: if($variant == 'dark', '-dark', ''); // use dark assets in dark variant
+$darker_asset_suffix: if($topbar == 'dark', '-dark', $asset_suffix);
+$extra_background_clip: if($variant == 'light', padding-box, border-box);
+
+// sizes
+$small_size: if($compact == 'false', 24px, 20px);
+$medium_size: if($compact == 'false', 36px, 32px);
+$large_size: if($compact == 'false', 42px, 38px);
+
+$space_size: if($compact == 'false', 6px, 4px);
+$item_size: if($compact == 'false', 32px, 28px);
+$bar_size: if($compact == 'false', 4px, 3px);
+$font_size: if($compact == 'false', 11, 10);
+
+// padding, margin and spacing for gnome-shell
+$base_padding: if($compact == 'false', 6px, 4px);
+$base_margin: if($compact == 'false', 4px, 3px);
+$base_spacing: if($compact == 'false', 6px, 4px);
+
+$base_icon_size: 16px;  // For gnome-shell
+
+// radiuses
+$base_radius: 2px;
+$button_radius: 3px;
+$modal_radius: 6px;
+$window_radius: 3px;
+$menu_radius: 3px;
+$circular_radius: 9999px;
+
+// durations
+$shorter_duration: 100ms;
+$longer_duration: 225ms;
+$ripple_duration: 300ms;
+$ripple_opacity_duration: 600ms;
+
+// timing functions
+$normal_curve: cubic-bezier(0.05, 0.3, 0.6, 1);
+$standard_curve: cubic-bezier(0.4, 0.0, 0.2, 1);
+$deceleration_curve: cubic-bezier(0.0, 0.0, 0.2, 1);
+$acceleration_curve: cubic-bezier(0.4, 0.0, 1, 1);
+$sharp_curve: cubic-bezier(0.4, 0.0, 0.6, 1);
+
+// transition shorthands
+$shorter_transition: all $shorter_duration $deceleration_curve;
+$longer_transition: all $longer_duration $deceleration_curve;
+$shadow_transition: box-shadow $shorter_duration $deceleration_curve;
+
+// shadows
+$shadow_light: 0 2px 2px -2px rgba(black, 0.15), 0 1px 2px -1px rgba(black, 0.12), 0 1px 2px -.6px rgba(black, 0.08);
+$shadow_dark: 0 2px 3px -2px rgba(black, 0.2), 0 1px 2px -1px rgba(black, 0.22), 0 1px 2px -.6px rgba(black, 0.12);
+$shadow_1: if($topbar == 'light', $shadow_light, $shadow_dark);
+$shadow_2: 0 1px 2px -1px rgba(black, 0.2), 0 2px 3px -1px rgba(black, 0.14), 0 3px 4px -1px rgba(black, 0.12);
+$shadow_3: 0 3px 2px -2px rgba(black, 0.2), 0 3px 3px -1px rgba(black, 0.14), 0 1px 5px -1px rgba(black, 0.12);
+$shadow_4: 0 2px 3px -1px rgba(black, 0.2), 0 4px 3px -1px rgba(black, 0.14), 0 1px 6px -1px rgba(black, 0.12);
+$shadow_5: 0 8px 6px -5px rgba(black, 0.2), 0 16px 16px 2px rgba(black, 0.14), 0 6px 18px 5px rgba(black, 0.12);
+$depth_light: 0 1px 1px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.20);
+$header_shadow: if($topbar =='light', $depth_light, $shadow_dark);

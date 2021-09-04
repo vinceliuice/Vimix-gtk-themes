@@ -50,20 +50,20 @@
               background-image 0,
               background-color 0;
   animation: ripple_effect $shorter_duration $deceleration_curve forwards;
-  color: on($topbar, secondary);
+  color: on($header, secondary);
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                 indicator(header) 0%,
                                 transparent 0%)
                                 0 0 0 / 0 0 0;
 
   &:hover {
-    color: on($topbar);
+    color: on($header);
     background: none;
     box-shadow: inset 0 -2px gtkalpha(indicator(header), 0.5);
   }
 
   &:checked, &:active {
-    color: on($topbar);
+    color: on($header);
     background: none;
     border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                   indicator(header) 100%,
@@ -77,14 +77,14 @@
   }
 
   &:backdrop {
-    color: on($topbar, disabled);
-    &:disabled { color: on($topbar, secondary-disabled); }
+    color: on($header, disabled);
+    &:disabled { color: on($header, secondary-disabled); }
   }
 }
 
 %pathbar_box_button {
   @extend %flat_button;
-  color: on($topbar, secondary);
+  color: on($header, secondary);
   background-color: transparent;
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                 indicator(header) 0%,
@@ -92,20 +92,20 @@
                                 0 0 0 / 0 0 0;
   &:hover {
     background-color: transparent;
-    color: on($topbar);
-    box-shadow: inset 0 0 0 9999px rgba(on($topbar), 0.12);
+    color: on($header);
+    box-shadow: inset 0 0 0 9999px rgba(on($header), 0.12);
   }
 
   &:active, &:checked {
-    color: on($topbar);
+    color: on($header);
     background-color: transparent;
-    box-shadow: inset 0 0 0 9999px rgba(on($topbar), 0.12);
+    box-shadow: inset 0 0 0 9999px rgba(on($header), 0.12);
     border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                   indicator(header) 100%,
                                   transparent 0%)
                                   0 0 2 / 0 0 2px;
     background-image: radial-gradient(circle farthest-corner at center,
-                                      rgba(on($topbar), 0.12) 10%,
+                                      rgba(on($header), 0.12) 10%,
                                       transparent 0%);
   }
 
@@ -115,8 +115,8 @@
   }
 
   &:backdrop {
-    color: on($topbar, disabled);
-    &:disabled { color: on($topbar, secondary-disabled); }
+    color: on($header, disabled);
+    &:disabled { color: on($header, secondary-disabled); }
   }
 }
 
@@ -126,8 +126,8 @@
     margin-top: $space_size;
     margin-bottom: $space_size;
     border-radius: $button_radius;
-    color: on($topbar, secondary);
-    background-color: rgba(on($topbar), 0.06);
+    color: on($header, secondary);
+    background-color: rgba(on($header), 0.06);
 
     button {
       margin: 0;
@@ -151,8 +151,8 @@
     }
 
     &.width-maximized {
-      color: on($topbar, secondary);
-      background-color: rgba(on($topbar), 0.06);
+      color: on($header, secondary);
+      background-color: rgba(on($header), 0.06);
     }
 
     // workaround for 3.30.1
@@ -1338,10 +1338,10 @@ window.background:not(.csd) {
 
     // for backwards compatibility
     > menubar {
-      color: on($topbar, secondary);
+      color: on($header, secondary);
 
-      &:hover { color: on($topbar); }
-      &:disabled { color: on($topbar, disabled); }
+      &:hover { color: on($header); }
+      &:disabled { color: on($header, disabled); }
     }
 
     > frame { color: $firefox_border_color; }
@@ -1566,8 +1566,8 @@ window.background.chromium {
 
   // Fixed Atom/VS-code chromium based app menubar issues
   > menubar {
-    background-color: $topbar;
-    // color: on($topbar); // Not use
+    background-color: $header;
+    // color: on($header); // Not use
   }
 
   > menu {
@@ -1625,7 +1625,7 @@ window.background > box.vertical > widget > widget:selected { background-color: 
 window.background:not(.csd):not(.solid-csd) {
 // reserved area at the most-right side of GtkMenuBar
   > grid.horizontal > grid.horizontal {
-    background-color: $topbar;
+    background-color: $header;
 
     > button.flat.small-button { // 'close' button
       @extend %header_button;
@@ -1758,9 +1758,10 @@ window#GearyMainWindow.background.csd {
     > leaflet > separator.sidebar, // centry
     > leaflet > leaflet > separator.sidebar { // left
       border-right: none;
-      background-color: $topbar;
+      background-color: $header;
+      box-shadow: inset 0 -1px $border;
 
-      // &:backdrop { background-color: $topbar; }
+      // &:backdrop { background-color: $header; }
     }
 
     > leaflet > leaflet > box.vertical + separator.sidebar {
@@ -1909,30 +1910,30 @@ $text-shadow: 0 0 1px rgba(0, 0, 0, 0.26),
               0 2px 3px rgba(0, 0, 0, 0.12);
 
 %panelbutton {
-  color: on($topbar, secondary);
+  color: on($header, secondary);
   border-radius: 0;
   border: none;
   box-shadow: none;
   background-color: transparent;
 
   &:hover:not(:active):not(:checked) {
-    color: on($topbar, secondary);
+    color: on($header, secondary);
     box-shadow: inset 0 -2px rgba(indicator(light), 0.5);
     background-color: transparent;
   }
   &:checked, &:active {
-    color: on($topbar, secondary);
+    color: on($header, secondary);
     box-shadow: inset 0 -2px indicator(light);
     background-color: transparent;
     label, image { color: inherit; }
   }
   &:disabled {
-    color: rgba(on($topbar, secondary), 0.5);
+    color: rgba(on($header, secondary), 0.5);
     box-shadow: none;
     background-color: transparent;
   }
   &:checked:disabled {
-    color: rgba(on($topbar, secondary), 0.5);
+    color: rgba(on($header, secondary), 0.5);
     box-shadow: inset 0 -2px rgba(indicator(light), 0.5);
     background-color: transparent;
   }
@@ -1946,7 +1947,7 @@ $text-shadow: 0 0 1px rgba(0, 0, 0, 0.26),
 
 .xfce4-panel {
   background-color: $panel;
-  color: on($topbar, secondary);
+  color: on($header, secondary);
   font-weight: 700;
   text-shadow: none;
   -gtk-icon-shadow: none;
@@ -2171,8 +2172,8 @@ menubar.-vala-panel-background {
     padding-top: $space_size;
     padding-bottom: $space_size;
     border: none;
-    color: on($topbar);
-    background-color: $topbar;
+    color: on($header);
+    background-color: $header;
     box-shadow: $header_shadow;
 
     button:not(.suggested-action):not(.destructive-action) {
@@ -2370,18 +2371,18 @@ UnityDecoration .top {
   padding: 3px 8px 3px 8px;
   border-radius: 2px 2px 0px 0px;
   box-shadow: inset 0 1px $highlight;
-  background-color: $topbar;
-  color: on($topbar);
+  background-color: $header;
+  color: on($header);
 }
 
 UnityDecoration .top:backdrop {
-  color: gtkalpha(on($topbar), 0.9);
+  color: gtkalpha(on($header), 0.9);
 }
 
 UnityDecoration .left,
 UnityDecoration .right,
 UnityDecoration .bottom {
-  background-color: $topbar;
+  background-color: $header;
 }
 
 UnityDecoration.menuitem,
@@ -2412,12 +2413,12 @@ UnityPanelWidget,
 .unity-panel {
   background-color: $panel;
   background-image: image($panel);
-  color: on($topbar, secondary);
+  color: on($header, secondary);
 }
 
 UnityPanelWidget:backdrop,
 .unity-panel:backdrop {
-  color: on($topbar, secondary);
+  color: on($header, secondary);
 }
 
 .unity-panel.menubar,

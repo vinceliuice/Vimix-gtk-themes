@@ -41,10 +41,11 @@ usage() {
   printf "  %-25s%s\n" "-t, --theme VARIANTS" "Specify hue theme variant(s) [standard|doder|beryl|ruby|amethyst] (Default: doder)"
   printf "  %-25s%s\n" "-s, --size VARIANTS" "Specify theme size variant(s) [standard|laptop] (Default: All variants)"
   printf "  %-25s%s\n"
-  printf "  %-25s%s\n" "-tweaks, --tweaks" "Specify theme tweaks: [flat|grey|mix]"
-  printf "  %-25s%s\n" " flat" "Specify theme with flat and normal titlebutton style"
-  printf "  %-25s%s\n" " grey" "Use grey titlebuttons in standard variants"
-  printf "  %-25s%s\n" " mix"  "Mix theme color and dark grey color for dark background color variants"
+  printf "  %-25s%s\n" "-tweaks, --tweaks" "Specify theme tweaks: [flat|grey|mix|translucent]"
+  printf "  %-25s%s\n" " flat"             "Specify theme with flat and normal titlebutton style"
+  printf "  %-25s%s\n" " grey"             "Use grey titlebuttons in standard variants"
+  printf "  %-25s%s\n" " mix"              "Mix theme color and dark grey color for dark background color variants"
+  printf "  %-25s%s\n" " translucent"      "Translucent panel version"
   printf "  %-25s%s\n"
   printf "  %-25s%s\n" "-h, --help" "Show this help"
 }
@@ -266,6 +267,10 @@ while [ $# -gt 0 ]; do
             mix="true"
             shift
             ;;
+          translucent)
+            translucent="true"
+            shift
+            ;;
           -*)
             break
             ;;
@@ -456,6 +461,11 @@ install_compact() {
   echo -e "Install compact version ..."
 }
 
+install_translucent() {
+  sed -i "/\$translucent:/s/false/true/" ${SRC_DIR}/_sass/_tweaks-temp.scss
+  echo -e "Install translucent shell version ..."
+}
+
 install_theme_color() {
   if [[ "$theme" != '-doder' ]]; then
     case "$theme" in
@@ -477,7 +487,7 @@ install_theme_color() {
 }
 
 theme_tweaks() {
-  if [[ "${flat}" == 'true' || "${mix}" == 'true' || "${accent}" == 'true' || "${compact}" == 'true' ]]; then
+  if [[ "${flat}" == 'true' || "${mix}" == 'true' || "${accent}" == 'true' || "${compact}" == 'true' || "${translucent}" == 'true' ]]; then
     install_package && tweaks_temp
     tweaks='true'
   fi
@@ -496,6 +506,10 @@ theme_tweaks() {
 
   if [[ "${accent}" == 'true' ]]; then
     install_theme_color
+  fi
+
+  if [[ "${translucent}" == 'true' ]]; then
+    install_translucent
   fi
 }
 

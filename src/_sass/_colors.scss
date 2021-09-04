@@ -15,6 +15,10 @@ $header:                                if($topbar == 'light', #eeeeee, themecol
 $menu:                                  if($topbar == 'light', $base, $suface);
 $popover:                               if($variant == 'light', $base, $base);
 
+@if $translucent == 'true' {
+  $panel:                              if($topbar == 'light', rgba(white, 0.5), rgba(black, 0.5));
+}
+
 // Theme colors
 $primary:                               primary();
 $accent:                                accent();

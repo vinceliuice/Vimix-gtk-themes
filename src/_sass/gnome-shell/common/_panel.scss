@@ -10,10 +10,14 @@
   transition-duration: 250ms;
   @include fontsize($font_size - 1);
 
-  @if $topbar == "dark" {
-    box-shadow: 0 3px 8px rgba(black, 0.2);
+  @if $translucent == 'false' {
+    @if $topbar == 'dark' {
+      box-shadow: 0 3px 8px rgba(black, 0.2);
+    } @else {
+      box-shadow: 0 3px 8px rgba(black, 0.1);
+    }
   } @else {
-    box-shadow: 0 3px 8px rgba(black, 0.1);
+    box-shadow: none !important;
   }
 
   // the rounded outset corners

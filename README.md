@@ -49,10 +49,11 @@ Usage:  `./install.sh`  **[OPTIONS...]**
 | -c, --color       | Specify theme color variant(s) **[standard/light/dark]** (Default: All variants) |
 | -t, --theme       | Specify hue theme variant(s) **[standard/doder/beryl/ruby/amethyst]** (Default: doder) |
 | -s, --size        | Specify theme size variant(s) **[standard/compact]** (Default: standard) |
-| -tweaks, --tweaks | Specify theme tweaks: [flat|grey|mix] |
+| -tweaks, --tweaks | Specify theme tweaks: [flat|grey|mix|translucent] |
 |                   | flat: Specify theme with flat and normal titlebutton style |
 |                   | grey: Use grey titlebuttons in standard variants |
 |                   | mix:  Mix theme color and dark grey color for dark background color variants |
+|                   | translucent:  Translucent panel version |
 | -h, --help        | Show this help |
 
 if you want to get the last vimix theme version online, you can

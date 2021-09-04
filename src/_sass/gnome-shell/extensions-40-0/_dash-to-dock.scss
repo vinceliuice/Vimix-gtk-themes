@@ -105,7 +105,8 @@
     background-color: on(dark, track) !important;
   }
 
-  .show-apps {
+  .show-apps,
+  .app-well-app {
     & .overview-icon {
       color: on($panel, secondary);
     }
@@ -122,7 +123,8 @@
     }
   }
 
-  &:overview #dash .show-apps {
+  &:overview #dash .show-apps,
+  &:overview #dash .app-well-app {
     & .overview-icon {
       color: on(dark, secondary);
     }

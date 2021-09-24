@@ -39,7 +39,7 @@ usage() {
   printf "  %-25s%s\n" "-a, --all VARIANTS" "Install all theme variant(s)"
   printf "  %-25s%s\n" "-c, --color VARIANTS" "Specify theme color variant(s) [standard|light|dark] (Default: All variants)"
   printf "  %-25s%s\n" "-t, --theme VARIANTS" "Specify hue theme variant(s) [standard|doder|beryl|ruby|amethyst] (Default: doder)"
-  printf "  %-25s%s\n" "-s, --size VARIANTS" "Specify theme size variant(s) [standard|laptop] (Default: All variants)"
+  printf "  %-25s%s\n" "-s, --size VARIANTS" "Specify theme size variant(s) [standard|compact] (Default: All variants)"
   printf "  %-25s%s\n"
   printf "  %-25s%s\n" "-tweaks, --tweaks" "Specify theme tweaks: [flat|grey|mix|translucent]"
   printf "  %-25s%s\n" " flat"             "Specify theme with flat and normal titlebutton style"

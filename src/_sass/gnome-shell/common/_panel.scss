@@ -76,14 +76,14 @@
     // status area icons
     .system-status-icon {
       icon-size: $base_icon_size;
-      padding: $base_padding - 1px;
+      padding: $base_padding;
       margin: 0 $base_margin;
+      spacing: $base_spacing;
     }
 
     .panel-status-indicators-box .system-status-icon,
-    .panel-status-menu-box .system-status-icon {
-      margin: 0;
-    }
+    .panel-status-menu-box .system-status-icon { margin: 0; }
+    .appindicator-trayicons-box { margin: 0 $base_padding; }
 
     // app menu icon
     .app-menu-icon {
@@ -139,12 +139,12 @@
 
   .panel-status-indicators-box,
   .panel-status-menu-box {
-    spacing: 2px;
+    spacing: $base_spacing / 2;
   }
 
   // spacing between power icon and (optional) percentage label
   .power-status.panel-status-indicators-box {
-    spacing: 0;
+    spacing: ($base_spacing / 2) - 1px;
   }
 
   // indicator for active

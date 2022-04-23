@@ -1,0 +1,36 @@
+
+.popup-menu {
+  .popup-menu-item {
+    padding: $base_padding $base_padding * 2; 
+
+    &:ltr { padding-right: $base_padding * 1.5 !important; padding-left: 0 !important; }
+    &:rtl { padding-right: 0 !important; padding-left: $base_padding * 1.5 !important; }
+  }
+}
+
+// separator
+.popup-separator-menu-item {
+  padding: 0;
+
+  .popup-separator-menu-item-separator {
+    height: 1px; //not really the whole box
+    background-color: $frame;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin: $base_padding 32px;
+
+    .popup-sub-menu & { //submenu separators
+      padding: 0;
+      margin: 0 32px 0 0;
+      height: 1px;
+    }
+  }
+}
+
+// system status popover menu
+.aggregate-menu {
+  .popup-sub-menu .popup-menu-item > :first-child {
+    &:ltr { padding-left: $base_padding * 2 !important; margin-left: $base_padding / 2 !important; }
+    &:rtl { padding-right: $base_padding * 2 !important; margin-right: $base_padding / 2 !important; }
+  }
+}

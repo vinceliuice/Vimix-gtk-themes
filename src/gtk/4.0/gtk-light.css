@@ -545,7 +545,7 @@ list > row button.image-button:not(.flat), .toolbar button, toolbutton button, t
   color: rgba(0, 0, 0, 0.6);
 }
 
-window.dialog.message .linked:not(.vertical).dialog-action-area > button:hover, actionbar > revealer > box button:hover:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:hover, popover.menu box.inline-buttons button.image-button.model:hover,
+window.dialog.message .linked.dialog-action-area:not(.vertical) > button:hover, actionbar > revealer > box button:hover:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:hover, popover.menu box.inline-buttons button.image-button.model:hover,
 .background pathbar > button:hover,
 toolbar button:hover, dropdown > .linked:not(.vertical) > button.combo:hover:not(:only-child),
 combobox > .linked:not(.vertical) > button.combo:hover:not(:only-child), .linked > spinbutton:not(.vertical) > button.up:hover, .linked > spinbutton:not(.vertical) > button.down:hover,
@@ -555,7 +555,7 @@ list > row button.image-button:hover:not(.flat), .toolbar button:hover, toolbutt
   background-color: transparent;
 }
 
-window.dialog.message .linked:not(.vertical).dialog-action-area > button:focus, actionbar > revealer > box button:focus:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:focus, popover.menu box.inline-buttons button.image-button.model:focus,
+window.dialog.message .linked.dialog-action-area:not(.vertical) > button:focus, actionbar > revealer > box button:focus:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:focus, popover.menu box.inline-buttons button.image-button.model:focus,
 .background pathbar > button:focus,
 toolbar button:focus, dropdown > .linked:not(.vertical) > button.combo:focus:not(:only-child),
 combobox > .linked:not(.vertical) > button.combo:focus:not(:only-child), .linked > spinbutton:not(.vertical) > button.up:focus, .linked > spinbutton:not(.vertical) > button.down:focus,
@@ -565,7 +565,7 @@ list > row button.image-button:focus:not(.flat), .toolbar button:focus, toolbutt
   transition: none;
 }
 
-window.dialog.message .linked:not(.vertical).dialog-action-area > button:active, actionbar > revealer > box button:active:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:active, popover.menu box.inline-buttons button.image-button.model:active,
+window.dialog.message .linked.dialog-action-area:not(.vertical) > button:active, actionbar > revealer > box button:active:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:active, popover.menu box.inline-buttons button.image-button.model:active,
 .background pathbar > button:active,
 toolbar button:active, dropdown > .linked:not(.vertical) > button.combo:active:not(:only-child),
 combobox > .linked:not(.vertical) > button.combo:active:not(:only-child), .linked > spinbutton:not(.vertical) > button.up:active, .linked > spinbutton:not(.vertical) > button.down:active,
@@ -576,7 +576,7 @@ list > row button.image-button:active:not(.flat), .toolbar button:active, toolbu
   background-color: transparent;
 }
 
-window.dialog.message .linked:not(.vertical).dialog-action-area > button:disabled, actionbar > revealer > box button:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:disabled, popover.menu box.inline-buttons button.image-button.model:disabled,
+window.dialog.message .linked.dialog-action-area:not(.vertical) > button:disabled, actionbar > revealer > box button:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:disabled, popover.menu box.inline-buttons button.image-button.model:disabled,
 .background pathbar > button:disabled,
 toolbar button:disabled, dropdown > .linked:not(.vertical) > button.combo:disabled:not(:only-child),
 combobox > .linked:not(.vertical) > button.combo:disabled:not(:only-child), .linked > spinbutton:not(.vertical) > button.up:disabled, .linked > spinbutton:not(.vertical) > button.down:disabled,
@@ -586,7 +586,7 @@ list > row button.image-button:disabled:not(.flat), .toolbar button:disabled, to
   color: alpha(currentColor, 0.27);
 }
 
-window.dialog.message .linked:not(.vertical).dialog-action-area > button:checked, actionbar > revealer > box button:checked:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:checked, popover.menu box.inline-buttons button.image-button.model:checked,
+window.dialog.message .linked.dialog-action-area:not(.vertical) > button:checked, actionbar > revealer > box button:checked:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:checked, popover.menu box.inline-buttons button.image-button.model:checked,
 .background pathbar > button:checked,
 toolbar button:checked, dropdown > .linked:not(.vertical) > button.combo:checked:not(:only-child),
 combobox > .linked:not(.vertical) > button.combo:checked:not(:only-child), .linked > spinbutton:not(.vertical) > button.up:checked, .linked > spinbutton:not(.vertical) > button.down:checked,
@@ -595,7 +595,7 @@ list > row button.image-button:checked:not(.flat), .toolbar button:checked, tool
   background-color: alpha(currentColor, 0.12);
 }
 
-window.dialog.message .linked:not(.vertical).dialog-action-area > button:checked:disabled, actionbar > revealer > box button:checked:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:checked:disabled, popover.menu box.inline-buttons button.image-button.model:checked:disabled,
+window.dialog.message .linked.dialog-action-area:not(.vertical) > button:checked:disabled, actionbar > revealer > box button:checked:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:checked:disabled, popover.menu box.inline-buttons button.image-button.model:checked:disabled,
 .background pathbar > button:checked:disabled,
 toolbar button:checked:disabled, dropdown > .linked:not(.vertical) > button.combo:checked:disabled:not(:only-child),
 combobox > .linked:not(.vertical) > button.combo:checked:disabled:not(:only-child), .linked > spinbutton:not(.vertical) > button.up:checked:disabled, .linked > spinbutton:not(.vertical) > button.down:checked:disabled,
@@ -1212,7 +1212,7 @@ button.color > colorswatch:only-child, button.color > colorswatch:only-child > o
 }
 
 
-list > row button.image-button:not(.flat).suggested-action {
+list > row button.image-button.suggested-action:not(.flat) {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08), inset 0 0 0 9999px transparent;
   background-color: #4285F4;
@@ -1221,7 +1221,7 @@ list > row button.image-button:not(.flat).suggested-action {
 }
 
 
-list > row button.image-button:not(.flat).destructive-action {
+list > row button.image-button.destructive-action:not(.flat) {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08), inset 0 0 0 9999px transparent;
   background-color: #FF5252;
@@ -1277,12 +1277,12 @@ spinbutton:not(.vertical) {
   padding: 0;
 }
 
-.background spinbutton:not(.vertical), .background spinbutton:not(.vertical).flat {
+.background spinbutton:not(.vertical), .background spinbutton.flat:not(.vertical) {
   transition: all 225ms cubic-bezier(0, 0, 0.2, 1);
   border-radius: 0;
 }
 
-.background spinbutton:not(.vertical) > text, .background spinbutton:not(.vertical) > text:focus-within, .background spinbutton:not(.vertical) > text:disabled, .background spinbutton:not(.vertical):focus-within > text, .background spinbutton:not(.vertical):focus-within > text:focus-within, .background spinbutton:not(.vertical):focus-within > text:disabled, .background spinbutton:not(.vertical):disabled > text, .background spinbutton:not(.vertical):disabled > text:focus-within, .background spinbutton:not(.vertical):disabled > text:disabled, .background spinbutton:not(.vertical).flat > text, .background spinbutton:not(.vertical).flat > text:focus-within, .background spinbutton:not(.vertical).flat > text:disabled, .background spinbutton:not(.vertical).flat:focus-within > text, .background spinbutton:not(.vertical).flat:focus-within > text:focus-within, .background spinbutton:not(.vertical).flat:focus-within > text:disabled, .background spinbutton:not(.vertical).flat:disabled > text, .background spinbutton:not(.vertical).flat:disabled > text:focus-within, .background spinbutton:not(.vertical).flat:disabled > text:disabled {
+.background spinbutton:not(.vertical) > text, .background spinbutton:not(.vertical) > text:focus-within, .background spinbutton:not(.vertical) > text:disabled, .background spinbutton:not(.vertical):focus-within > text, .background spinbutton:not(.vertical):focus-within > text:focus-within, .background spinbutton:not(.vertical):focus-within > text:disabled, .background spinbutton:not(.vertical):disabled > text, .background spinbutton:not(.vertical):disabled > text:focus-within, .background spinbutton:not(.vertical):disabled > text:disabled, .background spinbutton.flat:not(.vertical) > text, .background spinbutton.flat:not(.vertical) > text:focus-within, .background spinbutton.flat:not(.vertical) > text:disabled, .background spinbutton.flat:not(.vertical):focus-within > text, .background spinbutton.flat:not(.vertical):focus-within > text:focus-within, .background spinbutton.flat:not(.vertical):focus-within > text:disabled, .background spinbutton.flat:not(.vertical):disabled > text, .background spinbutton.flat:not(.vertical):disabled > text:focus-within, .background spinbutton.flat:not(.vertical):disabled > text:disabled {
   box-shadow: none;
   background: none;
   border-image: none;
@@ -1416,8 +1416,8 @@ combobox entry.combo:disabled {
   color: rgba(0, 0, 0, 0.38);
 }
 
-dropdown > .linked:not(.vertical) > button:not(:only-child).combo,
-combobox > .linked:not(.vertical) > button:not(:only-child).combo {
+dropdown > .linked:not(.vertical) > button.combo:not(:only-child),
+combobox > .linked:not(.vertical) > button.combo:not(:only-child) {
   border: none;
   border-image: none;
   box-shadow: none;
@@ -2102,13 +2102,13 @@ treeview.view > dndtarget:drop(active) {
   border-color: #18b8ff;
 }
 
-columnview.view > dndtarget:drop(active).after,
-treeview.view > dndtarget:drop(active).after {
+columnview.view > dndtarget.after:drop(active),
+treeview.view > dndtarget.after:drop(active) {
   border-top-style: none;
 }
 
-columnview.view > dndtarget:drop(active).before,
-treeview.view > dndtarget:drop(active).before {
+columnview.view > dndtarget.before:drop(active),
+treeview.view > dndtarget.before:drop(active) {
   border-bottom-style: none;
 }
 
@@ -2597,7 +2597,7 @@ notebook > header tab:hover {
   color: rgba(0, 0, 0, 0.87);
 }
 
-notebook > header tab:hover.reorderable-page {
+notebook > header tab.reorderable-page:hover {
   border-color: rgba(0, 0, 0, 0.12);
   background-color: #f9f9f9;
 }
@@ -2615,7 +2615,7 @@ notebook > header tab:checked:disabled {
   color: rgba(0, 0, 0, 0.38);
 }
 
-notebook > header tab:checked.reorderable-page {
+notebook > header tab.reorderable-page:checked {
   border-color: rgba(0, 0, 0, 0.12);
   background-color: #FFFFFF;
 }
@@ -2752,19 +2752,19 @@ scrollbar.overlay-indicator:not(.dragging):not(.hovering) button:disabled {
   background-color: rgba(0, 0, 0, 0.26);
 }
 
-scrollbar.overlay-indicator:not(.dragging):not(.hovering).horizontal > range > trough > slider {
+scrollbar.overlay-indicator.horizontal:not(.dragging):not(.hovering) > range > trough > slider {
   min-width: 24px;
 }
 
-scrollbar.overlay-indicator:not(.dragging):not(.hovering).horizontal button {
+scrollbar.overlay-indicator.horizontal:not(.dragging):not(.hovering) button {
   min-width: 8px;
 }
 
-scrollbar.overlay-indicator:not(.dragging):not(.hovering).vertical > range > trough > slider {
+scrollbar.overlay-indicator.vertical:not(.dragging):not(.hovering) > range > trough > slider {
   min-height: 24px;
 }
 
-scrollbar.overlay-indicator:not(.dragging):not(.hovering).vertical button {
+scrollbar.overlay-indicator.vertical:not(.dragging):not(.hovering) button {
   min-height: 8px;
 }
 
@@ -3810,61 +3810,61 @@ window.dialog.message .titlebar:backdrop {
   color: rgba(0, 0, 0, 0.6);
 }
 
-window.dialog.message .linked:not(.vertical).dialog-action-area > button {
+window.dialog.message .linked.dialog-action-area:not(.vertical) > button {
   padding: 4px 12px;
   border-top: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 0;
 }
 
-window.dialog.message .linked:not(.vertical).dialog-action-area > button:first-child {
+window.dialog.message .linked.dialog-action-area:not(.vertical) > button:first-child {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
 }
 
-window.dialog.message .linked:not(.vertical).dialog-action-area > button:last-child {
+window.dialog.message .linked.dialog-action-area:not(.vertical) > button:last-child {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
 }
 
-window.dialog.message .linked:not(.vertical).dialog-action-area > button.suggested-action {
+window.dialog.message .linked.dialog-action-area:not(.vertical) > button.suggested-action {
   color: #4285F4;
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1), background-size 300ms cubic-bezier(0, 0, 0.2, 1), background-image 600ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-window.dialog.message .linked:not(.vertical).dialog-action-area > button.suggested-action:hover {
+window.dialog.message .linked.dialog-action-area:not(.vertical) > button.suggested-action:hover {
   color: #4285F4;
   background-color: transparent;
 }
 
-window.dialog.message .linked:not(.vertical).dialog-action-area > button.suggested-action:active {
+window.dialog.message .linked.dialog-action-area:not(.vertical) > button.suggested-action:active {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1);
   color: white;
   border-color: rgba(66, 133, 244, 0.75);
   box-shadow: inset 0 0 0 9999px rgba(66, 133, 244, 0.5);
 }
 
-window.dialog.message .linked:not(.vertical).dialog-action-area > button.suggested-action:disabled {
+window.dialog.message .linked.dialog-action-area:not(.vertical) > button.suggested-action:disabled {
   opacity: 0.65;
 }
 
-window.dialog.message .linked:not(.vertical).dialog-action-area > button.destructive-action {
+window.dialog.message .linked.dialog-action-area:not(.vertical) > button.destructive-action {
   color: #FF5252;
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1), background-size 300ms cubic-bezier(0, 0, 0.2, 1), background-image 600ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-window.dialog.message .linked:not(.vertical).dialog-action-area > button.destructive-action:hover {
+window.dialog.message .linked.dialog-action-area:not(.vertical) > button.destructive-action:hover {
   color: #FF5252;
   background-color: transparent;
 }
 
-window.dialog.message .linked:not(.vertical).dialog-action-area > button.destructive-action:active {
+window.dialog.message .linked.dialog-action-area:not(.vertical) > button.destructive-action:active {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1);
   color: white;
   border-color: rgba(255, 82, 82, 0.75);
   box-shadow: inset 0 0 0 9999px rgba(255, 82, 82, 0.5);
 }
 
-window.dialog.message .linked:not(.vertical).dialog-action-area > button.destructive-action:disabled {
+window.dialog.message .linked.dialog-action-area:not(.vertical) > button.destructive-action:disabled {
   opacity: 0.65;
 }
 
@@ -3873,18 +3873,18 @@ window.dialog.message.csd.background {
   border-bottom-right-radius: 2px;
 }
 
-window.dialog.message.csd .linked:not(.vertical).dialog-action-area > button {
+window.dialog.message.csd .linked.dialog-action-area:not(.vertical) > button {
   padding: 8px 16px;
   border-top: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 0;
 }
 
-window.dialog.message.csd .linked:not(.vertical).dialog-action-area > button:first-child {
+window.dialog.message.csd .linked.dialog-action-area:not(.vertical) > button:first-child {
   border-bottom-left-radius: 2px;
   border-top-left-radius: 0;
 }
 
-window.dialog.message.csd .linked:not(.vertical).dialog-action-area > button:last-child {
+window.dialog.message.csd .linked.dialog-action-area:not(.vertical) > button:last-child {
   border-bottom-right-radius: 2px;
   border-top-right-radius: 0;
 }
@@ -4339,11 +4339,11 @@ colorswatch:drop(active) {
   box-shadow: none;
 }
 
-colorswatch:drop(active).light overlay {
+colorswatch.light:drop(active) overlay {
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08), 0 0 0 2px #18b8ff;
 }
 
-colorswatch:drop(active).dark overlay {
+colorswatch.dark:drop(active) overlay {
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -0.6px rgba(0, 0, 0, 0.08), 0 0 0 2px #18b8ff;
 }
 

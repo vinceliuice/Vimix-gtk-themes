@@ -1658,7 +1658,7 @@ StEntry StLabel.hint-text {
 /* Message List */
 .message-list {
   width: 31.5em;
-  padding: 0 12px;
+  padding: 0;
   text-shadow: none;
 }
 
@@ -1676,23 +1676,20 @@ StEntry StLabel.hint-text {
   spacing: 6px;
 }
 
-.message-list-controls {
-  margin: 8px 16px 0;
-  padding: 4px;
-  spacing: 12px;
-}
-
 .message {
   margin: 3px 0;
 }
 
 .message .message-icon-bin {
-  margin: 8px 0;
-  padding: 8px 0px 8px 8px;
+  padding: 18px;
+}
+
+.message .message-icon-bin:ltr {
+  padding-right: 6px;
 }
 
 .message .message-icon-bin:rtl {
-  padding: 8px 8px 8px 0px;
+  padding-left: 6px;
 }
 
 .message .message-icon-bin > StIcon {
@@ -1764,8 +1761,6 @@ StEntry StLabel.hint-text {
 }
 
 .message-media-control {
-  margin: 18px 6px;
-  padding: 9px;
   border-radius: 9999px;
   color: rgba(0, 0, 0, 0.6);
 }
@@ -2095,13 +2090,6 @@ StEntry StLabel.hint-text {
 .osd-window {
   text-align: center;
   font-weight: bold;
-  spacing: 1em;
-  min-width: 64px;
-  min-height: 64px;
-}
-
-.osd-window StIcon {
-  icon-size: 96px;
 }
 
 .osd-window .osd-monitor-label {
@@ -2211,8 +2199,9 @@ StEntry StLabel.hint-text {
 
 #panel .panel-button .system-status-icon {
   icon-size: 16px;
-  padding: 5px;
+  padding: 6px;
   margin: 0 4px;
+  spacing: 6px;
 }
 
 #panel .panel-button .panel-status-indicators-box .system-status-icon,
@@ -2220,11 +2209,15 @@ StEntry StLabel.hint-text {
   margin: 0;
 }
 
+#panel .panel-button .appindicator-trayicons-box {
+  margin: 0 6px;
+}
+
 #panel .panel-button .app-menu-icon {
   -st-icon-style: symbolic;
 }
 
-#panel .panel-button#panelActivities {
+#panel #panelActivities.panel-button {
   -natural-hpadding: 18px;
 }
 
@@ -2249,11 +2242,11 @@ StEntry StLabel.hint-text {
   box-shadow: none;
 }
 
-#panel:overview .panel-button:hover.clock-display, #panel:overview .panel-button:active.clock-display, #panel:overview .panel-button:overview.clock-display, #panel:overview .panel-button:focus.clock-display, #panel:overview .panel-button:checked.clock-display, #panel.unlock-screen .panel-button:hover.clock-display, #panel.unlock-screen .panel-button:active.clock-display, #panel.unlock-screen .panel-button:overview.clock-display, #panel.unlock-screen .panel-button:focus.clock-display, #panel.unlock-screen .panel-button:checked.clock-display, #panel.login-screen .panel-button:hover.clock-display, #panel.login-screen .panel-button:active.clock-display, #panel.login-screen .panel-button:overview.clock-display, #panel.login-screen .panel-button:focus.clock-display, #panel.login-screen .panel-button:checked.clock-display, #panel.lock-screen .panel-button:hover.clock-display, #panel.lock-screen .panel-button:active.clock-display, #panel.lock-screen .panel-button:overview.clock-display, #panel.lock-screen .panel-button:focus.clock-display, #panel.lock-screen .panel-button:checked.clock-display {
+#panel:overview .panel-button.clock-display:hover, #panel:overview .panel-button.clock-display:active, #panel:overview .panel-button.clock-display:overview, #panel:overview .panel-button.clock-display:focus, #panel:overview .panel-button.clock-display:checked, #panel.unlock-screen .panel-button.clock-display:hover, #panel.unlock-screen .panel-button.clock-display:active, #panel.unlock-screen .panel-button.clock-display:overview, #panel.unlock-screen .panel-button.clock-display:focus, #panel.unlock-screen .panel-button.clock-display:checked, #panel.login-screen .panel-button.clock-display:hover, #panel.login-screen .panel-button.clock-display:active, #panel.login-screen .panel-button.clock-display:overview, #panel.login-screen .panel-button.clock-display:focus, #panel.login-screen .panel-button.clock-display:checked, #panel.lock-screen .panel-button.clock-display:hover, #panel.lock-screen .panel-button.clock-display:active, #panel.lock-screen .panel-button.clock-display:overview, #panel.lock-screen .panel-button.clock-display:focus, #panel.lock-screen .panel-button.clock-display:checked {
   box-shadow: none;
 }
 
-#panel:overview .panel-button:hover.clock-display .clock, #panel:overview .panel-button:active.clock-display .clock, #panel:overview .panel-button:overview.clock-display .clock, #panel:overview .panel-button:focus.clock-display .clock, #panel:overview .panel-button:checked.clock-display .clock, #panel.unlock-screen .panel-button:hover.clock-display .clock, #panel.unlock-screen .panel-button:active.clock-display .clock, #panel.unlock-screen .panel-button:overview.clock-display .clock, #panel.unlock-screen .panel-button:focus.clock-display .clock, #panel.unlock-screen .panel-button:checked.clock-display .clock, #panel.login-screen .panel-button:hover.clock-display .clock, #panel.login-screen .panel-button:active.clock-display .clock, #panel.login-screen .panel-button:overview.clock-display .clock, #panel.login-screen .panel-button:focus.clock-display .clock, #panel.login-screen .panel-button:checked.clock-display .clock, #panel.lock-screen .panel-button:hover.clock-display .clock, #panel.lock-screen .panel-button:active.clock-display .clock, #panel.lock-screen .panel-button:overview.clock-display .clock, #panel.lock-screen .panel-button:focus.clock-display .clock, #panel.lock-screen .panel-button:checked.clock-display .clock {
+#panel:overview .panel-button.clock-display:hover .clock, #panel:overview .panel-button.clock-display:active .clock, #panel:overview .panel-button.clock-display:overview .clock, #panel:overview .panel-button.clock-display:focus .clock, #panel:overview .panel-button.clock-display:checked .clock, #panel.unlock-screen .panel-button.clock-display:hover .clock, #panel.unlock-screen .panel-button.clock-display:active .clock, #panel.unlock-screen .panel-button.clock-display:overview .clock, #panel.unlock-screen .panel-button.clock-display:focus .clock, #panel.unlock-screen .panel-button.clock-display:checked .clock, #panel.login-screen .panel-button.clock-display:hover .clock, #panel.login-screen .panel-button.clock-display:active .clock, #panel.login-screen .panel-button.clock-display:overview .clock, #panel.login-screen .panel-button.clock-display:focus .clock, #panel.login-screen .panel-button.clock-display:checked .clock, #panel.lock-screen .panel-button.clock-display:hover .clock, #panel.lock-screen .panel-button.clock-display:active .clock, #panel.lock-screen .panel-button.clock-display:overview .clock, #panel.lock-screen .panel-button.clock-display:focus .clock, #panel.lock-screen .panel-button.clock-display:checked .clock {
   box-shadow: none;
 }
 
@@ -2265,11 +2258,11 @@ StEntry StLabel.hint-text {
 
 #panel .panel-status-indicators-box,
 #panel .panel-status-menu-box {
-  spacing: 2px;
+  spacing: 3px;
 }
 
 #panel .power-status.panel-status-indicators-box {
-  spacing: 0;
+  spacing: 2px;
 }
 
 #panel .screencast-indicator,
@@ -2291,7 +2284,7 @@ StEntry StLabel.hint-text {
 
 .popup-menu {
   min-width: 12em;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.6) !important;
   padding: 6px 0 !important;
   font-weight: normal;
   font-size: 10pt;
@@ -2299,7 +2292,7 @@ StEntry StLabel.hint-text {
 
 .popup-menu .popup-menu-content {
   padding: 6px 0 !important;
-  background-color: #FFFFFF;
+  background-color: #FFFFFF !important;
   border-radius: 3px;
   border: none;
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.15);
@@ -2309,74 +2302,63 @@ StEntry StLabel.hint-text {
 
 .popup-menu .popup-menu-item {
   spacing: 9px;
-  padding: 6px;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.6) !important;
   text-shadow: none;
   border-radius: 0;
   margin: 0;
   font-weight: normal;
 }
 
-.popup-menu .popup-menu-item:ltr {
-  padding-right: 1.5em !important;
-  padding-left: 0 !important;
-}
-
-.popup-menu .popup-menu-item:rtl {
-  padding-right: 0 !important;
-  padding-left: 1.5em !important;
-}
-
 .popup-menu .popup-menu-item:checked {
   font-weight: normal;
   border: none;
   box-shadow: none;
-  color: white;
-  background-color: #4285F4;
+  color: white !important;
+  background-color: #4285F4 !important;
 }
 
-.popup-menu .popup-menu-item:checked.hover, .popup-menu .popup-menu-item:checked.selected {
-  color: white;
-  background-color: #5a95f5;
+.popup-menu .popup-menu-item:checked:focus, .popup-menu .popup-menu-item:checked:hover, .popup-menu .popup-menu-item.selected:checked {
+  color: white !important;
+  background-color: #5a95f5 !important;
 }
 
 .popup-menu .popup-menu-item:checked:active {
   color: white;
-  background-color: #2a75f3;
+  background-color: #2a75f3 !important;
 }
 
 .popup-menu .popup-menu-item:checked:insensitive {
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.45) !important;
 }
 
-.popup-menu .popup-menu-item.selected {
-  color: rgba(0, 0, 0, 0.87);
-  background-color: rgba(0, 0, 0, 0.12);
+.popup-menu .popup-menu-item:focus, .popup-menu .popup-menu-item:hover, .popup-menu .popup-menu-item.selected {
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: rgba(0, 0, 0, 0.12) !important;
   transition-duration: 0;
 }
 
 .popup-menu .popup-menu-item:active, .popup-menu .popup-menu-item.selected:active {
-  color: white;
-  background-color: #4285F4;
+  color: white !important;
+  background-color: #4285F4 !important;
 }
 
 .popup-menu .popup-menu-item:insensitive {
-  color: rgba(0, 0, 0, 0.26);
+  color: rgba(0, 0, 0, 0.26) !important;
 }
 
 .popup-menu .popup-sub-menu {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.05) !important;
   border: none;
   box-shadow: none;
   margin: 0;
 }
 
 .popup-menu .popup-inactive-menu-item {
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.6) !important;
 }
 
 .popup-menu .popup-inactive-menu-item:insensitive {
-  color: rgba(0, 0, 0, 0.26);
+  color: rgba(0, 0, 0, 0.26) !important;
 }
 
 .popup-menu.panel-menu {
@@ -2401,23 +2383,6 @@ StEntry StLabel.hint-text {
   text-align: left;
 }
 
-.popup-separator-menu-item {
-  padding: 0 0;
-}
-
-.popup-separator-menu-item .popup-separator-menu-item-separator {
-  height: 1px;
-  margin: 0 0;
-  background-color: rgba(0, 0, 0, 0.12);
-  padding: 0 0;
-}
-
-.popup-sub-menu .popup-separator-menu-item .popup-separator-menu-item-separator {
-  padding: 0 0;
-  margin: 0 32px 0 0;
-  height: 1px;
-}
-
 .background-menu {
   -boxpointer-gap: 4px;
   -arrow-rise: 0px;
@@ -2431,16 +2396,6 @@ StEntry StLabel.hint-text {
   padding: 0;
   margin: 0 3px;
   -st-icon-style: symbolic;
-}
-
-.aggregate-menu .popup-sub-menu .popup-menu-item > :first-child:ltr {
-  padding-left: 18px;
-  margin-left: 1em;
-}
-
-.aggregate-menu .popup-sub-menu .popup-menu-item > :first-child:rtl {
-  padding-right: 18px;
-  margin-right: 1em;
 }
 
 /* Screen Shield */
@@ -3079,6 +3034,76 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   border: 3px solid #4285F4;
   border-radius: 3px;
   padding: 0px;
+}
+
+.message-list-controls {
+  margin: 8px 16px 0;
+  padding: 4px;
+  spacing: 12px;
+}
+
+.message-media-control {
+  margin: 18px 6px;
+  padding: 9px;
+}
+
+.media-message-cover-icon {
+  padding: 6px;
+}
+
+.media-message-cover-icon.fallback {
+  padding: 6px;
+}
+
+.osd-window {
+  spacing: 1em;
+  min-width: 64px;
+  min-height: 64px;
+}
+
+.osd-window StIcon {
+  icon-size: 96px;
+}
+
+.popup-menu .popup-menu-item {
+  padding: 6px;
+}
+
+.popup-menu .popup-menu-item:ltr {
+  padding-right: 1.5em !important;
+  padding-left: 0 !important;
+}
+
+.popup-menu .popup-menu-item:rtl {
+  padding-right: 0 !important;
+  padding-left: 1.5em !important;
+}
+
+.popup-separator-menu-item {
+  padding: 0 0;
+}
+
+.popup-separator-menu-item .popup-separator-menu-item-separator {
+  height: 1px;
+  margin: 0 0;
+  background-color: rgba(0, 0, 0, 0.12);
+  padding: 0 0;
+}
+
+.popup-sub-menu .popup-separator-menu-item .popup-separator-menu-item-separator {
+  padding: 0 0;
+  margin: 0 32px 0 0;
+  height: 1px;
+}
+
+.aggregate-menu .popup-sub-menu .popup-menu-item > :first-child:ltr {
+  padding-left: 18px;
+  margin-left: 1em;
+}
+
+.aggregate-menu .popup-sub-menu .popup-menu-item > :first-child:rtl {
+  padding-right: 18px;
+  margin-right: 1em;
 }
 
 .bottom #dashtodockDashScrollview,

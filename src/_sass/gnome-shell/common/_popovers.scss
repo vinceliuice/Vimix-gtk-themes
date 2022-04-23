@@ -15,14 +15,14 @@
 // container of the popover menu
 .popup-menu {
   min-width: if($compact == 'true', 10em, 12em);
-  color: $text-secondary;
+  color: $text-secondary !important;
   padding: $base_padding 0 !important;
   font-weight: normal;
   @include fontsize($font_size - 1);
 
   .popup-menu-content {
     padding: $base_padding 0 !important;
-    background-color: $popover;
+    background-color: $popover !important;
     border-radius: $menu_radius;
     border: none;
     box-shadow: 0 3px 8px 0 rgba(black, 0.15);
@@ -32,61 +32,57 @@
 
   .popup-menu-item {
     spacing: $base_spacing * 1.5;
-    padding: $base_padding;
-    color: $text-secondary;
+    color: $text-secondary !important;
     text-shadow: none;
     border-radius: 0;
     margin: 0;
     font-weight: normal;
 
-    &:ltr { padding-right: 1.5em !important; padding-left: 0 !important; }
-    &:rtl { padding-right: 0 !important; padding-left: 1.5em !important; }
-
     &:checked {
       font-weight: normal;
       border: none;
       box-shadow: none;
-      color: on($primary);
-      background-color: $primary;
+      color: on($primary) !important;
+      background-color: $primary !important;
 
-      &.hover, &.selected {
-        color: on($primary);
-        background-color: lighten($primary, 5%);
+      &:focus, &:hover, &.selected {
+        color: on($primary) !important;
+        background-color: lighten($primary, 5%) !important;
       }
 
       &:active {
         color: on($primary);
-        background-color: darken($primary, 5%);
+        background-color: darken($primary, 5%) !important;
       }
 
-      &:insensitive { color: on($primary, disabled); }
+      &:insensitive { color: on($primary, disabled) !important; }
     }
 
-    &.selected {
-      color: $text;
-      background-color: $divider;
+    &:focus, &:hover, &.selected {
+      color: $text !important;
+      background-color: $divider !important;
       transition-duration: 0;
     }
 
     &:active, &.selected:active {
-      color: on($primary);
-      background-color: $primary;
+      color: on($primary) !important;
+      background-color: $primary !important;
     }
 
-    &:insensitive { color: $text-secondary-disabled; }
+    &:insensitive { color: $text-secondary-disabled !important; }
   }
 
   .popup-sub-menu {
-    background-color: $fill;
+    background-color: $fill !important;
     border: none;
     box-shadow: none;
     margin: 0;
   }
 
   .popup-inactive-menu-item { //all icons and other graphical elements
-    color: $text-secondary;
+    color: $text-secondary !important;
 
-    &:insensitive { color: $text-secondary-disabled; }
+    &:insensitive { color: $text-secondary-disabled !important; }
   }
 
   //.popup-status-menu-item { font-weight: normal;  color: pink; } //dunno what that is
@@ -107,24 +103,6 @@
   &:rtl { text-align: left };
 }
 
-// separator
-.popup-separator-menu-item {
-  padding: 0 0;
-
-  .popup-separator-menu-item-separator {
-    height: 1px; //not really the whole box
-    margin: 0 0;
-    background-color: $frame;
-    padding: 0 0;
-
-    .popup-sub-menu & { //submenu separators
-      padding: 0 0;
-      margin: 0 32px 0 0;
-      height: 1px;
-    }
-  }
-}
-
 // desktop background menu
 .background-menu {
   -boxpointer-gap: $base_margin;
@@ -140,10 +118,5 @@
     padding: 0;
     margin: 0 $base_padding / 2;
     -st-icon-style: symbolic;
-  }
-
-  .popup-sub-menu .popup-menu-item > :first-child {
-    &:ltr { padding-left: $base_padding * 2 + 6px; margin-left: 1em; }
-    &:rtl { padding-right: $base_padding * 2 + 6px; margin-right: 1em; }
   }
 }

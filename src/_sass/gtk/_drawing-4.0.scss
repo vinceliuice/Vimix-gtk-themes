@@ -27,6 +27,7 @@
     box-shadow: $shadow_1;
     background-color: if($fc != $primary, $fc, $base);
     color: if($fc != $indicator, on($indicator), $text-secondary);
+    outline: none;
   }
 
   @if $t == focus {
@@ -34,6 +35,7 @@
     border-image: none;
     box-shadow: $shadow_2;
     color: if($fc != $indicator, on($indicator), $text);
+    outline: none;
   }
 
   @if $t == disabled {

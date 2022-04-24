@@ -13,7 +13,7 @@ $osd:                                   themecolor(#222222, $mixstate);
 $panel:                                 if($topbar == 'light', #f2f2f2, themecolor(#202020, $mixstate));
 $header:                                if($topbar == 'light', #eeeeee, themecolor(#363636, $mixstate));
 $menu:                                  if($topbar == 'light', $base, $suface);
-$popover:                               if($variant == 'light', $base, $base);
+$popover:                               if($variant == 'light', $base, $suface);
 
 @if $translucent == 'true' {
   $panel:                              if($topbar == 'light', rgba(white, 0.5), rgba(black, 0.5));
@@ -27,7 +27,7 @@ $indicator:                             indicator();
 // Misc colors
 $frame:                                 if($variant == 'light', rgba(black, 0.12), rgba(black, 0.2));
 $border:                                if($variant == 'light', rgba(black, 0.12), rgba(white, 0.12));
-$solid-border:                          if($variant == 'light', darken($background, 10%), lighten($background, 12%));
+$solid-border:                          if($variant == 'light', mix(black, $base, 12%), mix(white, $base, 12%));
 $highlight:                             if($topbar == 'light', rgba(white, 0.35), rgba(white, 0.1));
 
 $warning:                               if($variant == 'light', #F4B400, #FDD633);

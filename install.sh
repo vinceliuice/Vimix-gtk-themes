@@ -120,13 +120,9 @@ install() {
 
   if [[ ${tweaks} == 'true' ]]; then
     sassc $SASSC_OPT ${SRC_DIR}/gtk/3.0/gtk${color}.scss                                ${THEME_DIR}/gtk-3.0/gtk.css
-
-    [[ ${color} != '-dark' ]] && \
     sassc $SASSC_OPT ${SRC_DIR}/gtk/3.0/gtk-dark.scss                                   ${THEME_DIR}/gtk-3.0/gtk-dark.css
   else
     cp -r ${SRC_DIR}/gtk/3.0/gtk${color}.css                                            ${THEME_DIR}/gtk-3.0/gtk.css
-
-    [[ ${color} != '-dark' ]] && \
     cp -r ${SRC_DIR}/gtk/3.0/gtk-dark.css                                               ${THEME_DIR}/gtk-3.0/gtk-dark.css
   fi
 
@@ -148,17 +144,20 @@ install() {
 
   if [[ ${tweaks} == 'true' ]]; then
     sassc $SASSC_OPT ${SRC_DIR}/gtk/4.0/gtk${color}.scss                                ${THEME_DIR}/gtk-4.0/gtk.css
-
-    [[ ${color} != '-dark' ]] && \
     sassc $SASSC_OPT ${SRC_DIR}/gtk/4.0/gtk-dark.scss                                   ${THEME_DIR}/gtk-4.0/gtk-dark.css
   else
     cp -r ${SRC_DIR}/gtk/4.0/gtk${color}.css                                            ${THEME_DIR}/gtk-4.0/gtk.css
-
-    [[ ${color} != '-dark' ]] && \
     cp -r ${SRC_DIR}/gtk/4.0/gtk-dark.css                                               ${THEME_DIR}/gtk-4.0/gtk-dark.css
   fi
 
   cp -r ${SRC_DIR}/gtk/assets/thumbnails/thumbnail${color}${theme}.png                  ${THEME_DIR}/gtk-4.0/thumbnail.png
+
+  # link gtk4.0 for libadwaita
+  mkdir -p                                                                              ${HOME}/.config/gtk-4.0
+  rm -rf ${HOME}/.config/gtk-4.0/{assets,gtk.css,gtk-dark.css}
+  ln -sf ${THEME_DIR}/gtk-4.0/assets                                                    ${HOME}/.config/gtk-4.0/assets
+  ln -sf ${THEME_DIR}/gtk-4.0/gtk.css                                                   ${HOME}/.config/gtk-4.0/gtk.css
+  ln -sf ${THEME_DIR}/gtk-4.0/gtk-dark.css                                              ${HOME}/.config/gtk-4.0/gtk-dark.css
 
   #  Install gnome-shell theme
   mkdir -p                                                                              ${THEME_DIR}/gnome-shell

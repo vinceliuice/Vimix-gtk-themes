@@ -131,17 +131,26 @@ na-tray-applet widget box widget {
 //
 
 // pathpar toggle button
-.caja-navigation-window button.toggle.image-button {
-  border-radius: $button_radius;
+.caja-navigation-window {
+  button.toggle.image-button {
+    border-radius: $button_radius;
+    @extend %flat_button;
+  }
+
+  toolitem button {
+    -gtk-icon-style: symbolic;
+    -gtk-icon-size: 16px;
+  }
 }
 
 // pathbar
 // pathbar buttons
-.caja-pathbar button {
-  margin: 0 -1px 0 -2px;
-  // padding: 4px;
-
+.background .caja-pathbar > button {
   @extend %pathbar_button;
+
+  &.slider-button {
+    padding: $space-size;
+  }
 }
 
 // arrow button
@@ -160,17 +169,38 @@ na-tray-applet widget box widget {
 
 // treeview rows
 .caja-side-pane treeview.view {
-  // padding: 2px 0;
+  padding: $space-size / 2 0;
+
+  &:selected {
+    background-color: $divider;
+    color: $text;
+  }
 }
 
 .caja-side-pane notebook .frame,
 .caja-notebook .frame {
-  border-style: none;
+  &, & > border {
+    border: none;
+  }
 }
 
 .caja-side-pane notebook,
 .caja-notebook {
   border-top: 1px solid $border;
+}
+
+.caja-notebook widget.entry {
+  background-image: image($background);
+  color: $text;
+  caret-color: $text;
+  border: 2px solid transparent;
+  outline: none;
+
+  &:focus {
+    border-color: $primary;
+  }
+
+  selection { color: on($primary); }
 }
 
 // window and desktop mode

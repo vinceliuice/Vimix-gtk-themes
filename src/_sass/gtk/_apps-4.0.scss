@@ -63,6 +63,32 @@ preferencesgroup > box {
   > box.single-line {
     min-height: 34px;
   }
+
+  button.background-preview-button.toggle {
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    outline-color: transparent;
+    outline-width: 2px;
+    outline-offset: $space-size / 2;
+    outline-style: solid;
+
+    &, > background-preview {
+      border-radius: 6px;
+    }
+
+    &:hover {
+      outline-color: $fill;
+    }
+
+    &:active {
+      outline-color: $track;
+    }
+
+    &:checked {
+      outline-color: $primary;
+    }
+  }
 }
 
 //

@@ -844,6 +844,8 @@ toolbutton {
 }
 
 menubutton {
+  margin: 0;
+
   &.osd {
     background: none;
     color: inherit;
@@ -1385,8 +1387,7 @@ combobox {
 //
 // Toolbars
 //
-.toolbar,
-toolbar {
+.toolbar {
   padding: $space_size / 2;
   background-color: $background;
 
@@ -1412,6 +1413,10 @@ toolbar {
 
     button {
       @extend %osd_button;
+    }
+
+    scalebutton.scale {
+      margin: 0;
     }
 
     &.left,
@@ -1449,6 +1454,9 @@ searchbar > revealer > box {
   border-color: $border;
   background-color: $background;
   background-clip: border-box;
+  box-shadow: none;
+
+  entry { margin: 0; }
 }
 
 //
@@ -1605,6 +1613,8 @@ headerbar {
   .maximized & {
     border-radius: 0; // squared corners when the window is fullscreen, maximized or tiled
     box-shadow: $header_shadow;
+
+    &:not(.titlebar) { box-shadow: inset 0 -1px $border; }
   }
 
   &.default-decoration {
@@ -2659,18 +2669,26 @@ scrollbar {
   &.right { border-left: 1px solid $border; }
 
   // slider
-  > range > trough > slider {
-    transition: $shorter_transition, margin 0, border-width 0;
-    min-width: 5px;
-    min-height: 5px;
-    border: 3px solid transparent;
-    border-radius: 100px;
-    background-clip: padding-box;
-    background-color: $text-disabled;
+  > range > trough {
+    background: none;
+    border: none;
+    outline: none;
 
-    &:hover { background-color: $text-disabled; }
-    &:active { background-color: $text-secondary; }
-    &:disabled { background-color: $text-secondary-disabled; }
+    > slider {
+      transition: $shorter_transition, margin 0, border-width 0;
+      min-width: 5px;
+      min-height: 5px;
+      border: 3px solid transparent;
+      border-radius: 100px;
+      background-clip: padding-box;
+      background-color: $text-disabled;
+      outline: none;
+      box-shadow: none;
+
+      &:hover { background-color: $text-disabled; }
+      &:active { background-color: $text-secondary; }
+      &:disabled { background-color: $text-secondary-disabled; }
+    }
   }
 
   > range.fine-tune {
@@ -3053,6 +3071,10 @@ scale {
       min-height: $slider_size;
       min-width: $slider_size;
       margin: $slider_margin;
+      border: none;
+      box-shadow: none;
+      background-color: transparent;
+      outline: none;
     }
   }
 
@@ -3144,6 +3166,8 @@ scale {
                                         ('marks-after', 'marks-after:not(.marks-before)') {
       &.#{$dir_class}.#{$marks_class} {
         slider {
+          transform: none;
+
           @each $state, $state_infix in ('', ''),
                                         (':disabled', '-disabled') {
             &#{$state} {
@@ -3330,6 +3354,7 @@ actionbar > revealer >  box {
   padding: $space_size;
   border-spacing: $space_size;
   border-top: 1px solid $border;
+  box-shadow: none;
 
   button:not(.suggested-action):not(.destructive-action):not(.server-list-button) { @extend %flat_button; }
 }
@@ -3377,6 +3402,11 @@ separator {
   min-width: 1px;
   min-height: 1px;
   background-color: $border;
+
+  &.sidebar {
+    min-width: 0;
+    background: none;
+  }
 }
 
 //

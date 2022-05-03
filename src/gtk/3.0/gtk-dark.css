@@ -78,7 +78,7 @@ iconview, .view {
 }
 
 iconview:hover, .view:hover {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(255, 255, 255, 0.05);
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -234,7 +234,7 @@ dialog.background .dialog-vbox stack spinbutton:not(.vertical), window#whiskerme
 .geary-composer-box spinbutton:not(.vertical), editortweak entry.search, layoutpane entry.search, messagedialog entry, notebook > stack:not(:only-child) entry,
 notebook > stack:not(:only-child) spinbutton:not(.vertical), popover.background entry, .background spinbutton:not(.vertical), .background spinbutton.flat:not(.vertical), .background .linked > entry, .background .linked.vertical > entry, .background .linked > entry.flat, .background .linked.vertical > entry.flat, .background .gedit-search-slider > .linked:not(.vertical) > entry.flat, .background entry.flat {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0.4, 0, 0.2, 1);
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 0%, transparent 0%) 0 0 0/0 0 0px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 0%, rgba(66, 133, 244, 0.35) 0%) 0 0 0/0 0 0px;
   box-shadow: inset 0 -1px rgba(255, 255, 255, 0.3);
   background-color: transparent;
   color: white;
@@ -249,7 +249,7 @@ notebook > stack:not(:only-child) spinbutton:focus:not(.vertical), popover.backg
   background: none;
   border-width: 0;
   box-shadow: none;
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 100%, transparent 0%) 0 0 2/0 0 2px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 100%, rgba(66, 133, 244, 0.35) 10%) 0 0 2/0 0 2px;
 }
 
 #login_window entry:drop(active), .budgie-run-dialog entry:drop(active), .budgie-polkit-dialog entry:drop(active), .budgie-session-dialog entry:drop(active), .background .raven .raven-background spinbutton:drop(active):not(.vertical), .background.budgie-popover entry:drop(active), .budgie-settings-window .settings-page .settings-frame .linked > entry:drop(active), window.background stack scrolledwindow entry:drop(active), dialog.background .dialog-vbox stack entry:drop(active),
@@ -390,7 +390,7 @@ entry undershoot.right {
 
 .background entry.error.flat, .background entry.search.error.flat {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0.4, 0, 0.2, 1);
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #F28B82 0%, transparent 0%) 0 0 0/0 0 0px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #F28B82 0%, rgba(242, 139, 130, 0.35) 0%) 0 0 0/0 0 0px;
   box-shadow: inset 0 -1px #F28B82;
   background-color: transparent;
   color: white;
@@ -401,7 +401,7 @@ entry undershoot.right {
   background: none;
   border-width: 0;
   box-shadow: none;
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #F28B82 100%, transparent 0%) 0 0 2/0 0 2px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #F28B82 100%, rgba(242, 139, 130, 0.35) 10%) 0 0 2/0 0 2px;
 }
 
 .background entry.error.flat:disabled, .background entry.search.error.flat:disabled {
@@ -435,7 +435,7 @@ entry undershoot.right {
 
 .background entry.warning.flat, .background entry.search.warning.flat {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0.4, 0, 0.2, 1);
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FDD633 0%, transparent 0%) 0 0 0/0 0 0px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FDD633 0%, rgba(253, 214, 51, 0.35) 0%) 0 0 0/0 0 0px;
   box-shadow: inset 0 -1px #FDD633;
   background-color: transparent;
   color: white;
@@ -446,7 +446,7 @@ entry undershoot.right {
   background: none;
   border-width: 0;
   box-shadow: none;
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FDD633 100%, transparent 0%) 0 0 2/0 0 2px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FDD633 100%, rgba(253, 214, 51, 0.35) 10%) 0 0 2/0 0 2px;
 }
 
 .background entry.warning.flat:disabled, .background entry.search.warning.flat:disabled {
@@ -529,11 +529,11 @@ treeview entry.flat, treeview entry.flat:focus, treeview entry, treeview entry:f
   }
 }
 
-.budgie-run-dialog button, .budgie-polkit-dialog button, .budgie-session-dialog button, .background .raven stackswitcher.linked > button, .mate-panel-menu-bar #PanelApplet button:not(.flat), .tilix-search-frame button, .geary-composer-box button:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle,
+.budgie-run-dialog button, .budgie-polkit-dialog button, .budgie-session-dialog button, .background .raven stackswitcher.linked > button, .caja-navigation-window button.toggle.image-button, .mate-panel-menu-bar #PanelApplet button:not(.flat), .tilix-search-frame button, .geary-composer-box button:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle,
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:not(.toggle):not(.raised):not(.flat), window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised, window.csd > box.vertical > box.vertical > toolbar.horizontal button,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button, layouttabbar button, .nemo-window .primary-toolbar .linked.path-bar:not(.vertical):not(.stack-switcher) button,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button,
-.nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.image-button.text-button, .nautilus-window headerbar .path-bar-box button, messagedialog.csd .linked.dialog-action-area:not(.vertical) > button, messagedialog .linked.dialog-action-area:not(.vertical) > button, .app-notification button, actionbar > revealer > box button:not(.suggested-action):not(.destructive-action):not(.server-list-button), .caja-pathbar button,
+.nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.image-button.text-button, .nautilus-window headerbar .path-bar-box button, messagedialog.csd .linked.dialog-action-area:not(.vertical) > button, messagedialog .linked.dialog-action-area:not(.vertical) > button, .app-notification button, actionbar > revealer > box button:not(.suggested-action):not(.destructive-action):not(.server-list-button), .background .caja-pathbar > button,
 .background .path-bar button, toolbar button, combobox > .linked:not(.vertical) > button.combo:not(:only-child), .linked > spinbutton:not(.vertical) > button.up, .linked > spinbutton:not(.vertical) > button.down, toolbutton button, toolbutton button.image-button, toolbutton button.toggle, .osd button, .background .linked.stack-switcher > button {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 300ms cubic-bezier(0, 0, 0.2, 1), background-image 600ms cubic-bezier(0, 0, 0.2, 1);
   box-shadow: inset 0 0 0 9999px transparent;
@@ -545,19 +545,19 @@ window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button, .sid
   color: rgba(255, 255, 255, 0.7);
 }
 
-.budgie-run-dialog button:hover, .budgie-polkit-dialog button:hover, .budgie-session-dialog button:hover, .background .raven stackswitcher.linked > button:hover, .mate-panel-menu-bar #PanelApplet button:hover:not(.flat), .tilix-search-frame button:hover, .geary-composer-box button:hover:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:hover,
+.budgie-run-dialog button:hover, .budgie-polkit-dialog button:hover, .budgie-session-dialog button:hover, .background .raven stackswitcher.linked > button:hover, .caja-navigation-window button.toggle.image-button:hover, .mate-panel-menu-bar #PanelApplet button:hover:not(.flat), .tilix-search-frame button:hover, .geary-composer-box button:hover:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:hover,
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:hover:not(.toggle):not(.raised):not(.flat), window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:hover, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:hover, window.csd > box.vertical > box.vertical > toolbar.horizontal button:hover,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:hover, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:hover, layouttabbar button:hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:hover,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:hover, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:hover, .nautilus-window headerbar .path-bar-box button:hover, messagedialog .linked:not(.vertical).dialog-action-area > button:hover, .app-notification button:hover, actionbar > revealer > box button:hover:not(.suggested-action):not(.destructive-action):not(.server-list-button), .caja-pathbar button:hover,
+.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:hover, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:hover, .nautilus-window headerbar .path-bar-box button:hover, messagedialog .linked:not(.vertical).dialog-action-area > button:hover, .app-notification button:hover, actionbar > revealer > box button:hover:not(.suggested-action):not(.destructive-action):not(.server-list-button), .background .caja-pathbar > button:hover,
 .background .path-bar button:hover, toolbar button:hover, combobox > .linked:not(.vertical) > button.combo:hover:not(:only-child), .linked > spinbutton:not(.vertical) > button.up:hover, .linked > spinbutton:not(.vertical) > button.down:hover, toolbutton button:hover, .osd button:hover, .background .linked.stack-switcher > button:hover {
   box-shadow: inset 0 0 0 9999px alpha(currentColor, 0.1);
   color: white;
 }
 
-.budgie-run-dialog button:active, .budgie-polkit-dialog button:active, .budgie-session-dialog button:active, .background .raven stackswitcher.linked > button:active, .mate-panel-menu-bar #PanelApplet button:active:not(.flat), .tilix-search-frame button:active, .geary-composer-box button:active:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:active,
+.budgie-run-dialog button:active, .budgie-polkit-dialog button:active, .budgie-session-dialog button:active, .background .raven stackswitcher.linked > button:active, .caja-navigation-window button.toggle.image-button:active, .mate-panel-menu-bar #PanelApplet button:active:not(.flat), .tilix-search-frame button:active, .geary-composer-box button:active:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:active,
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:active:not(.toggle):not(.raised):not(.flat), window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:active, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:active, window.csd > box.vertical > box.vertical > toolbar.horizontal button:active,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:active, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:active, layouttabbar button:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:active,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:active, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:active, .nautilus-window headerbar .path-bar-box button:active, messagedialog .linked:not(.vertical).dialog-action-area > button:active, .app-notification button:active, actionbar > revealer > box button:active:not(.suggested-action):not(.destructive-action):not(.server-list-button), .caja-pathbar button:active,
+.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:active, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:active, .nautilus-window headerbar .path-bar-box button:active, messagedialog .linked:not(.vertical).dialog-action-area > button:active, .app-notification button:active, actionbar > revealer > box button:active:not(.suggested-action):not(.destructive-action):not(.server-list-button), .background .caja-pathbar > button:active,
 .background .path-bar button:active, toolbar button:active, combobox > .linked:not(.vertical) > button.combo:active:not(:only-child), .linked > spinbutton:not(.vertical) > button.up:active, .linked > spinbutton:not(.vertical) > button.down:active, toolbutton button:active, .osd button:active, .background .linked.stack-switcher > button:active {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
   animation: ripple_effect 100ms cubic-bezier(0, 0, 0.2, 1) forwards;
@@ -567,29 +567,29 @@ window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:activ
   color: white;
 }
 
-.budgie-run-dialog button:disabled, .budgie-polkit-dialog button:disabled, .budgie-session-dialog button:disabled, .background .raven stackswitcher.linked > button:disabled, .mate-panel-menu-bar #PanelApplet button:disabled:not(.flat), .tilix-search-frame button:disabled, .geary-composer-box button:disabled:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:disabled,
+.budgie-run-dialog button:disabled, .budgie-polkit-dialog button:disabled, .budgie-session-dialog button:disabled, .background .raven stackswitcher.linked > button:disabled, .caja-navigation-window button.toggle.image-button:disabled, .mate-panel-menu-bar #PanelApplet button:disabled:not(.flat), .tilix-search-frame button:disabled, .geary-composer-box button:disabled:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:disabled,
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:disabled:not(.toggle):not(.raised):not(.flat), window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:disabled, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:disabled, window.csd > box.vertical > box.vertical > toolbar.horizontal button:disabled,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:disabled, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:disabled, layouttabbar button:disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:disabled,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:disabled, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:disabled, .nautilus-window headerbar .path-bar-box button:disabled, messagedialog .linked:not(.vertical).dialog-action-area > button:disabled, .app-notification button:disabled, actionbar > revealer > box button:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), .caja-pathbar button:disabled,
+.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:disabled, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:disabled, .nautilus-window headerbar .path-bar-box button:disabled, messagedialog .linked:not(.vertical).dialog-action-area > button:disabled, .app-notification button:disabled, actionbar > revealer > box button:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), .background .caja-pathbar > button:disabled,
 .background .path-bar button:disabled, toolbar button:disabled, combobox > .linked:not(.vertical) > button.combo:disabled:not(:only-child), .linked > spinbutton:not(.vertical) > button.up:disabled, .linked > spinbutton:not(.vertical) > button.down:disabled, toolbutton button:disabled, .osd button:disabled, .background .linked.stack-switcher > button:disabled {
   box-shadow: none;
   background-color: transparent;
   color: alpha(currentColor, 0.27);
 }
 
-.budgie-run-dialog button:checked, .budgie-polkit-dialog button:checked, .budgie-session-dialog button:checked, .background .raven stackswitcher.linked > button:checked, .mate-panel-menu-bar #PanelApplet button:checked:not(.flat), .tilix-search-frame button:checked, .geary-composer-box button:checked:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:checked,
+.budgie-run-dialog button:checked, .budgie-polkit-dialog button:checked, .budgie-session-dialog button:checked, .background .raven stackswitcher.linked > button:checked, .caja-navigation-window button.toggle.image-button:checked, .mate-panel-menu-bar #PanelApplet button:checked:not(.flat), .tilix-search-frame button:checked, .geary-composer-box button:checked:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:checked,
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:checked:not(.toggle):not(.raised):not(.flat), window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:checked, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:checked, window.csd > box.vertical > box.vertical > toolbar.horizontal button:checked,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:checked, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:checked, layouttabbar button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:checked, .nautilus-window headerbar .path-bar-box button:checked, messagedialog .linked:not(.vertical).dialog-action-area > button:checked, .app-notification button:checked, actionbar > revealer > box button:checked:not(.suggested-action):not(.destructive-action):not(.server-list-button), .caja-pathbar button:checked,
+.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:checked, .nautilus-window headerbar .path-bar-box button:checked, messagedialog .linked:not(.vertical).dialog-action-area > button:checked, .app-notification button:checked, actionbar > revealer > box button:checked:not(.suggested-action):not(.destructive-action):not(.server-list-button), .background .caja-pathbar > button:checked,
 .background .path-bar button:checked, toolbar button:checked, combobox > .linked:not(.vertical) > button.combo:checked:not(:only-child), .linked > spinbutton:not(.vertical) > button.up:checked, .linked > spinbutton:not(.vertical) > button.down:checked, toolbutton button:checked, .osd button:checked, .background .linked.stack-switcher > button:checked {
   color: white;
   background-color: alpha(currentColor, 0.12);
 }
 
-.budgie-run-dialog button:checked:disabled, .budgie-polkit-dialog button:checked:disabled, .budgie-session-dialog button:checked:disabled, .background .raven stackswitcher.linked > button:checked:disabled, .mate-panel-menu-bar #PanelApplet button:checked:disabled:not(.flat), .tilix-search-frame button:checked:disabled, .geary-composer-box button:checked:disabled:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:checked:disabled,
+.budgie-run-dialog button:checked:disabled, .budgie-polkit-dialog button:checked:disabled, .budgie-session-dialog button:checked:disabled, .background .raven stackswitcher.linked > button:checked:disabled, .caja-navigation-window button.toggle.image-button:checked:disabled, .mate-panel-menu-bar #PanelApplet button:checked:disabled:not(.flat), .tilix-search-frame button:checked:disabled, .geary-composer-box button:checked:disabled:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:checked:disabled,
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:checked:disabled:not(.toggle):not(.raised):not(.flat), window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:checked:disabled, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:checked:disabled, window.csd > box.vertical > box.vertical > toolbar.horizontal button:checked:disabled,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:checked:disabled, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:checked:disabled, layouttabbar button:checked:disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked:disabled,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked:disabled, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:checked:disabled, .nautilus-window headerbar .path-bar-box button:checked:disabled, messagedialog .linked:not(.vertical).dialog-action-area > button:checked:disabled, .app-notification button:checked:disabled, actionbar > revealer > box button:checked:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), .caja-pathbar button:checked:disabled,
+.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked:disabled, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:checked:disabled, .nautilus-window headerbar .path-bar-box button:checked:disabled, messagedialog .linked:not(.vertical).dialog-action-area > button:checked:disabled, .app-notification button:checked:disabled, actionbar > revealer > box button:checked:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), .background .caja-pathbar > button:checked:disabled,
 .background .path-bar button:checked:disabled, toolbar button:checked:disabled, combobox > .linked:not(.vertical) > button.combo:checked:disabled:not(:only-child), .linked > spinbutton:not(.vertical) > button.up:checked:disabled, .linked > spinbutton:not(.vertical) > button.down:checked:disabled, toolbutton button:checked:disabled, .osd button:checked:disabled, .background .linked.stack-switcher > button:checked:disabled {
   background-color: alpha(currentColor, 0.06);
   color: rgba(255, 255, 255, 0.45);
@@ -643,7 +643,7 @@ radio:disabled, scrollbar button:disabled, notebook > header > tabs > arrow:disa
   background: none;
   font-weight: normal;
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0.4, 0, 0.2, 1);
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 0%, transparent 0%) 0 0 0/0 0 0px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 0%, rgba(66, 133, 244, 0.35) 0%) 0 0 0/0 0 0px;
   box-shadow: inset 0 -1px rgba(255, 255, 255, 0.3);
   background-color: transparent;
   color: white;
@@ -660,7 +660,7 @@ radio:disabled, scrollbar button:disabled, notebook > header > tabs > arrow:disa
   background: none;
   border-width: 0;
   box-shadow: none;
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 100%, transparent 0%) 0 0 2/0 0 2px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 100%, rgba(66, 133, 244, 0.35) 10%) 0 0 2/0 0 2px;
 }
 
 #login_window #user_combobox button:disabled, .background .raven .raven-background button.combo:disabled, dialog.background .dialog-vbox stack button.combo:disabled, .tilix-search-frame button.combo:disabled, .geary-composer-box button.combo:disabled, .background button.combo:disabled, .background .linked entry + button:disabled, .background .linked entry + button + button:disabled {
@@ -1334,7 +1334,7 @@ combobox > .linked:not(.vertical) > button:not(:only-child).combo {
 
 .background combobox entry.combo {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0.4, 0, 0.2, 1);
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 0%, transparent 0%) 0 0 0/0 0 0px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 0%, rgba(66, 133, 244, 0.35) 0%) 0 0 0/0 0 0px;
   box-shadow: inset 0 -1px rgba(255, 255, 255, 0.3);
   background-color: transparent;
   color: white;
@@ -1345,7 +1345,7 @@ combobox > .linked:not(.vertical) > button:not(:only-child).combo {
   background: none;
   border-width: 0;
   box-shadow: none;
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 100%, transparent 0%) 0 0 2/0 0 2px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 100%, rgba(66, 133, 244, 0.35) 10%) 0 0 2/0 0 2px;
 }
 
 .background combobox entry.combo:disabled {
@@ -1950,7 +1950,7 @@ window.background > box.vertical > headerbar:not(.titlebar):last-child, window.b
   box-shadow: none;
 }
 
-.caja-pathbar button,
+.background .caja-pathbar > button,
 .background .path-bar button {
   border-radius: 2px;
   padding-left: 6px;
@@ -1958,28 +1958,28 @@ window.background > box.vertical > headerbar:not(.titlebar):last-child, window.b
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 0%, transparent 0%) 0 0 0/0 0 0;
 }
 
-.caja-pathbar button:checked,
+.background .caja-pathbar > button:checked,
 .background .path-bar button:checked {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 100%, transparent 0%) 0 0 2/0 0 2px;
 }
 
-.caja-pathbar button:checked,
+.background .caja-pathbar > button:checked,
 .background .path-bar button:checked,
 .background .path-bar button:checked:disabled {
   background-color: transparent;
 }
 
-.caja-pathbar button label:not(:only-child):first-child,
+.background .caja-pathbar > button label:not(:only-child):first-child,
 .background .path-bar button label:not(:only-child):first-child {
   margin-left: 4px;
 }
 
-.caja-pathbar button label:not(:only-child):last-child,
+.background .caja-pathbar > button label:not(:only-child):last-child,
 .background .path-bar button label:not(:only-child):last-child {
   margin-right: 4px;
 }
 
-.caja-pathbar button.slider-button,
+.background .caja-pathbar > button.slider-button,
 .background .path-bar button.slider-button {
   padding-left: 4px;
   padding-right: 4px;
@@ -5187,7 +5187,7 @@ paned.titlebar.horizontal > separator {
 
 .background .gedit-search-slider > .linked:not(.vertical) > entry.search.error.flat {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0.4, 0, 0.2, 1);
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #F28B82 0%, transparent 0%) 0 0 0/0 0 0px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #F28B82 0%, rgba(242, 139, 130, 0.35) 0%) 0 0 0/0 0 0px;
   box-shadow: inset 0 -1px #F28B82;
   background-color: transparent;
   color: white;
@@ -5198,7 +5198,7 @@ paned.titlebar.horizontal > separator {
   background: none;
   border-width: 0;
   box-shadow: none;
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #F28B82 100%, transparent 0%) 0 0 2/0 0 2px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #F28B82 100%, rgba(242, 139, 130, 0.35) 10%) 0 0 2/0 0 2px;
 }
 
 .background .gedit-search-slider > .linked:not(.vertical) > entry.search.error.flat:disabled {
@@ -5232,7 +5232,7 @@ paned.titlebar.horizontal > separator {
 
 .background .gedit-search-slider > .linked:not(.vertical) > entry.search.warning.flat {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0.4, 0, 0.2, 1);
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FDD633 0%, transparent 0%) 0 0 0/0 0 0px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FDD633 0%, rgba(253, 214, 51, 0.35) 0%) 0 0 0/0 0 0px;
   box-shadow: inset 0 -1px #FDD633;
   background-color: transparent;
   color: white;
@@ -5243,7 +5243,7 @@ paned.titlebar.horizontal > separator {
   background: none;
   border-width: 0;
   box-shadow: none;
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FDD633 100%, transparent 0%) 0 0 2/0 0 2px;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FDD633 100%, rgba(253, 214, 51, 0.35) 10%) 0 0 2/0 0 2px;
 }
 
 .background .gedit-search-slider > .linked:not(.vertical) > entry.search.warning.flat:disabled {
@@ -6339,6 +6339,7 @@ window.background.chromium > menu {
   background-color: #333539;
   color: white;
   border-radius: 0;
+  box-shadow: none;
 }
 
 window.background.chromium > menu > menuitem, window.background.chromium > menu menuitem {
@@ -7221,8 +7222,13 @@ na-tray-applet {
   border-radius: 3px;
 }
 
-.caja-pathbar button {
-  margin: 0 -1px 0 -2px;
+.caja-navigation-window toolitem button {
+  -gtk-icon-style: symbolic;
+  -gtk-icon-size: 16px;
+}
+
+.background .caja-pathbar > button.slider-button {
+  padding: 6px;
 }
 
 .caja-pathbar button > widget {
@@ -7235,14 +7241,40 @@ na-tray-applet {
   background-color: #333539;
 }
 
-.caja-side-pane notebook .frame,
-.caja-notebook .frame {
-  border-style: none;
+.caja-side-pane treeview.view {
+  padding: 3px 0;
+}
+
+.caja-side-pane treeview.view:selected {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: white;
+}
+
+.caja-side-pane notebook .frame, .caja-side-pane notebook .frame > border,
+.caja-notebook .frame,
+.caja-notebook .frame > border {
+  border: none;
 }
 
 .caja-side-pane notebook,
 .caja-notebook {
   border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.caja-notebook widget.entry {
+  background-image: image(#292b2e);
+  color: white;
+  caret-color: white;
+  border: 2px solid transparent;
+  outline: none;
+}
+
+.caja-notebook widget.entry:focus {
+  border-color: #4285F4;
+}
+
+.caja-notebook widget.entry selection {
+  color: white;
 }
 
 .caja-navigation-window statusbar {

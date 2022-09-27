@@ -4050,12 +4050,11 @@ separator.sidebar {
   background: none;
 }
 
-> list.content > row:not(:first-child), > list.content > row.expander row.header:not(:first-child),
-> list.boxed-list > row.expander row.header:not(:first-child), > row.expander list.nested > row:not(:first-child), > listview.boxed-list > row.expander list > row:not(:first-child),
-> list.boxed-list > row.expander list > row:not(:first-child), > listview.content:not(.conversation-listbox) > row:not(:first-child), > listview.boxed-list > row:not(:first-child),
-> list.content:not(.conversation-listbox) > row:not(:first-child),
-> list.boxed-list > row:not(:first-child) {
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+list.content > row:not(:last-child), list.content > row.expander row.header:not(:last-child),
+list.boxed-list > row.expander row.header:not(:last-child), row.expander list.nested > row:not(:last-child), listview.boxed-list > row.expander list > row:not(:last-child),
+list.boxed-list > row.expander list > row:not(:last-child), listview.content:not(.conversation-listbox) > row:not(:last-child), listview.boxed-list > row:not(:last-child),
+list.boxed-list > row:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 list.content > row:first-child, list.content > row.expander row.header:first-child,

@@ -3414,7 +3414,7 @@ separator {
 //
 
 %boxed_list_row {
-  > &:not(:first-child) { border-top: 1px solid $border; }
+  &:not(:last-child) { border-bottom: 1px solid $border; }
   &:first-child { border-radius: $base_radius $base_radius 0 0; }
   &:last-child { border-radius: 0 0 $base_radius $base_radius; }
 }

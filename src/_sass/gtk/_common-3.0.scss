@@ -1223,9 +1223,10 @@ headerbar {
   .subtitle {
     padding: 0 $space_size * 2;
     font-size: smaller;
-
-    @extend .dim-label;
+    color: on($header, secondary);
   }
+
+  .dim-label { color: on($header, secondary); }
 
   button:not(.suggested-action):not(.destructive-action) { @extend %header_button; }
 
@@ -1977,6 +1978,56 @@ popover.background {
 //
 // Notebooks
 //
+
+%tabs_tab {
+  transition: $shorter_transition,
+              background-size 0,
+              background-image 0;
+  min-height: $small_size;
+  min-width: $small_size;
+  padding: $space_size 12px;
+  outline-offset: -6px;
+  border-width: 0; // for reorderable tabs
+  border-color: transparent;
+  background-image: radial-gradient(circle farthest-corner at center,
+                                    $track-disabled 10%,
+                                    transparent 0%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 0% 0%;
+  color: $text-secondary;
+  font-weight: 500;
+
+  &:hover {
+    color: $text;
+
+    &.reorderable-page {
+      border-color: $border;
+      background-color: $base_alt;
+    }
+  }
+
+  &:disabled { color: $text-secondary-disabled; }
+
+  &:checked {
+    transition: $shorter_transition,
+                background-size $shorter_duration $deceleration_curve,
+                background-image $shorter_duration + $ripple_duration $deceleration_curve;
+    background-image: radial-gradient(circle farthest-corner at center,
+                                      transparent 10%,
+                                      transparent 0%);
+    background-size: 1000% 1000%;
+    color: $text;
+
+    &:disabled { color: $text-disabled; }
+
+    &.reorderable-page {
+      border-color: $border;
+      background-color: $base;
+    }
+  }
+}
+
 notebook {
   > header {
     border-width: 1px;
@@ -2087,53 +2138,7 @@ notebook {
     }
 
     tab {
-      transition: $shorter_transition,
-                  background-size 0,
-                  background-image 0;
-      min-height: $small_size;
-      min-width: $small_size;
-      padding: $space_size 12px;
-      outline-offset: -6px;
-      border-width: 0;         // for reorderable tabs
-      border-color: transparent;
-      background-image: radial-gradient(circle farthest-corner at center,
-                                        $track-disabled 10%,
-                                        transparent 0%);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 0% 0%;
-
-      color: $text-secondary;
-      font-weight: 500;
-
-      &:hover {
-        color: $text;
-
-        &.reorderable-page {
-          border-color: $border;
-          background-color: $base_alt;
-        }
-      }
-
-      &:disabled { color: $text-secondary-disabled; }
-
-      &:checked {
-        transition: $shorter_transition,
-                    background-size $shorter_duration $deceleration_curve,
-                    background-image $shorter_duration + $ripple_duration $deceleration_curve;
-        background-image: radial-gradient(circle farthest-corner at center,
-                                          transparent 10%,
-                                          transparent 0%);
-        background-size: 1000% 1000%;
-        color: $text;
-
-        &:disabled { color: $text-disabled; }
-
-        &.reorderable-page {
-          border-color: $border;
-          background-color: $base;
-        }
-      }
+      @extend %tabs_tab;
 
       // close button
       // colors the button like the label, overridden otherwise

@@ -1006,6 +1006,7 @@ box.vertical > stack > box.vertical {
   background-color: transparent;
 
   button.image-button { // 'close'
+    @extend %flat_button;
     @extend %circular_button;
   }
 }

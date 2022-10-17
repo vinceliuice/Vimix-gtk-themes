@@ -558,7 +558,8 @@ editablelabel > stack > text {
 }
 
 window.dialog.message.csd .linked.dialog-action-area:not(.vertical) > button, window.dialog.message .linked.dialog-action-area:not(.vertical) > button, actionbar > revealer > box button:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model, popover.menu box.inline-buttons button.image-button.model,
-pathbar > button, .toolbar button, .linked > spinbutton:not(.vertical) > button.up, .linked > spinbutton:not(.vertical) > button.down,
+pathbar > button,
+.pathbar > button, .toolbar button, .linked > spinbutton:not(.vertical) > button.up, .linked > spinbutton:not(.vertical) > button.down,
 list > row button.image-button:not(.flat), splitbutton.flat > button,
 splitbutton.flat > menubutton > button, menubutton.suggested-action > button, menubutton.destructive-action > button, menubutton.opaque > button, menubutton.flat > button, toolbutton button, toolbutton button.image-button, toolbutton button.toggle, .linked.stack-switcher > button, toast button {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1);
@@ -568,7 +569,8 @@ splitbutton.flat > menubutton > button, menubutton.suggested-action > button, me
 }
 
 window.dialog.message .linked:not(.vertical).dialog-action-area > button:hover, actionbar > revealer > box button:hover:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:hover, popover.menu box.inline-buttons button.image-button.model:hover,
-pathbar > button:hover, .toolbar button:hover, .linked > spinbutton:not(.vertical) > button.up:hover, .linked > spinbutton:not(.vertical) > button.down:hover,
+pathbar > button:hover,
+.pathbar > button:hover, .toolbar button:hover, .linked > spinbutton:not(.vertical) > button.up:hover, .linked > spinbutton:not(.vertical) > button.down:hover,
 list > row button.image-button:hover:not(.flat), splitbutton.flat > button:hover,
 splitbutton.flat > menubutton > button:hover, menubutton.suggested-action > button:hover, menubutton.destructive-action > button:hover, menubutton.opaque > button:hover, menubutton.flat > button:hover, toolbutton button:hover, .linked.stack-switcher > button:hover, toast button:hover {
   box-shadow: inset 0 0 0 9999px alpha(currentColor, 0.1);
@@ -577,7 +579,8 @@ splitbutton.flat > menubutton > button:hover, menubutton.suggested-action > butt
 }
 
 window.dialog.message .linked:not(.vertical).dialog-action-area > button:focus, actionbar > revealer > box button:focus:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:focus, popover.menu box.inline-buttons button.image-button.model:focus,
-pathbar > button:focus, .toolbar button:focus, .linked > spinbutton:not(.vertical) > button.up:focus, .linked > spinbutton:not(.vertical) > button.down:focus,
+pathbar > button:focus,
+.pathbar > button:focus, .toolbar button:focus, .linked > spinbutton:not(.vertical) > button.up:focus, .linked > spinbutton:not(.vertical) > button.down:focus,
 list > row button.image-button:focus:not(.flat), splitbutton.flat > button:focus,
 splitbutton.flat > menubutton > button:focus, menubutton.suggested-action > button:focus, menubutton.destructive-action > button:focus, menubutton.opaque > button:focus, menubutton.flat > button:focus, toolbutton button:focus, .linked.stack-switcher > button:focus, toast button:focus {
   background-color: transparent;
@@ -586,7 +589,8 @@ splitbutton.flat > menubutton > button:focus, menubutton.suggested-action > butt
 }
 
 window.dialog.message .linked:not(.vertical).dialog-action-area > button:active, actionbar > revealer > box button:active:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:active, popover.menu box.inline-buttons button.image-button.model:active,
-pathbar > button:active, .toolbar button:active, .linked > spinbutton:not(.vertical) > button.up:active, .linked > spinbutton:not(.vertical) > button.down:active,
+pathbar > button:active,
+.pathbar > button:active, .toolbar button:active, .linked > spinbutton:not(.vertical) > button.up:active, .linked > spinbutton:not(.vertical) > button.down:active,
 list > row button.image-button:active:not(.flat), splitbutton.flat > button:active,
 splitbutton.flat > menubutton > button:active, menubutton.suggested-action > button:active, menubutton.destructive-action > button:active, menubutton.opaque > button:active, menubutton.flat > button:active, toolbutton button:active, .linked.stack-switcher > button:active, toast button:active {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1);
@@ -596,7 +600,8 @@ splitbutton.flat > menubutton > button:active, menubutton.suggested-action > but
 }
 
 window.dialog.message .linked:not(.vertical).dialog-action-area > button:disabled, actionbar > revealer > box button:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:disabled, popover.menu box.inline-buttons button.image-button.model:disabled,
-pathbar > button:disabled, .toolbar button:disabled, .linked > spinbutton:not(.vertical) > button.up:disabled, .linked > spinbutton:not(.vertical) > button.down:disabled,
+pathbar > button:disabled,
+.pathbar > button:disabled, .toolbar button:disabled, .linked > spinbutton:not(.vertical) > button.up:disabled, .linked > spinbutton:not(.vertical) > button.down:disabled,
 list > row button.image-button:disabled:not(.flat), splitbutton.flat > button:disabled,
 splitbutton.flat > menubutton > button:disabled, menubutton.suggested-action > button:disabled, menubutton.destructive-action > button:disabled, menubutton.opaque > button:disabled, menubutton.flat > button:disabled, toolbutton button:disabled, .linked.stack-switcher > button:disabled, toast button:disabled {
   box-shadow: none;
@@ -605,7 +610,8 @@ splitbutton.flat > menubutton > button:disabled, menubutton.suggested-action > b
 }
 
 window.dialog.message .linked:not(.vertical).dialog-action-area > button:checked, actionbar > revealer > box button:checked:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:checked, popover.menu box.inline-buttons button.image-button.model:checked,
-pathbar > button:checked, .toolbar button:checked, .linked > spinbutton:not(.vertical) > button.up:checked, .linked > spinbutton:not(.vertical) > button.down:checked,
+pathbar > button:checked,
+.pathbar > button:checked, .toolbar button:checked, .linked > spinbutton:not(.vertical) > button.up:checked, .linked > spinbutton:not(.vertical) > button.down:checked,
 list > row button.image-button:checked:not(.flat), splitbutton.flat > button:checked,
 splitbutton.flat > menubutton > button:checked, menubutton.suggested-action > button:checked, menubutton.destructive-action > button:checked, menubutton.opaque > button:checked, menubutton.flat > button:checked, toolbutton button:checked, .linked.stack-switcher > button:checked, toast button:checked {
   color: rgba(0, 0, 0, 0.87);
@@ -613,7 +619,8 @@ splitbutton.flat > menubutton > button:checked, menubutton.suggested-action > bu
 }
 
 window.dialog.message .linked:not(.vertical).dialog-action-area > button:checked:disabled, actionbar > revealer > box button:checked:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:checked:disabled, popover.menu box.inline-buttons button.image-button.model:checked:disabled,
-pathbar > button:checked:disabled, .toolbar button:checked:disabled, .linked > spinbutton:not(.vertical) > button.up:checked:disabled, .linked > spinbutton:not(.vertical) > button.down:checked:disabled,
+pathbar > button:checked:disabled,
+.pathbar > button:checked:disabled, .toolbar button:checked:disabled, .linked > spinbutton:not(.vertical) > button.up:checked:disabled, .linked > spinbutton:not(.vertical) > button.down:checked:disabled,
 list > row button.image-button:checked:disabled:not(.flat), splitbutton.flat > button:checked:disabled,
 splitbutton.flat > menubutton > button:checked:disabled, menubutton.suggested-action > button:checked:disabled, menubutton.destructive-action > button:checked:disabled, menubutton.opaque > button:checked:disabled, menubutton.flat > button:checked:disabled, toolbutton button:checked:disabled, .linked.stack-switcher > button:checked:disabled, toast button:checked:disabled {
   background-color: alpha(currentColor, 0.06);
@@ -2099,9 +2106,14 @@ headerbar entry,
 headerbar spinbutton,
 headerbar separator:not(.sidebar),
 headerbar button,
-headerbar menubutton {
+headerbar menubutton,
+headerbar .pathbar {
   margin-top: 6px;
   margin-bottom: 6px;
+}
+
+headerbar .pathbar {
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 headerbar menubutton > button {
@@ -2292,8 +2304,15 @@ indicatorbin.needs-attention > indicator > label {
   color: white;
 }
 
+.pathbar {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+  border: none;
+}
 
-pathbar > button {
+
+pathbar > button,
+.pathbar > button {
   border-radius: 3px;
   padding-left: 6px;
   padding-right: 6px;
@@ -2302,44 +2321,56 @@ pathbar > button {
 
 
 pathbar > button,
-pathbar > button:disabled {
+pathbar > button:disabled,
+.pathbar > button,
+.pathbar > button:disabled {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
 
 pathbar > button.text-button,
 pathbar > button.image-button,
-pathbar > button {
+pathbar > button,
+.pathbar > button.text-button,
+.pathbar > button.image-button,
+.pathbar > button {
   padding-left: 6px;
   padding-right: 6px;
 }
 
 
-pathbar > button.text-button.image-button label {
+pathbar > button.text-button.image-button label,
+.pathbar > button.text-button.image-button label {
   padding-left: 0;
   padding-right: 0;
 }
 
 
 pathbar > button.text-button.image-button label:last-child,
-pathbar > button label:last-child {
+pathbar > button label:last-child,
+.pathbar > button.text-button.image-button label:last-child,
+.pathbar > button label:last-child {
   padding-right: 8px;
 }
 
 
 pathbar > button.text-button.image-button label:first-child,
-pathbar > button label:first-child {
+pathbar > button label:first-child,
+.pathbar > button.text-button.image-button label:first-child,
+.pathbar > button label:first-child {
   padding-left: 8px;
 }
 
 
-pathbar > button image {
+pathbar > button image,
+.pathbar > button image {
   padding-left: 6px;
   padding-right: 6px;
 }
 
 
-pathbar > button.slider-button {
+pathbar > button.slider-button,
+.pathbar > button.slider-button {
   padding-left: 3px;
   padding-right: 3px;
 }
@@ -3946,6 +3977,7 @@ actionbar > revealer > box {
   border-spacing: 6px;
   border-top: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: none;
+  background-color: #F2F2F2;
 }
 
 overshoot.top {

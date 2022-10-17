@@ -1696,9 +1696,14 @@ headerbar {
   spinbutton,
   separator:not(.sidebar),
   button,
-  menubutton {
+  menubutton,
+  .pathbar {
     margin-top: $space_size;
     margin-bottom: $space_size;
+  }
+
+  .pathbar {
+    background-color: on($header, fill);
   }
 
   // Reset margins for buttons inside menubutton
@@ -1938,8 +1943,16 @@ indicatorbin {
 //
 // Pathbars
 //
+
+.pathbar {
+  background-color: $fill;
+  border-radius: $button_radius;
+  border: none;
+}
+
 %pathbar_button,
-pathbar > button {
+pathbar > button,
+.pathbar > button {
   @extend %flat_button;
   border-radius: $button_radius;
   padding-left: ($medium_size - 24px) / 2;
@@ -3355,6 +3368,8 @@ actionbar > revealer >  box {
   border-spacing: $space_size;
   border-top: 1px solid $border;
   box-shadow: none;
+  background-color: $background;
+  color: $text;
 
   button:not(.suggested-action):not(.destructive-action):not(.server-list-button) { @extend %flat_button; }
 }

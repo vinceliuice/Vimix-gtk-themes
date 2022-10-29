@@ -547,8 +547,8 @@ window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button, .sid
 
 .budgie-run-dialog button:hover, .budgie-polkit-dialog button:hover, .budgie-session-dialog button:hover, .budgie-notification-window button.image-button:hover, .budgie-switcher-window button.image-button:hover, .budgie-osd-window button.image-button:hover, .background .raven stackswitcher.linked > button:hover, .caja-navigation-window button.toggle.image-button:hover, .mate-panel-menu-bar #PanelApplet button:hover:not(.flat), .tilix-search-frame button:hover, .geary-composer-box button:hover:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:hover,
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:hover:not(.toggle):not(.raised):not(.flat), window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:hover, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:hover, window.csd > box.vertical > box.vertical > toolbar.horizontal button:hover,
-window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:hover, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:hover, layouttabbar button:hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:hover,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:hover, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:hover, .nautilus-window headerbar .path-bar-box button:hover, messagedialog .linked:not(.vertical).dialog-action-area > button:hover, .app-notification button:hover, actionbar > revealer > box button:hover:not(.suggested-action):not(.destructive-action):not(.server-list-button), .background .caja-pathbar > button:hover,
+window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:hover, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:hover, layouttabbar button:hover, .nemo-window .primary-toolbar .linked.path-bar:not(.vertical):not(.stack-switcher) button:hover,
+.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:hover, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:hover, .nautilus-window headerbar .path-bar-box button:hover, messagedialog .linked.dialog-action-area:not(.vertical) > button:hover, .app-notification button:hover, actionbar > revealer > box button:hover:not(.suggested-action):not(.destructive-action):not(.server-list-button), .background .caja-pathbar > button:hover,
 .background .path-bar button:hover, toolbar button:hover, combobox > .linked:not(.vertical) > button.combo:hover:not(:only-child), .linked > spinbutton:not(.vertical) > button.up:hover, .linked > spinbutton:not(.vertical) > button.down:hover, toolbutton button:hover, .osd button:hover, .background .linked.stack-switcher > button:hover {
   box-shadow: inset 0 0 0 9999px alpha(currentColor, 0.1);
   color: white;
@@ -556,8 +556,8 @@ window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:hover
 
 .budgie-run-dialog button:active, .budgie-polkit-dialog button:active, .budgie-session-dialog button:active, .budgie-notification-window button.image-button:active, .budgie-switcher-window button.image-button:active, .budgie-osd-window button.image-button:active, .background .raven stackswitcher.linked > button:active, .caja-navigation-window button.toggle.image-button:active, .mate-panel-menu-bar #PanelApplet button:active:not(.flat), .tilix-search-frame button:active, .geary-composer-box button:active:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:active,
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:active:not(.toggle):not(.raised):not(.flat), window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:active, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:active, window.csd > box.vertical > box.vertical > toolbar.horizontal button:active,
-window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:active, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:active, layouttabbar button:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:active,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:active, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:active, .nautilus-window headerbar .path-bar-box button:active, messagedialog .linked:not(.vertical).dialog-action-area > button:active, .app-notification button:active, actionbar > revealer > box button:active:not(.suggested-action):not(.destructive-action):not(.server-list-button), .background .caja-pathbar > button:active,
+window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:active, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:active, layouttabbar button:active, .nemo-window .primary-toolbar .linked.path-bar:not(.vertical):not(.stack-switcher) button:active,
+.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:active, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:active, .nautilus-window headerbar .path-bar-box button:active, messagedialog .linked.dialog-action-area:not(.vertical) > button:active, .app-notification button:active, actionbar > revealer > box button:active:not(.suggested-action):not(.destructive-action):not(.server-list-button), .background .caja-pathbar > button:active,
 .background .path-bar button:active, toolbar button:active, combobox > .linked:not(.vertical) > button.combo:active:not(:only-child), .linked > spinbutton:not(.vertical) > button.up:active, .linked > spinbutton:not(.vertical) > button.down:active, toolbutton button:active, .osd button:active, .background .linked.stack-switcher > button:active {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
   animation: ripple_effect 100ms cubic-bezier(0, 0, 0.2, 1) forwards;
@@ -569,8 +569,8 @@ window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:activ
 
 .budgie-run-dialog button:disabled, .budgie-polkit-dialog button:disabled, .budgie-session-dialog button:disabled, .budgie-notification-window button.image-button:disabled, .budgie-switcher-window button.image-button:disabled, .budgie-osd-window button.image-button:disabled, .background .raven stackswitcher.linked > button:disabled, .caja-navigation-window button.toggle.image-button:disabled, .mate-panel-menu-bar #PanelApplet button:disabled:not(.flat), .tilix-search-frame button:disabled, .geary-composer-box button:disabled:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:disabled,
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:disabled:not(.toggle):not(.raised):not(.flat), window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:disabled, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:disabled, window.csd > box.vertical > box.vertical > toolbar.horizontal button:disabled,
-window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:disabled, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:disabled, layouttabbar button:disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:disabled,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:disabled, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:disabled, .nautilus-window headerbar .path-bar-box button:disabled, messagedialog .linked:not(.vertical).dialog-action-area > button:disabled, .app-notification button:disabled, actionbar > revealer > box button:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), .background .caja-pathbar > button:disabled,
+window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:disabled, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:disabled, layouttabbar button:disabled, .nemo-window .primary-toolbar .linked.path-bar:not(.vertical):not(.stack-switcher) button:disabled,
+.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:disabled, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:disabled, .nautilus-window headerbar .path-bar-box button:disabled, messagedialog .linked.dialog-action-area:not(.vertical) > button:disabled, .app-notification button:disabled, actionbar > revealer > box button:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), .background .caja-pathbar > button:disabled,
 .background .path-bar button:disabled, toolbar button:disabled, combobox > .linked:not(.vertical) > button.combo:disabled:not(:only-child), .linked > spinbutton:not(.vertical) > button.up:disabled, .linked > spinbutton:not(.vertical) > button.down:disabled, toolbutton button:disabled, .osd button:disabled, .background .linked.stack-switcher > button:disabled {
   box-shadow: none;
   background-color: transparent;
@@ -579,8 +579,8 @@ window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:disab
 
 .budgie-run-dialog button:checked, .budgie-polkit-dialog button:checked, .budgie-session-dialog button:checked, .budgie-notification-window button.image-button:checked, .budgie-switcher-window button.image-button:checked, .budgie-osd-window button.image-button:checked, .background .raven stackswitcher.linked > button:checked, .caja-navigation-window button.toggle.image-button:checked, .mate-panel-menu-bar #PanelApplet button:checked:not(.flat), .tilix-search-frame button:checked, .geary-composer-box button:checked:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:checked,
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:checked:not(.toggle):not(.raised):not(.flat), window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:checked, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:checked, window.csd > box.vertical > box.vertical > toolbar.horizontal button:checked,
-window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:checked, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:checked, layouttabbar button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:checked, .nautilus-window headerbar .path-bar-box button:checked, messagedialog .linked:not(.vertical).dialog-action-area > button:checked, .app-notification button:checked, actionbar > revealer > box button:checked:not(.suggested-action):not(.destructive-action):not(.server-list-button), .background .caja-pathbar > button:checked,
+window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:checked, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:checked, layouttabbar button:checked, .nemo-window .primary-toolbar .linked.path-bar:not(.vertical):not(.stack-switcher) button:checked,
+.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:checked, .nautilus-window headerbar .path-bar-box button:checked, messagedialog .linked.dialog-action-area:not(.vertical) > button:checked, .app-notification button:checked, actionbar > revealer > box button:checked:not(.suggested-action):not(.destructive-action):not(.server-list-button), .background .caja-pathbar > button:checked,
 .background .path-bar button:checked, toolbar button:checked, combobox > .linked:not(.vertical) > button.combo:checked:not(:only-child), .linked > spinbutton:not(.vertical) > button.up:checked, .linked > spinbutton:not(.vertical) > button.down:checked, toolbutton button:checked, .osd button:checked, .background .linked.stack-switcher > button:checked {
   color: white;
   background-color: alpha(currentColor, 0.12);
@@ -588,8 +588,8 @@ window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:check
 
 .budgie-run-dialog button:checked:disabled, .budgie-polkit-dialog button:checked:disabled, .budgie-session-dialog button:checked:disabled, .budgie-notification-window button.image-button:checked:disabled, .budgie-switcher-window button.image-button:checked:disabled, .budgie-osd-window button.image-button:checked:disabled, .background .raven stackswitcher.linked > button:checked:disabled, .caja-navigation-window button.toggle.image-button:checked:disabled, .mate-panel-menu-bar #PanelApplet button:checked:disabled:not(.flat), .tilix-search-frame button:checked:disabled, .geary-composer-box button:checked:disabled:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:checked:disabled,
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:checked:disabled:not(.toggle):not(.raised):not(.flat), window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale:checked:disabled, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:checked:disabled, window.csd > box.vertical > box.vertical > toolbar.horizontal button:checked:disabled,
-window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:checked:disabled, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:checked:disabled, layouttabbar button:checked:disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked:disabled,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked:disabled, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:checked:disabled, .nautilus-window headerbar .path-bar-box button:checked:disabled, messagedialog .linked:not(.vertical).dialog-action-area > button:checked:disabled, .app-notification button:checked:disabled, actionbar > revealer > box button:checked:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), .background .caja-pathbar > button:checked:disabled,
+window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:checked:disabled, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:checked:disabled, layouttabbar button:checked:disabled, .nemo-window .primary-toolbar .linked.path-bar:not(.vertical):not(.stack-switcher) button:checked:disabled,
+.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked:disabled, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:checked:disabled, .nautilus-window headerbar .path-bar-box button:checked:disabled, messagedialog .linked.dialog-action-area:not(.vertical) > button:checked:disabled, .app-notification button:checked:disabled, actionbar > revealer > box button:checked:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), .background .caja-pathbar > button:checked:disabled,
 .background .path-bar button:checked:disabled, toolbar button:checked:disabled, combobox > .linked:not(.vertical) > button.combo:checked:disabled:not(:only-child), .linked > spinbutton:not(.vertical) > button.up:checked:disabled, .linked > spinbutton:not(.vertical) > button.down:checked:disabled, toolbutton button:checked:disabled, .osd button:checked:disabled, .background .linked.stack-switcher > button:checked:disabled {
   background-color: alpha(currentColor, 0.06);
   color: rgba(255, 255, 255, 0.45);
@@ -1202,11 +1202,11 @@ spinbutton:not(.vertical) {
   padding: 0;
 }
 
-.background spinbutton:not(.vertical), .background spinbutton:not(.vertical).flat {
+.background spinbutton:not(.vertical), .background spinbutton.flat:not(.vertical) {
   transition: all 225ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.background spinbutton:not(.vertical) entry, .background spinbutton:not(.vertical) entry:focus, .background spinbutton:not(.vertical) entry:disabled, .background spinbutton:not(.vertical):focus entry, .background spinbutton:not(.vertical):focus entry:focus, .background spinbutton:not(.vertical):focus entry:disabled, .background spinbutton:not(.vertical):disabled entry, .background spinbutton:not(.vertical):disabled entry:focus, .background spinbutton:not(.vertical):disabled entry:disabled, .background spinbutton:not(.vertical).flat entry, .background spinbutton:not(.vertical).flat entry:focus, .background spinbutton:not(.vertical).flat entry:disabled, .background spinbutton:not(.vertical).flat:focus entry, .background spinbutton:not(.vertical).flat:focus entry:focus, .background spinbutton:not(.vertical).flat:focus entry:disabled, .background spinbutton:not(.vertical).flat:disabled entry, .background spinbutton:not(.vertical).flat:disabled entry:focus, .background spinbutton:not(.vertical).flat:disabled entry:disabled {
+.background spinbutton:not(.vertical) entry, .background spinbutton:not(.vertical) entry:focus, .background spinbutton:not(.vertical) entry:disabled, .background spinbutton:not(.vertical):focus entry, .background spinbutton:not(.vertical):focus entry:focus, .background spinbutton:not(.vertical):focus entry:disabled, .background spinbutton:not(.vertical):disabled entry, .background spinbutton:not(.vertical):disabled entry:focus, .background spinbutton:not(.vertical):disabled entry:disabled, .background spinbutton.flat:not(.vertical) entry, .background spinbutton.flat:not(.vertical) entry:focus, .background spinbutton.flat:not(.vertical) entry:disabled, .background spinbutton.flat:not(.vertical):focus entry, .background spinbutton.flat:not(.vertical):focus entry:focus, .background spinbutton.flat:not(.vertical):focus entry:disabled, .background spinbutton.flat:not(.vertical):disabled entry, .background spinbutton.flat:not(.vertical):disabled entry:focus, .background spinbutton.flat:not(.vertical):disabled entry:disabled {
   box-shadow: none;
   background: none;
   border-image: none;
@@ -1322,7 +1322,7 @@ combobox entry.combo:disabled {
   color: rgba(255, 255, 255, 0.45);
 }
 
-combobox > .linked:not(.vertical) > button:not(:only-child).combo {
+combobox > .linked:not(.vertical) > button.combo:not(:only-child) {
   border: none;
   border-image: none;
   box-shadow: none;
@@ -1467,22 +1467,22 @@ window.background stack scrolledwindow .linked:not(stackswitcher) button:not(.co
   box-shadow: none;
 }
 
-window.background stack scrolledwindow :not(stackswitcher).linked button:hover:not(.combo), toolbar.primary-toolbar toolitem.raised button:hover, .nemo-window .toolbar button:hover, .primary-toolbar button:hover {
+window.background stack scrolledwindow .linked:not(stackswitcher) button:hover:not(.combo), toolbar.primary-toolbar toolitem.raised button:hover, .nemo-window .toolbar button:hover, .primary-toolbar button:hover {
   background-color: rgba(255, 255, 255, 0.15);
   box-shadow: none;
 }
 
-window.background stack scrolledwindow :not(stackswitcher).linked button:disabled:not(.combo), toolbar.primary-toolbar toolitem.raised button:disabled, .nemo-window .toolbar button:disabled, .primary-toolbar button:disabled {
+window.background stack scrolledwindow .linked:not(stackswitcher) button:disabled:not(.combo), toolbar.primary-toolbar toolitem.raised button:disabled, .nemo-window .toolbar button:disabled, .primary-toolbar button:disabled {
   background-color: transparent;
 }
 
-window.background stack scrolledwindow :not(stackswitcher).linked button:active:not(.combo), toolbar.primary-toolbar toolitem.raised button:active, .nemo-window .toolbar button:active, .primary-toolbar button:active, window.background stack scrolledwindow :not(stackswitcher).linked button:checked:not(.combo), toolbar.primary-toolbar toolitem.raised button:checked, .nemo-window .toolbar button:checked, .primary-toolbar button:checked {
+window.background stack scrolledwindow .linked:not(stackswitcher) button:active:not(.combo), toolbar.primary-toolbar toolitem.raised button:active, .nemo-window .toolbar button:active, .primary-toolbar button:active, window.background stack scrolledwindow .linked:not(stackswitcher) button:checked:not(.combo), toolbar.primary-toolbar toolitem.raised button:checked, .nemo-window .toolbar button:checked, .primary-toolbar button:checked {
   color: white;
   background-color: rgba(255, 255, 255, 0.2);
   box-shadow: none;
 }
 
-window.background stack scrolledwindow :not(stackswitcher).linked button:checked:disabled:not(.combo), .nemo-window .toolbar button:checked:disabled, .primary-toolbar button:checked:disabled, window.background stack scrolledwindow :not(stackswitcher).linked button:checked:backdrop:not(.combo), .nemo-window .toolbar button:checked:backdrop, .primary-toolbar button:checked:backdrop {
+window.background stack scrolledwindow .linked:not(stackswitcher) button:checked:disabled:not(.combo), .nemo-window .toolbar button:checked:disabled, .primary-toolbar button:checked:disabled, window.background stack scrolledwindow .linked:not(stackswitcher) button:checked:backdrop:not(.combo), .nemo-window .toolbar button:checked:backdrop, .primary-toolbar button:checked:backdrop {
   color: rgba(255, 255, 255, 0.5);
   background-color: rgba(255, 255, 255, 0.1);
   box-shadow: none;
@@ -1568,40 +1568,40 @@ headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-acti
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 0%, transparent 0%) 0 0 0/0 0 0;
 }
 
-headerbar.windowhandle viewswitcher button:hover:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover {
+headerbar.windowhandle viewswitcher button:hover:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar .linked.stack-switcher:not(.vertical):not(.path-bar) > button:hover {
   border-radius: 0;
   color: #4285F4;
   box-shadow: inset 0 -2px alpha(#4285F4, 0.5);
 }
 
-headerbar.windowhandle viewswitcher button:hover:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover {
+headerbar.windowhandle viewswitcher button:hover:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar .linked.stack-switcher:not(.vertical):not(.path-bar) > button:hover {
   background-color: transparent;
 }
 
-headerbar.windowhandle viewswitcher button:checked:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked, headerbar.windowhandle viewswitcher button:active:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active {
+headerbar.windowhandle viewswitcher button:checked:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar .linked.stack-switcher:not(.vertical):not(.path-bar) > button:checked, headerbar.windowhandle viewswitcher button:active:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar .linked.stack-switcher:not(.vertical):not(.path-bar) > button:active {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 100%, transparent 0%) 0 0 2/0 0 2px;
   background: none;
   color: #4285F4;
   border-radius: 0;
 }
 
-headerbar.windowhandle viewswitcher button:checked:disabled:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked:disabled, headerbar.windowhandle viewswitcher button:active:disabled:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active:disabled {
+headerbar.windowhandle viewswitcher button:checked:disabled:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar .linked.stack-switcher:not(.vertical):not(.path-bar) > button:checked:disabled, headerbar.windowhandle viewswitcher button:active:disabled:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar .linked.stack-switcher:not(.vertical):not(.path-bar) > button:active:disabled {
   color: rgba(66, 133, 244, 0.35);
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), rgba(66, 133, 244, 0.35) 100%, transparent 0%) 0 0 2/0 0 2px;
 }
 
-headerbar.windowhandle viewswitcher button:checked:hover:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked:hover {
+headerbar.windowhandle viewswitcher button:checked:hover:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar .linked.stack-switcher:not(.vertical):not(.path-bar) > button:checked:hover {
   background: none;
 }
 
-headerbar.windowhandle viewswitcher button:disabled:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled {
+headerbar.windowhandle viewswitcher button:disabled:not(.titlebutton):not(.suggested-action):not(.destructive-action), headerbar .linked.stack-switcher:not(.vertical):not(.path-bar) > button:disabled {
   color: rgba(255, 255, 255, 0.3);
 }
 
 headerbar {
   transition: background-color 100ms cubic-bezier(0, 0, 0.2, 1), color 100ms cubic-bezier(0, 0, 0.2, 1);
   min-height: 36px;
-  padding: 0 12px;
+  padding: 0 6px;
   box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 2px -1px rgba(0, 0, 0, 0.22), 0 1px 2px -0.6px rgba(0, 0, 0, 0.12);
   background-color: #36383c;
   color: white;
@@ -1762,28 +1762,28 @@ headerbar .linked:not(.vertical):not(.path-bar) > entry:disabled {
   border-image: none;
 }
 
-headerbar .linked:not(.vertical).path-bar > button {
+headerbar .linked.path-bar:not(.vertical) > button {
   margin: 0;
   border-radius: 0;
 }
 
-headerbar .linked:not(.vertical).path-bar > button:hover {
+headerbar .linked.path-bar:not(.vertical) > button:hover {
   color: rgba(66, 133, 244, 0.85);
   box-shadow: inset 0 -3px rgba(66, 133, 244, 0.5);
 }
 
-headerbar .linked:not(.vertical).path-bar > button:hover, headerbar .linked:not(.vertical).path-bar > button:hover:disabled {
+headerbar .linked.path-bar:not(.vertical) > button:hover, headerbar .linked.path-bar:not(.vertical) > button:hover:disabled {
   background: none;
 }
 
-headerbar .linked:not(.vertical).path-bar > button:checked {
+headerbar .linked.path-bar:not(.vertical) > button:checked {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 100%, transparent 0%) 0 0 3/0 0 3px;
   background: none;
   color: #4285F4;
   border-radius: 0;
 }
 
-headerbar .linked:not(.vertical).path-bar > button:checked:hover {
+headerbar .linked.path-bar:not(.vertical) > button:checked:hover {
   background: none;
 }
 
@@ -2019,11 +2019,11 @@ treeview.view:drop(active) {
   border-color: #18b8ff;
 }
 
-treeview.view:drop(active).after {
+treeview.view.after:drop(active) {
   border-top-style: none;
 }
 
-treeview.view:drop(active).before {
+treeview.view.before:drop(active) {
   border-bottom-style: none;
 }
 
@@ -2412,7 +2412,7 @@ popover.background list separator {
   color: white;
 }
 
-.background tabbox > tab:hover.reorderable-page, notebook > header tab:hover.reorderable-page {
+.background tabbox > tab.reorderable-page:hover, notebook > header tab.reorderable-page:hover {
   border-color: rgba(255, 255, 255, 0.12);
   background-color: #2e3034;
 }
@@ -2432,7 +2432,7 @@ popover.background list separator {
   color: rgba(255, 255, 255, 0.45);
 }
 
-.background tabbox > tab:checked.reorderable-page, notebook > header tab:checked.reorderable-page {
+.background tabbox > tab.reorderable-page:checked, notebook > header tab.reorderable-page:checked {
   border-color: rgba(255, 255, 255, 0.12);
   background-color: #333539;
 }
@@ -2706,19 +2706,19 @@ scrollbar.overlay-indicator:not(.dragging):not(.hovering) button:disabled {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-scrollbar.overlay-indicator:not(.dragging):not(.hovering).horizontal slider {
+scrollbar.overlay-indicator.horizontal:not(.dragging):not(.hovering) slider {
   min-width: 24px;
 }
 
-scrollbar.overlay-indicator:not(.dragging):not(.hovering).horizontal button {
+scrollbar.overlay-indicator.horizontal:not(.dragging):not(.hovering) button {
   min-width: 8px;
 }
 
-scrollbar.overlay-indicator:not(.dragging):not(.hovering).vertical slider {
+scrollbar.overlay-indicator.vertical:not(.dragging):not(.hovering) slider {
   min-height: 24px;
 }
 
-scrollbar.overlay-indicator:not(.dragging):not(.hovering).vertical button {
+scrollbar.overlay-indicator.vertical:not(.dragging):not(.hovering) button {
   min-height: 8px;
 }
 
@@ -3744,33 +3744,33 @@ messagedialog .titlebar:backdrop {
   color: rgba(255, 255, 255, 0.7);
 }
 
-messagedialog .linked:not(.vertical).dialog-action-area > button {
+messagedialog .linked.dialog-action-area:not(.vertical) > button {
   padding: 4px 12px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 0;
 }
 
-messagedialog .linked:not(.vertical).dialog-action-area > button:first-child {
+messagedialog .linked.dialog-action-area:not(.vertical) > button:first-child {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
 }
 
-messagedialog .linked:not(.vertical).dialog-action-area > button:last-child {
+messagedialog .linked.dialog-action-area:not(.vertical) > button:last-child {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
 }
 
-messagedialog .linked:not(.vertical).dialog-action-area > button.suggested-action {
+messagedialog .linked.dialog-action-area:not(.vertical) > button.suggested-action {
   color: #4285F4;
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1), background-size 300ms cubic-bezier(0, 0, 0.2, 1), background-image 600ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-messagedialog .linked:not(.vertical).dialog-action-area > button.suggested-action:hover {
+messagedialog .linked.dialog-action-area:not(.vertical) > button.suggested-action:hover {
   color: #4285F4;
   background-color: transparent;
 }
 
-messagedialog .linked:not(.vertical).dialog-action-area > button.suggested-action:active {
+messagedialog .linked.dialog-action-area:not(.vertical) > button.suggested-action:active {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
   animation: ripple_effect 100ms cubic-bezier(0, 0, 0.2, 1) forwards;
   color: white;
@@ -3780,21 +3780,21 @@ messagedialog .linked:not(.vertical).dialog-action-area > button.suggested-actio
   background-size: 0% 0%;
 }
 
-messagedialog .linked:not(.vertical).dialog-action-area > button.suggested-action:disabled {
+messagedialog .linked.dialog-action-area:not(.vertical) > button.suggested-action:disabled {
   opacity: 0.65;
 }
 
-messagedialog .linked:not(.vertical).dialog-action-area > button.destructive-action {
+messagedialog .linked.dialog-action-area:not(.vertical) > button.destructive-action {
   color: #FF5252;
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1), background-size 300ms cubic-bezier(0, 0, 0.2, 1), background-image 600ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-messagedialog .linked:not(.vertical).dialog-action-area > button.destructive-action:hover {
+messagedialog .linked.dialog-action-area:not(.vertical) > button.destructive-action:hover {
   color: #FF5252;
   background-color: transparent;
 }
 
-messagedialog .linked:not(.vertical).dialog-action-area > button.destructive-action:active {
+messagedialog .linked.dialog-action-area:not(.vertical) > button.destructive-action:active {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
   animation: ripple_effect 100ms cubic-bezier(0, 0, 0.2, 1) forwards;
   color: white;
@@ -3804,7 +3804,7 @@ messagedialog .linked:not(.vertical).dialog-action-area > button.destructive-act
   background-size: 0% 0%;
 }
 
-messagedialog .linked:not(.vertical).dialog-action-area > button.destructive-action:disabled {
+messagedialog .linked.dialog-action-area:not(.vertical) > button.destructive-action:disabled {
   opacity: 0.65;
 }
 
@@ -3813,18 +3813,18 @@ messagedialog.csd.background {
   border-bottom-right-radius: 3px;
 }
 
-messagedialog.csd .linked:not(.vertical).dialog-action-area > button {
+messagedialog.csd .linked.dialog-action-area:not(.vertical) > button {
   padding: 8px 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 0;
 }
 
-messagedialog.csd .linked:not(.vertical).dialog-action-area > button:first-child {
+messagedialog.csd .linked.dialog-action-area:not(.vertical) > button:first-child {
   border-bottom-left-radius: 2px;
   border-top-left-radius: 0;
 }
 
-messagedialog.csd .linked:not(.vertical).dialog-action-area > button:last-child {
+messagedialog.csd .linked.dialog-action-area:not(.vertical) > button:last-child {
   border-bottom-right-radius: 2px;
   border-top-right-radius: 0;
 }
@@ -4216,11 +4216,11 @@ colorswatch:drop(active) {
   box-shadow: none;
 }
 
-colorswatch:drop(active).light overlay {
+colorswatch.light:drop(active) overlay {
   box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 2px -1px rgba(0, 0, 0, 0.22), 0 1px 2px -0.6px rgba(0, 0, 0, 0.12), 0 0 0 2px #18b8ff;
 }
 
-colorswatch:drop(active).dark overlay {
+colorswatch.dark:drop(active) overlay {
   box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 2px -1px rgba(0, 0, 0, 0.22), 0 1px 2px -0.6px rgba(0, 0, 0, 0.12), 0 0 0 2px #18b8ff;
 }
 
@@ -4340,9 +4340,9 @@ messagedialog.csd decoration {
   font-family: monospace;
 }
 
-window.background.chromium headerbar.titlebar button.titlebutton, .csd headerbar:not(.default-decoration) button.titlebutton.close, .csd headerbar:not(.default-decoration) button.titlebutton.maximize, .csd headerbar:not(.default-decoration) button.titlebutton.minimize, .solid-csd headerbar:not(.default-decoration) button.titlebutton.close, .solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize, .solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize, headerbar button.titlebutton.close, .csd headerbar button.titlebutton.close, .solid-csd headerbar button.titlebutton.close, headerbar.default-decoration button.titlebutton.close,
-.titlebar button.titlebutton.close, headerbar button.titlebutton.maximize, .csd headerbar button.titlebutton.maximize, .solid-csd headerbar button.titlebutton.maximize, headerbar.default-decoration button.titlebutton.maximize,
-.titlebar button.titlebutton.maximize, headerbar button.titlebutton.minimize, .csd headerbar button.titlebutton.minimize, .solid-csd headerbar button.titlebutton.minimize, headerbar.default-decoration button.titlebutton.minimize,
+window.background.chromium headerbar.titlebar button.titlebutton, headerbar:not(.default-decoration) button.titlebutton.close, headerbar:not(.default-decoration) button.titlebutton.maximize, headerbar:not(.default-decoration) button.titlebutton.minimize, headerbar button.titlebutton.close,
+.titlebar button.titlebutton.close, headerbar button.titlebutton.maximize,
+.titlebar button.titlebutton.maximize, headerbar button.titlebutton.minimize,
 .titlebar button.titlebutton.minimize {
   margin: 0;
   padding: 0;
@@ -4358,25 +4358,16 @@ window.background.chromium headerbar.titlebar button.titlebutton, .csd headerbar
   background-size: 16px 16px;
 }
 
-window.background.chromium headerbar.titlebar button.titlebutton:hover, .csd headerbar:not(.default-decoration) button.titlebutton.close:hover, .csd headerbar:not(.default-decoration) button.titlebutton.maximize:hover, .csd headerbar:not(.default-decoration) button.titlebutton.minimize:hover, .solid-csd headerbar:not(.default-decoration) button.titlebutton.close:hover, .solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize:hover, .solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize:hover, headerbar button.titlebutton.close:hover, .csd headerbar button.titlebutton.close:hover, .solid-csd headerbar button.titlebutton.close:hover, headerbar.default-decoration button.titlebutton.close:hover, .csd headerbar.default-decoration button.titlebutton.close:hover,
-.titlebar button.titlebutton.close:hover, .csd .titlebar button.titlebutton.close:hover, .solid-csd .titlebar button.titlebutton.close:hover,
-.titlebar.default-decoration button.titlebutton.close:hover, .csd .titlebar.default-decoration button.titlebutton.close:hover, headerbar button.titlebutton.maximize:hover, .csd headerbar button.titlebutton.maximize:hover, .solid-csd headerbar button.titlebutton.maximize:hover, headerbar.default-decoration button.titlebutton.maximize:hover, .csd headerbar.default-decoration button.titlebutton.maximize:hover,
-.titlebar button.titlebutton.maximize:hover, .csd .titlebar button.titlebutton.maximize:hover, .solid-csd .titlebar button.titlebutton.maximize:hover,
-.titlebar.default-decoration button.titlebutton.maximize:hover, .csd .titlebar.default-decoration button.titlebutton.maximize:hover, headerbar button.titlebutton.minimize:hover, .csd headerbar button.titlebutton.minimize:hover, .solid-csd headerbar button.titlebutton.minimize:hover, headerbar.default-decoration button.titlebutton.minimize:hover, .csd headerbar.default-decoration button.titlebutton.minimize:hover,
-.titlebar button.titlebutton.minimize:hover, .csd .titlebar button.titlebutton.minimize:hover, .solid-csd .titlebar button.titlebutton.minimize:hover,
-.titlebar.default-decoration button.titlebutton.minimize:hover, .csd .titlebar.default-decoration button.titlebutton.minimize:hover, window.background.chromium headerbar.titlebar button.titlebutton:active, .csd headerbar:not(.default-decoration) button.titlebutton.close:active, .csd headerbar:not(.default-decoration) button.titlebutton.maximize:active, .csd headerbar:not(.default-decoration) button.titlebutton.minimize:active, .solid-csd headerbar:not(.default-decoration) button.titlebutton.close:active, .solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize:active, .solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize:active, headerbar button.titlebutton.close:active, .csd headerbar button.titlebutton.close:active, .solid-csd headerbar button.titlebutton.close:active, headerbar.default-decoration button.titlebutton.close:active, .csd headerbar.default-decoration button.titlebutton.close:active,
-.titlebar button.titlebutton.close:active, .csd .titlebar button.titlebutton.close:active, .solid-csd .titlebar button.titlebutton.close:active,
-.titlebar.default-decoration button.titlebutton.close:active, .csd .titlebar.default-decoration button.titlebutton.close:active, headerbar button.titlebutton.maximize:active, .csd headerbar button.titlebutton.maximize:active, .solid-csd headerbar button.titlebutton.maximize:active, headerbar.default-decoration button.titlebutton.maximize:active, .csd headerbar.default-decoration button.titlebutton.maximize:active,
-.titlebar button.titlebutton.maximize:active, .csd .titlebar button.titlebutton.maximize:active, .solid-csd .titlebar button.titlebutton.maximize:active,
-.titlebar.default-decoration button.titlebutton.maximize:active, .csd .titlebar.default-decoration button.titlebutton.maximize:active, headerbar button.titlebutton.minimize:active, .csd headerbar button.titlebutton.minimize:active, .solid-csd headerbar button.titlebutton.minimize:active, headerbar.default-decoration button.titlebutton.minimize:active, .csd headerbar.default-decoration button.titlebutton.minimize:active,
-.titlebar button.titlebutton.minimize:active, .csd .titlebar button.titlebutton.minimize:active, .solid-csd .titlebar button.titlebutton.minimize:active,
-.titlebar.default-decoration button.titlebutton.minimize:active, .csd .titlebar.default-decoration button.titlebutton.minimize:active, window.background.chromium headerbar.titlebar button.titlebutton:checked, .csd headerbar:not(.default-decoration) button.titlebutton.close:checked, .csd headerbar:not(.default-decoration) button.titlebutton.maximize:checked, .csd headerbar:not(.default-decoration) button.titlebutton.minimize:checked, .solid-csd headerbar:not(.default-decoration) button.titlebutton.close:checked, .solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize:checked, .solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize:checked, headerbar button.titlebutton.close:checked, .csd headerbar button.titlebutton.close:checked, .solid-csd headerbar button.titlebutton.close:checked, headerbar.default-decoration button.titlebutton.close:checked, .csd headerbar.default-decoration button.titlebutton.close:checked,
-.titlebar button.titlebutton.close:checked, .csd .titlebar button.titlebutton.close:checked, .solid-csd .titlebar button.titlebutton.close:checked,
-.titlebar.default-decoration button.titlebutton.close:checked, .csd .titlebar.default-decoration button.titlebutton.close:checked, headerbar button.titlebutton.maximize:checked, .csd headerbar button.titlebutton.maximize:checked, .solid-csd headerbar button.titlebutton.maximize:checked, headerbar.default-decoration button.titlebutton.maximize:checked, .csd headerbar.default-decoration button.titlebutton.maximize:checked,
-.titlebar button.titlebutton.maximize:checked, .csd .titlebar button.titlebutton.maximize:checked, .solid-csd .titlebar button.titlebutton.maximize:checked,
-.titlebar.default-decoration button.titlebutton.maximize:checked, .csd .titlebar.default-decoration button.titlebutton.maximize:checked, headerbar button.titlebutton.minimize:checked, .csd headerbar button.titlebutton.minimize:checked, .solid-csd headerbar button.titlebutton.minimize:checked, headerbar.default-decoration button.titlebutton.minimize:checked, .csd headerbar.default-decoration button.titlebutton.minimize:checked,
-.titlebar button.titlebutton.minimize:checked, .csd .titlebar button.titlebutton.minimize:checked, .solid-csd .titlebar button.titlebutton.minimize:checked,
-.titlebar.default-decoration button.titlebutton.minimize:checked, .csd .titlebar.default-decoration button.titlebutton.minimize:checked {
+window.background.chromium headerbar.titlebar button.titlebutton:hover, headerbar button.titlebutton.close:hover,
+.titlebar button.titlebutton.close:hover, headerbar button.titlebutton.maximize:hover,
+.titlebar button.titlebutton.maximize:hover, headerbar button.titlebutton.minimize:hover,
+.titlebar button.titlebutton.minimize:hover, window.background.chromium headerbar.titlebar button.titlebutton:active, headerbar button.titlebutton.close:active,
+.titlebar button.titlebutton.close:active, headerbar button.titlebutton.maximize:active,
+.titlebar button.titlebutton.maximize:active, headerbar button.titlebutton.minimize:active,
+.titlebar button.titlebutton.minimize:active, window.background.chromium headerbar.titlebar button.titlebutton:checked, headerbar button.titlebutton.close:checked,
+.titlebar button.titlebutton.close:checked, headerbar button.titlebutton.maximize:checked,
+.titlebar button.titlebutton.maximize:checked, headerbar button.titlebutton.minimize:checked,
+.titlebar button.titlebutton.minimize:checked {
   box-shadow: none;
   border: none;
   color: transparent;
@@ -4386,7 +4377,7 @@ window.background.chromium headerbar.titlebar button.titlebutton:hover, .csd hea
   background-size: 22px 22px;
 }
 
-window.background.chromium headerbar.titlebar button.titlebutton:backdrop, .csd headerbar:not(.default-decoration) button.titlebutton.close:backdrop, .csd headerbar:not(.default-decoration) button.titlebutton.maximize:backdrop, .csd headerbar:not(.default-decoration) button.titlebutton.minimize:backdrop, .solid-csd headerbar:not(.default-decoration) button.titlebutton.close:backdrop, .solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize:backdrop, .solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize:backdrop, headerbar button.titlebutton.close:backdrop,
+window.background.chromium headerbar.titlebar button.titlebutton:backdrop, headerbar button.titlebutton.close:backdrop,
 .titlebar button.titlebutton.close:backdrop, headerbar button.titlebutton.maximize:backdrop,
 .titlebar button.titlebutton.maximize:backdrop, headerbar button.titlebutton.minimize:backdrop,
 .titlebar button.titlebutton.minimize:backdrop {
@@ -4394,7 +4385,7 @@ window.background.chromium headerbar.titlebar button.titlebutton:backdrop, .csd 
   color: transparent;
 }
 
-headerbar button.titlebutton:hover, .csd headerbar button.titlebutton:hover, .solid-csd headerbar button.titlebutton:hover, headerbar.default-decoration button.titlebutton:hover,
+headerbar button.titlebutton:hover,
 .titlebar button.titlebutton:hover {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
   animation: none;
@@ -4404,8 +4395,8 @@ headerbar button.titlebutton:hover, .csd headerbar button.titlebutton:hover, .so
   color: #4285F4;
 }
 
-headerbar button.titlebutton:active, .csd headerbar button.titlebutton:active, .solid-csd headerbar button.titlebutton:active, headerbar.default-decoration button.titlebutton:active,
-.titlebar button.titlebutton:active, headerbar button.titlebutton:checked, .csd headerbar button.titlebutton:checked, .solid-csd headerbar button.titlebutton:checked, headerbar.default-decoration button.titlebutton:checked,
+headerbar button.titlebutton:active,
+.titlebar button.titlebutton:active, headerbar button.titlebutton:checked,
 .titlebar button.titlebutton:checked {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
   animation: ripple_effect 100ms cubic-bezier(0, 0, 0.2, 1) forwards;
@@ -4415,7 +4406,7 @@ headerbar button.titlebutton:active, .csd headerbar button.titlebutton:active, .
   color: white;
 }
 
-headerbar button.titlebutton.close, .csd headerbar button.titlebutton.close, .solid-csd headerbar button.titlebutton.close, headerbar.default-decoration button.titlebutton.close,
+headerbar button.titlebutton.close,
 .titlebar button.titlebutton.close {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-close-dark.png"), url("assets/window-assets/titlebutton-close-dark@2.png"));
 }
@@ -4435,7 +4426,7 @@ headerbar button.titlebutton.close:active,
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-close-active-dark.png"), url("assets/window-assets/titlebutton-close-active-dark@2.png"));
 }
 
-headerbar button.titlebutton.maximize, .csd headerbar button.titlebutton.maximize, .solid-csd headerbar button.titlebutton.maximize, headerbar.default-decoration button.titlebutton.maximize,
+headerbar button.titlebutton.maximize,
 .titlebar button.titlebutton.maximize {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-maximize-dark.png"), url("assets/window-assets/titlebutton-maximize-dark@2.png"));
 }
@@ -4455,7 +4446,7 @@ headerbar button.titlebutton.maximize:active,
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-maximize-active-dark.png"), url("assets/window-assets/titlebutton-maximize-active-dark@2.png"));
 }
 
-headerbar button.titlebutton.minimize, .csd headerbar button.titlebutton.minimize, .solid-csd headerbar button.titlebutton.minimize, headerbar.default-decoration button.titlebutton.minimize,
+headerbar button.titlebutton.minimize,
 .titlebar button.titlebutton.minimize {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-minimize-dark.png"), url("assets/window-assets/titlebutton-minimize-dark@2.png"));
 }
@@ -4499,67 +4490,73 @@ headerbar button.titlebutton.minimize:active,
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-restore-active-dark.png"), url("assets/window-assets/titlebutton-restore-active-dark@2.png"));
 }
 
-.csd headerbar:not(.default-decoration) button.titlebutton.close, .solid-csd headerbar:not(.default-decoration) button.titlebutton.close {
+headerbar > box.right, headerbar > box.left,
+.titlebar > box.right,
+.titlebar > box.left {
+  padding: 0 6px;
+}
+
+headerbar:not(.default-decoration) button.titlebutton.close {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-close-dark.png"), url("assets/window-assets/titlebutton-close-dark@2.png"));
 }
 
-.csd headerbar:not(.default-decoration) button.titlebutton.close:backdrop, .solid-csd headerbar:not(.default-decoration) button.titlebutton.close:backdrop {
+headerbar:not(.default-decoration) button.titlebutton.close:backdrop {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-close-backdrop-dark.png"), url("assets/window-assets/titlebutton-close-backdrop-dark@2.png"));
 }
 
-.csd headerbar:not(.default-decoration) button.titlebutton.close:hover, .solid-csd headerbar:not(.default-decoration) button.titlebutton.close:hover {
+headerbar:not(.default-decoration) button.titlebutton.close:hover {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-close-hover-dark.png"), url("assets/window-assets/titlebutton-close-hover-dark@2.png"));
 }
 
-.csd headerbar:not(.default-decoration) button.titlebutton.close:active, .solid-csd headerbar:not(.default-decoration) button.titlebutton.close:active {
+headerbar:not(.default-decoration) button.titlebutton.close:active {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-close-active-dark.png"), url("assets/window-assets/titlebutton-close-active-dark@2.png"));
 }
 
-.csd headerbar:not(.default-decoration) button.titlebutton.maximize, .solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize {
+headerbar:not(.default-decoration) button.titlebutton.maximize {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-maximize-dark.png"), url("assets/window-assets/titlebutton-maximize-dark@2.png"));
 }
 
-.csd headerbar:not(.default-decoration) button.titlebutton.maximize:backdrop, .solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize:backdrop {
+headerbar:not(.default-decoration) button.titlebutton.maximize:backdrop {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-maximize-backdrop-dark.png"), url("assets/window-assets/titlebutton-maximize-backdrop-dark@2.png"));
 }
 
-.csd headerbar:not(.default-decoration) button.titlebutton.maximize:hover, .solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize:hover {
+headerbar:not(.default-decoration) button.titlebutton.maximize:hover {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-maximize-hover-dark.png"), url("assets/window-assets/titlebutton-maximize-hover-dark@2.png"));
 }
 
-.csd headerbar:not(.default-decoration) button.titlebutton.maximize:active, .solid-csd headerbar:not(.default-decoration) button.titlebutton.maximize:active {
+headerbar:not(.default-decoration) button.titlebutton.maximize:active {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-maximize-active-dark.png"), url("assets/window-assets/titlebutton-maximize-active-dark@2.png"));
 }
 
-.csd headerbar:not(.default-decoration) button.titlebutton.minimize, .solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize {
+headerbar:not(.default-decoration) button.titlebutton.minimize {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-minimize-dark.png"), url("assets/window-assets/titlebutton-minimize-dark@2.png"));
 }
 
-.csd headerbar:not(.default-decoration) button.titlebutton.minimize:backdrop, .solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize:backdrop {
+headerbar:not(.default-decoration) button.titlebutton.minimize:backdrop {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-minimize-backdrop-dark.png"), url("assets/window-assets/titlebutton-minimize-backdrop-dark@2.png"));
 }
 
-.csd headerbar:not(.default-decoration) button.titlebutton.minimize:hover, .solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize:hover {
+headerbar:not(.default-decoration) button.titlebutton.minimize:hover {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-minimize-hover-dark.png"), url("assets/window-assets/titlebutton-minimize-hover-dark@2.png"));
 }
 
-.csd headerbar:not(.default-decoration) button.titlebutton.minimize:active, .solid-csd headerbar:not(.default-decoration) button.titlebutton.minimize:active {
+headerbar:not(.default-decoration) button.titlebutton.minimize:active {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-minimize-active-dark.png"), url("assets/window-assets/titlebutton-minimize-active-dark@2.png"));
 }
 
-.csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize, .solid-csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize {
+.maximized headerbar:not(.default-decoration) button.titlebutton.maximize {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-restore-dark.png"), url("assets/window-assets/titlebutton-restore-dark@2.png"));
 }
 
-.csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize:backdrop, .solid-csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize:backdrop {
+.maximized headerbar:not(.default-decoration) button.titlebutton.maximize:backdrop {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-restore-backdrop-dark.png"), url("assets/window-assets/titlebutton-restore-backdrop-dark@2.png"));
 }
 
-.csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize:hover, .solid-csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize:hover {
+.maximized headerbar:not(.default-decoration) button.titlebutton.maximize:hover {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-restore-hover-dark.png"), url("assets/window-assets/titlebutton-restore-hover-dark@2.png"));
 }
 
-.csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize:active, .solid-csd.maximized headerbar:not(.default-decoration) button.titlebutton.maximize:active {
+.maximized headerbar:not(.default-decoration) button.titlebutton.maximize:active {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-restore-active-dark.png"), url("assets/window-assets/titlebutton-restore-active-dark@2.png"));
 }
 
@@ -4785,15 +4782,15 @@ window.background stack scrolledwindow stackswitcher.stack-switcher button:check
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 0%, transparent 0%) 0 0 0/0 0 0;
 }
 
-.nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:hover,
+.nemo-window .primary-toolbar .linked.path-bar:not(.vertical):not(.stack-switcher) button:hover,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:hover, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:hover, .nautilus-window headerbar .path-bar-box button:hover {
   background-color: transparent;
   color: white;
   box-shadow: inset 0 0 0 9999px rgba(255, 255, 255, 0.12);
 }
 
-.nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:active,
-.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:active, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:active, .nautilus-window headerbar .path-bar-box button:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked,
+.nemo-window .primary-toolbar .linked.path-bar:not(.vertical):not(.stack-switcher) button:active,
+.nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:active, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:active, .nautilus-window headerbar .path-bar-box button:active, .nemo-window .primary-toolbar .linked.path-bar:not(.vertical):not(.stack-switcher) button:checked,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:checked, .nautilus-window headerbar .path-bar-box button:checked {
   color: white;
   background-color: transparent;
@@ -4802,18 +4799,18 @@ window.background stack scrolledwindow stackswitcher.stack-switcher button:check
   background-image: radial-gradient(circle farthest-corner at center, rgba(255, 255, 255, 0.12) 10%, transparent 0%);
 }
 
-.nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:checked,
+.nemo-window .primary-toolbar .linked.path-bar:not(.vertical):not(.stack-switcher) button:checked,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:checked, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:checked, .nautilus-window headerbar .path-bar-box button:checked {
   background: none;
   box-shadow: none;
 }
 
-.nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:backdrop,
+.nemo-window .primary-toolbar .linked.path-bar:not(.vertical):not(.stack-switcher) button:backdrop,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:backdrop, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:backdrop, .nautilus-window headerbar .path-bar-box button:backdrop {
   color: rgba(255, 255, 255, 0.45);
 }
 
-.nemo-window .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar button:backdrop:disabled,
+.nemo-window .primary-toolbar .linked.path-bar:not(.vertical):not(.stack-switcher) button:backdrop:disabled,
 .nemo-window .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) button:backdrop:disabled, .nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:backdrop:disabled, .nautilus-window headerbar .path-bar-box button:backdrop:disabled {
   color: rgba(255, 255, 255, 0.3);
 }
@@ -4880,11 +4877,11 @@ window.background stack scrolledwindow stackswitcher.stack-switcher button:check
   background-image: radial-gradient(circle farthest-corner at center, rgba(255, 255, 255, 0.08) 10%, transparent 0%);
 }
 
-.nautilus-window .windowhandle .linked.nautilus-path-bar button:not(.suggested-action):not(.destructive-action).current-dir {
+.nautilus-window .windowhandle .linked.nautilus-path-bar button.current-dir:not(.suggested-action):not(.destructive-action) {
   color: white;
 }
 
-.nautilus-window .windowhandle .linked.nautilus-path-bar button:not(.suggested-action):not(.destructive-action).current-dir:hover, .nautilus-window .windowhandle .linked.nautilus-path-bar button:not(.suggested-action):not(.destructive-action).current-dir:active {
+.nautilus-window .windowhandle .linked.nautilus-path-bar button.current-dir:not(.suggested-action):not(.destructive-action):hover, .nautilus-window .windowhandle .linked.nautilus-path-bar button.current-dir:not(.suggested-action):not(.destructive-action):active {
   background: none;
   box-shadow: none;
 }
@@ -6690,11 +6687,11 @@ widget > box.terminal-titlebar > button.image-button, widget > box.terminal-titl
   border: none;
 }
 
-.xfce4-panel#XfcePanelWindow {
+#XfcePanelWindow.xfce4-panel {
   border: 1px solid #212326;
 }
 
-.xfce4-panel#XfcePanelWindow, .xfce4-panel#XfcePanelWindow.marching-ants {
+#XfcePanelWindow.xfce4-panel, #XfcePanelWindow.xfce4-panel.marching-ants {
   transition: none;
 }
 
@@ -7031,7 +7028,7 @@ window.background stack scrolledwindow button.destructive-action:checked {
   box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 2px -1px rgba(0, 0, 0, 0.22), 0 1px 2px -0.6px rgba(0, 0, 0, 0.12);
 }
 
-window.background stack scrolledwindow :not(stackswitcher).linked button:not(.combo) {
+window.background stack scrolledwindow .linked:not(stackswitcher) button:not(.combo) {
   border-radius: 3px;
   margin: 0 2px;
 }
@@ -7096,7 +7093,7 @@ UnityDecoration.menubar .menuitem *:hover {
   box-shadow: none;
 }
 
-.background:not(.csd) headerbar:not(.titlebar).inline-toolbar {
+.background:not(.csd) headerbar.inline-toolbar:not(.titlebar) {
   border-style: none;
 }
 

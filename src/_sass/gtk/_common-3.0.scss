@@ -1203,7 +1203,7 @@ headerbar {
   transition: background-color $shorter_duration $deceleration_curve,
               color $shorter_duration $deceleration_curve;
   min-height: $medium_size;
-  padding: 0 $space_size * 2;
+  padding: 0 $space_size;
   box-shadow: $header_shadow;
   background-color: $header;
   color: on($header);
@@ -1321,10 +1321,13 @@ headerbar {
       margin: 0;
       padding: 0;
       transition: $shorter_duration;
-      background-size: 16px 16px;
 
-      &:hover, &:active {
-        background-size: 22px 22px;
+      @if $titlebutton == 'default' {
+        background-size: 16px 16px;
+
+        &:hover, &:active {
+          background-size: 22px 22px;
+        }
       }
     }
   }
@@ -3817,37 +3820,35 @@ decoration {
 
 headerbar,
 .titlebar {
-  &, .csd &, .solid-csd &,
-  &.default-decoration,
-  .csd &.default-decoration {  // needed under wayland, since all gtk3 windows are csd windows
-    @if $titlebutton == 'default' {
-      @extend %titlebuttons;
-    } @else {
-      button.titlebutton.close {
-        border-radius: $button_radius;
-        -gtk-outline-radius: $button_radius;
-      }
+  @if $titlebutton == 'default' {
+    @extend %titlebuttons;
+
+    > box.right, > box.left {
+      padding: 0 $space_size;
+    }
+  } @else {
+    button.titlebutton.close {
+      border-radius: $button_radius;
+      -gtk-outline-radius: $button_radius;
     }
   }
 }
 
 %solid_titlebuttons {
-  .csd &, .solid-csd & {
-    button.titlebutton {
-      &.close, &.maximize, &.minimize { @extend %windows_button; }
+  button.titlebutton {
+    &.close, &.maximize, &.minimize { @extend %windows_button; }
 
-      // Load png assets for each button
-      @each $k in ('close', 'maximize', 'minimize') {
-        @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
+    // Load png assets for each button
+    @each $k in ('close', 'maximize', 'minimize') {
+      @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
 
-        &.#{$k}#{$l} { background-image: -gtk-scaled(url('assets/window-assets/titlebutton-#{$k}#{$m}#{$darker_asset_suffix}.png'),
-                                                     url('assets/window-assets/titlebutton-#{$k}#{$m}#{$darker_asset_suffix}@2.png')); }
-        }
+      &.#{$k}#{$l} { background-image: -gtk-scaled(url('assets/window-assets/titlebutton-#{$k}#{$m}#{$darker_asset_suffix}.png'),
+                                                   url('assets/window-assets/titlebutton-#{$k}#{$m}#{$darker_asset_suffix}@2.png')); }
       }
     }
   }
 
-  .csd.maximized &, .solid-csd.maximized & {
+  .maximized & {
     button.titlebutton {
       @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
       &.maximize#{$l} { background-image: -gtk-scaled(url('assets/window-assets/titlebutton-restore#{$m}#{$darker_asset_suffix}.png'),

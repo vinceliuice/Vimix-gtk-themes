@@ -521,7 +521,7 @@ $_dot_color: if($variant=='light', $primary, lighten($primary, 15%));
 button {
   min-height: 24px;
   min-width: 16px;
-  padding: $space_size $space_size * 1.5;
+  padding: ($medium_size - 24px) / 2 ($medium_size - 16px) / 2;
   border-radius: $button_radius;
   font-weight: 500;
 
@@ -547,6 +547,7 @@ button {
   }
 
   &.text-button {
+    min-width: $medium_size;
     padding-left: 16px;
     padding-right: 16px;
   }
@@ -559,6 +560,8 @@ button {
 
   &.text-button.image-button, &.image-text-button {
     border-radius: $button_radius;
+    min-width: 24px;
+    padding: ($medium_size - 24px) / 2;
 
     > box,
     > box > box {
@@ -1509,7 +1512,7 @@ headerbar {
   transition: background-color $shorter_duration $deceleration_curve,
               color $shorter_duration $deceleration_curve;
   min-height: $medium-size + $space_size * 2;
-  padding: 0 $space_size;
+  padding: 0;
   box-shadow: $header_shadow;
   background-color: $header;
   color: on($header);
@@ -1540,7 +1543,7 @@ headerbar {
   }
 
   > windowhandle > box {
-    padding: 0 $space_size / 2;
+    padding: 0 $space_size;
 
     &,
     > box.start,
@@ -1620,6 +1623,7 @@ headerbar {
   &.default-decoration {
     min-height: $small_size;
     padding: 2px $space_size;
+    box-shadow: inset 0 1px $highlight;
 
     .tiled &,
     .maximized &,
@@ -1628,10 +1632,13 @@ headerbar {
     windowcontrols {
       button {
         transition: $shorter_duration;
-        background-size: 16px 16px;
 
-        &:hover, &:active {
-          background-size: 22px 22px;
+        @if $titlebutton == 'default' {
+          background-size: 16px 16px;
+
+          &:hover, &:active {
+            background-size: 22px 22px;
+          }
         }
       }
 
@@ -1649,13 +1656,6 @@ headerbar {
         padding: 4px;
       }
     }
-  }
-
-  &.default-decoration,
-  .csd &.default-decoration,
-  &.default-decoration:backdrop,
-  .csd &.default-decoration:backdrop {  // needed under wayland, since all gtk3 windows are csd windows
-    box-shadow: inset 0 1px $highlight;
   }
 
   .solid-csd & {
@@ -1756,48 +1756,6 @@ headerbar {
 
   .titlebar > & {
     box-shadow: $header_shadow, inset 0 1px $highlight;
-  }
-}
-
-.titlebar {
-  &.solid-csd headerbar {
-    box-shadow: $header_shadow;
-  }
-
-  .solid-csd > &.vertical {
-    box-shadow: none;
-
-    headerbar.titlebar {
-      box-shadow: none;
-    }
-
-    searchbar {
-      background: none;
-    }
-  }
-}
-
-.titlebar:not(headerbar) {
-  box-shadow: $header_shadow, inset 0 1px $highlight;
-  border: none;
-
-  .tiled &,
-  .maximized &,
-  .fullscreen & { box-shadow: $header_shadow; }
-
-  > separator { // separator between titlebars
-    min-width: 1px;
-    min-height: 1px;
-    background-color: $header;
-    background-image: image($header);
-    border: none;
-  }
-
-  window.csd > & {
-    padding: 0;
-    background: none;
-    border: none;
-    box-shadow: none;
   }
 }
 
@@ -4437,12 +4395,6 @@ colorchooser .popover.osd {
     @extend %osd;
     margin: 0;
   }
-
-  .osd & button.flat {  //FIXME: quick hack, redo properly
-  }
-
-  button { // +/- buttons on GtkVolumeButton popup
-  }
 }
 
 //
@@ -4509,108 +4461,94 @@ window {
 // Title buttons
 //
 
-%windows_button {
-  margin: 0 $space_size/2;
-  padding: 0;
-  min-width: 26px;
-  min-height: 26px;
-  animation: none;
-  box-shadow: none;
-  border: none;
-  color: transparent;
-  background-color: transparent;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 16px 16px;
+// Window button
+headerbar windowcontrols {
+  &:not(.empty) {
+    &.start:dir(ltr),
+    &.end:dir(rtl) {
+      margin-right: $space_size * 1.5;
+    }
 
-  &:hover, &:active, &:checked {
-    box-shadow: none;
-    border: none;
-    color: transparent;
-    animation: none;
-    transition: background-size $shorter_duration $deceleration_curve;
-    background-color: transparent;
-    background-size: 22px 22px;
-  }
-
-  &:backdrop {
-    opacity: 1;
-    color: transparent;
-  }
-}
-
-%titlebuttons {
-  windowcontrols button {
-    &:hover { @include button(header-hover); }
-    &:active, &:checked { @include button(header-active); }
-
-    &.close, &.maximize, &.minimize { @extend %windows_button; }
-
-    // Load png assets for each button
-    @each $k in ('close', 'maximize', 'minimize') {
-      @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
-
-        &.#{$k}#{$l} { background-image: -gtk-scaled(url('assets/window-assets/titlebutton-#{$k}#{$m}#{$darker_asset_suffix}.png'),
-                                                     url('assets/window-assets/titlebutton-#{$k}#{$m}#{$darker_asset_suffix}@2.png')); }
-      }
+    &.start:dir(rtl),
+    &.end:dir(ltr) {
+      margin-left: $space_size * 1.5;
     }
   }
 
-  .fullscreen &,
-  .maximized & {
-    windowcontrols button {
-      @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
-      &.maximize#{$l} { background-image: -gtk-scaled(url('assets/window-assets/titlebutton-restore#{$m}#{$darker_asset_suffix}.png'),
-                                                      url('assets/window-assets/titlebutton-restore#{$m}#{$darker_asset_suffix}@2.png')); }
-      }
-    }
+  @if $titlebutton == 'default' {
+    border-spacing: $space_size;
+  } @else {
+    border-spacing: $space_size * 1.5;
   }
-}
 
-headerbar,
-.titlebar {
-  &, .csd &, .solid-csd &,
-  &.default-decoration,
-  .csd &.default-decoration {  // needed under wayland, since all gtk3 windows are csd windows
+  > button:not(.suggested-action):not(.destructive-action) {
     @if $titlebutton == 'default' {
-      @extend %titlebuttons;
-    } @else {
-      button.titlebutton.close {
-        border-radius: $button_radius;
-      }
-    }
-  }
-}
+      &.close, &.maximize, &.minimize {
+        margin: 0;
+        padding: 0;
+        min-width: 26px;
+        min-height: 26px;
+        animation: none;
+        box-shadow: none;
+        border: none;
+        color: transparent;
+        background-color: transparent;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 16px 16px;
 
-%solid_titlebuttons {
-  .csd &, .solid-csd & {
-    windowcontrols button {
-      &.close, &.maximize, &.minimize { @extend %windows_button; }
+        &:hover, &:active, &:checked {
+          box-shadow: none;
+          border: none;
+          color: transparent;
+          animation: none;
+          transition: background-size $shorter_duration $deceleration_curve;
+          background-color: transparent;
+          background-size: 22px 22px;
+        }
+
+        &:backdrop {
+          opacity: 1;
+          color: transparent;
+        }
+      }
 
       // Load png assets for each button
       @each $k in ('close', 'maximize', 'minimize') {
         @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
 
-        &.#{$k}#{$l} { background-image: -gtk-scaled(url('assets/window-assets/titlebutton-#{$k}#{$m}#{$darker_asset_suffix}.png'),
-                                                     url('assets/window-assets/titlebutton-#{$k}#{$m}#{$darker_asset_suffix}@2.png')); }
+          &.#{$k}#{$l} { background-image: -gtk-scaled(url('assets/window-assets/titlebutton-#{$k}#{$m}#{$darker_asset_suffix}.png'),
+                                                       url('assets/window-assets/titlebutton-#{$k}#{$m}#{$darker_asset_suffix}@2.png')); }
         }
       }
-    }
-  }
 
-  .csd.maximized &, .solid-csd.maximized & {
-    button.titlebutton {
-      @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
-      &.maximize#{$l} { background-image: -gtk-scaled(url('assets/window-assets/titlebutton-restore#{$m}#{$darker_asset_suffix}.png'),
-                                                      url('assets/window-assets/titlebutton-restore#{$m}#{$darker_asset_suffix}@2.png')); }
+      .maximized &.maximize {
+        @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
+        &#{$l} { background-image: -gtk-scaled(url('assets/window-assets/titlebutton-restore#{$m}#{$darker_asset_suffix}.png'),
+                                               url('assets/window-assets/titlebutton-restore#{$m}#{$darker_asset_suffix}@2.png')); }
+        }
+      }
+    } @else {
+      &.close {
+        border-radius: $button_radius;
+      }
+
+      image {
+        background-color: transparent;
+        padding: 0;
+        border: none;
+        outline: none;
+        box-shadow: none;
+        color: transparent;
+      }
+
+      &:hover > image,
+      &:active > image {
+        background-color: transparent;
+        color: transparent;
       }
     }
   }
-}
-
-// solid-csd Window manager buttons
-@if $titlebutton == 'default' {
-  headerbar:not(.default-decoration) { @extend %solid_titlebuttons; }
 }
 
 //
@@ -4652,7 +4590,7 @@ shortcuts-section {
 
 %circular_button,
 button.circular { // FIXME: aggregate to buttons
-  border-radius: 100px;
+  border-radius: 1000px;
 
   // label { padding: 0; }
 }

@@ -173,8 +173,6 @@ assistant {
   }
 }
 
-%osd, .osd { opacity: 0.87; }
-
 //
 // Spinner Animation
 //
@@ -1122,7 +1120,7 @@ toolbar {
 
 searchbar > revealer > box,
 .location-bar {
-  padding: $space_size;
+  padding: $space_size * 2 0;
   border-style: solid;
   border-width: 0 0 1px;
   border-color: $border;
@@ -1950,12 +1948,6 @@ popover.background {
     border-style: none;
     box-shadow: none;
     background-color: transparent;
-  }
-
-  &, .csd & {
-    &.touch-selection,
-    &.magnifier,
-    &.osd { @extend %osd; }
   }
 
   entry { @extend %flat_entry; }
@@ -3052,7 +3044,6 @@ row {
 // App Notifications
 //
 .app-notification {
-  @extend %osd;
   @extend %toolbar_osd;
   margin: 8px;
 
@@ -3522,18 +3513,15 @@ tooltip {
     // background-color needs to be set this way otherwise it gets drawn twice
     // see https://bugzilla.gnome.org/show_bug.cgi?id=736155 for details.
     box-shadow: inset 0 1px $highlight;
-    background-color: gtkalpha($base, 0.9);
+    background-color: gtkalpha($base, 0.97);
   }
 
-  // @extend %osd;
-
   // padding: 4px; /* not working */
-  border-radius: 2px;
+  border-radius: 3px;
   box-shadow: none; // otherwise it gets inherited by windowframe.csd
 
   &:not(.csd) {
     border: 1px solid $border;
-    border-radius: 2px + 1px;
     background-clip: $extra_background_clip;
   }
 
@@ -3678,16 +3666,6 @@ colorchooser .popover.osd {
   background-color: $background;
 
   rubberband { @extend rubberband; }
-}
-
-.scale-popup {
-  .osd & { @extend %osd; }
-
-  .osd & button.flat {  //FIXME: quick hack, redo properly
-  }
-
-  button { // +/- buttons on GtkVolumeButton popup
-  }
 }
 
 //

@@ -10,6 +10,15 @@
   }
 }
 
+@keyframes headerbar_ripple_effect {
+  from {
+    background-image: radial-gradient(circle, #4285F4 0%, transparent 0%);
+  }
+  to {
+    background-image: radial-gradient(circle, #4285F4 100%, transparent 100%);
+  }
+}
+
 * {
   padding: 0;
   background-clip: padding-box;
@@ -5065,10 +5074,12 @@ headerbar windowcontrols {
 
 headerbar windowcontrols.start:not(.empty):dir(ltr), headerbar windowcontrols.end:not(.empty):dir(rtl) {
   margin-right: 9px;
+  margin-left: 6px;
 }
 
 headerbar windowcontrols.start:not(.empty):dir(rtl), headerbar windowcontrols.end:not(.empty):dir(ltr) {
   margin-left: 9px;
+  margin-right: 6px;
 }
 
 headerbar windowcontrols > button.close:not(.suggested-action):not(.destructive-action), headerbar windowcontrols > button.maximize:not(.suggested-action):not(.destructive-action), headerbar windowcontrols > button.minimize:not(.suggested-action):not(.destructive-action) {

@@ -172,11 +172,6 @@ assistant .sidebar label.highlight {
   color: rgba(0, 0, 0, 0.87);
 }
 
-.nemo-window .floating-bar,
-.nautilus-window .floating-bar, .osd .scale-popup, .app-notification, popover.background.touch-selection, popover.background.magnifier, popover.background.osd, .csd popover.background.touch-selection, .csd popover.background.magnifier, .csd popover.background.osd, .osd {
-  opacity: 0.87;
-}
-
 @keyframes spin {
   to {
     -gtk-icon-transform: rotate(1turn);
@@ -1498,7 +1493,7 @@ window.background stack scrolledwindow .linked:not(stackswitcher) button:checked
 
 searchbar > revealer > box,
 .location-bar {
-  padding: 6px;
+  padding: 12px 0;
   border-style: solid;
   border-width: 0 0 1px;
   border-color: rgba(0, 0, 0, 0.12);
@@ -4132,18 +4127,17 @@ window.background stack scrolledwindow infobar button:disabled:active, infobar.i
 }
 
 tooltip {
-  border-radius: 2px;
+  border-radius: 3px;
   box-shadow: none;
 }
 
 tooltip.background {
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.35);
-  background-color: alpha(#FFFFFF, 0.9);
+  background-color: alpha(#FFFFFF, 0.97);
 }
 
 tooltip:not(.csd) {
   border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 3px;
   background-clip: padding-box;
 }
 

@@ -4463,22 +4463,36 @@ window {
 
 // Window button
 headerbar windowcontrols {
-  &:not(.empty) {
-    &.start:dir(ltr),
-    &.end:dir(rtl) {
-      margin-right: $space_size * 1.5;
-    }
-
-    &.start:dir(rtl),
-    &.end:dir(ltr) {
-      margin-left: $space_size * 1.5;
-    }
-  }
-
   @if $titlebutton == 'default' {
     border-spacing: $space_size;
+
+    &:not(.empty) {
+      &.start:dir(ltr),
+      &.end:dir(rtl) {
+        margin-right: $space_size * 1.5;
+        margin-left: $space_size;
+      }
+
+      &.start:dir(rtl),
+      &.end:dir(ltr) {
+        margin-left: $space_size * 1.5;
+        margin-right: $space_size;
+      }
+    }
   } @else {
     border-spacing: $space_size * 1.5;
+
+    &:not(.empty) {
+      &.start:dir(ltr),
+      &.end:dir(rtl) {
+        margin-right: $space_size * 1.5;
+      }
+
+      &.start:dir(rtl),
+      &.end:dir(ltr) {
+        margin-left: $space_size * 1.5;
+      }
+    }
   }
 
   > button:not(.suggested-action):not(.destructive-action) {

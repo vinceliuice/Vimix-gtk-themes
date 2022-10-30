@@ -43,23 +43,23 @@ Usage:  `./install.sh`  **[OPTIONS...]**
 
 ```
 -d, --dest DIR          Specify destination directory (Default: $HOME/.themes)
--n, --name NAME         Specify theme name (Default: Jasper)
--t, --theme VARIANT     Specify theme color variant(s) [default|purple|pink|red|orange|yellow|green|blue|grey|all] (Default: teal)
+-n, --name NAME         Specify theme name (Default: vimix)
+-t, --theme VARIANT     Specify theme color variant(s) [doder|beryl|ruby|amethyst|grey] (Default: doder(blue))
 -c, --color VARIANT     Specify color variant(s) [standard|light|dark] (Default: All variants)
--s, --size VARIANT      Specify size variant [standard|compact] (Default: standard variant)
+-s, --size  VARIANT     Specify size variant [standard|compact] (Default: standard variant)
 
 -l, --libadwaita        Link installed gtk-4.0 theme to config folder for all libadwaita app use this theme
 
 -r, --remove,
 -u, --uninstall         Uninstall/Remove installed themes
 
---tweaks                Specify versions for tweaks [nord|dracula|black|macos] (only nord and dracula can not mix use with!)
-                        1. nord:     Nord ColorScheme version
-                        2. dracula   Dracula ColorScheme version
-                        3. black:    Blackness color version
-                        4. macos:    Macos style windows button
+-tweaks, --tweaks       Specify versions for tweaks [flat|grey|mix|translucent] (only nord and dracula can not mix use with!)
+                        1. flat         Flat and normal button style for windows control buttons
+                        2. grey         Use grey windows control buttons in grey accent color variants
+                        3. mix          Mix theme color and dark grey color for background color in darkmode variants
+                        4. translucent  Translucent panel version
 
--h, --help              Show help
+
 ```
 
 ## Screenshots

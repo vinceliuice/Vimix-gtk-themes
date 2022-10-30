@@ -33,34 +33,34 @@ Search for the engines in your distributions repository or install the engines f
 
 ## Install Or Uninstall
 
-Open the terminal at current directory.
+Run the following commands in the terminal:
 
-Run
-
-    ./install.sh
+```sh
+./install.sh
+```
 
 Usage:  `./install.sh`  **[OPTIONS...]**
 
-|  OPTIONS:         |              |
-|:------------------|:-------------|
-| -d, --dest        | Specify theme destination directory (Default: $HOME/.themes) |
-| -n, --name        | Specify theme name (Default: vimix) |
-| -a, --all         | install all theme variant(s) |
-| -c, --color       | Specify theme color variant(s) **[standard/light/dark]** (Default: All variants) |
-| -t, --theme       | Specify hue theme variant(s) **[standard/doder/beryl/ruby/amethyst]** (Default: doder) |
-| -s, --size        | Specify theme size variant(s) **[standard/compact]** (Default: standard) |
-| -tweaks, --tweaks | Specify theme tweaks: [flat|grey|mix|translucent] |
-|                   | flat: Specify theme with flat and normal titlebutton style |
-|                   | grey: Use grey titlebuttons in standard variants |
-|                   | mix:  Mix theme color and dark grey color for dark background color variants |
-|                   | translucent:  Translucent panel version |
-| -h, --help        | Show this help |
+```
+-d, --dest DIR          Specify destination directory (Default: $HOME/.themes)
+-n, --name NAME         Specify theme name (Default: Jasper)
+-t, --theme VARIANT     Specify theme color variant(s) [default|purple|pink|red|orange|yellow|green|blue|grey|all] (Default: teal)
+-c, --color VARIANT     Specify color variant(s) [standard|light|dark] (Default: All variants)
+-s, --size VARIANT      Specify size variant [standard|compact] (Default: standard variant)
 
-if you want to get the last vimix theme version online, you can
+-l, --libadwaita        Link installed gtk-4.0 theme to config folder for all libadwaita app use this theme
 
-Run
+-r, --remove,
+-u, --uninstall         Uninstall/Remove installed themes
 
-    ./update-vimix-online
+--tweaks                Specify versions for tweaks [nord|dracula|black|macos] (only nord and dracula can not mix use with!)
+                        1. nord:     Nord ColorScheme version
+                        2. dracula   Dracula ColorScheme version
+                        3. black:    Blackness color version
+                        4. macos:    Macos style windows button
+
+-h, --help              Show help
+```
 
 ## Screenshots
 

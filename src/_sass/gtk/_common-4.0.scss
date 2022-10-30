@@ -539,6 +539,39 @@ $_dot_color: if($variant=='light', $primary, lighten($primary, 15%));
   }
 }
 
+// Buttons on selected backgrounds
+@mixin selected_button($color:$primary) {
+  @include ripple(flat);
+  background-color: gtkalpha(currentColor, 0.1);
+  color: on($color, secondary);
+
+  &, &:hover, &:focus, &:active, &:checked, &:disabled {
+    box-shadow: none;
+    outline: none;
+    border: none;
+  }
+
+  &:hover {
+    background-color: gtkalpha(currentColor, 0.16);
+    color: on($color);
+  }
+
+  &:active {
+    background-color: gtkalpha(currentColor, 0.16);
+    color: on($color);
+  }
+
+  &:checked {
+    background-color: gtkalpha(currentColor, 0.12);
+    color: on($color);
+  }
+
+  &:disabled {
+    background-color: gtkalpha(currentColor, 0.05);
+    color: on($color, disabled);
+  }
+}
+
 button {
   min-height: 24px;
   min-width: 16px;
@@ -1452,7 +1485,7 @@ searchbar > revealer > box {
   &:hover { @include button(header-hover); }
   &:active { @include button(header-active); }
   &:disabled { @include button(header-disabled); }
-  &:checked { @include button(header-checked); }
+  &:checked, &:checked:hover { @include button(header-checked); }
   // &:checked:hover { @include button(header-checked-hover); }
   &:checked:disabled, &:checked:backdrop { @include button(header-checked-disabled); }
   &:backdrop {
@@ -1487,12 +1520,14 @@ searchbar > revealer > box {
                                   indicator(header) 100%,
                                   transparent 0%)
                                   0 0 2 / 0 0 2px;
-    background: none;
+    background-color: transparent;
+    background-image: none;
     color: indicator(header);
     border-radius: 0;
 
     &:disabled {
       color: rgba(indicator(header), 0.35);
+      background-color: transparent;
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                     rgba(indicator(header), 0.35) 100%,
                                     transparent 0%)
@@ -1500,10 +1535,14 @@ searchbar > revealer > box {
     }
   }
 
-  &:checked:hover { background: none; }
+  &:checked:hover {
+    background-color: transparent;
+    background-image: none;
+  }
 
   &:disabled {
     color: on($header, secondary-disabled);
+    background-color: transparent;
   }
 }
 
@@ -1551,7 +1590,8 @@ headerbar {
 
   button.suggested-action, button.destructive-action {
     &:disabled {
-      color: gtkalpha(currentColor, 0.3);
+      color: on($header, secondary-disabled);
+      background-color: transparent;
       > label { color: inherit; }
     }
   }
@@ -3538,12 +3578,16 @@ row {
     }
   }
 
-  button &.activatable {
-    &:focus, &:hover, &:active {
-      background-color: transparent;
-      background-image: none;
-      transition: none;
-      animation: none;
+  button {
+    &:not(.suggested-action):not(.destructive-action) { @extend %flat_button; }
+
+    &.activatable {
+      &:focus, &:hover, &:active {
+        background-color: transparent;
+        background-image: none;
+        transition: none;
+        animation: none;
+      }
     }
   }
 
@@ -4210,73 +4254,35 @@ video {
 // GtkInfoBar
 //
 infobar {
-  border-style: none;
+  border: none;
 
   > revealer > box {
     padding: $space_size + 2px;
     border-spacing: $space_size * 2;
   }
 
-  &.info > revealer > box { background-color: $info; }
-  &.question > revealer > box { background-color: $question; }
-  &.warning > revealer > box { background-color: $warning; }
-  &.error > revealer > box { background-color: $error; }
-
-  &.info,
-  &.question,
-  &.warning,
-  &.error {
-    > label, & { color: on($primary); }
-
-    button { @extend %selected_button; }
-    link { color: on($primary); }
-  }
-}
-
-// Buttons on selected backgrounds
-%selected_button {
-  color: on(dark);
-  background-color: transparentize(on(dark), 1);
-  border: 1px solid transparentize(on(dark), 0.5);
-  box-shadow: none;
-
-  &.flat {
-    color: on(dark);
-    background-color: transparentize(on(dark), 1);
-    box-shadow: none;
-
-    &:disabled {
-      &, label { color: transparentize(on(dark), 0.6); }
-      box-shadow: none;
-    }
+  &.info > revealer > box {
+    background-color: $info;
+    > label, link, button.link, & { color: on($info); }
+    button { @include selected_button($info); }
   }
 
-  &:hover {
-    color: on(dark);
-    background-color: transparentize(on(dark), 0.8);
-    border-color: transparentize(on(dark), 0.2);
-    box-shadow: none;
+  &.question > revealer > box {
+    background-color: $question;
+    > label, link, button.link, & { color: on($question); }
+    button { @include selected_button($question); }
   }
 
-  &:active, &:active:hover, &:checked {
-    color: on(dark);
-    background-color: transparentize(on(dark), 0.9);
-    border-color: transparentize(on(dark), 0.2);
-    box-shadow: none;
+  &.warning > revealer > box {
+    background-color: $warning;
+    > label, link, button.link, & { color: on($warning); }
+    button { @include selected_button($warning); }
   }
 
-  &:disabled {
-    &, label { color: transparentize(on(dark), 0.5); }
-    background-color: transparentize(on(dark), 1);
-    border-color: transparentize(on(dark), 0.6);
-    box-shadow: none;
-
-    &:active, &:checked {
-      color: on(dark);
-      background-color: transparentize(on(dark), 0.5);
-      border-color: transparentize(on(dark), 0.6);
-      box-shadow: none;
-    }
+  &.error > revealer > box {
+    background-color: $error;
+    > label, link, button.link, & { color: on($error); }
+    button { @include selected_button($error); }
   }
 }
 

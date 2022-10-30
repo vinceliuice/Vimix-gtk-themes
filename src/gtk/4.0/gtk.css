@@ -647,7 +647,7 @@ button:checked:disabled {
   color: alpha(#4285F4, 0.5);
 }
 
-datechooser.view button.circular.day, #NautilusQueryEditor > menubutton > button, button.emoji-section, window.dialog.message.csd .linked.dialog-action-area:not(.vertical) > button, window.dialog.message .linked.dialog-action-area:not(.vertical) > button, actionbar > revealer > box button:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model, popover.menu box.inline-buttons button.image-button.model,
+datechooser.view button.circular.day, #NautilusQueryEditor > menubutton > button, button.emoji-section, window.dialog.message.csd .linked.dialog-action-area:not(.vertical) > button, window.dialog.message .linked.dialog-action-area:not(.vertical) > button, row button:not(.suggested-action):not(.destructive-action), actionbar > revealer > box button:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model, popover.menu box.inline-buttons button.image-button.model,
 pathbar > button,
 .pathbar > button, .toolbar button, .linked > spinbutton:not(.vertical) > button.up, .linked > spinbutton:not(.vertical) > button.down,
 list > row button.image-button:not(.flat), splitbutton.flat > button,
@@ -664,7 +664,7 @@ splitbutton.flat > menubutton > button, menubutton.suggested-action > button, me
   background-size: 1000% 1000%;
 }
 
-datechooser.view button.circular.day:active, #NautilusQueryEditor > menubutton > button:active, button.emoji-section:active, window.dialog.message .linked.dialog-action-area:not(.vertical) > button:active, actionbar > revealer > box button:active:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:active, popover.menu box.inline-buttons button.image-button.model:active,
+datechooser.view button.circular.day:active, #NautilusQueryEditor > menubutton > button:active, button.emoji-section:active, window.dialog.message .linked.dialog-action-area:not(.vertical) > button:active, row button:active:not(.suggested-action):not(.destructive-action), actionbar > revealer > box button:active:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:active, popover.menu box.inline-buttons button.image-button.model:active,
 pathbar > button:active,
 .pathbar > button:active, .toolbar button:active, .linked > spinbutton:not(.vertical) > button.up:active, .linked > spinbutton:not(.vertical) > button.down:active,
 list > row button.image-button:active:not(.flat), splitbutton.flat > button:active,
@@ -674,7 +674,7 @@ splitbutton.flat > menubutton > button:active, menubutton.suggested-action > but
   background-size: 0% 0%;
 }
 
-datechooser.view button.circular.day:active, #NautilusQueryEditor > menubutton > button:active, button.emoji-section:active, window.dialog.message .linked.dialog-action-area:not(.vertical) > button:active, actionbar > revealer > box button:active:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:active, popover.menu box.inline-buttons button.image-button.model:active,
+datechooser.view button.circular.day:active, #NautilusQueryEditor > menubutton > button:active, button.emoji-section:active, window.dialog.message .linked.dialog-action-area:not(.vertical) > button:active, row button:active:not(.suggested-action):not(.destructive-action), actionbar > revealer > box button:active:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:active, popover.menu box.inline-buttons button.image-button.model:active,
 pathbar > button:active,
 .pathbar > button:active, .toolbar button:active, .linked > spinbutton:not(.vertical) > button.up:active, .linked > spinbutton:not(.vertical) > button.down:active,
 list > row button.image-button:active:not(.flat), splitbutton.flat > button:active,
@@ -682,7 +682,7 @@ splitbutton.flat > menubutton > button:active, menubutton.suggested-action > but
   background-image: radial-gradient(circle, alpha(currentColor, 0.16) 10%, transparent 10%);
 }
 
-datechooser.view button.circular.day:hover, #NautilusQueryEditor > menubutton > button:hover, button.emoji-section:hover, window.dialog.message .linked.dialog-action-area:not(.vertical) > button:hover, actionbar > revealer > box button:hover:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:hover, popover.menu box.inline-buttons button.image-button.model:hover,
+datechooser.view button.circular.day:hover, #NautilusQueryEditor > menubutton > button:hover, button.emoji-section:hover, window.dialog.message .linked.dialog-action-area:not(.vertical) > button:hover, row button:hover:not(.suggested-action):not(.destructive-action), actionbar > revealer > box button:hover:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:hover, popover.menu box.inline-buttons button.image-button.model:hover,
 pathbar > button:hover,
 .pathbar > button:hover, .toolbar button:hover, .linked > spinbutton:not(.vertical) > button.up:hover, .linked > spinbutton:not(.vertical) > button.down:hover,
 list > row button.image-button:hover:not(.flat), splitbutton.flat > button:hover,
@@ -692,25 +692,27 @@ splitbutton.flat > menubutton > button:hover, menubutton.suggested-action > butt
   background-color: alpha(currentColor, 0.1);
 }
 
-datechooser.view button.circular.day:focus, #NautilusQueryEditor > menubutton > button:focus, button.emoji-section:focus, window.dialog.message .linked.dialog-action-area:not(.vertical) > button:focus, actionbar > revealer > box button:focus:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:focus, popover.menu box.inline-buttons button.image-button.model:focus,
+datechooser.view button.circular.day:focus, #NautilusQueryEditor > menubutton > button:focus, button.emoji-section:focus, window.dialog.message .linked.dialog-action-area:not(.vertical) > button:focus, row button:focus:not(.suggested-action):not(.destructive-action), actionbar > revealer > box button:focus:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:focus, popover.menu box.inline-buttons button.image-button.model:focus,
 pathbar > button:focus,
 .pathbar > button:focus, .toolbar button:focus, .linked > spinbutton:not(.vertical) > button.up:focus, .linked > spinbutton:not(.vertical) > button.down:focus,
 list > row button.image-button:focus:not(.flat), splitbutton.flat > button:focus,
 splitbutton.flat > menubutton > button:focus, menubutton.suggested-action > button:focus, menubutton.destructive-action > button:focus, menubutton.opaque > button:focus, menubutton.flat > button:focus, toolbutton button:focus, .linked.stack-switcher > button:focus, button.flat:focus, toast button:focus {
   outline: none;
   box-shadow: none;
+  color: rgba(0, 0, 0, 0.87);
 }
 
-datechooser.view button.circular.day:active, #NautilusQueryEditor > menubutton > button:active, button.emoji-section:active, window.dialog.message .linked.dialog-action-area:not(.vertical) > button:active, actionbar > revealer > box button:active:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:active, popover.menu box.inline-buttons button.image-button.model:active,
+datechooser.view button.circular.day:active, #NautilusQueryEditor > menubutton > button:active, button.emoji-section:active, window.dialog.message .linked.dialog-action-area:not(.vertical) > button:active, row button:active:not(.suggested-action):not(.destructive-action), actionbar > revealer > box button:active:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:active, popover.menu box.inline-buttons button.image-button.model:active,
 pathbar > button:active,
 .pathbar > button:active, .toolbar button:active, .linked > spinbutton:not(.vertical) > button.up:active, .linked > spinbutton:not(.vertical) > button.down:active,
 list > row button.image-button:active:not(.flat), splitbutton.flat > button:active,
 splitbutton.flat > menubutton > button:active, menubutton.suggested-action > button:active, menubutton.destructive-action > button:active, menubutton.opaque > button:active, menubutton.flat > button:active, toolbutton button:active, .linked.stack-switcher > button:active, button.flat:active, toast button:active {
   box-shadow: none;
   color: rgba(0, 0, 0, 0.87);
+  background-color: alpha(currentColor, 0.1);
 }
 
-datechooser.view button.circular.day:disabled, #NautilusQueryEditor > menubutton > button:disabled, button.emoji-section:disabled, window.dialog.message .linked.dialog-action-area:not(.vertical) > button:disabled, actionbar > revealer > box button:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:disabled, popover.menu box.inline-buttons button.image-button.model:disabled,
+datechooser.view button.circular.day:disabled, #NautilusQueryEditor > menubutton > button:disabled, button.emoji-section:disabled, window.dialog.message .linked.dialog-action-area:not(.vertical) > button:disabled, row button:disabled:not(.suggested-action):not(.destructive-action), actionbar > revealer > box button:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:disabled, popover.menu box.inline-buttons button.image-button.model:disabled,
 pathbar > button:disabled,
 .pathbar > button:disabled, .toolbar button:disabled, .linked > spinbutton:not(.vertical) > button.up:disabled, .linked > spinbutton:not(.vertical) > button.down:disabled,
 list > row button.image-button:disabled:not(.flat), splitbutton.flat > button:disabled,
@@ -722,7 +724,7 @@ splitbutton.flat > menubutton > button:disabled, menubutton.suggested-action > b
   filter: none;
 }
 
-datechooser.view button.circular.day:checked, #NautilusQueryEditor > menubutton > button:checked, button.emoji-section:checked, window.dialog.message .linked.dialog-action-area:not(.vertical) > button:checked, actionbar > revealer > box button:checked:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:checked, popover.menu box.inline-buttons button.image-button.model:checked,
+datechooser.view button.circular.day:checked, #NautilusQueryEditor > menubutton > button:checked, button.emoji-section:checked, window.dialog.message .linked.dialog-action-area:not(.vertical) > button:checked, row button:checked:not(.suggested-action):not(.destructive-action), actionbar > revealer > box button:checked:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:checked, popover.menu box.inline-buttons button.image-button.model:checked,
 pathbar > button:checked,
 .pathbar > button:checked, .toolbar button:checked, .linked > spinbutton:not(.vertical) > button.up:checked, .linked > spinbutton:not(.vertical) > button.down:checked,
 list > row button.image-button:checked:not(.flat), splitbutton.flat > button:checked,
@@ -731,7 +733,7 @@ splitbutton.flat > menubutton > button:checked, menubutton.suggested-action > bu
   background-color: alpha(currentColor, 0.12);
 }
 
-datechooser.view button.circular.day:checked:disabled, #NautilusQueryEditor > menubutton > button:checked:disabled, button.emoji-section:checked:disabled, window.dialog.message .linked.dialog-action-area:not(.vertical) > button:checked:disabled, actionbar > revealer > box button:checked:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:checked:disabled, popover.menu box.inline-buttons button.image-button.model:checked:disabled,
+datechooser.view button.circular.day:checked:disabled, #NautilusQueryEditor > menubutton > button:checked:disabled, button.emoji-section:checked:disabled, window.dialog.message .linked.dialog-action-area:not(.vertical) > button:checked:disabled, row button:checked:disabled:not(.suggested-action):not(.destructive-action), actionbar > revealer > box button:checked:disabled:not(.suggested-action):not(.destructive-action):not(.server-list-button), popover.menu box.circular-buttons button.circular.image-button.model:checked:disabled, popover.menu box.inline-buttons button.image-button.model:checked:disabled,
 pathbar > button:checked:disabled,
 .pathbar > button:checked:disabled, .toolbar button:checked:disabled, .linked > spinbutton:not(.vertical) > button.up:checked:disabled, .linked > spinbutton:not(.vertical) > button.down:checked:disabled,
 list > row button.image-button:checked:disabled:not(.flat), splitbutton.flat > button:checked:disabled,
@@ -777,12 +779,14 @@ radio:hover, scrollbar button:hover, notebook > header > tabs > arrow:hover, pop
 radio:focus, scrollbar button:focus, notebook > header > tabs > arrow:focus, popover.background modelbutton:focus, spinbutton:not(.vertical) > button:focus {
   outline: none;
   box-shadow: none;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .floating-bar button:active, #NautilusPathBar #NautilusPathButton:active, placessidebar .navigation-sidebar > row button.sidebar-button:active, check:active,
 radio:active, scrollbar button:active, notebook > header > tabs > arrow:active, popover.background modelbutton:active, spinbutton:not(.vertical) > button:active {
   box-shadow: none;
   color: rgba(0, 0, 0, 0.87);
+  background-color: alpha(currentColor, 0.1);
 }
 
 .floating-bar button:disabled, #NautilusPathBar #NautilusPathButton:disabled, placessidebar .navigation-sidebar > row button.sidebar-button:disabled, check:disabled,
@@ -1120,7 +1124,7 @@ button.suggested-action {
 
 button.suggested-action:hover {
   box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px -1px rgba(0, 0, 0, 0.14), 0 3px 4px -1px rgba(0, 0, 0, 0.12);
-  color: rgba(0, 0, 0, 0.87);
+  color: white;
   background-color: #5a95f5;
   background-color: #5a95f5;
   color: white;
@@ -1129,7 +1133,7 @@ button.suggested-action:hover {
 button.suggested-action:disabled {
   box-shadow: none;
   background-color: rgba(0, 0, 0, 0.12);
-  color: rgba(0, 0, 0, 0.26);
+  color: rgba(255, 255, 255, 0.3);
   opacity: 1;
   filter: none;
 }
@@ -1143,24 +1147,25 @@ button.suggested-action.flat {
   color: #4285F4;
   box-shadow: none;
   background-color: transparent;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 button.suggested-action.flat:hover {
   box-shadow: none;
-  color: rgba(0, 0, 0, 0.87);
+  color: white;
   background-color: alpha(currentColor, 0.1);
 }
 
 button.suggested-action.flat:active, button.suggested-action.flat:checked {
   box-shadow: none;
-  color: rgba(0, 0, 0, 0.87);
+  color: white;
+  background-color: alpha(currentColor, 0.1);
 }
 
 button.suggested-action.flat:disabled {
   box-shadow: none;
   background-color: transparent;
-  color: rgba(0, 0, 0, 0.26);
+  color: rgba(255, 255, 255, 0.3);
   opacity: 1;
   filter: none;
 }
@@ -1173,7 +1178,7 @@ button.destructive-action {
 
 button.destructive-action:hover {
   box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 3px -1px rgba(0, 0, 0, 0.14), 0 3px 4px -1px rgba(0, 0, 0, 0.12);
-  color: rgba(0, 0, 0, 0.87);
+  color: white;
   background-color: #ff6c6c;
   background-color: #ff6c6c;
   color: white;
@@ -1182,7 +1187,7 @@ button.destructive-action:hover {
 button.destructive-action:disabled {
   box-shadow: none;
   background-color: rgba(0, 0, 0, 0.12);
-  color: rgba(0, 0, 0, 0.26);
+  color: rgba(255, 255, 255, 0.3);
   opacity: 1;
   filter: none;
 }
@@ -1196,24 +1201,25 @@ button.destructive-action.flat {
   color: #FF5252;
   box-shadow: none;
   background-color: transparent;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 button.destructive-action.flat:hover {
   box-shadow: none;
-  color: rgba(0, 0, 0, 0.87);
+  color: white;
   background-color: alpha(currentColor, 0.1);
 }
 
 button.destructive-action.flat:active, button.destructive-action.flat:checked {
   box-shadow: none;
-  color: rgba(0, 0, 0, 0.87);
+  color: white;
+  background-color: alpha(currentColor, 0.1);
 }
 
 button.destructive-action.flat:disabled {
   box-shadow: none;
   background-color: transparent;
-  color: rgba(0, 0, 0, 0.26);
+  color: rgba(255, 255, 255, 0.3);
   opacity: 1;
   filter: none;
 }
@@ -1512,7 +1518,7 @@ button.color > colorswatch:only-child, button.color > colorswatch:only-child > o
 list > row button.image-button.suggested-action:not(.flat) {
   box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 2px -1px rgba(0, 0, 0, 0.22), 0 1px 2px -0.6px rgba(0, 0, 0, 0.12);
   background-color: #4285F4;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.7);
   outline: none;
   border: none;
 }
@@ -1521,7 +1527,7 @@ list > row button.image-button.suggested-action:not(.flat) {
 list > row button.image-button.destructive-action:not(.flat) {
   box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 2px -1px rgba(0, 0, 0, 0.22), 0 1px 2px -0.6px rgba(0, 0, 0, 0.12);
   background-color: #FF5252;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.7);
   outline: none;
   border: none;
 }
@@ -1906,22 +1912,26 @@ headerbar viewswitcher button:hover:not(.suggested-action):not(.destructive-acti
 
 headerbar viewswitcher button:checked:not(.suggested-action):not(.destructive-action), headerbar windowhandle stackswitcher.linked > button:checked:not(.suggested-action):not(.destructive-action), headerbar viewswitcher button:active:not(.suggested-action):not(.destructive-action), headerbar windowhandle stackswitcher.linked > button:active:not(.suggested-action):not(.destructive-action) {
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 100%, transparent 0%) 0 0 2/0 0 2px;
-  background: none;
+  background-color: transparent;
+  background-image: none;
   color: #4285F4;
   border-radius: 0;
 }
 
 headerbar viewswitcher button:checked:disabled:not(.suggested-action):not(.destructive-action), headerbar windowhandle stackswitcher.linked > button:checked:disabled:not(.suggested-action):not(.destructive-action), headerbar viewswitcher button:active:disabled:not(.suggested-action):not(.destructive-action), headerbar windowhandle stackswitcher.linked > button:active:disabled:not(.suggested-action):not(.destructive-action) {
   color: rgba(66, 133, 244, 0.35);
+  background-color: transparent;
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), rgba(66, 133, 244, 0.35) 100%, transparent 0%) 0 0 2/0 0 2px;
 }
 
 headerbar viewswitcher button:checked:hover:not(.suggested-action):not(.destructive-action), headerbar windowhandle stackswitcher.linked > button:checked:hover:not(.suggested-action):not(.destructive-action) {
-  background: none;
+  background-color: transparent;
+  background-image: none;
 }
 
 headerbar viewswitcher button:disabled:not(.suggested-action):not(.destructive-action), headerbar windowhandle stackswitcher.linked > button:disabled:not(.suggested-action):not(.destructive-action) {
   color: rgba(255, 255, 255, 0.3);
+  background-color: transparent;
 }
 
 headerbar {
@@ -1970,7 +1980,8 @@ headerbar > windowhandle > box > box.end {
 }
 
 headerbar button.suggested-action:disabled, headerbar button.destructive-action:disabled {
-  color: alpha(currentColor, 0.3);
+  color: rgba(255, 255, 255, 0.3);
+  background-color: transparent;
 }
 
 headerbar button.suggested-action:disabled > label, headerbar button.destructive-action:disabled > label {
@@ -4302,7 +4313,7 @@ row.activatable.has-open-popup, row.activatable:active {
   background-image: radial-gradient(circle, alpha(currentColor, 0.1) 15%, transparent 15%);
 }
 
-button row.activatable:focus, button row.activatable:hover, button row.activatable:active {
+row button.activatable:focus, row button.activatable:hover, row button.activatable:active {
   background-color: transparent;
   background-image: none;
   transition: none;
@@ -4899,7 +4910,7 @@ video image.osd {
 }
 
 infobar {
-  border-style: none;
+  border: none;
 }
 
 infobar > revealer > box {
@@ -4911,76 +4922,224 @@ infobar.info > revealer > box {
   background-color: #66BB6A;
 }
 
+infobar.info > revealer > box > label, infobar.info > revealer > box link, infobar.info > revealer > box button.link, infobar.info > revealer > box {
+  color: white;
+}
+
+infobar.info > revealer > box button {
+  transition-property: all, border-image, background-size, background-image;
+  transition-duration: 100ms, 225ms, 300ms, 600ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  background-image: radial-gradient(circle, transparent 10%, transparent 10%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1000% 1000%;
+  background-color: alpha(currentColor, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+infobar.info > revealer > box button:active {
+  transition-duration: 100ms, 225ms, 0ms, 0ms;
+  animation: ripple_effect 300ms cubic-bezier(0, 0, 0.2, 1) forwards;
+  background-size: 0% 0%;
+}
+
+infobar.info > revealer > box button:active {
+  background-image: radial-gradient(circle, alpha(currentColor, 0.16) 10%, transparent 10%);
+}
+
+infobar.info > revealer > box button, infobar.info > revealer > box button:hover, infobar.info > revealer > box button:focus, infobar.info > revealer > box button:active, infobar.info > revealer > box button:checked, infobar.info > revealer > box button:disabled {
+  box-shadow: none;
+  outline: none;
+  border: none;
+}
+
+infobar.info > revealer > box button:hover {
+  background-color: alpha(currentColor, 0.16);
+  color: white;
+}
+
+infobar.info > revealer > box button:active {
+  background-color: alpha(currentColor, 0.16);
+  color: white;
+}
+
+infobar.info > revealer > box button:checked {
+  background-color: alpha(currentColor, 0.12);
+  color: white;
+}
+
+infobar.info > revealer > box button:disabled {
+  background-color: alpha(currentColor, 0.05);
+  color: rgba(255, 255, 255, 0.45);
+}
+
 infobar.question > revealer > box {
   background-color: #42A5F5;
+}
+
+infobar.question > revealer > box > label, infobar.question > revealer > box link, infobar.question > revealer > box button.link, infobar.question > revealer > box {
+  color: white;
+}
+
+infobar.question > revealer > box button {
+  transition-property: all, border-image, background-size, background-image;
+  transition-duration: 100ms, 225ms, 300ms, 600ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  background-image: radial-gradient(circle, transparent 10%, transparent 10%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1000% 1000%;
+  background-color: alpha(currentColor, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+infobar.question > revealer > box button:active {
+  transition-duration: 100ms, 225ms, 0ms, 0ms;
+  animation: ripple_effect 300ms cubic-bezier(0, 0, 0.2, 1) forwards;
+  background-size: 0% 0%;
+}
+
+infobar.question > revealer > box button:active {
+  background-image: radial-gradient(circle, alpha(currentColor, 0.16) 10%, transparent 10%);
+}
+
+infobar.question > revealer > box button, infobar.question > revealer > box button:hover, infobar.question > revealer > box button:focus, infobar.question > revealer > box button:active, infobar.question > revealer > box button:checked, infobar.question > revealer > box button:disabled {
+  box-shadow: none;
+  outline: none;
+  border: none;
+}
+
+infobar.question > revealer > box button:hover {
+  background-color: alpha(currentColor, 0.16);
+  color: white;
+}
+
+infobar.question > revealer > box button:active {
+  background-color: alpha(currentColor, 0.16);
+  color: white;
+}
+
+infobar.question > revealer > box button:checked {
+  background-color: alpha(currentColor, 0.12);
+  color: white;
+}
+
+infobar.question > revealer > box button:disabled {
+  background-color: alpha(currentColor, 0.05);
+  color: rgba(255, 255, 255, 0.45);
 }
 
 infobar.warning > revealer > box {
   background-color: #F4B400;
 }
 
+infobar.warning > revealer > box > label, infobar.warning > revealer > box link, infobar.warning > revealer > box button.link, infobar.warning > revealer > box {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+infobar.warning > revealer > box button {
+  transition-property: all, border-image, background-size, background-image;
+  transition-duration: 100ms, 225ms, 300ms, 600ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  background-image: radial-gradient(circle, transparent 10%, transparent 10%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1000% 1000%;
+  background-color: alpha(currentColor, 0.1);
+  color: rgba(0, 0, 0, 0.6);
+}
+
+infobar.warning > revealer > box button:active {
+  transition-duration: 100ms, 225ms, 0ms, 0ms;
+  animation: ripple_effect 300ms cubic-bezier(0, 0, 0.2, 1) forwards;
+  background-size: 0% 0%;
+}
+
+infobar.warning > revealer > box button:active {
+  background-image: radial-gradient(circle, alpha(currentColor, 0.16) 10%, transparent 10%);
+}
+
+infobar.warning > revealer > box button, infobar.warning > revealer > box button:hover, infobar.warning > revealer > box button:focus, infobar.warning > revealer > box button:active, infobar.warning > revealer > box button:checked, infobar.warning > revealer > box button:disabled {
+  box-shadow: none;
+  outline: none;
+  border: none;
+}
+
+infobar.warning > revealer > box button:hover {
+  background-color: alpha(currentColor, 0.16);
+  color: rgba(0, 0, 0, 0.87);
+}
+
+infobar.warning > revealer > box button:active {
+  background-color: alpha(currentColor, 0.16);
+  color: rgba(0, 0, 0, 0.87);
+}
+
+infobar.warning > revealer > box button:checked {
+  background-color: alpha(currentColor, 0.12);
+  color: rgba(0, 0, 0, 0.87);
+}
+
+infobar.warning > revealer > box button:disabled {
+  background-color: alpha(currentColor, 0.05);
+  color: rgba(0, 0, 0, 0.38);
+}
+
 infobar.error > revealer > box {
   background-color: #DD2C00;
 }
 
-infobar.info > label, infobar.info, infobar.question > label, infobar.question, infobar.warning > label, infobar.warning, infobar.error > label, infobar.error {
+infobar.error > revealer > box > label, infobar.error > revealer > box link, infobar.error > revealer > box button.link, infobar.error > revealer > box {
   color: white;
 }
 
-infobar.info link, infobar.question link, infobar.warning link, infobar.error link {
+infobar.error > revealer > box button {
+  transition-property: all, border-image, background-size, background-image;
+  transition-duration: 100ms, 225ms, 300ms, 600ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  background-image: radial-gradient(circle, transparent 10%, transparent 10%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1000% 1000%;
+  background-color: alpha(currentColor, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+infobar.error > revealer > box button:active {
+  transition-duration: 100ms, 225ms, 0ms, 0ms;
+  animation: ripple_effect 300ms cubic-bezier(0, 0, 0.2, 1) forwards;
+  background-size: 0% 0%;
+}
+
+infobar.error > revealer > box button:active {
+  background-image: radial-gradient(circle, alpha(currentColor, 0.16) 10%, transparent 10%);
+}
+
+infobar.error > revealer > box button, infobar.error > revealer > box button:hover, infobar.error > revealer > box button:focus, infobar.error > revealer > box button:active, infobar.error > revealer > box button:checked, infobar.error > revealer > box button:disabled {
+  box-shadow: none;
+  outline: none;
+  border: none;
+}
+
+infobar.error > revealer > box button:hover {
+  background-color: alpha(currentColor, 0.16);
   color: white;
 }
 
-infobar.info button, infobar.question button, infobar.warning button, infobar.error button {
+infobar.error > revealer > box button:active {
+  background-color: alpha(currentColor, 0.16);
   color: white;
-  background-color: rgba(255, 255, 255, 0);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: none;
 }
 
-infobar.info button.flat, infobar.question button.flat, infobar.warning button.flat, infobar.error button.flat {
+infobar.error > revealer > box button:checked {
+  background-color: alpha(currentColor, 0.12);
   color: white;
-  background-color: rgba(255, 255, 255, 0);
-  box-shadow: none;
 }
 
-infobar.info button.flat:disabled, infobar.question button.flat:disabled, infobar.warning button.flat:disabled, infobar.error button.flat:disabled {
-  box-shadow: none;
-}
-
-infobar.info button.flat:disabled, infobar.question button.flat:disabled, infobar.warning button.flat:disabled, infobar.error button.flat:disabled, infobar.info button.flat:disabled label, infobar.question button.flat:disabled label, infobar.warning button.flat:disabled label, infobar.error button.flat:disabled label {
-  color: rgba(255, 255, 255, 0.4);
-}
-
-infobar.info button:hover, infobar.question button:hover, infobar.warning button:hover, infobar.error button:hover {
-  color: white;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.8);
-  box-shadow: none;
-}
-
-infobar.info button:active, infobar.question button:active, infobar.warning button:active, infobar.error button:active, infobar.info button:checked, infobar.question button:checked, infobar.warning button:checked, infobar.error button:checked {
-  color: white;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.8);
-  box-shadow: none;
-}
-
-infobar.info button:disabled, infobar.question button:disabled, infobar.warning button:disabled, infobar.error button:disabled {
-  background-color: rgba(255, 255, 255, 0);
-  border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: none;
-}
-
-infobar.info button:disabled, infobar.question button:disabled, infobar.warning button:disabled, infobar.error button:disabled, infobar.info button:disabled label, infobar.question button:disabled label, infobar.warning button:disabled label, infobar.error button:disabled label {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-infobar.info button:disabled:active, infobar.question button:disabled:active, infobar.warning button:disabled:active, infobar.error button:disabled:active, infobar.info button:disabled:checked, infobar.question button:disabled:checked, infobar.warning button:disabled:checked, infobar.error button:disabled:checked {
-  color: white;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: none;
+infobar.error > revealer > box button:disabled {
+  background-color: alpha(currentColor, 0.05);
+  color: rgba(255, 255, 255, 0.45);
 }
 
 tooltip {

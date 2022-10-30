@@ -161,19 +161,19 @@
   @if $t == normal {
     box-shadow: $shadow_1;
     background-color: $c;
-    color: $text-secondary;
+    color: on($c, secondary);
     outline: none;
     border: none;
   }
 
   @if $t == hover {
     box-shadow: $shadow_2;
-    color: $text;
+    color: $tc;
     background-color: lighten($c, 5%);
   }
 
   @if $t == focus {
-    color: $text;
+    color: $tc;
     outline: none;
   }
 
@@ -187,7 +187,7 @@
   @if $t == disabled {
     box-shadow: none;
     background-color: $track-disabled;
-    color: $text-secondary-disabled;
+    color: on($c, secondary-disabled);
     opacity: 1;
     filter: none;
   }
@@ -206,42 +206,43 @@
   @if $t == flat-normal {
     box-shadow: none;
     background-color: transparent;
-    color: $text-secondary;
+    color: on($c, secondary);
   }
 
   @if $t == flat-hover {
     box-shadow: none;
-    color: $text;
+    color: $tc;
     background-color: $overlay-hover;
   }
 
   @if $t == flat-focus {
     outline: none;
     box-shadow: none;
+    color: $tc;
   }
 
   @if $t == flat-active {
     box-shadow: none;
-    color: $text;
-    // background-color: $overlay-active;
+    color: $tc;
+    background-color: $overlay-hover;
   }
 
   @if $t == flat-disabled {
     box-shadow: none;
     background-color: transparent;
-    color: $text-secondary-disabled;
+    color: on($c, secondary-disabled);
     opacity: 1;
     filter: none;
   }
 
   @if $t == flat-checked {
-    color: $text;
+    color: $tc;
     background-color: $overlay-checked;
   }
 
   @if $t == flat-checked-disabled {
     background-color: $overlay-normal;
-    color: $text-disabled;
+    color: on($c, disabled);
   }
 
   // headerbar buttons

@@ -4565,6 +4565,19 @@ headerbar windowcontrols {
   }
 
   > button:not(.suggested-action):not(.destructive-action) {
+    image {
+      background-color: transparent;
+      padding: 0;
+      border: none;
+      outline: none;
+      box-shadow: none;
+    }
+
+    &:hover > image,
+    &:active > image {
+      background-color: transparent;
+    }
+
     @if $titlebutton == 'default' {
       &.close, &.maximize, &.minimize {
         margin: 0;
@@ -4614,21 +4627,6 @@ headerbar windowcontrols {
     } @else {
       &.close {
         border-radius: $button_radius;
-      }
-
-      image {
-        background-color: transparent;
-        padding: 0;
-        border: none;
-        outline: none;
-        box-shadow: none;
-        color: transparent;
-      }
-
-      &:hover > image,
-      &:active > image {
-        background-color: transparent;
-        color: transparent;
       }
     }
   }

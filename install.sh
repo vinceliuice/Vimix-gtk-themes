@@ -41,9 +41,9 @@ Usage: $0 [OPTION]...
 OPTIONS:
   -d, --dest DIR          Specify destination directory (Default: $DEST_DIR)
   -n, --name NAME         Specify theme name (Default: $THEME_NAME)
-  -t, --theme VARIANT     Specify theme color variant(s) [doder|beryl|ruby|amethyst|grey] (Default: doder(blue))
+  -t, --theme VARIANT     Specify theme color variant(s) [doder|beryl|ruby|amethyst|grey|all] (Default: doder(blue))
   -c, --color VARIANT     Specify color variant(s) [standard|light|dark] (Default: All variants)
-  -s, --size  VARIANT     Specify size variant [standard|compact] (Default: standard variant)
+  -s, --size  VARIANT     Specify size variant [standard|compact|all] (Default: standard variant)
 
   -l, --libadwaita        Link installed gtk-4.0 theme to config folder for all libadwaita app use this theme
 
@@ -247,29 +247,28 @@ while [ $# -gt 0 ]; do
       libadwaita="true"
       shift
       ;;
-    -a|--all)
-      accent='true'
-      themes=("${THEME_VARIANTS[@]}")
-      shift
-      ;;
     -tweaks|--tweaks)
       shift
       for tweaks in "$@"; do
         case "$tweaks" in
           grey)
             grey="true"
+            echo -e "Install grey windows button version ..."
             shift
             ;;
           flat)
             flat="true"
+            echo -e "Install flat windows button version ..."
             shift
             ;;
           mix)
             mix="true"
+            echo -e "Install mix dark grey version ..."
             shift
             ;;
           translucent)
             translucent="true"
+            echo -e "Install translucent shell version ..."
             shift
             ;;
           -*)
@@ -306,6 +305,10 @@ while [ $# -gt 0 ]; do
             ;;
           amethyst)
             themes+=("${THEME_VARIANTS[4]}")
+            shift 1
+            ;;
+          all)
+            themes+=("${THEME_VARIANTS[@]}")
             shift 1
             ;;
           -*|--*)
@@ -357,6 +360,12 @@ while [ $# -gt 0 ]; do
           compact)
             sizes+=("${SIZE_VARIANTS[1]}")
             compact='true'
+            echo -e "Install compact version ..."
+            shift 1
+            ;;
+          all)
+            sizes+=("${SIZE_VARIANTS[@]}")
+            compact='true'
             shift 1
             ;;
           -*|--*)
@@ -370,33 +379,6 @@ while [ $# -gt 0 ]; do
         esac
       done
       ;;
-      -c|--color)
-        shift
-        for color in "${@}"; do
-          case "${color}" in
-            standard)
-              colors+=("${COLOR_VARIANTS[0]}")
-              shift 1
-              ;;
-            light)
-              colors+=("${COLOR_VARIANTS[1]}")
-              shift 1
-              ;;
-            dark)
-              colors+=("${COLOR_VARIANTS[2]}")
-              shift 1
-              ;;
-            -*|--*)
-              break
-              ;;
-            *)
-              echo "ERROR: Unrecognized color variant '$1'."
-              echo "Try '$0 --help' for more information."
-              exit 1
-              ;;
-          esac
-        done
-        ;;
     -h|--help)
       usage
       exit 0
@@ -438,22 +420,18 @@ tweaks_temp() {
 
 install_flat() {
   sed -i "/\$titlebutton:/s/default/flat/" ${SRC_DIR}/_sass/_tweaks-temp.scss
-  echo -e "Install flat version ..."
 }
 
 install_mix() {
   sed -i "/\$mixstate:/s/default/main/" ${SRC_DIR}/_sass/_tweaks-temp.scss
-  echo -e "Install mix dark grey version ..."
 }
 
 install_compact() {
   sed -i "/\$compact:/s/false/true/" ${SRC_DIR}/_sass/_tweaks-temp.scss
-  echo -e "Install compact version ..."
 }
 
 install_translucent() {
   sed -i "/\$translucent:/s/false/true/" ${SRC_DIR}/_sass/_tweaks-temp.scss
-  echo -e "Install translucent shell version ..."
 }
 
 install_theme_color() {

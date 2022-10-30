@@ -882,7 +882,7 @@ button.text-button {
   padding-right: 16px;
 }
 
-button.image-button, button.toggle {
+button.image-button, button.toggle:not(.text-button) {
   min-width: 24px;
   padding: 6px;
   border-radius: 3px;
@@ -2721,6 +2721,7 @@ popover.background > contents {
   box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.2), 0 4px 3px -1px rgba(0, 0, 0, 0.14), 0 1px 6px -1px rgba(0, 0, 0, 0.12);
   background-color: #383a3e;
   border: none;
+  color: white;
 }
 
 popover.background:backdrop {
@@ -4703,7 +4704,7 @@ separator.sidebar.selection-mode, .selection-mode separator.sidebar {
 }
 
 .navigation-sidebar > row {
-  min-height: 32px;
+  min-height: 36px;
   padding: 0 6px;
   border-radius: 3px;
   margin: 1px 6px;
@@ -4746,7 +4747,7 @@ placessidebar > viewport.frame {
 }
 
 placessidebar .navigation-sidebar > row {
-  min-height: 30px;
+  min-height: 36px;
 }
 
 placessidebar .navigation-sidebar > row > revealer {
@@ -5227,6 +5228,18 @@ headerbar windowcontrols.start:not(.empty):dir(ltr), headerbar windowcontrols.en
 headerbar windowcontrols.start:not(.empty):dir(rtl), headerbar windowcontrols.end:not(.empty):dir(ltr) {
   margin-left: 9px;
   margin-right: 6px;
+}
+
+headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action) image {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action):hover > image, headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action):active > image {
+  background-color: transparent;
 }
 
 headerbar windowcontrols > button.close:not(.suggested-action):not(.destructive-action), headerbar windowcontrols > button.maximize:not(.suggested-action):not(.destructive-action), headerbar windowcontrols > button.minimize:not(.suggested-action):not(.destructive-action) {

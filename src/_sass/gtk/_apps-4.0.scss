@@ -1,4 +1,400 @@
 
+
+//
+// Nautilus
+//
+
+window.background.nautilus-window {
+  placessidebar {
+    list.navigation-sidebar > row.sidebar-row {
+      margin: 0;
+      border-radius: 0;
+
+      &:hover {
+        color: $indicator;
+        background-color: transparent;
+        box-shadow: inset 3px 0 $indicator;
+      }
+
+      &:active { box-shadow: inset 3px 0 $indicator; }
+
+      &:backdrop { opacity: 0.85; }
+
+      &:selected {
+        box-shadow: inset 3px 0 $indicator;
+
+        &:active { box-shadow: none; }
+
+        &:hover {
+          color: $text;
+          background-color: $overlay-focus-hover;
+        }
+      }
+    }
+  }
+
+  .nautilus-grid-view {
+    child.activatable {
+      border-radius: $modal_radius;
+      @include ripple(flat);
+
+      &:hover {
+        background-color: $overlay-hover;
+        color: $text;
+      }
+
+      &:active {
+        background-color: $overlay-normal;
+        color: $text;
+      }
+
+      &:selected {
+        background-color: $overlay-checked;
+        color: $text;
+      }
+    }
+  }
+}
+
+#NautilusViewCell {
+  clamp box {
+    margin: 0;
+    border-spacing: 0;
+  }
+}
+
+#NautilusQueryEditor { // search entry
+  border-radius: $button_radius;
+
+  > image {
+    margin: 0;
+  }
+
+  > menubutton {
+    margin: 0;
+
+    > button {
+      min-width: 16px;
+      min-height: 16px;
+      margin: 4px 0;
+      border-radius: $button_radius;
+      @extend %flat_button;
+    }
+  }
+
+  > text { margin: 0; }
+
+  #NautilusQueryEditorTag {
+    border-radius: $circular_radius;
+
+    > button {
+      margin: 0;
+      padding: 0;
+      min-height: $small-size - 2px;
+      min-width: $small-size - 2px;
+    }
+  }
+}
+
+#NautilusPathBar {
+  background-color: on($header, fill);
+  border-radius: $button_radius;
+  margin: $space_size 0;
+
+  #NautilusPathButton {
+    margin: 0 $space_size / 2;
+    border-radius: $button_radius;
+    @extend %simple_flat_button;
+
+    &.current-dir {
+      color: on($header);
+
+      &:hover, &:active {
+        background: none;
+        box-shadow: none;
+      }
+    }
+
+    &:first-child { margin-left: 0; }
+  }
+
+  > menubutton {
+    margin: 0;
+  }
+}
+
+// Floating status bar
+.floating-bar {
+  min-height: 32px;
+  padding: 0;
+  border: 1px solid $border;
+  border-radius: 0;
+  background-color: $base;
+  background-clip: $extra_background_clip;
+  transition: $shorter_transition, border-width 0;
+  box-shadow: none;
+
+  &.bottom.left { // axes left border and border radius
+    border-width: 1px 1px 0 0;
+    border-top-right-radius: 3px;
+  }
+
+  &.bottom.right { // axes right border and border radius
+    border-width: 1px 0 0 1px;
+    border-top-left-radius: 3px;
+  }
+
+  button {
+    margin: 8px;
+
+    @extend %small_button;
+    @extend %simple_flat_button;
+  }
+}
+
+//
+// Calendar
+//
+
+datechooser.view {
+  button.flat.pill, button.circular.day {
+    min-height: $small_size;
+    min-width: $small_size;
+    padding: $space_size;
+    border-radius: $circular_radius;
+  }
+
+  button.circular.day {
+    @extend %flat_button;
+
+    &:selected {
+      @extend %selected_items;
+    }
+  }
+
+  .current-week {
+    background-color: $border;
+  }
+}
+
+//
+// Gnome Software
+//
+
+flowboxchild > button.card {
+  &.category-tile {
+    padding: $space_size * 3.5;
+  }
+
+  &.category-tile-iconless {
+    padding: $space_size * 1.5 $space_size * 2.5;
+  }
+}
+
+app-context-bar {
+  > box:not(:first-child) > button.flat {
+    border-radius: 0;
+
+    &:last-child {
+      border-radius: 0 $button_radius $button_radius 0;
+    }
+  }
+
+  > box:first-child > button.flat {
+    border-radius: 0;
+
+    &:first-child {
+      border-radius: $button_radius 0 0 $button_radius;
+    }
+  }
+
+  > box > button.flat {
+    border-left-color: $border;
+  }
+}
+
+carousel.card {
+  border: none;
+}
+
+.context-tile-lozenge {
+  min-height: 28px;
+  min-width: 28px;
+  padding: $space_size;
+}
+
+screenshot-carousel box.frame.view {
+  border-width: 1px 0;
+  border-radius: 0;
+}
+
+/* Styling for specific category buttons. */
+.category-tile.category-create {
+  background: linear-gradient(180deg, #ce8cd7 0%, #2861c6 100%);
+  color: white;
+
+  &:hover {
+    background: linear-gradient(180deg, shade(#ce8cd7, 1.07) 0%, shade(#2861c6, 1.1) 100%);
+  }
+
+  &:active {
+    background: linear-gradient(180deg, shade(#ce8cd7, .95) 0%, shade(#2861c6, .95) 100%);
+  }
+}
+
+.category-tile.category-develop {
+  background: #5e5c64;
+  color: white;
+
+  &:hover {
+    background: shade(#5e5c64, 1.2);
+  }
+
+  &:active {
+    background-color: shade(#5e5c64, .95);
+  }
+}
+
+.category-tile.category-learn {
+  background: linear-gradient(180deg, #2ec27e 30%, #27a66c 100%);
+  color: white;
+
+  &:hover {
+    background: linear-gradient(180deg, shade(#2ec27e, 1.06) 30%, shade(#27a66c, 1.06) 100%);
+  }
+
+  &:active {
+    background: linear-gradient(180deg, shade(#2ec27e, .95) 30%, shade(#27a66c, .95) 100%);
+  }
+}
+
+.category-tile.category-play {
+  background: linear-gradient(75deg, #f9e2a7 0%, #eb5ec3 50%, #6d53e0 100%);
+  color: #393484;
+
+  &:hover {
+    background: linear-gradient(75deg, shade(#f9e2a7, 1.07) 0%, shade(#eb5ec3, 1.07) 50%, shade(#6d53e0, 1.07) 100%);
+  }
+
+  &:active {
+    background: linear-gradient(75deg, shade(#f9e2a7, .97) 0%, shade(#eb5ec3, .95) 50%, shade(#6d53e0, 1.07) 100%);
+  }
+}
+
+.category-tile.category-socialize {
+  background: linear-gradient(90deg, #ef4e9b 0%, #f77466 100%);
+  color: $text-secondary;
+
+  &:hover {
+    background: linear-gradient(90deg, shade(#ef4e9b, 1.08) 0%, shade(#f77466, 1.08) 100%);
+  }
+
+  &:active {
+    background: linear-gradient(90deg, shade(#ef4e9b, .95) 0%, shade(#f77466, .95) 100%);
+  }
+}
+
+.category-tile.category-work {
+  color: #1c71d8;
+  background-color: #fdf8d7;
+  background-image: linear-gradient($border 1px, transparent 1px),
+                    linear-gradient(90deg, $border 1px, transparent 1px);
+  background-size: 10px 10px, 10px 10px;
+  background-position: -1px -4px, center -1px;
+
+  &:hover {
+    background-color: lighten(#fdf8d7, 5%);
+    background-image: linear-gradient($border 1px, transparent 1px),
+                      linear-gradient(90deg, $border 1px, transparent 1px);
+  }
+
+  &:active {
+    background-color: darken(#fdf8d7, 5%);
+    background-image: linear-gradient($border 1px, transparent 1px),
+                      linear-gradient(90deg, $border 1px, transparent 1px);
+  }
+}
+
+//
+// Gnome Control Center
+//
+
+window.background {
+  > contents > leaflet {
+    stack.background {
+      background-color: transparent;
+    }
+  }
+}
+
+preferencesgroup > box {
+  button.background-preview-button {
+    padding: 0;
+
+    &, &:hover, &:active, &:checked, &:checked:hover {
+      background-color: transparent;
+      background-image: none;
+      border: none;
+      box-shadow: none;
+    }
+
+    > background-preview {
+      outline: 2px solid transparent;
+      outline-offset: $space_size / 2;
+      border-radius: $button_radius;
+    }
+
+    &:hover > background-preview {
+      outline-color: $text-secondary-disabled;
+    }
+
+    &:active > background-preview {
+      outline-color: $text-disabled;
+    }
+
+    &:checked > background-preview {
+      outline-color: $primary;
+    }
+  }
+
+  flowbox.background-flowbox > flowboxchild {
+    outline: 2px solid transparent;
+    outline-offset: 0;
+    border-radius: $button_radius + $space_size / 2;
+    padding: $space_size / 2;
+
+    &:hover {
+      outline-color: $text-secondary-disabled;
+    }
+
+    &:active {
+      outline-color: $text-disabled;
+    }
+
+    &:selected {
+      outline-color: $primary;
+      background-color: transparent;
+    }
+  }
+}
+
+//
+// Gnome Calculator
+//
+
+window.background.csd {
+  > contents > box {
+    .history-view {
+      background-color: $base;
+    }
+
+    .math-buttons button.clear-button.image-button {
+      border-radius: $button_radius;
+    }
+  }
+}
+
+
 //
 // avatar
 //

@@ -142,6 +142,8 @@ label {
 
   &:disabled {
     color: $text-disabled;
+    opacity: 1;
+    filter: none;
 
     > selection { color: on($primary, disabled); }
 
@@ -150,7 +152,10 @@ label {
   }
 }
 
-.dim-label { color: $text-secondary; }
+.dim-label {
+  color: $text-disabled;
+  opacity: 1;
+}
 
 .accent {
   color: $accent;
@@ -556,7 +561,7 @@ button {
     padding-right: 16px;
   }
 
-  &.image-button {
+  &.image-button, &.toggle:not(.text-button) {
     min-width: 24px;
     padding: ($medium_size - 24px) / 2;
     border-radius: $button_radius;
@@ -920,6 +925,11 @@ menubutton {
 
 splitbutton {
   border-radius: $button_radius;
+
+  &:disabled {
+    opacity: 1;
+    filter: none;
+  }
 
   &, & > separator {
     transition: $shorter_transition;
@@ -1428,7 +1438,9 @@ searchbar > revealer > box {
   background-clip: border-box;
   box-shadow: none;
 
-  entry { margin: 0; }
+  entry, button, menubutton, splitbutton, spinbutton {
+    margin: 0;
+  }
 }
 
 //
@@ -1525,10 +1537,6 @@ headerbar {
     @extend .dim-label;
   }
 
-  box.vertical & {
-    background-color: $header;
-  }
-
   > windowhandle > box {
     padding: 0 $space_size;
 
@@ -1546,6 +1554,26 @@ headerbar {
       color: gtkalpha(currentColor, 0.3);
       > label { color: inherit; }
     }
+  }
+
+  entry,
+  spinbutton,
+  separator:not(.sidebar),
+  button,
+  menubutton,
+  splitbutton,
+  .pathbar {
+    margin-top: $space_size;
+    margin-bottom: $space_size;
+  }
+
+  // Reset margins for buttons inside menubutton
+  menubutton > button,
+  spinbutton > button,
+  splitbutton > button,
+  splitbutton > menubutton {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   &.selection-mode {
@@ -1675,24 +1703,8 @@ headerbar {
     @extend %headerbar_flat_button;
   }
 
-  entry,
-  spinbutton,
-  separator:not(.sidebar),
-  button,
-  menubutton,
-  .pathbar {
-    margin-top: $space_size;
-    margin-bottom: $space_size;
-  }
-
   .pathbar {
     background-color: on($header, fill);
-  }
-
-  // Reset margins for buttons inside menubutton
-  menubutton > button {
-    margin-top: 0;
-    margin-bottom: 0;
   }
 
   switch {
@@ -2016,6 +2028,19 @@ treeview.view {
       border-color: $border;
       border-radius: 0;
       background-clip: border-box;
+      box-shadow: none;
+      color: $text-secondary;
+      @include ripple(flat);
+
+      &:hover {
+        color: $text;
+        background-color: $overlay-hover;
+      }
+
+      &:active {
+        color: $text;
+        background-color: $overlay-normal;
+      }
 
       &, &:disabled { background-color: $base; }
 
@@ -2196,6 +2221,7 @@ popover.background {
     box-shadow: $shadow_4;
     background-color: $popover;
     border: none;
+    color: $text;
   }
 
   &:backdrop {
@@ -2247,7 +2273,7 @@ popover.background {
 
   .linked button:not(.combo) { border-radius: $button_radius; margin: 0 2px; }
 
-  button:not(.suggested-action):not(.destructive-action) {
+  button:not(.suggested-action):not(.destructive-action):not(.flat) {
     @extend %flat_theme_button;
   }
 
@@ -2260,7 +2286,7 @@ popover.background {
     transition: none;
 
     &:active {
-      background-image: radial-gradient(circle, $primary 10%, gtkalpha($primary, 0.45) 10%);
+      background-image: radial-gradient(circle, $primary 10%, gtkalpha($primary, 0.65) 10%);
       color: on($primary);
     }
 
@@ -2879,6 +2905,9 @@ radio {
   min-width: 24px;
   margin: -$space_size;
   padding: $space_size;
+  background-color: transparent;
+  border: none;
+  outline: none;
   @extend %simple_flat_button;
   @extend %circular_button;
   @extend %row_selected_check;
@@ -2895,6 +2924,8 @@ radio {
       transition: none; // FIXME: this is a workaround for a popover check/radio long transition issue
       box-shadow: none;
       background-image: none;
+      outline: none;
+      border: none;
     }
 
     &:not(:checked):not(:indeterminate):not(:disabled) { color: $text-secondary; }
@@ -3352,6 +3383,10 @@ actionbar > revealer >  box {
   color: $text;
 
   button:not(.suggested-action):not(.destructive-action):not(.server-list-button) { @extend %flat_button; }
+
+  entry, button, menubutton, splitbutton, spinbutton {
+    margin: 0;
+  }
 }
 
 scrolledwindow {
@@ -3729,16 +3764,16 @@ expander {
   transition: all $shorter_duration $standard_curve;
   min-width: 16px;
   min-height: 16px;
-  -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
-
-  &:dir(rtl) { -gtk-icon-transform: rotate(90deg); }
-
   color: $text-secondary;
+  -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
+  &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl'); }
+
+  &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
 
   &:hover, &:active { color: $text; }
   &:disabled { color: $text-secondary-disabled; }
 
-  &:selected {
+  &:selected, row:selected & {
     color: on($primary, secondary);
 
     &:hover, &:active { color: on($primary); }
@@ -3977,7 +4012,7 @@ separator.sidebar {
   }
 
   > row {
-    min-height: ($space_size + 10px) * 2;
+    min-height: $medium_size;
     padding: 0 $space_size;
     border-radius: $button_radius;
     margin: 1px $space_size;
@@ -3992,7 +4027,7 @@ separator.sidebar {
       color: $text;
       background-color: rgba($text, 0.08);
 
-      label { color: $text; }
+      label, image { color: $text; }
 
       &:hover {
         background-color: rgba($text, 0.12);
@@ -4019,7 +4054,7 @@ placessidebar {
 
   .navigation-sidebar > row {
     // Needs overriding of the GtkListBoxRow padding
-    min-height: $space_size * 5;
+    min-height: $medium_size;
 
     // Using margins/padding directly in the SidebarRow
     // will make the animation of the new bookmark row jump
@@ -4739,34 +4774,20 @@ popover.emoji-picker {
 }
 
 .emoji-toolbar {
-  padding: $space_size;
-  border-spacing: $space_size;
+  padding: 0;
+  border-spacing: 0;
   border-top: 1px solid $border;
 }
 
-
 // mimic tab style
 button.emoji-section {
-  margin-top: -1px;
-  padding: 0 8px;
-  min-width: 24px;
+  margin: 0;
+  padding: 0;
+  min-width: $medium_size;
   min-height: $medium_size;
-  border-radius: 0;
+  border-radius: $button_radius;
   box-shadow: none;
-
-  &:hover { box-shadow: inset 0 2px $track; }
-
-  &:active {
-    box-shadow: inset 0 2px $primary;
-  }
-
-  &:checked {
-    box-shadow: inset 0 2px $primary;
-    background-color: transparent;
-  }
-
-  &:first-child { margin-left: 4px; }
-  &:last-child { margin-right: 4px; }
+  @extend %flat_button;
 }
 
 popover.emoji-picker emoji {
@@ -4794,7 +4815,7 @@ emoji-completion-row emoji:focus,
 emoji-completion-row emoji:hover {
   background: none;
   box-shadow: inset 0 0 0 2px rgba($text, 0.05);
-  border-radius: 3px;
+  border-radius: $button_radius;
 }
 
 popover.entry-completion > contents {

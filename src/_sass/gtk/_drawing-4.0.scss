@@ -52,6 +52,8 @@
     box-shadow: $shadow_1;
     background-color: $base_alt;
     color: $text-disabled;
+    opacity: 1;
+    filter: none;
   }
 
   @if $t == flat-normal {
@@ -87,6 +89,8 @@
     box-shadow: inset 0 -1px $track;
     background-color: transparent;
     color: $text-disabled;
+    opacity: 1;
+    filter: none;
   }
 
   @if $t == osd {
@@ -184,6 +188,8 @@
     box-shadow: none;
     background-color: $track-disabled;
     color: $text-secondary-disabled;
+    opacity: 1;
+    filter: none;
   }
 
   @if $t == checked {
@@ -224,6 +230,8 @@
     box-shadow: none;
     background-color: transparent;
     color: $text-secondary-disabled;
+    opacity: 1;
+    filter: none;
   }
 
   @if $t == flat-checked {

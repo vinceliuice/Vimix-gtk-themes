@@ -446,8 +446,22 @@ $_dot_color: if($variant=='light', $primary, lighten($primary, 15%));
   to { background-image: radial-gradient(farthest-side, $_dot_color 95%, transparentize($_dot_color, 1)); }
 }
 
+%base_button {
+  @include button(normal);
+  @include ripple(primary);
+
+  &:hover { @include button(hover); }
+  &:focus { @include button(focus); }
+  &:active { @include button(active); }
+  &:disabled { @include button(disabled); }
+  &:checked { @include button(checked); }
+  &:checked:disabled { @include button(checked-disabled); }
+}
+
 %flat_button {
   @include button(flat-normal);
+  @include ripple(flat);
+
   &:hover { @include button(flat-hover); }
   &:focus { @include button(flat-focus); }
   &:active { @include button(flat-active); }
@@ -458,6 +472,8 @@ $_dot_color: if($variant=='light', $primary, lighten($primary, 15%));
 
 %simple_flat_button {
   @include button(flat-normal);
+  @include ripple(flat);
+
   &:hover { @include button(flat-hover); }
   &:focus { @include button(flat-focus); }
   &:active { @include button(flat-active); }
@@ -524,22 +540,10 @@ button {
   padding: ($medium_size - 24px) / 2 ($medium_size - 16px) / 2;
   border-radius: $button_radius;
   font-weight: 500;
-
-  @include button(normal);
-  &:hover { @include button(hover); }
-  &:focus { @include button(focus); }
-  &:active { @include button(active); }
-  &:disabled { @include button(disabled); }
-  &:checked { @include button(checked); }
-  &:checked:disabled { @include button(checked-disabled); }
+  @extend %base_button;
 
   &.flat {
-    @include button(flat-normal);
-    &:hover { @include button(flat-hover); }
-    &:active { @include button(flat-active); }
-    &:disabled { @include button(flat-disabled); }
-    &:checked { @include button(flat-checked); }
-    &:checked:disabled { @include button(flat-checked-disabled); }
+    @extend %flat_button;
   }
 
   &.opaque {
@@ -1099,41 +1103,6 @@ buttoncontent {
   }
 }
 
-/* menu buttons */
-modelbutton.flat {
-  min-height: $item_size;
-  padding: 0 $space_size * 1.5;
-  border-radius: $button_radius;
-  color: inherit;
-  @extend %simple_flat_button;
-
-  &:selected { @extend %selected_items; }
-
-  check,
-  radio {
-    &:not(:checked):not(:indeterminate) { color: gtkalpha(currentColor, 0.45); }
-
-    &, &:hover { background-image: none; }
-
-    &:active { animation: none; }
-
-    &:last-child { margin-left: -8px; margin-right: -16px; }
-
-    &:first-child { margin-left: -16px; margin-right: -8px; }
-  }
-}
-
-modelbutton.flat arrow {
-  background: none;
-  transition: none;
-
-  &:hover { background: none; }
-
-  &.left { -gtk-icon-source: -gtk-icontheme("go-previous-symbolic"); }
-
-  &.right { -gtk-icon-source: -gtk-icontheme("go-next-symbolic"); }
-}
-
 button.color {
   min-height: $small_size;
   min-width: $small_size;
@@ -1482,6 +1451,17 @@ searchbar > revealer > box {
 
 %headerbar_flat_button {
   border-radius: 0;
+  color: on($header, secondary);
+  transition: background-color 0,
+              background-image 0,
+              color $longer_duration $standard_curve,
+              box-shadow $longer_duration $standard_curve,
+              border-image $longer_duration $standard_curve;
+  box-shadow: inset 0 -2px transparent;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                indicator(header) 0%,
+                                transparent 0%)
+                                0 0 0 / 0 0 0;
 
   &:hover {
     border-radius: 0;
@@ -1491,21 +1471,28 @@ searchbar > revealer > box {
   }
 
   &:checked, &:active {
-    box-shadow: inset 0 -2px indicator(header);
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  indicator(header) 100%,
+                                  transparent 0%)
+                                  0 0 2 / 0 0 2px;
     background: none;
     color: indicator(header);
     border-radius: 0;
 
-    &:disabled, &:backdrop {
-      background: none;
-      color: gtkalpha(indicator(header), 0.35);
-      box-shadow: inset 0 -2px gtkalpha(indicator(header), 0.35);
+    &:disabled {
+      color: rgba(indicator(header), 0.35);
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    rgba(indicator(header), 0.35) 100%,
+                                    transparent 0%)
+                                    0 0 2 / 0 0 2px;
     }
   }
 
   &:checked:hover { background: none; }
 
-  &:disabled { background: none; }
+  &:disabled {
+    color: on($header, secondary-disabled);
+  }
 }
 
 headerbar {
@@ -1666,8 +1653,6 @@ headerbar {
     }
   }
 
-  separator.titlebutton { @extend %header_separator; }
-
   // Reset buttons and entris
   .linked > button,
   .linked > entry,
@@ -1684,12 +1669,10 @@ headerbar {
     > button:not(.suggested-action):not(.destructive-action) { @extend %headerbar_flat_button; }
   }
 
-  &.windowhandle {
-    viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action) {
-      margin-top: 0;
-      margin-bottom: 0;
-      @extend %headerbar_flat_button;
-    }
+  viewswitcher button:not(.suggested-action):not(.destructive-action) {
+    margin-top: 0;
+    margin-bottom: 0;
+    @extend %headerbar_flat_button;
   }
 
   entry,
@@ -1711,8 +1694,6 @@ headerbar {
     margin-top: 0;
     margin-bottom: 0;
   }
-
-  button:not(.suggested-action):not(.destructive-action) { @extend %header_button; }
 
   switch {
     margin-top: ($large_size - 22px) / 2;
@@ -1957,6 +1938,11 @@ treeview.view {
 
   &:hover, &:active, &:selected { border-radius: 0; }
 
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
   &.separator {
     min-height: 1px + 2px * 2;
     color: $border;
@@ -2024,16 +2010,12 @@ treeview.view {
 
   > header {
     > button {
-      @extend %row_activatable;
-
       padding: 2px $space_size;
       border-style: none solid solid none;
       border-width: 1px;
       border-color: $border;
       border-radius: 0;
       background-clip: border-box;
-
-      &, &:hover, &:active { box-shadow: none; }
 
       &, &:disabled { background-color: $base; }
 
@@ -2163,24 +2145,6 @@ popover.menu {
     margin-right: -2px;
   }
 
-  modelbutton {
-    min-height: $item_size;
-    min-width: $item_size * 1.5;
-    padding: 0 $space_size * 2;
-    border-radius: $button_radius;
-    color: $text-secondary;
-
-    &:selected {
-      color: $text;
-      background-color: rgba($text, 0.06);
-    }
-
-    &:selected:active {
-      color: $text;
-      background-color: rgba($text, 0.12);
-    }
-  }
-
   label.title {
     font-weight: bold;
     padding: 4px 32px; //this will fall apart with font sizing
@@ -2194,10 +2158,10 @@ popover.menu {
 %flat_theme_button {
   box-shadow: none;
   background-color: transparent;
-  transition: $shorter_transition;
+  @include ripple(primary);
 
   &:hover {
-    background-color: $divider;
+    background-color: $overlay-hover;
     color: $text;
   }
 
@@ -2287,6 +2251,33 @@ popover.background {
     @extend %flat_theme_button;
   }
 
+  modelbutton {
+    min-height: $item_size;
+    padding: 0 $space_size * 1.5;
+    border-radius: $button_radius;
+    color: inherit;
+    @extend %simple_flat_button;
+    transition: none;
+
+    &:active {
+      background-image: radial-gradient(circle, $primary 10%, gtkalpha($primary, 0.45) 10%);
+      color: on($primary);
+    }
+
+    &:selected { background-color: $overlay-hover; }
+
+    arrow {
+      background: none;
+      transition: none;
+
+      &:hover { background: none; }
+
+      &.left { -gtk-icon-source: -gtk-icontheme("go-previous-symbolic"); }
+
+      &.right { -gtk-icon-source: -gtk-icontheme("go-next-symbolic"); }
+    }
+  }
+
   &.menu button,
   button.model {
     margin: 0;
@@ -2319,9 +2310,11 @@ magnifier {
   border-color: transparent; //
   color: $text-secondary;
   font-weight: 500;
+  @include ripple(flat);
 
   &:hover {
     color: $text;
+    background-color: $overlay-normal;
 
     &.reorderable-page {
       border-color: $border;
@@ -2329,10 +2322,14 @@ magnifier {
     }
   }
 
+  &:active {
+    background-image: radial-gradient(circle, $overlay-active 10%, $overlay-normal 10%);
+    background-color: transparent;
+  }
+
   &:disabled { color: $text-secondary-disabled; }
 
   &:checked {
-    transition: $shorter_transition;
     color: $text;
 
     &:disabled { color: $text-disabled; }
@@ -2885,16 +2882,13 @@ radio {
   @extend %simple_flat_button;
   @extend %circular_button;
   @extend %row_selected_check;
+  @include ripple(flat);
 
   &:checked, &:indeterminate {
     color: indicator(accent);
 
-    &:hover { box-shadow: inset 0 0 0 9999px gtkalpha(indicator(accent), 0.15); }
-
     &:disabled {  color: gtkalpha(indicator(accent), 0.3); }
   }
-
-  &:not(:hover):focus { box-shadow: inset 0 0 0 9999px transparent; }
 
   popover modelbutton.flat & {
     &, &:focus, &:hover, &:focus:hover, &:active, &:disabled {
@@ -2934,8 +2928,8 @@ radio {
 
 %check,
 check {
-  -gtk-icon-source: -gtk-scaled(url("assets/scalable/checkbox-unchecked-symbolic#{$asset-suffix}.svg"),
-                                url("assets/scalable/checkbox-unchecked-symbolic#{$asset-suffix}@2.svg"));
+  -gtk-icon-size: 24px;
+  -gtk-icon-source: -gtk-recolor(url("assets/scalable/checkbox-unchecked-symbolic.svg"));
 
   &:checked { -gtk-icon-source: -gtk-recolor(url("assets/scalable/checkbox-checked-symbolic.svg")); }
 
@@ -2944,6 +2938,7 @@ check {
 
 %radio,
 radio {
+  -gtk-icon-size: 24px;
   -gtk-icon-source: -gtk-recolor(url("assets/scalable/radio-unchecked-symbolic.svg"));
 
   &:checked { -gtk-icon-source: -gtk-recolor(url("assets/scalable/radio-checked-symbolic.svg")); }
@@ -2956,7 +2951,8 @@ popover.menu modelbutton check {
   & {
     min-height: 16px;
     min-width: 16px;
-    border-radius: 2px;
+    border-radius: $button_radius;
+    -gtk-icon-size: 16px;
     -gtk-icon-source: -gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.svg"));
   }
 
@@ -2971,6 +2967,7 @@ popover.menu modelbutton radio {
     min-height: 16px;
     min-width: 16px;
     border-image: none;
+    -gtk-icon-size: 16px;
     -gtk-icon-source: -gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.svg"));
   }
 
@@ -2982,6 +2979,11 @@ popover.menu modelbutton radio {
 treeview.view check,
 treeview.view radio {
   padding: 0;
+  color: $text-secondary;
+  &:hover, &:active { color: $text; }
+  &:disabled { color: $text-secondary-disabled; }
+  &:checked, &:indeterminate { color: indicator(accent); }
+  &:checked:disabled, &:indeterminate:disabled { color: gtkalpha(indicator(accent), 0.3); }
 
   &:hover {
     box-shadow: none;
@@ -2991,15 +2993,6 @@ treeview.view radio {
     &:disabled { box-shadow: none; }
     &:selected { box-shadow: none; }
   }
-
-  & {
-    color: $text-secondary;
-    &:hover, &:active { color: $text; }
-    &:disabled { color: $text-secondary-disabled; }
-    &:checked, &:indeterminate { color: indicator(accent); }
-    &:checked:disabled, &:indeterminate:disabled { color: gtkalpha(indicator(accent), 0.3); }
-  }
-
 }
 
 treeview.view radio:checked {
@@ -3039,13 +3032,50 @@ scale {
     &:disabled { background-color: $track-disabled; }
 
     > slider {
+      transition: background-color $shorter_duration $deceleration_curve,
+                  background-size $ripple_duration $deceleration_curve,
+                  background-image $ripple_opacity_duration $deceleration_curve;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: auto, 1000% 1000%;
+      border-radius: 100%;
       min-height: $slider_size;
       min-width: $slider_size;
       margin: $slider_margin;
-      border: none;
-      box-shadow: none;
+      color: $accent;
       background-color: transparent;
-      outline: none;
+
+      @each $s, $as in ('', ''),
+                       (':disabled', '-disabled') {
+        &#{$s} {
+          $_url: 'assets/scale-slider#{$as}#{$asset_suffix}';
+
+          background-image: -gtk-scaled(url('#{$_url}.png'), url('#{$_url}@2.png')),
+                            radial-gradient(circle, transparent 10%, transparent 10%);
+        }
+      }
+
+      &:hover { background-color: rgba($accent, 0.10); }
+      &:focus { background-color: rgba($accent, 0.12); }
+      &:focus:hover { background-color: rgba($accent, 0.16); }
+
+      &, &:focus, &:hover, &:active {
+        border: none;
+        box-shadow: none;
+        outline: none;
+      }
+
+      &:active {
+        $_url: 'assets/scale-slider#{$asset_suffix}';
+        transition: background-color $shorter_duration $deceleration_curve,
+                    background-size 0,
+                    background-image 0;
+        animation: scale_ripple_effect $longer_duration $deceleration_curve forwards;
+        background-image: -gtk-scaled(url('#{$_url}.png'), url('#{$_url}@2.png')),
+                          radial-gradient(circle, $overlay-active 10%, transparent 10%);
+        background-size: auto, 0% 0%;
+        color: $accent;
+      }
     }
   }
 
@@ -3064,33 +3094,6 @@ scale {
     background-color: $track;
 
     &:disabled { background-color: transparent; }
-  }
-
-  > trough > slider {
-    transition: all $shorter_duration $deceleration_curve;
-    border-radius: 100%;
-    color: transparent;
-    background-repeat: no-repeat;
-    background-position: center;
-
-    @each $s, $as in ('', ''),
-                     (':disabled', '-disabled') {
-      &#{$s} {
-        $_url: 'assets/scale-slider#{$as}#{$asset_suffix}';
-
-        background-image: -gtk-scaled(url('#{$_url}.png'), url('#{$_url}@2.png'));
-      }
-    }
-
-    &:hover { background-color: rgba($accent, 0.10); }
-    &:focus { background-color: rgba($accent, 0.12); }
-    &:focus:hover { background-color: rgba($accent, 0.16); }
-
-    &:active {
-      transition: all $shorter_duration $deceleration_curve;
-      background-color: rgba($accent, 0.12);
-      color: rgba($accent, 0.15);
-    }
   }
 
   // click-and-hold the slider to activate
@@ -3129,6 +3132,19 @@ scale {
     }
   }
 
+  &.marks-before:not(.marks-after),
+  &.marks-after:not(.marks-before) {
+    > trough > slider {
+      transform: none;
+      box-shadow: none;
+      border: none;
+
+      &:disabled {
+        box-shadow: none;
+      }
+    }
+  }
+
   // *WARNING* scale with marks madness following
 
   @each $dir_class, $dir_infix in ('horizontal', 'horz'),
@@ -3137,15 +3153,21 @@ scale {
                                         ('marks-after', 'marks-after:not(.marks-before)') {
       &.#{$dir_class}.#{$marks_class} {
         slider {
-          transform: none;
-
           @each $state, $state_infix in ('', ''),
                                         (':disabled', '-disabled') {
             &#{$state} {
               $_scale_asset: 'assets/scale-#{$dir_infix}-#{$marks_infix}-slider#{$state_infix}#{$asset_suffix}';
 
-              background-image: -gtk-scaled(url('#{$_scale_asset}.png'), url('#{$_scale_asset}@2.png'));
+              background-image: -gtk-scaled(url('#{$_scale_asset}.png'), url('#{$_scale_asset}@2.png')),
+                                radial-gradient(circle, transparent 10%, transparent 10%);
             }
+          }
+
+          &:active {
+            $_scale_asset: 'assets/scale-#{$dir_infix}-#{$marks_infix}-slider#{$asset-suffix}';
+
+            background-image: -gtk-scaled(url('#{$_scale_asset}.png'), url('#{$_scale_asset}@2.png')),
+                              radial-gradient(circle, $overlay-active 10%, transparent 10%);
           }
         }
       }
@@ -3466,25 +3488,37 @@ row {
     }
   }
 
-  @at-root %row_activatable, &.activatable {
-    transition: $shorter_transition;
-    background-image: none;
+  &.activatable {
+    @include ripple(flat);
+    background-image: radial-gradient(circle, transparent 15%, transparent 15%);
 
     &:hover {
-      background-color: $fill;
+      background-color: $overlay-hover;
     }
 
     &.has-open-popup,
     &:active {
-      background-color: $divider;
+      background-color: $overlay-normal;
+      background-image: radial-gradient(circle, $overlay-hover 15%, transparent 15%);
     }
   }
 
   button &.activatable {
-    &:focus, &:hover, &:active { box-shadow: none; }
+    &:focus, &:hover, &:active {
+      background-color: transparent;
+      background-image: none;
+      transition: none;
+      animation: none;
+    }
   }
 
-  &:selected { @extend %selected_items; &:hover { background-color: lighten($primary, 5%); } }
+  &:selected {
+    @extend %selected_items;
+
+    &:hover {
+      background-color: lighten($primary, 5%);
+    }
+  }
 }
 
 //
@@ -4641,7 +4675,27 @@ shortcut > .keycap {
   caret-color: $accent;
 }
 
-stackswitcher button.text-button { min-width: 100px; } // FIXME aggregate with buttons
+stackswitcher button.text-button {
+  min-width: 100px;
+  transition: $shorter_transition, $shadow_transition, border-image $longer_duration $standard_curve;
+  box-shadow: inset 0 -2px transparent;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                $primary 0%,
+                                rgba($primary, 0.35) 0%)
+                                0 0 0 / 0 0 0px;
+
+  &:active {
+    box-shadow: inset 0 -2px transparent;
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  $primary 100%,
+                                  rgba($primary, 0.35) 10%)
+                                  0 0 2 / 0 0 2px;
+  }
+
+  &:checked {
+    box-shadow: inset 0 -2px $primary;
+  }
+}
 
 stackswitcher button.circular,
 stackswitcher button.text-button.circular { // FIXME aggregate with buttons

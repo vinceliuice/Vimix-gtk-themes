@@ -27,7 +27,7 @@
 .app-well-app .overview-icon,
 .grid-search-result .overview-icon {
   color: rgba(255, 255, 255, 0.7);
-  border-radius: 3px;
+  border-radius: 4px;
   padding: 6px;
   border: none;
   transition-duration: 100ms;
@@ -258,8 +258,8 @@ StWidget.focused .app-well-app-running-dot {
 }
 
 .button {
-  min-height: 32px;
-  padding: 0 12px;
+  min-height: 20px;
+  padding: 6px 12px;
   border-radius: 2px;
   border: none;
 }
@@ -310,17 +310,19 @@ StWidget.focused .app-well-app-running-dot {
 .datemenu-calendar-column {
   spacing: 6px;
   border: 0 solid rgba(0, 0, 0, 0.12);
-  padding: 0 12px;
+  padding: 0 6px;
 }
 
 .datemenu-calendar-column:ltr {
   margin-right: 8px;
-  border-left-width: 0;
+  border-left-width: 1px;
+  border-right-width: 0;
 }
 
 .datemenu-calendar-column:rtl {
   margin-left: 8px;
-  border-right-width: 0;
+  border-right-width: 1px;
+  border-left-width: 0;
 }
 
 .datemenu-calendar-column .datemenu-displays-section {
@@ -350,7 +352,6 @@ StWidget.focused .app-well-app-running-dot {
   box-shadow: none;
   background: none;
   padding: 6px;
-  margin: 0 12px;
   text-shadow: none;
   color: rgba(0, 0, 0, 0.6);
   border-radius: 3px;
@@ -425,8 +426,8 @@ StWidget.focused .app-well-app-running-dot {
 .calendar .calendar-day-base {
   font-size: 10pt;
   text-align: center;
-  width: 34px;
-  height: 34px;
+  width: 34px !important;
+  height: 34px !important;
   padding: 0;
   margin: 2px;
   border-radius: 9999px;
@@ -437,6 +438,8 @@ StWidget.focused .app-well-app-running-dot {
 
 .calendar .calendar-day-base:hover, .calendar .calendar-day-base:focus {
   background-color: rgba(0, 0, 0, 0.12);
+  box-shadow: none;
+  outline: none;
 }
 
 .calendar .calendar-day-base:active, .calendar .calendar-day-base:selected {
@@ -1657,17 +1660,24 @@ StEntry StLabel.hint-text {
 
 /* Message List */
 .message-list {
-  width: 31.5em;
+  width: 30.5em;
   padding: 0;
   text-shadow: none;
+  border: none !important;
 }
 
 .message-list .message-list-placeholder {
   spacing: 12px;
 }
 
+.message-list .message-list-placeholder > StIcon {
+  icon-size: 48px;
+  margin-bottom: 12px;
+  -st-icon-style: symbolic;
+}
+
 .message-list-sections {
-  margin: 0 16px;
+  margin: 0 8px 0 16px;
 }
 
 .message-list-section,
@@ -1809,8 +1819,9 @@ StEntry StLabel.hint-text {
   background-size: contain;
   color: rgba(255, 255, 255, 0.7);
   border-radius: 9999px;
-  border: none;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
   icon-size: 64px;
 }
 
@@ -2132,6 +2143,22 @@ StEntry StLabel.hint-text {
   width: 15em;
 }
 
+#screenShieldNotifications StScrollBar StBin#trough, #overview StScrollBar StBin#trough {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+#screenShieldNotifications StScrollBar StButton#vhandle, #overview StScrollBar StButton#vhandle, #screenShieldNotifications StScrollBar StButton#hhandle, #overview StScrollBar StButton#hhandle {
+  background-color: rgba(255, 255, 255, 0.45);
+}
+
+#screenShieldNotifications StScrollBar StButton#vhandle:hover, #overview StScrollBar StButton#vhandle:hover, #screenShieldNotifications StScrollBar StButton#hhandle:hover, #overview StScrollBar StButton#hhandle:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+#screenShieldNotifications StScrollBar StButton#vhandle:active, #overview StScrollBar StButton#vhandle:active, #screenShieldNotifications StScrollBar StButton#hhandle:active, #overview StScrollBar StButton#hhandle:active {
+  background-color: white;
+}
+
 .overview-controls {
   padding-bottom: 30px;
 }
@@ -2272,11 +2299,10 @@ StEntry StLabel.hint-text {
 
 /* Popovers/Menus */
 .popup-menu-boxpointer {
-  -arrow-border-radius: 2px;
   -arrow-background-color: transparent;
   -arrow-border-width: 0;
   -arrow-border-color: transparent;
-  -arrow-base: 64px;
+  -arrow-base: 6px;
   -arrow-rise: 0;
   -arrow-box-shadow: none;
   background: transparent;
@@ -2285,18 +2311,18 @@ StEntry StLabel.hint-text {
 .popup-menu {
   min-width: 12em;
   color: rgba(0, 0, 0, 0.6) !important;
-  padding: 6px 0 !important;
+  padding: 0;
   font-weight: normal;
   font-size: 10pt;
 }
 
 .popup-menu .popup-menu-content {
-  padding: 6px 0 !important;
+  padding: 6px 0;
   background-color: #FFFFFF !important;
-  border-radius: 3px;
+  border-radius: 4.5px;
   border: none;
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.15);
-  margin: 4px 10px 12px;
+  margin: 6px 8px 12px;
   font-weight: normal;
 }
 
@@ -2494,12 +2520,11 @@ StScrollBar {
 }
 
 StScrollView StScrollBar {
-  min-width: 16px;
-  min-height: 16px;
+  min-width: 8px;
+  min-height: 8px;
 }
 
 StScrollBar StBin#trough {
-  margin: 6px;
   border-radius: 9999px;
   background-color: rgba(0, 0, 0, 0.12);
 }
@@ -2507,7 +2532,7 @@ StScrollBar StBin#trough {
 StScrollBar StButton#vhandle, StScrollBar StButton#hhandle {
   border-radius: 9999px;
   background-color: rgba(0, 0, 0, 0.38);
-  margin: 6px;
+  border: 4px solid transparent;
 }
 
 StScrollBar StButton#vhandle:hover, StScrollBar StButton#hhandle:hover {
@@ -3306,22 +3331,6 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 #panel.lock-screen {
   background-color: #222222;
-}
-
-#overview StScrollBar StBin#trough, #screenShieldNotifications StScrollBar StBin#trough {
-  background-color: rgba(255, 255, 255, 0.12);
-}
-
-#overview StScrollBar StButton#vhandle, #screenShieldNotifications StScrollBar StButton#vhandle, #overview StScrollBar StButton#hhandle, #screenShieldNotifications StScrollBar StButton#hhandle {
-  background-color: rgba(255, 255, 255, 0.45);
-}
-
-#overview StScrollBar StButton#vhandle:hover, #screenShieldNotifications StScrollBar StButton#vhandle:hover, #overview StScrollBar StButton#hhandle:hover, #screenShieldNotifications StScrollBar StButton#hhandle:hover {
-  background-color: rgba(255, 255, 255, 0.7);
-}
-
-#overview StScrollBar StButton#vhandle:active, #screenShieldNotifications StScrollBar StButton#vhandle:active, #overview StScrollBar StButton#hhandle:active, #screenShieldNotifications StScrollBar StButton#hhandle:active {
-  background-color: white;
 }
 
 #overview {

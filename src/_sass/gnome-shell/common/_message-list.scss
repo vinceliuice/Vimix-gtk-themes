@@ -2,15 +2,24 @@
 // a.k.a. notifications in the menu
 
 .message-list {
-  width: if($compact == 'true', 25.5em, 31.5em);
+  width: if($compact == 'true', 28em, 30.5em);
   padding: 0;
   text-shadow: none;
+  border: none !important;
 
-  .message-list-placeholder { spacing: $base_spacing * 2; }
+  .message-list-placeholder {
+    spacing: $base_spacing * 2;
+
+    > StIcon {
+      icon-size: $base_icon_size * 3; // 48px
+      margin-bottom: $base_margin * 3;
+      -st-icon-style: symbolic;
+    }
+  }
 }
 
 .message-list-sections {
-  margin: 0 $base_margin * 4; // to account for scrollbar
+  margin: 0 $base_margin * 2 0 $base_margin * 4; // to account for scrollbar
 }
 
 .message-list-section,

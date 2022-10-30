@@ -2,11 +2,11 @@
 
 //.the popover itself
 .popup-menu-boxpointer {
-  -arrow-border-radius: 2px;
+  // -arrow-border-radius: 2px;
   -arrow-background-color: transparent;
   -arrow-border-width: 0;
   -arrow-border-color: transparent;
-  -arrow-base: 64px;
+  -arrow-base: $base_padding;
   -arrow-rise: 0;
   -arrow-box-shadow: none; //dreaming. bug #689995
   background: transparent; // needs to reset?
@@ -16,17 +16,17 @@
 .popup-menu {
   min-width: if($compact == 'true', 10em, 12em);
   color: $text-secondary !important;
-  padding: $base_padding 0 !important;
+  padding: 0;
   font-weight: normal;
   @include fontsize($font_size - 1);
 
   .popup-menu-content {
-    padding: $base_padding 0 !important;
+    padding: $base_padding 0;
     background-color: $popover !important;
-    border-radius: $menu_radius;
+    border-radius: $menu_radius * 1.5;
     border: none;
     box-shadow: 0 3px 8px 0 rgba(black, 0.15);
-    margin: 4px 10px 12px;
+    margin: $base_padding 8px 12px;
     font-weight: normal;
   }
 

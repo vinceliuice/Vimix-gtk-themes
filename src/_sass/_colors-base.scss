@@ -57,7 +57,7 @@ $theme_background: if($variant == 'light', #F2F2F2, #282828);
     @if ($variant == 'dark')   { @return rgba(white, 1); }
   }
   @if ($state == 'default') { // for default mix grey color
-    @if ($theme == 'doder') or ($theme == 'beryl') { @return $theme_blue; }
+    @if ($theme == 'doder') or ($theme == 'beryl') or ($theme == 'amethyst') { @return $theme_blue; }
     @else { @return $theme_grey; }
   }
 }

@@ -9,12 +9,11 @@ StScrollBar {
   padding: 0;
 
   StScrollView & {
-    min-width: 16px;
-    min-height: 16px;
+    min-width: 8px;
+    min-height: 8px;
   }
 
   StBin#trough {
-    margin: 6px;
     border-radius: $circular_radius;
     background-color: $divider;
   }
@@ -22,8 +21,8 @@ StScrollBar {
   StButton#vhandle, StButton#hhandle {
     border-radius: $circular_radius;
     background-color: $text-disabled;
-    //border: 4px solid transparent; //would be nice to margin or at least to transparent
-    margin: 6px;
+    border: 4px solid transparent; //would be nice to margin or at least to transparent
+
     &:hover { background-color: $text-secondary; }
     &:active { background-color: $text; }
   }

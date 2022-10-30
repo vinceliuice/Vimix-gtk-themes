@@ -17,7 +17,7 @@ SASSC_OPT="-M -t expanded"
 THEME_NAME=vimix
 COLOR_VARIANTS=('' '-light' '-dark')
 SIZE_VARIANTS=('' '-compact')
-THEME_VARIANTS=('' '-doder' '-beryl' '-ruby' '-amethyst')
+THEME_VARIANTS=('-grey' '-doder' '-beryl' '-ruby' '-amethyst')
 
 if [[ "$(command -v gnome-shell)" ]]; then
   gnome-shell --version
@@ -29,27 +29,35 @@ if [[ "$(command -v gnome-shell)" ]]; then
   else
     GS_VERSION="3-28"
   fi
-  else
-    echo "'gnome-shell' not found, using styles for last gnome-shell version available."
+else
+  echo "'gnome-shell' not found, using styles for last gnome-shell version available."
+  GS_VERSION="42-0"
 fi
 
 usage() {
-  printf "%s\n" "Usage: $0 [OPTIONS...]"
-  printf "\n%s\n" "OPTIONS:"
-  printf "  %-25s%s\n" "-d, --dest DIR" "Specify theme destination directory (Default: ${DEST_DIR})"
-  printf "  %-25s%s\n" "-n, --name NAME" "Specify theme name (Default: ${THEME_NAME})"
-  printf "  %-25s%s\n" "-a, --all VARIANTS" "Install all theme variant(s)"
-  printf "  %-25s%s\n" "-c, --color VARIANTS" "Specify theme color variant(s) [standard|light|dark] (Default: All variants)"
-  printf "  %-25s%s\n" "-t, --theme VARIANTS" "Specify hue theme variant(s) [standard|doder|beryl|ruby|amethyst] (Default: doder variant)"
-  printf "  %-25s%s\n" "-s, --size VARIANTS" "Specify theme size variant(s) [standard|compact] (Default: standard variant)"
-  printf "  %-25s%s\n"
-  printf "  %-25s%s\n" "-tweaks, --tweaks" "Specify theme tweaks: [flat|grey|mix|translucent]"
-  printf "  %-25s%s\n" " flat"             "Specify theme with flat and normal titlebutton style"
-  printf "  %-25s%s\n" " grey"             "Use grey titlebuttons in standard variants"
-  printf "  %-25s%s\n" " mix"              "Mix theme color and dark grey color for dark background color variants"
-  printf "  %-25s%s\n" " translucent"      "Translucent panel version"
-  printf "  %-25s%s\n"
-  printf "  %-25s%s\n" "-h, --help" "Show this help"
+cat << EOF
+Usage: $0 [OPTION]...
+
+OPTIONS:
+  -d, --dest DIR          Specify destination directory (Default: $DEST_DIR)
+  -n, --name NAME         Specify theme name (Default: $THEME_NAME)
+  -t, --theme VARIANT     Specify theme color variant(s) [doder|beryl|ruby|amethyst|grey] (Default: doder(blue))
+  -c, --color VARIANT     Specify color variant(s) [standard|light|dark] (Default: All variants)
+  -s, --size  VARIANT     Specify size variant [standard|compact] (Default: standard variant)
+
+  -l, --libadwaita        Link installed gtk-4.0 theme to config folder for all libadwaita app use this theme
+
+  -r, --remove,
+  -u, --uninstall         Uninstall/Remove installed themes
+
+  -tweaks, --tweaks       Specify versions for tweaks [flat|grey|mix|translucent] (only nord and dracula can not mix use with!)
+                          1. flat         Flat and normal button style for windows control buttons
+                          2. grey         Use grey windows control buttons in grey accent color variants
+                          3. mix          Mix theme color and dark grey color for background color in darkmode variants
+                          4. translucent  Translucent panel version
+
+  -h, --help              Show help
+EOF
 }
 
 install() {
@@ -98,9 +106,10 @@ install() {
   cp -r ${SRC_DIR}/gtk-2.0/common/*.rc                                                  ${THEME_DIR}/gtk-2.0
   cp -r ${SRC_DIR}/gtk-2.0/assets/vimix${theme}/assets${ELSE_DARK}                      ${THEME_DIR}/gtk-2.0/assets
 
-  [[ ${color} == '' ]] && [[ ${theme} == '' ]] && \
-  cp -r ${SRC_DIR}/gtk-2.0/assets/vimix/assets-dark/pathbar_button_active.png           ${THEME_DIR}/gtk-2.0/assets && \
-  cp -r ${SRC_DIR}/gtk-2.0/assets/vimix/assets-dark/pathbar_button_prelight.png         ${THEME_DIR}/gtk-2.0/assets
+  if [[ ${color} == '' ]] && [[ ${theme} == '' ]]; then
+    cp -r ${SRC_DIR}/gtk-2.0/assets/vimix/assets-dark-grey/pathbar_button_active.png    ${THEME_DIR}/gtk-2.0/assets
+    cp -r ${SRC_DIR}/gtk-2.0/assets/vimix/assets-dark-grey/pathbar_button_prelight.png  ${THEME_DIR}/gtk-2.0/assets
+  fi
 
   cp -r ${SRC_DIR}/gtk-2.0/gtkrc${color}${theme}                                        ${THEME_DIR}/gtk-2.0/gtkrc
 
@@ -162,15 +171,17 @@ install() {
   cp -r ${SRC_DIR}/gnome-shell/color-assets/toggle-on${theme}.svg                       ${THEME_DIR}/gnome-shell/assets/toggle-on.svg
 
   if [[ ${tweaks} == 'true' ]]; then
-    sassc $SASSC_OPT ${SRC_DIR}/gnome-shell/shell-${GS_VERSION}/gnome-shell${color}.scss       ${THEME_DIR}/gnome-shell/gnome-shell.css
+    sassc $SASSC_OPT ${SRC_DIR}/gnome-shell/shell-${GS_VERSION}/gnome-shell${color}.scss ${THEME_DIR}/gnome-shell/gnome-shell.css
   else
-    cp -r ${SRC_DIR}/gnome-shell/shell-${GS_VERSION}/gnome-shell${color}.css                   ${THEME_DIR}/gnome-shell/gnome-shell.css
+    cp -r ${SRC_DIR}/gnome-shell/shell-${GS_VERSION}/gnome-shell${color}.css            ${THEME_DIR}/gnome-shell/gnome-shell.css
   fi
 
+  (
   cd ${THEME_DIR}/gnome-shell
   ln -s assets/no-events.svg no-events.svg
   ln -s assets/process-working.svg process-working.svg
   ln -s assets/no-notifications.svg no-notifications.svg
+  )
 
   #  Install metacity theme
   mkdir -p                                                                              ${THEME_DIR}/metacity-1
@@ -228,19 +239,23 @@ while [ $# -gt 0 ]; do
       name="${2}"
       shift 2
       ;;
+    -r|--remove|-u|--uninstall)
+      uninstall="true"
+      shift
+      ;;
+    -l|--libadwaita)
+      libadwaita="true"
+      shift
+      ;;
     -a|--all)
       accent='true'
       themes=("${THEME_VARIANTS[@]}")
-      shift 1
+      shift
       ;;
     -tweaks|--tweaks)
       shift
       for tweaks in "$@"; do
         case "$tweaks" in
-          solid)
-            opacity="solid"
-            shift
-            ;;
           grey)
             grey="true"
             shift
@@ -273,7 +288,7 @@ while [ $# -gt 0 ]; do
       shift
       for theme in "${@}"; do
         case "${theme}" in
-          standard)
+          grey)
             themes+=("${THEME_VARIANTS[0]}")
             shift 1
             ;;
@@ -394,12 +409,12 @@ while [ $# -gt 0 ]; do
   esac
 done
 
-#  Check command avalibility
+# Check command avalibility
 function has_command() {
   command -v $1 > /dev/null
 }
 
-#  Install needed packages
+# Install needed packages
 install_package() {
   if [ ! "$(which sassc 2> /dev/null)" ]; then
     echo sassc needs to be installed to generate the css.
@@ -415,17 +430,6 @@ install_package() {
       sudo pacman -S --noconfirm sassc
     fi
   fi
-}
-
-#  Install theme
-install_theme() {
-  for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
-    for size in "${sizes[@]-${SIZE_VARIANTS[0]}}"; do
-      for theme in "${themes[@]-${THEME_VARIANTS[1]}}"; do
-        install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${size}" "${theme}"
-      done
-    done
-  done
 }
 
 tweaks_temp() {
@@ -455,7 +459,7 @@ install_translucent() {
 install_theme_color() {
   if [[ "$theme" != '-doder' ]]; then
     case "$theme" in
-      '')
+      -grey)
         theme_color='grey'
         ;;
       -beryl)
@@ -499,7 +503,87 @@ theme_tweaks() {
   fi
 }
 
-install_theme
+uninstall_link() {
+  rm -rf "${HOME}/.config/gtk-4.0"/{assets,gtk.css,gtk-dark.css}
+}
+
+link_libadwaita() {
+  local dest="${1}"
+  local name="${2}"
+  local color="${3}"
+  local size="${4}"
+  local theme="${5}"
+
+  local THEME_DIR="${1}/${2}${3}${4}${5}"
+
+  echo -e "\nLink '$THEME_DIR/gtk-4.0' to '${HOME}/.config/gtk-4.0' for libadwaita..."
+
+  mkdir -p                                                                      "${HOME}/.config/gtk-4.0"
+  ln -sf "${THEME_DIR}/gtk-4.0/assets"                                          "${HOME}/.config/gtk-4.0/assets"
+  ln -sf "${THEME_DIR}/gtk-4.0/gtk.css"                                         "${HOME}/.config/gtk-4.0/gtk.css"
+  ln -sf "${THEME_DIR}/gtk-4.0/gtk-dark.css"                                    "${HOME}/.config/gtk-4.0/gtk-dark.css"
+}
+
+link_theme() {
+  for color in "${colors[@]-${COLOR_VARIANTS[2]}}"; do
+    for size in "${sizes[@]-${SIZE_VARIANTS[0]}}"; do
+      for theme in "${themes[@]-${THEME_VARIANTS[1]}}"; do
+        link_libadwaita "${dest:-$DEST_DIR}" "${_name:-$THEME_NAME}" "${color}" "${size}" "${theme}"
+      done
+    done
+  done
+}
+
+uninstall() {
+  local dest="${1}"
+  local name="${2}"
+  local color="${3}"
+  local size="${4}"
+  local theme="${5}"
+
+  local THEME_DIR="${1}/${2}${3}${4}${5}"
+
+  if [[ -d "${THEME_DIR}" ]]; then
+    echo -e "Uninstall ${THEME_DIR}... "
+    rm -rf "${THEME_DIR}"
+  fi
+}
+
+# Uninstall theme
+uninstall_theme() {
+  for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
+    for size in "${sizes[@]-${SIZE_VARIANTS[@]}}"; do
+      for theme in "${themes[@]-${THEME_VARIANTS[@]}}"; do
+        uninstall "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${size}" "${theme}"
+      done
+    done
+  done
+}
+
+# Install theme
+install_theme() {
+  for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
+    for size in "${sizes[@]-${SIZE_VARIANTS[0]}}"; do
+      for theme in "${themes[@]-${THEME_VARIANTS[1]}}"; do
+        install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${size}" "${theme}"
+      done
+    done
+  done
+}
+
+if [[ "$uninstall" == 'true' ]]; then
+  if [[ "$libadwaita" == 'true' ]]; then
+    echo -e "\nUninstall ${HOME}/.config/gtk-4.0 links ..."
+    uninstall_link
+  else
+    echo && uninstall_theme && uninstall_link
+  fi
+else
+  install_theme
+  if [[ "$libadwaita" == 'true' ]]; then
+    uninstall_link && link_theme
+  fi
+fi
 
 echo
 echo Done.

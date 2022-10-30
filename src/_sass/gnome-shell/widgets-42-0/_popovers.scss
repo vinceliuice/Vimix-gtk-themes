@@ -1,10 +1,10 @@
 
 .popup-menu {
   .popup-menu-item {
-    padding: $base_padding $base_padding * 2; 
+    padding: $base_padding $base_padding * 2;
 
-    &:ltr { padding-right: $base_padding * 1.5 !important; padding-left: 0 !important; }
-    &:rtl { padding-right: 0 !important; padding-left: $base_padding * 1.5 !important; }
+    &:ltr { padding-right: $base_padding * 2.5 !important; padding-left: $base_padding !important; }
+    &:rtl { padding-right: $base_padding !important; padding-left: $base_padding * 2.5 !important; }
   }
 }
 
@@ -29,8 +29,13 @@
 
 // system status popover menu
 .aggregate-menu {
+  .popup-menu-item > :first-child {
+    &:ltr { padding-left: 0 !important; margin-left: 0 !important; }
+    &:rtl { padding-right: 0 !important; margin-right: 0 !important; }
+  }
+
   .popup-sub-menu .popup-menu-item > :first-child {
-    &:ltr { padding-left: $base_padding * 2 !important; margin-left: $base_padding / 2 !important; }
-    &:rtl { padding-right: $base_padding * 2 !important; margin-right: $base_padding / 2 !important; }
+    &:ltr { padding-left: $base_padding * 2 !important; margin-left: 0 !important; }
+    &:rtl { padding-right: $base_padding * 2 !important; margin-right: 0 !important; }
   }
 }

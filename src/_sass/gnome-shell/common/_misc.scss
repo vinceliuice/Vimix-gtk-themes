@@ -10,8 +10,9 @@
   background-size: contain;
   color: on(black, secondary);
   border-radius: $circular_radius;
-  border: none;
-  box-shadow: 0 3px 8px rgba(black, 0.25);
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
   icon-size: $base_icon_size * 4; // 64px
 
   &:hover {

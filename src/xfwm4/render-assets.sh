@@ -6,7 +6,7 @@ OPTIPNG="/usr/bin/optipng"
 INDEX="assets.txt"
 
 for variant in '' '-dark'; do
-  for color in '' '-doder'; do
+  for color in '-grey' '-doder'; do
 
   ASSETS_DIR="assets${variant}${color}"
   SRC_FILE="assets${variant}${color}.svg"

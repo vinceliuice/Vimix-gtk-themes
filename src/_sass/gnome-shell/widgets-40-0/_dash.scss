@@ -1,13 +1,13 @@
 $dash_background_color: on($panel, track);
 $dash_placeholder_size: 32px;
-$dash_padding: 10px; // 10px
-$dash_spacing: 2px;
-$dash_bottom_margin: 16px;
-$dash_border_radius: $base_radius * 2.5;
+$dash_padding: $base_padding * 1.5; // 10px
+$dash_spacing: $base_padding / 2;
+$dash_bottom_margin: $base_padding * 2 + 4px;
+$dash_border_radius: $base_radius * 2 + $dash_padding;
 
 #dash {
   margin-top: $base_spacing * 2;
-  padding: 0 $dash_padding;
+  padding: 0;
 
   .placeholder {
     background-image:none;
@@ -23,7 +23,7 @@ $dash_border_radius: $base_radius * 2.5;
 .dash-background {
   background-color: $dash_background_color;
   margin-bottom: $dash_bottom_margin;
-  padding: $dash_padding;
+  padding: $dash_padding $dash_padding - $dash_spacing;
   border-radius: $dash_border_radius;
 }
 

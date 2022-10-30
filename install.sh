@@ -43,7 +43,7 @@ OPTIONS:
   -n, --name NAME         Specify theme name (Default: $THEME_NAME)
   -t, --theme VARIANT     Specify theme color variant(s) [doder|beryl|ruby|amethyst|grey|all] (Default: doder(blue))
   -c, --color VARIANT     Specify color variant(s) [standard|light|dark] (Default: All variants)
-  -s, --size  VARIANT     Specify size variant [standard|compact|all] (Default: standard variant)
+  -s, --size  VARIANT     Specify size variant [standard|compact] (Default: standard variant)
 
   -l, --libadwaita        Link installed gtk-4.0 theme to config folder for all libadwaita app use this theme
 
@@ -365,14 +365,13 @@ while [ $# -gt 0 ]; do
             ;;
           all)
             sizes+=("${SIZE_VARIANTS[@]}")
-            compact='true'
             shift 1
             ;;
           -*|--*)
             break
             ;;
           *)
-            echo "ERROR: Unrecognized color variant '$1'."
+            echo "ERROR: Unrecognized size variant '$1'."
             echo "Try '$0 --help' for more information."
             exit 1
             ;;

@@ -78,8 +78,8 @@ iconview, .view {
 }
 
 iconview:hover, .view:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.6);
+  background-color: alpha(currentColor, 0.1);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 iconview:disabled, .view:disabled {
@@ -2886,74 +2886,6 @@ radiobutton > radio:not(:checked):not(:indeterminate):disabled {
   color: rgba(0, 0, 0, 0.26);
 }
 
-row check:selected,
-row radio:selected, row check:selected:active,
-row radio:selected:active, row check:selected:checked,
-row radio:selected:checked, row check:selected:indeterminate,
-row radio:selected:indeterminate, row check:selected:focus,
-row radio:selected:focus, row check:selected:focus:active,
-row radio:selected:focus:active, row check:selected:focus:checked,
-row radio:selected:focus:checked, row check:selected:focus:indeterminate,
-row radio:selected:focus:indeterminate, treeview.view check:selected,
-treeview.view radio:selected, treeview.view check:selected:active,
-treeview.view radio:selected:active, treeview.view check:selected:checked,
-treeview.view radio:selected:checked, treeview.view check:selected:indeterminate,
-treeview.view radio:selected:indeterminate, treeview.view check:selected:focus,
-treeview.view radio:selected:focus, treeview.view check:selected:focus:active,
-treeview.view radio:selected:focus:active, treeview.view check:selected:focus:checked,
-treeview.view radio:selected:focus:checked, treeview.view check:selected:focus:indeterminate,
-treeview.view radio:selected:focus:indeterminate, row.activatable check:selected,
-row.activatable radio:selected, row.activatable check:selected:active,
-row.activatable radio:selected:active, row.activatable check:selected:checked,
-row.activatable radio:selected:checked, row.activatable check:selected:indeterminate,
-row.activatable radio:selected:indeterminate, row.activatable check:selected:focus,
-row.activatable radio:selected:focus, row.activatable check:selected:focus:active,
-row.activatable radio:selected:focus:active, row.activatable check:selected:focus:checked,
-row.activatable radio:selected:focus:checked, row.activatable check:selected:focus:indeterminate,
-row.activatable radio:selected:focus:indeterminate, row checkbutton check:selected, row checkbutton check:selected:active, row checkbutton check:selected:checked, row checkbutton check:selected:indeterminate, row checkbutton check:selected:focus, row checkbutton check:selected:focus:active, row checkbutton check:selected:focus:checked, row checkbutton check:selected:focus:indeterminate, treeview.view checkbutton check:selected, treeview.view checkbutton check:selected:active, treeview.view checkbutton check:selected:checked, treeview.view checkbutton check:selected:indeterminate, treeview.view checkbutton check:selected:focus, treeview.view checkbutton check:selected:focus:active, treeview.view checkbutton check:selected:focus:checked, treeview.view checkbutton check:selected:focus:indeterminate, row.activatable checkbutton check:selected, row.activatable checkbutton check:selected:active, row.activatable checkbutton check:selected:checked, row.activatable checkbutton check:selected:indeterminate, row.activatable checkbutton check:selected:focus, row.activatable checkbutton check:selected:focus:active, row.activatable checkbutton check:selected:focus:checked, row.activatable checkbutton check:selected:focus:indeterminate, row radiobutton radio:selected, row radiobutton radio:selected:active, row radiobutton radio:selected:checked, row radiobutton radio:selected:indeterminate, row radiobutton radio:selected:focus, row radiobutton radio:selected:focus:active, row radiobutton radio:selected:focus:checked, row radiobutton radio:selected:focus:indeterminate, treeview.view radiobutton radio:selected, treeview.view radiobutton radio:selected:active, treeview.view radiobutton radio:selected:checked, treeview.view radiobutton radio:selected:indeterminate, treeview.view radiobutton radio:selected:focus, treeview.view radiobutton radio:selected:focus:active, treeview.view radiobutton radio:selected:focus:checked, treeview.view radiobutton radio:selected:focus:indeterminate, row.activatable radiobutton radio:selected, row.activatable radiobutton radio:selected:active, row.activatable radiobutton radio:selected:checked, row.activatable radiobutton radio:selected:indeterminate, row.activatable radiobutton radio:selected:focus, row.activatable radiobutton radio:selected:focus:active, row.activatable radiobutton radio:selected:focus:checked, row.activatable radiobutton radio:selected:focus:indeterminate {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-row check:selected:disabled,
-row radio:selected:disabled, row check:selected:active:disabled,
-row radio:selected:active:disabled, row check:selected:checked:disabled,
-row radio:selected:checked:disabled, row check:selected:indeterminate:disabled,
-row radio:selected:indeterminate:disabled, row check:selected:focus:disabled,
-row radio:selected:focus:disabled, row check:selected:focus:active:disabled,
-row radio:selected:focus:active:disabled, row check:selected:focus:checked:disabled,
-row radio:selected:focus:checked:disabled, row check:selected:focus:indeterminate:disabled,
-row radio:selected:focus:indeterminate:disabled, treeview.view check:selected:disabled,
-treeview.view radio:selected:disabled, treeview.view check:selected:active:disabled,
-treeview.view radio:selected:active:disabled, treeview.view check:selected:checked:disabled,
-treeview.view radio:selected:checked:disabled, treeview.view check:selected:indeterminate:disabled,
-treeview.view radio:selected:indeterminate:disabled, treeview.view check:selected:focus:disabled,
-treeview.view radio:selected:focus:disabled, treeview.view check:selected:focus:active:disabled,
-treeview.view radio:selected:focus:active:disabled, treeview.view check:selected:focus:checked:disabled,
-treeview.view radio:selected:focus:checked:disabled, treeview.view check:selected:focus:indeterminate:disabled,
-treeview.view radio:selected:focus:indeterminate:disabled, row.activatable check:selected:disabled,
-row.activatable radio:selected:disabled, row.activatable check:selected:active:disabled,
-row.activatable radio:selected:active:disabled, row.activatable check:selected:checked:disabled,
-row.activatable radio:selected:checked:disabled, row.activatable check:selected:indeterminate:disabled,
-row.activatable radio:selected:indeterminate:disabled, row.activatable check:selected:focus:disabled,
-row.activatable radio:selected:focus:disabled, row.activatable check:selected:focus:active:disabled,
-row.activatable radio:selected:focus:active:disabled, row.activatable check:selected:focus:checked:disabled,
-row.activatable radio:selected:focus:checked:disabled, row.activatable check:selected:focus:indeterminate:disabled,
-row.activatable radio:selected:focus:indeterminate:disabled, row checkbutton check:selected:disabled, row checkbutton check:selected:active:disabled, row checkbutton check:selected:checked:disabled, row checkbutton check:selected:indeterminate:disabled, row checkbutton check:selected:focus:disabled, row checkbutton check:selected:focus:active:disabled, row checkbutton check:selected:focus:checked:disabled, row checkbutton check:selected:focus:indeterminate:disabled, treeview.view checkbutton check:selected:disabled, treeview.view checkbutton check:selected:active:disabled, treeview.view checkbutton check:selected:checked:disabled, treeview.view checkbutton check:selected:indeterminate:disabled, treeview.view checkbutton check:selected:focus:disabled, treeview.view checkbutton check:selected:focus:active:disabled, treeview.view checkbutton check:selected:focus:checked:disabled, treeview.view checkbutton check:selected:focus:indeterminate:disabled, row.activatable checkbutton check:selected:disabled, row.activatable checkbutton check:selected:active:disabled, row.activatable checkbutton check:selected:checked:disabled, row.activatable checkbutton check:selected:indeterminate:disabled, row.activatable checkbutton check:selected:focus:disabled, row.activatable checkbutton check:selected:focus:active:disabled, row.activatable checkbutton check:selected:focus:checked:disabled, row.activatable checkbutton check:selected:focus:indeterminate:disabled, row radiobutton radio:selected:disabled, row radiobutton radio:selected:active:disabled, row radiobutton radio:selected:checked:disabled, row radiobutton radio:selected:indeterminate:disabled, row radiobutton radio:selected:focus:disabled, row radiobutton radio:selected:focus:active:disabled, row radiobutton radio:selected:focus:checked:disabled, row radiobutton radio:selected:focus:indeterminate:disabled, treeview.view radiobutton radio:selected:disabled, treeview.view radiobutton radio:selected:active:disabled, treeview.view radiobutton radio:selected:checked:disabled, treeview.view radiobutton radio:selected:indeterminate:disabled, treeview.view radiobutton radio:selected:focus:disabled, treeview.view radiobutton radio:selected:focus:active:disabled, treeview.view radiobutton radio:selected:focus:checked:disabled, treeview.view radiobutton radio:selected:focus:indeterminate:disabled, row.activatable radiobutton radio:selected:disabled, row.activatable radiobutton radio:selected:active:disabled, row.activatable radiobutton radio:selected:checked:disabled, row.activatable radiobutton radio:selected:indeterminate:disabled, row.activatable radiobutton radio:selected:focus:disabled, row.activatable radiobutton radio:selected:focus:active:disabled, row.activatable radiobutton radio:selected:focus:checked:disabled, row.activatable radiobutton radio:selected:focus:indeterminate:disabled {
-  color: rgba(255, 255, 255, 0.3);
-}
-
-row check:selected:hover,
-row radio:selected:hover, treeview.view check:selected:hover,
-treeview.view radio:selected:hover, row checkbutton check:selected:hover, row checkbutton check:selected:focus:hover, treeview.view checkbutton check:selected:hover, treeview.view checkbutton check:selected:focus:hover, row.activatable checkbutton check:selected:hover, row.activatable checkbutton check:selected:focus:hover, row radiobutton radio:selected:hover, row radiobutton radio:selected:focus:hover, treeview.view radiobutton radio:selected:hover, treeview.view radiobutton radio:selected:focus:hover, row.activatable radiobutton radio:selected:hover, row.activatable radiobutton radio:selected:focus:hover {
-  color: white;
-}
-
-row check:selected:hover:disabled,
-row radio:selected:hover:disabled, treeview.view check:selected:hover:disabled,
-treeview.view radio:selected:hover:disabled, row checkbutton check:selected:hover:disabled, row checkbutton check:selected:focus:hover:disabled, treeview.view checkbutton check:selected:hover:disabled, treeview.view checkbutton check:selected:focus:hover:disabled, row.activatable checkbutton check:selected:hover:disabled, row.activatable checkbutton check:selected:focus:hover:disabled, row radiobutton radio:selected:hover:disabled, row radiobutton radio:selected:focus:hover:disabled, treeview.view radiobutton radio:selected:hover:disabled, treeview.view radiobutton radio:selected:focus:hover:disabled, row.activatable radiobutton radio:selected:hover:disabled, row.activatable radiobutton radio:selected:focus:hover:disabled {
-  color: rgba(255, 255, 255, 0.45);
-}
-
 check,
 radio {
   min-height: 24px;
@@ -3036,9 +2968,25 @@ menu menuitem check:checked:disabled, menu menuitem check:indeterminate:disabled
   color: alpha(#18b8ff, 0.3);
 }
 
+row check:selected, row check:selected:active, row check:selected:checked, row check:selected:indeterminate, row check:selected:focus, row check:selected:focus:active, row check:selected:focus:checked, row check:selected:focus:indeterminate, treeview.view check:selected, treeview.view check:selected:active, treeview.view check:selected:checked, treeview.view check:selected:indeterminate, treeview.view check:selected:focus, treeview.view check:selected:focus:active, treeview.view check:selected:focus:checked, treeview.view check:selected:focus:indeterminate, row.activatable check:selected, row.activatable check:selected:active, row.activatable check:selected:checked, row.activatable check:selected:indeterminate, row.activatable check:selected:focus, row.activatable check:selected:focus:active, row.activatable check:selected:focus:checked, row.activatable check:selected:focus:indeterminate, row radio:selected, row radio:selected:active, row radio:selected:checked, row radio:selected:indeterminate, row radio:selected:focus, row radio:selected:focus:active, row radio:selected:focus:checked, row radio:selected:focus:indeterminate, treeview.view radio:selected, treeview.view radio:selected:active, treeview.view radio:selected:checked, treeview.view radio:selected:indeterminate, treeview.view radio:selected:focus, treeview.view radio:selected:focus:active, treeview.view radio:selected:focus:checked, treeview.view radio:selected:focus:indeterminate, row.activatable radio:selected, row.activatable radio:selected:active, row.activatable radio:selected:checked, row.activatable radio:selected:indeterminate, row.activatable radio:selected:focus, row.activatable radio:selected:focus:active, row.activatable radio:selected:focus:checked, row.activatable radio:selected:focus:indeterminate {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+row check:selected:disabled, row check:selected:active:disabled, row check:selected:checked:disabled, row check:selected:indeterminate:disabled, row check:selected:focus:disabled, row check:selected:focus:active:disabled, row check:selected:focus:checked:disabled, row check:selected:focus:indeterminate:disabled, treeview.view check:selected:disabled, treeview.view check:selected:active:disabled, treeview.view check:selected:checked:disabled, treeview.view check:selected:indeterminate:disabled, treeview.view check:selected:focus:disabled, treeview.view check:selected:focus:active:disabled, treeview.view check:selected:focus:checked:disabled, treeview.view check:selected:focus:indeterminate:disabled, row.activatable check:selected:disabled, row.activatable check:selected:active:disabled, row.activatable check:selected:checked:disabled, row.activatable check:selected:indeterminate:disabled, row.activatable check:selected:focus:disabled, row.activatable check:selected:focus:active:disabled, row.activatable check:selected:focus:checked:disabled, row.activatable check:selected:focus:indeterminate:disabled, row radio:selected:disabled, row radio:selected:active:disabled, row radio:selected:checked:disabled, row radio:selected:indeterminate:disabled, row radio:selected:focus:disabled, row radio:selected:focus:active:disabled, row radio:selected:focus:checked:disabled, row radio:selected:focus:indeterminate:disabled, treeview.view radio:selected:disabled, treeview.view radio:selected:active:disabled, treeview.view radio:selected:checked:disabled, treeview.view radio:selected:indeterminate:disabled, treeview.view radio:selected:focus:disabled, treeview.view radio:selected:focus:active:disabled, treeview.view radio:selected:focus:checked:disabled, treeview.view radio:selected:focus:indeterminate:disabled, row.activatable radio:selected:disabled, row.activatable radio:selected:active:disabled, row.activatable radio:selected:checked:disabled, row.activatable radio:selected:indeterminate:disabled, row.activatable radio:selected:focus:disabled, row.activatable radio:selected:focus:active:disabled, row.activatable radio:selected:focus:checked:disabled, row.activatable radio:selected:focus:indeterminate:disabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+row check:selected:hover, row check:selected:focus:hover, treeview.view check:selected:hover, treeview.view check:selected:focus:hover, row.activatable check:selected:hover, row.activatable check:selected:focus:hover, row radio:selected:hover, row radio:selected:focus:hover, treeview.view radio:selected:hover, treeview.view radio:selected:focus:hover, row.activatable radio:selected:hover, row.activatable radio:selected:focus:hover {
+  color: white;
+}
+
+row check:selected:hover:disabled, row check:selected:focus:hover:disabled, treeview.view check:selected:hover:disabled, treeview.view check:selected:focus:hover:disabled, row.activatable check:selected:hover:disabled, row.activatable check:selected:focus:hover:disabled, row radio:selected:hover:disabled, row radio:selected:focus:hover:disabled, treeview.view radio:selected:hover:disabled, treeview.view radio:selected:focus:hover:disabled, row.activatable radio:selected:hover:disabled, row.activatable radio:selected:focus:hover:disabled {
+  color: rgba(255, 255, 255, 0.45);
+}
+
 
 check {
-  -gtk-icon-source: -gtk-scaled(url("assets/scalable/checkbox-unchecked-symbolic.svg"), url("assets/scalable/checkbox-unchecked-symbolic@2.svg"));
+  -gtk-icon-source: -gtk-recolor(url("assets/scalable/checkbox-unchecked-symbolic.svg"));
 }
 
 

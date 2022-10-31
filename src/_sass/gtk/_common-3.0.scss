@@ -74,8 +74,8 @@
   color: $text;
 
   &:hover {
-    background-color: $fill;
-    color: $text-secondary;
+    background-color: $overlay-hover;
+    color: $text;
   }
 
   &:disabled { color: $text-disabled; }
@@ -2429,36 +2429,14 @@ radiobutton > radio:not(:checked):not(:indeterminate) {
   &:disabled { color: $text-secondary-disabled; }
 }
 
-%row_selected_button,
-checkbutton check,
-radiobutton radio {
-  row &:selected,
-  treeview.view &:selected,
-  row.activatable &:selected {
-    &, &:focus {
-      &, &:active, &:checked, &:indeterminate {
-        color: on($primary, secondary);
-        &:disabled { color: on($primary, secondary-disabled); }
-      }
-
-      &:hover {
-        color: on($primary);
-        &:disabled { color: on($primary, disabled); }
-      }
-    }
-  }
-}
-
 check,
 radio {
   min-height: 24px;
   min-width: 24px;
   margin: -8px;
   padding: 8px;
-
   @extend %simple_flat_button;
   @extend %circular_button;
-  @extend %row_selected_button;
 
   &:checked, &:indeterminate {
     color: indicator(accent);
@@ -2509,12 +2487,27 @@ radio {
       &:disabled {  color: gtkalpha(indicator(accent), 0.3); }
     }
   }
+
+  row &:selected,
+  treeview.view &:selected,
+  row.activatable &:selected {
+    &, &:focus {
+      &, &:active, &:checked, &:indeterminate {
+        color: on($primary, secondary);
+        &:disabled { color: on($primary, secondary-disabled); }
+      }
+
+      &:hover {
+        color: on($primary);
+        &:disabled { color: on($primary, disabled); }
+      }
+    }
+  }
 }
 
 %check,
 check {
-  -gtk-icon-source: -gtk-scaled(url("assets/scalable/checkbox-unchecked-symbolic#{$asset-suffix}.svg"),
-                                url("assets/scalable/checkbox-unchecked-symbolic#{$asset-suffix}@2.svg"));
+  -gtk-icon-source: -gtk-recolor(url("assets/scalable/checkbox-unchecked-symbolic.svg"));
 
   &:checked { -gtk-icon-source: -gtk-recolor(url("assets/scalable/checkbox-checked-symbolic.svg")); }
 

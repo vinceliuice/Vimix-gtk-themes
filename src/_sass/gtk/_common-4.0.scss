@@ -2902,30 +2902,6 @@ radiobutton > radio:not(:checked):not(:indeterminate) {
   &:disabled { color: $text-secondary-disabled; }
 }
 
-%row_selected_check,
-checkbutton check,
-radiobutton radio {
-  row:selected &,
-  treeview.view:selected &,
-  row.activatable:selected & {
-    &, &:focus {
-      &, &:active, &:checked, &:indeterminate {
-        color: on($primary, secondary);
-        background: none;
-        box-shadow: none;
-        &:disabled { color: on($primary, secondary-disabled); }
-      }
-
-      &:hover {
-        color: on($primary);
-        background: none;
-        box-shadow: none;
-        &:disabled { color: on($primary, disabled); }
-      }
-    }
-  }
-}
-
 check,
 radio {
   min-height: 24px;
@@ -2937,7 +2913,6 @@ radio {
   outline: none;
   @extend %simple_flat_button;
   @extend %circular_button;
-  @extend %row_selected_check;
   @include ripple(flat);
 
   &:checked, &:indeterminate {
@@ -2947,35 +2922,30 @@ radio {
   }
 
   popover modelbutton.flat & {
-    &, &:focus, &:hover, &:focus:hover, &:active, &:disabled {
-      transition: none; // FIXME: this is a workaround for a popover check/radio long transition issue
+    transition: none;
+    margin: 0; // this is a workaround for a menu check/radio size allocation issue
+    padding: 0;
+    color: on($menu, secondary);
+
+    &, &:focus, &:hover, &:selected, &:focus:hover, &:active, &:disabled {
       box-shadow: none;
       background-image: none;
       outline: none;
       border: none;
+      background-color: transparent;
     }
 
     &:not(:checked):not(:indeterminate):not(:disabled) { color: $text-secondary; }
 
     &.left:dir(rtl) {
       margin-left: -16px;
-      margin-right: -8px;
+      margin-right: -6px;
     }
 
     &.right:dir(ltr) {
-      margin-left: -8px;
+      margin-left: -6px;
       margin-right: -16px;
     }
-  }
-
-  popover.menu modelbutton & {
-    transition: none;
-    margin: 0; // this is a workaround for a menu check/radio size allocation issue
-    padding: 0;
-    color: on($menu, secondary);
-
-    &:dir(ltr) { margin-right: 8px; }
-    &:dir(rtl) { margin-left: 8px; }
 
     &:checked, &:indeterminate {
       color: indicator(accent);
@@ -4664,7 +4634,7 @@ shortcuts-section {
 
 %circular_button,
 button.circular { // FIXME: aggregate to buttons
-  border-radius: 1000px;
+  border-radius: $circular_radius;
 
   // label { padding: 0; }
 }

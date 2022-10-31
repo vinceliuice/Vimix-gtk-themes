@@ -2182,6 +2182,11 @@ headerbar viewswitcher button:not(.suggested-action):not(.destructive-action) {
   margin-bottom: 0;
 }
 
+headerbar viewswitcher button.toggle:not(.suggested-action):not(.destructive-action) {
+  padding: 0;
+  min-height: 0;
+}
+
 headerbar .pathbar {
   background-color: rgba(0, 0, 0, 0.05);
 }
@@ -2224,8 +2229,8 @@ viewswitcher button.toggle {
 
 viewswitcher button.toggle > stack > box.narrow {
   font-size: 0.75rem;
-  padding-top: 6px;
-  padding-bottom: 4px;
+  padding-top: 3px;
+  padding-bottom: 3px;
   border-spacing: 4px;
 }
 
@@ -2235,7 +2240,7 @@ viewswitcher button.toggle > stack > box.narrow > stack > label {
 }
 
 viewswitcher button.toggle > stack > box.wide {
-  padding: 2px 12px;
+  padding: 0 12px;
   border-spacing: 6px;
 }
 
@@ -5994,6 +5999,10 @@ window.background.csd > contents > box .history-view {
 
 window.background.csd > contents > box .math-buttons button.clear-button.image-button {
   border-radius: 3px;
+}
+
+label.clock-time.numeric {
+  padding: 0 12px;
 }
 
 avatar {

@@ -394,6 +394,13 @@ window.background.csd {
   }
 }
 
+//
+// Gnome Clock
+//
+
+label.clock-time.numeric {
+  padding: 0 $space_size * 2;
+}
 
 //
 // avatar
@@ -535,7 +542,9 @@ statuspage {
   }
 }
 
+//
 // Cards
+//
 
 .card {
   @at-root %card, & {

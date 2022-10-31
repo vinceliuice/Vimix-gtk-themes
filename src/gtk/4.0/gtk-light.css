@@ -1038,6 +1038,19 @@ row:selected button.flat:checked:disabled {
 
 button.osd {
   padding: 9px 13px;
+  background-color: #222222;
+  color: white;
+}
+
+button.osd:hover {
+  background-color: #414141;
+  color: white;
+}
+
+button.osd:active {
+  background-color: #414141;
+  color: white;
+  background-image: radial-gradient(circle, #555555 10%, transparent 10%);
 }
 
 button.osd.image-button {
@@ -5867,40 +5880,39 @@ window.background > contents > leaflet stack.background {
   background-color: transparent;
 }
 
-preferencesgroup > box button.background-preview-button {
+preferencesgroup > box button.background-preview-button.toggle {
   padding: 0;
-}
-
-preferencesgroup > box button.background-preview-button, preferencesgroup > box button.background-preview-button:hover, preferencesgroup > box button.background-preview-button:active, preferencesgroup > box button.background-preview-button:checked, preferencesgroup > box button.background-preview-button:checked:hover {
-  background-color: transparent;
-  background-image: none;
-  border: none;
+  background: none;
   box-shadow: none;
-}
-
-preferencesgroup > box button.background-preview-button > background-preview {
-  outline: 2px solid transparent;
+  outline-width: 2px solid transparent;
   outline-offset: 3px;
-  border-radius: 3px;
 }
 
-preferencesgroup > box button.background-preview-button:hover > background-preview {
-  outline-color: rgba(0, 0, 0, 0.26);
+preferencesgroup > box button.background-preview-button.toggle, preferencesgroup > box button.background-preview-button.toggle > background-preview {
+  border-radius: 6px;
 }
 
-preferencesgroup > box button.background-preview-button:active > background-preview {
-  outline-color: rgba(0, 0, 0, 0.38);
+preferencesgroup > box button.background-preview-button.toggle:hover {
+  outline: 2px solid rgba(0, 0, 0, 0.12);
 }
 
-preferencesgroup > box button.background-preview-button:checked > background-preview {
-  outline-color: #4285F4;
+preferencesgroup > box button.background-preview-button.toggle:active {
+  outline: 2px solid rgba(0, 0, 0, 0.26);
+}
+
+preferencesgroup > box button.background-preview-button.toggle:checked {
+  outline: 2px solid #4285F4;
 }
 
 preferencesgroup > box flowbox.background-flowbox > flowboxchild {
   outline: 2px solid transparent;
   outline-offset: 0;
-  border-radius: 6px;
+  border-radius: 9px;
   padding: 3px;
+}
+
+preferencesgroup > box flowbox.background-flowbox > flowboxchild > .background-thumbnail {
+  border-radius: 6px;
 }
 
 preferencesgroup > box flowbox.background-flowbox > flowboxchild:hover {
@@ -5914,6 +5926,12 @@ preferencesgroup > box flowbox.background-flowbox > flowboxchild:active {
 preferencesgroup > box flowbox.background-flowbox > flowboxchild:selected {
   outline-color: #4285F4;
   background-color: transparent;
+}
+
+preferencesgroup > box flowbox.background-flowbox > flowboxchild image.selected-check {
+  border-radius: 9999px;
+  padding: 6px;
+  margin: 6px;
 }
 
 window.background.csd > contents > box .history-view {
@@ -6026,32 +6044,6 @@ preferencesgroup > box > box.header:not(.single-line) {
 
 preferencesgroup > box > box.single-line {
   min-height: 34px;
-}
-
-preferencesgroup > box button.background-preview-button.toggle {
-  padding: 0;
-  background: none;
-  box-shadow: none;
-  outline-color: transparent;
-  outline-width: 2px;
-  outline-offset: 3px;
-  outline-style: solid;
-}
-
-preferencesgroup > box button.background-preview-button.toggle, preferencesgroup > box button.background-preview-button.toggle > background-preview {
-  border-radius: 6px;
-}
-
-preferencesgroup > box button.background-preview-button.toggle:hover {
-  outline-color: rgba(0, 0, 0, 0.05);
-}
-
-preferencesgroup > box button.background-preview-button.toggle:active {
-  outline-color: rgba(0, 0, 0, 0.26);
-}
-
-preferencesgroup > box button.background-preview-button.toggle:checked {
-  outline-color: #4285F4;
 }
 
 statuspage > scrolledwindow > viewport > box {

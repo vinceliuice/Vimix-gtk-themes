@@ -1741,6 +1741,11 @@ headerbar {
     margin-top: 0;
     margin-bottom: 0;
     @extend %headerbar_flat_button;
+
+    &.toggle {
+      padding: 0;
+      min-height: 0;
+    }
   }
 
   .pathbar {
@@ -1870,8 +1875,8 @@ viewswitcher {
     > stack > box {
       &.narrow {
         font-size: 0.75rem;
-        padding-top: $space_size;
-        padding-bottom: $space_size - 2px;
+        padding-top: $space_size / 2;
+        padding-bottom: $space_size / 2;
         border-spacing: $space_size - 2px;
 
         > stack > label {
@@ -1881,7 +1886,7 @@ viewswitcher {
       }
 
       &.wide {
-        padding: 2px $space_size * 2;
+        padding: 0 $space_size * 2;
         border-spacing: $space_size;
       }
     }

@@ -1609,7 +1609,13 @@ window.background.chromium {
     button.titlebutton { // title-buttons
       // define global titlebutton class sizing
       border: none;
-      @extend %windows_button;
+
+      @if $titlebutton == 'default' {
+        @extend %windows_button;
+      } @else {
+        background-image: none;
+        background-color: transparent;
+      }
     }
   }
 

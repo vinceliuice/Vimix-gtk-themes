@@ -1900,6 +1900,7 @@ headerbar button:disabled:not(.suggested-action):not(.destructive-action) {
   box-shadow: none;
   background-color: transparent;
   color: rgba(0, 0, 0, 0.26);
+  opacity: 1;
 }
 
 headerbar button:checked:not(.suggested-action):not(.destructive-action) {
@@ -1914,6 +1915,7 @@ headerbar button:checked:disabled:not(.suggested-action):not(.destructive-action
 
 headerbar button:backdrop:not(.suggested-action):not(.destructive-action) {
   color: rgba(0, 0, 0, 0.38);
+  opacity: 1;
 }
 
 headerbar button:backdrop:disabled:not(.suggested-action):not(.destructive-action) {
@@ -1946,7 +1948,7 @@ headerbar viewswitcher button:checked:not(.suggested-action):not(.destructive-ac
   border-radius: 0;
 }
 
-headerbar viewswitcher button:checked:disabled:not(.suggested-action):not(.destructive-action), headerbar windowhandle stackswitcher.linked > button:checked:disabled:not(.suggested-action):not(.destructive-action), headerbar viewswitcher button:active:disabled:not(.suggested-action):not(.destructive-action), headerbar windowhandle stackswitcher.linked > button:active:disabled:not(.suggested-action):not(.destructive-action) {
+headerbar viewswitcher button:checked:disabled:not(.suggested-action):not(.destructive-action), headerbar windowhandle stackswitcher.linked > button:checked:disabled:not(.suggested-action):not(.destructive-action), headerbar viewswitcher button:checked:backdrop:not(.suggested-action):not(.destructive-action), headerbar windowhandle stackswitcher.linked > button:checked:backdrop:not(.suggested-action):not(.destructive-action), headerbar viewswitcher button:active:disabled:not(.suggested-action):not(.destructive-action), headerbar windowhandle stackswitcher.linked > button:active:disabled:not(.suggested-action):not(.destructive-action), headerbar viewswitcher button:active:backdrop:not(.suggested-action):not(.destructive-action), headerbar windowhandle stackswitcher.linked > button:active:backdrop:not(.suggested-action):not(.destructive-action) {
   color: rgba(66, 133, 244, 0.35);
   background-color: transparent;
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), rgba(66, 133, 244, 0.35) 100%, transparent 0%) 0 0 2/0 0 2px;

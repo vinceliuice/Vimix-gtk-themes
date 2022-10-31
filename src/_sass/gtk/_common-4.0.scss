@@ -1512,12 +1512,13 @@ searchbar > revealer > box {
   @include button(header-normal);
   &:hover { @include button(header-hover); }
   &:active { @include button(header-active); }
-  &:disabled { @include button(header-disabled); }
+  &:disabled { @include button(header-disabled); opacity: 1; }
   &:checked, &:checked:hover { @include button(header-checked); }
   // &:checked:hover { @include button(header-checked-hover); }
   &:checked:disabled, &:checked:backdrop { @include button(header-checked-disabled); }
   &:backdrop {
     color: on($header, disabled);
+    opacity: 1;
     &:disabled { color: on($header, secondary-disabled); }
   }
 }
@@ -1553,7 +1554,7 @@ searchbar > revealer > box {
     color: indicator(header);
     border-radius: 0;
 
-    &:disabled {
+    &:disabled, &:backdrop {
       color: rgba(indicator(header), 0.35);
       background-color: transparent;
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),

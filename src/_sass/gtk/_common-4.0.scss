@@ -3288,9 +3288,9 @@ progressbar {
     }
   }
 
-  // FIXME: insensitive state missing and some other state should be set probably
   color: $text-disabled;
   font-size: smaller;
+  box-shadow: none;
 
   > trough { background-color: gtkalpha($primary, 0.3); border-radius: 6px; }
 

@@ -11,6 +11,8 @@ materia gtk theme: https://github.com/nana-4/materia-theme
 
 ### GTK+ 3.20 or later
 
+- sassc
+
 ### GTK2 engines requirment
 
 - GTK2 engine Murrine 0.98.1.1 or later.
@@ -46,7 +48,7 @@ Usage:  `./install.sh`  **[OPTIONS...]**
 -n, --name NAME         Specify theme name (Default: vimix)
 -t, --theme VARIANT     Specify theme color variant(s) [doder|beryl|ruby|amethyst|grey|all] (Default: doder(blue))
 -c, --color VARIANT     Specify color variant(s) [standard|light|dark] (Default: All variants)
--s, --size  VARIANT     Specify size variant [standard|compact] (Default: standard variant)
+-s, --size  VARIANT     Specify size variant [standard|compact|all] (Default: standard variant)
 
 -l, --libadwaita        Link installed gtk-4.0 theme to config folder for all libadwaita app use this theme
 
@@ -59,7 +61,13 @@ Usage:  `./install.sh`  **[OPTIONS...]**
                         3. mix          Mix theme color and dark grey color for background color in darkmode variants
                         4. translucent  Translucent panel version
 
+-h, --help              Show help
+```
 
+For example: install all themes
+
+```sh
+./install.sh -t all -s all
 ```
 
 ## Screenshots

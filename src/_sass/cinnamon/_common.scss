@@ -14,9 +14,9 @@
 $font-family: Roboto, Sans-Serif;
 
 stage {
-  @include fontscaling($ref_size);
+  // @include fontscaling($ref_size);
   color: $text;
-  font-family: $font-family;
+  // font-family: $font-family;
   font-weight: 400;
 }
 
@@ -720,6 +720,10 @@ $ws_thumb_spacing: 32px;
 //  * Calendar *
 //  ************/
 
+.calendar-main-box {
+  margin: 0 $space_size;
+}
+
 .calendar {
   padding: 0.4em 1.75em;
   spacing-rows: 0;
@@ -728,6 +732,28 @@ $ws_thumb_spacing: 32px;
   // .calendar-background class allows the date applet calendar
   // to be themed separately from other applet menus
   // &-background {}
+
+  &-today-home-button,
+  &-today-home-button-enabled {
+    margin: $space_size 0;
+    padding: $space_size;
+    @extend %button;
+  }
+
+  &-today-day-label {
+    font-size: 1.75em;
+    color: $text-secondary;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: .1em;
+  }
+
+  &-today-date-label {
+    font-size: 1.1em;
+    color: $text-disabled;
+    font-weight: bold;
+    text-align: center;
+  }
 
   &-month-label {
     @include fontscaling($ref_size * 0.8);
@@ -770,7 +796,7 @@ $ws_thumb_spacing: 32px;
 .datemenu-date-label {
   @include fontscaling($ref_size * 0.8);
   padding: 0.4em 1.75em;
-  border-radius: 2px;
+  border-radius: $button_radius;
   color: $text;
   font-weight: 700;
   text-align: center;
@@ -788,6 +814,18 @@ $ws_thumb_spacing: 32px;
     margin: 2px;
     border-radius: 25px;
     text-align: center;
+
+    &:hover {
+      background-color: $fill;
+    }
+
+    &:active {
+      background-color: $divider;
+    }
+
+    &:selected {
+      background-color: $track;
+    }
   }
 
   &-heading {
@@ -834,12 +872,141 @@ $ws_thumb_spacing: 32px;
 .calendar {
   &-today {
     border-width: 0;
-    color: on($primary);
-    background-color: $primary;
     font-weight: 700;
+
+    &, &:hover, &:active, &:selected {
+      color: on($primary);
+      background-color: $primary;
+    }
   }
 
   &-other-month-day { color: rgba($text-disabled, 0.55); }
+}
+
+// calendar events
+.calendar-events-main-box {
+  height: if($compact == 'false', 240px, 200px);
+  margin: $space_size + 2px 0.5em $space_size $space_size;
+  padding: $space_size + 2px;
+  min-width: if($compact == 'false', 300px, 260px);
+  border: none;
+  border-radius: $button_radius;
+  background-gradient-direction: vertical;
+  background-gradient-start: $fill;
+  background-gradient-end: $fill;
+  color: $text-secondary;
+}
+
+.calendar-events-no-events-button {
+  margin: $space_size 0;
+  padding: $space_size;
+  border-radius: $button_radius;
+
+  &:hover {
+    background-gradient-direction: vertical;
+    background-gradient-start: $fill;
+    background-gradient-end: $fill;
+    box-shadow: none;
+  }
+}
+
+.calendar-events-no-events-icon {
+  color: $text-disabled;
+}
+
+.calendar-events-no-events-label {
+  font-size: 1.1em;
+  color: $text-disabled;
+  font-weight: bold;
+  text-align: center;
+  margin-top: $space_size * 1.5;
+}
+
+.calendar-events-date-label {
+  padding: $space_size / 2 0 $space_size * 2 $space_size / 2;
+  font-size: 1.1em;
+  color: $text-secondary;
+  font-weight: bold;
+  text-align: center;
+}
+
+.calendar-events-event-container {
+  padding: 2px;
+}
+
+.calendar-events-main-box .separator {
+  -margin-horizontal: 1em;
+  -gradient-height: 1px;
+  -gradient-start: $border;
+  -gradient-end: $border;
+}
+
+.calendar-event-button {
+  margin: $space_size 0 $space_size 0;
+  border-radius: $button_radius;
+
+  &:hover {
+    background-gradient-direction: vertical;
+    background-gradient-start: $fill;
+    background-gradient-end: $fill;
+    box-shadow: none;
+  }
+}
+
+.calendar-event-color-strip {
+  width: 4px;
+  border-radius: 4px 0 0 4px;
+}
+
+.calendar-event-row-content {
+  margin: $space-size;
+}
+
+.calendar-event-time-past {
+  color: $text-secondary-disabled;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: .6em;
+}
+
+.calendar-event-time-present {
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: .6em;
+}
+
+.calendar-event-time-present:all-day {
+  color: rgba($success, 0.6);
+}
+
+.calendar-event-time-future {
+  text-align: left;
+  margin-bottom: .6em;
+}
+
+.calendar-event-countdown {
+  color: $text-disabled;
+  font-weight: bold;
+  text-align: right;
+  margin-bottom: .6em;
+}
+
+.calendar-event-countdown:soon {
+  color: white;
+}
+
+.calendar-event-countdown:imminent {
+  color: rgba($warning, 0.6);
+}
+
+.calendar-event-countdown:current {
+  color: rgba($success, 0.6);
+}
+
+.calendar-event-summary {
+  color: $text-disabled;
+  text-align: left;
+  width: 200px;
 }
 
 
@@ -1573,6 +1740,10 @@ $ws_thumb_spacing: 32px;
 //  ********************************************************************/
 
 .grouped-window-list {
+  &-box {
+    spacing: 2px;
+  }
+
   &-thumbnail-label {
     padding-left: 4px;
   }
@@ -1582,18 +1753,29 @@ $ws_thumb_spacing: 32px;
   }
 
   &-thumbnail-menu {
+    border-image: url("assets/menu/menu.svg") 9 9 9 9;
+    color: $text;
+    margin: 0;
+    padding: $base_padding * 2;
+
     .item-box {
-      padding: 6px;
-      border-radius: 2px;
-      spacing: 4px;
+      padding: $base_padding;
+      border-radius: $button_radius;
+      spacing: $base_margin;
 
       &:outlined {
-        padding: 2px;
         border: 2px solid $primary;
+        border-radius: $button_radius + 2px;
+      }
+
+      &:hover {
+        color: $text;
+        background-color: $fill;
       }
 
       &:selected {
-        background-color: rgba(on($primary), 0.33);
+        color: $text;
+        background-color: $divider;
       }
     }
 
@@ -1611,7 +1793,7 @@ $ws_thumb_spacing: 32px;
     z-index: 99;
     text-shadow: none;
     font-size: 10px;
-    color: $panel-text;
+    color: on($primary);
     padding: 0;
   }
 
@@ -1620,8 +1802,9 @@ $ws_thumb_spacing: 32px;
   }
 
   &-badge {
-    border-radius: 256px;
+    border-radius: $circular_radius;
     background-color: $primary;
+    padding: 2px;
   }
 
   &-item-box {

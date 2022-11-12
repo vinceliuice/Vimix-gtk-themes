@@ -1850,19 +1850,21 @@ menu,
     min-height: 16px;
     min-width: 16px;
     padding: 4px;
-    border-radius: 0;
     background-color: $menu;
     color: on($menu, secondary);
 
     &.top {
-      margin-top: -4px;
+      margin-top: -$menu_radius;
       border-bottom: 1px solid $border;
+      border-radius: $menu_radius $menu_radius 0 0;
       -gtk-icon-source: -gtk-icontheme('pan-up-symbolic');
     }
 
     &.bottom {
-      margin-bottom: -4px;
+      margin-top: $menu_radius * 2;
+      margin-bottom: -$menu_radius * 3;
       border-top: 1px solid $border;
+      border-radius: 0 0 $menu_radius $menu_radius;
       -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
     }
 

@@ -2246,7 +2246,6 @@ menu > arrow,
   min-height: 16px;
   min-width: 16px;
   padding: 4px;
-  border-radius: 0;
   background-color: #FFFFFF;
   color: rgba(0, 0, 0, 0.6);
 }
@@ -2254,16 +2253,19 @@ menu > arrow,
 menu > arrow.top,
 .menu > arrow.top,
 .context-menu > arrow.top {
-  margin-top: -4px;
+  margin-top: -3px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 3px 3px 0 0;
   -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
 }
 
 menu > arrow.bottom,
 .menu > arrow.bottom,
 .context-menu > arrow.bottom {
-  margin-bottom: -4px;
+  margin-top: 6px;
+  margin-bottom: -9px;
   border-top: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 0 0 3px 3px;
   -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
 }
 

@@ -666,7 +666,7 @@ button {
     @include entry(flat-hover);
   }
 
-  &:checked {
+  &:active, &:checked {
     @include entry(flat-focus);
   }
 
@@ -1065,7 +1065,7 @@ toolbar {
   // stand-alone OSD toolbars
   @at-root %toolbar_osd, &.osd {
     padding: $space_size;
-    border-radius: 2px;
+    border-radius: $window_radius;
     box-shadow: $shadow_2, inset 0 1px $highlight;
     background-color: $base;
 
@@ -3027,6 +3027,7 @@ row {
 .background .app-notification {
   @extend %toolbar_osd;
   margin: 8px;
+  padding: $space_size $space_size $space_size $space_size * 2;
 
   button { @extend %flat_button; }
 

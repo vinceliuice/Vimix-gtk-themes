@@ -233,7 +233,7 @@ notebook > stack:not(:only-child) spinbutton:not(.vertical), popover.background 
   box-shadow: inset 0 -1px rgba(255, 255, 255, 0.3);
   background-color: transparent;
   background-image: none;
-  color: white;
+  color: rgba(255, 255, 255, 0.7);
   border-width: 0;
   border-radius: 0;
 }
@@ -246,6 +246,7 @@ notebook > stack:not(:only-child) spinbutton:focus:not(.vertical), popover.backg
   border-width: 0;
   background-color: transparent;
   box-shadow: none;
+  color: white;
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 100%, rgba(255, 255, 255, 0.45) 10%) 0 0 2/0 0 2px;
 }
 
@@ -256,6 +257,7 @@ notebook > stack:not(:only-child) spinbutton:drop(active):not(.vertical), popove
   background-image: none;
   border-width: 0;
   background-color: transparent;
+  color: white;
   box-shadow: inset 0 -2px rgba(255, 255, 255, 0.45);
 }
 
@@ -388,7 +390,7 @@ entry undershoot.right {
   box-shadow: inset 0 -1px #F28B82;
   background-color: transparent;
   background-image: none;
-  color: white;
+  color: rgba(255, 255, 255, 0.7);
   border-width: 0;
 }
 
@@ -397,6 +399,7 @@ entry undershoot.right {
   border-width: 0;
   background-color: transparent;
   box-shadow: none;
+  color: white;
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #F28B82 100%, #F28B82 10%) 0 0 2/0 0 2px;
 }
 
@@ -433,7 +436,7 @@ entry undershoot.right {
   box-shadow: inset 0 -1px #FDD633;
   background-color: transparent;
   background-image: none;
-  color: white;
+  color: rgba(255, 255, 255, 0.7);
   border-width: 0;
 }
 
@@ -442,6 +445,7 @@ entry undershoot.right {
   border-width: 0;
   background-color: transparent;
   box-shadow: none;
+  color: white;
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FDD633 100%, #FDD633 10%) 0 0 2/0 0 2px;
 }
 
@@ -957,7 +961,7 @@ row button.image-button {
   box-shadow: inset 0 -1px rgba(255, 255, 255, 0.3);
   background-color: transparent;
   background-image: none;
-  color: white;
+  color: rgba(255, 255, 255, 0.7);
   border-width: 0;
 }
 
@@ -965,14 +969,16 @@ row button.image-button {
   background-image: none;
   border-width: 0;
   background-color: transparent;
+  color: white;
   box-shadow: inset 0 -2px rgba(255, 255, 255, 0.45);
 }
 
-#login_window #user_combobox button:checked, .background .raven .raven-background button.combo:checked, dialog.background .dialog-vbox stack button.combo:checked, .tilix-search-frame button.combo:checked, .geary-composer-box button.combo:checked, .background button.combo:checked, .background .linked entry + button:checked:not(.combo), .background .linked entry + button:not(.combo) + button:checked:not(.combo) {
+#login_window #user_combobox button:active, .background .raven .raven-background button.combo:active, dialog.background .dialog-vbox stack button.combo:active, .tilix-search-frame button.combo:active, .geary-composer-box button.combo:active, .background button.combo:active, .background .linked entry + button:active:not(.combo), .background .linked entry + button:not(.combo) + button:active:not(.combo), #login_window #user_combobox button:checked, .background .raven .raven-background button.combo:checked, dialog.background .dialog-vbox stack button.combo:checked, .tilix-search-frame button.combo:checked, .geary-composer-box button.combo:checked, .background button.combo:checked, .background .linked entry + button:checked:not(.combo), .background .linked entry + button:not(.combo) + button:checked:not(.combo) {
   background-image: none;
   border-width: 0;
   background-color: transparent;
   box-shadow: none;
+  color: white;
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 100%, rgba(255, 255, 255, 0.45) 10%) 0 0 2/0 0 2px;
 }
 
@@ -1366,7 +1372,7 @@ combobox > .linked:not(.vertical) > button:not(:only-child).combo {
   box-shadow: inset 0 -1px rgba(255, 255, 255, 0.3);
   background-color: transparent;
   background-image: none;
-  color: white;
+  color: rgba(255, 255, 255, 0.7);
   border-width: 0;
 }
 
@@ -1375,6 +1381,7 @@ combobox > .linked:not(.vertical) > button:not(:only-child).combo {
   border-width: 0;
   background-color: transparent;
   box-shadow: none;
+  color: white;
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 100%, rgba(255, 255, 255, 0.45) 10%) 0 0 2/0 0 2px;
 }
 
@@ -1453,7 +1460,7 @@ frame toolbar.toolbar {
 
 frame.documents-dropdown, .background .app-notification, toolbar.osd {
   padding: 6px;
-  border-radius: 2px;
+  border-radius: 3px;
   box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 2px 3px -1px rgba(0, 0, 0, 0.14), 0 3px 4px -1px rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.1);
   background-color: #333539;
 }
@@ -3610,6 +3617,7 @@ list row {
 
 .background .app-notification {
   margin: 8px;
+  padding: 6px 6px 6px 12px;
 }
 
 .background .app-notification.frame,
@@ -5171,7 +5179,7 @@ paned.titlebar.horizontal > separator {
   box-shadow: inset 0 -1px #F28B82;
   background-color: transparent;
   background-image: none;
-  color: white;
+  color: rgba(255, 255, 255, 0.7);
   border-width: 0;
 }
 
@@ -5180,6 +5188,7 @@ paned.titlebar.horizontal > separator {
   border-width: 0;
   background-color: transparent;
   box-shadow: none;
+  color: white;
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #F28B82 100%, #F28B82 10%) 0 0 2/0 0 2px;
 }
 
@@ -5216,7 +5225,7 @@ paned.titlebar.horizontal > separator {
   box-shadow: inset 0 -1px #FDD633;
   background-color: transparent;
   background-image: none;
-  color: white;
+  color: rgba(255, 255, 255, 0.7);
   border-width: 0;
 }
 
@@ -5225,6 +5234,7 @@ paned.titlebar.horizontal > separator {
   border-width: 0;
   background-color: transparent;
   box-shadow: none;
+  color: white;
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FDD633 100%, #FDD633 10%) 0 0 2/0 0 2px;
 }
 

@@ -375,42 +375,6 @@ treeview entry {
   }
 }
 
-%flat_button {
-  @include button(flat-normal);
-  &:hover { @include button(flat-hover); }
-  &:active { @include button(flat-active); }
-  &:disabled { @include button(flat-disabled); }
-  &:checked { @include button(flat-checked); }
-  &:checked:disabled { @include button(flat-checked-disabled); }
-}
-
-%simple_flat_button {
-  @include button(flat-normal);
-  &:hover { @include button(flat-hover); }
-  &:active { @include button(flat-active); }
-  &:disabled { @include button(flat-disabled); }
-}
-
-%combo_flat {
-  border-radius: 0;
-  background: none;
-  font-weight: normal;
-
-  @include entry(flat-normal);
-
-  &:hover {
-    @include entry(flat-hover);
-  }
-
-  &:checked {
-    @include entry(flat-focus);
-  }
-
-  &:disabled {
-    @include entry(flat-disabled);
-  }
-}
-
 button {
   min-height: 24px;
   min-width: 16px;
@@ -426,7 +390,7 @@ button {
   &:checked:disabled { @include button(fallback-checked-disabled); }
 
   // raised buttons for native Gtk+ apps
-  .background & {
+  @at-root %normal_button, .background & {
     @include button(normal);
     &:hover { @include button(hover); }
     &:active { @include button(active); }
@@ -435,11 +399,14 @@ button {
     &:checked:disabled { @include button(checked-disabled); }
   }
 
-  &.flat {
-    @include button(flat-normal);
-    &:hover { @include button(flat-hover); }
-    &:active { @include button(flat-active); }
-    &:disabled { @include button(flat-disabled); }
+  @at-root %flat_button, &.flat, .background &.flat {
+    @at-root %simple_flat_button, & {
+      @include button(flat-normal);
+      &:hover { @include button(flat-hover); }
+      &:active { @include button(flat-active); }
+      &:disabled { @include button(flat-disabled); }
+    }
+
     &:checked { @include button(flat-checked); }
     &:checked:disabled { @include button(flat-checked-disabled); }
   }
@@ -492,6 +459,14 @@ button {
 
   .linked > & {
     @extend %linked;
+
+    &:not(.stack-switcher):not(.combo) {
+      @extend %flat_theme_button;
+
+      &.flat {
+        @extend %flat_normal_button;
+      }
+    }
   }
 
   .linked.vertical > & {
@@ -515,8 +490,8 @@ button {
 
   .background &.combo,
   .background .linked > &.combo,
-  .background .linked entry + &,
-  .background .linked entry + & + & { @extend %combo_flat; }
+  .background .linked entry + &:not(.combo),
+  .background .linked entry + &:not(.combo) + &:not(.combo) { @extend %combo_flat; }
 
   .background .linked.stack-switcher > & {
     @extend %flat_button;
@@ -568,8 +543,9 @@ button {
   }
 
   //overlay / OSD style
-  .osd & {
+  .background .osd & {
     @extend %flat_button;
+
     &.flat { @extend %simple_flat_button; }
   }
 
@@ -588,9 +564,12 @@ button {
         color: on($primary);
       }
 
-      &:disabled { @include button(disabled, $b_color, on($primary)); }
+      &:disabled {
+        background-color: rgba($b_color, 0.15);
+        color: rgba($b_color, 0.45);
+      }
 
-      &:checked { background-color: mix(on($primary), $b_color, percentage(0.3)); }
+      &:checked { background-color: mix(on($primary), $b_color, 30%); }
 
       &.flat {
         background-color: transparent;
@@ -676,6 +655,56 @@ button {
   }
 }
 
+%combo_flat {
+  border-radius: 0;
+  background-image: none;
+  background-color: transparent;
+  font-weight: normal;
+  @include entry(flat-normal);
+
+  &:hover {
+    @include entry(flat-hover);
+  }
+
+  &:checked {
+    @include entry(flat-focus);
+  }
+
+  &:disabled {
+    @include entry(flat-disabled);
+  }
+}
+
+%flat_normal_button {
+  @include button(flat-normal);
+  box-shadow: inset 0 0 0 9999px $overlay-normal;
+
+  &:hover { @include button(flat-hover); }
+  &:active { @include button(flat-active); }
+  &:disabled {
+    box-shadow: none;
+    background-color: $overlay-normal;
+    color: $text-secondary-disabled;
+  }
+  &:checked { @include button(flat-checked); }
+  &:checked:disabled { @include button(flat-checked-disabled); }
+}
+
+%flat_theme_button {
+  @include button(flat-normal);
+  box-shadow: inset 0 0 0 9999px $overlay-normal;
+
+  &:hover { @include button(flat-hover); }
+  &:active { @include button(flat-active); }
+  &:disabled {
+    box-shadow: none;
+    background-color: $overlay-normal;
+    color: $text-secondary-disabled;
+  }
+  &:checked { @include button(checked); }
+  &:checked:disabled { @include button(checked-disabled); }
+}
+
 %needs_attention {
   animation: needs_attention $shorter_duration $deceleration_curve forwards;
   background-repeat: no-repeat;
@@ -683,14 +712,6 @@ button {
   background-size: 6px 6px;
 
   &:dir(rtl) { background-position: left 3px; }
-}
-
-toolbutton {
-  button {
-    &, &.image-button, &.toggle {
-      @extend %flat_button; // Use flat button for all toolbuttons
-    }
-  }
 }
 
 %linked_middle {
@@ -937,9 +958,6 @@ combobox {
     min-width: 16px;
   }
 
-  // fallback combo node for non-native apps
-  // @include entry(fallback-normal);
-
   .background & { // unset all properties in combobox node
     border: unset;
     border-image: unset;
@@ -995,11 +1013,12 @@ combobox {
   }
 
   &.linked {
-    button:nth-child(2) {
+    > button:nth-child(2) {
       &:dir(ltr) {
         border-top-right-radius: $button_radius;
         border-bottom-right-radius: $button_radius;
       }
+
       &:dir(rtl) {
         border-top-left-radius: $button_radius;
         border-bottom-left-radius: $button_radius;
@@ -1029,7 +1048,16 @@ toolbar {
   padding: $space_size / 2;
   background-color: $background;
 
-  button { @extend %flat_button; }
+  button:not(.destructive-action):not(.suggested-action) { @extend %flat_button; }
+
+  .linked:not(.stack-switcher) > button:not(.destructive-action):not(.suggested-action) {
+    @extend %flat_normal_button;
+  }
+
+  frame &.toolbar {
+    border-top: 1px solid $border;
+    background-color: $base_alt;
+  }
 
   // on OSD
   .osd & { background-color: transparent; }
@@ -1070,46 +1098,22 @@ toolbar {
   }
 }
 
-%toolbar_flat_button {
-  background-color: transparent;
-  box-shadow: none;
+.primary-toolbar,
+.location-bar {
+  padding: $space_size;
+  border-style: solid;
+  border-width: 0 0 1px;
+  border-color: $border;
 
-  &:hover {
-    background-color: rgba($text, 0.15);
-    box-shadow: none;
-  }
+  .background & {
+    button:not(.destructive-action):not(.suggested-action):not(.flat) { @extend %flat_theme_button; }
 
-  &:disabled {
-    background-color: transparent;
-  }
-
-  &:active, &:checked {
-    color: $text;
-    background-color: rgba($text, 0.2);
-    box-shadow: none;
-  }
-
-  &:checked:disabled, &:checked:backdrop {
-    color: rgba($text, 0.5);
-    background-color: rgba($text, 0.1);
-    box-shadow: none;
+    stackswitcher > button { // reset
+      @extend %stackswitcher_button;
+    }
   }
 }
 
-.primary-toolbar {
-  button { @extend %toolbar_flat_button; }
-  // button.combo { @extend %combo_flat; }
-
-  // .linked button:not(.combo) { border-radius: $button_radius; }
-  // .linked button.combo { border-radius: 0; }
-
-  // entry,
-  // spinbutton:not(.vertical) { @extend %flat_entry; }
-
-  // spinbutton:not(.vertical) entry { @extend %spinbutton_entry; }
-}
-
-//searchbar, location-bar & inline-toolbar
 .inline-toolbar {
   padding: $space_size;
   border-style: solid;
@@ -1118,8 +1122,8 @@ toolbar {
   background-color: $base_alt;
 }
 
-searchbar > revealer > box,
-.location-bar {
+searchbar > revealer > box {
+  margin: -6px;
   padding: $space_size 0;
   border-style: solid;
   border-width: 0 0 1px;
@@ -1128,14 +1132,30 @@ searchbar > revealer > box,
   background-clip: border-box;
 }
 
-searchbar > revealer > box {
-  // workaround: undo the GtkContainer:border-width and use CSS padding instead
-  margin: -6px;
-}
-
 //
 // Header bars
 //
+
+%headerbar_entry {
+  background-color: rgba(on($header), 0.06);
+  color: on($header);
+  caret-color: on($header);
+  border-image: none;
+  box-shadow: none;
+
+  &:focus {
+    background-color: rgba(on($header), 0.09);
+    border-image: none;
+    box-shadow: none;
+  }
+
+  &:disabled {
+    background-color: rgba(on($header), 0.03);
+    color: on($header, disabled);
+    border-image: none;
+    box-shadow: none;
+  }
+}
 
 %header_button {
   @include button(header-normal);
@@ -1200,7 +1220,7 @@ searchbar > revealer > box {
 headerbar {
   transition: background-color $shorter_duration $deceleration_curve,
               color $shorter_duration $deceleration_curve;
-  min-height: $medium_size;
+  min-height: $medium-size + $space_size * 2;
   padding: 0 $space_size;
   box-shadow: $header_shadow;
   background-color: $header;
@@ -1226,13 +1246,119 @@ headerbar {
 
   .dim-label { color: on($header, secondary); }
 
-  button:not(.suggested-action):not(.destructive-action) { @extend %header_button; }
+  entry,
+  spinbutton,
+  separator,
+  button {
+    margin-top: $space_size;
+    margin-bottom: $space_size;
+  }
+
+  // reset button margins of the spinbutton
+  spinbutton button {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  separator { @extend %header_separator; }
+
+  .background &:not(.horizontal) entry {
+    @extend %headerbar_entry;
+  }
+
+  button:not(.suggested-action):not(.destructive-action),
+  .linked:not(.stack-switcher):not(.path-bar) > button:not(.suggested-action):not(.destructive-action):not(.combo) {
+    @extend %header_button;
+  }
 
   button.suggested-action, button.destructive-action {
     &:disabled {
       color: gtkalpha(currentColor, 0.3);
       > label { color: inherit; }
     }
+  }
+
+  // Reset buttons and entris
+  .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button,
+  .linked:not(.vertical) > entry {
+    &, &:hover, &:active, &:checked, &:disabled {
+      border-radius: $button_radius;
+    }
+  }
+
+  .background & .linked entry + button:not(.combo),
+  .background & .linked entry + button:not(.combo) + button:not(.combo) {
+    &, &:hover, &:active, &:checked, &:disabled {
+      border-radius: $button_radius;
+      border-image: none;
+    }
+  }
+
+  button:not(.suggested-action):not(.destructive-action) { @extend %header_button; }
+
+  .background & stackswitcher {
+    background-color: transparent;
+    padding: 0;
+
+    > button {
+      margin-top: $space_size;
+      margin-bottom: $space_size;
+      border-radius: 0;
+    }
+  }
+
+  &.windowhandle {
+    viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action) {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding: 0;
+      min-width: 120px;
+      @extend %headerbar_flat_button;
+
+      image { padding-left: 10px; }
+      label { padding-right: 10px; }
+    }
+  }
+
+  switch {
+    margin-top: ($large_size - 22px) / 2;
+    margin-bottom: ($large_size - 22px) / 2;
+
+    @if $theme == 'black' and $topbar == 'dark' {
+      background-color: rgba(on($header), 0.3);
+
+      &:disabled { color: rgba(on($header), 0.3); }
+
+      &:checked {
+        background-color: rgba(on($header), 0.5);
+
+        &:disabled { background-color: rgba(on($header), 0.5 * 0.3); }
+      }
+
+      &:checked slider { background-color: on($header); }
+    }
+  }
+
+  // FIXME: This is a hacky workaround.
+  .entry-tag {
+    margin-top: $space_size - 1px;
+    margin-bottom: $space_size - 1px;
+  }
+
+  &.titlebar {
+    box-shadow: $header_shadow, inset 0 1px $highlight;
+
+    &.solid-csd headerbar {
+      box-shadow: $header_shadow;
+    }
+
+    .tiled &,
+    .maximized &,
+    .fullscreen & { box-shadow: $header_shadow; }
+  }
+
+  .titlebar > & {
+    box-shadow: $header_shadow, inset 0 1px $highlight;
   }
 
   &.selection-mode {
@@ -1298,13 +1424,6 @@ headerbar {
     }
   }
 
-  .fullscreen &,
-  .tiled &,
-  .maximized & {
-    border-radius: 0; // squared corners when the window is fullscreen, maximized or tiled
-    box-shadow: $header_shadow;
-  }
-
   &.default-decoration {
     min-height: $small_size;
     padding: 2px $space_size;
@@ -1335,32 +1454,6 @@ headerbar {
   &.default-decoration:backdrop,
   .csd &.default-decoration:backdrop {  // needed under wayland, since all gtk3 windows are csd windows
     box-shadow: inset 0 1px $highlight;
-  }
-
-  .solid-csd & {
-    &:dir(rtl), &:dir(ltr) { // specificity bump
-      margin: 0;
-      border-radius: 0;
-      box-shadow: $header_shadow;
-    }
-  }
-
-  separator.titlebutton { @extend %header_separator; }
-
-  // Reset buttons and entris
-  .linked:not(.vertical):not(.path-bar) > button,
-  .linked:not(.vertical):not(.path-bar) > entry {
-    &, &:hover, &:active, &:checked, &:disabled {
-      border-radius: $button_radius;
-    }
-  }
-
-  .background & .linked entry + button,
-  .background & .linked entry + button + button {
-    &, &:hover, &:active, &:checked, &:disabled {
-      border-radius: $button_radius;
-      border-image: none;
-    }
   }
 
   // special case for headerbar path-bars
@@ -1397,117 +1490,30 @@ headerbar {
   border: none;
 }
 
-headerbar {
-  entry,
-  spinbutton,
-  separator,
-  button {
-    margin-top: $space_size;
-    margin-bottom: $space_size;
-  }
-
-  button:not(.suggested-action):not(.destructive-action) { @extend %header_button; }
-
-  .linked:not(.vertical):not(.path-bar).stack-switcher {
-    > button { @extend %headerbar_flat_button; }
-  }
-
-  &.windowhandle {
-    viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action) {
-      margin-top: 0;
-      margin-bottom: 0;
-      padding: 0;
-      min-width: 120px;
-      @extend %headerbar_flat_button;
-
-      image { padding-left: 10px; }
-      label { padding-right: 10px; }
-    }
-  }
-
-  switch {
-    margin-top: ($large_size - 22px) / 2;
-    margin-bottom: ($large_size - 22px) / 2;
-
-    @if $theme == 'black' and $topbar == 'dark' {
-      background-color: rgba(on($header), 0.3);
-
-      &:disabled { color: rgba(on($header), 0.3); }
-
-      &:checked {
-        background-color: rgba(on($header), 0.5);
-
-        &:disabled { background-color: rgba(on($header), 0.5 * 0.3); }
-      }
-
-      &:checked slider { background-color: on($header); }
-    }
-  }
-
-  // reset button margins of the spinbutton
-  spinbutton button {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  // FIXME: This is a hacky workaround.
-  .entry-tag {
-    margin-top: $space_size - 1px;
-    margin-bottom: $space_size - 1px;
-  }
-
-  separator { @extend %header_separator; }
-
-  &.titlebar {
-    box-shadow: $header_shadow, inset 0 1px $highlight;
-
-    &.solid-csd headerbar {
-      box-shadow: $header_shadow;
-    }
-
-    .tiled &,
-    .maximized &,
-    .fullscreen & { box-shadow: $header_shadow; }
-  }
-
-  .titlebar > & {
-    box-shadow: $header_shadow, inset 0 1px $highlight;
+.titlebar {
+  &, &.background {
+    border-top-left-radius: $window_radius;
+    border-top-right-radius: $window_radius;
   }
 
   separator:first-child + &, // tackles the paned container case
-  &:first-child { border-top-left-radius: $button_radius; }
-  &:last-child { border-top-right-radius: $button_radius; }
+  &:first-child { border-top-left-radius: $window_radius; }
+  &:last-child { border-top-right-radius: $window_radius; }
 
   stack & { // tackles the stacked headerbars case
     &:first-child, &:last-child {
-      border-top-left-radius: $button_radius;
-      border-top-right-radius: $button_radius;
+      border-top-left-radius: $window_radius;
+      border-top-right-radius: $window_radius;
       border: none;
     }
   }
 
-  window.tiled &,
-  window.tiled-top &,
-  window.tiled-right &,
-  window.tiled-bottom &,
-  window.tiled-left &,
-  window.maximized &,
-  window.fullscreen &,
-  window.solid-csd & {
-    &,
-    &:first-child,
-    &:last-child,
-    &:only-child {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
+  .solid-csd & {
+    &:dir(rtl), &:dir(ltr) { // specificity bump
+      margin: 0;
+      border-radius: 0;
+      box-shadow: $header_shadow;
     }
-  }
-}
-
-.titlebar {
-  &, &.background {
-    border-top-left-radius: $button_radius;
-    border-top-right-radius: $button_radius;
   }
 
   .background.tiled &,
@@ -1517,9 +1523,15 @@ headerbar {
   .background.tiled-left &,
   .background.maximized &,
   .background.solid-csd & {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+    &,
+    &:first-child,
+    &:last-child,
+    &:only-child {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
   }
+
 
   &.solid-csd headerbar {
     box-shadow: $header_shadow;
@@ -1582,66 +1594,63 @@ window.background > box.vertical > headerbar:not(.titlebar) { // reset headerbar
   }
 }
 
-%headerbar_entry {
-  background-color: rgba(on($header), 0.06);
-  color: on($header);
-  caret-color: on($header);
-  border-image: none;
-  box-shadow: none;
-
-  &:focus {
-    background-color: rgba(on($header), 0.09);
-    border-image: none;
-    box-shadow: none;
-  }
-
-  &:disabled {
-    background-color: rgba(on($header), 0.03);
-    color: on($header, disabled);
-    border-image: none;
-    box-shadow: none;
-  }
-}
-
-.titlebar, headerbar {
-  .background &:not(.horizontal) entry {
-    @extend %headerbar_entry;
-  }
-}
-
 //
 // Pathbars
 //
+
 %pathbar_button,
-.background .path-bar button {
-  @extend %flat_button;
-  border-radius: 2px;
+.background .path-bar > button:not(.combo):not(.destructive-action):not(.suggested-action) {
   padding-left: ($medium_size - 24px) / 2;
   padding-right: ($medium_size - 24px) / 2;
+  background-image: none;
+  box-shadow: none;
+  @extend %linked;
 
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                $primary 0%,
-                                transparent 0%)
-                                0 0 0 / 0 0 0;
-
-  &:checked {
-    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                  $primary 100%,
-                                  transparent 0%)
-                                  0 0 2 / 0 0 2px;
-
-    &, &:disabled { background-color: transparent; }
+  &, &:hover, &:active, &:checked, &:disabled {
+    background-color: $fill;
   }
 
-  label:not(:only-child) {
-    &:first-child { margin-left: 4px; }
+  &:not(:first-child):not(:last-child) {
+    transition: $shorter_transition,
+                background-size 0,
+                background-image 0,
+                background-color 0,
+                box-shadow 0,
+                border-image $ripple_duration $deceleration_curve;
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  transparent 0%,
+                                  transparent 0%)
+                                  0 0 2 / 0 0 0;
 
-    &:last-child { margin-right: 4px; }
+    &:hover {
+      box-shadow: inset 0 -2px $track;
+      color: $text;
+    }
+
+    &:active {
+      color: $text;
+      box-shadow: none;
+      background-image: none;
+      animation: none;
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    $primary 100%,
+                                    $track 0%)
+                                    0 0 2 / 0 0 2px;
+    }
+
+    &:checked {
+      box-shadow: inset 0 -2px $primary;
+      color: $text;
+    }
+  }
+
+  label, image {
+    margin: 0 $space_size / 2;
   }
 
   &.slider-button {
-    padding-left: (24px - 16px) / 2;
-    padding-right: (24px - 16px) / 2;
+    padding-left: ($small_size - 16px) / 2;
+    padding-right: ($small_size - 16px) / 2;
   }
 }
 
@@ -1898,36 +1907,6 @@ menuitem {
 //
 // Popovers
 //
-%flat_theme_button {
-  box-shadow: none;
-  background-color: transparent;
-  transition: $shorter_transition,
-              background-size 0,
-              background-image 0;
-
-  &:hover {
-    background-color: $divider;
-    color: $text;
-  }
-
-  &:active {
-    @include button(header-active);
-  }
-
-  &:checked {
-    @include button(header-checked);
-  }
-
-  &:disabled {
-    background-color: transparent;
-    color: $text-disabled;
-  }
-
-  &:checked:disabled {
-    background-color: rgba($primary, 0.5);
-    color: rgba(on($primary), 0.5);
-  }
-}
 
 popover.background {
   transition: $shadow_transition;
@@ -2941,7 +2920,17 @@ actionbar > revealer >  box {
   padding: $space_size;
   border-top: 1px solid $border;
 
-  button:not(.suggested-action):not(.destructive-action):not(.server-list-button) { @extend %flat_button; }
+  button:not(.destructive-action):not(.suggested-action):not(.flat):not(.server-list-button) { @extend %flat_normal_button; }
+
+  .linked:not(.stack-switcher) > button:not(.destructive-action):not(.suggested-action):not(.server-list-button) {
+    @extend %flat_normal_button;
+  }
+
+  .background & {
+    stackswitcher > button:not(.flat):not(.server-list-button) { // reset
+      @extend %stackswitcher_button;
+    }
+  }
 }
 
 scrolledwindow {
@@ -3013,18 +3002,15 @@ list {
 
 row {
   @at-root %row_activatable, &.activatable {
-    transition: $shorter_transition;
-    background-image: none;
+    @include button(flat-normal);
 
     &:hover {
-      background-color: $divider;
-      color: $text-secondary;
+      @include button(flat-hover);
     }
 
     &.has-open-popup,
     &:active {
-      background-color: $track;
-      color: $text;
+      @include button(flat-active);
     }
 
     &:selected {
@@ -3038,7 +3024,7 @@ row {
 //
 // App Notifications
 //
-.app-notification {
+.background .app-notification {
   @extend %toolbar_osd;
   margin: 8px;
 
@@ -3111,73 +3097,75 @@ calendar {
 // Dialogs
 //
 messagedialog { // Message Dialog styling
-  &.background { background-color: $suface; }
-
-  .titlebar {
-    min-height: $small_size;
-    border-style: none;
-    box-shadow: inset 0 1px $highlight;
+  &.background {
     background-color: $suface;
-    color: $text;
 
-    &:backdrop { color: $text-secondary; }
-  }
+    .titlebar {
+      min-height: $small_size;
+      border-style: none;
+      box-shadow: inset 0 1px $highlight;
+      background-color: $suface;
+      color: $text;
 
-  .linked:not(.vertical).dialog-action-area > button {
-    padding: 4px 12px;
-    border-top: 1px solid $border;
-    border-radius: 0;
-    @extend %flat_button;
-
-    &:first-child {
-      border-bottom-left-radius: 0;
-      border-top-left-radius: 0;
+      &:backdrop { color: $text-secondary; }
     }
 
-    &:last-child {
-      border-bottom-right-radius: 0;
-      border-top-right-radius: 0;
+    entry { @extend %flat_entry; }
+
+    .linked:not(.vertical).dialog-action-area > button {
+      padding: 4px 12px;
+      border-top: 1px solid $border;
+      border-radius: 0;
+      @extend %flat_button;
+
+      &:first-child {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+      }
+
+      &:last-child {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+      }
     }
-  }
 
-  @each $b_type, $b_color in (suggested-action, $suggested),
-                             (destructive-action, $destructive) {
-    .linked:not(.vertical).dialog-action-area > button.#{$b_type} {
-      color: $b_color;
-      transition: $shorter_transition,
-                  $shadow_transition,
-                  background-size $ripple_duration $deceleration_curve,
-                  background-image $ripple_opacity_duration $deceleration_curve;
-
-      &:hover {
+    @each $b_type, $b_color in (suggested-action, $suggested),
+                               (destructive-action, $destructive) {
+      .linked:not(.vertical).dialog-action-area > button.#{$b_type} {
         color: $b_color;
-        background-color: transparent;
-      }
-
-      &:active {
         transition: $shorter_transition,
-                    background-size 0,
-                    background-image 0;
-        animation: ripple_effect $shorter_duration $deceleration_curve forwards;
-        color: on($primary);
-        border-color: rgba($b_color, 0.75);
-        box-shadow: inset 0 0 0 9999px rgba($b_color, 0.5);
-        background-image: radial-gradient(circle farthest-corner at center,
-                                          rgba($b_color, 0.5) 10%,
-                                          transparent 0%);
-        background-size: 0% 0%;
-      }
+                    $shadow_transition,
+                    background-size $ripple_duration $deceleration_curve,
+                    background-image $ripple_opacity_duration $deceleration_curve;
 
-      &:disabled { opacity: 0.65; }
+        &:hover {
+          color: $b_color;
+          background-color: transparent;
+        }
+
+        &:active {
+          transition: $shorter_transition,
+                      background-size 0,
+                      background-image 0;
+          animation: ripple_effect $shorter_duration $deceleration_curve forwards;
+          color: on($primary);
+          border-color: rgba($b_color, 0.75);
+          box-shadow: inset 0 0 0 9999px rgba($b_color, 0.5);
+          background-image: radial-gradient(circle farthest-corner at center,
+                                            rgba($b_color, 0.5) 10%,
+                                            transparent 0%);
+          background-size: 0% 0%;
+        }
+
+        &:disabled { opacity: 0.65; }
+      }
     }
   }
 
-  &.csd { // rounded bottom border styling for csd version
-    &.background {
-      // bigger radius for better antialiasing
-      border-bottom-left-radius: $button_radius;
-      border-bottom-right-radius: $button_radius;
-    }
+  &.background.csd { // rounded bottom border styling for csd version
+    // bigger radius for better antialiasing
+    border-bottom-left-radius: $button_radius;
+    border-bottom-right-radius: $button_radius;
 
     .linked:not(.vertical).dialog-action-area > button {
       padding: 8px 16px;
@@ -3196,8 +3184,6 @@ messagedialog { // Message Dialog styling
       }
     }
   }
-
-  entry { @extend %flat_entry; }
 }
 
 filechooser {
@@ -3459,12 +3445,11 @@ infobar {
 
 // Buttons on selected backgrounds
 %selected_button {
-  & {
-    color: on(dark);
-    background-color: transparentize(on(dark), 1);
-    border: 1px solid transparentize(on(dark), 0.5);
-    box-shadow: none;
-  }
+  color: on(dark);
+  background-color: transparentize(on(dark), 1);
+  border: 1px solid transparentize(on(dark), 0.5);
+  box-shadow: none;
+
   &.flat {
     color: on(dark);
     background-color: transparentize(on(dark), 1);
@@ -3474,23 +3459,27 @@ infobar {
       box-shadow: none;
     }
   }
+
   &:hover {
     color: on(dark);
     background-color: transparentize(on(dark), 0.8);
     border-color: transparentize(on(dark), 0.2);
     box-shadow: none;
   }
+
   &:active, &:active:hover, &:checked {
     color: on(dark);
     background-color: transparentize(on(dark), 0.9);
     border-color: transparentize(on(dark), 0.2);
     box-shadow: none;
   }
+
   &:disabled {
     &, label { color: transparentize(on(dark), 0.5); }
     background-color: transparentize(on(dark), 1);
     border-color: transparentize(on(dark), 0.6);
     box-shadow: none;
+
     &:active, &:checked {
       color: on(dark);
       background-color: transparentize(on(dark), 0.5);
@@ -3905,15 +3894,79 @@ button.circular { row & { margin: 0 5px; } } // Make the circular button hover s
   caret-color: $accent;
 }
 
-stackswitcher button.text-button { min-width: 100px; } // FIXME aggregate with buttons
+%stackswitcher_button {
+  &:not(.destructive-action):not(.suggested-action) {
+    transition: $shorter_transition,
+                border-image $ripple_duration $deceleration_curve;
+    margin: 0;
+    border-radius: 0;
+    background-image: none;
+    color: $text-secondary;
+    background-color: transparent;
+    box-shadow: none;
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  transparent 0%,
+                                  transparent 0%)
+                                  0 0 2 / 0 0 0;
 
-stackswitcher button.circular,
-stackswitcher button.text-button.circular { // FIXME aggregate with buttons
-  min-width: $medium_size;
-  min-height: $medium_size;
-  border-radius: 100px;
-  -gtk-outline-radius: 100px;
-  padding: 0;
+    &:hover {
+      color: $text;
+      box-shadow: inset 0 -2px $divider;
+      background-color: transparent;
+    }
+
+    &:active {
+      animation: none;
+      box-shadow: none;
+      background-color: transparent;
+      color: $text;
+      background-image: none;
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    $primary 100%,
+                                    $divider 0%)
+                                    0 0 2 / 0 0 2px;
+    }
+
+    &:checked {
+      color: $text;
+      box-shadow: inset 0 -2px $primary;
+      background-color: transparent;
+
+      &:disabled {
+        color: $text-disabled;
+        box-shadow: inset 0 -2px rgba($primary, 0.35);
+        background-color: transparent;
+      }
+    }
+
+    &:disabled {
+      color: $text-secondary-disabled;
+      box-shadow: none;
+      background-color: transparent;
+    }
+  }
+}
+
+.background stackswitcher {
+  background-color: $suface;
+  border-radius: $button_radius;
+  border: none;
+  padding: 0 $space_size;
+
+  button {
+    @extend %stackswitcher_button;
+
+    &.text-button { min-width: 100px; } // FIXME aggregate with buttons
+
+    &.circular,
+    &.text-button.circular { // FIXME aggregate with buttons
+      min-width: $medium_size;
+      min-height: $medium_size;
+      border-radius: $circular_radius;
+      -gtk-outline-radius: $circular_radius;
+      padding: 0;
+    }
+  }
 }
 
 //

@@ -1669,6 +1669,18 @@ headerbar {
     margin-bottom: 0;
   }
 
+  popover.background {
+    entry,
+    spinbutton,
+    button,
+    menubutton,
+    splitbutton,
+    .pathbar {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
   &.selection-mode {
     transition: $shorter_transition;
     box-shadow: $shadow_1, inset 0 1px $highlight;
@@ -2151,21 +2163,13 @@ menubar {
   }
 }
 
+//
+// Popovers
+//
+
+// Base menu
 popover.menu {
   padding: 0;
-
-  & > arrow,
-  &.background > contents {
-    padding: $space_size;
-    box-shadow: $shadow_4;
-    background-color: $menu;
-    border: none;
-    border-radius: $button_radius;
-  }
-
-  &.background separator {
-    margin: $space_size 0;
-  }
 
   box.inline-buttons {
     padding: 0 $space_size;
@@ -2216,37 +2220,21 @@ popover.menu {
   }
 }
 
-//
-// Popovers
-//
-
 %flat_theme_button {
-  box-shadow: none;
-  background-color: transparent;
-  @include ripple(primary);
+  @include button(flat-normal);
+  @include ripple(flat);
+  background-color: $overlay-normal;
 
-  &:hover {
-    background-color: $overlay-hover;
-    color: $text;
-  }
-
-  &:active {
-    @include button(header-active);
-  }
-
-  &:checked {
-    @include button(header-checked);
-  }
-
+  &:hover { @include button(flat-hover); }
+  &:active { @include button(flat-active); }
   &:disabled {
-    background-color: transparent;
-    color: $text-disabled;
+    box-shadow: none;
+    background-color: $overlay-normal;
+    color: $text-secondary-disabled;
   }
 
-  &:checked:disabled {
-    background-color: rgba($primary, 0.5);
-    color: rgba(on($primary), 0.5);
-  }
+  &:checked { @include button(checked); }
+  &:checked:disabled { @include button(checked-disabled); }
 }
 
 popover.background {
@@ -2256,22 +2244,19 @@ popover.background {
 
   > arrow,
   > contents {
-    transition: $shadow_transition;
-    padding: 0;
+    transition: none;
     box-shadow: $shadow_4;
     background-color: $popover;
     border: none;
     color: $text;
   }
 
-  &:backdrop {
-    background-color: transparent;
-
-    > arrow,
-    > contents {
-      box-shadow: $shadow_2;
-    }
-  }
+  // &:backdrop {
+  //   > arrow,
+  //   > contents {
+  //     box-shadow: $shadow_2;
+  //   }
+  // }
 
   > contents {
     padding: $space_size;
@@ -2286,11 +2271,12 @@ popover.background {
     }
 
     separator {
-      background-color: $solid-border;
-      margin: $space_size / 2;
+      margin: $space_size / 2 0;
     }
 
-    list separator { margin: 0; }
+    list separator {
+      margin: 0;
+    }
   }
 
   .osd &,
@@ -4457,11 +4443,6 @@ window {
 
     &:backdrop {
       box-shadow: $shadow_4, 0 16px 16px 2px rgba(black, 0), 0 6px 18px 5px rgba(black, 0);
-    }
-
-    &.popup {
-      border-radius: $menu_radius;
-      box-shadow: $shadow_4;
     }
 
     &.dialog.message {

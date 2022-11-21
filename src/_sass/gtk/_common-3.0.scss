@@ -580,9 +580,6 @@ button {
         &:active, &:checked { @include button(flat-active, $b_color, on($primary)); }
         &:disabled { @include button(flat-disabled, $b_color, on($primary)); }
       }
-
-      // .osd & {
-      // }
     }
   }
 
@@ -1174,6 +1171,7 @@ searchbar > revealer > box {
 %headerbar_flat_button {
   border-radius: 0;
   color: on($header, secondary);
+  background-color: transparent;
   transition: background-color 0,
               background-image 0,
               color $longer_duration $standard_curve,
@@ -1203,6 +1201,7 @@ searchbar > revealer > box {
 
     &:disabled {
       color: rgba(indicator(header), 0.35);
+      background-color: transparent;
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                     rgba(indicator(header), 0.35) 100%,
                                     transparent 0%)
@@ -1214,6 +1213,7 @@ searchbar > revealer > box {
 
   &:disabled {
     color: on($header, secondary-disabled);
+    background-color: transparent;
   }
 }
 
@@ -1300,10 +1300,19 @@ headerbar {
     background-color: transparent;
     padding: 0;
 
-    > button {
+    > button:not(.destructive-action):not(.suggested-action) {
       margin-top: $space_size;
       margin-bottom: $space_size;
       border-radius: 0;
+      color: on($header, secondary);
+
+      &:hover, &:active, &:checked {
+        color: on($header);
+      }
+
+      &:disabled, &:backdrop {
+        color: on($header, secondary-disabled);
+      }
     }
   }
 
@@ -3912,7 +3921,7 @@ button.circular { row & { margin: 0 5px; } } // Make the circular button hover s
 
     &:hover {
       color: $text;
-      box-shadow: inset 0 -2px $divider;
+      box-shadow: inset 0 -2px $overlay-active;
       background-color: transparent;
     }
 
@@ -3924,7 +3933,7 @@ button.circular { row & { margin: 0 5px; } } // Make the circular button hover s
       background-image: none;
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                     $primary 100%,
-                                    $divider 0%)
+                                    $overlay-active 0%)
                                     0 0 2 / 0 0 2px;
     }
 

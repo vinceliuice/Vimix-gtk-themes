@@ -42,7 +42,6 @@
 }
 
 %pathbar_box_button {
-  @extend %flat_button;
   color: on($header, secondary);
   background-color: transparent;
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
@@ -2215,7 +2214,7 @@ menubar.-vala-panel-background {
   // Pathbar
   .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar,
   .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) {
-    button { @extend %pathbar_box_button; }
+    > button:not(.destructive-action):not(.suggested-action) { @extend %headerbar_flat_button; }
   }
 
   .sidebar {

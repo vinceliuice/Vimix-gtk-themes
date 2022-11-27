@@ -2234,6 +2234,16 @@ menubar.-vala-panel-background {
   }
 }
 
+window.background {
+  > notebook.frame {
+    scrolledwindow.frame > viewport.frame {
+      treeview.view:hover:not(:selected) {
+        background-image: image(mix($text, $base, 10%));
+      }
+    }
+  }
+}
+
 //
 // Primary-toolbar (Cinnamon-settings)
 //

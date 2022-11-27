@@ -2118,15 +2118,19 @@ menubar.-vala-panel-background {
   > menuitem {
     color: on($panel, secondary);
     font-weight: normal;
+    transition: none;
 
     &:hover {
       color: on($primary);
-      border-radius: 0 0 0 0 ;
+      border-radius: 0;
+      transition: none;
     }
 
     &:disabled {
-      color: transparentize(on($panel, secondary), 0.6);
+      color: on($panel, secondary-disabled);
     }
+
+    check { -gtk-icon-source: none; } // Fix for xfce4 vala-panel-appmenu Memory leak (Why ?)
   }
 }
 
@@ -2419,9 +2423,9 @@ UnityDecoration.menubar .menuitem *:hover {
   &.inline-toolbar { border-style: none; }
 }
 
-SheetStyleDialog.unity-force-quit {
-  // background-color: $background;
-}
+// SheetStyleDialog.unity-force-quit {
+//   background-color: $background;
+// }
 
 // Panel Style
 UnityPanelWidget,
@@ -2434,10 +2438,6 @@ UnityPanelWidget,
 UnityPanelWidget:backdrop,
 .unity-panel:backdrop {
   color: on($header, secondary);
-}
-
-.unity-panel.menubar,
-.unity-panel .menubar {
 }
 
 .unity-panel.menuitem,

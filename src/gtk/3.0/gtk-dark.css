@@ -2225,8 +2225,8 @@ menubar > menuitem > window.background.csd.popup > menu,
   border-radius: 0 0 3px 3px;
 }
 
-menubar > menuitem > window.popup.background.csd > menu menuitem,
-.menubar > menuitem > window.popup.background.csd > menu menuitem {
+menubar > menuitem > window.popup.background > menu menuitem,
+.menubar > menuitem > window.popup.background > menu menuitem {
   transition: none;
 }
 
@@ -3031,16 +3031,12 @@ radio {
   -gtk-icon-source: -gtk-recolor(url("assets/scalable/radio-unchecked-symbolic.svg"));
   border-image-slice: 20;
   border-image-width: 20px;
+  border-image-source: -gtk-gradient(radial, center center, 0, center center, 0.001, to(#18b8ff), to(transparent));
 }
 
 
 radio:indeterminate {
   -gtk-icon-source: -gtk-recolor(url("assets/scalable/radio-mixed-symbolic.svg"));
-}
-
-
-radio {
-  border-image-source: -gtk-gradient(radial, center center, 0, center center, 0.001, to(#18b8ff), to(transparent));
 }
 
 
@@ -3092,27 +3088,6 @@ menu menuitem radio:indeterminate {
 treeview.view check,
 treeview.view radio {
   padding: 0;
-}
-
-treeview.view check:hover,
-treeview.view radio:hover {
-  box-shadow: none;
-  background-image: none;
-  background-color: transparent;
-}
-
-treeview.view check:hover:disabled,
-treeview.view radio:hover:disabled {
-  box-shadow: none;
-}
-
-treeview.view check:hover:selected,
-treeview.view radio:hover:selected {
-  box-shadow: none;
-}
-
-treeview.view check,
-treeview.view radio {
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -3137,6 +3112,23 @@ treeview.view check:checked:disabled, treeview.view check:indeterminate:disabled
 treeview.view radio:checked:disabled,
 treeview.view radio:indeterminate:disabled {
   color: alpha(#18b8ff, 0.3);
+}
+
+treeview.view check:hover,
+treeview.view radio:hover {
+  box-shadow: none;
+  background-image: none;
+  background-color: transparent;
+}
+
+treeview.view check:hover:disabled,
+treeview.view radio:hover:disabled {
+  box-shadow: none;
+}
+
+treeview.view check:hover:selected,
+treeview.view radio:hover:selected {
+  box-shadow: none;
 }
 
 treeview.view radio:checked {
@@ -6788,17 +6780,24 @@ menubar.-vala-panel-appmenu-private > menuitem,
 menubar.-vala-panel-background > menuitem {
   color: rgba(255, 255, 255, 0.7);
   font-weight: normal;
+  transition: none;
 }
 
 menubar.-vala-panel-appmenu-private > menuitem:hover,
 menubar.-vala-panel-background > menuitem:hover {
   color: white;
-  border-radius: 0 0 0 0;
+  border-radius: 0;
+  transition: none;
 }
 
 menubar.-vala-panel-appmenu-private > menuitem:disabled,
 menubar.-vala-panel-background > menuitem:disabled {
-  color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.3);
+}
+
+menubar.-vala-panel-appmenu-private > menuitem check,
+menubar.-vala-panel-background > menuitem check {
+  -gtk-icon-source: none;
 }
 
 .nemo-window .toolbar button {

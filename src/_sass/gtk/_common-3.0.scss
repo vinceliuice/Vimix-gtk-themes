@@ -1802,9 +1802,11 @@ menubar,
     &:disabled { color: on($header, disabled); }
 
     > window.background.csd.popup > decoration,
-    > window.background.csd.popup > menu { border-radius: 0 0 $button_radius $button_radius; }
+    > window.background.csd.popup > menu {
+      border-radius: 0 0 $button_radius $button_radius;
+    }
 
-    > window.popup.background.csd > menu {
+    > window.popup.background > menu {
       menuitem { transition: none; }
     }
   }
@@ -2514,14 +2516,11 @@ radio {
 
   border-image-slice: 20;
   border-image-width: 20px;
-
-  & {
-    border-image-source: -gtk-gradient(radial,
-                                       center center, 0,
-                                       center center, 0.001,
-                                       to(indicator(accent)),
-                                       to(transparent));
-  }
+  border-image-source: -gtk-gradient(radial,
+                                     center center, 0,
+                                     center center, 0.001,
+                                     to(indicator(accent)),
+                                     to(transparent));
 
   &:checked:not(:indeterminate) {
     border-image-source: -gtk-gradient(radial,
@@ -2542,12 +2541,10 @@ radio {
 
 %small_check,
 menu menuitem check {
-  & {
-    min-height: 16px;
-    min-width: 16px;
-    border-radius: 2px;
-    -gtk-icon-source: -gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.svg"));
-  }
+  min-height: 16px;
+  min-width: 16px;
+  border-radius: 2px;
+  -gtk-icon-source: -gtk-recolor(url("assets/scalable/small-checkbox-unchecked-symbolic.svg"));
 
   &:checked { -gtk-icon-source: -gtk-recolor(url("assets/scalable/small-checkbox-checked-symbolic.svg")); }
 
@@ -2556,12 +2553,10 @@ menu menuitem check {
 
 %small_radio,
 menu menuitem radio {
-  & {
-    min-height: 16px;
-    min-width: 16px;
-    border-image: none;
-    -gtk-icon-source: -gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.svg"));
-  }
+  min-height: 16px;
+  min-width: 16px;
+  border-image: none;
+  -gtk-icon-source: -gtk-recolor(url("assets/scalable/small-radio-unchecked-symbolic.svg"));
 
   &:checked { -gtk-icon-source: -gtk-recolor(url("assets/scalable/small-radio-checked-symbolic.svg")); }
 
@@ -2571,6 +2566,11 @@ menu menuitem radio {
 treeview.view check,
 treeview.view radio {
   padding: 0;
+  color: $text-secondary;
+  &:hover, &:active { color: $text; }
+  &:disabled { color: $text-secondary-disabled; }
+  &:checked, &:indeterminate { color: indicator(accent); }
+  &:checked:disabled, &:indeterminate:disabled { color: gtkalpha(indicator(accent), 0.3); }
 
   &:hover {
     box-shadow: none;
@@ -2580,15 +2580,6 @@ treeview.view radio {
     &:disabled { box-shadow: none; }
     &:selected { box-shadow: none; }
   }
-
-  & {
-    color: $text-secondary;
-    &:hover, &:active { color: $text; }
-    &:disabled { color: $text-secondary-disabled; }
-    &:checked, &:indeterminate { color: indicator(accent); }
-    &:checked:disabled, &:indeterminate:disabled { color: gtkalpha(indicator(accent), 0.3); }
-  }
-
 }
 
 treeview.view radio:checked {

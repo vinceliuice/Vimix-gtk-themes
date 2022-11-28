@@ -1047,7 +1047,7 @@ toolbar {
 
   button:not(.destructive-action):not(.suggested-action) { @extend %flat_button; }
 
-  .linked:not(.stack-switcher) > button:not(.destructive-action):not(.suggested-action) {
+  .linked:not(.stack-switcher):not(.path-bar) > button:not(.destructive-action):not(.suggested-action) {
     @extend %flat_normal_button;
   }
 
@@ -2464,15 +2464,15 @@ radio {
     transition: none;
     margin: 0; // this is a workaround for a menu check/radio size allocation issue
     padding: 0;
-    color: on($menu, secondary);
+    color: $text-secondary;
 
     &:dir(ltr) { margin-right: 8px; }
 
     &:dir(rtl) { margin-left: 8px; }
 
-    &:hover, &:checked:hover, &:indeterminate:hover { color: on(dark); }
+    &:hover, &:checked:hover, &:indeterminate:hover { color: on($primary); }
 
-    &:disabled { color: on(dark, disabled); }
+    &:disabled { color: on($primary, disabled); }
 
     &:checked, &:indeterminate {
       color: indicator(accent);

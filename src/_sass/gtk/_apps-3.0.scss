@@ -2087,7 +2087,8 @@ window.thunar {
     border-top: none;
   }
 
-  toolbar#location-toolbar {
+  toolbar#location-toolbar,
+  > grid > toolbar {
     border-bottom: 1px solid $border;
 
     // FIXME: need to unset for weird allocation height
@@ -2130,7 +2131,13 @@ menubar.-vala-panel-background {
       color: on($panel, secondary-disabled);
     }
 
-    check { -gtk-icon-source: none; } // Fix for xfce4 vala-panel-appmenu Memory leak (Why ?)
+    check:not(:checked):not(:indeterminate) { // Fix for xfce4 vala-panel-appmenu Memory leak (Why '-gtk-recolor' cause this ?)
+      -gtk-icon-source: none;
+      border-radius: 2px;
+      box-shadow: inset 0 0 0 2px $text-secondary;
+
+      &:hover { box-shadow: inset 0 0 0 2px on($primary); }
+    }
   }
 }
 

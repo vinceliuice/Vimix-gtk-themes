@@ -34,23 +34,30 @@ window.background.nautilus-window {
   }
 
   .nautilus-grid-view {
-    child.activatable {
+    gridview > child {
       border-radius: $modal_radius;
       @include ripple(flat);
-
-      &:hover {
-        background-color: $overlay-hover;
-        color: $text;
-      }
-
-      &:active {
-        background-color: $overlay-normal;
-        color: $text;
-      }
 
       &:selected {
         background-color: $overlay-checked;
         color: $text;
+      }
+
+      &.activatable {
+        &:hover {
+          background-color: $overlay-hover;
+          color: $text;
+        }
+
+        &:active {
+          background-color: $overlay-normal;
+          color: $text;
+        }
+
+        &:selected {
+          background-color: $overlay-checked;
+          color: $text;
+        }
       }
     }
   }
@@ -66,23 +73,28 @@ window.background.nautilus-window {
 #NautilusQueryEditor { // search entry
   border-radius: $button_radius;
 
-  > image {
-    margin: 0;
+  > * {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   > menubutton {
     margin: 0;
 
-    > button {
-      min-width: 16px;
-      min-height: 16px;
-      margin: 4px 0;
+    > button.image-button.toggle {
+      min-width: 24px;
+      min-height: 24px;
+      margin: $space_size 0;
+      padding: 0;
       border-radius: $button_radius;
       @extend %flat_button;
+      color: on($header, secondary);
+
+      &:hover, &:active, &:checked {
+        color: on($header);
+      }
     }
   }
-
-  > text { margin: 0; }
 
   #NautilusQueryEditorTag {
     border-radius: $circular_radius;
@@ -125,22 +137,20 @@ window.background.nautilus-window {
 
 // Floating status bar
 .floating-bar {
-  min-height: 32px;
+  min-height: $item_size;
   padding: 0;
-  border: 1px solid $border;
+  border: none;
   border-radius: 0;
   background-color: $base;
   background-clip: $extra_background_clip;
-  transition: $shorter_transition, border-width 0;
-  box-shadow: none;
+  transition: $shorter_transition;
+  box-shadow: 0 0 0 1px $border;
 
   &.bottom.left { // axes left border and border radius
-    border-width: 1px 1px 0 0;
     border-top-right-radius: 3px;
   }
 
   &.bottom.right { // axes right border and border radius
-    border-width: 1px 0 0 1px;
     border-top-left-radius: 3px;
   }
 
@@ -328,40 +338,39 @@ window.background {
 }
 
 preferencesgroup > box {
-  button.background-preview-button {
+  button.background-preview-button.toggle {
     padding: 0;
+    background: none;
+    box-shadow: none;
+    outline-width: 2px solid transparent;
+    outline-offset: $space-size / 2;
 
-    &, &:hover, &:active, &:checked, &:checked:hover {
-      background-color: transparent;
-      background-image: none;
-      border: none;
-      box-shadow: none;
+    &, > background-preview {
+      border-radius: 6px;
     }
 
-    > background-preview {
-      outline: 2px solid transparent;
-      outline-offset: $space_size / 2;
-      border-radius: $button_radius;
+    &:hover {
+      outline: 2px solid $divider;
     }
 
-    &:hover > background-preview {
-      outline-color: $text-secondary-disabled;
+    &:active {
+      outline: 2px solid $track;
     }
 
-    &:active > background-preview {
-      outline-color: $text-disabled;
-    }
-
-    &:checked > background-preview {
-      outline-color: $primary;
+    &:checked {
+      outline: 2px solid $primary;
     }
   }
 
   flowbox.background-flowbox > flowboxchild {
     outline: 2px solid transparent;
     outline-offset: 0;
-    border-radius: $button_radius + $space_size / 2;
+    border-radius: 6px + $space_size / 2;
     padding: $space_size / 2;
+
+    > .background-thumbnail {
+      border-radius: 6px;
+    }
 
     &:hover {
       outline-color: $text-secondary-disabled;
@@ -374,6 +383,12 @@ preferencesgroup > box {
     &:selected {
       outline-color: $primary;
       background-color: transparent;
+    }
+
+    image.selected-check {
+      border-radius: $circular_radius;
+      padding: $space_size;
+      margin: $space_size;
     }
   }
 }
@@ -465,32 +480,6 @@ preferencesgroup > box {
 
   > box.single-line {
     min-height: 34px;
-  }
-
-  button.background-preview-button.toggle {
-    padding: 0;
-    background: none;
-    box-shadow: none;
-    outline-color: transparent;
-    outline-width: 2px;
-    outline-offset: $space-size / 2;
-    outline-style: solid;
-
-    &, > background-preview {
-      border-radius: 6px;
-    }
-
-    &:hover {
-      outline-color: $fill;
-    }
-
-    &:active {
-      outline-color: $track;
-    }
-
-    &:checked {
-      outline-color: $primary;
-    }
   }
 }
 

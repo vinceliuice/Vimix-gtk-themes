@@ -759,6 +759,19 @@ button {
   // big standalone buttons like in Documents pager
   &.osd {
     padding: ($large_size - 24px) / 2 ($large_size - 16px) / 2;
+    background-color: $osd;
+    color: on($osd);
+
+    &:hover {
+      background-color: lighten($osd, 12%);
+      color: on($osd);
+    }
+
+    &:active {
+      background-color: lighten($osd, 12%);
+      color: on($osd);
+      background-image: radial-gradient(circle, lighten($osd, 20%) 10%, transparent 10%);
+    }
 
     &.image-button { padding: ($large_size - 24px) / 2; }
 
@@ -1480,16 +1493,45 @@ searchbar > revealer > box {
 // Header bars
 //
 
+%header_separator {
+  min-width: 0;
+  min-height: 0;
+  background-color: $header;
+  border: none;
+}
+
+%headerbar_entry {
+  background-color: rgba(on($header), 0.06);
+  color: on($header);
+  caret-color: on($header);
+  border-image: none;
+  box-shadow: none;
+
+  &:focus-within {
+    background-color: rgba(on($header), 0.09);
+    border-image: none;
+    box-shadow: none;
+  }
+
+  &:disabled {
+    background-color: rgba(on($header), 0.03);
+    color: on($header, disabled);
+    border-image: none;
+    box-shadow: none;
+  }
+}
+
 %header_button {
   @include button(header-normal);
   &:hover { @include button(header-hover); }
   &:active { @include button(header-active); }
-  &:disabled { @include button(header-disabled); }
+  &:disabled { @include button(header-disabled); opacity: 1; }
   &:checked, &:checked:hover { @include button(header-checked); }
   // &:checked:hover { @include button(header-checked-hover); }
   &:checked:disabled, &:checked:backdrop { @include button(header-checked-disabled); }
   &:backdrop {
     color: on($header, disabled);
+    opacity: 1;
     &:disabled { color: on($header, secondary-disabled); }
   }
 }
@@ -1525,7 +1567,7 @@ searchbar > revealer > box {
     color: indicator(header);
     border-radius: 0;
 
-    &:disabled {
+    &:disabled, &:backdrop {
       color: rgba(indicator(header), 0.35);
       background-color: transparent;
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
@@ -1551,9 +1593,10 @@ headerbar {
               color $shorter_duration $deceleration_curve;
   min-height: $medium-size + $space_size * 2;
   padding: 0;
-  box-shadow: $header_shadow;
+  box-shadow: inset 0 1px $highlight, inset 0 -1px $border;
   background-color: $header;
   color: on($header);
+  border: none;
 
   &:backdrop {
     color: on($header, disabled);
@@ -1562,7 +1605,15 @@ headerbar {
 
   &:disabled { color: on($header, disabled); }
 
-  &:not(.titlebar) { box-shadow: inset 0 1px $highlight, inset 0 -1px $border; }
+  &.flat {
+    box-shadow: inset 0 1px $highlight;
+    background-color: transparent;
+    color: $text;
+
+    button { @extend %flat_button; }
+  }
+
+  &.titlebar { box-shadow: $header_shadow, inset 0 1px $highlight; }
 
   .title {
     padding: 0 12px;
@@ -1585,6 +1636,8 @@ headerbar {
       border-spacing: $space_size;
     }
   }
+
+  entry { @extend %headerbar_entry; }
 
   button:not(.suggested-action):not(.destructive-action) { @extend %header_button; }
 
@@ -1614,6 +1667,18 @@ headerbar {
   splitbutton > menubutton {
     margin-top: 0;
     margin-bottom: 0;
+  }
+
+  popover.background {
+    entry,
+    spinbutton,
+    button,
+    menubutton,
+    splitbutton,
+    .pathbar {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
   }
 
   &.selection-mode {
@@ -1771,68 +1836,10 @@ headerbar {
     }
   }
 
-  // reset button margins of the spinbutton
-  spinbutton button {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
   separator { @extend %header_separator; }
-
-  &.titlebar {
-    box-shadow: $header_shadow, inset 0 1px $highlight;
-
-    headerbar:not(.titlebar) {
-      background: none;
-      box-shadow: none;
-    }
-
-    .tiled &,
-    .maximized &,
-    .fullscreen & { box-shadow: $header_shadow; }
-  }
-
-  .titlebar > & {
-    box-shadow: $header_shadow, inset 0 1px $highlight;
-  }
-}
-
-%header_separator {
-  min-width: 0;
-  min-height: 0;
-  background-color: $header;
-  border: none;
-}
-
-%headerbar_entry {
-  background-color: rgba(on($header), 0.06);
-  color: on($header);
-  caret-color: on($header);
-  border-image: none;
-  box-shadow: none;
-
-  &:focus-within {
-    background-color: rgba(on($header), 0.09);
-    border-image: none;
-    box-shadow: none;
-  }
-
-  &:disabled {
-    background-color: rgba(on($header), 0.03);
-    color: on($header, disabled);
-    border-image: none;
-    box-shadow: none;
-  }
-}
-
-.titlebar, headerbar {
-  .background &:not(.horizontal) entry {
-    @extend %headerbar_entry;
-  }
 }
 
 // Development versions of apps to use a differently styled headerbar
-
 window.devel {
   headerbar.titlebar {
     $c: darken($background, 10%);
@@ -2156,21 +2163,13 @@ menubar {
   }
 }
 
+//
+// Popovers
+//
+
+// Base menu
 popover.menu {
   padding: 0;
-
-  & > arrow,
-  &.background > contents {
-    padding: $space_size;
-    box-shadow: $shadow_4;
-    background-color: $menu;
-    border: none;
-    border-radius: $button_radius;
-  }
-
-  &.background separator {
-    margin: $space_size 0;
-  }
 
   box.inline-buttons {
     padding: 0 $space_size;
@@ -2221,37 +2220,21 @@ popover.menu {
   }
 }
 
-//
-// Popovers
-//
-
 %flat_theme_button {
-  box-shadow: none;
-  background-color: transparent;
-  @include ripple(primary);
+  @include button(flat-normal);
+  @include ripple(flat);
+  background-color: $overlay-normal;
 
-  &:hover {
-    background-color: $overlay-hover;
-    color: $text;
-  }
-
-  &:active {
-    @include button(header-active);
-  }
-
-  &:checked {
-    @include button(header-checked);
-  }
-
+  &:hover { @include button(flat-hover); }
+  &:active { @include button(flat-active); }
   &:disabled {
-    background-color: transparent;
-    color: $text-disabled;
+    box-shadow: none;
+    background-color: $overlay-normal;
+    color: $text-secondary-disabled;
   }
 
-  &:checked:disabled {
-    background-color: rgba($primary, 0.5);
-    color: rgba(on($primary), 0.5);
-  }
+  &:checked { @include button(checked); }
+  &:checked:disabled { @include button(checked-disabled); }
 }
 
 popover.background {
@@ -2261,22 +2244,19 @@ popover.background {
 
   > arrow,
   > contents {
-    transition: $shadow_transition;
-    padding: 0;
+    transition: none;
     box-shadow: $shadow_4;
     background-color: $popover;
     border: none;
     color: $text;
   }
 
-  &:backdrop {
-    background-color: transparent;
-
-    > arrow,
-    > contents {
-      box-shadow: $shadow_2;
-    }
-  }
+  // &:backdrop {
+  //   > arrow,
+  //   > contents {
+  //     box-shadow: $shadow_2;
+  //   }
+  // }
 
   > contents {
     padding: $space_size;
@@ -2291,11 +2271,12 @@ popover.background {
     }
 
     separator {
-      background-color: $solid-border;
-      margin: $space_size / 2;
+      margin: $space_size / 2 0;
     }
 
-    list separator { margin: 0; }
+    list separator {
+      margin: 0;
+    }
   }
 
   .osd &,
@@ -2920,30 +2901,6 @@ radiobutton > radio:not(:checked):not(:indeterminate) {
   &:disabled { color: $text-secondary-disabled; }
 }
 
-%row_selected_check,
-checkbutton check,
-radiobutton radio {
-  row:selected &,
-  treeview.view:selected &,
-  row.activatable:selected & {
-    &, &:focus {
-      &, &:active, &:checked, &:indeterminate {
-        color: on($primary, secondary);
-        background: none;
-        box-shadow: none;
-        &:disabled { color: on($primary, secondary-disabled); }
-      }
-
-      &:hover {
-        color: on($primary);
-        background: none;
-        box-shadow: none;
-        &:disabled { color: on($primary, disabled); }
-      }
-    }
-  }
-}
-
 check,
 radio {
   min-height: 24px;
@@ -2955,7 +2912,6 @@ radio {
   outline: none;
   @extend %simple_flat_button;
   @extend %circular_button;
-  @extend %row_selected_check;
   @include ripple(flat);
 
   &:checked, &:indeterminate {
@@ -2965,35 +2921,30 @@ radio {
   }
 
   popover modelbutton.flat & {
-    &, &:focus, &:hover, &:focus:hover, &:active, &:disabled {
-      transition: none; // FIXME: this is a workaround for a popover check/radio long transition issue
+    transition: none;
+    margin: 0; // this is a workaround for a menu check/radio size allocation issue
+    padding: 0;
+    color: on($menu, secondary);
+
+    &, &:focus, &:hover, &:selected, &:focus:hover, &:active, &:disabled {
       box-shadow: none;
       background-image: none;
       outline: none;
       border: none;
+      background-color: transparent;
     }
 
     &:not(:checked):not(:indeterminate):not(:disabled) { color: $text-secondary; }
 
     &.left:dir(rtl) {
       margin-left: -16px;
-      margin-right: -8px;
+      margin-right: -6px;
     }
 
     &.right:dir(ltr) {
-      margin-left: -8px;
+      margin-left: -6px;
       margin-right: -16px;
     }
-  }
-
-  popover.menu modelbutton & {
-    transition: none;
-    margin: 0; // this is a workaround for a menu check/radio size allocation issue
-    padding: 0;
-    color: on($menu, secondary);
-
-    &:dir(ltr) { margin-right: 8px; }
-    &:dir(rtl) { margin-left: 8px; }
 
     &:checked, &:indeterminate {
       color: indicator(accent);
@@ -3306,9 +3257,9 @@ progressbar {
     }
   }
 
-  // FIXME: insensitive state missing and some other state should be set probably
   color: $text-disabled;
   font-size: smaller;
+  box-shadow: none;
 
   > trough { background-color: gtkalpha($primary, 0.3); border-radius: 6px; }
 
@@ -4494,11 +4445,6 @@ window {
       box-shadow: $shadow_4, 0 16px 16px 2px rgba(black, 0), 0 6px 18px 5px rgba(black, 0);
     }
 
-    &.popup {
-      border-radius: $menu_radius;
-      box-shadow: $shadow_4;
-    }
-
     &.dialog.message {
       border-radius: $window_radius;
       box-shadow: $shadow_4;
@@ -4682,7 +4628,7 @@ shortcuts-section {
 
 %circular_button,
 button.circular { // FIXME: aggregate to buttons
-  border-radius: 1000px;
+  border-radius: $circular_radius;
 
   // label { padding: 0; }
 }

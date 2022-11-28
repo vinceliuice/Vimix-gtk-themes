@@ -1,45 +1,4 @@
 
-%flat_stackswitcher {
-  background-color: $suface;
-  border-radius: 3px;
-  border: none;
-  padding: 0 8px;
-
-  button {
-    margin: 0;
-    border-radius: 0;
-    background-image: none;
-    background-color: transparent;
-    box-shadow: none;
-    transition: $ripple_duration,
-                background-size 0,
-                background-image 0,
-                background-color 0;
-    animation: ripple_effect $ripple_duration $deceleration_curve forwards;
-    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                  $primary 0%,
-                                  transparent 0%)
-                                  0 0 0 / 0 0 0;
-
-    &:hover {
-      box-shadow: inset 0 -2px rgba($primary, 0.5);
-      background-image: none;
-      background-color: transparent;
-    }
-
-    &:checked, &:active {
-      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    $primary 100%,
-                                    transparent 0%)
-                                    0 0 2 / 0 0 2px;
-      background-image: none;
-      background-color: transparent;
-      box-shadow: none;
-      color: $text;
-    }
-  }
-}
-
 //
 // Nautilus
 //
@@ -83,7 +42,6 @@
 }
 
 %pathbar_box_button {
-  @extend %flat_button;
   color: on($header, secondary);
   background-color: transparent;
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
@@ -750,12 +708,6 @@ entry.search-missing {
 
 entry.search.preferences-search {
   box-shadow: none;
-}
-
-dzldockpaned {
-  stackswitcher.linked.stack-switcher {
-    @extend %flat_stackswitcher;
-  }
 }
 
 // tweak icons for treeviews
@@ -2166,15 +2118,19 @@ menubar.-vala-panel-background {
   > menuitem {
     color: on($panel, secondary);
     font-weight: normal;
+    transition: none;
 
     &:hover {
       color: on($primary);
-      border-radius: 0 0 0 0 ;
+      border-radius: 0;
+      transition: none;
     }
 
     &:disabled {
-      color: transparentize(on($panel, secondary), 0.6);
+      color: on($panel, secondary-disabled);
     }
+
+    check { -gtk-icon-source: none; } // Fix for xfce4 vala-panel-appmenu Memory leak (Why ?)
   }
 }
 
@@ -2184,7 +2140,7 @@ menubar.-vala-panel-background {
 .nemo-window {
   .toolbar {
     button {
-      @extend %toolbar_flat_button;
+      @extend %simple_flat_button;
       padding: 0 4px;
       margin-top: 2px;
       margin-bottom: 2px;
@@ -2199,25 +2155,6 @@ menubar.-vala-panel-background {
 
   notebook {
     background-color: $base;
-
-    .primary-toolbar {
-      background-color: $background;
-
-      button {
-        @include button(normal);
-        &:hover { @include button(hover); }
-        &:active { @include button(active); }
-        &:disabled { @include button(disabled); }
-        &:checked { @include button(checked); }
-        &:checked:disabled, &:checked:backdrop { @include button(checked-disabled); }
-      }
-
-      entry {
-        @include entry(normal);
-        &:focus { @include entry(focus); }
-        &:disabled { @include entry(disabled); }
-      }
-    }
   }
 
   // Rename entry
@@ -2281,7 +2218,7 @@ menubar.-vala-panel-background {
   // Pathbar
   .primary-toolbar .linked:not(.vertical):not(.stack-switcher).path-bar,
   .primary-toolbar widget.linked.raised:not(.vertical):not(.path-bar) {
-    button { @extend %pathbar_box_button; }
+    > button:not(.destructive-action):not(.suggested-action) { @extend %headerbar_flat_button; }
   }
 
   .sidebar {
@@ -2297,17 +2234,30 @@ menubar.-vala-panel-background {
   }
 }
 
+window.background {
+  > notebook.frame {
+    scrolledwindow.frame > viewport.frame {
+      treeview.view:hover:not(:selected) {
+        background-image: image(mix($text, $base, 10%));
+      }
+    }
+  }
+}
+
 //
 // Primary-toolbar (Cinnamon-settings)
 //
+
 toolbar.primary-toolbar {
   toolitem.raised {
-
-    button { @extend %toolbar_flat_button; }
+    button { @extend %flat_button; }
 
     stackswitcher.stack-switcher {
       margin-top: $space_size;
-      @extend %flat_stackswitcher;
+
+      > button { // reset
+        @extend %stackswitcher_button;
+      }
     }
   }
 }
@@ -2334,7 +2284,6 @@ dialog.background {
 
     stackswitcher.stack-switcher {
       margin-top: $space_size;
-      @extend %flat_stackswitcher; // Cinnamon-settings stackswitcher button
     }
 
     .dialog-action-area {
@@ -2363,8 +2312,6 @@ dialog.background {
     }
 
     stack {
-      // button:not(.combo) { @extend %toolbar_flat_button; }
-
       entry,
       spinbutton:not(.vertical) { @extend %flat_entry; }
 
@@ -2400,15 +2347,14 @@ window.background {
 
       button.combo { @extend %combo_flat; }
 
-      :not(stackswitcher).linked button:not(.combo) {
+      .linked:not(.stack-switcher) button:not(.combo) {
         border-radius: $button_radius;
         margin: 0 2px;
-        @extend %toolbar_flat_button;
+        @extend %flat_theme_button;
       }
 
       stackswitcher.stack-switcher {
         margin-top: $space_size;
-        @extend %flat_stackswitcher; // Cinnamon-settings stackswitcher button
       }
 
       .linked button,
@@ -2487,9 +2433,9 @@ UnityDecoration.menubar .menuitem *:hover {
   &.inline-toolbar { border-style: none; }
 }
 
-SheetStyleDialog.unity-force-quit {
-  // background-color: $background;
-}
+// SheetStyleDialog.unity-force-quit {
+//   background-color: $background;
+// }
 
 // Panel Style
 UnityPanelWidget,
@@ -2502,10 +2448,6 @@ UnityPanelWidget,
 UnityPanelWidget:backdrop,
 .unity-panel:backdrop {
   color: on($header, secondary);
-}
-
-.unity-panel.menubar,
-.unity-panel .menubar {
 }
 
 .unity-panel.menuitem,

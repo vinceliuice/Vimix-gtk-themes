@@ -2299,10 +2299,11 @@ StEntry StLabel.hint-text {
 
 /* Popovers/Menus */
 .popup-menu-boxpointer {
+  -arrow-border-radius: 6px;
   -arrow-background-color: transparent;
   -arrow-border-width: 0;
   -arrow-border-color: transparent;
-  -arrow-base: 6px;
+  -arrow-base: 12px;
   -arrow-rise: 0;
   -arrow-box-shadow: none;
   background: transparent;
@@ -2517,6 +2518,7 @@ StScrollView.hfade {
 
 StScrollBar {
   padding: 0;
+  margin: 6px;
 }
 
 StScrollView StScrollBar {
@@ -2616,10 +2618,10 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .popup-menu .search-entry:focus {
+  color: rgba(0, 0, 0, 0.6);
   border: none;
   background-color: rgba(0, 0, 0, 0.12);
   box-shadow: inset 0 -2px #4285F4;
-  color: rgba(0, 0, 0, 0.6);
   color: rgba(0, 0, 0, 0.6);
 }
 

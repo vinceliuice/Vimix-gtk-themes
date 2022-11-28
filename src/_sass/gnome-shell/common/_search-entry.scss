@@ -18,7 +18,7 @@
   }
 
   &:focus {
-    @include entry(flat-focus, $fc:$indicator, $bc:on(black, divider), $tc:on(black, secondary));
+    @include entry(flat-focus, $fc:indicator(light), $bc:on(black, divider), $tc:on(black, secondary));
     color: on(black, secondary);
   }
 
@@ -56,12 +56,13 @@
   }
 
   &:focus {
+    color: on($popover, secondary);
+
     @if $variant == 'light' {
       @include entry(flat-focus, $bc:on($popover, divider), $tc:on($popover, secondary));
     } @else {
-      @include entry(flat-focus, $fc:white, $bc:on($popover, divider), $tc:on($popover, secondary));
+      @include entry(flat-focus, $fc:$indicator, $bc:on($popover, divider), $tc:on($popover, secondary));
     }
-    color: on($popover, secondary);
   }
 
   .search-entry-icon {

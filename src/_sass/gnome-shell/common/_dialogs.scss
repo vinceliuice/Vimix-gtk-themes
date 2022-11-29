@@ -4,7 +4,7 @@
   background-color: $popover;
   border-radius: $window_radius;
   border: none;
-  box-shadow: 3px 3px 8px -3px rgba(black, 0.65);
+  box-shadow: 3px 3px 8px -3px rgba(black, 0.35);
 }
 
 %last_dialog_button {
@@ -39,10 +39,10 @@
 
   &-linked-button {
     min-height: $item_size;
-    padding: $base_padding;
-    margin: $base_padding / 2;
+    padding: $base_padding $base_padding * 2 !important;
+    margin: $base_padding / 2 !important;
     border: none !important;
-    border-radius: $base_radius * 2;
+    border-radius: $base_radius;
     @extend %flat_button;
   }
 

@@ -17,7 +17,7 @@ SASSC_OPT="-M -t expanded"
 THEME_NAME=vimix
 COLOR_VARIANTS=('' '-light' '-dark')
 SIZE_VARIANTS=('' '-compact')
-THEME_VARIANTS=('-grey' '-doder' '-beryl' '-ruby' '-amethyst')
+THEME_VARIANTS=('-grey' '-doder' '-beryl' '-ruby' '-amethyst' '-jade')
 
 if [[ "$(command -v gnome-shell)" ]]; then
   gnome-shell --version
@@ -41,7 +41,7 @@ Usage: $0 [OPTION]...
 OPTIONS:
   -d, --dest DIR          Specify destination directory (Default: $DEST_DIR)
   -n, --name NAME         Specify theme name (Default: $THEME_NAME)
-  -t, --theme VARIANT     Specify theme color variant(s) [doder|beryl|ruby|amethyst|grey|all] (Default: doder(blue))
+  -t, --theme VARIANT     Specify theme color variant(s) [doder|beryl|ruby|amethyst|jade|grey|all] (Default: doder(blue))
   -c, --color VARIANT     Specify color variant(s) [standard|light|dark] (Default: All variants)
   -s, --size  VARIANT     Specify size variant [standard|compact|all] (Default: standard variant)
 
@@ -307,6 +307,10 @@ while [ $# -gt 0 ]; do
             themes+=("${THEME_VARIANTS[4]}")
             shift 1
             ;;
+          jade)
+            themes+=("${THEME_VARIANTS[5]}")
+            shift 1
+            ;;
           all)
             themes+=("${THEME_VARIANTS[@]}")
             shift 1
@@ -448,6 +452,9 @@ install_theme_color() {
         ;;
       -amethyst)
         theme_color='amethyst'
+        ;;
+      -jade)
+        theme_color='jade'
         ;;
     esac
     sed -i "/\$theme:/s/doder/${theme_color}/" ${SRC_DIR}/_sass/_tweaks-temp.scss

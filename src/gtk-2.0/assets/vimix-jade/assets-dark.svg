@@ -1,0 +1,1298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="200" height="480" viewBox="0 0 200 480" version="1.1" id="svg571" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <rect width="200" height="480" fill="url(#color-bg)" id="rect6"/>
+  <defs id="defs418">
+    <linearGradient id="color-fg">
+      <stop stop-color="#FFFFFF" id="stop8"/>
+    </linearGradient>
+    <linearGradient id="color-fg-disabled">
+      <stop stop-color="#FFFFFF" stop-opacity="0.5" id="stop11"/>
+    </linearGradient>
+    <linearGradient id="color-fg-secondary">
+      <stop stop-color="#FFFFFF" stop-opacity="0.7" id="stop14"/>
+    </linearGradient>
+    <linearGradient id="color-fg-secondary-disabled">
+      <stop stop-color="#FFFFFF" stop-opacity="0.3" id="stop17"/>
+    </linearGradient>
+    <linearGradient id="color-divider">
+      <stop stop-color="#FFFFFF" stop-opacity="0.12" id="stop20"/>
+    </linearGradient>
+    <linearGradient id="color-accent">
+      <stop stop-color="#97BB72" id="stop26"/>
+    </linearGradient>
+    <linearGradient id="color-accent-insensitive">
+      <stop stop-color="#97BB72" stop-opacity="0.5" id="stop29"/>
+    </linearGradient>
+    <linearGradient id="color-bg">
+      <stop stop-color="#282828" id="stop32"/>
+    </linearGradient>
+    <linearGradient id="color-bg-lighter">
+      <stop stop-color="#383838" id="stop35"/>
+    </linearGradient>
+    <linearGradient id="color-base">
+      <stop stop-color="#303030" id="stop38"/>
+    </linearGradient>
+    <linearGradient id="color-base-alt">
+      <stop stop-color="#292929" id="stop41"/>
+    </linearGradient>
+    <linearGradient id="color-border">
+      <stop stop-color="#000000" stop-opacity="0.26" id="stop44"/>
+    </linearGradient>
+    <filter id="1" color-interpolation-filters="sRGB" x="0" y="0" width="1" height="1">
+      <feFlood flood-color="#000000" flood-opacity="0.12" result="flood" id="feFlood47"/>
+      <feComposite operator="in" in="flood" in2="SourceGraphic" result="composite1" id="feComposite49"/>
+      <feGaussianBlur stdDeviation="1.5" in="composite1" result="blur" id="feGaussianBlur51"/>
+      <feOffset dx="0" dy="1" result="offset" id="feOffset53"/>
+      <feComposite in="SourceGraphic" in2="offset" result="fbSourceGraphic" id="feComposite55"/>
+      <feFlood flood-color="#000000" flood-opacity="0.24" result="flood" id="feFlood57"/>
+      <feComposite operator="in" in="flood" in2="fbSourceGraphic" result="composite1" id="feComposite59"/>
+      <feGaussianBlur stdDeviation="1" in="composite1" result="blur" id="feGaussianBlur61"/>
+      <feOffset dx="0" dy="1" result="offset" id="feOffset63"/>
+      <feComposite in="fbSourceGraphic" in2="offset" result="composite2" id="feComposite65"/>
+    </filter>
+    <rect id="1x1" width="1" height="1"/>
+    <rect id="2x2" width="2" height="2"/>
+    <rect id="4x4" width="4" height="4"/>
+    <rect id="16x16" width="16" height="16" opacity="0"/>
+    <rect id="17x17" width="17" height="17" opacity="0"/>
+    <rect id="24x24" width="24" height="24" opacity="0"/>
+    <clipPath id="left">
+      <rect width="10" height="20" id="rect74"/>
+    </clipPath>
+    <clipPath id="right">
+      <rect width="10" height="20" x="10" id="rect77"/>
+    </clipPath>
+    <clipPath id="left-top">
+      <rect width="10" height="10" id="rect80"/>
+    </clipPath>
+    <clipPath id="left-bottom">
+      <rect width="10" height="10" y="10" id="rect83"/>
+    </clipPath>
+    <clipPath id="right-top">
+      <rect width="10" height="10" x="10" id="rect86"/>
+    </clipPath>
+    <clipPath id="right-bottom">
+      <rect width="10" height="10" x="10" y="10" id="rect89"/>
+    </clipPath>
+    <g id="base-box">
+      <rect width="20" height="20" opacity="0" id="rect92"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2" id="rect94"/>
+    </g>
+    <g id="base-flat-button" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-fg)" opacity="0">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g id="base-flat-button-hover" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-fg)" opacity="0.15">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g id="base-flat-button-active" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-fg)" opacity="0.3">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g id="base-flat-button-insensitive" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-fg)" opacity="0">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g id="base-button" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g id="base-button-hover" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g id="base-button-active">
+      <g id="use103" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)">
+        <rect width="20" height="20" opacity="0"/>
+        <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+      </g>
+      <g id="use105" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-fg)" opacity="0.3">
+        <rect width="20" height="20" opacity="0"/>
+        <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+      </g>
+    </g>
+    <g id="base-button-insensitive" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-divider)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <use id="base-entry-background" fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+    <use id="base-entry-background-insensitive" fill="url(#color-base-alt)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+    <g id="base-entry-box" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g id="base-entry-box-active" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g id="base-entry-box-insensitive" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base-alt)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <rect id="background-fill" width="20" height="20"/>
+    <g id="base-entry">
+      <rect id="use115" width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+      <g id="use117" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base)" filter="url(#1)">
+        <rect width="20" height="20" opacity="0"/>
+        <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+      </g>
+    </g>
+    <g id="base-entry-active">
+      <rect id="use120" width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+      <g id="use122" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base)" filter="url(#1)">
+        <rect width="20" height="20" opacity="0"/>
+        <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+      </g>
+    </g>
+    <g id="base-entry-insensitive">
+      <rect id="use125" width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+      <g id="use127" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base-alt)" filter="url(#1)">
+        <rect width="20" height="20" opacity="0"/>
+        <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+      </g>
+    </g>
+    <g id="base-combo-rtl-button" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)" clip-path="url(#left)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g id="base-combo-rtl-button-hover" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)" clip-path="url(#left)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g id="base-combo-rtl-button-active" transform="matrix(1, 0, 0, 1, 0, 0)" clip-path="url(#left)">
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)">
+        <rect width="20" height="20" opacity="0"/>
+        <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-fg)" opacity="0.3">
+        <rect width="20" height="20" opacity="0"/>
+        <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+      </g>
+    </g>
+    <g id="base-combo-rtl-button-insensitive" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-divider)" clip-path="url(#left)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g id="base-combo-ltr-button" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)" clip-path="url(#right)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g id="base-combo-ltr-button-hover" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)" clip-path="url(#right)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g id="base-combo-ltr-button-active" transform="matrix(1, 0, 0, 1, 0, 0)" clip-path="url(#right)">
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)">
+        <rect width="20" height="20" opacity="0"/>
+        <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-fg)" opacity="0.3">
+        <rect width="20" height="20" opacity="0"/>
+        <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+      </g>
+    </g>
+    <g id="base-combo-ltr-button-insensitive" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-divider)" clip-path="url(#right)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g id="base-spin-rtl-up" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)" clip-path="url(#left-top)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g id="base-spin-rtl-up-hover" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)" clip-path="url(#left-top)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g id="base-spin-rtl-up-active" transform="matrix(1, 0, 0, 1, 0, 0)" clip-path="url(#left-top)">
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)">
+        <rect width="20" height="20" opacity="0"/>
+        <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-fg)" opacity="0.3">
+        <rect width="20" height="20" opacity="0"/>
+        <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+      </g>
+    </g>
+    <g id="base-spin-rtl-up-insensitive" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-divider)" clip-path="url(#left-top)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g id="base-spin-rtl-down" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)" clip-path="url(#left-bottom)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g id="base-spin-rtl-down-hover" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)" clip-path="url(#left-bottom)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g id="base-spin-rtl-down-active" transform="matrix(1, 0, 0, 1, 0, 0)" clip-path="url(#left-bottom)">
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)">
+        <rect width="20" height="20" opacity="0"/>
+        <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-fg)" opacity="0.3">
+        <rect width="20" height="20" opacity="0"/>
+        <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+      </g>
+    </g>
+    <g id="base-spin-rtl-down-insensitive" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-divider)" clip-path="url(#left-bottom)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g id="base-spin-ltr-up" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)" clip-path="url(#right-top)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g id="base-spin-ltr-up-hover" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)" clip-path="url(#right-top)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g id="base-spin-ltr-up-active" transform="matrix(1, 0, 0, 1, 0, 0)" clip-path="url(#right-top)">
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)">
+        <rect width="20" height="20" opacity="0"/>
+        <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-fg)" opacity="0.3">
+        <rect width="20" height="20" opacity="0"/>
+        <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+      </g>
+    </g>
+    <g id="base-spin-ltr-up-insensitive" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-divider)" clip-path="url(#right-top)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g id="base-spin-ltr-down" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)" clip-path="url(#right-bottom)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g id="base-spin-ltr-down-hover" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)" clip-path="url(#right-bottom)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g id="base-spin-ltr-down-active" transform="matrix(1, 0, 0, 1, 0, 0)" clip-path="url(#right-bottom)">
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)">
+        <rect width="20" height="20" opacity="0"/>
+        <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-fg)" opacity="0.3">
+        <rect width="20" height="20" opacity="0"/>
+        <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+      </g>
+    </g>
+    <g id="base-spin-ltr-down-insensitive" transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-divider)" clip-path="url(#right-bottom)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g id="base-combo-ltr-entry" transform="matrix(1, 0, 0, 1, 0, 0)" clip-path="url(#left)">
+      <rect width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base)" filter="url(#1)">
+        <rect width="20" height="20" opacity="0"/>
+        <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+      </g>
+    </g>
+    <g id="base-combo-ltr-entry-active" transform="matrix(1, 0, 0, 1, 0, 0)" clip-path="url(#left)">
+      <rect width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base)" filter="url(#1)">
+        <rect width="20" height="20" opacity="0"/>
+        <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+      </g>
+    </g>
+    <g id="base-combo-ltr-entry-insensitive" transform="matrix(1, 0, 0, 1, 0, 0)" clip-path="url(#left)">
+      <rect width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base-alt)" filter="url(#1)">
+        <rect width="20" height="20" opacity="0"/>
+        <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+      </g>
+    </g>
+    <g id="base-combo-rtl-entry" transform="matrix(1, 0, 0, 1, 0, 0)" clip-path="url(#right)">
+      <rect width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base)" filter="url(#1)">
+        <rect width="20" height="20" opacity="0"/>
+        <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+      </g>
+    </g>
+    <g id="base-combo-rtl-entry-active" transform="matrix(1, 0, 0, 1, 0, 0)" clip-path="url(#right)">
+      <rect width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base)" filter="url(#1)">
+        <rect width="20" height="20" opacity="0"/>
+        <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+      </g>
+    </g>
+    <g id="base-combo-rtl-entry-insensitive" transform="matrix(1, 0, 0, 1, 0, 0)" clip-path="url(#right)">
+      <rect width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base-alt)" filter="url(#1)">
+        <rect width="20" height="20" opacity="0"/>
+        <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+      </g>
+    </g>
+    <path id="checkbox-unchecked-path" d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+    <path id="checkbox-checked-path" d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+    <path id="checkbox-mixed-path" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z"/>
+    <path id="radio-unchecked-path" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+    <path id="radio-checked-path" d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+    <path id="radio-mixed-path" d="m12 2c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10-4.48-10-10-10zm0 2c4.42 0 8 3.58 8 8s-3.58 8-8 8-8-3.58-8-8 3.58-8 8-8zm-5 7v2h10v-2h-10z"/>
+    <path id="menu-checkbox-unchecked-path" d="m2 0a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-12zm0 2h12v12h-12v-12z"/>
+    <path id="menu-checkbox-checked-path" d="m2 0a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-12zm10.6 3.59l1.41 1.41-8 8-4-4 1.41-1.41 2.59 2.59 6.59-6.59z"/>
+    <path id="menu-checkbox-mixed-path" d="m2 0a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-12zm2 7h8v2h-8v-2z"/>
+    <path id="menu-radio-unchecked-path" d="m8 0a8 8 0 0 0 -8 8 8 8 0 0 0 8 8 8 8 0 0 0 8 -8 8 8 0 0 0 -8 -8zm0 2a6 6 0 0 1 6 6 6 6 0 0 1 -6 6 6 6 0 0 1 -6 -6 6 6 0 0 1 6 -6z"/>
+    <path id="menu-radio-checked-path" d="m8 0a8 8 0 0 0 -8 8 8 8 0 0 0 8 8 8 8 0 0 0 8 -8 8 8 0 0 0 -8 -8zm0 2a6 6 0 0 1 6 6 6 6 0 0 1 -6 6 6 6 0 0 1 -6 -6 6 6 0 0 1 6 -6zm0 2a4 4 0 0 0 -4 4 4 4 0 0 0 4 4 4 4 0 0 0 4 -4 4 4 0 0 0 -4 -4z"/>
+    <path id="menu-radio-mixed-path" d="m8 0a8 8 0 0 0 -8 8 8 8 0 0 0 8 8 8 8 0 0 0 8 -8 8 8 0 0 0 -8 -8zm0 2a6 6 0 0 1 6 6 6 6 0 0 1 -6 6 6 6 0 0 1 -6 -6 6 6 0 0 1 6 -6zm-4 5v2h8v-2h-8z"/>
+    <rect id="button-fill" width="24" height="24" rx="2" ry="2"/>
+    <g id="base-checkbox-unchecked">
+      <rect id="use173" width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0"/>
+      <path id="use175" d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </g>
+    <g id="base-checkbox-unchecked-hover">
+      <rect id="use178" width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0.15"/>
+      <path id="use180" d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </g>
+    <g id="base-checkbox-unchecked-active">
+      <rect id="use183" width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0.3"/>
+      <path id="use185" d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </g>
+    <g id="base-checkbox-checked">
+      <rect id="use188" width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0"/>
+      <path id="use190" d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </g>
+    <g id="base-checkbox-checked-hover">
+      <rect id="use193" width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0.15"/>
+      <path id="use195" d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </g>
+    <g id="base-checkbox-checked-active">
+      <rect id="use198" width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0.3"/>
+      <path id="use200" d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </g>
+    <g id="base-checkbox-mixed">
+      <rect id="use203" width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0"/>
+      <path id="use205" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </g>
+    <g id="base-checkbox-mixed-hover">
+      <rect id="use208" width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0.15"/>
+      <path id="use210" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </g>
+    <g id="base-checkbox-mixed-active">
+      <rect id="use213" width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0.3"/>
+      <path id="use215" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </g>
+    <g id="base-radio-unchecked">
+      <rect id="use218" width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0"/>
+      <path id="use220" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </g>
+    <g id="base-radio-unchecked-hover">
+      <rect id="use223" width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0.15"/>
+      <path id="use225" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </g>
+    <g id="base-radio-unchecked-active">
+      <rect id="use228" width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0.3"/>
+      <path id="use230" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </g>
+    <g id="base-radio-checked">
+      <rect id="use233" width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0"/>
+      <path id="use235" d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </g>
+    <g id="base-radio-checked-hover">
+      <rect id="use238" width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0.15"/>
+      <path id="use240" d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </g>
+    <g id="base-radio-checked-active">
+      <rect id="use243" width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0.3"/>
+      <path id="use245" d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </g>
+    <g id="base-radio-mixed">
+      <rect id="use248" width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0"/>
+      <path id="use250" d="m12 2c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10-4.48-10-10-10zm0 2c4.42 0 8 3.58 8 8s-3.58 8-8 8-8-3.58-8-8 3.58-8 8-8zm-5 7v2h10v-2h-10z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </g>
+    <g id="base-radio-mixed-hover">
+      <rect id="use253" width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0.15"/>
+      <path id="use255" d="m12 2c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10-4.48-10-10-10zm0 2c4.42 0 8 3.58 8 8s-3.58 8-8 8-8-3.58-8-8 3.58-8 8-8zm-5 7v2h10v-2h-10z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </g>
+    <g id="base-radio-mixed-active">
+      <rect id="use258" width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0.3"/>
+      <path id="use260" d="m12 2c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10-4.48-10-10-10zm0 2c4.42 0 8 3.58 8 8s-3.58 8-8 8-8-3.58-8-8 3.58-8 8-8zm-5 7v2h10v-2h-10z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </g>
+    <g id="base-menu-checkbox-unchecked">
+      <use id="use263" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+      <path id="use265" d="m2 0a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-12zm0 2h12v12h-12v-12z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </g>
+    <g id="base-menu-checkbox-checked">
+      <use id="use268" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+      <path id="use270" d="m2 0a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-12zm10.6 3.59l1.41 1.41-8 8-4-4 1.41-1.41 2.59 2.59 6.59-6.59z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </g>
+    <g id="base-menu-checkbox-mixed">
+      <use id="use273" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+      <path id="use275" d="m2 0a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-12zm2 7h8v2h-8v-2z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </g>
+    <g id="base-menu-radio-unchecked">
+      <use id="use278" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+      <path id="use280" d="m8 0a8 8 0 0 0 -8 8 8 8 0 0 0 8 8 8 8 0 0 0 8 -8 8 8 0 0 0 -8 -8zm0 2a6 6 0 0 1 6 6 6 6 0 0 1 -6 6 6 6 0 0 1 -6 -6 6 6 0 0 1 6 -6z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </g>
+    <g id="base-menu-radio-checked">
+      <use id="use283" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+      <path id="use285" d="m8 0a8 8 0 0 0 -8 8 8 8 0 0 0 8 8 8 8 0 0 0 8 -8 8 8 0 0 0 -8 -8zm0 2a6 6 0 0 1 6 6 6 6 0 0 1 -6 6 6 6 0 0 1 -6 -6 6 6 0 0 1 6 -6zm0 2a4 4 0 0 0 -4 4 4 4 0 0 0 4 4 4 4 0 0 0 4 -4 4 4 0 0 0 -4 -4z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </g>
+    <g id="base-menu-radio-mixed">
+      <use id="use288" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+      <path id="use290" d="m8 0a8 8 0 0 0 -8 8 8 8 0 0 0 8 8 8 8 0 0 0 8 -8 8 8 0 0 0 -8 -8zm0 2a6 6 0 0 1 6 6 6 6 0 0 1 -6 6 6 6 0 0 1 -6 -6 6 6 0 0 1 6 -6zm-4 5v2h8v-2h-8z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </g>
+    <g id="base-scale-slider">
+      <use id="use293" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#24x24"/>
+      <circle cx="12" cy="12" r="7" fill="url(#color-accent)" id="circle295"/>
+    </g>
+    <g id="base-scale-slider-hover">
+      <use id="use298" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#24x24"/>
+      <circle cx="12" cy="12" r="8" fill="url(#color-accent)" id="circle300"/>
+    </g>
+    <g id="base-scale-slider-active">
+      <use id="use303" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#24x24"/>
+      <circle cx="12" cy="12" r="9" fill="url(#color-accent)" id="circle305"/>
+    </g>
+    <g id="base-scale-slider-insensitive">
+      <use id="use308" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#24x24"/>
+      <circle cx="12" cy="12" r="7" fill="url(#color-bg)" id="circle310"/>
+      <circle cx="12" cy="12" r="6" fill="none" stroke="url(#color-divider)" stroke-width="2" id="circle312"/>
+    </g>
+    <g id="base-scale-horz-trough">
+      <use id="use315" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#24x24"/>
+      <rect width="12" height="2" x="6" y="11" id="rect317"/>
+    </g>
+    <g id="base-scale-vert-trough">
+      <use id="use320" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#24x24"/>
+      <rect width="2" height="12" x="11" y="6" id="rect322"/>
+    </g>
+    <g id="base-scrollbar-horz-slider">
+      <use id="use325" transform="matrix(1, 0, 0, 1, 0, -1)" xlink:href="#17x17"/>
+      <rect width="9" height="8" x="4" y="4" ry="4" id="rect327"/>
+    </g>
+    <g id="base-scrollbar-horz-trough">
+      <use id="use330" fill="url(#color-border)" transform="matrix(1, 0, 0, 1, 0, -1)" xlink:href="#1x1"/>
+      <use id="use332" fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+    </g>
+    <g id="base-scrollbar-vert-ltr-slider" transform="matrix(6.123233995736766e-17, -1, 1, 6.123233995736766e-17, 0, 17)">
+      <use transform="matrix(1, 0, 0, 1, 0, -1)" xlink:href="#17x17"/>
+      <rect width="9" height="8" x="4" y="4" ry="4"/>
+    </g>
+    <g id="base-scrollbar-vert-ltr-trough" transform="matrix(6.123233995736766e-17, -1, 1, 6.123233995736766e-17, 0, 1)">
+      <use fill="url(#color-border)" transform="matrix(1, 0, 0, 1, 0, -1)" xlink:href="#1x1"/>
+      <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+    </g>
+    <g id="base-scrollbar-vert-rtl-slider" transform="matrix(6.123233995736766e-17, 1, -1, 6.123233995736766e-17, 16, 0)">
+      <use transform="matrix(1, 0, 0, 1, 0, -1)" xlink:href="#17x17"/>
+      <rect width="9" height="8" x="4" y="4" ry="4"/>
+    </g>
+    <g id="base-scrollbar-vert-rtl-trough" transform="matrix(6.123233995736766e-17, 1, -1, 6.123233995736766e-17, 1, 0)">
+      <use fill="url(#color-border)" transform="matrix(1, 0, 0, 1, 0, -1)" xlink:href="#1x1"/>
+      <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+    </g>
+    <g id="base-handle-horz">
+      <circle cx="2" cy="2" r="2" id="circle339"/>
+      <circle cx="8" cy="2" r="2" id="circle341"/>
+      <circle cx="14" cy="2" r="2" id="circle343"/>
+    </g>
+    <g id="base-handle-vert" transform="matrix(6.123233995736766e-17, 1, -1, 6.123233995736766e-17, 4, 0)">
+      <circle cx="2" cy="2" r="2"/>
+      <circle cx="8" cy="2" r="2"/>
+      <circle cx="14" cy="2" r="2"/>
+    </g>
+    <path id="pan-path" d="M 13,6 8,11 3,6 Z"/>
+    <g id="base-pan-down">
+      <use id="use348" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+      <path id="use350" d="M 13,6 8,11 3,6 Z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    </g>
+    <g id="base-pan-up">
+      <use id="use353" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+      <path id="use355" d="M 13,6 8,11 3,6 Z" transform="matrix(-1, 1.2246467991473532e-16, -1.2246467991473532e-16, -1, 16, 16)"/>
+    </g>
+    <g id="base-pan-left">
+      <use id="use358" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+      <path id="use360" d="M 13,6 8,11 3,6 Z" transform="matrix(6.123233995736766e-17, 1, -1, 6.123233995736766e-17, 16, 0)"/>
+    </g>
+    <g id="base-pan-right">
+      <use id="use363" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+      <path id="use365" d="M 13,6 8,11 3,6 Z" transform="matrix(6.123233995736766e-17, -1, 1, 6.123233995736766e-17, 0, 16)"/>
+    </g>
+    <g id="base-pan-left-semi">
+      <use id="use368" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+      <path id="use370" d="M 13,6 8,11 3,6 Z" transform="matrix(0.7071067811865476, 0.7071067811865475, -0.7071067811865475, 0.7071067811865476, 7.999999999999999, -3.3137084989847594)"/>
+    </g>
+    <g id="base-pan-right-semi">
+      <use id="use373" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+      <path id="use375" d="M 13,6 8,11 3,6 Z" transform="matrix(0.7071067811865476, -0.7071067811865475, 0.7071067811865475, 0.7071067811865476, -3.3137084989847594, 7.999999999999999)"/>
+    </g>
+    <use id="base-border" fill="url(#color-border)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+    <use id="base-tab" fill="url(#color-primary)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+    <use id="base-progressbar-progress" fill="url(#color-primary)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#4x4"/>
+    <g id="base-progressbar-trough">
+      <use fill="url(#color-bg)" id="use381" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#4x4"/>
+      <use id="use383" fill="url(#color-primary)" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0.3" xlink:href="#4x4"/>
+    </g>
+    <rect id="base-frame" x="0.5" y="0.5" width="2" height="2" fill="none" stroke="url(#color-border)" stroke-width="1"/>
+    <g id="base-frame-notebook">
+      <rect width="3" height="3" fill="url(#color-border)" id="rect387"/>
+      <use fill="url(#color-base)" id="use389" transform="matrix(1, 0, 0, 1, 1, 1)" xlink:href="#1x1"/>
+    </g>
+    <g id="base-frame-inline">
+      <rect width="3" height="2" fill="url(#color-border)" id="rect392"/>
+      <use fill="url(#color-base-alt)" id="use394" transform="matrix(1, 0, 0, 1, 1, 0)" xlink:href="#1x1"/>
+    </g>
+    <rect id="base-focus" x="1" y="1" width="3" height="3" rx="1" ry="1" fill="none" stroke="url(#color-fg)" stroke-width="2" opacity="0.3"/>
+    <g id="base-treeview-ltr-button">
+      <use fill="url(#color-base)" id="use398" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#2x2"/>
+      <use fill="url(#color-border)" id="use400" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#2x2"/>
+      <use fill="url(#color-base)" id="use402" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+    </g>
+    <g id="base-treeview-ltr-button-hover">
+      <g id="use405" transform="matrix(1, 0, 0, 1, 0, 0)">
+        <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#2x2"/>
+        <use fill="url(#color-border)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#2x2"/>
+        <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+      </g>
+      <use fill="url(#color-fg)" opacity="0.05" id="use407" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+    </g>
+    <g id="base-treeview-ltr-button-active">
+      <g id="use410" transform="matrix(1, 0, 0, 1, 0, 0)">
+        <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#2x2"/>
+        <use fill="url(#color-border)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#2x2"/>
+        <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+      </g>
+      <use fill="url(#color-fg)" opacity="0.3" id="use412" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+    </g>
+    <g id="base-treeview-rtl-button" transform="matrix(-1, 0, 0, 1, 0, 0)">
+      <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#2x2"/>
+      <use fill="url(#color-border)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#2x2"/>
+      <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+    </g>
+    <g id="base-treeview-rtl-button-hover" transform="matrix(-1, 0, 0, 1, 0, 0)">
+      <g transform="matrix(1, 0, 0, 1, 0, 0)">
+        <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#2x2"/>
+        <use fill="url(#color-border)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#2x2"/>
+        <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+      </g>
+      <use fill="url(#color-fg)" opacity="0.05" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+    </g>
+    <g id="base-treeview-rtl-button-active" transform="matrix(-1, 0, 0, 1, 0, 0)">
+      <g transform="matrix(1, 0, 0, 1, 0, 0)">
+        <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#2x2"/>
+        <use fill="url(#color-border)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#2x2"/>
+        <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+      </g>
+      <use fill="url(#color-fg)" opacity="0.3" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+    </g>
+    <linearGradient id="linearGradient1380" xlink:href="#color-bg"/>
+    <linearGradient id="linearGradient1382" xlink:href="#color-bg"/>
+    <linearGradient id="linearGradient1384" xlink:href="#color-bg"/>
+    <linearGradient id="linearGradient1386" xlink:href="#color-bg"/>
+    <linearGradient id="linearGradient1388" xlink:href="#color-bg"/>
+    <linearGradient id="linearGradient1390" xlink:href="#color-bg"/>
+    <linearGradient id="linearGradient1392" xlink:href="#color-bg"/>
+    <linearGradient id="linearGradient1394" xlink:href="#color-bg"/>
+    <linearGradient id="linearGradient1396" xlink:href="#color-bg"/>
+  </defs>
+  <g id="flat-button" transform="matrix(1, 0, 0, 1, 8, 8)" fill="url(#color-fg)" opacity="0">
+    <rect width="20" height="20" opacity="0"/>
+    <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+  </g>
+  <g id="flat-button-hover" transform="matrix(1, 0, 0, 1, 8, 28)" fill="url(#color-fg)" opacity="0.15">
+    <rect width="20" height="20" opacity="0"/>
+    <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+  </g>
+  <g id="flat-button-active" transform="matrix(1, 0, 0, 1, 8, 48)" fill="url(#color-fg)" opacity="0.3">
+    <rect width="20" height="20" opacity="0"/>
+    <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+  </g>
+  <g id="flat-button-insensitive" transform="matrix(1, 0, 0, 1, 8, 68)" fill="url(#color-fg)" opacity="0">
+    <rect width="20" height="20" opacity="0"/>
+    <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+  </g>
+  <g id="button" transform="matrix(1, 0, 0, 1, 32, 8)" fill="url(#color-bg-lighter)" filter="url(#1)">
+    <rect width="20" height="20" opacity="0"/>
+    <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+  </g>
+  <g id="button-hover" transform="matrix(1, 0, 0, 1, 32, 28)" fill="url(#color-bg-lighter)" filter="url(#1)">
+    <rect width="20" height="20" opacity="0"/>
+    <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+  </g>
+  <g id="button-active" transform="matrix(1, 0, 0, 1, 32, 48)">
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-fg)" opacity="0.3">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+  </g>
+  <g id="button-insensitive" transform="matrix(1, 0, 0, 1, 32, 68)" fill="url(#color-divider)">
+    <rect width="20" height="20" opacity="0"/>
+    <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+  </g>
+  <g id="combo-rtl-button" transform="matrix(1, 0, 0, 1, 52, 8)" fill="url(#color-bg-lighter)" filter="url(#1)" clip-path="url(#left)">
+    <rect width="20" height="20" opacity="0"/>
+    <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+  </g>
+  <g id="combo-rtl-button-hover" transform="matrix(1, 0, 0, 1, 52, 28)" fill="url(#color-bg-lighter)" filter="url(#1)" clip-path="url(#left)">
+    <rect width="20" height="20" opacity="0"/>
+    <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+  </g>
+  <g id="combo-rtl-button-active" transform="matrix(1, 0, 0, 1, 52, 48)" clip-path="url(#left)">
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-fg)" opacity="0.3">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+  </g>
+  <g id="combo-rtl-button-insensitive" transform="matrix(1, 0, 0, 1, 52, 68)" fill="url(#color-divider)" clip-path="url(#left)">
+    <rect width="20" height="20" opacity="0"/>
+    <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+  </g>
+  <g id="combo-ltr-button" transform="matrix(1, 0, 0, 1, 56, 8)" fill="url(#color-bg-lighter)" filter="url(#1)" clip-path="url(#right)">
+    <rect width="20" height="20" opacity="0"/>
+    <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+  </g>
+  <g id="combo-ltr-button-hover" transform="matrix(1, 0, 0, 1, 56, 28)" fill="url(#color-bg-lighter)" filter="url(#1)" clip-path="url(#right)">
+    <rect width="20" height="20" opacity="0"/>
+    <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+  </g>
+  <g id="combo-ltr-button-active" transform="matrix(1, 0, 0, 1, 56, 48)" clip-path="url(#right)">
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-fg)" opacity="0.3">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+  </g>
+  <g id="combo-ltr-button-insensitive" transform="matrix(1, 0, 0, 1, 56, 68)" fill="url(#color-divider)" clip-path="url(#right)">
+    <rect width="20" height="20" opacity="0"/>
+    <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+  </g>
+  <g id="spin-rtl-up" transform="matrix(1, 0, 0, 1, 76, 8)" fill="url(#color-bg-lighter)" filter="url(#1)" clip-path="url(#left-top)">
+    <rect width="20" height="20" opacity="0"/>
+    <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+  </g>
+  <g id="spin-rtl-up-hover" transform="matrix(1, 0, 0, 1, 76, 28)" fill="url(#color-bg-lighter)" filter="url(#1)" clip-path="url(#left-top)">
+    <rect width="20" height="20" opacity="0"/>
+    <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+  </g>
+  <g id="spin-rtl-up-active" transform="matrix(1, 0, 0, 1, 76, 48)" clip-path="url(#left-top)">
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-fg)" opacity="0.3">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+  </g>
+  <g id="spin-rtl-up-insensitive" transform="matrix(1, 0, 0, 1, 76, 68)" fill="url(#color-divider)" clip-path="url(#left-top)">
+    <rect width="20" height="20" opacity="0"/>
+    <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+  </g>
+  <g id="spin-rtl-down" transform="matrix(1, 0, 0, 1, 76, 8)" fill="url(#color-bg-lighter)" filter="url(#1)" clip-path="url(#left-bottom)">
+    <rect width="20" height="20" opacity="0"/>
+    <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+  </g>
+  <g id="spin-rtl-down-hover" transform="matrix(1, 0, 0, 1, 76, 28)" fill="url(#color-bg-lighter)" filter="url(#1)" clip-path="url(#left-bottom)">
+    <rect width="20" height="20" opacity="0"/>
+    <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+  </g>
+  <g id="spin-rtl-down-active" transform="matrix(1, 0, 0, 1, 76, 48)" clip-path="url(#left-bottom)">
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-fg)" opacity="0.3">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+  </g>
+  <g id="spin-rtl-down-insensitive" transform="matrix(1, 0, 0, 1, 76, 68)" fill="url(#color-divider)" clip-path="url(#left-bottom)">
+    <rect width="20" height="20" opacity="0"/>
+    <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+  </g>
+  <g id="spin-ltr-up" transform="matrix(1, 0, 0, 1, 80, 8)" fill="url(#color-bg-lighter)" filter="url(#1)" clip-path="url(#right-top)">
+    <rect width="20" height="20" opacity="0"/>
+    <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+  </g>
+  <g id="spin-ltr-up-hover" transform="matrix(1, 0, 0, 1, 80, 28)" fill="url(#color-bg-lighter)" filter="url(#1)" clip-path="url(#right-top)">
+    <rect width="20" height="20" opacity="0"/>
+    <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+  </g>
+  <g id="spin-ltr-up-active" transform="matrix(1, 0, 0, 1, 80, 48)" clip-path="url(#right-top)">
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-fg)" opacity="0.3">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+  </g>
+  <g id="spin-ltr-up-insensitive" transform="matrix(1, 0, 0, 1, 80, 68)" fill="url(#color-divider)" clip-path="url(#right-top)">
+    <rect width="20" height="20" opacity="0"/>
+    <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+  </g>
+  <g id="spin-ltr-down" transform="matrix(1, 0, 0, 1, 80, 8)" fill="url(#color-bg-lighter)" filter="url(#1)" clip-path="url(#right-bottom)">
+    <rect width="20" height="20" opacity="0"/>
+    <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+  </g>
+  <g id="spin-ltr-down-hover" transform="matrix(1, 0, 0, 1, 80, 28)" fill="url(#color-bg-lighter)" filter="url(#1)" clip-path="url(#right-bottom)">
+    <rect width="20" height="20" opacity="0"/>
+    <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+  </g>
+  <g id="spin-ltr-down-active" transform="matrix(1, 0, 0, 1, 80, 48)" clip-path="url(#right-bottom)">
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-bg-lighter)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-fg)" opacity="0.3">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+  </g>
+  <g id="spin-ltr-down-insensitive" transform="matrix(1, 0, 0, 1, 80, 68)" fill="url(#color-divider)" clip-path="url(#right-bottom)">
+    <rect width="20" height="20" opacity="0"/>
+    <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+  </g>
+  <use id="entry-background" fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 104, 8)" xlink:href="#1x1"/>
+  <use id="entry-background-insensitive" fill="url(#color-base-alt)" transform="matrix(1, 0, 0, 1, 104, 16)" xlink:href="#1x1"/>
+  <g id="entry" transform="matrix(1, 0, 0, 1, 104, 28)" fill="url(#color-bg)">
+    <rect width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+  </g>
+  <g id="entry-active" transform="matrix(1, 0, 0, 1, 104, 48)" fill="url(#color-bg)">
+    <rect width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+  </g>
+  <g id="entry-insensitive" transform="matrix(1, 0, 0, 1, 104, 68)" fill="url(#color-bg)">
+    <rect width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base-alt)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+  </g>
+  <g id="combo-ltr-entry" transform="matrix(1, 0, 0, 1, 124, 28)" clip-path="url(#left)" fill="url(#color-bg)">
+    <rect width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+  </g>
+  <g id="combo-ltr-entry-active" transform="matrix(1, 0, 0, 1, 124, 48)" clip-path="url(#left)" fill="url(#color-bg)">
+    <rect width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+  </g>
+  <g id="combo-ltr-entry-insensitive" transform="matrix(1, 0, 0, 1, 124, 68)" clip-path="url(#left)" fill="url(#color-bg)">
+    <rect width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base-alt)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+  </g>
+  <g id="combo-rtl-entry" transform="matrix(1, 0, 0, 1, 128, 28)" clip-path="url(#right)" fill="url(#color-bg)">
+    <rect width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+  </g>
+  <g id="combo-rtl-entry-active" transform="matrix(1, 0, 0, 1, 128, 48)" clip-path="url(#right)" fill="url(#color-bg)">
+    <rect width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+  </g>
+  <g id="combo-rtl-entry-insensitive" transform="matrix(1, 0, 0, 1, 128, 68)" clip-path="url(#right)" fill="url(#color-bg)">
+    <rect width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base-alt)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+  </g>
+  <g id="notebook-entry" transform="matrix(1, 0, 0, 1, 152, 28)" fill="url(#color-base)" style="fill-opacity: 1; fill: url(#linearGradient1396);">
+    <rect width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+  </g>
+  <g id="notebook-entry-active" transform="matrix(1, 0, 0, 1, 152, 48)" fill="url(#color-base)" style="fill-opacity: 1; fill: url(#linearGradient1390);">
+    <rect width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+  </g>
+  <g id="notebook-entry-insensitive" transform="matrix(1, 0, 0, 1, 152, 68)" fill="url(#color-base)" style="fill-opacity: 1; fill: url(#linearGradient1380);">
+    <rect width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base-alt)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+  </g>
+  <g id="notebook-combo-ltr-entry" transform="matrix(1, 0, 0, 1, 172, 28)" clip-path="url(#left)" fill="url(#color-base)" style="fill-opacity: 1; fill: url(#linearGradient1394);">
+    <rect width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+  </g>
+  <g id="notebook-combo-ltr-entry-active" transform="matrix(1, 0, 0, 1, 172, 48)" clip-path="url(#left)" fill="url(#color-base)" style="fill-opacity: 1; fill: url(#linearGradient1388);">
+    <rect width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+  </g>
+  <g id="notebook-combo-ltr-entry-insensitive" transform="matrix(1, 0, 0, 1, 172, 68)" clip-path="url(#left)" fill="url(#color-base)" style="fill-opacity: 1; fill: url(#linearGradient1382);">
+    <rect width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base-alt)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+  </g>
+  <g id="notebook-combo-rtl-entry" transform="matrix(1, 0, 0, 1, 176, 28)" clip-path="url(#right)" fill="url(#color-base)" style="fill-opacity: 1; fill: url(#linearGradient1392);">
+    <rect width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+  </g>
+  <g id="notebook-combo-rtl-entry-active" transform="matrix(1, 0, 0, 1, 176, 48)" clip-path="url(#right)" fill="url(#color-base)" style="fill-opacity: 1; fill: url(#linearGradient1386);">
+    <rect width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+  </g>
+  <g id="notebook-combo-rtl-entry-insensitive" transform="matrix(1, 0, 0, 1, 176, 68)" clip-path="url(#right)" fill="url(#color-base)" style="fill-opacity: 1; fill: url(#linearGradient1384);">
+    <rect width="20" height="20" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" fill="url(#color-base-alt)" filter="url(#1)">
+      <rect width="20" height="20" opacity="0"/>
+      <rect x="2" y="2" width="16" height="16" rx="2" ry="2"/>
+    </g>
+  </g>
+  <g id="checkbox-unchecked" transform="matrix(1, 0, 0, 1, 8, 92)" fill="url(#color-fg-secondary)">
+    <rect width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0"/>
+    <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="checkbox-unchecked-hover" transform="matrix(1, 0, 0, 1, 8, 124)" fill="url(#color-fg)">
+    <rect width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0.15"/>
+    <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="checkbox-unchecked-active" transform="matrix(1, 0, 0, 1, 8, 156)" fill="url(#color-fg)">
+    <rect width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0.3"/>
+    <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="checkbox-unchecked-insensitive" transform="matrix(1, 0, 0, 1, 8, 188)" fill="url(#color-fg-secondary-disabled)">
+    <rect width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0"/>
+    <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="checkbox-checked" transform="matrix(1, 0, 0, 1, 40, 92)" fill="url(#color-accent)">
+    <rect width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0"/>
+    <path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="checkbox-checked-hover" transform="matrix(1, 0, 0, 1, 40, 124)" fill="url(#color-accent)">
+    <rect width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0.15"/>
+    <path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="checkbox-checked-active" transform="matrix(1, 0, 0, 1, 40, 156)" fill="url(#color-accent)">
+    <rect width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0.3"/>
+    <path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="checkbox-checked-insensitive" transform="matrix(1, 0, 0, 1, 40, 188)" fill="url(#color-accent-insensitive)">
+    <rect width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0"/>
+    <path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="checkbox-mixed" transform="matrix(1, 0, 0, 1, 72, 92)" fill="url(#color-accent)">
+    <rect width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0"/>
+    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="checkbox-mixed-hover" transform="matrix(1, 0, 0, 1, 72, 124)" fill="url(#color-accent)">
+    <rect width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0.15"/>
+    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="checkbox-mixed-active" transform="matrix(1, 0, 0, 1, 72, 156)" fill="url(#color-accent)">
+    <rect width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0.3"/>
+    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="checkbox-mixed-insensitive" transform="matrix(1, 0, 0, 1, 72, 188)" fill="url(#color-accent-insensitive)">
+    <rect width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0"/>
+    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="radio-unchecked" transform="matrix(1, 0, 0, 1, 104, 92)" fill="url(#color-fg-secondary)">
+    <rect width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0"/>
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="radio-unchecked-hover" transform="matrix(1, 0, 0, 1, 104, 124)" fill="url(#color-fg)">
+    <rect width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0.15"/>
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="radio-unchecked-active" transform="matrix(1, 0, 0, 1, 104, 156)" fill="url(#color-fg)">
+    <rect width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0.3"/>
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="radio-unchecked-insensitive" transform="matrix(1, 0, 0, 1, 104, 188)" fill="url(#color-fg-secondary-disabled)">
+    <rect width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0"/>
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="radio-checked" transform="matrix(1, 0, 0, 1, 136, 92)" fill="url(#color-accent)">
+    <rect width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0"/>
+    <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="radio-checked-hover" transform="matrix(1, 0, 0, 1, 136, 124)" fill="url(#color-accent)">
+    <rect width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0.15"/>
+    <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="radio-checked-active" transform="matrix(1, 0, 0, 1, 136, 156)" fill="url(#color-accent)">
+    <rect width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0.3"/>
+    <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="radio-checked-insensitive" transform="matrix(1, 0, 0, 1, 136, 188)" fill="url(#color-accent-insensitive)">
+    <rect width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0"/>
+    <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="radio-mixed" transform="matrix(1, 0, 0, 1, 168, 92)" fill="url(#color-accent)">
+    <rect width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0"/>
+    <path d="m12 2c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10-4.48-10-10-10zm0 2c4.42 0 8 3.58 8 8s-3.58 8-8 8-8-3.58-8-8 3.58-8 8-8zm-5 7v2h10v-2h-10z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="radio-mixed-hover" transform="matrix(1, 0, 0, 1, 168, 124)" fill="url(#color-accent)">
+    <rect width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0.15"/>
+    <path d="m12 2c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10-4.48-10-10-10zm0 2c4.42 0 8 3.58 8 8s-3.58 8-8 8-8-3.58-8-8 3.58-8 8-8zm-5 7v2h10v-2h-10z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="radio-mixed-active" transform="matrix(1, 0, 0, 1, 168, 156)" fill="url(#color-accent)">
+    <rect width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0.3"/>
+    <path d="m12 2c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10-4.48-10-10-10zm0 2c4.42 0 8 3.58 8 8s-3.58 8-8 8-8-3.58-8-8 3.58-8 8-8zm-5 7v2h10v-2h-10z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="radio-mixed-insensitive" transform="matrix(1, 0, 0, 1, 168, 188)" fill="url(#color-accent-insensitive)">
+    <rect width="24" height="24" rx="2" ry="2" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0"/>
+    <path d="m12 2c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10-4.48-10-10-10zm0 2c4.42 0 8 3.58 8 8s-3.58 8-8 8-8-3.58-8-8 3.58-8 8-8zm-5 7v2h10v-2h-10z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="menu-checkbox-unchecked" transform="matrix(1, 0, 0, 1, 12, 220)" fill="url(#color-fg-secondary)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="m2 0a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-12zm0 2h12v12h-12v-12z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="menu-checkbox-unchecked-insensitive" transform="matrix(1, 0, 0, 1, 12, 244)" fill="url(#color-fg-secondary-disabled)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="m2 0a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-12zm0 2h12v12h-12v-12z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="menu-checkbox-checked" transform="matrix(1, 0, 0, 1, 44, 220)" fill="url(#color-accent)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="m2 0a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-12zm10.6 3.59l1.41 1.41-8 8-4-4 1.41-1.41 2.59 2.59 6.59-6.59z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="menu-checkbox-checked-insensitive" transform="matrix(1, 0, 0, 1, 44, 244)" fill="url(#color-accent-insensitive)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="m2 0a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-12zm10.6 3.59l1.41 1.41-8 8-4-4 1.41-1.41 2.59 2.59 6.59-6.59z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="menu-checkbox-mixed" transform="matrix(1, 0, 0, 1, 76, 220)" fill="url(#color-accent)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="m2 0a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-12zm2 7h8v2h-8v-2z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="menu-checkbox-mixed-insensitive" transform="matrix(1, 0, 0, 1, 76, 244)" fill="url(#color-accent-insensitive)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="m2 0a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-12zm2 7h8v2h-8v-2z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="menu-radio-unchecked" transform="matrix(1, 0, 0, 1, 108, 220)" fill="url(#color-fg-secondary)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="m8 0a8 8 0 0 0 -8 8 8 8 0 0 0 8 8 8 8 0 0 0 8 -8 8 8 0 0 0 -8 -8zm0 2a6 6 0 0 1 6 6 6 6 0 0 1 -6 6 6 6 0 0 1 -6 -6 6 6 0 0 1 6 -6z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="menu-radio-unchecked-insensitive" transform="matrix(1, 0, 0, 1, 108, 244)" fill="url(#color-fg-secondary-disabled)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="m8 0a8 8 0 0 0 -8 8 8 8 0 0 0 8 8 8 8 0 0 0 8 -8 8 8 0 0 0 -8 -8zm0 2a6 6 0 0 1 6 6 6 6 0 0 1 -6 6 6 6 0 0 1 -6 -6 6 6 0 0 1 6 -6z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="menu-radio-checked" transform="matrix(1, 0, 0, 1, 140, 220)" fill="url(#color-accent)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="m8 0a8 8 0 0 0 -8 8 8 8 0 0 0 8 8 8 8 0 0 0 8 -8 8 8 0 0 0 -8 -8zm0 2a6 6 0 0 1 6 6 6 6 0 0 1 -6 6 6 6 0 0 1 -6 -6 6 6 0 0 1 6 -6zm0 2a4 4 0 0 0 -4 4 4 4 0 0 0 4 4 4 4 0 0 0 4 -4 4 4 0 0 0 -4 -4z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="menu-radio-checked-insensitive" transform="matrix(1, 0, 0, 1, 140, 244)" fill="url(#color-accent-insensitive)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="m8 0a8 8 0 0 0 -8 8 8 8 0 0 0 8 8 8 8 0 0 0 8 -8 8 8 0 0 0 -8 -8zm0 2a6 6 0 0 1 6 6 6 6 0 0 1 -6 6 6 6 0 0 1 -6 -6 6 6 0 0 1 6 -6zm0 2a4 4 0 0 0 -4 4 4 4 0 0 0 4 4 4 4 0 0 0 4 -4 4 4 0 0 0 -4 -4z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="menu-radio-mixed" transform="matrix(1, 0, 0, 1, 172, 220)" fill="url(#color-accent)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="m8 0a8 8 0 0 0 -8 8 8 8 0 0 0 8 8 8 8 0 0 0 8 -8 8 8 0 0 0 -8 -8zm0 2a6 6 0 0 1 6 6 6 6 0 0 1 -6 6 6 6 0 0 1 -6 -6 6 6 0 0 1 6 -6zm-4 5v2h8v-2h-8z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="menu-radio-mixed-insensitive" transform="matrix(1, 0, 0, 1, 172, 244)" fill="url(#color-accent-insensitive)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="m8 0a8 8 0 0 0 -8 8 8 8 0 0 0 8 8 8 8 0 0 0 8 -8 8 8 0 0 0 -8 -8zm0 2a6 6 0 0 1 6 6 6 6 0 0 1 -6 6 6 6 0 0 1 -6 -6 6 6 0 0 1 6 -6zm-4 5v2h8v-2h-8z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="scale-slider" transform="matrix(1, 0, 0, 1, 8, 268)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#24x24"/>
+    <circle cx="12" cy="12" r="7" fill="url(#color-accent)"/>
+  </g>
+  <g id="scale-slider-hover" transform="matrix(1, 0, 0, 1, 8, 300)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#24x24"/>
+    <circle cx="12" cy="12" r="8" fill="url(#color-accent)"/>
+  </g>
+  <g id="scale-slider-active" transform="matrix(1, 0, 0, 1, 8, 332)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#24x24"/>
+    <circle cx="12" cy="12" r="9" fill="url(#color-accent)"/>
+  </g>
+  <g id="scale-slider-insensitive" transform="matrix(1, 0, 0, 1, 8, 364)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#24x24"/>
+    <circle cx="12" cy="12" r="7" fill="url(#color-bg)"/>
+    <circle cx="12" cy="12" r="6" fill="none" stroke="url(#color-divider)" stroke-width="2"/>
+  </g>
+  <g id="scale-horz-trough" transform="matrix(1, 0, 0, 1, 40, 268)" fill="url(#color-fg-secondary-disabled)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#24x24"/>
+    <rect width="12" height="2" x="6" y="11"/>
+  </g>
+  <g id="scale-horz-trough-active" transform="matrix(1, 0, 0, 1, 40, 332)" fill="url(#color-accent)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#24x24"/>
+    <rect width="12" height="2" x="6" y="11"/>
+  </g>
+  <g id="scale-horz-trough-insensitive" transform="matrix(1, 0, 0, 1, 40, 364)" fill="url(#color-divider)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#24x24"/>
+    <rect width="12" height="2" x="6" y="11"/>
+  </g>
+  <g id="scale-vert-trough" transform="matrix(1, 0, 0, 1, 72, 268)" fill="url(#color-fg-secondary-disabled)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#24x24"/>
+    <rect width="2" height="12" x="11" y="6"/>
+  </g>
+  <g id="scale-vert-trough-active" transform="matrix(1, 0, 0, 1, 72, 332)" fill="url(#color-accent)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#24x24"/>
+    <rect width="2" height="12" x="11" y="6"/>
+  </g>
+  <g id="scale-vert-trough-insensitive" transform="matrix(1, 0, 0, 1, 72, 364)" fill="url(#color-divider)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#24x24"/>
+    <rect width="2" height="12" x="11" y="6"/>
+  </g>
+  <g id="scrollbar-horz-slider" transform="matrix(1, 0, 0, 1, 104, 268)" fill="url(#color-fg-disabled)">
+    <use transform="matrix(1, 0, 0, 1, 0, -1)" xlink:href="#17x17"/>
+    <rect width="9" height="8" x="4" y="4" ry="4"/>
+  </g>
+  <g id="scrollbar-horz-slider-hover" transform="matrix(1, 0, 0, 1, 104, 292)" fill="url(#color-fg-secondary)">
+    <use transform="matrix(1, 0, 0, 1, 0, -1)" xlink:href="#17x17"/>
+    <rect width="9" height="8" x="4" y="4" ry="4"/>
+  </g>
+  <g id="scrollbar-horz-slider-active" transform="matrix(1, 0, 0, 1, 104, 316)" fill="url(#color-fg)">
+    <use transform="matrix(1, 0, 0, 1, 0, -1)" xlink:href="#17x17"/>
+    <rect width="9" height="8" x="4" y="4" ry="4"/>
+  </g>
+  <g id="scrollbar-horz-slider-insensitive" transform="matrix(1, 0, 0, 1, 104, 340)" fill="url(#color-fg-secondary-disabled)">
+    <use transform="matrix(1, 0, 0, 1, 0, -1)" xlink:href="#17x17"/>
+    <rect width="9" height="8" x="4" y="4" ry="4"/>
+  </g>
+  <g id="scrollbar-horz-trough" transform="matrix(1, 0, 0, 1, 104, 364)">
+    <use fill="url(#color-border)" transform="matrix(1, 0, 0, 1, 0, -1)" xlink:href="#1x1"/>
+    <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+  </g>
+  <g id="scrollbar-vert-ltr-slider" transform="matrix(6.123233601181349e-17, -1, 1, 6.123233601181349e-17, 268, -110.99999999999999)" fill="url(#color-fg-disabled)">
+    <use transform="matrix(1, 0, 0, 1, 0, -1)" xlink:href="#17x17"/>
+    <rect width="9" height="8" x="4" y="4" ry="4"/>
+  </g>
+  <g id="scrollbar-vert-ltr-slider-hover" transform="matrix(6.123233601181349e-17, -1, 1, 6.123233601181349e-17, 292, -110.99999999999999)" fill="url(#color-fg-secondary)">
+    <use transform="matrix(1, 0, 0, 1, 0, -1)" xlink:href="#17x17"/>
+    <rect width="9" height="8" x="4" y="4" ry="4"/>
+  </g>
+  <g id="scrollbar-vert-ltr-slider-active" transform="matrix(6.123233601181349e-17, -1, 1, 6.123233601181349e-17, 316, -110.99999999999999)" fill="url(#color-fg)">
+    <use transform="matrix(1, 0, 0, 1, 0, -1)" xlink:href="#17x17"/>
+    <rect width="9" height="8" x="4" y="4" ry="4"/>
+  </g>
+  <g id="scrollbar-vert-ltr-slider-insensitive" transform="matrix(6.123233601181349e-17, -1, 1, 6.123233601181349e-17, 340, -110.99999999999999)" fill="url(#color-fg-secondary-disabled)">
+    <use transform="matrix(1, 0, 0, 1, 0, -1)" xlink:href="#17x17"/>
+    <rect width="9" height="8" x="4" y="4" ry="4"/>
+  </g>
+  <g id="scrollbar-vert-ltr-trough" transform="matrix(6.123233601181349e-17, -1, 1, 6.123233601181349e-17, 364, -126.99999999999997)">
+    <use fill="url(#color-border)" transform="matrix(1, 0, 0, 1, 0, -1)" xlink:href="#1x1"/>
+    <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+  </g>
+  <g id="scrollbar-vert-rtl-slider" transform="matrix(6.123233601181349e-17, 1, -1, 6.123233601181349e-17, -252, 152.00000000000003)" fill="url(#color-fg-disabled)">
+    <use transform="matrix(1, 0, 0, 1, 0, -1)" xlink:href="#17x17"/>
+    <rect width="9" height="8" x="4" y="4" ry="4"/>
+  </g>
+  <g id="scrollbar-vert-rtl-slider-hover" transform="matrix(6.123233601181349e-17, 1, -1, 6.123233601181349e-17, -276, 152.00000000000003)" fill="url(#color-fg-secondary)">
+    <use transform="matrix(1, 0, 0, 1, 0, -1)" xlink:href="#17x17"/>
+    <rect width="9" height="8" x="4" y="4" ry="4"/>
+  </g>
+  <g id="scrollbar-vert-rtl-slider-active" transform="matrix(6.123233601181349e-17, 1, -1, 6.123233601181349e-17, -300, 152.00000000000003)" fill="url(#color-fg)">
+    <use transform="matrix(1, 0, 0, 1, 0, -1)" xlink:href="#17x17"/>
+    <rect width="9" height="8" x="4" y="4" ry="4"/>
+  </g>
+  <g id="scrollbar-vert-rtl-slider-insensitive" transform="matrix(6.123233601181349e-17, 1, -1, 6.123233601181349e-17, -324, 152.00000000000003)" fill="url(#color-fg-secondary-disabled)">
+    <use transform="matrix(1, 0, 0, 1, 0, -1)" xlink:href="#17x17"/>
+    <rect width="9" height="8" x="4" y="4" ry="4"/>
+  </g>
+  <g id="scrollbar-vert-rtl-trough" transform="matrix(6.123233601181349e-17, 1, -1, 6.123233601181349e-17, -363, 152.00000000000003)">
+    <use fill="url(#color-border)" transform="matrix(1, 0, 0, 1, 0, -1)" xlink:href="#1x1"/>
+    <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+  </g>
+  <g id="handle-horz" transform="matrix(1, 0, 0, 1, 176, 292)" fill="url(#color-fg-disabled)">
+    <circle cx="2" cy="2" r="2"/>
+    <circle cx="8" cy="2" r="2"/>
+    <circle cx="14" cy="2" r="2"/>
+  </g>
+  <g id="handle-horz-hover" transform="matrix(1, 0, 0, 1, 176, 328)" fill="url(#color-fg-secondary)">
+    <circle cx="2" cy="2" r="2"/>
+    <circle cx="8" cy="2" r="2"/>
+    <circle cx="14" cy="2" r="2"/>
+  </g>
+  <g id="handle-horz-active" transform="matrix(1, 0, 0, 1, 176, 364)" fill="url(#color-fg)">
+    <circle cx="2" cy="2" r="2"/>
+    <circle cx="8" cy="2" r="2"/>
+    <circle cx="14" cy="2" r="2"/>
+  </g>
+  <g id="handle-vert" transform="matrix(6.123233601181349e-17, 1, -1, 6.123233601181349e-17, -264, 176.00000000000003)" fill="url(#color-fg-disabled)">
+    <circle cx="2" cy="2" r="2"/>
+    <circle cx="8" cy="2" r="2"/>
+    <circle cx="14" cy="2" r="2"/>
+  </g>
+  <g id="handle-vert-hover" transform="matrix(6.123233601181349e-17, 1, -1, 6.123233601181349e-17, -300, 176.00000000000003)" fill="url(#color-fg-secondary)">
+    <circle cx="2" cy="2" r="2"/>
+    <circle cx="8" cy="2" r="2"/>
+    <circle cx="14" cy="2" r="2"/>
+  </g>
+  <g id="handle-vert-active" transform="matrix(6.123233601181349e-17, 1, -1, 6.123233601181349e-17, -336, 176.00000000000003)" fill="url(#color-fg)">
+    <circle cx="2" cy="2" r="2"/>
+    <circle cx="8" cy="2" r="2"/>
+    <circle cx="14" cy="2" r="2"/>
+  </g>
+  <g id="pan-up" transform="matrix(1, 0, 0, 1, 8, 396)" fill="url(#color-fg)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="M 13,6 8,11 3,6 Z" transform="matrix(-1, 1.2246467991473532e-16, -1.2246467991473532e-16, -1, 16, 16)"/>
+  </g>
+  <g id="pan-up-insensitive" transform="matrix(1, 0, 0, 1, 8, 416)" fill="url(#color-fg-disabled)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="M 13,6 8,11 3,6 Z" transform="matrix(-1, 1.2246467991473532e-16, -1.2246467991473532e-16, -1, 16, 16)"/>
+  </g>
+  <g id="pan-up-alt" transform="matrix(1, 0, 0, 1, 8, 436)" fill="url(#color-fg-secondary)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="M 13,6 8,11 3,6 Z" transform="matrix(-1, 1.2246467991473532e-16, -1.2246467991473532e-16, -1, 16, 16)"/>
+  </g>
+  <g id="pan-up-alt-insensitive" transform="matrix(1, 0, 0, 1, 8, 456)" fill="url(#color-fg-secondary-disabled)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="M 13,6 8,11 3,6 Z" transform="matrix(-1, 1.2246467991473532e-16, -1.2246467991473532e-16, -1, 16, 16)"/>
+  </g>
+  <g id="pan-down" transform="matrix(1, 0, 0, 1, 28, 396)" fill="url(#color-fg)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="M 13,6 8,11 3,6 Z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="pan-down-insensitive" transform="matrix(1, 0, 0, 1, 28, 416)" fill="url(#color-fg-disabled)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="M 13,6 8,11 3,6 Z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="pan-down-alt" transform="matrix(1, 0, 0, 1, 28, 436)" fill="url(#color-fg-secondary)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="M 13,6 8,11 3,6 Z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="pan-down-alt-insensitive" transform="matrix(1, 0, 0, 1, 28, 456)" fill="url(#color-fg-secondary-disabled)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="M 13,6 8,11 3,6 Z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  </g>
+  <g id="pan-left" transform="matrix(1, 0, 0, 1, 48, 396)" fill="url(#color-fg)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="M 13,6 8,11 3,6 Z" transform="matrix(6.123233995736766e-17, 1, -1, 6.123233995736766e-17, 16, 0)"/>
+  </g>
+  <g id="pan-left-insensitive" transform="matrix(1, 0, 0, 1, 48, 416)" fill="url(#color-fg-disabled)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="M 13,6 8,11 3,6 Z" transform="matrix(6.123233995736766e-17, 1, -1, 6.123233995736766e-17, 16, 0)"/>
+  </g>
+  <g id="pan-left-alt" transform="matrix(1, 0, 0, 1, 48, 436)" fill="url(#color-fg-secondary)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="M 13,6 8,11 3,6 Z" transform="matrix(6.123233995736766e-17, 1, -1, 6.123233995736766e-17, 16, 0)"/>
+  </g>
+  <g id="pan-left-alt-insensitive" transform="matrix(1, 0, 0, 1, 48, 456)" fill="url(#color-fg-secondary-disabled)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="M 13,6 8,11 3,6 Z" transform="matrix(6.123233995736766e-17, 1, -1, 6.123233995736766e-17, 16, 0)"/>
+  </g>
+  <g id="pan-right" transform="matrix(1, 0, 0, 1, 68, 396)" fill="url(#color-fg)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="M 13,6 8,11 3,6 Z" transform="matrix(6.123233995736766e-17, -1, 1, 6.123233995736766e-17, 0, 16)"/>
+  </g>
+  <g id="pan-right-insensitive" transform="matrix(1, 0, 0, 1, 68, 416)" fill="url(#color-fg-disabled)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="M 13,6 8,11 3,6 Z" transform="matrix(6.123233995736766e-17, -1, 1, 6.123233995736766e-17, 0, 16)"/>
+  </g>
+  <g id="pan-right-alt" transform="matrix(1, 0, 0, 1, 68, 436)" fill="url(#color-fg-secondary)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="M 13,6 8,11 3,6 Z" transform="matrix(6.123233995736766e-17, -1, 1, 6.123233995736766e-17, 0, 16)"/>
+  </g>
+  <g id="pan-right-alt-insensitive" transform="matrix(1, 0, 0, 1, 68, 456)" fill="url(#color-fg-secondary-disabled)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="M 13,6 8,11 3,6 Z" transform="matrix(6.123233995736766e-17, -1, 1, 6.123233995736766e-17, 0, 16)"/>
+  </g>
+  <g id="pan-left-semi" transform="matrix(1, 0, 0, 1, 88, 396)" fill="url(#color-fg)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="M 13,6 8,11 3,6 Z" transform="matrix(0.7071067811865476, 0.7071067811865475, -0.7071067811865475, 0.7071067811865476, 7.999999999999999, -3.3137084989847594)"/>
+  </g>
+  <g id="pan-right-semi" transform="matrix(1, 0, 0, 1, 108, 396)" fill="url(#color-fg)">
+    <use transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#16x16"/>
+    <path d="M 13,6 8,11 3,6 Z" transform="matrix(0.7071067811865476, -0.7071067811865475, 0.7071067811865475, 0.7071067811865476, -3.3137084989847594, 7.999999999999999)"/>
+  </g>
+  <use id="border" fill="url(#color-border)" transform="matrix(1, 0, 0, 1, 132, 396)" xlink:href="#1x1"/>
+  <use id="tab" fill="url(#color-primary)" transform="matrix(1, 0, 0, 1, 144, 396)" xlink:href="#1x1"/>
+  <use id="progressbar-progress" fill="url(#color-primary)" transform="matrix(1, 0, 0, 1, 156, 396)" xlink:href="#4x4"/>
+  <g id="progressbar-trough" transform="matrix(1, 0, 0, 1, 168, 396)">
+    <use fill="url(#color-bg)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#4x4"/>
+    <use fill="url(#color-primary)" transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0.3" xlink:href="#4x4"/>
+  </g>
+  <rect id="frame" x="0.5" y="0.5" width="2" height="2" fill="none" stroke="url(#color-border)" stroke-width="1" transform="matrix(1, 0, 0, 1, 132, 408)"/>
+  <g id="frame-notebook" transform="matrix(1, 0, 0, 1, 144, 408)">
+    <rect width="3" height="3" fill="url(#color-border)"/>
+    <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 1, 1)" xlink:href="#1x1"/>
+  </g>
+  <g id="frame-inline" transform="matrix(1, 0, 0, 1, 156, 408)">
+    <rect width="3" height="2" fill="url(#color-border)"/>
+    <use fill="url(#color-base-alt)" transform="matrix(1, 0, 0, 1, 1, 0)" xlink:href="#1x1"/>
+  </g>
+  <rect id="focus" x="1" y="1" width="3" height="3" rx="1" ry="1" fill="none" stroke="url(#color-fg)" stroke-width="2" opacity="0.3" transform="matrix(1, 0, 0, 1, 168, 408)"/>
+  <g id="treeview-ltr-button" transform="matrix(1, 0, 0, 1, 180, 396)">
+    <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#2x2"/>
+    <use fill="url(#color-border)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#2x2"/>
+    <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+  </g>
+  <g id="treeview-ltr-button-hover" transform="matrix(1, 0, 0, 1, 180, 404)">
+    <g transform="matrix(1, 0, 0, 1, 0, 0)">
+      <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#2x2"/>
+      <use fill="url(#color-border)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#2x2"/>
+      <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+    </g>
+    <use fill="url(#color-fg)" opacity="0.05" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+  </g>
+  <g id="treeview-ltr-button-active" transform="matrix(1, 0, 0, 1, 180, 412)">
+    <g transform="matrix(1, 0, 0, 1, 0, 0)">
+      <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#2x2"/>
+      <use fill="url(#color-border)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#2x2"/>
+      <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+    </g>
+    <use fill="url(#color-fg)" opacity="0.3" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+  </g>
+  <g id="treeview-rtl-button" transform="matrix(-1, 0, 0, 1, -190, 396)">
+    <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#2x2"/>
+    <use fill="url(#color-border)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#2x2"/>
+    <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+  </g>
+  <g id="treeview-rtl-button-hover" transform="matrix(-1, 0, 0, 1, -190, 404)">
+    <g transform="matrix(1, 0, 0, 1, 0, 0)">
+      <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#2x2"/>
+      <use fill="url(#color-border)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#2x2"/>
+      <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+    </g>
+    <use fill="url(#color-fg)" opacity="0.05" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+  </g>
+  <g id="treeview-rtl-button-active" transform="matrix(-1, 0, 0, 1, -190, 412)">
+    <g transform="matrix(1, 0, 0, 1, 0, 0)">
+      <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#2x2"/>
+      <use fill="url(#color-border)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#2x2"/>
+      <use fill="url(#color-base)" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+    </g>
+    <use fill="url(#color-fg)" opacity="0.3" transform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#1x1"/>
+  </g>
+  <rect style="display:inline;opacity:0.05;fill:none;fill-opacity:1;stroke:none;stroke-width:1.06666672;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" id="null" width="16" height="15.999997" x="96" y="416"/>
+  <rect style="opacity:0.5;fill:#86BE43;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.81649661;stroke-opacity:1" id="pathbar_button_prelight" width="12" height="2" x="132" y="423" rx="0" ry="0"/>
+  <rect ry="0" rx="0" y="429" x="132" height="2" width="12" id="pathbar_button_active" style="opacity:1;fill:#86BE43;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.81649661;stroke-opacity:1"/>
+</svg>

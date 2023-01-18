@@ -3,9 +3,10 @@
 
 // Theme colors
 $theme_blue:       #4285F4;
-$theme_green:      #2EB398;
+$theme_teal:       #2EB398;
 $theme_red:        #F0544C;
 $theme_purple:     #AB47BC;
+$theme_green:      #86BE43;
 $theme_grey:       #666666;
 $theme_base:       if($variant == 'light', #FFFFFF, #333333);
 $theme_background: if($variant == 'light', #F2F2F2, #282828);
@@ -47,9 +48,10 @@ $theme_background: if($variant == 'light', #F2F2F2, #282828);
 @function primary($state: 'main') {
   @if ($state == 'main') {
     @if ($theme == 'doder')    { @return $theme_blue; }
-    @if ($theme == 'beryl')    { @return $theme_green; }
+    @if ($theme == 'beryl')    { @return $theme_teal; }
     @if ($theme == 'ruby')     { @return $theme_red; }
     @if ($theme == 'amethyst') { @return $theme_purple; }
+    @if ($theme == 'jade')     { @return $theme_green; }
     @if ($theme == 'grey')     { @return $theme_grey; }
   }
   @if ($state == 'contrast') { // entry/slider (focus)
@@ -68,6 +70,7 @@ $theme_background: if($variant == 'light', #F2F2F2, #282828);
     @if ($theme == 'beryl')    { @return #0fd1ab; }
     @if ($theme == 'ruby')     { @return #FF626C; }
     @if ($theme == 'amethyst') { @return #EC407A; }
+    @if ($theme == 'jade')     { @return #97BB72; }
     @if ($theme == 'grey') { @return lighten($theme_grey, 8%); }
   }
   @if ($state == 'contrast') {

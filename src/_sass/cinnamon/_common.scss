@@ -150,11 +150,11 @@ StScrollBar {
 //  *************/
 
 .separator {
-  height: 1px; // not really the whole box
-  margin: 0;
-  padding: 0;
+  height: 4px; // not really the whole box
+  margin: 4;
+  padding: 4;
   border-color: $border;
-  border-bottom-width: 1px;
+  border-bottom-width: 4px;
   border-bottom-style: solid;
   background-color: transparent;
 }
@@ -2161,6 +2161,19 @@ $ws_thumb_spacing: 32px;
       background: $panel-track;
     }
   }
+
+  &-cornerbar {
+    width: 8px;
+    background-color: $panel-track;
+  }
+
+  &-cornerbar-box {
+    padding: 4px 4px;
+    :hover > &,
+      background-color: $panel-text-secondary;
+  }
+
+  &-cornerbar.vertical { height: 8px; }
 
   &-box {
     color: $panel-text-secondary;

@@ -2162,6 +2162,18 @@ $ws_thumb_spacing: 32px;
     }
   }
 
+  &-cornerbar {
+    width: 8px;
+    background-color: $panel-track;
+    &-box:hover > &, {
+      background-color: $panel-text-secondary;
+    }
+  }
+
+  &-cornerbar-box { padding: 4px 4px; }
+
+  &-cornerbar.vertical { height: 8px; }
+
   &-box {
     color: $panel-text-secondary;
     text-shadow: none;

@@ -10,18 +10,18 @@
 
 // separator
 .popup-separator-menu-item {
-  padding: 0;
+  padding: 0 !important;
 
   .popup-separator-menu-item-separator {
     height: 1px; //not really the whole box
-    background-color: $frame;
+    background-color: $border;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
     margin: $base_padding 32px;
 
     .popup-sub-menu & { //submenu separators
-      padding: 0;
-      margin: 0 32px 0 0;
+      padding: 0 !important;
+      margin: 0 32px 0 0 !important;
       height: 1px;
     }
   }

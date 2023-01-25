@@ -4,7 +4,9 @@
   margin-top: $base_padding * 1.5 !important;
 
   .icon-button, .button {
-    padding: $base_padding * 1.75;
+    min-height: 28px;
+    min-width: 28px;
+    padding: $base_padding;
   }
 }
 
@@ -15,9 +17,9 @@
 
 .quick-toggle {
   border-radius: $modal_radius;
-  min-width: 12em;
-  max-width: 12em;
-  min-height: 40px;
+  min-width: if($compact == 'true', 11em, 12em) !important;
+  min-width: if($compact == 'true', 11em, 12em) !important;
+  min-height: 28px + $base_padding * 2 !important;
   border: none;
   background-color: $fill !important;
 
@@ -107,12 +109,14 @@
 .quick-toggle-menu {
   background-color: $popover !important;
   color: $text !important;
-  border-radius: $modal_radius + $base_padding * 2 !important;
+  border-radius: $modal_radius !important;
   padding: $base_padding * 2;
-  margin: $base_padding * 2 $base_padding * 4.5 0 !important;
+  margin: $base_padding * 2 $base_padding * 3.5 + 6px 0 !important;
 
   .popup-menu-item {
     border-radius: $modal_radius !important;
+    padding: $base_padding !important;
+    min-height: 28px;
 
     &:focus, &:hover, &.selected {
       color: $text !important;
@@ -125,6 +129,16 @@
     }
 
     > StIcon { -st-icon-style: symbolic; }
+  }
+
+  .popup-separator-menu-item {
+    padding: 0 !important;
+    min-height: $base_padding !important;
+  }
+
+  .popup-separator-menu-item-separator {
+    padding: 0 !important;
+    min-height: 1px !important;
   }
 
   & .header {
@@ -155,12 +169,15 @@
     border-radius: $modal_radius;
     @extend %button;
 
-    > StIcon { -st-icon-style: symbolic; }
+    > StIcon {
+      -st-icon-style: symbolic;
+      icon-size: $base_icon_size;
+    }
   }
 
   & .power-item {
-    min-height: 0;
-    min-width: 0;
+    min-height: 0 !important;
+    min-width: 0 !important;
 
     &:insensitive {
       @include button(normal);

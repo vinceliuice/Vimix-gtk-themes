@@ -710,7 +710,7 @@ StWidget.focused .app-well-app-running-dot {
 /* Modal Dialogs */
 .candidate-popup-content, .modal-dialog {
   background-color: #383a3e;
-  border-radius: 3px;
+  border-radius: 6px;
   border: none;
   box-shadow: 3px 3px 8px -3px rgba(0, 0, 0, 0.35);
 }
@@ -2094,7 +2094,7 @@ StEntry StLabel.hint-text {
   border: none;
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.25);
   margin: 5px 8px 11px;
-  border-radius: 3px;
+  border-radius: 6px;
   padding: 12px;
 }
 
@@ -3108,7 +3108,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .osd-window {
   spacing: 12px;
   padding: 12px 18px;
-  margin-bottom: 4em;
+  margin-bottom: 8em;
 }
 
 .osd-window > * {
@@ -3127,6 +3127,23 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   margin-left: 6px;
 }
 
+.osd-window .level {
+  margin-bottom: 4px;
+  min-width: 160px;
+}
+
+.osd-window .level:first-child {
+  margin-bottom: 0;
+}
+
+.osd-window .level:ltr {
+  margin-right: 6px;
+}
+
+.osd-window .level:rtl {
+  margin-left: 6px;
+}
+
 .popup-menu .popup-menu-item {
   padding: 6px 12px;
 }
@@ -3142,20 +3159,20 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .popup-separator-menu-item {
-  padding: 0;
+  padding: 0 !important;
 }
 
 .popup-separator-menu-item .popup-separator-menu-item-separator {
   height: 1px;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.12);
   padding-top: 0 !important;
   padding-bottom: 0 !important;
   margin: 6px 32px;
 }
 
 .popup-sub-menu .popup-separator-menu-item .popup-separator-menu-item-separator {
-  padding: 0;
-  margin: 0 32px 0 0;
+  padding: 0 !important;
+  margin: 0 32px 0 0 !important;
   height: 1px;
 }
 
@@ -3186,7 +3203,9 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .quick-settings .icon-button, .quick-settings .button {
-  padding: 10.5px;
+  min-height: 28px;
+  min-width: 28px;
+  padding: 6px;
 }
 
 .quick-settings-grid {
@@ -3196,9 +3215,9 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .quick-toggle {
   border-radius: 6px;
-  min-width: 12em;
-  max-width: 12em;
-  min-height: 40px;
+  min-width: 12em !important;
+  min-width: 12em !important;
+  min-height: 40px !important;
   border: none;
   background-color: rgba(255, 255, 255, 0.05) !important;
   /* Move padding into the box; this is to allow menu arrows
@@ -3321,13 +3340,15 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .quick-toggle-menu {
   background-color: #383a3e !important;
   color: white !important;
-  border-radius: 18px !important;
+  border-radius: 6px !important;
   padding: 12px;
   margin: 12px 27px 0 !important;
 }
 
 .quick-toggle-menu .popup-menu-item {
   border-radius: 6px !important;
+  padding: 6px !important;
+  min-height: 28px;
 }
 
 .quick-toggle-menu .popup-menu-item:focus, .quick-toggle-menu .popup-menu-item:hover, .quick-toggle-menu .popup-menu-item.selected {
@@ -3342,6 +3363,16 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .quick-toggle-menu .popup-menu-item > StIcon {
   -st-icon-style: symbolic;
+}
+
+.quick-toggle-menu .popup-separator-menu-item {
+  padding: 0 !important;
+  min-height: 6px !important;
+}
+
+.quick-toggle-menu .popup-separator-menu-item-separator {
+  padding: 0 !important;
+  min-height: 1px !important;
 }
 
 .quick-toggle-menu .header {
@@ -3374,11 +3405,12 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .quick-settings-system-item .icon-button > StIcon {
   -st-icon-style: symbolic;
+  icon-size: 16px;
 }
 
 .quick-settings-system-item .power-item {
-  min-height: 0;
-  min-width: 0;
+  min-height: 0 !important;
+  min-width: 0 !important;
 }
 
 .quick-settings-system-item .power-item:insensitive {

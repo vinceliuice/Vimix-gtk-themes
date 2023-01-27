@@ -6621,7 +6621,7 @@ widget > box.terminal-titlebar > button.image-button, widget > box.terminal-titl
   min-width: 24px;
 }
 
-.xfce4-panel button, .xfce4-panel button.flat {
+.xfce4-panel.background button, .xfce4-panel.background button.flat {
   color: rgba(0, 0, 0, 0.6);
   border-radius: 0;
   border: none;
@@ -6629,31 +6629,31 @@ widget > box.terminal-titlebar > button.image-button, widget > box.terminal-titl
   background-color: transparent;
 }
 
-.xfce4-panel button:hover:not(:active):not(:checked) {
-  color: rgba(0, 0, 0, 0.6);
-  box-shadow: inset 0 -2px rgba(66, 133, 244, 0.5);
+.xfce4-panel.background button:hover:not(:active):not(:checked) {
+  color: rgba(0, 0, 0, 0.87);
+  box-shadow: inset rgba(0, 0, 0, 0.26);
   background-color: transparent;
 }
 
-.xfce4-panel button:checked, .xfce4-panel button:active {
-  color: rgba(0, 0, 0, 0.6);
+.xfce4-panel.background button:checked, .xfce4-panel.background button:active {
+  color: rgba(0, 0, 0, 0.87);
   box-shadow: inset 0 -2px #4285F4;
   background-color: transparent;
 }
 
-.xfce4-panel button:checked label, .xfce4-panel button:checked image, .xfce4-panel button:active label, .xfce4-panel button:active image {
+.xfce4-panel.background button:checked label, .xfce4-panel.background button:checked image, .xfce4-panel.background button:active label, .xfce4-panel.background button:active image {
   color: inherit;
 }
 
-.xfce4-panel button:disabled {
-  color: rgba(0, 0, 0, 0.5);
+.xfce4-panel.background button:disabled {
+  color: rgba(0, 0, 0, 0.26);
   box-shadow: none;
   background-color: transparent;
 }
 
-.xfce4-panel button:checked:disabled {
-  color: rgba(0, 0, 0, 0.5);
-  box-shadow: inset 0 -2px rgba(66, 133, 244, 0.5);
+.xfce4-panel.background button:checked:disabled {
+  color: rgba(0, 0, 0, 0.38);
+  box-shadow: inset 0 -2px rgba(66, 133, 244, 0.45);
   background-color: transparent;
 }
 
@@ -6663,7 +6663,7 @@ widget > box.terminal-titlebar > button.image-button, widget > box.terminal-titl
   color: rgba(0, 0, 0, 0.87);
 }
 
-.xfce4-panel {
+.xfce4-panel.background {
   background-color: #f2f2f2;
   color: rgba(0, 0, 0, 0.6);
   font-weight: 700;
@@ -6671,43 +6671,43 @@ widget > box.terminal-titlebar > button.image-button, widget > box.terminal-titl
   -gtk-icon-shadow: none;
 }
 
-.xfce4-panel,
-.xfce4-panel frame > border {
+.xfce4-panel.background,
+.xfce4-panel.background frame > border {
   border: none;
 }
 
-.xfce4-panel#XfcePanelWindow {
+.xfce4-panel.background#XfcePanelWindow {
   border: 1px solid #f2f2f2;
 }
 
-.xfce4-panel#XfcePanelWindow, .xfce4-panel#XfcePanelWindow.marching-ants {
+.xfce4-panel.background#XfcePanelWindow, .xfce4-panel.background#XfcePanelWindow.marching-ants {
   transition: none;
 }
 
-.xfce4-panel button {
+.xfce4-panel.background button {
   font-weight: 700;
 }
 
-.xfce4-panel button#launcher-arrow:hover, .xfce4-panel button#launcher-arrow + button.toggle:hover {
+.xfce4-panel.background button#launcher-arrow:hover, .xfce4-panel.background button#launcher-arrow + button.toggle:hover {
   box-shadow: none;
 }
 
-.xfce4-panel button#launcher-arrow + button.toggle:checked {
+.xfce4-panel.background button#launcher-arrow + button.toggle:checked {
   color: #4285F4;
   box-shadow: none;
 }
 
-.xfce4-panel button#xfce4-notification-plugin {
+.xfce4-panel.background button#xfce4-notification-plugin {
   padding: 0 1px;
 }
 
-.xfce4-panel menu {
+.xfce4-panel.background menu {
   font-weight: 400;
   text-shadow: none;
   -gtk-icon-effect: none;
 }
 
-.xfce4-panel widget.tasklist > button.toggle {
+.xfce4-panel.background widget.tasklist > button.toggle {
   font-weight: 400;
 }
 

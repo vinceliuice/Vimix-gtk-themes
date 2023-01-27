@@ -1944,32 +1944,35 @@ $text-shadow: 0 0 1px rgba(0, 0, 0, 0.26),
               0 1px 2px rgba(0, 0, 0, 0.32),
               0 2px 3px rgba(0, 0, 0, 0.12);
 
-%panelbutton {
-  color: on($header, secondary);
+%panel_button {
+  color: on($panel, secondary);
   border-radius: 0;
   border: none;
   box-shadow: none;
   background-color: transparent;
 
   &:hover:not(:active):not(:checked) {
-    color: on($header, secondary);
-    box-shadow: inset 0 -2px rgba(indicator(light), 0.5);
+    color: on($panel);
+    box-shadow: inset on($panel, track);
     background-color: transparent;
   }
-  &:checked, &:active {
-    color: on($header, secondary);
+
+  &:checked, &:checked:hover, &:active {
+    color: on($panel);
     box-shadow: inset 0 -2px indicator(light);
     background-color: transparent;
     label, image { color: inherit; }
   }
+
   &:disabled {
-    color: rgba(on($header, secondary), 0.5);
+    color: on($panel, secondary-disabled);
     box-shadow: none;
     background-color: transparent;
   }
+
   &:checked:disabled {
-    color: rgba(on($header, secondary), 0.5);
-    box-shadow: inset 0 -2px rgba(indicator(light), 0.5);
+    color: on($panel, disabled);
+    box-shadow: inset 0 -2px rgba(indicator(light), 0.45);
     background-color: transparent;
   }
 }
@@ -1980,9 +1983,9 @@ $text-shadow: 0 0 1px rgba(0, 0, 0, 0.26),
   color: $text;
 }
 
-.xfce4-panel {
+.xfce4-panel.background {
   background-color: $panel;
-  color: on($header, secondary);
+  color: on($panel, secondary);
   font-weight: 700;
   text-shadow: none;
   -gtk-icon-shadow: none;
@@ -1997,11 +2000,11 @@ $text-shadow: 0 0 1px rgba(0, 0, 0, 0.26),
     &, &.marching-ants { transition: none; } // unset transitions
   }
 
-  button.flat { @extend %panelbutton; }
+  button.flat { @extend %panel_button; }
 
   button {
     font-weight: 700;
-    @extend %panelbutton;
+    @extend %panel_button;
 
     &#launcher-arrow { // launcher applet
       // FIXME: quite weird pseudo-classe transitions, especially :hover

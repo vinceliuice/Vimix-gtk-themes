@@ -22,7 +22,7 @@ $theme_background: if($variant == 'light', #F2F2F2, #282828);
   @if ($color == 'dark') { $color: black; }
 
   // Calculate color brightness according to https://www.w3.org/TR/AERT/#color_contrast
-  $brightness: (red($color) * 299 + green($color) * 587 + blue($color) * 114) / 1000;
+  $brightness: (red($color) * 299 + green($color) * 568 + blue($color) * 114) / 1000;
 
   @if ($brightness >= 156) {
     @if ($state == 'primary') { @return rgba(black, 0.87); }
@@ -70,8 +70,8 @@ $theme_background: if($variant == 'light', #F2F2F2, #282828);
     @if ($theme == 'beryl')    { @return #0fd1ab; }
     @if ($theme == 'ruby')     { @return #FF626C; }
     @if ($theme == 'amethyst') { @return #EC407A; }
-    @if ($theme == 'jade')     { @return #97BB72; }
-    @if ($theme == 'grey') { @return lighten($theme_grey, 8%); }
+    @if ($theme == 'jade')     { @return #72bb8d; }
+    @if ($theme == 'grey')     { @return lighten($theme_grey, 8%); }
   }
   @if ($state == 'contrast') {
     @if ($variant == 'light')  { @return rgba(black, 0.58); }

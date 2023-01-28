@@ -413,7 +413,7 @@ install_package() {
     elif has_command dnf; then
       sudo dnf install sassc
     elif has_command pacman; then
-      sudo pacman -S --noconfirm sassc
+      sudo pacman -S --noconfirm --asdeps sassc
     fi
   fi
 }

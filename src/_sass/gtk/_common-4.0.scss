@@ -2358,10 +2358,10 @@ magnifier {
   min-width: $small_size;
   padding: $space_size $space_size * 2;
   outline-offset: -6px;
-  border-width: 0;         // for reorderable tabs
-  border-color: transparent; //
   color: $text-secondary;
   font-weight: 500;
+  border: none;
+  border-radius: 0;
   @include ripple(flat);
 
   &:hover {
@@ -2586,6 +2586,12 @@ tabbar {
     background-clip: padding-box;
     box-shadow: inset 0 -1px $border;
 
+    > tabboxchild {
+      margin: 0;
+      border-radius: 0;
+      border: none;
+    }
+
     > background {
       background: none;
     }
@@ -2593,9 +2599,20 @@ tabbar {
 
   tab {
     @extend %tabs_tab;
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  $indicator 0%,
+                                  rgba($indicator, 0.35) 0%)
+                                  0 0 2 / 0 0 0px;
 
     &:hover { box-shadow: inset 0 -2px mix($indicator, $background, 30%); }
-    &:checked { box-shadow: inset 0 -2px $indicator; }
+
+    &:checked, &:selected {
+      box-shadow: inset 0 -2px mix($indicator, $background, 30%);
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    $indicator 100%,
+                                    rgba($indicator, 0.35) 10%)
+                                    0 0 2 / 0 0 2px;
+    }
   }
 
   .start-action,

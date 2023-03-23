@@ -2833,10 +2833,10 @@ tabbar tab, notebook > header tab {
   min-width: 24px;
   padding: 6px 12px;
   outline-offset: -6px;
-  border-width: 0;
-  border-color: transparent;
   color: rgba(0, 0, 0, 0.6);
   font-weight: 500;
+  border: none;
+  border-radius: 0;
   transition-property: all, border-image, background-size, background-image;
   transition-duration: 100ms, 225ms, 300ms, 600ms;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
@@ -3077,16 +3077,27 @@ tabbar tabbox {
   box-shadow: inset 0 -1px rgba(0, 0, 0, 0.12);
 }
 
+tabbar tabbox > tabboxchild {
+  margin: 0;
+  border-radius: 0;
+  border: none;
+}
+
 tabbar tabbox > background {
   background: none;
+}
+
+tabbar tab {
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 0%, rgba(66, 133, 244, 0.35) 0%) 0 0 2/0 0 0px;
 }
 
 tabbar tab:hover {
   box-shadow: inset 0 -2px #bdd1f3;
 }
 
-tabbar tab:checked {
-  box-shadow: inset 0 -2px #4285F4;
+tabbar tab:checked, tabbar tab:selected {
+  box-shadow: inset 0 -2px #bdd1f3;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 100%, rgba(66, 133, 244, 0.35) 10%) 0 0 2/0 0 2px;
 }
 
 tabbar .start-action,

@@ -2185,8 +2185,8 @@ StEntry StLabel.hint-text {
 }
 
 #panel .panel-button {
-  -natural-hpadding: 8px;
-  -minimum-hpadding: 8px;
+  -natural-hpadding: 9px;
+  -minimum-hpadding: 9px;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.6);
   transition-duration: 150ms;
@@ -2227,12 +2227,6 @@ StEntry StLabel.hint-text {
 #panel .panel-button .system-status-icon {
   icon-size: 16px;
   padding: 6px;
-  margin: 0 4px;
-  spacing: 6px;
-}
-
-#panel .panel-button .panel-status-indicators-box .system-status-icon,
-#panel .panel-button .panel-status-menu-box .system-status-icon {
   margin: 0;
 }
 
@@ -2248,6 +2242,12 @@ StEntry StLabel.hint-text {
   -natural-hpadding: 18px;
 }
 
+#panel Gjs_status_keyboard_InputSourceIndicator.panel-button,
+#panel Gjs_appindicatorsupport_rgcjonas_gmail_com_indicatorStatusIcon_AppIndicatorsIndicatorStatusIcon.panel-button {
+  -natural-hpadding: 15px !important;
+  -minimum-hpadding: 15px !important;
+}
+
 #panel:overview, #panel.unlock-screen, #panel.login-screen, #panel.lock-screen {
   background-color: transparent;
   box-shadow: none;
@@ -2255,6 +2255,10 @@ StEntry StLabel.hint-text {
 
 #panel:overview StLabel, #panel:overview StIcon, #panel.unlock-screen StLabel, #panel.unlock-screen StIcon, #panel.login-screen StLabel, #panel.login-screen StIcon, #panel.lock-screen StLabel, #panel.lock-screen StIcon {
   color: rgba(255, 255, 255, 0.7);
+}
+
+#panel:overview .panel-button, #panel.unlock-screen .panel-button, #panel.login-screen .panel-button, #panel.lock-screen .panel-button {
+  border-radius: 3px;
 }
 
 #panel:overview .panel-button:hover, #panel.unlock-screen .panel-button:hover, #panel.login-screen .panel-button:hover, #panel.lock-screen .panel-button:hover {
@@ -2281,15 +2285,6 @@ StEntry StLabel.hint-text {
   -panel-corner-radius: 0;
   -panel-corner-background-color: transparent;
   -panel-corner-border-color: transparent;
-}
-
-#panel .panel-status-indicators-box,
-#panel .panel-status-menu-box {
-  spacing: 3px;
-}
-
-#panel .power-status.panel-status-indicators-box {
-  spacing: 2px;
 }
 
 #panel .screencast-indicator,

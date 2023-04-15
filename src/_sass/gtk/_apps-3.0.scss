@@ -358,9 +358,6 @@ paned.titlebar.horizontal { // show border
   row.activatable { padding: $space_size ($space_size - 2px); }
 }
 
-.gedit-document-panel row:selected {
-}
-
 .gedit-document-panel-group-row,
 .gedit-document-panel-group-row:hover {
   border-top: 1px solid gtkalpha(currentColor, 0.3);
@@ -381,7 +378,9 @@ paned.titlebar.horizontal { // show border
 }
 
 .background .gedit-search-slider {
-  margin: 4px 4px 8px;
+  margin: $space_size $space_size 8px;
+  box-shadow: $shadow_3;
+  border-radius: $button_radius;
 
   .gedit-search-entry-occurrences-tag {
     all: unset;
@@ -399,7 +398,13 @@ paned.titlebar.horizontal { // show border
   }
 
   > .linked:not(.vertical) > entry {
-    @extend %entry_native;
+    // @extend %entry_native;
+
+    &, &:focus {
+      box-shadow: inset 0 1px $highlight;
+      border-image: none;
+      background-color: $suface;
+    }
 
     &:dir(ltr) {
       margin-right: -$medium_size * 2;
@@ -413,6 +418,13 @@ paned.titlebar.horizontal { // show border
       padding-left: $medium_size * 2 + 8px;
 
       .gedit-search-entry-occurrences-tag { box-shadow: none; margin-left: -8px; }
+    }
+
+    & + button:not(.combo),
+    & + button:not(.combo) + button:not(.combo) {
+      &, &:hover, &:active, &:disabled {
+        border-image: none;
+      }
     }
 
     &.error ~ button {
@@ -460,7 +472,7 @@ paned.titlebar.horizontal { // show border
     }
   }
 
-  > .linked:not(.vertical) > button {
+  > .linked:not(.vertical) > button:not(.combo) {
     @extend %simple_flat_button;
 
     &:dir(ltr),

@@ -23,7 +23,17 @@ stage {
 }
 
 /* General Typography */
-.icon-label-button-container {
+.bt-menu-placeholder.popup-menu-item {
+  font-weight: 700;
+  font-size: 13pt;
+}
+
+.background-app-item .title {
+  font-weight: 700;
+  font-size: 11pt;
+}
+
+.background-app-item .subtitle, .icon-label-button-container {
   font-weight: 400;
   font-size: 9pt;
 }
@@ -229,31 +239,31 @@ StWidget.focused .app-well-app-running-dot {
 }
 
 /* Buttons */
-.hotplug-notification-item {
+.quick-settings-system-item .icon-button, .quick-settings-system-item .background-app-item .close-button, .background-app-item .quick-settings-system-item .close-button, .hotplug-notification-item {
   color: rgba(0, 0, 0, 0.87);
   background-color: #FFFFFF;
   box-shadow: none !important;
 }
 
-.hotplug-notification-item:focus {
+.quick-settings-system-item .icon-button:focus, .quick-settings-system-item .background-app-item .close-button:focus, .background-app-item .quick-settings-system-item .close-button:focus, .hotplug-notification-item:focus {
   color: rgba(0, 0, 0, 0.87);
   background-color: rgba(0, 0, 0, 0.08);
   box-shadow: none !important;
 }
 
-.hotplug-notification-item:hover {
+.quick-settings-system-item .icon-button:hover, .quick-settings-system-item .background-app-item .close-button:hover, .background-app-item .quick-settings-system-item .close-button:hover, .hotplug-notification-item:hover {
   color: rgba(0, 0, 0, 0.87);
   background-color: rgba(0, 0, 0, 0.12);
   box-shadow: none !important;
 }
 
-.hotplug-notification-item:active {
+.quick-settings-system-item .icon-button:active, .quick-settings-system-item .background-app-item .close-button:active, .background-app-item .quick-settings-system-item .close-button:active, .hotplug-notification-item:active {
   color: rgba(0, 0, 0, 0.87);
   background-color: rgba(0, 0, 0, 0.2);
   box-shadow: none !important;
 }
 
-.hotplug-notification-item:insensitive {
+.quick-settings-system-item .icon-button:insensitive, .quick-settings-system-item .background-app-item .close-button:insensitive, .background-app-item .quick-settings-system-item .close-button:insensitive, .hotplug-notification-item:insensitive {
   color: rgba(0, 0, 0, 0.35);
   background-color: #FFFFFF;
   box-shadow: none !important;
@@ -2985,8 +2995,26 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .page-navigation-arrow {
   margin: 6px;
+  padding: 18px;
   width: 24px;
   height: 24px;
+  border-radius: 9999px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.page-navigation-arrow:insensitive {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.page-navigation-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: white;
+}
+
+.page-navigation-arrow:active {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: white;
 }
 
 #dash {
@@ -3339,52 +3367,434 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .message-list-controls {
-  margin: 8px 16px 0;
-  padding: 4px;
-  spacing: 12px;
+  padding: 6px 6px 6px 18px !important;
+  spacing: 6px;
+  font-weight: normal;
+}
+
+.message-list-controls .dnd-button {
+  font-weight: normal;
 }
 
 .message-media-control {
-  margin: 18px 6px;
-  padding: 9px;
+  margin: 26px 6px;
+  padding: 12px;
 }
 
 .media-message-cover-icon {
-  padding: 6px;
+  padding: 12px;
 }
 
 .media-message-cover-icon.fallback {
-  padding: 6px;
+  padding: 12px;
 }
 
 .osd-window {
-  spacing: 1em;
-  min-width: 64px;
-  min-height: 64px;
+  spacing: 12px;
+  padding: 12px 18px;
+  margin-bottom: 8em;
+}
+
+.osd-window > * {
+  spacing: 8px;
 }
 
 .osd-window StIcon {
-  icon-size: 96px;
+  icon-size: 32px;
+}
+
+.osd-window StLabel:ltr {
+  margin-right: 6px;
+}
+
+.osd-window StLabel:rtl {
+  margin-left: 6px;
+}
+
+.osd-window .level {
+  margin-bottom: 4px;
+  min-width: 160px;
+}
+
+.osd-window .level:first-child {
+  margin-bottom: 0;
+}
+
+.osd-window .level:ltr {
+  margin-right: 6px;
+}
+
+.osd-window .level:rtl {
+  margin-left: 6px;
+}
+
+.popup-menu .popup-menu-item {
+  padding: 6px 12px;
 }
 
 .popup-menu .popup-menu-item:ltr {
-  padding-right: 1.5em !important;
-  padding-left: 0 !important;
+  padding-right: 15px !important;
+  padding-left: 6px !important;
 }
 
 .popup-menu .popup-menu-item:rtl {
+  padding-right: 6px !important;
+  padding-left: 15px !important;
+}
+
+.popup-separator-menu-item {
+  padding: 0 !important;
+}
+
+.popup-separator-menu-item .popup-separator-menu-item-separator {
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.12);
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin: 6px 32px;
+}
+
+.popup-sub-menu .popup-separator-menu-item .popup-separator-menu-item-separator {
+  padding: 0 !important;
+  margin: 0 32px 0 0 !important;
+  height: 1px;
+}
+
+.aggregate-menu .popup-menu-item > :first-child:ltr {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+.aggregate-menu .popup-menu-item > :first-child:rtl {
   padding-right: 0 !important;
-  padding-left: 1.5em !important;
+  margin-right: 0 !important;
 }
 
 .aggregate-menu .popup-sub-menu .popup-menu-item > :first-child:ltr {
-  padding-left: 16px;
-  margin-left: 1em;
+  padding-left: 12px !important;
+  margin-left: 0 !important;
 }
 
 .aggregate-menu .popup-sub-menu .popup-menu-item > :first-child:rtl {
-  padding-right: 16px;
-  margin-right: 1em;
+  padding-right: 12px !important;
+  margin-right: 0 !important;
+}
+
+.quick-settings {
+  padding: 18px !important;
+  border-radius: 24px !important;
+  margin-top: 9px !important;
+}
+
+.quick-settings .icon-button, .quick-settings .background-app-item .close-button, .background-app-item .quick-settings .close-button, .quick-settings .button {
+  min-height: 28px;
+  min-width: 28px;
+  padding: 6px;
+}
+
+.quick-settings .icon-button > StIcon, .quick-settings .background-app-item .close-button > StIcon, .background-app-item .quick-settings .close-button > StIcon, .quick-settings .button > StIcon {
+  icon-size: 16px;
+}
+
+.quick-settings-grid {
+  spacing-rows: 12px;
+  spacing-columns: 12px;
+}
+
+.quick-toggle, .quick-menu-toggle {
+  border-radius: 6px;
+  min-width: 12em;
+  min-width: 12em;
+  min-height: 40px !important;
+  border: none;
+}
+
+.quick-toggle {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  /* Move padding into the box; this is to allow menu arrows
+     to extend to the border */
+}
+
+.quick-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+.quick-toggle:active {
+  background-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+.quick-toggle:checked {
+  background-color: #4285F4 !important;
+  color: white;
+}
+
+.quick-toggle:checked:hover {
+  background-color: rgba(63, 127, 233, 0.9922) !important;
+  color: white;
+}
+
+.quick-toggle:checked:active {
+  background-color: rgba(58, 117, 215, 0.9805) !important;
+  color: white;
+}
+
+.quick-toggle > StBoxLayout {
+  spacing: 6px;
+}
+
+.quick-toggle.button {
+  padding: 0;
+}
+
+.quick-toggle > StBoxLayout {
+  padding: 0 12px;
+}
+
+.quick-toggle:ltr > StBoxLayout {
+  padding-left: 15px;
+}
+
+.quick-toggle:rtl > StBoxLayout {
+  padding-right: 15px;
+}
+
+.quick-toggle .quick-toggle-title {
+  font-weight: bold;
+}
+
+.quick-toggle StBoxLayout > .quick-toggle-subtitle {
+  font-weight: normal;
+  font-size: 12px;
+}
+
+.quick-toggle .quick-toggle-icon {
+  icon-size: 16px;
+}
+
+.quick-menu-toggle .quick-toggle {
+  min-width: auto;
+  max-width: auto;
+}
+
+.quick-menu-toggle .quick-toggle:ltr {
+  border-radius: 6px 0 0 6px;
+}
+
+.quick-menu-toggle .quick-toggle:ltr > StBoxLayout {
+  padding-right: 9px;
+}
+
+.quick-menu-toggle .quick-toggle:rtl {
+  border-radius: 0 6px 6px 0;
+}
+
+.quick-menu-toggle .quick-toggle:rtr > StBoxLayout {
+  padding-left: 9px;
+}
+
+.quick-menu-toggle .quick-toggle:ltr:last-child {
+  border-radius: 6px;
+}
+
+.quick-menu-toggle .quick-toggle:rtl:last-child {
+  border-radius: 6px;
+}
+
+.quick-menu-toggle .quick-toggle-arrow {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  color: rgba(0, 0, 0, 0.6);
+  padding: 6px;
+  border: none;
+}
+
+.quick-menu-toggle .quick-toggle-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.12) !important;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.quick-menu-toggle .quick-toggle-arrow:active {
+  background-color: rgba(0, 0, 0, 0.15) !important;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.quick-menu-toggle .quick-toggle-arrow:checked {
+  background-color: #4285F4 !important;
+  color: white;
+}
+
+.quick-menu-toggle .quick-toggle-arrow:checked:hover {
+  background-color: rgba(63, 127, 233, 0.9922) !important;
+  color: white;
+}
+
+.quick-menu-toggle .quick-toggle-arrow:checked:active {
+  background-color: rgba(58, 117, 215, 0.9805) !important;
+  color: white;
+}
+
+.quick-menu-toggle .quick-toggle-arrow:ltr {
+  border-radius: 0 6px 6px 0;
+  border-left-width: 0;
+}
+
+.quick-menu-toggle .quick-toggle-arrow:rtl {
+  border-radius: 6px 0 0 6px;
+  border-right-width: 0;
+}
+
+.quick-slider > StBoxLayout {
+  spacing: 6px;
+}
+
+.quick-slider .slider-bin {
+  min-height: 16px;
+  padding: 6px;
+  border-radius: 9999px;
+}
+
+.quick-slider .slider-bin:focus {
+  color: rgba(0, 0, 0, 0.87);
+  background-color: rgba(0, 0, 0, 0.08);
+  box-shadow: none !important;
+}
+
+.quick-slider .quick-toggle-icon {
+  icon-size: 16px;
+}
+
+.quick-slider .icon-button, .quick-slider .background-app-item .close-button, .background-app-item .quick-slider .close-button {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+.quick-slider .icon-button:hover, .quick-slider .background-app-item .close-button:hover, .background-app-item .quick-slider .close-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.quick-slider .icon-button:active, .quick-slider .background-app-item .close-button:active, .background-app-item .quick-slider .close-button:active {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.quick-toggle-menu {
+  background-color: #FFFFFF !important;
+  color: rgba(0, 0, 0, 0.87) !important;
+  border-radius: 6px !important;
+  padding: 12px;
+  margin: 12px 27px 0 !important;
+}
+
+.quick-toggle-menu .popup-menu-item {
+  border-radius: 2px !important;
+  padding: 6px !important;
+  min-height: 28px;
+}
+
+.quick-toggle-menu .popup-menu-item:focus, .quick-toggle-menu .popup-menu-item:hover, .quick-toggle-menu .popup-menu-item.selected {
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.quick-toggle-menu .popup-menu-item:active {
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+.quick-toggle-menu .popup-menu-item > StIcon {
+  -st-icon-style: symbolic;
+}
+
+.quick-toggle-menu .popup-separator-menu-item {
+  padding: 0 !important;
+  min-height: 6px !important;
+}
+
+.quick-toggle-menu .popup-separator-menu-item-separator {
+  padding: 0 !important;
+  min-height: 1px !important;
+}
+
+.quick-toggle-menu .header {
+  spacing-rows: 3px;
+  spacing-columns: 12px;
+  padding-bottom: 12px;
+}
+
+.quick-toggle-menu .header .icon {
+  icon-size: 24px;
+  border-radius: 6px;
+  padding: 9px;
+  background-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+.quick-toggle-menu .header .icon.active {
+  background-color: #4285F4 !important;
+  color: white;
+}
+
+.quick-settings-system-item > StBoxLayout {
+  spacing: 12px;
+}
+
+.quick-settings-system-item .icon-button, .quick-settings-system-item .background-app-item .close-button, .background-app-item .quick-settings-system-item .close-button {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.87);
+  border-radius: 6px;
+}
+
+.quick-settings-system-item .icon-button > StIcon, .quick-settings-system-item .background-app-item .close-button > StIcon, .background-app-item .quick-settings-system-item .close-button > StIcon {
+  -st-icon-style: symbolic;
+  icon-size: 16px;
+}
+
+.quick-settings-system-item .power-item {
+  min-height: 0 !important;
+  min-width: 0 !important;
+}
+
+.quick-settings-system-item .power-item:insensitive {
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #FFFFFF;
+  box-shadow: none !important;
+  background-color: transparent;
+}
+
+.nm-network-item .wireless-secure-icon {
+  icon-size: 8px;
+}
+
+.bt-device-item .popup-menu-icon {
+  -st-icon-style: symbolic;
+}
+
+.bt-menu-placeholder.popup-menu-item {
+  text-align: center;
+  padding: 2em 4em;
+}
+
+.device-subtitle {
+  color: rgba(0, 0, 0, 0.38);
+}
+
+.background-apps-quick-toggle {
+  min-height: 40px;
+  background-color: transparent;
+}
+
+.background-apps-quick-toggle StIcon {
+  icon-size: 16px !important;
+}
+
+.background-app-item .popup-menu-icon {
+  icon-size: 32px !important;
+  -st-icon-style: regular !important;
+}
+
+.background-app-item .close-button {
+  padding: 6px;
+}
+
+.background-app-item.popup-inactive-menu-item {
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .bottom #dashtodockDashScrollview,

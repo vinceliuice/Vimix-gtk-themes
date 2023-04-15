@@ -32,8 +32,8 @@
 
   // panel menus
   .panel-button {
-    -natural-hpadding: 8px;
-    -minimum-hpadding: 8px;
+    -natural-hpadding: $base_padding * 2;
+    -minimum-hpadding: $base_padding * 2;
     font-weight: bold;
     color: $panel-text-secondary;
     transition-duration: 150ms;
@@ -77,13 +77,23 @@
     .system-status-icon {
       icon-size: $base_icon_size;
       padding: $base_padding;
-      margin: 0 $base_margin;
+      margin: 0;
       spacing: $base_spacing;
     }
 
-    .panel-status-indicators-box .system-status-icon,
-    .panel-status-menu-box .system-status-icon { margin: 0; }
-    .appindicator-trayicons-box { margin: 0 $base_padding; }
+    .appindicator-trayicons-box {
+      margin: 0 $space-size;
+    }
+
+    .panel-status-indicators-box,
+    .panel-status-menu-box {
+      spacing: $base_spacing / 2;
+    }
+  
+    // spacing between power icon and (optional) percentage label
+    .power-status.panel-status-indicators-box {
+      spacing: ($base_spacing / 2) - 1px;
+    }
 
     // app menu icon
     .app-menu-icon {
@@ -94,6 +104,13 @@
     &#panelActivities {
       -natural-hpadding: $base_padding * 3;
     }
+  }
+
+  // Input indicators
+  Gjs_status_keyboard_InputSourceIndicator.panel-button, // Ibus
+  Gjs_appindicatorsupport_rgcjonas_gmail_com_indicatorStatusIcon_AppIndicatorsIndicatorStatusIcon.panel-button { // Fcitx
+    -natural-hpadding: $base_padding * 3 !important;
+    -minimum-hpadding: $base_padding * 3 !important;
   }
 
   // transparent panel on lock & login screens
@@ -135,16 +152,6 @@
       -panel-corner-background-color: transparent;
       -panel-corner-border-color: transparent;
     }
-  }
-
-  .panel-status-indicators-box,
-  .panel-status-menu-box {
-    spacing: $base_spacing / 2;
-  }
-
-  // spacing between power icon and (optional) percentage label
-  .power-status.panel-status-indicators-box {
-    spacing: ($base_spacing / 2) - 1px;
   }
 
   // indicator for active

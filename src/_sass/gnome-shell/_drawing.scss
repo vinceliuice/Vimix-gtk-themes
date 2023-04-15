@@ -93,6 +93,12 @@
     box-shadow: none !important;
   }
 
+  @if $t == checked {
+    color: on($fc);
+    background-color: $fc;
+    box-shadow: none !important;
+  }
+
   @if $t == insensitive {
     color: rgba($tc, 0.35);
     background-color: $bc;

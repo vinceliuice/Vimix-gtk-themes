@@ -16,6 +16,17 @@
   &:insensitive { @include button(flat-insensitive); }
 }
 
+// buttons on OSD elements
+// that are undecorated by default and use OSD colors
+%osd_button {
+  @include button(undecorated);
+  &:insensitive { @include button(flat-normal, $tc: on($osd), $bc: $osd); }
+  &:focus { @include button(focus, $tc: on($osd), $bc:$osd); }
+  &:hover { @include button(hover, $tc: on($osd), $bc:$osd); }
+  &:active { @include button(active, $tc: on($osd), $bc:$osd); }
+  &:outlined, &:checked { @include button(checked, $tc: on($primary), $bc:$primary); }
+}
+
 .button {
   min-height: 20px;
   padding: $base_padding $base_padding * 2;

@@ -1340,7 +1340,7 @@ spinbutton {
 //
 // ComboBoxes
 //
-dropdown > popover.menu.background > contents { padding: 0; } //allow search entries with no margin
+
 dropdown > button > box { border-spacing: $space_size; }
 
 dropdown,
@@ -1380,20 +1380,21 @@ combobox {
 
   // newstyle
   popover {
-   margin-top: $space_size;
-   padding: 0;
+    margin-top: $space_size;
+    padding: 0;
 
-   listview {
-     margin: $space_size 0;
+    listview {
+      margin: 0;
 
-     & > row {
-       padding: $space_size;
-
-       &:selected {
-         @extend %selected_items;
-       }
-     }
-   }
+      & > row {
+        margin: 0;
+        padding: $space_size;
+ 
+        &:selected {
+          @extend %selected_items;
+        }
+      }
+    }
 
     // drodowns with searchboxes on top
     .dropdown-searchbar {
@@ -2241,6 +2242,7 @@ popover.background {
   color: $text;
   background-color: transparent;
   font: initial; // Decouple the font of popovers from their entry/textview
+  padding: 0;
 
   > arrow,
   > contents {
@@ -2251,16 +2253,9 @@ popover.background {
     color: $text;
   }
 
-  // &:backdrop {
-  //   > arrow,
-  //   > contents {
-  //     box-shadow: $shadow_2;
-  //   }
-  // }
-
   > contents {
     padding: $space_size;
-    border-radius: $button_radius;
+    border-radius: $menu_radius;
 
     > list,
     > .view,
@@ -2297,7 +2292,10 @@ popover.background {
 
   entry { @extend %flat_entry; }
 
-  .linked button:not(.combo) { border-radius: $button_radius; margin: 0 2px; }
+  .linked button:not(.combo) {
+    border-radius: $base_radius;
+    margin: 0 $space_size / 2;
+  }
 
   button:not(.suggested-action):not(.destructive-action):not(.flat) {
     @extend %flat_theme_button;
@@ -2306,7 +2304,7 @@ popover.background {
   modelbutton {
     min-height: $item_size;
     padding: 0 $space_size * 1.5;
-    border-radius: $button_radius;
+    border-radius: $base_radius;
     color: inherit;
     @extend %simple_flat_button;
     transition: none;
@@ -2330,7 +2328,7 @@ popover.background {
     }
   }
 
-  &.menu button,
+  &.menu button:not(.circular),
   button.model {
     margin: 0;
     min-height: $item_size;
@@ -3286,6 +3284,10 @@ progressbar {
     min-width: 3px;
     min-height: 3px;
     background-color: transparent;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    border: none;
 
     > trough {
       border-style: none;
@@ -3501,13 +3503,13 @@ listview.view {
   background-color: transparent;
 
   popover.menu & {
+    border-radius: $base_radius;
+    margin: 0;
     padding: 0;
-    border-radius: $button_radius;
 
     > row {
-      margin-left: 0;
-      margin-right: 0;
-      border-radius: $button_radius;
+      margin: 0;
+      border-radius: $base_radius;
     }
   }
 }
@@ -3558,9 +3560,20 @@ row {
       &:focus, &:hover, &:active {
         background-color: transparent;
         background-image: none;
+        box-shadow: none;
         transition: none;
         animation: none;
       }
+    }
+  }
+
+  button &.activatable {
+    &:focus, &:hover, &:active {
+      background-color: transparent;
+      background-image: none;
+      box-shadow: none;
+      transition: none;
+      animation: none;
     }
   }
 
@@ -3942,6 +3955,88 @@ window.dialog.message { // Message Dialog styling
   }
 
   entry { @extend %flat_entry; }
+}
+
+/********************
+ * AdwMessageDialog *
+ ********************/
+
+ window.messagedialog {
+  background-color: $suface;
+  color: $text;
+
+  &.csd {
+    outline: none;
+  }
+
+  > windowhandle > box {
+    box-shadow: inset 0 1px $highlight;
+    border-radius: $window_radius $window_radius 0 0;
+  }
+
+  &.tiled, &.maximized {
+    > windowhandle > box {
+      box-shadow: none;
+      border-radius: 0;
+    }
+  }
+
+  .message-area {
+    padding: 24px 30px;
+    border-spacing: 24px;
+
+    &.has-heading.has-body {
+      border-spacing: 10px;
+    }
+  }
+
+  .response-area > button {
+    padding: 10px 14px;
+    border-radius: 0;
+
+    &.suggested {
+      color: $suggested;
+    }
+
+    &.destructive {
+      color: $destructive;
+    }
+  }
+
+  &.csd:not(.solid-csd) {
+    border-radius: $window_radius + 1px;
+
+    .response-area {
+      &:not(.compact) > button {
+        margin-top: -1px;
+        margin-right: -1px;
+        margin-left: -1px;
+
+        &:first-child:dir(ltr),
+        &:last-child:dir(rtl) {
+          border-bottom-left-radius: $window_radius + 1px;
+          margin-left: 0;
+        }
+
+        &:last-child:dir(ltr),
+        &:first-child:dir(rtl) {
+          border-bottom-right-radius: $window_radius + 1px;
+          margin-right: 0;
+        }
+      }
+
+      &.compact > button {
+        margin-top: -1px;
+        margin-bottom: -1px;
+
+        &:first-child {
+          border-bottom-left-radius: $window_radius + 1px;
+          border-bottom-right-radius: $window_radius + 1px;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
 }
 
 filechooser {

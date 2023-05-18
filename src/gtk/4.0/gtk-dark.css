@@ -1674,10 +1674,6 @@ treeview spinbutton:not(.vertical) > text {
   padding: 1px 2px;
 }
 
-dropdown > popover.menu.background > contents {
-  padding: 0;
-}
-
 dropdown > button > box {
   border-spacing: 6px;
 }
@@ -1751,11 +1747,12 @@ combobox popover {
 
 dropdown popover listview,
 combobox popover listview {
-  margin: 6px 0;
+  margin: 0;
 }
 
 dropdown popover listview > row,
 combobox popover listview > row {
+  margin: 0;
   padding: 6px;
 }
 
@@ -2731,6 +2728,7 @@ popover.background {
   color: white;
   background-color: transparent;
   font: initial;
+  padding: 0;
 }
 
 popover.background > arrow,
@@ -2777,14 +2775,14 @@ popover.background.magnifier > contents {
 }
 
 popover.background .linked button:not(.combo) {
-  border-radius: 3px;
-  margin: 0 2px;
+  border-radius: 2px;
+  margin: 0 3px;
 }
 
 popover.background modelbutton {
   min-height: 32px;
   padding: 0 9px;
-  border-radius: 3px;
+  border-radius: 2px;
   color: inherit;
   transition: none;
 }
@@ -2815,7 +2813,7 @@ popover.background modelbutton arrow.right {
   -gtk-icon-source: -gtk-icontheme("go-next-symbolic");
 }
 
-popover.background.menu button,
+popover.background.menu button:not(.circular),
 popover.background button.model {
   margin: 0;
   min-height: 32px;
@@ -3894,6 +3892,10 @@ progressbar.osd {
   min-width: 3px;
   min-height: 3px;
   background-color: transparent;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  border: none;
 }
 
 progressbar.osd > trough {
@@ -4178,14 +4180,14 @@ listview.view {
 }
 
 popover.menu listview.view {
+  border-radius: 2px;
+  margin: 0;
   padding: 0;
-  border-radius: 3px;
 }
 
 popover.menu listview.view > row {
-  margin-left: 0;
-  margin-right: 0;
-  border-radius: 3px;
+  margin: 0;
+  border-radius: 2px;
 }
 
 row {
@@ -4245,6 +4247,15 @@ row.activatable.has-open-popup, row.activatable:active {
 row button.activatable:focus, row button.activatable:hover, row button.activatable:active {
   background-color: transparent;
   background-image: none;
+  box-shadow: none;
+  transition: none;
+  animation: none;
+}
+
+button row.activatable:focus, button row.activatable:hover, button row.activatable:active {
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
   transition: none;
   animation: none;
 }
@@ -4570,6 +4581,81 @@ window.dialog.message.csd .linked.dialog-action-area:not(.vertical) > button:fir
 window.dialog.message.csd .linked.dialog-action-area:not(.vertical) > button:last-child {
   border-bottom-right-radius: 2px;
   border-top-right-radius: 0;
+}
+
+/********************
+ * AdwMessageDialog *
+ ********************/
+window.messagedialog {
+  background-color: #383a3e;
+  color: white;
+}
+
+window.messagedialog.csd {
+  outline: none;
+}
+
+window.messagedialog > windowhandle > box {
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.1);
+  border-radius: 3px 3px 0 0;
+}
+
+window.messagedialog.tiled > windowhandle > box, window.messagedialog.maximized > windowhandle > box {
+  box-shadow: none;
+  border-radius: 0;
+}
+
+window.messagedialog .message-area {
+  padding: 24px 30px;
+  border-spacing: 24px;
+}
+
+window.messagedialog .message-area.has-heading.has-body {
+  border-spacing: 10px;
+}
+
+window.messagedialog .response-area > button {
+  padding: 10px 14px;
+  border-radius: 0;
+}
+
+window.messagedialog .response-area > button.suggested {
+  color: #4285F4;
+}
+
+window.messagedialog .response-area > button.destructive {
+  color: #FF5252;
+}
+
+window.messagedialog.csd:not(.solid-csd) {
+  border-radius: 4px;
+}
+
+window.messagedialog.csd:not(.solid-csd) .response-area:not(.compact) > button {
+  margin-top: -1px;
+  margin-right: -1px;
+  margin-left: -1px;
+}
+
+window.messagedialog.csd:not(.solid-csd) .response-area:not(.compact) > button:first-child:dir(ltr), window.messagedialog.csd:not(.solid-csd) .response-area:not(.compact) > button:last-child:dir(rtl) {
+  border-bottom-left-radius: 4px;
+  margin-left: 0;
+}
+
+window.messagedialog.csd:not(.solid-csd) .response-area:not(.compact) > button:last-child:dir(ltr), window.messagedialog.csd:not(.solid-csd) .response-area:not(.compact) > button:first-child:dir(rtl) {
+  border-bottom-right-radius: 4px;
+  margin-right: 0;
+}
+
+window.messagedialog.csd:not(.solid-csd) .response-area.compact > button {
+  margin-top: -1px;
+  margin-bottom: -1px;
+}
+
+window.messagedialog.csd:not(.solid-csd) .response-area.compact > button:first-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  margin-bottom: 0;
 }
 
 filechooser .dialog-action-box {
@@ -6108,6 +6194,126 @@ statuspage.compact > scrolledwindow > viewport > box > clamp > box > .title {
 
 .card.activatable:active {
   background-image: image(alpha(currentColor, 0.08));
+}
+
+themeselector,
+panelthemeselector {
+  margin: 9px;
+}
+
+themeselector checkbutton,
+panelthemeselector checkbutton {
+  padding: 0;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 1px;
+  background-clip: content-box;
+  border-radius: 9999px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+themeselector checkbutton:hover,
+panelthemeselector checkbutton:hover {
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+themeselector checkbutton:checked,
+panelthemeselector checkbutton:checked {
+  box-shadow: inset 0 0 0 2px #4285F4;
+}
+
+themeselector checkbutton.follow,
+panelthemeselector checkbutton.follow {
+  background-image: linear-gradient(to bottom right, #ffffff 50%, #202020 50%);
+}
+
+themeselector checkbutton.light,
+panelthemeselector checkbutton.light {
+  background-color: #ffffff;
+}
+
+themeselector checkbutton.dark,
+panelthemeselector checkbutton.dark {
+  background-color: #202020;
+}
+
+themeselector checkbutton.theme-selector radio,
+panelthemeselector checkbutton.theme-selector radio {
+  -gtk-icon-source: none;
+  border: none;
+  background: none;
+  box-shadow: none;
+  min-height: 20px;
+  min-width: 20px;
+  padding: 0;
+}
+
+themeselector checkbutton.theme-selector radio:hover, themeselector checkbutton.theme-selector radio:active, themeselector checkbutton.theme-selector radio:checked,
+panelthemeselector checkbutton.theme-selector radio:hover,
+panelthemeselector checkbutton.theme-selector radio:active,
+panelthemeselector checkbutton.theme-selector radio:checked {
+  background-color: transparent;
+}
+
+themeselector checkbutton.theme-selector radio:checked,
+panelthemeselector checkbutton.theme-selector radio:checked {
+  -gtk-icon-size: 20px;
+  -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/scalable/check-symbolic.svg")));
+  color: white;
+  background-image: image(#4285F4);
+}
+
+themeswitcher {
+  padding: 6px;
+}
+
+themeswitcher .check {
+  min-height: 20px;
+  min-width: 20px;
+  background: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 9999px;
+  color: white;
+  background-image: image(#4285F4);
+}
+
+themeswitcher checkbutton {
+  padding: 0;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 1px;
+  background-clip: content-box;
+  border-radius: 9999px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+themeswitcher checkbutton:checked {
+  box-shadow: inset 0 0 0 2px #4285F4;
+}
+
+themeswitcher checkbutton radio, themeswitcher checkbutton radio:hover, themeswitcher checkbutton radio:active, themeswitcher checkbutton radio:checked, themeswitcher checkbutton radio:checked:hover, themeswitcher checkbutton radio:checked:active {
+  background-color: transparent;
+  border: none;
+  background: none;
+  box-shadow: none;
+  color: transparent;
+  -gtk-icon-source: none;
+  -gtk-icon-size: 0;
+}
+
+themeswitcher checkbutton.system {
+  background: linear-gradient(-45deg, #1e1e1e 50%, white 50%);
+}
+
+themeswitcher checkbutton.light {
+  color: alpha(black, 0.8);
+  background-color: white;
+}
+
+themeswitcher checkbutton.dark {
+  color: white;
+  background-color: #1e1e1e;
 }
 
 /* GTK NAMED COLORS

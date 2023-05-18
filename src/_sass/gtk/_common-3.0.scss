@@ -1902,18 +1902,18 @@ menu,
 
   separator,
   .csd & separator {
-      margin: 3px 0;
-      border-bottom: 1px solid $border;
-      color: transparent;
-      background-color: transparent;
-    }
+    margin: $space_size / 2 0;
+    border-bottom: 1px solid $border;
+    color: transparent;
+    background-color: transparent;
+  }
 }
 
 menuitem {
   accelerator { color: gtkalpha(currentColor, 0.45); }
 }
 
-.csd.popup { border-radius: 2px; }
+.csd.popup { border-radius: $menu_radius; }
 
 //
 // Popovers

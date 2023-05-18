@@ -561,3 +561,115 @@ statuspage {
     }
   }
 }
+
+// ThemeSelector
+themeselector, // Gnome text editor
+panelthemeselector { // Gnome builder
+  margin: $space_size * 1.5;
+
+  checkbutton {
+    padding: 0;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 1px;
+    background-clip: content-box;
+    border-radius: $circular-radius;
+    box-shadow: inset 0 0 0 1px $border;
+
+    &:hover {
+      box-shadow: inset 0 0 0 2px $text-secondary-disabled;
+    }
+
+    &:checked {
+      box-shadow: inset 0 0 0 2px $primary;
+    }
+
+    &.follow {
+      background-image: linear-gradient(to bottom right, #ffffff 50%, #202020 50%);
+    }
+
+    &.light {
+      background-color: #ffffff;
+    }
+
+    &.dark {
+      background-color: #202020;
+    }
+
+    &.theme-selector radio {
+      -gtk-icon-source: none;
+      border: none;
+      background: none;
+      box-shadow: none;
+      min-height: 20px;
+      min-width: 20px;
+      padding: 0;
+
+      &:hover, &:active, &:checked {
+        background-color: transparent;
+      }
+
+      &:checked {
+        -gtk-icon-size: 20px;
+        -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/scalable/check-symbolic.svg")));
+        color: on($primary);
+        background-image: image($primary);
+      }
+    }
+  }
+}
+
+themeswitcher { // Gnome console
+  padding: $space_size;
+
+  .check {
+    min-height: 20px;
+    min-width: 20px;
+    background: none;
+    padding: 0;
+    margin: 0;
+    border-radius: $circular_radius;
+    color: on($primary);
+    background-image: image($primary);
+  }
+
+  checkbutton {
+    padding: 0;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 1px;
+    background-clip: content-box;
+    border-radius: $circular_radius;
+    box-shadow: inset 0 0 0 1px $border;
+
+    &:checked {
+      box-shadow: inset 0 0 0 2px $primary;
+    }
+
+    radio {
+      &, &:hover, &:active, &:checked, &:checked:hover, &:checked:active {
+        background-color: transparent;
+        border: none;
+        background: none;
+        box-shadow: none;
+        color: transparent;
+        -gtk-icon-source: none;
+        -gtk-icon-size: 0;
+      }
+    }
+
+    &.system {
+      background: linear-gradient(-45deg, #1e1e1e 50%, white 50%);
+    }
+
+    &.light {
+      color: gtkalpha(black, .8);
+      background-color: white;
+    }
+
+    &.dark {
+      color: white;
+      background-color: #1e1e1e;
+    }
+  }
+}

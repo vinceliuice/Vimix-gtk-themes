@@ -1792,7 +1792,7 @@ headerbar {
   .linked > entry,
   .linked entry + button,
   .linked entry + button.image-button,
-  .linked entry + button.text-button, {
+  .linked entry + button.text-button {
     &, &:hover, &:active, &:checked, &:disabled {
       border-radius: $button_radius;
     }
@@ -3838,11 +3838,6 @@ calendar {
     > label {
       border-radius: 3px;
     }
-    > label.day-name {
-    }
-
-    > label.week-number {
-    }
 
     > label.today {
       background-color: rgba($text, 0.15);
@@ -4484,9 +4479,6 @@ colorswatch {
     opacity: 0.3;
 
     overlay { box-shadow: none; }
-  }
-
-  row:selected & {
   }
 
   &#editor-color-sample {

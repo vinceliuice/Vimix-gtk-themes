@@ -32,7 +32,7 @@
 
 // overall menu
 #calendarArea {
-  padding: $base_padding 0;
+  padding: $base_margin 0;
 }
 
 // Calendar menu side column
@@ -59,8 +59,7 @@
 }
 
 .datemenu-today-button,
-.datemenu-displays-box,
-.message-list-sections {
+.datemenu-displays-box {
   margin: $base_margin $base_spacing;
 }
 
@@ -255,10 +254,12 @@
 // Events
 .events-button {
   .events-box {
+    color: $text-secondary;
     spacing: $base_spacing;
   }
 
   .events-list {
+    color: $text-secondary;
     spacing: 2 * $base_spacing;
     text-shadow: none;
   }

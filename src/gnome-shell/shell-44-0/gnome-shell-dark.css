@@ -375,7 +375,7 @@ StWidget.focused .app-well-app-running-dot {
 }
 
 #calendarArea {
-  padding: 6px 0;
+  padding: 4px 0;
 }
 
 .datemenu-calendar-column {
@@ -412,8 +412,7 @@ StWidget.focused .app-well-app-running-dot {
 }
 
 .datemenu-today-button,
-.datemenu-displays-box,
-.message-list-sections {
+.datemenu-displays-box {
   margin: 4px 6px;
 }
 
@@ -605,10 +604,12 @@ StWidget.focused .app-well-app-running-dot {
 }
 
 .events-button .events-box {
+  color: rgba(255, 255, 255, 0.7);
   spacing: 6px;
 }
 
 .events-button .events-list {
+  color: rgba(255, 255, 255, 0.7);
   spacing: 12px;
   text-shadow: none;
 }
@@ -2455,6 +2456,10 @@ StEntry StLabel.hint-text {
   box-shadow: none;
   margin: 0;
   border-radius: 0 !important;
+}
+
+.popup-menu .popup-sub-menu .popup-menu-item {
+  background-color: transparent;
 }
 
 .popup-menu .popup-inactive-menu-item {

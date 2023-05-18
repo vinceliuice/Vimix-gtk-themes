@@ -797,10 +797,6 @@ button.color {
   min-height: $small_size;
   min-width: $small_size;
   padding: $space_size;
-
-  colorswatch:only-child {
-    // &, overlay { border-radius: 0; }
-  }
 }
 
 //
@@ -2807,8 +2803,10 @@ progressbar {
   progress { background-color: $primary; border-radius: 6px; }
 
   &.osd { // progressbar.osd used for epiphany page loading progress
-    progress {
-    }
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    border: none;
   }
 }
 
@@ -3623,9 +3621,6 @@ colorswatch {
     opacity: 0.3;
 
     overlay { box-shadow: none; }
-  }
-
-  row:selected & {
   }
 
   &#editor-color-sample {

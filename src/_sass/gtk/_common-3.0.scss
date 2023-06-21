@@ -2905,7 +2905,7 @@ frame {
     margin: 4px;
   }
 
-  list {
+  &:not(.raven-frame) list {
     border-radius: $button_radius;
 
     > row {
@@ -2919,8 +2919,8 @@ frame {
     border-radius: 0;
 
     > row {
-      &:first-child { border-radius: 0 0 0 0; }
-      &:last-child { border-radius: 0 0 0 0; }
+      &:first-child { border-radius: 0; }
+      &:last-child { border-radius: 0; }
     }
   }
 }

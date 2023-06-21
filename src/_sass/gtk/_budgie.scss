@@ -930,16 +930,23 @@ image.raven-mpris {
 }
 
 // notification list
-box.vertical > stack > box.vertical {
+frame.raven-frame .raven .raven-notifications-view {
   > .raven-background > viewport.frame {
     padding: 0; // reset padding for full-width list node
 
-    list { background-color: transparent; }
+    list {
+      background-color: transparent;
+      border-radius: 0;
+    }
 
     > list > row.activatable {
-      margin-left: -8px;
-      margin-right: -2px;
+      margin-left: -6px;
+      margin-right: -6px;
       background-color: transparent;
+
+      &, &:first-child, &:last-child {
+        border-radius: 0;
+      }
 
       > grid > *, // legacy
       > box.vertical * { color: $text; }
@@ -955,7 +962,7 @@ box.vertical > stack > box.vertical {
 
       // sub-list rows grouping
       list {
-        border-radius: 2px;
+        border-radius: 0;
         border-top: 1px solid $border;
         border-bottom: 1px solid $border;
 

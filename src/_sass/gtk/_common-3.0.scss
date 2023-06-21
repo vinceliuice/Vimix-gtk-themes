@@ -1242,6 +1242,11 @@ headerbar {
 
   .dim-label { color: on($header, secondary); }
 
+  .titlebar > & {
+    border-radius: $window_radius $window_radius 0 0;
+    box-shadow: inset 0 1px $highlight, inset 0 -1px $border;
+  }
+
   entry,
   spinbutton,
   separator,
@@ -1579,10 +1584,11 @@ headerbar {
   }
 }
 
-window.background > box.vertical > headerbar:not(.titlebar) { // reset headerbar style for not CSD window
-  &, &:backdrop { background-color: $header; }
-  border-radius: 0 0 0 0;
+window.background > box.vertical:not(.titlebar) > headerbar:not(.titlebar) { // reset headerbar style for not CSD window
+  border-radius: 0;
   box-shadow: none;
+
+  &, &:backdrop { background-color: $header; }
 
   // Fixes split headerbars
   separator:first-child + &,
@@ -1950,6 +1956,7 @@ popover.background {
   button.model {
     margin: 0;
     min-height: $medium_size - 4px;
+    min-width: 32px;
     padding: 0 $space_size;
     box-shadow: none;
   }

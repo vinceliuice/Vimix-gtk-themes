@@ -3037,10 +3037,6 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   height: 32px;
 }
 
-#dash .overview-icon {
-  padding: 4.5px;
-}
-
 .dash-background {
   background-color: rgba(255, 255, 255, 0.3);
   margin-bottom: 16px;
@@ -3048,7 +3044,23 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   border-radius: 13px;
 }
 
-.dash-item-container .app-well-app, .show-apps {
+.dash-item-container > * {
+  margin: 0;
+}
+
+.dash-item-container:ltr:first-child {
+  margin-left: 0;
+}
+
+.dash-item-container:rtl:first-child {
+  margin-right: 0;
+}
+
+.dash-item-container .overview-icon {
+  padding: 4.5px;
+}
+
+.dash-item-container .app-well-app, .dash-item-container .show-apps {
   padding: 9px 3px 25px;
 }
 

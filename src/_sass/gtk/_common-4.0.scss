@@ -305,8 +305,8 @@ spinner {
 }
 
 entry {
-  min-height: $medium_size;
-  padding: 0 8px;
+  min-height: 24px;
+  padding: ($medium_size - 24px) / 2 $space_size + 2px;
   border-radius: $button_radius;
 
   @include entry(normal);
@@ -1673,6 +1673,8 @@ headerbar {
   }
 
   // Reset margins for buttons inside menubutton
+  entry > button,
+  entry > menubutton,
   menubutton > button,
   spinbutton > button,
   splitbutton > button,

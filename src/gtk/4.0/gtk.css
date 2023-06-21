@@ -331,8 +331,8 @@ notebook > stack:not(:only-child) spinbutton:disabled:not(.vertical), popover.ba
 }
 
 entry {
-  min-height: 36px;
-  padding: 0 8px;
+  min-height: 24px;
+  padding: 6px 8px;
   border-radius: 3px;
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
   border: none;
@@ -631,7 +631,7 @@ button:active {
 
 button:disabled {
   box-shadow: none;
-  background-color: rgba(0, 0, 0, 0.12);
+  background-color: rgba(255, 255, 255, 0.45);
   color: rgba(0, 0, 0, 0.26);
   opacity: 1;
   filter: none;
@@ -1198,7 +1198,7 @@ button.suggested-action:hover {
 
 button.suggested-action:disabled {
   box-shadow: none;
-  background-color: rgba(0, 0, 0, 0.12);
+  background-color: rgba(66, 133, 244, 0.45);
   color: rgba(255, 255, 255, 0.3);
   opacity: 1;
   filter: none;
@@ -1269,7 +1269,7 @@ button.destructive-action:hover {
 
 button.destructive-action:disabled {
   box-shadow: none;
-  background-color: rgba(0, 0, 0, 0.12);
+  background-color: rgba(255, 82, 82, 0.45);
   color: rgba(255, 255, 255, 0.3);
   opacity: 1;
   filter: none;
@@ -2090,6 +2090,8 @@ headerbar .pathbar {
   margin-bottom: 6px;
 }
 
+headerbar entry > button,
+headerbar entry > menubutton,
 headerbar menubutton > button,
 headerbar spinbutton > button,
 headerbar splitbutton > button,
@@ -3703,7 +3705,7 @@ scale > trough {
 }
 
 scale > trough:disabled {
-  background-color: rgba(0, 0, 0, 0.12);
+  background-color: rgba(0, 0, 0, 0.15);
 }
 
 scale > trough > slider {
@@ -6005,6 +6007,25 @@ window.background.csd > contents > box .history-view {
 
 window.background.csd > contents > box .math-buttons button.clear-button.image-button {
   border-radius: 3px;
+}
+
+entry.location-entry {
+  padding: 6px;
+}
+
+entry.location-entry > text {
+  margin: 0 6px;
+}
+
+entry.location-entry > progress {
+  margin: 0;
+}
+
+entry.location-entry > button.image-button,
+entry.location-entry > menubutton > button.image-button {
+  min-height: 24px;
+  min-width: 24px;
+  padding: 0;
 }
 
 label.clock-time.numeric {

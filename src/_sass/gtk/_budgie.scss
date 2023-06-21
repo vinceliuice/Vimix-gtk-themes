@@ -272,12 +272,11 @@
     entry.search { background-color: transparent; }
 
     entry.search {
-      border-bottom: 1px solid $border;
-      border-radius: 0;
-      box-shadow: none;
+      @include entry(flat-normal);
+      box-shadow: inset 0 -1px $border;
       font-size: 120%;
 
-      &:focus { box-shadow: none; }
+      &:focus { @include entry(flat-focus); }
     }
 
     .sidebar {

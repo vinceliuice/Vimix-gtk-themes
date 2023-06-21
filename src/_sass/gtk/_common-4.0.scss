@@ -572,6 +572,50 @@ $_dot_color: if($variant=='light', $primary, lighten($primary, 15%));
   }
 }
 
+%linked_middle {
+  border-radius: 0;
+}
+
+%linked {
+  @extend %linked_middle;
+
+  &:first-child {
+    border-top-left-radius: $button_radius;
+    border-bottom-left-radius: $button_radius;
+  }
+
+  &:last-child {
+    border-top-right-radius: $button_radius;
+    border-bottom-right-radius: $button_radius;
+  }
+
+  &:only-child {
+    border-radius: $button_radius;
+  }
+}
+
+%linked_vertical_middle {
+  border-radius: 0;
+}
+
+%linked_vertical{
+  @extend %linked_vertical_middle;
+
+  &:first-child {
+    border-top-left-radius: $button_radius;
+    border-top-right-radius: $button_radius;
+  }
+
+  &:last-child {
+    border-bottom-left-radius: $button_radius;
+    border-bottom-right-radius: $button_radius;
+  }
+
+  &:only-child {
+    border-radius: $button_radius;
+  }
+}
+
 button {
   min-height: 24px;
   min-width: 16px;
@@ -811,6 +855,7 @@ button {
       background-color: $b_color;
       color: on($b_color);
       box-shadow: $shadow_1;
+      @include ripple(flat, $c: $b_color);
 
       &:hover {
         @include button(hover, $b_color, on($primary));
@@ -1113,50 +1158,6 @@ buttoncontent {
   background-size: 6px 6px;
 
   &:dir(rtl) { background-position: left 3px; }
-}
-
-%linked_middle {
-  border-radius: 0;
-}
-
-%linked {
-  @extend %linked_middle;
-
-  &:first-child {
-    border-top-left-radius: $button_radius;
-    border-bottom-left-radius: $button_radius;
-  }
-
-  &:last-child {
-    border-top-right-radius: $button_radius;
-    border-bottom-right-radius: $button_radius;
-  }
-
-  &:only-child {
-    border-radius: $button_radius;
-  }
-}
-
-%linked_vertical_middle {
-  border-radius: 0;
-}
-
-%linked_vertical{
-  @extend %linked_vertical_middle;
-
-  &:first-child {
-    border-top-left-radius: $button_radius;
-    border-top-right-radius: $button_radius;
-  }
-
-  &:last-child {
-    border-bottom-left-radius: $button_radius;
-    border-bottom-right-radius: $button_radius;
-  }
-
-  &:only-child {
-    border-radius: $button_radius;
-  }
 }
 
 button.color {
@@ -3870,10 +3871,10 @@ calendar {
 // Dialogs
 //
 window.dialog.message { // Message Dialog styling
-  &.background { background-color: $suface; }
+  background-color: $suface;
 
-  box.dialog-vbox.vertical {
-    border-spacing: 10px;
+  .dialog-vbox {
+    border-spacing: $space_size * 2;
   }
 
   .titlebar {
@@ -3886,69 +3887,26 @@ window.dialog.message { // Message Dialog styling
     &:backdrop { color: $text-secondary; }
   }
 
-  .linked:not(.vertical).dialog-action-area > button {
-    padding: 4px 12px;
+  &.background {
+    // bigger radius for better antialiasing
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+  }
+
+  .dialog-action-area {
     border-top: 1px solid $border;
-    border-radius: 0;
-    @extend %flat_button;
 
-    &:first-child {
-      border-bottom-left-radius: 0;
-      border-top-left-radius: 0;
-    }
-
-    &:last-child {
-      border-bottom-right-radius: 0;
-      border-top-right-radius: 0;
-    }
-  }
-
-  @each $b_type, $b_color in (suggested-action, $suggested),
-                             (destructive-action, $destructive) {
-    .linked:not(.vertical).dialog-action-area > button.#{$b_type} {
-      color: $b_color;
-      transition: $shorter_transition,
-                  $shadow_transition,
-                  background-size $ripple_duration $deceleration_curve,
-                  background-image $ripple_opacity_duration $deceleration_curve;
-
-      &:hover {
-        color: $b_color;
-        background-color: transparent;
-      }
-
-      &:active {
-        transition: $shorter_transition;
-        color: on($primary);
-        border-color: rgba($b_color, 0.75);
-        box-shadow: inset 0 0 0 9999px rgba($b_color, 0.5);
-      }
-
-      &:disabled { opacity: 0.65; }
-    }
-  }
-
-  &.csd { // rounded bottom border styling for csd version
-    &.background {
-      // bigger radius for better antialiasing
-      border-bottom-left-radius: 2px;
-      border-bottom-right-radius: 2px;
-    }
-
-    .linked:not(.vertical).dialog-action-area > button {
+    > button {
       padding: 8px 16px;
-      border-top: 1px solid $border;
       border-radius: 0;
       @extend %flat_button;
 
-      &:first-child {
-        border-bottom-left-radius: 2px;
-        border-top-left-radius: 0;
+      &.suggested-action {
+        color: $suggested;
       }
 
-      &:last-child {
-        border-bottom-right-radius: 2px;
-        border-top-right-radius: 0;
+      &.destructive-action {
+        color: $destructive;
       }
     }
   }

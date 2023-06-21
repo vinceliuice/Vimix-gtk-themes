@@ -4544,18 +4544,14 @@ window {
   outline: none;
 
   &.csd {
-    transition: $shadow_transition;
+    transition: none;
     border-radius: $window_radius;
     box-shadow: $shadow_5, 0 16px 16px 2px rgba(black, 0), 0 6px 18px 5px rgba(black, 0);
     margin: 0;
 
     &:backdrop {
+      transition: $shadow_transition;
       box-shadow: $shadow_4, 0 16px 16px 2px rgba(black, 0), 0 6px 18px 5px rgba(black, 0);
-    }
-
-    &.dialog.message {
-      border-radius: $window_radius;
-      box-shadow: $shadow_4;
     }
 
     &.maximized,

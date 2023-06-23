@@ -478,6 +478,55 @@ window.background.csd {
   }
 }
 
+.display-container {
+  .small &.card {
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .history-view { background-color: $base; }
+
+  #displayitem {
+    padding: 0 12px 8px 0;
+    font-size: 1.4em;
+    border-top: 1px solid $border;
+  }
+}
+
+mathconverter {
+  > box {
+    margin: $space_size * 2 $space_size * 2 0;
+  }
+}
+
+.converter {
+  margin: $space_size $space_size * 2;
+}
+
+.math-buttons {
+  > grid {
+    margin: $space_size * 2;
+  }
+
+  button {
+    font-size: 1.1em;
+  }
+}
+
+leaflet {
+  button.number-button {
+    background-color: rgba($text, 0.1);
+
+    &:hover {
+      background-color: rgba($text, 0.2);
+    }
+
+    &:active {
+      background-color: rgba($text, 0.3);
+    }
+  }
+}
+
 //
 // Gnome Web
 //

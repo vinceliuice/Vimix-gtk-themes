@@ -146,7 +146,7 @@ tab label:disabled, button label:disabled {
   color: inherit;
 }
 
-.dim-label, row.expander:not(:checked) image.expander-row-arrow, row label.subtitle, headerbar .subtitle, entry > text > placeholder, label.separator {
+.dim-label, row.expander image.expander-row-arrow, row label.subtitle, headerbar .subtitle, entry > text > placeholder, label.separator {
   color: rgba(255, 255, 255, 0.45);
   opacity: 1;
 }
@@ -2792,6 +2792,7 @@ popover.background > contents {
 }
 
 popover.background > contents > list,
+popover.background > contents > scrolledwindow > viewport > list,
 popover.background > contents > .view,
 popover.background > contents > toolbar {
   border-style: none;
@@ -2803,8 +2804,12 @@ popover.background > contents separator {
   margin: 3px 0;
 }
 
-popover.background > contents list separator {
+popover.background > contents list > row, popover.background > contents list separator {
   margin: 0;
+}
+
+popover.background > contents list > row {
+  border-radius: 2px;
 }
 
 .osd popover.background, popover.background.touch-selection, popover.background.magnifier {
@@ -4337,6 +4342,10 @@ row.expander list.nested {
   color: inherit;
 }
 
+row.expander image.expander-row-arrow {
+  transition: -gtk-icon-transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
 row.expander image.expander-row-arrow:dir(ltr) {
   margin-left: 6px;
 }
@@ -4345,28 +4354,29 @@ row.expander image.expander-row-arrow:dir(rtl) {
   margin-right: 6px;
 }
 
+row.expander image.expander-row-arrow:dir(ltr) {
+  -gtk-icon-transform: rotate(0.5turn);
+}
+
+row.expander image.expander-row-arrow:dir(rtl) {
+  -gtk-icon-transform: rotate(-0.5turn);
+}
+
+row.expander image.expander-row-arrow:disabled {
+  filter: opacity(0.45);
+}
+
 row.expander:checked image.expander-row-arrow {
   -gtk-icon-transform: rotate(0turn);
-}
-
-row.expander:not(:checked) image.expander-row-arrow:dir(ltr) {
-  -gtk-icon-transform: rotate(-0.25turn);
-}
-
-row.expander:not(:checked) image.expander-row-arrow:dir(rtl) {
-  -gtk-icon-transform: rotate(0.25turn);
+  opacity: 1;
 }
 
 row.expander:checked image.expander-row-arrow:not(:disabled) {
-  color: #18b8ff;
+  color: #4285F4;
 }
 
 .osd row.expander:checked image.expander-row-arrow:not(:disabled) {
   color: inherit;
-}
-
-row.expander image.expander-row-arrow:disabled {
-  filter: opacity(0.35);
 }
 
 list.content > row.expander,
@@ -5801,6 +5811,45 @@ window.background.nautilus-window .nautilus-grid-view gridview > child.activatab
   margin: 8px;
 }
 
+label.primary-label, label.month-name, label.secondary-label {
+  font-size: 16pt;
+  font-weight: bold;
+  padding: 12px;
+}
+
+label.primary-label, label.month-name {
+  color: #4285F4;
+}
+
+label.secondary-label {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+calendar-view {
+  font-size: 10pt;
+}
+
+calendar-view:selected {
+  color: #4285F4;
+  font-weight: bold;
+}
+
+calendar-view.header,
+label.header {
+  font-size: 10pt;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+calendar-view.current,
+weekgrid.current {
+  background-color: alpha(#4285F4, 0.3);
+}
+
+datechooser.view {
+  padding: 6px;
+}
+
 datechooser.view button.flat.pill, datechooser.view button.circular.day {
   min-height: 24px;
   min-width: 24px;
@@ -5810,6 +5859,25 @@ datechooser.view button.flat.pill, datechooser.view button.circular.day {
 
 datechooser.view .current-week {
   background-color: rgba(255, 255, 255, 0.12);
+}
+
+headerbar.titlebar menubutton.sources-button {
+  margin: 0;
+}
+
+headerbar.titlebar menubutton.sources-button > button {
+  border-radius: 0;
+}
+
+window.background > contents > toastoverlay > leaflet > box > headerbar {
+  border-top-left-radius: 0;
+}
+
+flowboxchild.card {
+  padding: 0;
+  margin: 0;
+  box-shadow: 0;
+  background-color: transparent;
 }
 
 flowboxchild > button.card.category-tile {

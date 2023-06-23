@@ -166,7 +166,47 @@ window.background.nautilus-window {
 // Calendar
 //
 
+// labels
+label {
+  &.primary-label, &.month-name, &.secondary-label {
+    font-size: 16pt;
+    font-weight: bold;
+    padding: $space_size * 2;
+  }
+
+  &.primary-label, &.month-name {
+    color: $primary;
+  }
+
+  &.secondary-label {
+    color: $text_disabled;
+  }
+}
+
+calendar-view {
+  font-size: 10pt;
+
+  &:selected {
+    color: $primary;
+    font-weight: bold;
+  }
+}
+
+calendar-view.header,
+label.header {
+  font-size: 10pt;
+  font-weight: bold;
+  color: $text_disabled;
+}
+
+calendar-view.current,
+weekgrid.current {
+  background-color: gtkalpha($primary, 0.3);
+}
+
 datechooser.view {
+  padding: $space_size;
+
   button.flat.pill, button.circular.day {
     min-height: $small_size;
     min-width: $small_size;
@@ -187,17 +227,42 @@ datechooser.view {
   }
 }
 
+headerbar.titlebar {
+  menubutton.sources-button {
+    margin: 0;
+
+    > button {
+      border-radius: 0;
+    }
+  }
+}
+
+window.background {
+  > contents > toastoverlay > leaflet > box > headerbar {
+    border-top-left-radius: 0;
+  }
+}
+
 //
 // Gnome Software
 //
 
-flowboxchild > button.card {
-  &.category-tile {
-    padding: $space_size * 3.5;
+flowboxchild {
+  &.card {
+    padding: 0;
+    margin: 0;
+    box-shadow: 0;
+    background-color: transparent;
   }
 
-  &.category-tile-iconless {
-    padding: $space_size * 1.5 $space_size * 2.5;
+  > button.card {
+    &.category-tile {
+      padding: $space_size * 3.5;
+    }
+  
+    &.category-tile-iconless {
+      padding: $space_size * 1.5 $space_size * 2.5;
+    }
   }
 }
 

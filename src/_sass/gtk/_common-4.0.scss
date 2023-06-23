@@ -2271,6 +2271,7 @@ popover.background {
     border-radius: $menu_radius;
 
     > list,
+    > scrolledwindow > viewport > list,
     > .view,
     > toolbar {
       border-style: none;
@@ -2282,8 +2283,14 @@ popover.background {
       margin: $space_size / 2 0;
     }
 
-    list separator {
-      margin: 0;
+    list {
+       > row, separator {
+        margin: 0;
+      }
+
+      > row {
+        border-radius: $base_radius;
+      }
     }
   }
 
@@ -3654,37 +3661,36 @@ row.expander {
   }
 
   // AdwExpanderRow arrow rotation
-
   image.expander-row-arrow {
-    @include margin-start(6px);
+    @extend .dim-label;
+
+    transition: -gtk-icon-transform 200ms $deceleration_curve;
+    @include margin-start($space_size);
+
+    &:dir(ltr) {
+      -gtk-icon-transform: rotate(0.5turn);
+    }
+
+    &:dir(rtl) {
+      -gtk-icon-transform: rotate(-0.5turn);
+    }
+
+    &:disabled {
+      filter: opacity(0.45);
+    }
   }
 
   &:checked image.expander-row-arrow {
     -gtk-icon-transform: rotate(0turn);
-  }
+    opacity: 1;
 
-  &:not(:checked) image.expander-row-arrow {
-    @extend .dim-label;
-
-    &:dir(ltr) {
-      -gtk-icon-transform: rotate(-0.25turn);
+    &:not(:disabled) {
+      color: $primary;
     }
-
-    &:dir(rtl) {
-      -gtk-icon-transform: rotate(0.25turn);
-    }
-  }
-
-  &:checked image.expander-row-arrow:not(:disabled) {
-    color: $accent;
   }
 
   .osd &:checked image.expander-row-arrow:not(:disabled) {
     color: inherit;
-  }
-
-  image.expander-row-arrow:disabled {
-    filter: opacity(0.35);
   }
 }
 

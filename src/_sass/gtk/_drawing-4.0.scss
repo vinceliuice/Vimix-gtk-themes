@@ -35,7 +35,7 @@
     border: none;
     border-image: none;
     box-shadow: $shadow_1;
-    background-color: if($fc != $primary, $fc, $base);
+    background-color: if($fc != $indicator, $fc, $base);
     color: if($fc != $indicator, on($indicator), $text-secondary);
     outline: none;
   }

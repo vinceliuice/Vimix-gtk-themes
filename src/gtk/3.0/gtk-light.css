@@ -1950,11 +1950,12 @@ headerbar separator {
   border-top-right-radius: 3px;
 }
 
-separator:first-child + .titlebar, .titlebar:first-child, .titlebar headerbar:first-child {
+separator:first-child + .titlebar,
+.titlebar headerbar:first-child:not(:only-child) {
   border-top-right-radius: 0;
 }
 
-.titlebar:last-child, .titlebar headerbar:last-child {
+.titlebar headerbar:last-child:not(:only-child) {
   border-top-left-radius: 0;
 }
 
@@ -5092,12 +5093,8 @@ filechooser placessidebar.sidebar row.sidebar-row:selected:hover,
   margin-top: -1px;
 }
 
-paned.titlebar.horizontal > headerbar {
-  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.35);
-}
-
-paned.titlebar.horizontal > separator {
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.35);
+paned.titlebar.horizontal > headerbar, paned.titlebar.horizontal > separator {
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.35), inset 0 -1px rgba(0, 0, 0, 0.12);
 }
 
 .open-document-selector-name-label {
@@ -5711,6 +5708,8 @@ window.background.csd > headerbar.titlebar > hdyleaflet > separator.sidebar,
 window.background.csd > headerbar.titlebar > leaflet > separator.sidebar {
   border-right-style: none;
   background: none;
+  margin: 0;
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.12);
 }
 
 window.background.csd > headerbar.titlebar > leaflet > headerbar,
@@ -6572,7 +6571,7 @@ window#GearyMainWindow.background.csd statusbar frame {
 .geary-main-window.background.csd.unified > deck > overlay > .geary-main-layout > leaflet > leaflet > separator.sidebar {
   border-right: none;
   background-color: #eeeeee;
-  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.35), inset 0 -1px rgba(0, 0, 0, 0.12);
 }
 
 .geary-main-window.background.csd.unified > deck > overlay > .geary-main-layout > leaflet > leaflet > box.vertical + separator.sidebar {

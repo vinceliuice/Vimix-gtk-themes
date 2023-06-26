@@ -331,12 +331,8 @@ filechooser,
 // gedit
 //
 paned.titlebar.horizontal { // show border
-  > headerbar {
-    box-shadow: inset 0 -1px $border, inset 0 1px $highlight;
-  }
-
-  > separator {
-    box-shadow: inset 0 1px $highlight;
+  > headerbar, > separator {
+    box-shadow: inset 0 1px $highlight, inset 0 -1px $border;
   }
 }
 
@@ -969,6 +965,8 @@ window.background.csd {
     > leaflet > separator.sidebar {
       border-right-style: none;
       background: none;
+      margin: 0;
+      box-shadow: inset 0 -1px $border;
     }
 
     > leaflet > headerbar, // Gnome 3.38
@@ -1840,7 +1838,7 @@ window#GearyMainWindow.background.csd {
     > leaflet > leaflet > separator.sidebar { // left
       border-right: none;
       background-color: $header;
-      box-shadow: inset 0 -1px $border;
+      box-shadow: inset 0 1px $highlight, inset 0 -1px $border;
 
       // &:backdrop { background-color: $header; }
     }

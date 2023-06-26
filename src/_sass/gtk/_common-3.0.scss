@@ -1507,8 +1507,8 @@ headerbar {
   }
 
   separator:first-child + &, // tackles the paned container case
-  &:first-child, headerbar:first-child { border-top-right-radius: 0; }
-  &:last-child, headerbar:last-child { border-top-left-radius: 0; }
+  headerbar:first-child:not(:only-child) { border-top-right-radius: 0; }
+  headerbar:last-child:not(:only-child) { border-top-left-radius: 0; }
 
   separator, separator.sidebar { box-shadow: inset 0 1px $highlight, inset 0 -1px $border; }
 

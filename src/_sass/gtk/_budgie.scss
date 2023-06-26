@@ -939,9 +939,9 @@ frame.raven-frame .raven .raven-notifications-view {
     }
 
     > list > row.activatable {
-      margin-left: -6px;
-      margin-right: -6px;
+      margin: 0;
       background-color: transparent;
+      border-bottom: 1px solid $border;
 
       &, &:first-child, &:last-child {
         border-radius: 0;
@@ -962,15 +962,19 @@ frame.raven-frame .raven .raven-notifications-view {
       // sub-list rows grouping
       list {
         border-radius: 0;
-        border-top: 1px solid $border;
-        border-bottom: 1px solid $border;
+        border: none;
 
         > row.activatable {
-          border-bottom: 1px solid $border;
-          &:last-child { border-bottom: none; }
+          border: none;
+          border-radius: $button_radius;
+          background-color: $fill;
 
-          &:selected {
-            background-color: rgba($text, 0.06);
+          &:not(:first-child) {
+            margin-top: $space_size;
+          }
+
+          &:selected, &:hover {
+            background-color: $divider;
           }
 
           label { padding: 0 16px; }

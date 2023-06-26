@@ -8387,9 +8387,9 @@ frame.raven-frame .raven .raven-notifications-view > .raven-background > viewpor
 }
 
 frame.raven-frame .raven .raven-notifications-view > .raven-background > viewport.frame > list > row.activatable {
-  margin-left: -6px;
-  margin-right: -6px;
+  margin: 0;
   background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 frame.raven-frame .raven .raven-notifications-view > .raven-background > viewport.frame > list > row.activatable, frame.raven-frame .raven .raven-notifications-view > .raven-background > viewport.frame > list > row.activatable:first-child, frame.raven-frame .raven .raven-notifications-view > .raven-background > viewport.frame > list > row.activatable:last-child {
@@ -8417,20 +8417,21 @@ frame.raven-frame .raven .raven-notifications-view > .raven-background > viewpor
 
 frame.raven-frame .raven .raven-notifications-view > .raven-background > viewport.frame > list > row.activatable list {
   border-radius: 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border: none;
 }
 
 frame.raven-frame .raven .raven-notifications-view > .raven-background > viewport.frame > list > row.activatable list > row.activatable {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border: none;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
-frame.raven-frame .raven .raven-notifications-view > .raven-background > viewport.frame > list > row.activatable list > row.activatable:last-child {
-  border-bottom: none;
+frame.raven-frame .raven .raven-notifications-view > .raven-background > viewport.frame > list > row.activatable list > row.activatable:not(:first-child) {
+  margin-top: 6px;
 }
 
-frame.raven-frame .raven .raven-notifications-view > .raven-background > viewport.frame > list > row.activatable list > row.activatable:selected {
-  background-color: rgba(255, 255, 255, 0.06);
+frame.raven-frame .raven .raven-notifications-view > .raven-background > viewport.frame > list > row.activatable list > row.activatable:selected, frame.raven-frame .raven .raven-notifications-view > .raven-background > viewport.frame > list > row.activatable list > row.activatable:hover {
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 frame.raven-frame .raven .raven-notifications-view > .raven-background > viewport.frame > list > row.activatable list > row.activatable label {

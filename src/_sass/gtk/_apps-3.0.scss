@@ -1161,6 +1161,19 @@ list.categories { background-image: image($suface); }
 button.title label { min-height: $medium_size; }
 
 //
+// Gnome Terminal
+//
+terminal-window {
+  notebook > header button.toggle {
+    margin: -3px -2px;
+    border-radius: 0;
+    min-height: $small_size;
+    min-width: $small_size;
+    padding: $space_size;
+  }
+}
+
+//
 // Gnome Console
 //
 

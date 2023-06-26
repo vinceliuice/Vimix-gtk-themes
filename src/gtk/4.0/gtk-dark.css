@@ -868,7 +868,7 @@ splitbutton.suggested-action > button:checked:hover, splitbutton.suggested-actio
   background-image: image(alpha(currentColor, 0.16));
 }
 
-splitbutton.suggested-action > button:checked.keyboard-activating, splitbutton.suggested-action > menubutton > button:checked.keyboard-activating, splitbutton.destructive-action > button:checked.keyboard-activating, splitbutton.destructive-action > menubutton > button:checked.keyboard-activating, splitbutton.opaque > button:checked.keyboard-activating, splitbutton.opaque > menubutton > button:checked.keyboard-activating, button.opaque:checked.keyboard-activating, splitbutton.suggested-action > button:checked:active, splitbutton.suggested-action > menubutton > button:checked:active, splitbutton.destructive-action > button:checked:active, splitbutton.destructive-action > menubutton > button:checked:active, splitbutton.opaque > button:checked:active, splitbutton.opaque > menubutton > button:checked:active, button.opaque:checked:active {
+splitbutton.suggested-action > button.keyboard-activating:checked, splitbutton.suggested-action > menubutton > button.keyboard-activating:checked, splitbutton.destructive-action > button.keyboard-activating:checked, splitbutton.destructive-action > menubutton > button.keyboard-activating:checked, splitbutton.opaque > button.keyboard-activating:checked, splitbutton.opaque > menubutton > button.keyboard-activating:checked, button.opaque.keyboard-activating:checked, splitbutton.suggested-action > button:checked:active, splitbutton.suggested-action > menubutton > button:checked:active, splitbutton.destructive-action > button:checked:active, splitbutton.destructive-action > menubutton > button:checked:active, splitbutton.opaque > button:checked:active, splitbutton.opaque > menubutton > button:checked:active, button.opaque:checked:active {
   background-image: image(alpha(currentColor, 0.16));
 }
 
@@ -1012,11 +1012,11 @@ button.card:checked:hover {
   background-image: image(alpha(currentColor, 0.13));
 }
 
-button.card:checked.keyboard-activating, button.card:checked:active {
+button.card.keyboard-activating:checked, button.card:checked:active {
   background-image: image(alpha(currentColor, 0.19));
 }
 
-button.card:checked.has-open-popup {
+button.card.has-open-popup:checked {
   background-image: image(alpha(currentColor, 0.13));
 }
 
@@ -1562,7 +1562,7 @@ button.color > colorswatch:only-child, button.color > colorswatch:only-child > o
 }
 
 
-list > row button.image-button:not(.flat).suggested-action {
+list > row button.image-button.suggested-action:not(.flat) {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.15);
   background-color: #4285F4;
   color: rgba(255, 255, 255, 0.7);
@@ -1571,7 +1571,7 @@ list > row button.image-button:not(.flat).suggested-action {
 }
 
 
-list > row button.image-button:not(.flat).destructive-action {
+list > row button.image-button.destructive-action:not(.flat) {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.15);
   background-color: #FF5252;
   color: rgba(255, 255, 255, 0.7);
@@ -1627,13 +1627,13 @@ spinbutton:not(.vertical) {
   padding: 0;
 }
 
-spinbutton:not(.vertical), spinbutton:not(.vertical).flat {
+spinbutton:not(.vertical), spinbutton.flat:not(.vertical) {
   transition: all 225ms cubic-bezier(0, 0, 0.2, 1);
   border-radius: 0;
   outline: none;
 }
 
-spinbutton:not(.vertical) > text, spinbutton:not(.vertical) > text:focus-within, spinbutton:not(.vertical) > text:disabled, spinbutton:not(.vertical):focus-within > text, spinbutton:not(.vertical):focus-within > text:focus-within, spinbutton:not(.vertical):focus-within > text:disabled, spinbutton:not(.vertical):disabled > text, spinbutton:not(.vertical):disabled > text:focus-within, spinbutton:not(.vertical):disabled > text:disabled, spinbutton:not(.vertical).flat > text, spinbutton:not(.vertical).flat > text:focus-within, spinbutton:not(.vertical).flat > text:disabled, spinbutton:not(.vertical).flat:focus-within > text, spinbutton:not(.vertical).flat:focus-within > text:focus-within, spinbutton:not(.vertical).flat:focus-within > text:disabled, spinbutton:not(.vertical).flat:disabled > text, spinbutton:not(.vertical).flat:disabled > text:focus-within, spinbutton:not(.vertical).flat:disabled > text:disabled {
+spinbutton:not(.vertical) > text, spinbutton:not(.vertical) > text:focus-within, spinbutton:not(.vertical) > text:disabled, spinbutton:not(.vertical):focus-within > text, spinbutton:not(.vertical):focus-within > text:focus-within, spinbutton:not(.vertical):focus-within > text:disabled, spinbutton:not(.vertical):disabled > text, spinbutton:not(.vertical):disabled > text:focus-within, spinbutton:not(.vertical):disabled > text:disabled, spinbutton.flat:not(.vertical) > text, spinbutton.flat:not(.vertical) > text:focus-within, spinbutton.flat:not(.vertical) > text:disabled, spinbutton.flat:not(.vertical):focus-within > text, spinbutton.flat:not(.vertical):focus-within > text:focus-within, spinbutton.flat:not(.vertical):focus-within > text:disabled, spinbutton.flat:not(.vertical):disabled > text, spinbutton.flat:not(.vertical):disabled > text:focus-within, spinbutton.flat:not(.vertical):disabled > text:disabled {
   box-shadow: none;
   background: none;
   border-image: none;
@@ -2250,7 +2250,7 @@ headerbar viewswitcher button:not(.suggested-action):not(.destructive-action) {
   margin-bottom: 0;
 }
 
-headerbar viewswitcher button:not(.suggested-action):not(.destructive-action).toggle {
+headerbar viewswitcher button.toggle:not(.suggested-action):not(.destructive-action) {
   padding: 0;
   min-height: 0;
 }
@@ -2460,13 +2460,13 @@ treeview.view > dndtarget:drop(active) {
   border-color: #18b8ff;
 }
 
-columnview.view > dndtarget:drop(active).after,
-treeview.view > dndtarget:drop(active).after {
+columnview.view > dndtarget.after:drop(active),
+treeview.view > dndtarget.after:drop(active) {
   border-top-style: none;
 }
 
-columnview.view > dndtarget:drop(active).before,
-treeview.view > dndtarget:drop(active).before {
+columnview.view > dndtarget.before:drop(active),
+treeview.view > dndtarget.before:drop(active) {
   border-bottom-style: none;
 }
 
@@ -2910,7 +2910,7 @@ tabbar tab:hover, notebook > header tab:hover {
   background-color: alpha(currentColor, 0.06);
 }
 
-tabbar tab:hover.reorderable-page, notebook > header tab:hover.reorderable-page {
+tabbar tab.reorderable-page:hover, notebook > header tab.reorderable-page:hover {
   border-color: rgba(255, 255, 255, 0.12);
   background-color: #2e3034;
 }
@@ -2932,7 +2932,7 @@ tabbar tab:checked:disabled, notebook > header tab:checked:disabled {
   color: rgba(255, 255, 255, 0.45);
 }
 
-tabbar tab:checked.reorderable-page, notebook > header tab:checked.reorderable-page {
+tabbar tab.reorderable-page:checked, notebook > header tab.reorderable-page:checked {
   border-color: rgba(255, 255, 255, 0.12);
   background-color: #333539;
 }
@@ -3311,19 +3311,19 @@ scrollbar.overlay-indicator:not(.dragging):not(.hovering) button:disabled {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-scrollbar.overlay-indicator:not(.dragging):not(.hovering).horizontal > range > trough > slider {
+scrollbar.overlay-indicator.horizontal:not(.dragging):not(.hovering) > range > trough > slider {
   min-width: 24px;
 }
 
-scrollbar.overlay-indicator:not(.dragging):not(.hovering).horizontal button {
+scrollbar.overlay-indicator.horizontal:not(.dragging):not(.hovering) button {
   min-width: 8px;
 }
 
-scrollbar.overlay-indicator:not(.dragging):not(.hovering).vertical > range > trough > slider {
+scrollbar.overlay-indicator.vertical:not(.dragging):not(.hovering) > range > trough > slider {
   min-height: 24px;
 }
 
-scrollbar.overlay-indicator:not(.dragging):not(.hovering).vertical button {
+scrollbar.overlay-indicator.vertical:not(.dragging):not(.hovering) button {
   min-height: 8px;
 }
 
@@ -4384,19 +4384,19 @@ list.boxed-list > row.expander {
   border: none;
 }
 
-list.content > row:first-child, list.content > row:first-child.expander row.header,
+list.content > row:first-child, list.content > row.expander:first-child row.header,
 list.boxed-list > row:first-child,
-list.boxed-list > row:first-child.expander row.header {
+list.boxed-list > row.expander:first-child row.header {
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 }
 
-list.content > row:last-child, list.content > row:last-child.expander:not(:checked), list.content > row:last-child.expander:not(:checked) row.header, list.content > row:last-child.expander:checked list.nested, list.content > row:last-child.expander:checked list.nested > row:last-child,
+list.content > row:last-child, list.content > row.expander:last-child:not(:checked), list.content > row.expander:last-child:not(:checked) row.header, list.content > row.expander:last-child:checked list.nested, list.content > row.expander:last-child:checked list.nested > row:last-child,
 list.boxed-list > row:last-child,
-list.boxed-list > row:last-child.expander:not(:checked),
-list.boxed-list > row:last-child.expander:not(:checked) row.header,
-list.boxed-list > row:last-child.expander:checked list.nested,
-list.boxed-list > row:last-child.expander:checked list.nested > row:last-child {
+list.boxed-list > row.expander:last-child:not(:checked),
+list.boxed-list > row.expander:last-child:not(:checked) row.header,
+list.boxed-list > row.expander:last-child:checked list.nested,
+list.boxed-list > row.expander:last-child:checked list.nested > row:last-child {
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   border-bottom-width: 0;
@@ -5232,11 +5232,11 @@ colorswatch:drop(active) {
   box-shadow: none;
 }
 
-colorswatch:drop(active).light overlay {
+colorswatch.light:drop(active) overlay {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.15), 0 0 0 2px #18b8ff;
 }
 
-colorswatch:drop(active).dark overlay {
+colorswatch.dark:drop(active) overlay {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.15), 0 0 0 2px #18b8ff;
 }
 
@@ -5372,12 +5372,12 @@ headerbar windowcontrols {
   border-spacing: 6px;
 }
 
-headerbar windowcontrols:not(.empty).start:dir(ltr), headerbar windowcontrols:not(.empty).end:dir(rtl) {
+headerbar windowcontrols.start:not(.empty):dir(ltr), headerbar windowcontrols.end:not(.empty):dir(rtl) {
   margin-right: 9px;
   margin-left: 6px;
 }
 
-headerbar windowcontrols:not(.empty).start:dir(rtl), headerbar windowcontrols:not(.empty).end:dir(ltr) {
+headerbar windowcontrols.start:not(.empty):dir(rtl), headerbar windowcontrols.end:not(.empty):dir(ltr) {
   margin-left: 9px;
   margin-right: 6px;
 }
@@ -5394,7 +5394,7 @@ headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action
   background-color: transparent;
 }
 
-headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).close, headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).maximize, headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).minimize {
+headerbar windowcontrols > button.close:not(.suggested-action):not(.destructive-action), headerbar windowcontrols > button.maximize:not(.suggested-action):not(.destructive-action), headerbar windowcontrols > button.minimize:not(.suggested-action):not(.destructive-action) {
   margin: 0;
   padding: 0;
   min-width: 26px;
@@ -5409,7 +5409,7 @@ headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action
   background-size: 16px 16px;
 }
 
-headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).close:hover, headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).close:active, headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).close:checked, headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).maximize:hover, headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).maximize:active, headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).maximize:checked, headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).minimize:hover, headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).minimize:active, headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).minimize:checked {
+headerbar windowcontrols > button.close:not(.suggested-action):not(.destructive-action):hover, headerbar windowcontrols > button.close:not(.suggested-action):not(.destructive-action):active, headerbar windowcontrols > button.close:not(.suggested-action):not(.destructive-action):checked, headerbar windowcontrols > button.maximize:not(.suggested-action):not(.destructive-action):hover, headerbar windowcontrols > button.maximize:not(.suggested-action):not(.destructive-action):active, headerbar windowcontrols > button.maximize:not(.suggested-action):not(.destructive-action):checked, headerbar windowcontrols > button.minimize:not(.suggested-action):not(.destructive-action):hover, headerbar windowcontrols > button.minimize:not(.suggested-action):not(.destructive-action):active, headerbar windowcontrols > button.minimize:not(.suggested-action):not(.destructive-action):checked {
   box-shadow: none;
   border: none;
   color: transparent;
@@ -5419,72 +5419,72 @@ headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action
   background-size: 22px 22px;
 }
 
-headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).close:backdrop, headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).maximize:backdrop, headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).minimize:backdrop {
+headerbar windowcontrols > button.close:not(.suggested-action):not(.destructive-action):backdrop, headerbar windowcontrols > button.maximize:not(.suggested-action):not(.destructive-action):backdrop, headerbar windowcontrols > button.minimize:not(.suggested-action):not(.destructive-action):backdrop {
   opacity: 1;
   color: transparent;
 }
 
-headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).close {
+headerbar windowcontrols > button.close:not(.suggested-action):not(.destructive-action) {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-close-dark.png"), url("assets/window-assets/titlebutton-close-dark@2.png"));
 }
 
-headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).close:backdrop {
+headerbar windowcontrols > button.close:not(.suggested-action):not(.destructive-action):backdrop {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-close-backdrop-dark.png"), url("assets/window-assets/titlebutton-close-backdrop-dark@2.png"));
 }
 
-headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).close:hover {
+headerbar windowcontrols > button.close:not(.suggested-action):not(.destructive-action):hover {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-close-hover-dark.png"), url("assets/window-assets/titlebutton-close-hover-dark@2.png"));
 }
 
-headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).close:active {
+headerbar windowcontrols > button.close:not(.suggested-action):not(.destructive-action):active {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-close-active-dark.png"), url("assets/window-assets/titlebutton-close-active-dark@2.png"));
 }
 
-headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).maximize {
+headerbar windowcontrols > button.maximize:not(.suggested-action):not(.destructive-action) {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-maximize-dark.png"), url("assets/window-assets/titlebutton-maximize-dark@2.png"));
 }
 
-headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).maximize:backdrop {
+headerbar windowcontrols > button.maximize:not(.suggested-action):not(.destructive-action):backdrop {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-maximize-backdrop-dark.png"), url("assets/window-assets/titlebutton-maximize-backdrop-dark@2.png"));
 }
 
-headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).maximize:hover {
+headerbar windowcontrols > button.maximize:not(.suggested-action):not(.destructive-action):hover {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-maximize-hover-dark.png"), url("assets/window-assets/titlebutton-maximize-hover-dark@2.png"));
 }
 
-headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).maximize:active {
+headerbar windowcontrols > button.maximize:not(.suggested-action):not(.destructive-action):active {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-maximize-active-dark.png"), url("assets/window-assets/titlebutton-maximize-active-dark@2.png"));
 }
 
-headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).minimize {
+headerbar windowcontrols > button.minimize:not(.suggested-action):not(.destructive-action) {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-minimize-dark.png"), url("assets/window-assets/titlebutton-minimize-dark@2.png"));
 }
 
-headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).minimize:backdrop {
+headerbar windowcontrols > button.minimize:not(.suggested-action):not(.destructive-action):backdrop {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-minimize-backdrop-dark.png"), url("assets/window-assets/titlebutton-minimize-backdrop-dark@2.png"));
 }
 
-headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).minimize:hover {
+headerbar windowcontrols > button.minimize:not(.suggested-action):not(.destructive-action):hover {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-minimize-hover-dark.png"), url("assets/window-assets/titlebutton-minimize-hover-dark@2.png"));
 }
 
-headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).minimize:active {
+headerbar windowcontrols > button.minimize:not(.suggested-action):not(.destructive-action):active {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-minimize-active-dark.png"), url("assets/window-assets/titlebutton-minimize-active-dark@2.png"));
 }
 
-.maximized headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).maximize {
+.maximized headerbar windowcontrols > button.maximize:not(.suggested-action):not(.destructive-action) {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-restore-dark.png"), url("assets/window-assets/titlebutton-restore-dark@2.png"));
 }
 
-.maximized headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).maximize:backdrop {
+.maximized headerbar windowcontrols > button.maximize:not(.suggested-action):not(.destructive-action):backdrop {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-restore-backdrop-dark.png"), url("assets/window-assets/titlebutton-restore-backdrop-dark@2.png"));
 }
 
-.maximized headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).maximize:hover {
+.maximized headerbar windowcontrols > button.maximize:not(.suggested-action):not(.destructive-action):hover {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-restore-hover-dark.png"), url("assets/window-assets/titlebutton-restore-hover-dark@2.png"));
 }
 
-.maximized headerbar windowcontrols > button:not(.suggested-action):not(.destructive-action).maximize:active {
+.maximized headerbar windowcontrols > button.maximize:not(.suggested-action):not(.destructive-action):active {
   background-image: -gtk-scaled(url("assets/window-assets/titlebutton-restore-active-dark.png"), url("assets/window-assets/titlebutton-restore-active-dark@2.png"));
 }
 

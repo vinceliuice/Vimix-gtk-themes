@@ -801,7 +801,7 @@ button.osd {
   padding: 9px 13px;
 }
 
-button.osd.image-button {
+button.osd.image-button, button.osd.remove-button {
   padding: 9px;
 }
 
@@ -1958,7 +1958,7 @@ separator:first-child + .titlebar, .titlebar:first-child, .titlebar headerbar:fi
   border-top-left-radius: 0;
 }
 
-.titlebar separator {
+.titlebar separator, .titlebar separator.sidebar {
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), inset 0 -1px rgba(0, 0, 0, 0.12);
 }
 
@@ -5724,6 +5724,35 @@ window.background.csd > hdyleaflet > separator.sidebar,
 window.background.csd > leaflet > separator.sidebar {
   background: none;
   min-width: 0;
+}
+
+window.background.csd > leaflet > stack.background button.osd.remove-button,
+window.background.csd > hdyleaflet > stack.background button.osd.remove-button,
+window.background.csd > box.horizontal > stack.background button.osd.remove-button {
+  padding: 0;
+  margin: 6px;
+  min-width: 32px;
+  min-height: 30px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.45);
+  color: rgba(255, 255, 255, 0.75);
+  box-shadow: none;
+}
+
+window.background.csd > leaflet > stack.background button.osd.remove-button:hover,
+window.background.csd > hdyleaflet > stack.background button.osd.remove-button:hover,
+window.background.csd > box.horizontal > stack.background button.osd.remove-button:hover {
+  background-color: rgba(0, 0, 0, 0.65);
+  color: white;
+  box-shadow: none;
+}
+
+window.background.csd > leaflet > stack.background button.osd.remove-button:active,
+window.background.csd > hdyleaflet > stack.background button.osd.remove-button:active,
+window.background.csd > box.horizontal > stack.background button.osd.remove-button:active {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  box-shadow: none;
 }
 
 headerbar.titlebar.selection-mode hdyleaflet > headerbar, headerbar.titlebar.selection-mode leaflet > headerbar {

@@ -537,7 +537,7 @@ button {
   &.osd {
     padding: ($large_size - 24px) / 2 ($large_size - 16px) / 2;
 
-    &.image-button { padding: ($large_size - 24px) / 2; }
+    &.image-button, &.remove-button { padding: ($large_size - 24px) / 2; }
 
     &:disabled { opacity: 0; }
   }
@@ -1510,7 +1510,7 @@ headerbar {
   &:first-child, headerbar:first-child { border-top-right-radius: 0; }
   &:last-child, headerbar:last-child { border-top-left-radius: 0; }
 
-  separator { box-shadow: inset 0 1px $highlight, inset 0 -1px $border; }
+  separator, separator.sidebar { box-shadow: inset 0 1px $highlight, inset 0 -1px $border; }
 
   stack & { // tackles the stacked headerbars case
     &:first-child, &:last-child {

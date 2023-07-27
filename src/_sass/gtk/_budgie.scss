@@ -103,10 +103,10 @@
 }
 
 .background.budgie-popover {
-  border-color: $suface;
+  border-color: $surface;
   border-radius: $menu_radius + 1px;
   box-shadow: $shadow_2;
-  background-color: $suface;
+  background-color: $surface;
 
   .container {
     padding: $space_size;
@@ -761,7 +761,7 @@ $pos_list: ((top, bottom), (bottom, top), (left, right), (right, left));
 $stackswitcher_color: if($theme == 'black' or $theme == 'white', rgba(white, 0.65), $warning);
 
 .background .raven {
-  background-color: $suface;
+  background-color: $surface;
 
   // for >=10.4
   > box { margin-bottom: -10px; }
@@ -1068,7 +1068,7 @@ frame.raven-frame .raven .raven-notifications-view {
   padding: $space_size;
   border-radius: $modal_radius;
   box-shadow: $shadow_2, inset 0 1px $highlight;
-  background-color: $suface;
+  background-color: $surface;
 
   button { @extend %simple_flat_button; }
 
@@ -1077,7 +1077,7 @@ frame.raven-frame .raven .raven-notifications-view {
 
 %budgie_dialog {
   border-radius: $modal_radius;
-  background-color: $suface;
+  background-color: $surface;
   box-shadow: $shadow_2, inset 0 1px $highlight;
 
   decoration { border-radius: $modal_radius; }

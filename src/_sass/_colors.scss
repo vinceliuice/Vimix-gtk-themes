@@ -7,13 +7,13 @@
 $base:                                  themecolor($theme_base, if($variant == 'light', default, $mixstate));
 $background:                            themecolor($theme_background, if($variant == 'light', default, $mixstate));
 $base-alt:                              mix($base, $background, 50%);
-$suface:                                if($topbar == 'light', darken($base, 2%), lighten($base, 2%));
+$surface:                                if($topbar == 'light', darken($base, 2%), lighten($base, 2%));
 $scrim:                                 darken($background, 5%);
 $osd:                                   themecolor(#222222, $mixstate);
 $panel:                                 if($topbar == 'light', #f2f2f2, themecolor(#202020, $mixstate));
 $header:                                if($topbar == 'light', #eeeeee, themecolor(#363636, $mixstate));
-$menu:                                  if($topbar == 'light', $base, $suface);
-$popover:                               if($variant == 'light', $base, $suface);
+$menu:                                  if($topbar == 'light', $base, $surface);
+$popover:                               if($variant == 'light', $base, $surface);
 
 @if $translucent == 'true' {
   $panel:                              if($topbar == 'light', rgba(white, 0.5), rgba(black, 0.5));

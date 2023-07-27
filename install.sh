@@ -93,14 +93,14 @@ install() {
   echo "[Desktop Entry]"                                                             >> ${THEME_DIR}/index.theme
   echo "Type=X-GNOME-Metatheme"                                                      >> ${THEME_DIR}/index.theme
   echo "Name=${name}${color}${size}${theme}"                                         >> ${THEME_DIR}/index.theme
-  echo "Comment=An Clean Gtk+ theme based on Material Design"                        >> ${THEME_DIR}/index.theme
+  echo "Comment=Clean Gtk+ theme based on Material Design"                           >> ${THEME_DIR}/index.theme
   echo "Encoding=UTF-8"                                                              >> ${THEME_DIR}/index.theme
   echo ""                                                                            >> ${THEME_DIR}/index.theme
   echo "[X-GNOME-Metatheme]"                                                         >> ${THEME_DIR}/index.theme
   echo "GtkTheme=${name}${color}${size}${theme}"                                     >> ${THEME_DIR}/index.theme
   echo "MetacityTheme=${name}${color}${size}${theme}"                                >> ${THEME_DIR}/index.theme
-  echo "IconTheme=Adwaita"                                                           >> ${THEME_DIR}/index.theme
-  echo "CursorTheme=Adwaita"                                                         >> ${THEME_DIR}/index.theme
+  echo "IconTheme=${name}${theme}${color}"                                           >> ${THEME_DIR}/index.theme
+  echo "CursorTheme=${name}${theme}${color}"                                         >> ${THEME_DIR}/index.theme
   echo "ButtonLayout=menu:minimize,maximize,close"                                   >> ${THEME_DIR}/index.theme
 
   #  Install gtk2 theme

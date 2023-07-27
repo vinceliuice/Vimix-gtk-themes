@@ -1758,6 +1758,7 @@ headerbar {
     min-height: $item_size;
     padding: 0;
     box-shadow: inset 0 1px $highlight;
+    background-image: none;
 
     .tiled &,
     .maximized &,
@@ -2857,8 +2858,8 @@ switch {
     margin: -$space_size / 2;
     border-radius: $circular_radius;
     box-shadow: 0 0 0 $switch_shadow_size transparent, $shadow_1;
-    background-color: $suface;
-    color: $suface;
+    background-color: $surface;
+    color: $surface;
   }
 
   &:hover > slider { color: $text; box-shadow: 0 0 0 $switch_shadow_size rgba($text, 0.1), $shadow_1; }
@@ -3879,7 +3880,7 @@ calendar {
 // Dialogs
 //
 window.dialog.message { // Message Dialog styling
-  background-color: $suface;
+  background-color: $surface;
 
   .dialog-vbox {
     border-spacing: $space_size * 2;
@@ -3889,7 +3890,7 @@ window.dialog.message { // Message Dialog styling
     min-height: $small_size;
     border-style: none;
     box-shadow: inset 0 1px $highlight;
-    background-color: $suface;
+    background-color: $surface;
     color: $text;
 
     &:backdrop { color: $text-secondary; }
@@ -3927,7 +3928,7 @@ window.dialog.message { // Message Dialog styling
  ********************/
 
  window.messagedialog {
-  background-color: $suface;
+  background-color: $surface;
   color: $text;
 
   &.csd {
@@ -4027,7 +4028,7 @@ filechooserbutton:drop(active) {
 //
 .sidebar {
   border-style: none;
-  background-color: $suface;
+  background-color: $surface;
 
   @at-root %sidebar_left,
   &:dir(ltr),
@@ -4515,9 +4516,38 @@ window {
     box-shadow: $shadow_5, 0 16px 16px 2px rgba(black, 0), 0 6px 18px 5px rgba(black, 0);
     margin: 0;
 
+    @if $topbar == 'dark' and $variant == 'light' {
+      &.background {
+        background-color: transparent;
+        background-image: linear-gradient(to bottom,
+                                          $header,
+                                          $header $medium-size + $space_size * 2,
+                                          $background $medium-size + $space_size * 2,
+                                          $background);
+      }
+    }
+
     &:backdrop {
       transition: $shadow_transition;
       box-shadow: $shadow_4, 0 16px 16px 2px rgba(black, 0), 0 6px 18px 5px rgba(black, 0);
+    }
+
+    &.messagedialog {
+      @if $topbar == 'dark' and $variant == 'light' {
+        &.background {
+          background-color: $surface;
+          background-image: none;
+        }
+      }
+    }
+
+    &.about, &.info {
+      @if $topbar == 'dark' and $variant == 'light' {
+        &.background {
+          background-color: $background;
+          background-image: none;
+        }
+      }
     }
 
     &.maximized,

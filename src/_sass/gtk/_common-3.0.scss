@@ -2345,8 +2345,8 @@ switch {
     margin: -3px -2px;
     border-radius: $circular_radius;
     box-shadow: 0 0 0 10px transparent, $shadow_1;
-    background-color: $suface;
-    color: $suface;
+    background-color: $surface;
+    color: $surface;
   }
 
   &:hover slider { color: $text; box-shadow: 0 0 0 10px rgba($text, 0.1), $shadow_1; }
@@ -3102,13 +3102,13 @@ calendar {
 //
 messagedialog { // Message Dialog styling
   &.background {
-    background-color: $suface;
+    background-color: $surface;
 
     .titlebar {
       min-height: $small_size;
       border-style: none;
       box-shadow: inset 0 1px $highlight;
-      background-color: $suface;
+      background-color: $surface;
       color: $text;
 
       &:backdrop { color: $text-secondary; }
@@ -3208,7 +3208,7 @@ filechooserbutton:drop(active) {
 //
 .sidebar {
   border-style: none;
-  background-color: $suface;
+  background-color: $surface;
 
   @at-root %sidebar_left,
   &:dir(ltr),
@@ -3949,7 +3949,7 @@ button.circular { row & { margin: 0 5px; } } // Make the circular button hover s
 }
 
 .background stackswitcher {
-  background-color: $suface;
+  background-color: $surface;
   border-radius: $button_radius;
   border: none;
   padding: 0 $space_size;

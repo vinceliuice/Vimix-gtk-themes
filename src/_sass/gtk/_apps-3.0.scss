@@ -348,7 +348,7 @@ paned.titlebar.horizontal { // show border
 }
 
 .gedit-document-panel {
-  background-color: $suface;
+  background-color: $surface;
   // box-shadow: inset 1px 0 $border;
 
   row.activatable { padding: $space_size ($space_size - 2px); }
@@ -390,7 +390,7 @@ paned.titlebar.horizontal { // show border
     transition: $shadow_transition;
     padding: 0;
     box-shadow: $shadow_2; // TODO: this should really have a highlight
-    background-color: $suface;
+    background-color: $surface;
   }
 
   > .linked:not(.vertical) > entry {
@@ -399,7 +399,7 @@ paned.titlebar.horizontal { // show border
     &, &:focus {
       box-shadow: inset 0 1px $highlight;
       border-image: none;
-      background-color: $suface;
+      background-color: $surface;
     }
 
     &:dir(ltr) {
@@ -901,9 +901,9 @@ overlay grid.horizontal > revealer > scrolledwindow.frame {
 }
 
 .side-panel .view {
-  background-image: image($suface);
+  background-image: image($surface);
 
-  &:hover { background-image: image(mix($text, $suface, percentage(0.05))); }
+  &:hover { background-image: image(mix($text, $surface, percentage(0.05))); }
 }
 
 .side-panel .view:selected {
@@ -1177,7 +1177,7 @@ frame.commit-frame > border { border-style: solid none none; }
 //
 box.dialog-vbox scrolledwindow.related { border: 1px solid $border; }
 
-list.categories { background-image: image($suface); }
+list.categories { background-image: image($surface); }
 
 
 //
@@ -1313,7 +1313,7 @@ overlay > revealer.right > scrolledwindow.frame {
   // border-style: none none none solid;
 }
 
-.terminix-session-sidebar { background-image: image($suface); }
+.terminix-session-sidebar { background-image: image($surface); }
 
 
 //
@@ -1334,7 +1334,7 @@ window.background > box.vertical > scrolledwindow > widget toolbar {
 $firefox_border_color: $solid-border;
 $firefox_theme_color: if($theme == 'black', #666666, $primary);
 $firefox_fg_color: if($variant =='light', $text-secondary, #bababa);
-$firefox_bg_color: if($variant =='light', $suface, #666666);
+$firefox_bg_color: if($variant =='light', $surface, #666666);
 
 %_html_button_spacing {
   min-width: unset; // do not set min-width/height
@@ -1520,7 +1520,7 @@ window.background:not(.csd) {
     separator { background-color: $firefox_border_color; }
 
     // FIXME: this affected to popover widget as well,
-    // so we can not set $suface to search-bar...
+    // so we can not set $surface to search-bar...
     > scrolledwindow > textview {
       background-color: if($variant == 'light', $base, lighten($base, 0%));
 
@@ -1913,7 +1913,7 @@ overlay > revealer {
 .terminix-session-sidebar, // for backwards compatibility
 list.tilix-session-sidebar {
   // use -image property instead
-  background-color: $suface;
+  background-color: $surface;
 
   row.activatable {
     &, &:selected {
@@ -2202,7 +2202,7 @@ menubar.-vala-panel-background {
   }
 
   .nemo-places-sidebar {
-    background-color: $suface;
+    background-color: $surface;
 
     &.frame { border-width: 0; }
   }
@@ -2345,7 +2345,7 @@ dialog.background {
                                  (destructive-action, $destructive) {
         button.#{$b_type} {
           color: $b_color;
-          background-color: $suface;
+          background-color: $surface;
 
           &:hover {
             color: $b_color;

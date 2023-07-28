@@ -251,6 +251,58 @@ window.background {
 // Gnome Software
 //
 
+.details-page {
+  margin: $space_size * 4 0px;
+}
+
+.installed-overlay-box {
+  font-size: smaller;
+  background-color: $primary;
+  border-radius: 0;
+  color: on($primary);
+  text-shadow: 0 1px 0 rgba(black, 0.2);
+}
+
+screenshot-carousel box.frame {
+  border-width: 1px 0;
+  border-radius: 0;
+}
+
+screenshot-carousel button,
+.featured-carousel button {
+  margin: $space_size * 2;
+}
+
+.screenshot-image-main .image1,
+.screenshot-image-main .image2 {
+  margin-top: $space_size;
+  margin-bottom: $space_size * 2;
+  margin-left: $space_size;
+  margin-right: $space_size;
+}
+
+.app-tile-label {
+  font-size: 105%;
+}
+
+.review-textbox {
+  padding: $space_size;
+}
+
+.origin-rounded-box {
+  background-color: $divider;
+  border-radius: $circular_radius;
+  padding: $space_size - 2px;
+}
+
+.origin-beta {
+  color: $warning;
+}
+
+.origin-button > button {
+  padding: $space_size / 2 $space_size * 1.5;
+}
+
 flowboxchild {
   &.card {
     padding: 0;
@@ -416,7 +468,7 @@ preferencesgroup > box {
     background: none;
     box-shadow: none;
     outline-width: 2px solid transparent;
-    outline-offset: $space-size / 2;
+    outline-offset: $space_size / 2;
 
     &, > background-preview {
       border-radius: 6px;

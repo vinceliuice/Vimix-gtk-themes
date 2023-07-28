@@ -2050,6 +2050,10 @@ headerbar.titlebar {
   box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 2px -1px rgba(0, 0, 0, 0.22), 0 1px 2px -1px rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.1);
 }
 
+headerbar .dim-label, headerbar row.expander image.expander-row-arrow, row.expander headerbar image.expander-row-arrow, headerbar row label.subtitle, row headerbar label.subtitle, headerbar .subtitle, headerbar label.separator, headerbar entry > text > placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
 headerbar .title {
   padding: 0 12px;
   font-weight: bold;
@@ -5770,6 +5774,10 @@ window.background.nautilus-window .nautilus-grid-view gridview > child.activatab
 #NautilusPathBar #NautilusPathButton {
   margin: 0 3px;
   border-radius: 3px;
+}
+
+#NautilusPathBar #NautilusPathButton:hover, #NautilusPathBar #NautilusPathButton:active {
+  color: white;
 }
 
 #NautilusPathBar #NautilusPathButton.current-dir {

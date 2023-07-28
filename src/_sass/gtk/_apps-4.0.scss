@@ -118,6 +118,10 @@ window.background.nautilus-window {
     border-radius: $button_radius;
     @extend %simple_flat_button;
 
+    &:hover, &:active {
+      color: on($header);
+    }
+
     &.current-dir {
       color: on($header);
 

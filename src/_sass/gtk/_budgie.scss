@@ -361,7 +361,12 @@
   }
 
   &.caffeine-popover {
-    // .container { padding: $space_size; }
+    .container {
+      padding: $space_size;
+
+      .container { padding: $space_size / 2; }
+    }
+
     .view-header { margin: 0 $space_size; }
   }
 
@@ -1032,8 +1037,8 @@ frame.raven-frame .raven .raven-notifications-view {
     @extend %circular_button;
   }
 
-  .linked > button {
-    @extend %flat_button;
+  button {
+    @extend %linked;
   }
 }
 
@@ -1063,6 +1068,13 @@ frame.raven-frame .raven .raven-notifications-view {
   @extend .budgie-notification;
 }
 
+// power dialog window
+window.budgie-power-dialog {
+  &, &.backgrround.csd, & > decoration {
+    border-radius: $modal_radius;
+  }
+}
+
 .drop-shadow {
   margin: 5px 9px;
   padding: $space_size;
@@ -1070,9 +1082,10 @@ frame.raven-frame .raven .raven-notifications-view {
   box-shadow: $shadow_2, inset 0 1px $highlight;
   background-color: $surface;
 
-  button { @extend %simple_flat_button; }
-
-  // .linked > button { border-radius: $button_radius; }
+  button {
+    @extend %simple_flat_button;
+    @extend %linked;
+  }
 }
 
 %budgie_dialog {
@@ -1083,23 +1096,27 @@ frame.raven-frame .raven .raven-notifications-view {
   decoration { border-radius: $modal_radius; }
 
   entry { @extend %flat_entry; }
+
   button { @extend %flat_button; }
 
-  .linked.horizontal > button {
+  .linked > button {
     padding: 8px 16px;
     border-top: 1px solid $border;
     border-radius: 0;
-
     @extend %simple_flat_button;
 
-    &:first-child { border-bottom-left-radius: $modal_radius; }
-    &:last-child { border-bottom-right-radius: $modal_radius; }
+    &:first-child {
+      border-radius: 0 0 0 $modal_radius;
+    }
+
+    &:last-child {
+      border-radius: 0 0 $modal_radius 0;
+    }
   }
 
   @each $b_type, $b_color in (suggested-action, $suggested),
                              (destructive-action, $destructive) {
-    .linked.horizontal > button.#{$b_type} {
-
+    .linked > button.#{$b_type} {
       &, &:hover { color: $b_color; }
 
       &:active, &:checked {

@@ -104,6 +104,17 @@
 
     &#panelActivities {
       -natural-hpadding: $base_padding * 3;
+
+      StBoxLayout {
+        spacing: $base_padding;
+      }
+
+      .workspace-dot {
+        border-radius: $circular_radius;
+        min-width: 8px;
+        min-height: 8px;
+        background-color: $panel-text;
+      }
     }
   }
 
@@ -146,6 +157,12 @@
           .clock {
             box-shadow: none;
           }
+        }
+      }
+
+      &#panelActivities {
+        .workspace-dot {
+          background-color: on(dark);
         }
       }
     }

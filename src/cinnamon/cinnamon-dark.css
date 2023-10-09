@@ -323,18 +323,18 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .cinnamon-link {
   border-radius: 2px;
-  color: #4285F4;
+  color: #18b8ff;
   text-decoration: underline;
 }
 
 .cinnamon-link:hover {
-  color: #4285F4;
-  background-color: rgba(66, 133, 244, 0.12);
+  color: #18b8ff;
+  background-color: rgba(24, 184, 255, 0.12);
 }
 
 .cinnamon-link:active {
-  color: #4285F4;
-  background-color: rgba(66, 133, 244, 0.25);
+  color: #18b8ff;
+  background-color: rgba(24, 184, 255, 0.25);
 }
 
 #Tooltip {
@@ -532,8 +532,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 #panelRight:dnd,
 .panelRight:dnd {
   background-gradient-direction: vertical;
-  background-gradient-start: rgba(66, 133, 244, 0.4);
-  background-gradient-end: rgba(66, 133, 244, 0.4);
+  background-gradient-start: rgba(24, 184, 255, 0.4);
+  background-gradient-end: rgba(24, 184, 255, 0.4);
 }
 
 #panelRight:ltr,
@@ -710,7 +710,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
 }
 
-#selected.window-caption {
+.window-caption#selected {
   spacing: 25px;
   color: white;
   background-color: #4285F4;
@@ -938,7 +938,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .calendar-day-with-events {
   background-image: none;
-  color: #4285F4;
+  color: #18b8ff;
   font-weight: 400;
   text-decoration: underline;
 }
@@ -2592,7 +2592,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   box-shadow: inset 0 -2px #4285F4;
 }
 
-#selected.expo-workspaces-name-entry {
+.expo-workspaces-name-entry#selected {
   color: white;
   caret-color: white;
   background-color: rgba(255, 255, 255, 0.05);
@@ -2604,7 +2604,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   background-color: transparent;
 }
 
-#active.expo-workspace-thumbnail-frame {
+.expo-workspace-thumbnail-frame#active {
   border-radius: 2px;
   border: 2px solid #4285F4;
 }

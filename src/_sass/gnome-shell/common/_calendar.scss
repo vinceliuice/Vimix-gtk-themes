@@ -119,6 +119,8 @@
   .calendar-change-month-forward {
     padding: 0 0 !important;
     margin: ($base_padding / 2) 0 !important;
+    box-shadow: none !important;
+    outline: none !important;
 
     StIcon {
       icon-size: $base_icon_size;
@@ -132,10 +134,12 @@
     border-radius: $circular_radius;
     background-color: transparent;
     color: $text;
+
     &:hover, &:focus { background-color: $divider; }
     &:active { background-color: $track; }
   }
 
+  .calendar-day,
   .calendar-day-base {
     @include fontsize($font_size - 1);
     text-align: center;
@@ -150,14 +154,16 @@
 
     &:hover, &:focus {
       background-color: $divider;
-      box-shadow: none;
-      outline: none;
+      box-shadow: none !important;
+      outline: none !important;
     }
 
     &:active, &:selected {
       color: $text;
       background-color: $track;
       border-color: transparent; //avoid jumparound due to today
+      box-shadow: none !important;
+      outline: none !important;
     }
 
     &.calendar-day-heading {  //day of week heading
@@ -187,27 +193,31 @@
   // Today
   .calendar-today {
     font-weight: bold;
-    color: $text-secondary !important;
+    color: $text-secondary;
     background-color: overlay($base);
     border: none;
 
     &:hover, &:focus {
       background-color: overlay($base, hover);
-      color: $text !important;
+      color: $text;
+      box-shadow: none !important;
+      outline: none !important;
     }
 
     &:active {
       background-color: darken($primary, 5%);
-      color: on($primary) !important;
+      color: on($primary);
     }
 
     &:selected {
       background-color: $primary;
-      color: on($primary) !important;
+      color: on($primary);
+      box-shadow: none !important;
+      outline: none !important;
 
       &:hover, &:focus {
         background-color: lighten($primary, 8%);
-        color: on($primary) !important;
+        color: on($primary);
       }
     }
   }
@@ -222,15 +232,21 @@
     }
   }
 
+  &.calendar-weekday,
+  &.calendar-weekend {
+    color: $text-disabled;
+  }
+
+  .calendar-other-month,
   .calendar-other-month-day {
-    color: $text-secondary-disabled;
-    opacity: 0.5;
+    color: $text-secondary-disabled !important;
+    opacity: 1;
   }
 
   .calendar-week-number {
     width: $item_size - 6px;
     height: $item_size - 12px;
-    margin: 6px $base_margin/2 !important;
+    margin: 6px $base_margin / 2 !important;
     padding: 0 0;
     border-radius: $base_radius;
     background-color: $fill;
@@ -263,7 +279,7 @@
   }
 
   .events-title {
-    color: $text-disabled;
+    color: $text-secondary;
     font-weight: bold;
     text-shadow: none;
   }

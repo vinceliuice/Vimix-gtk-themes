@@ -61,6 +61,11 @@ window.background.nautilus-window {
       }
     }
   }
+
+  .nautilus-grid-view gridview.view,
+  .nautilus-list-view columnview.view {
+    background-color: transparent;
+  }
 }
 
 #NautilusViewCell {
@@ -304,20 +309,149 @@ screenshot-carousel button,
 }
 
 flowboxchild {
-  &.card {
+  &.card:not(.category-tile) {
     padding: 0;
     margin: 0;
     box-shadow: 0;
     background-color: transparent;
   }
+}
 
-  > button.card {
-    &.category-tile {
-      padding: $space_size * 3.5;
+.category-tile.card {
+  padding: $space_size * 3.5;
+  border: none;
+  border-radius: $button_radius;
+  min-width: 140px;
+  font-weight: 900;
+  font-size: larger;
+
+  &:not(.category-tile-iconless) {
+    &, &:hover, &:active {
+      transition: $longer_transition;
+      animation: none;
+    }
+  }
+
+  &.category-tile-iconless {
+    padding: $space_size * 1.5 $space_size * 2.5;
+    min-width: 130px;
+    font-size: 105%;
+    font-weight: normal;
+  }
+
+  // Styling for specific category buttons.
+  &.category-create {
+    background-image: linear-gradient(180deg, #ce8cd7 0%, #2861c6 100%);
+    color: white;
+    background-size: auto;
+    background-repeat: no-repeat;
+  
+    &:hover {
+      background-image: linear-gradient(180deg, shade(#ce8cd7, 1.07) 0%, shade(#2861c6, 1.1) 100%);
+      background-size: auto;
+      background-repeat: no-repeat;
     }
   
-    &.category-tile-iconless {
-      padding: $space_size * 1.5 $space_size * 2.5;
+    &:active {
+      background-image: linear-gradient(180deg, shade(#ce8cd7, .95) 0%, shade(#2861c6, .95) 100%);
+      background-size: auto;
+      background-repeat: no-repeat;
+    }
+  }
+  
+  &.category-develop {
+    background: #5e5c64;
+    color: white;
+  
+    &:hover {
+      background: shade(#5e5c64, 1.2);
+      background-size: auto;
+      background-repeat: no-repeat;
+    }
+  
+    &:active {
+      background-color: shade(#5e5c64, .95);
+      background-size: auto;
+      background-repeat: no-repeat;
+    }
+  }
+  
+  &.category-learn {
+    background-image: linear-gradient(180deg, #2ec27e 30%, #27a66c 100%);
+    color: white;
+  
+    &:hover {
+      background-image: linear-gradient(180deg, shade(#2ec27e, 1.06) 30%, shade(#27a66c, 1.06) 100%);
+      background-size: auto;
+      background-repeat: no-repeat;
+    }
+  
+    &:active {
+      background-image: linear-gradient(180deg, shade(#2ec27e, .95) 30%, shade(#27a66c, .95) 100%);
+      background-size: auto;
+      background-repeat: no-repeat;
+    }
+  }
+  
+  &.category-play {
+    background-image: linear-gradient(75deg, #f9e2a7 0%, #eb5ec3 50%, #6d53e0 100%);
+    color: #393484;
+  
+    &:hover {
+      background-image: linear-gradient(75deg, shade(#f9e2a7, 1.07) 0%, shade(#eb5ec3, 1.07) 50%, shade(#6d53e0, 1.07) 100%);
+      background-size: auto;
+      background-repeat: no-repeat;
+    }
+  
+    &:active {
+      background-image: linear-gradient(75deg, shade(#f9e2a7, .97) 0%, shade(#eb5ec3, .95) 50%, shade(#6d53e0, 1.07) 100%);
+      background-size: auto;
+      background-repeat: no-repeat;
+    }
+  }
+  
+  &.category-socialize {
+    background-image: linear-gradient(90deg, #ef4e9b 0%, #f77466 100%);
+    color: $text-secondary;
+  
+    &:hover {
+      background-image: linear-gradient(90deg, shade(#ef4e9b, 1.08) 0%, shade(#f77466, 1.08) 100%);
+      background-size: auto;
+      background-repeat: no-repeat;
+    }
+  
+    &:active {
+      background-image: linear-gradient(90deg, shade(#ef4e9b, .95) 0%, shade(#f77466, .95) 100%);
+      background-size: auto;
+      background-repeat: no-repeat;
+    }
+  }
+  
+  &.category-work {
+    color: #1c71d8;
+    background-color: #fdf8d7;
+    background-image: linear-gradient($border 1px, transparent 1px),
+                      linear-gradient(90deg, $border 1px, transparent 1px);
+    background-size: 10px 10px, 10px 10px;
+    background-position: -1px -4px, center -1px;
+    background-repeat: repeat;
+  
+    &:hover {
+      background-color: lighten(#fdf8d7, 5%);
+      background-image: linear-gradient($border 1px, transparent 1px),
+                        linear-gradient(90deg, $border 1px, transparent 1px);
+      background-size: 10px 10px, 10px 10px;
+      background-position: -1px -4px, center -1px;
+      background-repeat: repeat;
+    }
+  
+    &:active {
+      background-color: darken(#fdf8d7, 5%);
+      background-image: linear-gradient($border 1px, transparent 1px),
+                        linear-gradient(90deg, $border 1px, transparent 1px);
+      background-size: 10px 10px, 10px 10px;
+      background-position: -1px -4px, center -1px;
+      background-repeat: repeat;
     }
   }
 }
@@ -357,93 +491,6 @@ carousel.card {
 screenshot-carousel box.frame.view {
   border-width: 1px 0;
   border-radius: 0;
-}
-
-/* Styling for specific category buttons. */
-.category-tile.category-create {
-  background: linear-gradient(180deg, #ce8cd7 0%, #2861c6 100%);
-  color: white;
-
-  &:hover {
-    background: linear-gradient(180deg, shade(#ce8cd7, 1.07) 0%, shade(#2861c6, 1.1) 100%);
-  }
-
-  &:active {
-    background: linear-gradient(180deg, shade(#ce8cd7, .95) 0%, shade(#2861c6, .95) 100%);
-  }
-}
-
-.category-tile.category-develop {
-  background: #5e5c64;
-  color: white;
-
-  &:hover {
-    background: shade(#5e5c64, 1.2);
-  }
-
-  &:active {
-    background-color: shade(#5e5c64, .95);
-  }
-}
-
-.category-tile.category-learn {
-  background: linear-gradient(180deg, #2ec27e 30%, #27a66c 100%);
-  color: white;
-
-  &:hover {
-    background: linear-gradient(180deg, shade(#2ec27e, 1.06) 30%, shade(#27a66c, 1.06) 100%);
-  }
-
-  &:active {
-    background: linear-gradient(180deg, shade(#2ec27e, .95) 30%, shade(#27a66c, .95) 100%);
-  }
-}
-
-.category-tile.category-play {
-  background: linear-gradient(75deg, #f9e2a7 0%, #eb5ec3 50%, #6d53e0 100%);
-  color: #393484;
-
-  &:hover {
-    background: linear-gradient(75deg, shade(#f9e2a7, 1.07) 0%, shade(#eb5ec3, 1.07) 50%, shade(#6d53e0, 1.07) 100%);
-  }
-
-  &:active {
-    background: linear-gradient(75deg, shade(#f9e2a7, .97) 0%, shade(#eb5ec3, .95) 50%, shade(#6d53e0, 1.07) 100%);
-  }
-}
-
-.category-tile.category-socialize {
-  background: linear-gradient(90deg, #ef4e9b 0%, #f77466 100%);
-  color: $text-secondary;
-
-  &:hover {
-    background: linear-gradient(90deg, shade(#ef4e9b, 1.08) 0%, shade(#f77466, 1.08) 100%);
-  }
-
-  &:active {
-    background: linear-gradient(90deg, shade(#ef4e9b, .95) 0%, shade(#f77466, .95) 100%);
-  }
-}
-
-.category-tile.category-work {
-  color: #1c71d8;
-  background-color: #fdf8d7;
-  background-image: linear-gradient($border 1px, transparent 1px),
-                    linear-gradient(90deg, $border 1px, transparent 1px);
-  background-size: 10px 10px, 10px 10px;
-  background-position: -1px -4px, center -1px;
-
-  &:hover {
-    background-color: lighten(#fdf8d7, 5%);
-    background-image: linear-gradient($border 1px, transparent 1px),
-                      linear-gradient(90deg, $border 1px, transparent 1px);
-  }
-
-  &:active {
-    background-color: darken(#fdf8d7, 5%);
-    background-image: linear-gradient($border 1px, transparent 1px),
-                      linear-gradient(90deg, $border 1px, transparent 1px);
-  }
 }
 
 //

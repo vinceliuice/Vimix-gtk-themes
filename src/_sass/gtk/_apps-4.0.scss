@@ -213,7 +213,7 @@ weekgrid.current {
   background-color: gtkalpha($primary, 0.3);
 }
 
-datechooser.view {
+datechooser {
   padding: $space_size;
 
   button.flat.pill, button.circular.day {
@@ -236,12 +236,17 @@ datechooser.view {
   }
 }
 
-headerbar.titlebar {
+agenda-view list.background {
+  background-color: transparent;
+}
+
+headerbar {
   menubutton.sources-button {
     margin: 0;
 
     > button {
       border-radius: 0;
+      margin: 0;
     }
   }
 }

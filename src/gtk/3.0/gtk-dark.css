@@ -4594,7 +4594,7 @@ cursor-handle.insertion-cursor:dir(ltr), cursor-handle.insertion-cursor:dir(rtl)
   font: initial;
 }
 
-.budgie-notification-window button.image-button.close, .budgie-switcher-window button.image-button.close, .budgie-osd-window button.image-button.close, .background .raven .expander-button, .background .raven .raven-header:not(.top) button.image-button, widget > box.terminal-titlebar > button.image-button, widget > box.terminal-titlebar > button.image-button.toggle, .terminix-session-sidebar row.activatable button.tilix-sidebar-close-button, .terminix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button,
+.budgie-notification-window button.image-button.close, .budgie-switcher-window button.image-button.close, .budgie-osd-window button.image-button.close, .raven-notifications-group list > row button.flat, .background .raven .expander-button, .background .raven .raven-header:not(.top) button.image-button, widget > box.terminal-titlebar > button.image-button, widget > box.terminal-titlebar > button.image-button.toggle, .terminix-session-sidebar row.activatable button.tilix-sidebar-close-button, .terminix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button,
 list.tilix-session-sidebar row.activatable button.tilix-sidebar-close-button,
 list.tilix-session-sidebar row.activatable:selected button.tilix-sidebar-close-button, .nautilus-window headerbar > revealer > button, button.close, button.round-button, button.circular, combobox > .linked:not(.vertical) > button.combo:not(:only-child), check,
 radio {
@@ -7838,64 +7838,52 @@ window.budgie-popover:not(.csd) > frame.container > border {
   border-style: none;
 }
 
-.workspace-switcher .workspace-layout {
+.budgie-panel.background .workspace-switcher .workspace-layout {
   border: 0 solid rgba(255, 255, 255, 0.12);
 }
 
-.top .workspace-switcher .workspace-layout:dir(ltr), .bottom .workspace-switcher .workspace-layout:dir(ltr) {
+.top .budgie-panel.background .workspace-switcher .workspace-layout:dir(ltr), .bottom .budgie-panel.background .workspace-switcher .workspace-layout:dir(ltr) {
   border-left-width: 1px;
 }
 
-.top .workspace-switcher .workspace-layout:dir(rtl), .bottom .workspace-switcher .workspace-layout:dir(rtl) {
+.top .budgie-panel.background .workspace-switcher .workspace-layout:dir(rtl), .bottom .budgie-panel.background .workspace-switcher .workspace-layout:dir(rtl) {
   border-right-width: 1px;
 }
 
-.left .workspace-switcher .workspace-layout, .right .workspace-switcher .workspace-layout {
+.left .budgie-panel.background .workspace-switcher .workspace-layout, .right .budgie-panel.background .workspace-switcher .workspace-layout {
   border-top-width: 1px;
 }
 
-.workspace-switcher .workspace-item,
-.workspace-switcher .workspace-add-button {
+.budgie-panel.background .workspace-switcher .workspace-item {
   border: 0 solid rgba(255, 255, 255, 0.12);
 }
 
-.top .workspace-switcher .workspace-item:dir(ltr), .bottom .workspace-switcher .workspace-item:dir(ltr), .top .workspace-switcher .workspace-add-button:dir(ltr), .bottom .workspace-switcher .workspace-add-button:dir(ltr) {
+.top .budgie-panel.background .workspace-switcher .workspace-item:dir(ltr), .bottom .budgie-panel.background .workspace-switcher .workspace-item:dir(ltr) {
   border-right-width: 1px;
 }
 
-.top .workspace-switcher .workspace-item:dir(rtl), .bottom .workspace-switcher .workspace-item:dir(rtl), .top .workspace-switcher .workspace-add-button:dir(rtl), .bottom .workspace-switcher .workspace-add-button:dir(rtl) {
+.top .budgie-panel.background .workspace-switcher .workspace-item:dir(rtl), .bottom .budgie-panel.background .workspace-switcher .workspace-item:dir(rtl) {
   border-left-width: 1px;
 }
 
-.left .workspace-switcher .workspace-item, .right .workspace-switcher .workspace-item, .left .workspace-switcher .workspace-add-button, .right .workspace-switcher .workspace-add-button {
+.left .budgie-panel.background .workspace-switcher .workspace-item, .right .budgie-panel.background .workspace-switcher .workspace-item {
   border-bottom-width: 1px;
 }
 
-.workspace-switcher .workspace-item {
+.budgie-panel.background .workspace-switcher .workspace-item {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-.workspace-switcher .workspace-item.current-workspace {
+.budgie-panel.background .workspace-switcher .workspace-item.current-workspace {
   background-color: alpha(currentColor, 0.16);
 }
 
-.workspace-switcher .workspace-add-button {
-  background-color: transparent;
+.budgie-panel.background .workspace-switcher .workspace-add-button {
+  border-radius: 3px;
+  padding: 6px;
 }
 
-.workspace-switcher .workspace-add-button:hover {
-  box-shadow: none;
-}
-
-.workspace-switcher .workspace-add-button:active {
-  background-image: none;
-}
-
-.workspace-switcher .workspace-add-button:active image {
-  margin: 1px 0 -1px;
-}
-
-.budgie-panel .workspace-switcher .workspace-icon-button {
+.budgie-panel.background .workspace-switcher .workspace-icon-button {
   min-height: 24px;
   min-width: 24px;
   padding: 0;
@@ -7936,16 +7924,20 @@ window.budgie-popover:not(.csd) > frame.container > border {
   border-radius: 3px;
 }
 
+.budgie-panel.dock-mode {
+  padding: 3px;
+}
+
 .bottom .budgie-panel.dock-mode {
-  border-radius: 3px 3px 0 0;
+  border-radius: 6px 6px 0 0;
 }
 
 .left .budgie-panel.dock-mode {
-  border-radius: 0 3px 3px 0;
+  border-radius: 0 6px 6px 0;
 }
 
 .right .budgie-panel.dock-mode {
-  border-radius: 3px 0 0 3px;
+  border-radius: 6px 0 0 6px;
 }
 
 .budgie-panel menubar > menuitem,
@@ -8484,6 +8476,19 @@ frame.raven-frame .raven .raven-notifications-view > .raven-background > viewpor
 
 frame.raven-frame .raven .raven-notifications-view > .raven-background > viewport.frame > list > row.activatable:selected list > row.activatable:selected {
   background-color: rgba(66, 133, 244, 0.65);
+}
+
+.raven-notifications-group .raven-notifications-group-header {
+  padding-left: 6px;
+}
+
+.raven-notifications-group list > row {
+  border-radius: 3px;
+  padding: 6px;
+}
+
+.raven-notifications-group list > row .notification-clone {
+  padding-left: 6px;
 }
 
 .budgie-notification-window, .budgie-switcher-window, .budgie-osd-window {

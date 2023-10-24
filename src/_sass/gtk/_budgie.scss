@@ -436,7 +436,7 @@ window.budgie-popover:not(.csd) {
 }
 
 // FIXME: workspace has unnecessary/unknown margin
-.workspace-switcher {
+.budgie-panel.background .workspace-switcher {
   .workspace-layout {
     border: 0 solid $border;
 
@@ -451,8 +451,7 @@ window.budgie-popover:not(.csd) {
     .right & { border-top-width: 1px; }
   }
 
-  .workspace-item,
-  .workspace-add-button {
+  .workspace-item {
     border: 0 solid $border;
 
     .top &,
@@ -473,22 +472,15 @@ window.budgie-popover:not(.csd) {
   }
 
   .workspace-add-button {
-    background-color: transparent;
-
-    &:hover { box-shadow: none; }
-
-    &:active { background-image: none; }
-
-    &:active image { margin: 1px 0 -1px; }
+    border-radius: $button_radius;
+    padding: $space_size;
   }
 
   .workspace-icon-button {
-    .budgie-panel & { // to overwrite the .budgie-panel button style below
-      min-height: 24px;
-      min-width: 24px;
-      padding: 0;
-      border-radius: 2px;
-    }
+    min-height: 24px;
+    min-width: 24px;
+    padding: 0;
+    border-radius: 2px;
   }
 }
 
@@ -521,21 +513,27 @@ window.budgie-popover:not(.csd) {
     }
   }
 
+  $dock_radius: $button_radius + $space_size / 2;
+
+  &.dock-mode {
+    padding: $space_size / 2;
+  }
+
   .bottom & {
     &.dock-mode {
-      border-radius: $button_radius $button_radius 0 0;
+      border-radius: $dock_radius $dock_radius 0 0;
     }
   }
 
   .left & {
     &.dock-mode {
-      border-radius: 0 $button_radius $button_radius 0;
+      border-radius: 0 $dock_radius $dock_radius 0;
     }
   }
 
   .right & {
     &.dock-mode {
-      border-radius: $button_radius 0 0 $button_radius;
+      border-radius: $dock_radius 0 0 $dock_radius;
     }
   }
 
@@ -1024,6 +1022,25 @@ frame.raven-frame .raven .raven-notifications-view {
           }
         }
       }
+    }
+  }
+}
+
+.raven-notifications-group {
+  .raven-notifications-group-header {
+    padding-left: $space_size;
+  }
+
+  list > row {
+    border-radius: $button_radius;
+    padding: $space_size;
+
+    .notification-clone {
+      padding-left: $space_size;
+    }
+
+    button.flat {
+      @extend %circular_button;
     }
   }
 }

@@ -1476,12 +1476,12 @@ frame toolbar.toolbar {
 frame.documents-dropdown, .background .app-notification, toolbar.osd {
   padding: 6px;
   border-radius: 3px;
-  box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 2px 3px -1px rgba(0, 0, 0, 0.14), 0 3px 4px -1px rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.35);
+  box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 2px 3px -1px rgba(0, 0, 0, 0.14), 0 3px 4px -1px rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.15);
   background-color: #FFFFFF;
 }
 
 frame.documents-dropdown:backdrop, .background .app-notification:backdrop, toolbar.osd:backdrop {
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.15), inset 0 1px rgba(255, 255, 255, 0.35);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.15), inset 0 1px rgba(255, 255, 255, 0.15);
 }
 
 frame.left.documents-dropdown, .background .left.app-notification, frame.right.documents-dropdown, .background .right.app-notification, frame.top.documents-dropdown, .background .top.app-notification, frame.bottom.documents-dropdown, .background .bottom.app-notification, toolbar.osd.left, toolbar.osd.right, toolbar.osd.top, toolbar.osd.bottom {
@@ -1713,7 +1713,7 @@ headerbar .dim-label, headerbar .budgie-notification .notification-body, headerb
 
 .titlebar > headerbar {
   border-radius: 3px 3px 0 0;
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.35), inset 0 -1px rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.15), inset 0 -1px rgba(0, 0, 0, 0.12);
 }
 
 headerbar entry,
@@ -1797,7 +1797,7 @@ headerbar .entry-tag {
 }
 
 headerbar.titlebar {
-  box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.12), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -1px rgba(0, 0, 0, 0.08), inset 0 1px rgba(255, 255, 255, 0.35);
+  box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.12), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -1px rgba(0, 0, 0, 0.08), inset 0 1px rgba(255, 255, 255, 0.15);
 }
 
 headerbar.titlebar.solid-csd headerbar {
@@ -1809,7 +1809,7 @@ headerbar.titlebar.solid-csd headerbar {
 }
 
 .titlebar > headerbar {
-  box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.12), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -1px rgba(0, 0, 0, 0.08), inset 0 1px rgba(255, 255, 255, 0.35);
+  box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.12), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -1px rgba(0, 0, 0, 0.08), inset 0 1px rgba(255, 255, 255, 0.15);
 }
 
 headerbar.selection-mode {
@@ -1904,7 +1904,7 @@ headerbar.default-decoration button.titlebutton:hover, headerbar.default-decorat
 }
 
 headerbar.default-decoration, .csd headerbar.default-decoration, headerbar.default-decoration:backdrop, .csd headerbar.default-decoration:backdrop {
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.15);
 }
 
 headerbar .linked:not(.vertical).path-bar > button {
@@ -1954,7 +1954,7 @@ separator:first-child + .titlebar,
 }
 
 .titlebar separator, .titlebar separator.sidebar {
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.35), inset 0 -1px rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.15), inset 0 -1px rgba(0, 0, 0, 0.12);
 }
 
 stack .titlebar:first-child, stack .titlebar:last-child {
@@ -1991,7 +1991,7 @@ stack .titlebar:first-child, stack .titlebar:last-child {
 }
 
 .titlebar:not(headerbar) {
-  box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.12), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -1px rgba(0, 0, 0, 0.08), inset 0 1px rgba(255, 255, 255, 0.35);
+  box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.12), 0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 1px 2px -1px rgba(0, 0, 0, 0.08), inset 0 1px rgba(255, 255, 255, 0.15);
   border: none;
 }
 
@@ -2271,7 +2271,7 @@ menu,
 .context-menu {
   margin: 4px;
   padding: 5px 0;
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.15);
   background-color: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 3px;
@@ -2840,7 +2840,11 @@ switch slider {
   border-radius: 9999px;
   box-shadow: 0 0 0 10px transparent, 0 1px 1px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.15);
   background-color: #fafafa;
-  color: #fafafa;
+  color: transparent;
+}
+
+popover switch slider, .budgie-popover switch slider {
+  background-color: #fafafa;
 }
 
 switch:hover slider {
@@ -3744,7 +3748,7 @@ messagedialog.background {
 messagedialog.background .titlebar {
   min-height: 24px;
   border-style: none;
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.15);
   background-color: #fafafa;
   color: rgba(0, 0, 0, 0.87);
 }
@@ -4146,7 +4150,7 @@ tooltip {
 }
 
 tooltip.background {
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.15);
   background-color: alpha(#FFFFFF, 0.97);
 }
 
@@ -4274,12 +4278,12 @@ colorswatch#editor-color-sample overlay {
 colorchooser .popover.osd {
   transition: box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
   border-radius: 2px;
-  box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 2px 3px -1px rgba(0, 0, 0, 0.14), 0 3px 4px -1px rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.35);
+  box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 2px 3px -1px rgba(0, 0, 0, 0.14), 0 3px 4px -1px rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.15);
   background-color: #FFFFFF;
 }
 
 colorchooser .popover.osd:backdrop {
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.15), inset 0 1px rgba(255, 255, 255, 0.35);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.15), inset 0 1px rgba(255, 255, 255, 0.15);
 }
 
 .content-view {
@@ -4329,7 +4333,7 @@ messagedialog.csd decoration {
   padding: 1px 2px 2px;
   border: 1px solid silver;
   border-radius: 0;
-  box-shadow: inset 0 0 0 2px #eeeeee, inset 0 1px rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 0 0 2px #eeeeee, inset 0 1px rgba(255, 255, 255, 0.15);
   background-color: #e0e0e0;
 }
 
@@ -4769,7 +4773,7 @@ window.background.csd.unified headerbar.selection-mode {
 }
 
 window.background.csd.unified > decoration-overlay {
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.15);
 }
 
 window.background.csd.unified,
@@ -7232,7 +7236,7 @@ PanelApplet.wnck-applet .wnck-pager:selected {
 #MatePanelPopupWindow {
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.15);
 }
 
 #MatePanelPopupWindow frame > border {
@@ -7259,7 +7263,7 @@ na-tray-applet {
 .mate-panel-applet-slider frame {
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.15);
   background-color: #F2F2F2;
 }
 
@@ -7396,7 +7400,7 @@ na-tray-applet {
 /* mate-screensaver lock dialog */
 .lock-dialog {
   border-radius: 3px;
-  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.2), 0 4px 3px -1px rgba(0, 0, 0, 0.14), 0 1px 6px -1px rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.35);
+  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.2), 0 4px 3px -1px rgba(0, 0, 0, 0.14), 0 1px 6px -1px rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.15);
 }
 
 .lock-dialog frame > border {
@@ -7713,7 +7717,7 @@ na-tray-applet {
 }
 
 .background.budgie-popover.budgie-menu list.left-overlay-menu {
-  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.2), 0 4px 3px -1px rgba(0, 0, 0, 0.14), 0 1px 6px -1px rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.35);
+  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.2), 0 4px 3px -1px rgba(0, 0, 0, 0.14), 0 1px 6px -1px rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.15);
   background-color: #FFFFFF;
   padding: 6px;
   margin: 6px;
@@ -8503,6 +8507,10 @@ frame.raven-frame .raven .raven-notifications-view > .raven-background > viewpor
   font-size: 120%;
 }
 
+window.budgie-power-dialog {
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.15);
+}
+
 window.budgie-power-dialog, window.budgie-power-dialog.backgrround.csd, window.budgie-power-dialog > decoration {
   border-radius: 6px;
 }
@@ -8511,7 +8519,7 @@ window.budgie-power-dialog, window.budgie-power-dialog.backgrround.csd, window.b
   margin: 5px 9px;
   padding: 6px;
   border-radius: 6px;
-  box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 2px 3px -1px rgba(0, 0, 0, 0.14), 0 3px 4px -1px rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.35);
+  box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 2px 3px -1px rgba(0, 0, 0, 0.14), 0 3px 4px -1px rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.15);
   background-color: #fafafa;
 }
 
@@ -8520,7 +8528,7 @@ window.budgie-power-dialog, window.budgie-power-dialog.backgrround.csd, window.b
 .budgie-run-dialog {
   border-radius: 6px;
   background-color: #fafafa;
-  box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 2px 3px -1px rgba(0, 0, 0, 0.14), 0 3px 4px -1px rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.35);
+  box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 2px 3px -1px rgba(0, 0, 0, 0.14), 0 3px 4px -1px rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.15);
 }
 
 .budgie-session-dialog decoration,
@@ -8629,7 +8637,7 @@ window.budgie-power-dialog, window.budgie-power-dialog.backgrround.csd, window.b
 .budgie-run-dialog entry.search {
   font-size: 120%;
   padding: 6px 12px;
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.15);
   background-color: transparent;
 }
 
@@ -8737,7 +8745,7 @@ window.budgie-power-dialog, window.budgie-power-dialog.backgrround.csd, window.b
 #restart_dialog {
   margin: 8px;
   border-radius: 2px;
-  box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 2px 3px -1px rgba(0, 0, 0, 0.14), 0 3px 4px -1px rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.35);
+  box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 2px 3px -1px rgba(0, 0, 0, 0.14), 0 3px 4px -1px rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.15);
   background-color: #fafafa;
 }
 

@@ -299,7 +299,7 @@
     }
 
     list.left-overlay-menu {
-      box-shadow: $shadow_4, inset 0 1px $highlight;
+      box-shadow: $shadow_4, inset 0 1px highlight($base);
       background-color: $base;
       padding: $space_size;
       margin: $space_size;
@@ -1087,6 +1087,8 @@ frame.raven-frame .raven .raven-notifications-view {
 
 // power dialog window
 window.budgie-power-dialog {
+  box-shadow: inset 0 1px highlight($base);
+
   &, &.backgrround.csd, & > decoration {
     border-radius: $modal_radius;
   }
@@ -1096,7 +1098,7 @@ window.budgie-power-dialog {
   margin: 5px 9px;
   padding: $space_size;
   border-radius: $modal_radius;
-  box-shadow: $shadow_2, inset 0 1px $highlight;
+  box-shadow: $shadow_2, inset 0 1px highlight($surface);
   background-color: $surface;
 
   button {
@@ -1108,7 +1110,7 @@ window.budgie-power-dialog {
 %budgie_dialog {
   border-radius: $modal_radius;
   background-color: $surface;
-  box-shadow: $shadow_2, inset 0 1px $highlight;
+  box-shadow: $shadow_2, inset 0 1px highlight($surface);
 
   decoration { border-radius: $modal_radius; }
 
@@ -1179,7 +1181,7 @@ window.budgie-power-dialog {
   entry.search {
     font-size: 120%;
     padding: $space_size $space_size * 2;
-    box-shadow: inset 0 1px $highlight;
+    box-shadow: inset 0 1px highlight($base);
     background-color: transparent;
   }
 

@@ -1059,10 +1059,10 @@ toolbar {
   @at-root %toolbar_osd, &.osd {
     padding: $space_size;
     border-radius: $window_radius;
-    box-shadow: $shadow_2, inset 0 1px $highlight;
+    box-shadow: $shadow_2, inset 0 1px highlight($base);
     background-color: $base;
 
-    &:backdrop { box-shadow: $shadow_1, inset 0 1px $highlight; }
+    &:backdrop { box-shadow: $shadow_1, inset 0 1px highlight($base); }
 
     &.left,
     &.right,
@@ -1244,7 +1244,7 @@ headerbar {
 
   .titlebar > & {
     border-radius: $window_radius $window_radius 0 0;
-    box-shadow: inset 0 1px $highlight, inset 0 -1px $border;
+    box-shadow: inset 0 1px highlight($header), inset 0 -1px $border;
   }
 
   entry,
@@ -1356,7 +1356,7 @@ headerbar {
   }
 
   &.titlebar {
-    box-shadow: $header_shadow, inset 0 1px $highlight;
+    box-shadow: $header_shadow, inset 0 1px highlight($header);
 
     &.solid-csd headerbar {
       box-shadow: $header_shadow;
@@ -1368,13 +1368,13 @@ headerbar {
   }
 
   .titlebar > & {
-    box-shadow: $header_shadow, inset 0 1px $highlight;
+    box-shadow: $header_shadow, inset 0 1px highlight($header);
   }
 
   &.selection-mode {
     transition: background-color 0.00001s $shorter_duration, color $shorter_duration $deceleration_curve;
     animation: header_ripple_effect $shorter_duration $deceleration_curve;
-    box-shadow: $shadow_1, inset 0 1px $highlight;
+    box-shadow: $shadow_1, inset 0 1px highlight($primary);
     background-color: $primary;
     color: on($primary);
 
@@ -1463,7 +1463,7 @@ headerbar {
   .csd &.default-decoration,
   &.default-decoration:backdrop,
   .csd &.default-decoration:backdrop {  // needed under wayland, since all gtk3 windows are csd windows
-    box-shadow: inset 0 1px $highlight;
+    box-shadow: inset 0 1px highlight($header);
   }
 
   // special case for headerbar path-bars
@@ -1510,7 +1510,7 @@ headerbar {
   headerbar:first-child:not(:only-child) { border-top-right-radius: 0; }
   headerbar:last-child:not(:only-child) { border-top-left-radius: 0; }
 
-  separator, separator.sidebar { box-shadow: inset 0 1px $highlight, inset 0 -1px $border; }
+  separator, separator.sidebar { box-shadow: inset 0 1px highlight($header), inset 0 -1px $border; }
 
   stack & { // tackles the stacked headerbars case
     &:first-child, &:last-child {
@@ -1563,7 +1563,7 @@ headerbar {
 }
 
 .titlebar:not(headerbar) {
-  box-shadow: $header_shadow, inset 0 1px $highlight;
+  box-shadow: $header_shadow, inset 0 1px highlight($header);
   border: none;
 
   .tiled &,
@@ -1825,7 +1825,7 @@ menu,
 .context-menu {
   margin: 4px;
   padding: 5px 0;
-  box-shadow: inset 0 1px $highlight;
+  box-shadow: inset 0 1px highlight($menu);
   background-color: $menu;
   border: 1px solid $border;
   border-radius: $menu_radius;
@@ -2346,7 +2346,12 @@ switch {
     border-radius: $circular_radius;
     box-shadow: 0 0 0 10px transparent, $shadow_1;
     background-color: $surface;
-    color: $surface;
+    color: transparent;
+  }
+
+  popover & slider,
+  .budgie-popover & slider {
+    background-color: if($variant == 'light', $surface, lighten($surface, 5%));
   }
 
   &:hover slider { color: $text; box-shadow: 0 0 0 10px rgba($text, 0.1), $shadow_1; }
@@ -3107,7 +3112,7 @@ messagedialog { // Message Dialog styling
     .titlebar {
       min-height: $small_size;
       border-style: none;
-      box-shadow: inset 0 1px $highlight;
+      box-shadow: inset 0 1px highlight($surface);
       background-color: $surface;
       color: $text;
 
@@ -3500,7 +3505,7 @@ tooltip {
   &.background {
     // background-color needs to be set this way otherwise it gets drawn twice
     // see https://bugzilla.gnome.org/show_bug.cgi?id=736155 for details.
-    box-shadow: inset 0 1px $highlight;
+    box-shadow: inset 0 1px highlight($base);
     background-color: gtkalpha($base, 0.97);
   }
 
@@ -3637,10 +3642,10 @@ colorswatch {
 colorchooser .popover.osd {
   transition: $shadow_transition;
   border-radius: 2px;
-  box-shadow: $shadow_2, inset 0 1px $highlight;
+  box-shadow: $shadow_2, inset 0 1px highlight($base);
   background-color: $base;
 
-  &:backdrop { box-shadow: $shadow_1, inset 0 1px $highlight; }
+  &:backdrop { box-shadow: $shadow_1, inset 0 1px highlight($base); }
 }
 
 //
@@ -3703,7 +3708,7 @@ decoration {
     padding: 1px 2px 2px;
     border: 1px solid if($topbar == 'light', darken($header, 18%), darken($header, 10%));
     border-radius: 0;
-    box-shadow: inset 0 0 0 2px $header, inset 0 1px $highlight;
+    box-shadow: inset 0 0 0 2px $header, inset 0 1px highlight($header);
     background-color: $solid-border;
   }
 }
@@ -4042,7 +4047,7 @@ window.background.csd.unified {
 
   // ...and add it on the window itself
   > decoration-overlay {
-    box-shadow: inset 0 1px $highlight;
+    box-shadow: inset 0 1px highlight($header);
   }
 
   &,

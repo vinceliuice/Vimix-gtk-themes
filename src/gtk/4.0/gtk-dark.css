@@ -2106,7 +2106,7 @@ headerbar popover.background .pathbar {
 
 headerbar.selection-mode {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1);
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.15), inset 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.15), inset 0 1px rgba(255, 255, 255, 0.35);
   background-color: #4285F4;
   color: white;
 }
@@ -3415,6 +3415,10 @@ switch > slider {
   box-shadow: 0 0 0 10px transparent, 0 1px 1px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.15);
   background-color: #383a3e;
   color: #383a3e;
+}
+
+popover switch slider {
+  background-color: #44474c;
 }
 
 switch:hover > slider {

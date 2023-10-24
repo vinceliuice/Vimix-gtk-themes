@@ -125,3 +125,9 @@ $theme_background: if($variant == 'light', #F2F2F2, #282828);
   @if ($state == 'checked') { @return rgba(on($color), 0.15); }
   @if ($state == 'selected') { @return rgba(on($color), 0.1); }
 }
+
+@function highlight($color) {
+  @if (lightness($color) >= 80%) { @return rgba($white, 0.15); }
+  @else if (lightness($color) >= 40%) { @return rgba($white, 0.35); }
+  @else { @return rgba($white, 0.1); }
+}

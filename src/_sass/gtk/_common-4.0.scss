@@ -217,7 +217,7 @@ toast {
   border-radius: $circular_radius;
   border-spacing: $space_size;
   padding: $space_size;
-  box-shadow: $shadow_4, inset 0 1px $highlight;
+  box-shadow: $shadow_4, inset 0 1px highlight($popover);
   background-color: $popover;
   color: on($popover);
   border: none;
@@ -1435,11 +1435,11 @@ combobox {
   &.osd {
     padding: $space_size;
     border-radius: 2px;
-    box-shadow: $shadow_3, inset 0 1px $highlight;
+    box-shadow: $shadow_3, inset 0 1px highlight($osd);
     background-color: $osd;
     color: on($osd);
 
-    &:backdrop { box-shadow: $shadow_1, inset 0 1px $highlight; }
+    &:backdrop { box-shadow: $shadow_1, inset 0 1px highlight($osd); }
 
     button {
       @extend %osd_button;
@@ -1596,7 +1596,7 @@ headerbar {
   min-height: $medium-size + $space_size * 2;
   padding: 0;
   margin: 0;
-  box-shadow: inset 0 1px $highlight, inset 0 -1px $border;
+  box-shadow: inset 0 1px highlight($header), inset 0 -1px $border;
   background-color: $header;
   color: on($header);
   border: none;
@@ -1620,14 +1620,14 @@ headerbar {
   &.flat,
   .sidebar-pane .top-bar &,
   .content-pane .top-bar & {
-    box-shadow: inset 0 1px $highlight;
+    box-shadow: inset 0 1px highlight($background);
     background-color: transparent;
     color: $text;
 
     button { @extend %flat_button; }
   }
 
-  &.titlebar { box-shadow: $header_shadow, inset 0 1px $highlight; }
+  &.titlebar { box-shadow: $header_shadow, inset 0 1px highlight($header); }
 
   .dim-label { color: on($header, secondary); }
 
@@ -1701,7 +1701,7 @@ headerbar {
 
   &.selection-mode {
     transition: $shorter_transition;
-    box-shadow: $shadow_1, inset 0 1px $highlight;
+    box-shadow: $shadow_1, inset 0 1px highlight($primary);
     background-color: $primary;
     color: on($primary);
 
@@ -1761,7 +1761,7 @@ headerbar {
   &.default-decoration {
     min-height: $item_size;
     padding: 0;
-    box-shadow: inset 0 1px $highlight;
+    box-shadow: inset 0 1px highlight($header);
     background-image: none;
 
     .tiled &,
@@ -2896,6 +2896,10 @@ switch {
     color: $surface;
   }
 
+  popover & slider {
+    background-color: if($variant == 'light', $surface, lighten($surface, 5%));
+  }
+
   &:hover > slider { color: $text; box-shadow: 0 0 0 $switch_shadow_size rgba($text, 0.1), $shadow_1; }
   &:focus > slider { color: $accent; box-shadow: $shadow_1; }
   &:focus:hover > slider { color: $accent; box-shadow: 0 0 0 $switch_shadow_size rgba($accent, 0.1), $shadow_1; }
@@ -3826,7 +3830,7 @@ columnview row:not(:selected) cell editablelabel.editing text selection {
   border-radius: $menu_radius;
   padding: $space_size;
   margin: 0 $space_size $space_size;
-  box-shadow: $shadow_4, inset 0 1px $highlight;
+  box-shadow: $shadow_4, inset 0 1px highlight($osd);
 
   button { @extend %osd_button; }
 
@@ -3923,7 +3927,7 @@ window.dialog.message { // Message Dialog styling
   .titlebar {
     min-height: $small_size;
     border-style: none;
-    box-shadow: inset 0 1px $highlight;
+    box-shadow: inset 0 1px highlight($surface);
     background-color: $surface;
     color: $text;
 
@@ -3970,7 +3974,7 @@ window.dialog.message { // Message Dialog styling
   }
 
   > windowhandle > box {
-    box-shadow: inset 0 1px $highlight;
+    box-shadow: inset 0 1px highlight($surface);
     border-radius: $window_radius $window_radius 0 0;
   }
 
@@ -4547,7 +4551,7 @@ tooltip {
     // see https://bugzilla.gnome.org/show_bug.cgi?id=736155 for details.
     background-color: $osd;
     color: on($osd);
-    box-shadow: $shadow_4, inset 0 1px $highlight;
+    box-shadow: $shadow_4, inset 0 1px highlight($osd);
     border-radius: $menu_radius;
     margin: 0 6px 8px 6px;
     border: none;
@@ -4682,10 +4686,10 @@ colorswatch {
 colorchooser .popover.osd {
   transition: $shadow_transition;
   border-radius: 2px;
-  box-shadow: $shadow_2, inset 0 1px $highlight;
+  box-shadow: $shadow_2, inset 0 1px highlight($base);
   background-color: $base;
 
-  &:backdrop { box-shadow: $shadow_1, inset 0 1px $highlight; }
+  &:backdrop { box-shadow: $shadow_1, inset 0 1px highlight($base); }
 
   // spinbutton:not(.vertical) { @extend %flat_entry; }
 }
@@ -4786,7 +4790,7 @@ window {
     padding: 1px 2px 2px;
     border: 1px solid if($topbar == 'light', darken($header, 18%), darken($header, 10%));
     border-radius: 0;
-    box-shadow: inset 0 0 0 2px $header, inset 0 1px $highlight;
+    box-shadow: inset 0 0 0 2px $header, inset 0 1px highlight($header);
     background-color: $solid-border;
   }
 }

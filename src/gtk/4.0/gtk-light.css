@@ -2096,6 +2096,31 @@ headerbar entry:disabled {
   box-shadow: none;
 }
 
+headerbar entry > image {
+  color: alpha(rgba(0, 0, 0, 0.87),0.9);
+}
+
+headerbar entry > image:hover, headerbar entry > image:active {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+headerbar entry > image:disabled {
+  color: rgba(0, 0, 0, 0.38);
+}
+
+headerbar entry > text {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+headerbar entry > text > placeholder {
+  color: rgba(0, 0, 0, 0.38);
+}
+
+headerbar entry > text > block-cursor {
+  color: #eeeeee;
+  background-color: rgba(0, 0, 0, 0.87);
+}
+
 headerbar button:not(.suggested-action):not(.destructive-action) {
   box-shadow: none;
   background-color: transparent;
@@ -2207,6 +2232,10 @@ headerbar:backdrop {
 
 headerbar:backdrop:disabled {
   color: rgba(0, 0, 0, 0.26);
+}
+
+headerbar:backdrop > windowhandle {
+  filter: none;
 }
 
 headerbar:disabled {

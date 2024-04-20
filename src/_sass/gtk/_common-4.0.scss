@@ -1563,6 +1563,27 @@ searchbar > revealer > box {
     border-image: none;
     box-shadow: none;
   }
+
+  > image { // icons inside the entry
+    color: gtkalpha(on($header), 0.9);
+
+    &:hover, &:active { color: on($header); }
+
+    &:disabled { color: on($header, disabled); }
+  }
+
+  > text {
+    color: on($header);
+
+    > placeholder {
+      color: on($header, disabled);
+    }
+  
+    > block-cursor {
+      color: $header;
+      background-color: on($header);
+    }
+  }
 }
 
 %header_button {
@@ -1655,6 +1676,10 @@ headerbar {
   &:backdrop {
     color: on($header, disabled);
     &:disabled { color: on($header, secondary-disabled); }
+
+    > windowhandle {
+      filter: none;
+    }
   }
 
   &:disabled { color: on($header, disabled); }

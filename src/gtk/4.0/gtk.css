@@ -2096,6 +2096,31 @@ headerbar entry:disabled {
   box-shadow: none;
 }
 
+headerbar entry > image {
+  color: alpha(white,0.9);
+}
+
+headerbar entry > image:hover, headerbar entry > image:active {
+  color: white;
+}
+
+headerbar entry > image:disabled {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+headerbar entry > text {
+  color: white;
+}
+
+headerbar entry > text > placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+headerbar entry > text > block-cursor {
+  color: #363636;
+  background-color: white;
+}
+
 headerbar button:not(.suggested-action):not(.destructive-action) {
   box-shadow: none;
   background-color: transparent;
@@ -2207,6 +2232,10 @@ headerbar:backdrop {
 
 headerbar:backdrop:disabled {
   color: rgba(255, 255, 255, 0.3);
+}
+
+headerbar:backdrop > windowhandle {
+  filter: none;
 }
 
 headerbar:disabled {

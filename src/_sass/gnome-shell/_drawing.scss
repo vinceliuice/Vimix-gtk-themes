@@ -13,52 +13,54 @@
     color: $tc;
     background-color: $bc;
     border-radius: $circular_radius;
-    border: 2px solid transparent;
-    box-shadow: none;
+    border: 2px solid transparent !important;
+    box-shadow: none !important;
   }
 
   @if $t == hover {
     color: $tc;
-    border-color: $track;
     background-color: $bc;
+    border: 2px solid $track !important;
+    box-shadow: none !important;
   }
 
   @if $t == focus {
     color: $tc;
-    border-color: $fc;
     background-color: $bc;
-    box-shadow: none;
+    border: 2px solid $fc !important;
+    box-shadow: none !important;
   }
 
   @if $t == insensitive {
     background-color: $bc;
     color: rgba($tc, 0.35);
-    border-color: transparent;
+    box-shadow: none !important;
   }
 
   @if $t == flat-normal {
     background-color: $bc;
     border-radius: 0;
-    border: none;
-    box-shadow: inset 0 -1px rgba($tc, 0.15);
     color: $tc;
+    border: none !important;
+    box-shadow: inset 0 -1px rgba($tc, 0.15) !important;
   }
 
   @if $t == flat-hover {
     background-color: $bc;
-    box-shadow: inset 0 -1px rgba($tc, 0.35);
     color: $tc;
+    border: none !important;
+    box-shadow: inset 0 -1px rgba($tc, 0.35) !important;
   }
 
   @if $t == flat-focus {
-    border: none;
     background-color: $bc;
-    box-shadow: inset 0 -2px $fc;
     color: $tc;
+    border: none !important;
+    box-shadow: inset 0 -2px $fc !important;
   }
 
   @if $t == flat-insensitive {
-    border: none;
+    border: none !important;
     background-color: $bc;
     color: rgba($tc, 0.35);
   }
@@ -132,5 +134,11 @@
     background-color: transparent;
     color: rgba($tc, 0.35);
     box-shadow: none !important;
+  }
+
+  @if $t == undecorated {
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
   }
 }

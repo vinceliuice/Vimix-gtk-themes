@@ -616,6 +616,57 @@ $_dot_color: if($variant=='light', $primary, lighten($primary, 15%));
   }
 }
 
+// .linked >                  element            child
+$deprecated_linked_widgets: ("combobox",         "> box > button.combo"),
+                            ("appchooserbutton", "> combobox > box > button.combo");
+
+// .linked >        element       child
+$_linked_widgets: ("%button",     ""),
+                  ("button",      ""),
+                  ("menubutton",  "> button"),
+                  ("dropdown",    "> button"),
+                  ("colorbutton", "> button"),
+                  ("fontbutton",  "> button"),
+                  ("tabbutton",   "> button"),
+                  ("%entry",      ""),
+                  ("entry",       "");
+
+$_linked_widgets: join($_linked_widgets, $deprecated_linked_widgets);
+
+@each $widget, $child in $_linked_widgets {
+  .linked:not(.vertical) > {
+    #{$widget} {
+      &:dir(ltr):not(:first-child) #{$child},
+      &:dir(rtl):not(:last-child) #{$child} {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        margin-left: 0;
+      }
+
+      &:dir(ltr):not(:last-child) #{$child},
+      &:dir(rtl):not(:first-child) #{$child} {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+
+  .linked.vertical {
+    #{$widget} {
+      &:not(:first-child) #{$child} {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        margin-top: 0;
+      }
+
+      &:not(:last-child) #{$child} {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+}
+
 button {
   min-height: 24px;
   min-width: 16px;
@@ -638,7 +689,7 @@ button {
     padding-right: 16px;
   }
 
-  &.image-button, &.toggle:not(.text-button) {
+  &.image-button {
     min-width: 24px;
     padding: ($medium_size - 24px) / 2;
     border-radius: $button_radius;
@@ -1418,12 +1469,13 @@ combobox {
 // Toolbars
 //
 .toolbar {
-  padding: $space_size / 2;
+  padding: $space_size;
+  // border-spacing: $space_size;
   background-color: $background;
 
   > separator.spacer { background: none; }
 
-  button {
+  > button {
     margin: 0 1px;
     @extend %flat_button;
   }
@@ -1460,24 +1512,14 @@ combobox {
   &.vertical separator { margin: $space_size / 2; }
 
   &:not(.inline-toolbar):not(.osd) {
-    scale,
-    entry,
-    spinbutton,
-    button { margin: $space_size / 2; }
-
-    .linked entry,
-    .linked spinbutton,
-    .linked button {
-      &:not(:first-child) { margin-left: 0; }
-      &:not(:last-child) { margin-right: 0; }
-    }
+    scale { margin: $space_size / 2; }
 
     switch { margin: ($space_size / 2 + $space_size) ($space_size / 2); }
   }
 }
 
 searchbar > revealer > box {
-  border-spacing: $space_size;
+  border-spacing: 0;
   padding: $space_size;
   border-style: solid;
   border-width: 0 0 1px;
@@ -3448,18 +3490,24 @@ frame {
   }
 }
 
-actionbar > revealer >  box {
-  padding: $space_size;
-  border-spacing: $space_size;
-  border-top: 1px solid $border;
+actionbar {
   box-shadow: none;
-  background-color: $background;
-  color: $text;
+  background: none;
+  border: none;
 
-  button:not(.suggested-action):not(.destructive-action):not(.server-list-button) { @extend %flat_button; }
-
-  entry, button, menubutton, splitbutton, spinbutton {
-    margin: 0;
+  > revealer >  box {
+    padding: $space_size;
+    border-spacing: 0;
+    border-top: 1px solid $border;
+    box-shadow: none;
+    background-color: $background;
+    color: $text;
+  
+    button:not(.suggested-action):not(.destructive-action):not(.server-list-button) { @extend %flat_button; }
+  
+    entry, button, menubutton, splitbutton, spinbutton {
+      margin: 0;
+    }
   }
 }
 
@@ -4169,6 +4217,34 @@ overlay-split-view {
   @include transition-shadows($frame);
 }
 
+toolbarview.undershoot-top scrolledwindow {
+  @include undershoot(top, $style: compact);
+}
+
+toolbarview.undershoot-bottom scrolledwindow {
+  @include undershoot(bottom, $style: compact);
+}
+
+scrolledwindow {
+  &.undershoot-top {
+    @include undershoot(top, $style: compact);
+  }
+
+  &.undershoot-bottom {
+    @include undershoot(bottom, $style: compact);
+  }
+
+  &.undershoot-start {
+    &:dir(ltr) { @include undershoot(left, $style: compact); }
+    &:dir(rtl) { @include undershoot(right, $style: compact); }
+  }
+
+  &.undershoot-end {
+    &:dir(ltr) { @include undershoot(right, $style: compact); }
+    &:dir(rtl) { @include undershoot(left, $style: compact); }
+  }
+}
+
 // Sidebar
 .unfolded stacksidebar.sidebar { border: none; }
 
@@ -4193,41 +4269,6 @@ overlay-split-view {
       box-shadow: none;
       border: none;
     }
-  }
-
-  toolbarview.undershoot-top scrolledwindow {
-    @include undershoot(top);
-  }
-
-  toolbarview.undershoot-bottom scrolledwindow {
-    @include undershoot(bottom);
-  }
-
-  scrolledwindow {
-    &.undershoot-top {
-      @include undershoot(top);
-    }
-
-    &.undershoot-bottom {
-      @include undershoot(bottom)
-    }
-
-    &.undershoot-start {
-      &:dir(ltr) { @include undershoot(left); }
-      &:dir(rtl) { @include undershoot(right); }
-    }
-
-    &.undershoot-end {
-      &:dir(ltr) { @include undershoot(right); }
-      &:dir(rtl) { @include undershoot(left); }
-    }
-  }
-
-  flap,
-  leaflet,
-  navigation-view,
-  overlay-split-view {
-    @include transition-shadows($frame);
   }
 
   banner > revealer > widget {
@@ -4265,41 +4306,6 @@ overlay-split-view {
     transition: background-color $shorter_duration $deceleration_curve;
   }
 
-  toolbarview.undershoot-top scrolledwindow {
-    @include undershoot(top);
-  }
-
-  toolbarview.undershoot-bottom scrolledwindow {
-    @include undershoot(bottom);
-  }
-
-  scrolledwindow {
-    &.undershoot-top {
-      @include undershoot(top);
-    }
-
-    &.undershoot-bottom {
-      @include undershoot(bottom)
-    }
-
-    &.undershoot-start {
-      &:dir(ltr) { @include undershoot(left); }
-      &:dir(rtl) { @include undershoot(right); }
-    }
-
-    &.undershoot-end {
-      &:dir(ltr) { @include undershoot(right); }
-      &:dir(rtl) { @include undershoot(left); }
-    }
-  }
-
-  flap,
-  leaflet,
-  navigation-view,
-  overlay-split-view {
-    @include transition-shadows($border);
-  }
-
   banner > revealer > widget {
     background-color: gtkmix($primary, $base, 30%);
     color: $text;
@@ -4324,6 +4330,46 @@ overlay-split-view {
   }
 }
 
+.sidebar-pane,
+.content-pane,
+.content-pane .sidebar-pane,
+.sidebar-pane .content-pane {
+  toolbarview.undershoot-top scrolledwindow {
+    @include undershoot(top);
+  }
+
+  toolbarview.undershoot-bottom scrolledwindow {
+    @include undershoot(bottom);
+  }
+
+  scrolledwindow {
+    &.undershoot-top {
+      @include undershoot(top);
+    }
+
+    &.undershoot-bottom {
+      @include undershoot(bottom);
+    }
+
+    &.undershoot-start {
+      &:dir(ltr) { @include undershoot(left); }
+      &:dir(rtl) { @include undershoot(right); }
+    }
+
+    &.undershoot-end {
+      &:dir(ltr) { @include undershoot(right); }
+      &:dir(rtl) { @include undershoot(left); }
+    }
+  }
+
+  flap,
+  leaflet,
+  navigation-view,
+  overlay-split-view {
+    @include transition-shadows($border);
+  }
+}
+
 .sidebar-pane .sidebar-pane {
   background-color: transparent;
   color: inherit;
@@ -4339,8 +4385,26 @@ overlay-split-view {
 }
 
 .top-bar {
+  box-shadow: none;
+  border: none;
+  background: none;
+
   .collapse-spacing {
     padding: 0;
+  }
+}
+
+// Floating sheet
+floating-sheet {
+  > dimming {
+    background-color: rgba(black, 0.35);
+  }
+
+  > sheet.background {
+    border: none;
+    outline: none;
+    border-radius: $window_radius;
+    box-shadow: $shadow_5, 0 16px 16px 2px rgba(black, 0), 0 6px 18px 5px rgba(black, 0);
   }
 }
 

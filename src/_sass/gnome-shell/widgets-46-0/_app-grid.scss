@@ -1,0 +1,203 @@
+
+/* App Icons */
+
+$app_icon_size: 96px;
+$app_folder_size: 720px;
+
+// app icons
+.icon-grid {
+  row-spacing: 12px;
+  column-spacing: 12px;
+  max-row-spacing: 36px;
+  max-column-spacing: 36px;
+  page-padding-top: 24px;
+  page-padding-bottom: 24px;
+  page-padding-left: 18px;
+  page-padding-right: 18px;
+}
+
+.overview-tile {
+  color: on($osd, secondary);
+  border-radius: $button_radius * 2;
+  padding: 6px;
+  border: none;
+  transition-duration: 100ms;
+  text-align: center;
+  background-color: transparent;
+
+  &:hover,
+  &:focus,
+  &:selected {
+    color: on($osd);
+    background-color: on($osd, divider);
+    border-image: none;
+    background-image: none;
+  }
+
+  &:active,
+  &:checked, {
+    color: on($osd);
+    background-color: on($osd, track);
+    box-shadow: none;
+  }
+}
+
+// App Folders
+.app-folder {
+  background-color: on($osd, divider);
+  border-radius: $button_radius * 2;
+  color: on($osd, secondary);
+
+  .overview-icon {
+    background-color: transparent;
+    border-radius: $button_radius * 2;
+  }
+
+  &:hover {
+    background-color: overlay($osd, active);
+    color: on($osd);
+  }
+
+  &:active {
+    background-color: on($osd, track);
+    color: on($osd);
+  }
+}
+
+// Running app indicator (also shown in dash)
+.app-grid-running-dot {
+  width: $base_padding;
+  height: 3px;
+  border-radius: 3px;
+  background-color: on($osd, track);
+  margin-bottom: 0;
+
+  StWidget.focused & {
+    width: $base_padding * 4;
+    background-color: $primary !important;
+  }
+}
+
+.app-folder-dialog-container {
+  // pad the top with panel height so the folder doesn't overlap the panel on smaller resolutions
+  padding-top: $item_size;
+}
+
+// expanded folder
+.app-folder-dialog {
+  width: $app_folder_size;
+  height: $app_folder_size;
+  border-radius: $base_radius * 4;
+  padding: $base_padding * 2;
+  background-color: rgba($osd, 0.9);
+  border: none;
+  box-shadow: none;
+
+  .folder-name-container {
+    padding: $base_padding * 4 $base_padding * 6;
+    padding-bottom: 0;
+
+    .folder-name-label,
+    .folder-name-entry {
+      @extend %title_1;
+    }
+
+    .folder-name-entry {
+      width: 12em;
+      border: none;
+      caret-color: on($osd);
+
+      &:focus {
+        background-color: on($osd, divider);
+        color: on($osd);
+      }
+    }
+  }
+
+  .icon-button {
+    background-color: overlay($osd);
+    color: on($osd, secondary);
+    border: none;
+    padding: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: $circular_radius;
+
+    > StIcon { icon-size: $base_icon_size; }
+
+    &:hover { background-color: overlay($osd, hover); }
+    &:checked, &:active { background-color: $primary; color: on($primary); }
+  }
+
+  .page-indicators {
+    margin-bottom: 18px;
+  }
+}
+
+// Rename popup for app folders
+.rename-folder-popup {
+  .rename-folder-popup-item {
+    spacing: $base_padding;
+    &:ltr, &:rtl { padding: 0 $base_padding * 2; }
+  }
+}
+
+// shutdown and other actions in the grid
+.system-action-icon {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2); // FIXME: this should really have a highlight
+  background-color: $osd;
+  color: on($osd);
+  border-radius: $circular_radius;
+  icon-size: $app_icon_size * 0.5;
+}
+
+// page navigation
+.page-navigation-hint {
+  &.dnd {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  &.next:ltr,
+  &.previous:rtl {
+    background-gradient-start: rgba(255, 255, 255, 0.05);
+    background-gradient-end: transparent;
+    background-gradient-direction: horizontal;
+    border-radius: $modal_radius * 1.5 0px 0px $modal_radius * 1.5;
+  }
+
+  &.previous:ltr,
+  &.next:rtl {
+    background-gradient-start: transparent;
+    background-gradient-end: rgba(255, 255, 255, 0.05);
+    background-gradient-direction: horizontal;
+    border-radius: 0px $modal_radius * 1.5 $modal_radius * 1.5 0px;
+  }
+}
+
+.page-navigation-arrow {
+  margin: $base_padding;
+  padding: $base_padding * 3;
+  width: $medium_icon_size;
+  height: $medium_icon_size;
+  border-radius: $circular_radius;
+  transition-duration: 100ms;
+  color: on($osd, secondary);
+  background-color: transparent;
+
+  > StIcon { color: on($osd); }
+
+  &:insensitive {
+    background-color: transparent;
+    color: on($osd, disabled);
+  }
+
+  &:hover {
+    background-color: on($osd, divider);
+    color: on($osd);
+  }
+
+  &:active {
+    background-color: on($osd, track);
+    color: on($osd);
+  }
+}

@@ -350,7 +350,7 @@
 }
 
 
-@mixin undershoot($p, $c: $frame, $neighbor: false) {
+@mixin undershoot($p, $c: $frame, $neighbor: false, $style: frame) {
   //
   // undershoot
   //
@@ -381,10 +381,15 @@
   } @else {
     @error "Unknown position #{$p}"
   }
-  
+
   #{$_selector} undershoot.#{$p} {
-    box-shadow: inset $_border_pos $border;
-    background: linear-gradient(to $_direction, gtkalpha($c, .75), transparent 4px);
+    @if $style == 'frame' {
+      box-shadow: inset $_border_pos $border;
+    } @else {
+      box-shadow: none;
+    }
+
+    background: linear-gradient(to $_direction, gtkalpha($c, .75), transparent 8px);
   }
 }
 

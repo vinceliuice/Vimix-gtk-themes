@@ -42,12 +42,26 @@
     border: none;
 
     &.clock-display {
+      border: none;
+
       .clock {
         transition-duration: 0;
         border: none;
         border-radius: 0;
         box-shadow: none;
         background: none;
+      }
+
+      &:hover {
+        color: $panel-text;
+        background-color: overlay($panel, focus) !important;
+        box-shadow: none !important;
+      }
+
+      &:active, &:overview, &:focus, &:checked {
+        color: $panel-text;
+        background-color: overlay($panel, checked) !important;
+        box-shadow: inset 0 -2px $indicator !important;
       }
     }
 
@@ -58,12 +72,10 @@
     }
 
     &:active, &:overview, &:focus, &:checked {
-      &, &:hover {
-        background-color: overlay($panel, checked);
-        color: $panel-text;
-        box-shadow: inset 0 -2px $indicator;
-        border: none;
-      }
+      color: $panel-text;
+      background-color: overlay($panel, checked);
+      box-shadow: inset 0 -2px $indicator;
+      border: none;
     }
 
     .unlock-screen &,
@@ -150,13 +162,21 @@
         box-shadow: none;
       }
 
-      &:hover, &:active, &:overview, &:focus, &:checked {
-        &.clock-display {
-          box-shadow: none;
+      &.clock-display {
+        box-shadow: none;
 
-          .clock {
-            box-shadow: none;
-          }
+        .clock {
+          box-shadow: none;
+        }
+
+        &:hover {
+          background-color: overlay(dark, hover) !important;
+          box-shadow: none !important;
+        }
+  
+        &:active, &:overview, &:focus, &:checked {
+          background-color: overlay(dark, active) !important;
+          box-shadow: none !important;
         }
       }
 

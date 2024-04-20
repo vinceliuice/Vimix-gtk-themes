@@ -37,3 +37,16 @@
     @extend %flat_button;
   }
 }
+
+.icon-button {
+
+
+  border-radius: $circular_radius; // is circular
+  padding: $scaled_padding * 2;
+  min-height: $scalable_icon_size;
+
+  StIcon {
+    icon-size: $scalable_icon_size;
+    -st-icon-style: symbolic;
+  }
+}

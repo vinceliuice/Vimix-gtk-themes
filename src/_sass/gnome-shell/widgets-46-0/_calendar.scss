@@ -3,7 +3,7 @@
 %popover_bubble {
   color: $text-secondary;
   background-color: $fill;
-  border-radius: $menu_radius;
+  border-radius: $button_radius;
   border: none;
   box-shadow: none;
   text-shadow: none;
@@ -21,32 +21,24 @@
   }
 }
 
-.clock-display-box {
-  spacing: 2px;
-
-  .clock {
-    padding-left: $base_padding * 2;
-    padding-right: $base_padding * 2;
-  }
-}
-
 // overall menu
 #calendarArea {
-  padding: $base_margin 0;
+  padding: 0 $base_margin;
 }
 
 .datemenu-popover {
-  border-radius: $base_radius + $base_padding * 2 !important;
+  border-radius: $base_radius + $base_padding !important;
 }
 
 // Calendar menu side column
 .datemenu-calendar-column {
   spacing: $base_spacing;
-  border: 0 solid $border;
-  padding: 0 $base_padding;
+  border: none;
+  padding: 0 !important;
+  margin: 0 !important;
 
-  &:ltr { margin-right: $base_margin * 2; border-left-width: 1px; border-right-width: 0; }
-  &:rtl { margin-left: $base_margin * 2; border-right-width: 1px; border-left-width: 0; }
+  &:ltr { margin-right: 0; border-left-width: 0; }
+  &:rtl { margin-left: 0; border-right-width: 0; }
 
   .datemenu-displays-section { padding-bottom: 0; }
 
@@ -72,10 +64,15 @@
   border: none;
   box-shadow: none;
   background: none;
-  padding: $base_padding;
+  padding: $base_padding $base_padding * 2;
+  margin: 0;
   text-shadow: none;
   color: $text-secondary;
-  border-radius: $menu_radius;
+  border-radius: $button_radius;
+  margin: $base_margin;
+
+  &:ltr { margin-left: $base_margin; }
+  &:rtl { margin-right: $base_margin; }
 
   &:hover, &:focus {
     background-color: overlay($base, hover);
@@ -103,28 +100,28 @@
   border: none;
   box-shadow: none;
   background-color: transparent;
-  padding: 0 $base_padding !important;
+  padding: $base_padding / 2 !important;
   margin: 0 !important;
   text-shadow: none;
   border-radius: $menu_radius;
+  color: $text-secondary;
 
   // month
   .calendar-month-label {
+    @extend %heading;
     padding: $base_padding 0;
-    color: $text-secondary;
+    color: $text-secondary !important;
     font-weight: bold;
     text-align: center;
     text-shadow: none;
-    @include fontsize($font_size + 1);
+    background-color: transparent;
   }
 
   // prev/next month icons
   .calendar-change-month-back,
   .calendar-change-month-forward {
-    padding: 0 0 !important;
+    padding: 0 !important;
     margin: ($base_padding / 2) 0 !important;
-    box-shadow: none !important;
-    outline: none !important;
 
     StIcon {
       icon-size: $base_icon_size;
@@ -132,19 +129,19 @@
   }
 
   .pager-button {
-    width: $item_size;
-    height: $item_size;
-    margin: 2px;
+    width: $item_size !important;
+    height: $item_size !important;
+    margin: 2px !important;
     border-radius: $circular_radius;
     background-color: transparent;
     color: $text;
+    box-shadow: none !important;
 
-    &:hover, &:focus { background-color: $divider; }
-    &:active { background-color: $track; }
+    &:hover, &:focus { background-color: $divider; box-shadow: none !important; }
+    &:active { background-color: $track; box-shadow: none !important; }
   }
 
-  .calendar-day,
-  .calendar-day-base {
+  .calendar-day {
     @include fontsize($font_size - 1);
     text-align: center;
     width: $item_size + 2px !important;
@@ -152,9 +149,10 @@
     padding: 0 !important;
     margin: 2px !important;
     border-radius: $circular_radius;
-    color: $text-secondary;
+    color: $text-secondary !important;
     border: none;
     font-feature-settings: "tnum";
+    background-color: transparent;
 
     &:hover, &:focus {
       background-color: $divider;
@@ -163,17 +161,18 @@
     }
 
     &:active, &:selected {
-      color: $text;
+      color: $text !important;
       background-color: $track;
-      border-color: transparent; //avoid jumparound due to today
+      border-color: transparent !important; //avoid jumparound due to today
       box-shadow: none !important;
       outline: none !important;
     }
 
-    &.calendar-day-heading {  //day of week heading
-      margin-top: 1em;
-      color: $text-disabled;
-      @include fontsize($font_size - 1);
+    &.calendar-weekday {}
+
+    &.calendar-weekend {
+      color: $text-disabled !important;
+      // font-weight: normal;
     }
   }
 
@@ -190,38 +189,34 @@
   }
 
   .calendar-nonwork-day {
-    color: $text-disabled;
-    font-weight: bold;
+    color: $text;
+    // font-weight: normal;
   }
 
   // Today
   .calendar-today {
     font-weight: bold;
-    color: $text-secondary;
+    color: $text-secondary !important;
     background-color: overlay($base);
     border: none;
 
     &:hover, &:focus {
       background-color: overlay($base, hover);
-      color: $text;
-      box-shadow: none !important;
-      outline: none !important;
+      color: $text !important;
     }
 
     &:active {
       background-color: darken($primary, 5%);
-      color: on($primary);
+      color: on($primary) !important;
     }
 
     &:selected {
       background-color: $primary;
-      color: on($primary);
-      box-shadow: none !important;
-      outline: none !important;
+      color: on($primary) !important;
 
       &:hover, &:focus {
         background-color: lighten($primary, 8%);
-        color: on($primary);
+        color: on($primary) !important;
       }
     }
   }
@@ -236,27 +231,39 @@
     }
   }
 
-  &.calendar-weekday,
-  &.calendar-weekend {
-    color: $text-disabled;
+  .calendar-other-month {
+    color: $text-secondary-disabled !important;
+    font-weight: normal;
+
+    &.calendar-weekend {
+      color: $text-secondary-disabled !important;
+    }
   }
 
-  .calendar-other-month,
-  .calendar-other-month-day {
-    color: $text-secondary-disabled !important;
-    opacity: 1;
+  // day of week heading
+  .calendar-day-heading {
+    @extend %numeric;
+    @extend %smaller;
+    font-weight: bold;
+    text-align: center;
+    margin: $base_margin;
+    padding: $base_padding * 0.5 $base_padding;
+    border-radius: $base_radius;
+    background-color: transparent;
+    color: $text;
   }
 
   .calendar-week-number {
     width: $item_size - 6px;
     height: $item_size - 12px;
     margin: 6px $base_margin / 2 !important;
-    padding: 0 0;
+    padding: 0;
     border-radius: $base_radius;
     background-color: $fill;
     color: $text-disabled;
-    font-size: inherit;
+    @extend %smaller;
     font-weight: bold;
+    font-feature-settings: "tnum";
     text-align: center;
   }
 }
@@ -266,56 +273,66 @@
 .events-button {
   @extend %popover_bubble;
   padding: $base_padding * 2 !important;
-  margin: 2px 0 !important;
+  margin: $base_margin / 2 0 !important;
 }
 
 // Events
 .events-button {
   .events-box {
-    color: $text-secondary;
     spacing: $base_spacing;
   }
 
   .events-list {
-    color: $text-secondary;
     spacing: 2 * $base_spacing;
     text-shadow: none;
+    color: $text-secondary;
   }
 
   .events-title {
-    color: $text-secondary;
     font-weight: bold;
     text-shadow: none;
+    color: $text-disabled;
   }
 
   .event-time {
-    color: $text-disabled;
     font-feature-settings: "tnum";
     @include fontsize($font_size - 1);
+    color: $text-disabled;
   }
 }
 
 // World Clock
 .world-clocks-button {
-  .world-clocks-city {
+  .world-clocks-grid {
+    spacing-rows: $base_padding;
+    spacing-columns: $base_padding * 2;
+  }
+
+  // title
+  .world-clocks-header {
+    @extend %heading;
     color: $text-disabled;
+  }
+
+  .world-clocks-city {
     font-weight: bold;
     @include fontsize($font_size);
+    color: $text-secondary;
   }
 
   .world-clocks-time {
-    color: $text-disabled;
     font-feature-settings: "tnum";
     @include fontsize($font_size);
+    color: $text;
 
     &:ltr { text-align: right; }
     &:rtl { text-align: left; }
   }
 
   .world-clocks-timezone {
-    color: $text-disabled;
     font-feature-settings: "tnum";
     @include fontsize($font_size - 1);
+    color: $text-disabled;
   }
 }
 
@@ -327,8 +344,6 @@
 
 // Weather
 .weather-button {
-  margin-bottom: 6px !important;
-
   .weather-box {
     spacing: $base_spacing + $base_margin;
   }
@@ -338,13 +353,13 @@
   }
 
   .weather-header {
-    color: $text-secondary;
     font-weight: bold;
+    color: $text-secondary;
 
     &.location {
       font-weight: normal;
-      color: $text-disabled;
       @include fontsize($font_size - 1);
+      color: $text-disabled;
     }
   }
 
@@ -354,12 +369,12 @@
   }
 
   .weather-forecast-time {
-    color: $text-secondary;
     font-feature-settings: "tnum";
     @include fontsize($font_size - 2);
     font-weight: normal;
     padding-top: 0.2em;
     padding-bottom: 0.4em;
+    color: $text-secondary;
   }
 
   .weather-forecast-icon {

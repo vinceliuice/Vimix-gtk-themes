@@ -1,0 +1,80 @@
+/* Notifications & Message Tray */
+
+$notification_banner_height: 64px;
+$notification_banner_width: 34em;
+
+// Banner notifications
+.notification-banner {
+  min-height: $notification_banner_height;
+  width: $notification_banner_width;
+  margin: 12px 8px 8px;
+  color: $text-secondary;
+  background-color: $popover;
+  text-shadow: none;
+  border-radius: $menu_radius;
+  border: none;
+  box-shadow: 0 3px 6px rgba(black, 0.25);
+
+  &:hover, &:active, &:focus {
+    color: $text;
+    background-color: $popover;
+  }
+}
+
+.notification-buttons-bin {
+  background-color: transparent;
+  padding-top: 0;
+  border: none;
+  border-top: 1px solid $border;
+  spacing: 0;
+}
+
+.notification-button {
+  min-height: $item_size + $base_padding * 2;
+  padding: 0 $base_padding * 3;
+  background-color: transparent;
+  color: $text-secondary;
+  font-weight: 500;
+  border: none;
+
+  &:focus {
+    background-color: transparent;
+    color: $text;
+    box-shadow: inset 0 0 0 2px $divider;
+  }
+
+  &:hover, &:focus:hover {
+    background-color: $divider;
+    color: $text;
+    box-shadow: none;
+  }
+
+  &:active {
+    background-color: $track;
+    color: $text;
+  }
+
+  &:first-child:ltr {
+    border-radius: 0 0 0 $menu_radius;
+  }
+
+  &:last-child:ltr {
+    border-radius: 0 0 $menu_radius;
+    margin-right: 0 !important;
+  }
+
+  &:first-child:rtl {
+    border-radius: 0 0 $menu_radius;
+  }
+
+  &:last-child:rtl {
+    border-radius: 0 0 0 $menu_radius;
+    margin-left: 0 !important;
+  }
+
+  &:first-child:last-child {
+    border-radius: 0 0 $menu_radius $menu_radius;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}

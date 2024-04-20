@@ -1659,14 +1659,18 @@ headerbar {
 
   &:disabled { color: on($header, disabled); }
 
-  &.flat,
-  .sidebar-pane .top-bar &,
-  .content-pane .top-bar & {
-    box-shadow: inset 0 1px highlight($background);
-    background-color: transparent;
-    color: $text;
-
-    button { @extend %flat_button; }
+  @if $topbar == 'dark' and $variant 'light' {
+    // nothing
+  } @else {
+    &.flat,
+    .sidebar-pane .top-bar &,
+    .content-pane .top-bar & {
+      box-shadow: inset 0 1px highlight($background);
+      background-color: transparent;
+      color: $text;
+  
+      button { @extend %flat_button; }
+    }
   }
 
   &.titlebar { box-shadow: $header_shadow, inset 0 1px highlight($header); }
@@ -3967,6 +3971,7 @@ calendar {
 //
 window.dialog.message { // Message Dialog styling
   background-color: $surface;
+  background-image: none;
 
   .dialog-vbox {
     border-spacing: $space_size * 2;
@@ -4016,6 +4021,7 @@ window.dialog.message { // Message Dialog styling
  window.messagedialog {
   background-color: $surface;
   color: $text;
+  background-image: none;
 
   &.csd {
     outline: none;
@@ -4252,9 +4258,27 @@ scrolledwindow {
   background-color: $base-alt;
   color: $text;
 
+  @if $topbar == 'dark' and $variant == 'light' {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      $header,
+                                      $header $medium-size + $space_size * 2,
+                                      $base-alt $medium-size + $space_size * 2,
+                                      $base-alt);
+  }
+
   &:backdrop {
     background-color: $background;
     transition: background-color $shorter_duration $deceleration_curve;
+
+    @if $topbar == 'dark' and $variant == 'light' {
+      background-color: transparent;
+      background-image: linear-gradient(to bottom,
+                                        $header,
+                                        $header $medium-size + $space_size * 2,
+                                        $background $medium-size + $space_size * 2,
+                                        $background);
+    }
   }
 
   headerbar {
@@ -4301,9 +4325,27 @@ scrolledwindow {
   background-color: $base;
   color: $text;
 
+  @if $topbar == 'dark' and $variant == 'light' {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      $header,
+                                      $header $medium-size + $space_size * 2,
+                                      $base $medium-size + $space_size * 2,
+                                      $base);
+  }
+
   &:backdrop {
     background-color: $background;
     transition: background-color $shorter_duration $deceleration_curve;
+
+    @if $topbar == 'dark' and $variant == 'light' {
+      background-color: transparent;
+      background-image: linear-gradient(to bottom,
+                                        $header,
+                                        $header $medium-size + $space_size * 2,
+                                        $background $medium-size + $space_size * 2,
+                                        $background);
+    }
   }
 
   banner > revealer > widget {
@@ -4379,6 +4421,15 @@ scrolledwindow {
   background-color: $background;
   color: $text;
 
+  @if $topbar == 'dark' and $variant == 'light' {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      $header,
+                                      $header $medium-size + $space_size * 2,
+                                      $background $medium-size + $space_size * 2,
+                                      $background);
+  }
+
   headerbar {
     border-top-left-radius: 0;
   }
@@ -4391,6 +4442,12 @@ scrolledwindow {
 
   .collapse-spacing {
     padding: 0;
+  }
+
+  > windowhandle {
+    &, &:backdrop {
+      filder: none;
+    }
   }
 }
 
@@ -4817,7 +4874,7 @@ window {
       box-shadow: $shadow_4, 0 16px 16px 2px rgba(black, 0), 0 6px 18px 5px rgba(black, 0);
     }
 
-    &.messagedialog {
+    &.messagedialog, &.message {
       @if $topbar == 'dark' and $variant == 'light' {
         &.background {
           background-color: $surface;

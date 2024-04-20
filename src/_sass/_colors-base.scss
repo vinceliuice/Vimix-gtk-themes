@@ -11,8 +11,22 @@ $theme_grey:       #666666;
 $theme_base:       if($variant == 'light', #FFFFFF, #333333);
 $theme_background: if($variant == 'light', #F2F2F2, #282828);
 
-@function gtkalpha($c, $a) {
-  @return unquote("alpha(#{$c}, #{$a})");
+// Base functions
+@function gtkalpha($c,$a) {
+  @return unquote("alpha(#{$c},#{$a})");
+}
+
+@function gtkmix($c1,$c2,$r) {
+  $ratio: 1 -  $r / 100%; // match SCSS mix()
+  @return unquote("mix(#{$c1},#{$c2},#{$ratio})");
+}
+
+@function gtkshade($c,$s) {
+  @return unquote("shade(#{$c},#{$s})");
+}
+
+@function gtkcolor($c) {
+  @return unquote("@#{$c}");
 }
 
 // Color functions

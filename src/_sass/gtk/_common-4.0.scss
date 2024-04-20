@@ -1660,16 +1660,12 @@ headerbar {
   &:disabled { color: on($header, disabled); }
 
   @if $topbar == 'dark' and $variant 'light' {
-    // nothing
-  } @else {
-    &.flat,
-    .sidebar-pane .top-bar &,
-    .content-pane .top-bar & {
+    &.flat, .about &, .info & {
       box-shadow: inset 0 1px highlight($background);
       background-color: transparent;
       color: $text;
   
-      button { @extend %flat_button; }
+      button:not(.suggested-action):not(.destructive-action) { @extend %flat_button; }
     }
   }
 

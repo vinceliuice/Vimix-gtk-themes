@@ -4522,10 +4522,14 @@ scrolledwindow {
       }
     }
   }
+
+  .top-bar > windowhandle:backdrop {
+    filder: none;
+  }
 }
 
 .top-bar {
-  // box-shadow: $header_shadow;
+  box-shadow: none;
   border: none;
   background: none;
 
@@ -4533,10 +4537,8 @@ scrolledwindow {
     padding: 0;
   }
 
-  > windowhandle {
-    &, &:backdrop {
-      filder: none;
-    }
+  > windowhandle:backdrop {
+    filder: none;
   }
 }
 

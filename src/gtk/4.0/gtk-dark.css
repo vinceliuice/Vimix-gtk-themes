@@ -5445,6 +5445,11 @@ scrolledwindow.undershoot-end:dir(rtl) > undershoot.left {
   background-color: transparent;
 }
 
+.sidebar-pane .top-bar > windowhandle:backdrop,
+.content-pane .top-bar > windowhandle:backdrop {
+  filder: none;
+}
+
 .top-bar {
   border: none;
   background: none;
@@ -5454,7 +5459,7 @@ scrolledwindow.undershoot-end:dir(rtl) > undershoot.left {
   padding: 0;
 }
 
-.top-bar > windowhandle, .top-bar > windowhandle:backdrop {
+.top-bar > windowhandle:backdrop {
   filder: none;
 }
 

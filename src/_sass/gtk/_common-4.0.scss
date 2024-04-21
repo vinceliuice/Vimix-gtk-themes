@@ -1659,7 +1659,7 @@ headerbar {
   min-height: $medium-size + $space_size * 2;
   padding: 0;
   margin: 0;
-  box-shadow: inset 0 1px highlight($header), inset 0 -1px $border;
+  box-shadow: inset 0 1px highlight($header), $header_shadow;
   background-color: $header;
   color: on($header);
   border: none;
@@ -1696,7 +1696,7 @@ headerbar {
 
   &.titlebar { box-shadow: $header_shadow, inset 0 1px highlight($header); }
 
-  .dim-label { color: on($header, secondary); }
+  .dim-label { color: on($header, disabled); }
 
   .title {
     padding: 0 12px;
@@ -1706,8 +1706,7 @@ headerbar {
   .subtitle {
     padding: 0 12px;
     font-size: smaller;
-
-    @extend .dim-label;
+    color: on($header, disabled);
   }
 
   > windowhandle > box {
@@ -2421,6 +2420,52 @@ popover.background {
 
   button:not(.suggested-action):not(.destructive-action):not(.flat) {
     @extend %flat_theme_button;
+  }
+
+  headerbar & {
+    color: $text;
+
+    .dim-label { color: $text-disabled; }
+
+    > arrow,
+    > contents {
+      color: $text;
+    }
+
+    entry {
+      color: $text;
+      caret-color: $text;
+    
+      &:disabled {
+        color: $text-disabled;
+      }
+    
+      > image { // icons inside the entry
+        color: $text-secondary;
+    
+        &:hover, &:active { color: $text; }
+    
+        &:disabled { color: $text-secondary-disabled; }
+      }
+    
+      > text {
+        color: $text;
+    
+        > placeholder {
+          color: $text-disabled;
+        }
+      
+        > block-cursor {
+          color: $base;
+          background-color: $text;
+        }
+      }
+    }
+
+    calendar > header > button:not(.suggested-action):not(.destructive-action):not(.flat) {
+      @extend %flat_button;
+      border-radius: 0;
+    }
   }
 
   modelbutton {
@@ -3961,6 +4006,7 @@ calendar {
       background: none;
       border-radius: 0;
     }
+
     > button:backdrop {
       background: none;
     }
@@ -4463,8 +4509,23 @@ scrolledwindow {
   }
 }
 
+.sidebar-pane,
+.content-pane {
+  @if $topbar == 'dark' and $variant == 'light' {
+    // northing
+  } @else {
+    headerbar {
+      box-shadow: inset 0 1px highlight($base);
+
+      &, &:backdrop {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
 .top-bar {
-  box-shadow: none;
+  // box-shadow: $header_shadow;
   border: none;
   background: none;
 

@@ -196,7 +196,7 @@ popover.background.touch-selection > contents, popover.background.magnifier > ar
 popover.background.magnifier > contents, .osd {
   color: white;
   border: none;
-  background-color: #222222;
+  background-color: #232528;
   background-clip: padding-box;
   border-radius: 4.5px;
   padding: 6px;
@@ -1262,19 +1262,19 @@ row:selected button.flat:checked:disabled {
 
 button.osd {
   padding: 9px 13px;
-  background-color: #222222;
+  background-color: #232528;
   color: white;
 }
 
 button.osd:hover {
-  background-color: #414141;
+  background-color: #404349;
   color: white;
 }
 
 button.osd:active {
-  background-color: #414141;
+  background-color: #404349;
   color: white;
-  background-image: radial-gradient(circle, #555555 10%, transparent 10%);
+  background-image: radial-gradient(circle, #53575e 10%, transparent 10%);
 }
 
 button.osd.image-button {
@@ -2021,7 +2021,7 @@ combobox popover .dropdown-searchbar {
   padding: 6px;
   border-radius: 2px;
   box-shadow: 0 3px 2px -2px rgba(0, 0, 0, 0.2), 0 3px 3px -1px rgba(0, 0, 0, 0.14), 0 1px 5px -1px rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.1);
-  background-color: #222222;
+  background-color: #232528;
   color: white;
 }
 
@@ -4726,7 +4726,7 @@ treeexpander {
 .app-notification {
   color: white;
   border: none;
-  background-color: #222222;
+  background-color: #232528;
   border-radius: 3px;
   padding: 6px;
   margin: 0 6px 6px;
@@ -5451,6 +5451,7 @@ scrolledwindow.undershoot-end:dir(rtl) > undershoot.left {
 }
 
 .top-bar {
+  box-shadow: none;
   border: none;
   background: none;
 }
@@ -5870,7 +5871,7 @@ tooltip {
 }
 
 tooltip.background {
-  background-color: #222222;
+  background-color: #232528;
   color: white;
   box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.2), 0 4px 3px -1px rgba(0, 0, 0, 0.14), 0 1px 6px -1px rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.1);
   border-radius: 3px;
@@ -7301,7 +7302,7 @@ themeswitcher checkbutton.dark {
 @define-color error_color #DD2C00;
 @define-color success_color #0F9D58;
 @define-color content_view_bg #FFFFFF;
-@define-color placeholder_text_color #999999;
+@define-color placeholder_text_color #96989c;
 /* Very contrasty background for text views (@theme_text foreground) */
 @define-color text_view_bg #FFFFFF;
 @define-color budgie_tasklist_indicator_color #4285F4;

@@ -120,12 +120,12 @@ $theme_background: if($variant == 'light', #F2F2F2, #282828);
     @return mix(primary(main), $color, $weight);
   }
   @if ($state == 'primary') {
-    @if ($theme != 'grey') and ($variant == 'dark') {
+    @if ($theme != 'grey') {
       @return mix(primary(main), $color, $weight);
     } @else { @return $color; }
   }
   @if ($state == 'default') { // for default mix grey color
-    @if ($theme != 'grey') and ($topbar == 'dark') {
+    @if ($theme != 'grey') {
       @return mix(primary(default), $color, $weight);
     } @else { @return $color; }
   }

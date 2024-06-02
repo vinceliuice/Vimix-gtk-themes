@@ -2396,11 +2396,11 @@ StWidget.focused .app-grid-running-dot {
 }
 
 #calendarArea {
-  padding: 0 4px;
+  padding: 0 6px;
 }
 
 .datemenu-popover {
-  border-radius: 8px !important;
+  border-radius: 10px !important;
 }
 
 .datemenu-calendar-column {
@@ -2761,7 +2761,8 @@ StWidget.focused .app-grid-running-dot {
 
 /* Dash */
 #dash {
-  margin-top: 12px;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 
 #dash .dash-background {
@@ -2833,7 +2834,8 @@ StWidget.focused .app-grid-running-dot {
 }
 
 #dash .dash-item-container .app-grid-running-dot {
-  margin-bottom: 18px;
+  margin-bottom: 0;
+  offset-y: 0;
 }
 
 #dash .dash-separator {
@@ -2856,8 +2858,7 @@ StWidget.focused .app-grid-running-dot {
   box-shadow: none;
   border: none;
   text-align: center;
-  -y-offset: 12px;
-  -x-offset: 8px;
+  -y-offset: 8px;
 }
 
 .workspace-animation {

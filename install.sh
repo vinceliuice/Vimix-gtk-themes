@@ -14,7 +14,7 @@ SRC_DIR=${REO_DIR}/src
 
 SASSC_OPT="-M -t expanded"
 
-THEME_NAME=vimix
+THEME_NAME=Vimix
 COLOR_VARIANTS=('' '-light' '-dark')
 SIZE_VARIANTS=('' '-compact')
 THEME_VARIANTS=('-grey' '-doder' '-beryl' '-ruby' '-amethyst' '-jade')

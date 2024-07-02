@@ -2245,11 +2245,12 @@ headerbar:disabled {
 headerbar.flat, .about headerbar, .info headerbar {
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.1);
   background-color: transparent;
-  color: white;
 }
 
-headerbar.titlebar {
-  box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 2px -1px rgba(0, 0, 0, 0.22), 0 1px 2px -1px rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.1);
+headerbar.flat, .about headerbar, .info headerbar {
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.1);
+  background-color: transparent;
+  color: white;
 }
 
 headerbar .dim-label, headerbar row.expander image.expander-row-arrow, row.expander headerbar image.expander-row-arrow, headerbar row label.subtitle, row headerbar label.subtitle, headerbar label.separator, headerbar entry > text > placeholder {
@@ -2385,8 +2386,12 @@ headerbar.selection-mode .selection-menu .arrow {
   box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 2px -1px rgba(0, 0, 0, 0.22), 0 1px 2px -1px rgba(0, 0, 0, 0.12);
 }
 
-.fullscreen headerbar:not(.titlebar), .tiled headerbar:not(.titlebar), .maximized headerbar:not(.titlebar) {
-  box-shadow: inset 0 -1px rgba(255, 255, 255, 0.12);
+.fullscreen headerbar.flat, .tiled headerbar.flat, .maximized headerbar.flat, .fullscreen .info headerbar, .tiled .info headerbar, .maximized .info headerbar {
+  box-shadow: none;
+}
+
+.fullscreen .about headerbar, .tiled .about headerbar, .maximized .about headerbar {
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.1);
 }
 
 headerbar.default-decoration {
@@ -3419,6 +3424,10 @@ tabbar tabbox > tabboxchild {
 
 tabbar tabbox > background {
   background: none;
+}
+
+tabbar tabbox > separator {
+  margin: 9px 0;
 }
 
 tabbar tab {
@@ -5458,6 +5467,10 @@ scrolledwindow.undershoot-end:dir(rtl) > undershoot.left {
 
 .top-bar .collapse-spacing {
   padding: 0;
+}
+
+.top-bar .collapse-spacing > tabbar tabbox {
+  box-shadow: inset 0 2px 3px -2px rgba(0, 0, 0, 0.2), inset 0 1px 2px -1px rgba(0, 0, 0, 0.22), inset 0 1px 2px -1px rgba(0, 0, 0, 0.12), inset 0 -1px rgba(255, 255, 255, 0.12);
 }
 
 .top-bar > windowhandle:backdrop {

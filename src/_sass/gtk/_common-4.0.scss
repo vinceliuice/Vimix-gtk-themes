@@ -1684,6 +1684,11 @@ headerbar {
 
   &:disabled { color: on($header, disabled); }
 
+  &.flat, .about &, .info & {
+    box-shadow: inset 0 1px highlight($header);
+    background-color: transparent;
+  }
+
   @if $topbar == 'dark' and $variant 'light' {
     &.flat, .about &, .info & {
       box-shadow: inset 0 1px highlight($background);
@@ -1693,8 +1698,6 @@ headerbar {
       button:not(.suggested-action):not(.destructive-action) { @extend %flat_button; }
     }
   }
-
-  &.titlebar { box-shadow: $header_shadow, inset 0 1px highlight($header); }
 
   .dim-label { color: on($header, disabled); }
 
@@ -1820,8 +1823,21 @@ headerbar {
   .maximized & {
     border-radius: 0; // squared corners when the window is fullscreen, maximized or tiled
     box-shadow: $header_shadow;
+  }
 
-    &:not(.titlebar) { box-shadow: inset 0 -1px $border; }
+  .fullscreen &.flat,
+  .tiled &.flat,
+  .maximized &.flat,
+  .fullscreen .info &,
+  .tiled .info &,
+  .maximized .info & {
+    box-shadow: none;
+  }
+
+  .fullscreen .about &,
+  .tiled .about &,
+  .maximized .about & {
+    box-shadow: inset 0 1px highlight($header);
   }
 
   &.default-decoration {
@@ -2759,6 +2775,10 @@ tabbar {
 
     > background {
       background: none;
+    }
+
+    > separator {
+      margin: $space-size * 1.5 0;
     }
   }
 
@@ -4528,6 +4548,15 @@ scrolledwindow {
   }
 }
 
+$tabbar_shadow_light: inset 0 3px 5px -2px rgba(black, 0.12),
+                      inset 0 1px 2px -1px rgba(black, 0.12),
+                      inset 0 1px 2px -1px rgba(black, 0.08),
+                      inset 0 -1px $border;
+$tabbar_shadow_dark: inset 0 2px 3px -2px rgba(black, 0.2),
+                     inset 0 1px 2px -1px rgba(black, 0.22),
+                     inset 0 1px 2px -1px rgba(black, 0.12),
+                     inset 0 -1px $border;
+
 .top-bar {
   box-shadow: none;
   border: none;
@@ -4535,6 +4564,12 @@ scrolledwindow {
 
   .collapse-spacing {
     padding: 0;
+
+    > tabbar {
+      tabbox {
+        box-shadow: if($variant == 'light', $tabbar_shadow_light, $tabbar_shadow_dark);
+      }
+    }
   }
 
   > windowhandle:backdrop {

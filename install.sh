@@ -496,6 +496,17 @@ uninstall_link() {
   rm -rf "${HOME}/.config/gtk-4.0"/{assets,gtk.css,gtk-dark.css}
 }
 
+clean_old_theme() {
+  local dest="${1}"
+  local color="${2}"
+  local size="${3}"
+  local theme="${4}"
+
+  local THEME_DIR="${1}/vimix${2}${3}${4}"
+
+  [[ -d "${THEME_DIR}" ]] && rm -rf "${THEME_DIR}"
+}
+
 link_libadwaita() {
   local dest="${1}"
   local name="${2}"
@@ -518,6 +529,16 @@ link_theme() {
     for size in "${sizes[@]-${SIZE_VARIANTS[0]}}"; do
       for theme in "${themes[@]-${THEME_VARIANTS[1]}}"; do
         link_libadwaita "${dest:-$DEST_DIR}" "${_name:-$THEME_NAME}" "${color}" "${size}" "${theme}"
+      done
+    done
+  done
+}
+
+clean_theme() {
+  for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
+    for size in "${sizes[@]-${SIZE_VARIANTS[@]}}"; do
+      for theme in "${themes[@]-${THEME_VARIANTS[@]}}"; do
+        clean_old_theme "${dest:-$DEST_DIR}" "${color}" "${size}" "${theme}"
       done
     done
   done
@@ -568,6 +589,7 @@ if [[ "$uninstall" == 'true' ]]; then
     echo && uninstall_theme && uninstall_link
   fi
 else
+  clean_theme
   install_theme
   if [[ "$libadwaita" == 'true' ]]; then
     uninstall_link && link_theme

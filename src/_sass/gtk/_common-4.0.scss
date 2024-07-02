@@ -2012,8 +2012,8 @@ viewswitchertitle {
   margin-bottom: 0;
 
   viewswitcher {
-    margin-left: $space-size * 2;
-    margin-right: $space-size * 2;
+    margin-left: $space_size * 2;
+    margin-right: $space_size * 2;
 
     &.narrow {
       margin-top: 0;
@@ -2778,7 +2778,7 @@ tabbar {
     }
 
     > separator {
-      margin: $space-size * 1.5 0;
+      margin: $space_size * 1.5 0;
     }
   }
 
@@ -3675,7 +3675,7 @@ list {
   color: $text;
   box-shadow: none;
 
-  row { padding: $space-size; }
+  row { padding: $space_size; }
 
   &.content:not(.conversation-listbox),
   &.boxed-list {
@@ -3727,8 +3727,8 @@ row {
   }
 
   > box.header {
-    margin-left: $space-size * 2;
-    margin-right: $space-size * 2;
+    margin-left: $space_size * 2;
+    margin-right: $space_size * 2;
     min-height: $large-size;
 
     > .icon:disabled {
@@ -3736,9 +3736,9 @@ row {
     }
 
     > box.title {
-      margin-top: $space-size;
-      margin-bottom: $space-size;
-      border-spacing: $space-size / 2;
+      margin-top: $space_size;
+      margin-bottom: $space_size;
+      border-spacing: $space_size / 2;
     }
   }
 

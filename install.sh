@@ -3,8 +3,12 @@
 ROOT_UID=0
 
 # Destination directory
-if [ "$UID" -eq "$ROOT_UID" ]; then
+if [[ "$UID" -eq "$ROOT_UID" ]]; then
   DEST_DIR="/usr/share/themes"
+elif [[ -n "$XDG_DATA_HOME" ]]; then
+  DEST_DIR="$XDG_DATA_HOME/themes"
+elif [[ -d "$HOME/.local/share/themes" ]]; then
+  DEST_DIR="$HOME/.local/share/themes"
 else
   DEST_DIR="$HOME/.themes"
 fi
@@ -496,17 +500,6 @@ uninstall_link() {
   rm -rf "${HOME}/.config/gtk-4.0"/{assets,gtk.css,gtk-dark.css}
 }
 
-clean_old_theme() {
-  local dest="${1}"
-  local color="${2}"
-  local size="${3}"
-  local theme="${4}"
-
-  local THEME_DIR="${1}/vimix${2}${3}${4}"
-
-  [[ -d "${THEME_DIR}" ]] && rm -rf "${THEME_DIR}"
-}
-
 link_libadwaita() {
   local dest="${1}"
   local name="${2}"
@@ -528,17 +521,38 @@ link_theme() {
   for color in "${colors[@]-${COLOR_VARIANTS[2]}}"; do
     for size in "${sizes[@]-${SIZE_VARIANTS[0]}}"; do
       for theme in "${themes[@]-${THEME_VARIANTS[1]}}"; do
-        link_libadwaita "${dest:-$DEST_DIR}" "${_name:-$THEME_NAME}" "${color}" "${size}" "${theme}"
+        link_libadwaita "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${size}" "${theme}"
       done
     done
   done
 }
 
+clean_old_theme() {
+  local dest="${1}"
+  local color="${2}"
+  local size="${3}"
+  local theme="${4}"
+
+  local THEME_DIR="${1}/vimix${2}${3}${4}"
+
+  [[ -d "${THEME_DIR}" ]] && rm -rf "${THEME_DIR}"{'','-hdpi','-xhdpi'}
+}
+
 clean_theme() {
+  local dest="$HOME/.themes"
+
   for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
     for size in "${sizes[@]-${SIZE_VARIANTS[@]}}"; do
       for theme in "${themes[@]-${THEME_VARIANTS[@]}}"; do
-        clean_old_theme "${dest:-$DEST_DIR}" "${color}" "${size}" "${theme}"
+        clean_old_theme "${dest}" "${color}" "${size}" "${theme}"
+      done
+    done
+  done
+
+  for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
+    for size in "${sizes[@]-${SIZE_VARIANTS[@]}}"; do
+      for theme in "${themes[@]-${THEME_VARIANTS[@]}}"; do
+        uninstall "${dest}" "${name:-${THEME_NAME}}" "${color}" "${size}" "${theme}"
       done
     done
   done
@@ -555,7 +569,7 @@ uninstall() {
 
   if [[ -d "${THEME_DIR}" ]]; then
     echo -e "Uninstall ${THEME_DIR}... "
-    rm -rf "${THEME_DIR}"
+    rm -rf "${THEME_DIR}"{'','-hdpi','-xhdpi'}
   fi
 }
 

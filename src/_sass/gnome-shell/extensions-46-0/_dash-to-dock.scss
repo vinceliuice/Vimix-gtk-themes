@@ -1,0 +1,218 @@
+// Dash to Dock
+
+// Scrollview style
+.bottom #dashtodockDashScrollview,
+.top #dashtodockDashScrollview {
+  -st-hfade-offset: 24px;
+}
+
+.left #dashtodockDashScrollview,
+.right #dashtodockDashScrollview {
+  -st-vfade-offset: 24px;
+}
+
+#dashtodockContainer {
+  background-color: transparent;
+
+  .number-overlay {
+    color: $panel-text;
+    background-color: rgba(black, 0.75);
+    text-align: center;
+  }
+
+  .notification-badge {
+    color: on($primary);
+    background-color: $primary;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.25);
+    border-radius: $circular_radius;
+    margin: 2px;
+    padding: 0.2em 0.6em;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &.straight-corner #dash,
+  &.shrink.straight-corner #dash {
+    border-radius: 0;
+    margin: 0;
+
+    .dash-background {
+      border-radius: 0;
+    }
+  }
+
+  &.extended.top,
+  &.extended.bottom,
+  &.extended.right,
+  &.extended.left {
+    #dash {
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding: 0 0;
+
+      .dash-background {
+        border-radius: 0;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &.left,
+  &.right {
+    #dash {
+      margin-top: 0;
+      padding: $dash_padding 0;
+
+      .dash-background { // default-mode
+        margin-bottom: 0;
+      }
+    }
+
+    .show-apps,
+    .overview-tile {
+      padding: $base_padding;
+    }
+  }
+
+  &.left #dash {
+    margin-left: $base_padding;
+  }
+
+  &.right #dash {
+    margin-right: $base_padding;
+  }
+
+  &.dashtodock #dash .dash-background { background-color: $panel; }
+
+  #dash .dash-background { // default-mode
+    background-color: $panel;
+  }
+
+  .app-grid-running-dot {
+    background-color: on($panel, track) !important;
+    margin: 0 !important;
+    offset-y: 0 !important;
+  }
+
+  StWidget.focused .app-grid-running-dot,
+  &:overview #dash StWidget.focused .app-grid-running-dot {
+    background-color: $indicator !important;
+  }
+
+  &:overview #dash .app-grid-running-dot {
+    background-color: on(dark, track) !important;
+  }
+
+  .show-apps,
+  .overview-tile {
+    & .overview-icon {
+      color: on($panel, secondary) !important;
+    }
+
+    &:hover .overview-icon,
+    &:focus .overview-icon,
+    &:selected .overview-icon {
+      background-color: on($panel, divider) !important;
+    }
+
+    &:active .overview-icon,
+    &:checked .overview-icon {
+      background-color: on($panel, track) !important;
+    }
+  }
+
+  &:overview #dash .show-apps,
+  &:overview #dash .overview-tile {
+    & .overview-icon {
+      color: on(dark, secondary) !important;
+    }
+
+    &:hover .overview-icon,
+    &:focus .overview-icon,
+    &:selected .overview-icon {
+      background-color: on(dark, divider) !important;
+    }
+
+    &:active .overview-icon,
+    &:checked .overview-icon {
+      background-color: on(dark, track) !important;
+    }
+  }
+
+  &.opaque #dash .dash-background { // solid-mode
+    background-color: $panel;
+  }
+
+  &.transparent #dash .dash-background { // translucent-mode
+    background-color: rgba($panel, 0.35); // does not work
+  }
+
+  &:overview #dash .dash-background { // overview-mode #1
+    background-color: on(black, divider);
+  }
+
+  &.opaque:overview,
+  &.transparent:overview { // overview-mode #2
+    #dash .dash-background {
+      background-color: transparent !important;
+      box-shadow: none !important;
+    }
+  }
+
+  &.extended:overview, // overview-mode #3
+  &.opaque.extended:overview,
+  &.transparent.extended:overview {
+    #dash .dash-background {
+      background-color: $panel;
+    }
+  }
+
+  &.running-dots,
+  &.dashtodock {
+    .dash-item-container > StButton {
+      transition-duration: 250ms;
+      background-size: contain;
+    }
+  }
+
+  &.shrink,
+  &.dashtodock {
+    .dash-item-container > StButton {
+       padding: 0;
+    }
+  }
+
+  &.extended,
+  &.extended:overview {
+    .show-apps,
+    .overview-tile {
+      .overview-icon {
+        border-radius: $base_radius;
+      }
+    }
+  }
+
+  .metro .overview-icon {
+    border-radius: 0;
+  }
+}
+
+.dash-label.bottom {
+  margin-bottom: $dash_padding !important;
+}
+
+.dashtodock-app-well-preview-menu-item {
+  padding: 1em 1em 0.5em 1em;
+}
+
+#dashtodockPreviewSeparator.popup-separator-menu-item-horizontal {
+  width: 1px;
+  height: auto;
+  border-right-width: 1px;
+  margin: 32px 0;
+}

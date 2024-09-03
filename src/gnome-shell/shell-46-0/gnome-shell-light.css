@@ -708,6 +708,20 @@ StEntry StLabel.hint-text {
   icon-size: 1em;
 }
 
+.popup-menu-content.kimpanel-popup-content {
+  padding: 6px 5px !important;
+  border-radius: 9px !important;
+}
+
+.popup-menu-content.kimpanel-popup-content .popup-menu-item {
+  border-radius: 3px !important;
+  margin: 0 1px !important;
+}
+
+.kimpanel-candidate-item {
+  border-radius: 3px !important;
+}
+
 /* On-screen Keyboard */
 #keyboard {
   background-color: #e5e5e5;
@@ -3681,6 +3695,28 @@ StWidget.focused .app-grid-running-dot {
 .aggregate-menu .popup-sub-menu .popup-menu-item > :first-child:rtl {
   padding-right: 12px !important;
   margin-right: 0 !important;
+}
+
+.app-menu {
+  max-width: 27.25em;
+}
+
+.app-menu .popup-menu-ornament {
+  width: 0 !important;
+}
+
+.app-menu .popup-inactive-menu-item:first-child {
+  margin-bottom: 4px !important;
+}
+
+.app-menu .popup-inactive-menu-item:first-child > StLabel:ltr {
+  margin-right: 0;
+  margin-left: 12px;
+}
+
+.app-menu .popup-inactive-menu-item:first-child > StLabel:rtl {
+  margin-left: 0;
+  margin-right: 12px;
 }
 
 .quick-settings {

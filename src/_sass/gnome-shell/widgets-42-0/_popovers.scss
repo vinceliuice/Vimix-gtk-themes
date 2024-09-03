@@ -39,3 +39,20 @@
     &:rtl { padding-right: $base_padding * 2 !important; margin-right: 0 !important; }
   }
 }
+
+// right-click (and panel) app menu
+.app-menu {
+  max-width: 27.25em;
+
+  // this is unneeded at the top-level in this menu, hide it
+  .popup-menu-ornament { width: 0 !important; }
+
+  .popup-inactive-menu-item:first-child {
+    margin-bottom: $base_margin !important;
+    // "Open Windows" label
+    > StLabel {
+      &:ltr { margin-right: 0; margin-left: $base_padding * 2; }
+      &:rtl { margin-left: 0; margin-right: $base_padding * 2; }
+    }
+  }
+}

@@ -49,3 +49,19 @@
 .candidate-page-button-previous,
 .candidate-page-button-next { border-radius: $base_radius;  }
 .candidate-page-button-icon { icon-size: 1em; }
+
+// Fcitx5 kimpanel
+
+.popup-menu-content.kimpanel-popup-content {
+  padding: $base_padding $base_padding - 1px !important;
+  border-radius: $button_radius + $base_padding !important;
+
+  .popup-menu-item {
+    border-radius: $button_radius !important;
+    margin: 0 1px !important;
+  }
+}
+
+.kimpanel-candidate-item {
+  border-radius: $button_radius !important;
+}

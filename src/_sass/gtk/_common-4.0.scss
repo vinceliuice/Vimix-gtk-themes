@@ -3547,7 +3547,7 @@ levelbar {
 //
 // Print dialog
 //
-window.dialog.print {
+window.print:not(.ssd-frame) {
   drawing {
     color: $text;
     background: none;
@@ -4069,6 +4069,7 @@ window.dialog.message { // Message Dialog styling
 
   .dialog-vbox {
     border-spacing: $space_size * 2;
+    padding: 0;
   }
 
   .titlebar {
@@ -4081,6 +4082,12 @@ window.dialog.message { // Message Dialog styling
     &:backdrop { color: $text-secondary; }
   }
 
+  box.dialog-vbox.vertical {
+    > box > box > box > label.title {
+      @extend .title-2;
+    }
+  }
+
   &.background {
     // bigger radius for better antialiasing
     border-bottom-left-radius: 2px;
@@ -4089,6 +4096,9 @@ window.dialog.message { // Message Dialog styling
 
   .dialog-action-area {
     border-top: 1px solid $border;
+    padding: 0;
+    border-spacing: 0;
+    margin: 0;
 
     > button {
       padding: 8px 16px;
@@ -4112,82 +4122,75 @@ window.dialog.message { // Message Dialog styling
  * AdwMessageDialog *
  ********************/
 
- window.messagedialog {
-  background-color: $surface;
-  color: $text;
-  background-image: none;
-
-  &.csd {
-    outline: none;
-  }
-
-  > windowhandle > box {
-    box-shadow: inset 0 1px highlight($surface);
-    border-radius: $window_radius $window_radius 0 0;
-  }
-
-  &.tiled, &.maximized {
-    > windowhandle > box {
-      box-shadow: none;
-      border-radius: 0;
-    }
-  }
-
+window.messagedialog,
+dialog.alert {
   .message-area {
-    padding: 24px 30px;
+    padding: 32px 30px 24px;
     border-spacing: 24px;
 
     &.has-heading.has-body {
       border-spacing: 10px;
+
+      > .child {
+        margin-top: 8px;
+      }
+    }
+
+    > .heading-bin, > .body, > .child {
+      padding-left: 24px;
+      padding-right: 24px;
     }
   }
 
-  .response-area > button {
-    padding: 10px 14px;
-    border-radius: 0;
+  .response-area {
+    padding: $space_size * 2;
+    padding-top: $space_size * 2;
+    border-spacing: $space_size * 2;
 
-    &.suggested {
-      color: $suggested;
-    }
+    > button {
+      padding: 10px 14px;
+      @extend %flat_theme_button;
 
-    &.destructive {
-      color: $destructive;
+      &.suggested {
+        color: $suggested;
+      }
+
+      &.destructive {
+        color: $destructive;
+      }
     }
   }
 
-  &.csd:not(.solid-csd) {
-    border-radius: $window_radius + 1px;
+  &.short {
+    .message-area {
+      padding-top: $space_size * 2;
+      border-spacing: $space_size * 2;
+
+      > .heading-bin, > .body, > .child {
+        padding-left: $space_size * 3;
+        padding-right: $space_size * 3;
+      }
+
+      &.has-heading.has-body {
+        border-spacing: $space_size;
+      }
+    }
 
     .response-area {
-      &:not(.compact) > button {
-        margin-top: -1px;
-        margin-right: -1px;
-        margin-left: -1px;
+      padding: $space_size * 3;
+      padding-top: $space_size * 1.5;
 
-        &:first-child:dir(ltr),
-        &:last-child:dir(rtl) {
-          border-bottom-left-radius: $window_radius + 1px;
-          margin-left: 0;
-        }
-
-        &:last-child:dir(ltr),
-        &:first-child:dir(rtl) {
-          border-bottom-right-radius: $window_radius + 1px;
-          margin-right: 0;
-        }
-      }
-
-      &.compact > button {
-        margin-top: -1px;
-        margin-bottom: -1px;
-
-        &:first-child {
-          border-bottom-left-radius: $window_radius + 1px;
-          border-bottom-right-radius: $window_radius + 1px;
-          margin-bottom: 0;
-        }
+      > button {
+        min-width: 0;
+        padding: 8px 16px;
       }
     }
+  }
+}
+
+window.dialog {
+  .dialog-content {
+    padding: $space_size * 2;
   }
 }
 

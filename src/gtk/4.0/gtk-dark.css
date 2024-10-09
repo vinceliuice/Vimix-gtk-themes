@@ -3546,6 +3546,8 @@ scrollbar > range > trough {
   background: none;
   border: none;
   outline: none;
+  margin: 0;
+  transition: none;
 }
 
 scrollbar > range > trough > slider {
@@ -3553,7 +3555,7 @@ scrollbar > range > trough > slider {
   min-width: 5px;
   min-height: 5px;
   border: 3px solid transparent;
-  border-radius: 100px;
+  border-radius: 9999px;
   background-clip: padding-box;
   background-color: rgba(255, 255, 255, 0.45);
   outline: none;
@@ -3579,16 +3581,31 @@ scrollbar > range.fine-tune > trough > slider {
 }
 
 scrollbar > range.fine-tune.horizontal > trough > slider {
-  margin: 2px 0;
+  margin: 3px 0;
 }
 
 scrollbar > range.fine-tune.vertical > trough > slider {
-  margin: 0 2px;
+  margin: 0 3px;
+}
+
+scrollbar.overlay-indicator {
+  background: none;
+  color: inherit;
+  box-shadow: none;
+  padding: 0;
+}
+
+scrollbar.overlay-indicator > range > trough {
+  outline: none;
 }
 
 scrollbar.overlay-indicator:not(.dragging):not(.hovering) {
   border-color: transparent;
   background-color: transparent;
+}
+
+scrollbar.overlay-indicator:not(.dragging):not(.hovering) > range > trough {
+  margin: 0;
 }
 
 scrollbar.overlay-indicator:not(.dragging):not(.hovering) > range > trough > slider {
@@ -3631,6 +3648,12 @@ scrollbar.overlay-indicator:not(.dragging):not(.hovering).vertical button {
 
 scrollbar.overlay-indicator.dragging, scrollbar.overlay-indicator.hovering {
   background-color: alpha(#333539,0.9);
+}
+
+scrollbar.overlay-indicator.dragging > range > trough, scrollbar.overlay-indicator.hovering > range > trough {
+  outline: none;
+  margin: 3px;
+  padding: 4px;
 }
 
 scrollbar.horizontal > range > trough > slider {

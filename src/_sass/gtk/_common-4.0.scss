@@ -2895,13 +2895,15 @@ scrollbar {
     background: none;
     border: none;
     outline: none;
+    margin: 0;
+    transition: none;
 
     > slider {
       transition: $shorter_transition, margin 0, border-width 0;
       min-width: 5px;
       min-height: 5px;
       border: 3px solid transparent;
-      border-radius: 100px;
+      border-radius: $circular_radius;
       background-clip: padding-box;
       background-color: $text-disabled;
       outline: none;
@@ -2920,26 +2922,39 @@ scrollbar {
       min-height: 4px;
     }
 
-    &.horizontal > trough > slider { margin: 2px 0; }
-    &.vertical > trough > slider { margin: 0 2px; }
+    &.horizontal > trough > slider { margin: 3px 0; }
+    &.vertical > trough > slider { margin: 0 3px; }
   }
 
   &.overlay-indicator {
+    background: none;
+    color: inherit;
+    box-shadow: none;
+    padding: 0;
+
+    > range > trough {
+      outline: none;
+    }
+
     &:not(.dragging):not(.hovering) {
       border-color: transparent;
       background-color: transparent;
 
-      > range > trough > slider {
-        min-width: 4px;
-        min-height: 4px;
-        margin: 4px - 1px;
-        border: 1px solid gtkalpha($base, 0.3);
+      > range > trough {
+        margin: 0;
+
+        > slider {
+          min-width: 4px;
+          min-height: 4px;
+          margin: 3px;
+          border: 1px solid gtkalpha($base, 0.3);
+        }
       }
 
       button {
         min-width: 4px;
         min-height: 4px;
-        margin: 4px - 1px;
+        margin: 3px;
         border: 1px solid gtkalpha($base, 0.3);
         border-radius: $circular_radius;
         background-color: $text-disabled;
@@ -2961,7 +2976,15 @@ scrollbar {
     }
 
     &.dragging,
-    &.hovering { background-color: gtkalpha($base, 0.9); }
+    &.hovering {
+      background-color: gtkalpha($base, 0.9);
+
+      > range > trough {
+        outline: none;
+        margin: 3px;
+        padding: 4px;
+      }
+    }
   }
 
   &.horizontal > range > trough > slider { min-width: $_slider_min_length; }

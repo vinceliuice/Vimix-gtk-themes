@@ -1069,9 +1069,9 @@ toolbar {
   border-width: 0 0 1px;
   border-color: $border;
 
-  button:not(.destructive-action):not(.suggested-action):not(.flat) { @extend %flat_theme_button; }
+  button:not(.destructive-action):not(.suggested-action):not(.combo):not(.flat) { @extend %flat_theme_button; }
 
-  stackswitcher > button { // reset
+  stackswitcher.linked > button:not(.destructive-action):not(.suggested-action):not(.combo):not(.flat) { // reset
     @extend %stackswitcher_button;
   }
 }
@@ -1265,13 +1265,14 @@ headerbar {
 
   button:not(.suggested-action):not(.destructive-action) { @extend %header_button; }
 
-  stackswitcher {
-    background-color: transparent;
-    padding: 0;
+  stackswitcher.linked {
+    background-color: if($topbar == 'light', $surface, on($header, divider));
+    margin-top: $space_size;
+    margin-bottom: $space_size;
 
-    > button:not(.destructive-action):not(.suggested-action) {
-      margin-top: $space_size;
-      margin-bottom: $space_size;
+    > button:not(.destructive-action):not(.suggested-action):not(.combo) {
+      margin-top: 0;
+      margin-bottom: 0;
       border-radius: 0;
       color: on($header, secondary);
 
@@ -1586,7 +1587,7 @@ window.background > box.vertical:not(.titlebar) > headerbar:not(.titlebar) { // 
 //
 
 %pathbar_button,
-.path-bar > button:not(.combo):not(.destructive-action):not(.suggested-action) {
+.path-bar > button:not(.combo) {
   padding-left: ($medium_size - 24px) / 2;
   padding-right: ($medium_size - 24px) / 2;
   background-image: none;
@@ -1924,7 +1925,7 @@ popover.background {
 
   .linked button:not(.combo) { border-radius: $button_radius; margin: 0 2px; }
 
-  button:not(.suggested-action):not(.destructive-action) {
+  button:not(.suggested-action):not(.destructive-action):not(.flat) {
     @extend %flat_theme_button;
   }
 
@@ -2902,13 +2903,8 @@ actionbar > revealer >  box {
   padding: $space_size;
   border-top: 1px solid $border;
 
-  button:not(.destructive-action):not(.suggested-action):not(.flat):not(.server-list-button):not(.combo),
-  .linked:not(.stack-switcher) > button:not(.destructive-action):not(.suggested-action):not(.server-list-button):not(.combo) {
+  > button:not(.server-list-button):not(.combo) {
     @extend %flat_normal_button;
-  }
-
-  stackswitcher > button:not(.flat):not(.server-list-button) { // reset
-    @extend %stackswitcher_button;
   }
 }
 
@@ -3872,70 +3868,68 @@ button.circular { row & { margin: 0 5px; } } // Make the circular button hover s
 }
 
 %stackswitcher_button {
-  &,
-  &:only-child,
-  &:first-child,
-  &:last-child { border-radius: 0; }
-
-  &:not(.destructive-action):not(.suggested-action) {
-    transition: $shorter_transition,
-                border-image $ripple_duration $deceleration_curve;
-    margin: 0;
-    background-image: none;
-    color: $text-secondary;
+  transition: $shorter_transition,
+  border-image $ripple_duration $deceleration_curve;
+  margin: 0;
+  background-image: none;
+  color: $text-secondary;
+  background-color: transparent;
+  box-shadow: none;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                      transparent 0%,
+                      transparent 0%)
+                      0 0 2 / 0 0 0;
+  
+  &:hover {
+    color: $text;
+    box-shadow: inset 0 -2px $overlay-active;
     background-color: transparent;
+  }
+  
+  &:active {
+    animation: none;
     box-shadow: none;
+    background-color: transparent;
+    color: $text;
+    background-image: none;
     border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                  transparent 0%,
-                                  transparent 0%)
-                                  0 0 2 / 0 0 0;
-
-    &:hover {
-      color: $text;
-      box-shadow: inset 0 -2px $overlay-active;
-      background-color: transparent;
-    }
-
-    &:active {
-      animation: none;
-      box-shadow: none;
-      background-color: transparent;
-      color: $text;
-      background-image: none;
-      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                    $primary 100%,
-                                    $overlay-active 0%)
-                                    0 0 2 / 0 0 2px;
-    }
-
-    &:checked {
-      color: $text;
-      box-shadow: inset 0 -2px $primary;
-      background-color: transparent;
-
-      &:disabled {
-        color: $text-disabled;
-        box-shadow: inset 0 -2px rgba($primary, 0.35);
-        background-color: transparent;
-      }
-    }
-
+                          $primary 100%,
+                          $overlay-active 0%)
+                          0 0 2 / 0 0 2px;
+  }
+  
+  &:checked {
+    color: $text;
+    box-shadow: inset 0 -2px $primary;
+    background-color: transparent;
+    
     &:disabled {
-      color: $text-secondary-disabled;
-      box-shadow: none;
+      color: $text-disabled;
+      box-shadow: inset 0 -2px rgba($primary, 0.35);
       background-color: transparent;
     }
   }
+  
+  &:disabled {
+    color: $text-secondary-disabled;
+    box-shadow: none;
+    background-color: transparent;
+  }
 }
 
-stackswitcher {
+stackswitcher.linked {
   background-color: $surface;
   border-radius: $button_radius;
   border: none;
   padding: 0 $space_size;
 
-  button {
-    @extend %stackswitcher_button;
+  > button {
+    &:not(.destructive-action):not(.suggested-action):not(.combo) { @extend %stackswitcher_button; }
+
+    &,
+    &:only-child,
+    &:first-child,
+    &:last-child { border-radius: 0; }
 
     &.text-button { min-width: 100px; } // FIXME aggregate with buttons
 
@@ -3957,53 +3951,53 @@ popover.emoji-picker {
   padding: 0;
 
   entry {
-    border-bottom: 1px solid $border;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    box-shadow: none;
+    @extend %flat_entry;
   }
 
   scrolledwindow { border-bottom: 1px solid $border; }
-}
 
-// mimic tab style
-button.emoji-section {
-  margin-top: -1px;
-  padding: 0 ($space_size + 2px);
-  min-width: 24px;
-  min-height: $medium_size;
-  border-radius: 0;
-  outline-offset: -6px;
-  box-shadow: none;
+  // mimic tab style
+  button.emoji-section:not(.destructive-action):not(.suggested-action) {
+    margin-top: -1px;
+    padding: 0 ($space_size + 2px);
+    min-width: 24px;
+    min-height: $medium_size;
+    border-radius: 0;
+    outline-offset: -6px;
+    box-shadow: none;
 
-  &:hover { box-shadow: inset 0 2px $track; }
+    &:hover { box-shadow: inset 0 2px $track; }
 
-  &:active {
-    box-shadow: inset 0 2px $primary;
-    background-image: radial-gradient(circle farthest-corner at center,
-                                      rgba($primary, 0.7) 10%,
-                                      transparent 0%);
+    &:active {
+      box-shadow: inset 0 2px $primary;
+      background-image: radial-gradient(circle farthest-corner at center,
+                                        $fill 10%,
+                                        transparent 0%);
+    }
+
+    &:checked {
+      box-shadow: inset 0 2px $primary;
+      background-color: transparent;
+    }
+
+    &:first-child { margin-left: $space_size; }
+    &:last-child { margin-right: $space_size; }
   }
 
-  &:checked {
-    box-shadow: inset 0 2px $primary;
-    background-color: transparent;
-  }
+  .emoji {
+    min-width: 3em;
+    min-height: 3em;
+    padding: 0;
+    // font-size: large;
 
-  &:first-child { margin-left: $space_size; }
-  &:last-child { margin-right: $space_size; }
-}
+    widget {
+      transition: $shorter_transition;
+      border-radius: $button_radius;
 
-.emoji {
-  min-width: 3em;
-  min-height: 3em;
-  padding: 0;
-  // font-size: large;
-
-  widget {
-    transition: $shorter_transition;
-
-    &:hover { font-size: larger; }
+      &:hover {
+        background-color: rgba($primary, 0.2);
+      }
+    }
   }
 }
 

@@ -39,6 +39,7 @@
     border: none;
     border-image: none;
     box-shadow: $shadow_1;
+    border-radius: $button_radius;
     background-color: if($fc != $indicator, $fc, $base);
     color: if($fc != $indicator, on($fc), $text-secondary);
   }
@@ -78,6 +79,7 @@
     border-image: none;
     background-color: $base_alt;
     color: $text-disabled;
+    opacity: 1;
   }
 
   @if $t == flat-normal {
@@ -115,9 +117,10 @@
 
   @if $t == flat-disabled {
     border-width: 0;
-    box-shadow: inset 0 -1px $track;
+    box-shadow: inset 0 -1px if($fc != $indicator, rgba($fc, 0.5), $divider);
     background-color: transparent;
     color: $text-disabled;
+    opacity: 1;
   }
 }
 

@@ -373,7 +373,7 @@ paned.titlebar.horizontal { // show border
   border-top: 1px solid $border;
 }
 
-.background .gedit-search-slider {
+.gedit-search-slider {
   margin: $space_size $space_size 8px;
   box-shadow: $shadow_3;
   border-radius: $button_radius;
@@ -486,7 +486,7 @@ notebook > stack:not(:only-child) revealer .gedit-search-slider .linked:not(.ver
 // Epiphany (Gnome Web)
 //
 
-.background tabbox { // Gnome 40.0
+tabbox { // Gnome 40.0
   border: none;
   background-color: $base-alt;
   padding: 0;
@@ -2312,6 +2312,10 @@ toolbar.primary-toolbar {
 
       > button { // reset
         @extend %stackswitcher_button;
+
+        &.text-button {
+          min-width: 48px;
+        }
       }
     }
   }

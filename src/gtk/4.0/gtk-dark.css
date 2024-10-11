@@ -400,7 +400,7 @@ entry undershoot.right > undershoot.right {
   background: linear-gradient(to left, alpha(rgba(0, 0, 0, 0.2),0.75), transparent 8px);
 }
 
-.background entry.error, .background entry.search.error {
+entry.error, entry.search.error {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
   border: none;
   border-image: none;
@@ -410,7 +410,7 @@ entry undershoot.right > undershoot.right {
   outline: none;
 }
 
-.background entry.error:focus-within, .background entry.search.error:focus-within {
+entry.error:focus-within, entry.search.error:focus-within {
   border: none;
   border-image: none;
   box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 2px 3px -1px rgba(0, 0, 0, 0.14), 0 3px 4px -1px rgba(0, 0, 0, 0.12);
@@ -418,7 +418,7 @@ entry undershoot.right > undershoot.right {
   outline: none;
 }
 
-.background entry.error:disabled, .background entry.search.error:disabled {
+entry.error:disabled, entry.search.error:disabled {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.15);
   background-color: #2e3034;
   color: rgba(255, 255, 255, 0.45);
@@ -426,7 +426,7 @@ entry undershoot.right > undershoot.right {
   filter: none;
 }
 
-.background entry.error.flat, .background entry.search.error.flat {
+entry.error.flat, entry.search.error.flat {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0.4, 0, 0.2, 1);
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #F28B82 0%, rgba(242, 139, 130, 0.35) 0%) 0 0 2/0 0 0px;
   box-shadow: inset 0 -1px #F28B82;
@@ -435,14 +435,14 @@ entry undershoot.right > undershoot.right {
   border-width: 0;
 }
 
-.background entry.error.flat:focus-within, .background entry.search.error.flat:focus-within {
+entry.error.flat:focus-within, entry.search.error.flat:focus-within {
   background: none;
   border-width: 0;
   box-shadow: inset 0 -2px alpha(#F28B82,0);
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #F28B82 100%, rgba(242, 139, 130, 0.35) 10%) 0 0 2/0 0 2px;
 }
 
-.background entry.error.flat:disabled, .background entry.search.error.flat:disabled {
+entry.error.flat:disabled, entry.search.error.flat:disabled {
   border-width: 0;
   box-shadow: inset 0 -1px rgba(255, 255, 255, 0.3);
   background-color: transparent;
@@ -451,7 +451,7 @@ entry undershoot.right > undershoot.right {
   filter: none;
 }
 
-.background entry.warning, .background entry.search.warning {
+entry.warning, entry.search.warning {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
   border: none;
   border-image: none;
@@ -461,7 +461,7 @@ entry undershoot.right > undershoot.right {
   outline: none;
 }
 
-.background entry.warning:focus-within, .background entry.search.warning:focus-within {
+entry.warning:focus-within, entry.search.warning:focus-within {
   border: none;
   border-image: none;
   box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.2), 0 2px 3px -1px rgba(0, 0, 0, 0.14), 0 3px 4px -1px rgba(0, 0, 0, 0.12);
@@ -469,7 +469,7 @@ entry undershoot.right > undershoot.right {
   outline: none;
 }
 
-.background entry.warning:disabled, .background entry.search.warning:disabled {
+entry.warning:disabled, entry.search.warning:disabled {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.15);
   background-color: #2e3034;
   color: rgba(255, 255, 255, 0.45);
@@ -477,7 +477,7 @@ entry undershoot.right > undershoot.right {
   filter: none;
 }
 
-.background entry.warning.flat, .background entry.search.warning.flat {
+entry.warning.flat, entry.search.warning.flat {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0.4, 0, 0.2, 1);
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FDD633 0%, rgba(253, 214, 51, 0.35) 0%) 0 0 2/0 0 0px;
   box-shadow: inset 0 -1px #FDD633;
@@ -486,14 +486,14 @@ entry undershoot.right > undershoot.right {
   border-width: 0;
 }
 
-.background entry.warning.flat:focus-within, .background entry.search.warning.flat:focus-within {
+entry.warning.flat:focus-within, entry.search.warning.flat:focus-within {
   background: none;
   border-width: 0;
   box-shadow: inset 0 -2px alpha(#FDD633,0);
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #FDD633 100%, rgba(253, 214, 51, 0.35) 10%) 0 0 2/0 0 2px;
 }
 
-.background entry.warning.flat:disabled, .background entry.search.warning.flat:disabled {
+entry.warning.flat:disabled, entry.search.warning.flat:disabled {
   border-width: 0;
   box-shadow: inset 0 -1px rgba(255, 255, 255, 0.3);
   background-color: transparent;

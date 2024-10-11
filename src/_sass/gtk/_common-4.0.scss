@@ -365,7 +365,7 @@ entry {
   // entry error and warning style
   @each $e_type, $e_color in (error, $error),
                              (warning, $warning) {
-    .background &.#{$e_type}, .background &.search.#{$e_type} {
+    &.#{$e_type}, &.search.#{$e_type} {
       @include entry(normal, $e_color);
 
       &:focus-within { @include entry(focus, $e_color); }

@@ -7,6 +7,8 @@ if [[ "$UID" -eq "$ROOT_UID" ]]; then
   DEST_DIR="/usr/share/themes"
 elif [[ -n "$XDG_DATA_HOME" ]]; then
   DEST_DIR="$XDG_DATA_HOME/themes"
+elif [[ -d "$HOME/.themes" ]]; then
+  DEST_DIR="$HOME/.themes"
 elif [[ -d "$HOME/.local/share/themes" ]]; then
   DEST_DIR="$HOME/.local/share/themes"
 else
@@ -529,27 +531,12 @@ link_theme() {
   done
 }
 
-clean_old_theme() {
-  local dest="${1}"
-  local color="${2}"
-  local size="${3}"
-  local theme="${4}"
-
-  local THEME_DIR="${1}/vimix${2}${3}${4}"
-
-  [[ -d "${THEME_DIR}" ]] && rm -rf "${THEME_DIR}"{'','-hdpi','-xhdpi'}
-}
-
 clean_theme() {
-  local dest="$HOME/.themes"
-
-  for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
-    for size in "${sizes[@]-${SIZE_VARIANTS[@]}}"; do
-      for theme in "${themes[@]-${THEME_VARIANTS[@]}}"; do
-        clean_old_theme "${dest}" "${color}" "${size}" "${theme}"
-      done
-    done
-  done
+  if [[ "$DEST_DIR" == "$HOME/.themes" ]]; then
+    local dest="$HOME/.local/share/themes"
+  elif [[ "$DEST_DIR" == "$XDG_DATA_HOME/themes" || "$DEST_DIR" == "$HOME/.local/share/themes" ]]; then
+    local dest="$HOME/.themes"
+  fi
 
   for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
     for size in "${sizes[@]-${SIZE_VARIANTS[@]}}"; do

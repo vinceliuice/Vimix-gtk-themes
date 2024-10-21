@@ -292,6 +292,10 @@ entry {
     }
   }
 
+  &.cell {
+    @extend %entry_fallback;
+  }
+
   &.entry-tag { // for libgd apps
     padding: 0 8px;
     border-radius: $circular_radius;
@@ -337,16 +341,16 @@ entry {
   .linked.vertical > &.flat { border-radius: 0; }
 }
 
-treeview entry {
+treeview.view entry {
   &.flat, & {
     min-height: 0;
-    padding: 2px;
+    padding: 0;
     border-radius: $button_radius;
-    background-color: $base;
 
     &, &:focus {
       border-image: none;
       box-shadow: none;
+      background-color: $base;
     }
   }
 }

@@ -283,6 +283,33 @@ notebook > stack:not(:only-child) spinbutton:disabled:not(.vertical), popover.ba
   opacity: 1;
 }
 
+entry.cell {
+  border: 1px solid #e0e0e0;
+  box-shadow: none;
+  border-image: none;
+  border-radius: 3px;
+  background-color: #FFFFFF;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+entry.cell:focus {
+  border: 1px solid #4285F4;
+  box-shadow: none;
+  border-image: none;
+  border-radius: 3px;
+  background-color: #FFFFFF;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+entry.cell:disabled {
+  border: 1px solid #e0e0e0;
+  box-shadow: none;
+  border-image: none;
+  background-color: #f9f9f9;
+  color: rgba(0, 0, 0, 0.38);
+  opacity: 1;
+}
+
 entry {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), box-shadow 100ms cubic-bezier(0, 0, 0.2, 1);
   border: none;
@@ -499,16 +526,16 @@ entry progress {
   border-radius: 0;
 }
 
-treeview entry.flat, treeview entry {
+treeview.view entry.flat, treeview.view entry {
   min-height: 0;
-  padding: 2px;
+  padding: 0;
   border-radius: 3px;
-  background-color: #FFFFFF;
 }
 
-treeview entry.flat, treeview entry.flat:focus, treeview entry, treeview entry:focus {
+treeview.view entry.flat, treeview.view entry.flat:focus, treeview.view entry, treeview.view entry:focus {
   border-image: none;
   box-shadow: none;
+  background-color: #FFFFFF;
 }
 
 @keyframes needs_attention {

@@ -148,29 +148,34 @@ stage {
   box-shadow: none !important;
 }
 
+.modal-dialog .modal-dialog-button,
 .modal-dialog .modal-dialog-linked-button, .lg-obj-inspector-button, .candidate-page-button, .popup-menu .button {
   color: rgba(0, 0, 0, 0.87);
   background-color: transparent;
   box-shadow: none !important;
 }
 
+.modal-dialog .modal-dialog-button:focus,
 .modal-dialog .modal-dialog-linked-button:focus, .lg-obj-inspector-button:focus, .candidate-page-button:focus, .popup-menu .button:focus {
   color: rgba(0, 0, 0, 0.87);
   background-color: rgba(0, 0, 0, 0.08);
   box-shadow: none !important;
 }
 
+.modal-dialog .modal-dialog-button:hover,
 .modal-dialog .modal-dialog-linked-button:hover, .lg-obj-inspector-button:hover, .candidate-page-button:hover, .popup-menu .button:hover {
   color: rgba(0, 0, 0, 0.87);
   background-color: rgba(0, 0, 0, 0.12);
 }
 
+.modal-dialog .modal-dialog-button:active,
 .modal-dialog .modal-dialog-linked-button:active, .lg-obj-inspector-button:active, .candidate-page-button:active, .popup-menu .button:active {
   color: rgba(0, 0, 0, 0.87);
   background-color: rgba(0, 0, 0, 0.2);
   box-shadow: none !important;
 }
 
+.modal-dialog .modal-dialog-button:insensitive,
 .modal-dialog .modal-dialog-linked-button:insensitive, .lg-obj-inspector-button:insensitive, .candidate-page-button:insensitive, .popup-menu .button:insensitive {
   background-color: transparent;
   color: rgba(0, 0, 0, 0.35);
@@ -1285,10 +1290,7 @@ StEntry StLabel.hint-text {
   border-radius: 0;
   text-shadow: none;
   border: none;
-}
-
-#panel .panel-button.clock-display {
-  border: none;
+  border-bottom: 2px solid transparent !important;
 }
 
 #panel .panel-button.clock-display .clock {
@@ -1308,7 +1310,8 @@ StEntry StLabel.hint-text {
 #panel .panel-button.clock-display:active, #panel .panel-button.clock-display:overview, #panel .panel-button.clock-display:focus, #panel .panel-button.clock-display:checked {
   color: white;
   background-color: rgba(255, 255, 255, 0.15) !important;
-  box-shadow: inset 0 -2px #4285F4 !important;
+  box-shadow: none !important;
+  border-color: #4285F4 !important;
 }
 
 #panel .panel-button:hover {
@@ -1320,8 +1323,8 @@ StEntry StLabel.hint-text {
 #panel .panel-button:active, #panel .panel-button:overview, #panel .panel-button:focus, #panel .panel-button:checked {
   color: white;
   background-color: rgba(255, 255, 255, 0.15);
-  box-shadow: inset 0 -2px #4285F4;
-  border: none;
+  box-shadow: none;
+  border-color: #4285F4 !important;
 }
 
 .unlock-screen #panel .panel-button, .login-screen #panel .panel-button, .lock-screen #panel .panel-button {
@@ -1388,6 +1391,7 @@ StEntry StLabel.hint-text {
 
 #panel:overview .panel-button, #panel.unlock-screen .panel-button, #panel.login-screen .panel-button, #panel.lock-screen .panel-button {
   border-radius: 3px;
+  border: none !important;
 }
 
 #panel:overview .panel-button:hover, #panel.unlock-screen .panel-button:hover, #panel.login-screen .panel-button:hover, #panel.lock-screen .panel-button:hover {
@@ -2622,21 +2626,25 @@ StWidget.focused .app-grid-running-dot {
   box-shadow: 3px 3px 8px -3px rgba(0, 0, 0, 0.35);
 }
 
+.modal-dialog .modal-dialog-button:last-child,
 .modal-dialog .modal-dialog-linked-button:last-child {
   color: white;
   background-color: #4285F4;
 }
 
+.modal-dialog .modal-dialog-button:hover:last-child,
 .modal-dialog .modal-dialog-linked-button:hover:last-child {
   color: white;
   background-color: #6da1f7;
 }
 
+.modal-dialog .modal-dialog-button:active:last-child,
 .modal-dialog .modal-dialog-linked-button:active:last-child {
   color: white;
   background-color: #2a75f3;
 }
 
+.modal-dialog .modal-dialog-button:insensitive:last-child,
 .modal-dialog .modal-dialog-linked-button:insensitive:last-child {
   background-color: rgba(66, 133, 244, 0.05);
   color: rgba(66, 133, 244, 0.35);
@@ -2648,9 +2656,10 @@ StWidget.focused .app-grid-running-dot {
 
 .modal-dialog {
   color: rgba(0, 0, 0, 0.6);
-  padding: 6px;
+  padding: 12px;
 }
 
+.modal-dialog .modal-dialog-button,
 .modal-dialog .modal-dialog-linked-button {
   min-height: 32px;
   padding: 6px 12px !important;
@@ -2659,21 +2668,25 @@ StWidget.focused .app-grid-running-dot {
   border-radius: 2px;
 }
 
+.modal-dialog .modal-dialog-button:first-child,
 .modal-dialog .modal-dialog-linked-button:first-child {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
+.modal-dialog .modal-dialog-button:first-child:focus,
 .modal-dialog .modal-dialog-linked-button:first-child:focus {
   color: rgba(0, 0, 0, 0.87);
   background-color: rgba(0, 0, 0, 0.08);
   box-shadow: none !important;
 }
 
+.modal-dialog .modal-dialog-button:first-child:hover,
 .modal-dialog .modal-dialog-linked-button:first-child:hover {
   color: rgba(0, 0, 0, 0.87);
   background-color: rgba(0, 0, 0, 0.12);
 }
 
+.modal-dialog .modal-dialog-button:first-child:active,
 .modal-dialog .modal-dialog-linked-button:first-child:active {
   color: rgba(0, 0, 0, 0.87);
   background-color: rgba(0, 0, 0, 0.2);
@@ -3124,7 +3137,7 @@ StWidget.focused .app-grid-running-dot {
 
 .notification-buttons-bin {
   background-color: transparent;
-  padding-top: 0;
+  padding: 6px;
   border: none;
   spacing: 0;
 }

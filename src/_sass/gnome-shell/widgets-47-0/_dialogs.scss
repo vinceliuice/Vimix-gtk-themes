@@ -34,9 +34,10 @@
 // modal dialog
 .modal-dialog {
   color: $text-secondary;
-  padding: $base_padding;
+  padding: $base_padding * 2;
   @extend %theme_dialogs;
 
+  .modal-dialog-button,
   .modal-dialog-linked-button {
     min-height: $item_size;
     padding: $base_padding $base_padding * 2 !important;

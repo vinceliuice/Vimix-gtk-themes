@@ -40,10 +40,9 @@
     border-radius: 0;
     text-shadow: none;
     border: none;
+    border-bottom: 2px solid transparent !important;
 
     &.clock-display {
-      border: none;
-
       .clock {
         transition-duration: 0;
         border: none;
@@ -61,7 +60,8 @@
       &:active, &:overview, &:focus, &:checked {
         color: $panel-text;
         background-color: overlay($panel, checked) !important;
-        box-shadow: inset 0 -2px $indicator !important;
+        box-shadow: none !important;
+        border-color: $indicator !important;
       }
     }
 
@@ -74,8 +74,8 @@
     &:active, &:overview, &:focus, &:checked {
       color: $panel-text;
       background-color: overlay($panel, checked);
-      box-shadow: inset 0 -2px $indicator;
-      border: none;
+      box-shadow: none;
+      border-color: $indicator !important;
     }
 
     .unlock-screen &,
@@ -149,6 +149,7 @@
 
     .panel-button {
       border-radius: $button_radius;
+      border: none !important;
 
       &:hover {
         color: on(dark);

@@ -4495,23 +4495,23 @@ separator.sidebar {
   background: none;
 }
 
-list.content > row:not(:last-child), list.content > row.expander row.header:not(:last-child),
 list.boxed-list > row.expander row.header:not(:last-child), row.expander list.nested > row:not(:last-child), listview.boxed-list > row.expander list > row:not(:last-child),
 list.boxed-list > row.expander list > row:not(:last-child), listview.content:not(.conversation-listbox) > row:not(:last-child), listview.boxed-list > row:not(:last-child),
+list.content:not(.conversation-listbox) > row:not(:last-child),
 list.boxed-list > row:not(:last-child) {
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
-list.content > row:first-child, list.content > row.expander row.header:first-child,
 list.boxed-list > row.expander row.header:first-child, row.expander list.nested > row:first-child, listview.boxed-list > row.expander list > row:first-child,
 list.boxed-list > row.expander list > row:first-child, listview.content:not(.conversation-listbox) > row:first-child, listview.boxed-list > row:first-child,
+list.content:not(.conversation-listbox) > row:first-child,
 list.boxed-list > row:first-child {
   border-radius: 2px 2px 0 0;
 }
 
-list.content > row:last-child, list.content > row.expander row.header:last-child,
 list.boxed-list > row.expander row.header:last-child, row.expander list.nested > row:last-child, listview.boxed-list > row.expander list > row:last-child,
 list.boxed-list > row.expander list > row:last-child, listview.content:not(.conversation-listbox) > row:last-child, listview.boxed-list > row:last-child,
+list.content:not(.conversation-listbox) > row:last-child,
 list.boxed-list > row:last-child {
   border-radius: 0 0 2px 2px;
 }
@@ -4629,6 +4629,14 @@ row:selected:hover {
   background-color: #5a95f5;
 }
 
+row.spin spinbutton {
+  min-height: 0;
+}
+
+row.spin spinbutton > button {
+  margin: 0;
+}
+
 row.combo image.dropdown-arrow:disabled {
   filter: opacity(0.35);
 }
@@ -4701,24 +4709,20 @@ row.expander:checked image.expander-row-arrow:not(:disabled) {
   color: inherit;
 }
 
-list.content > row.expander,
+list.boxed-list > .dim-label, list.boxed-list > label.separator, row list.boxed-list > label.subtitle, row.expander list.boxed-list > image.expander-row-arrow {
+  padding: 18px;
+}
+
 list.boxed-list > row.expander {
   border: none;
 }
 
-list.content > row:first-child, list.content > row:first-child.expander row.header,
-list.boxed-list > row:first-child,
-list.boxed-list > row:first-child.expander row.header {
+list.boxed-list > row:first-child, list.boxed-list > row:first-child.expander row.header {
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 }
 
-list.content > row:last-child, list.content > row:last-child.expander:not(:checked), list.content > row:last-child.expander:not(:checked) row.header, list.content > row:last-child.expander:checked list.nested, list.content > row:last-child.expander:checked list.nested > row:last-child,
-list.boxed-list > row:last-child,
-list.boxed-list > row:last-child.expander:not(:checked),
-list.boxed-list > row:last-child.expander:not(:checked) row.header,
-list.boxed-list > row:last-child.expander:checked list.nested,
-list.boxed-list > row:last-child.expander:checked list.nested > row:last-child {
+list.boxed-list > row:last-child, list.boxed-list > row:last-child.expander:not(:checked), list.boxed-list > row:last-child.expander:not(:checked) row.header, list.boxed-list > row:last-child.expander:checked list.nested, list.boxed-list > row:last-child.expander:checked list.nested > row:last-child {
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   border-bottom-width: 0;
@@ -5518,6 +5522,18 @@ scrolledwindow.undershoot-end:dir(rtl) > undershoot.left {
 
 .top-bar > windowhandle:backdrop {
   filder: none;
+}
+
+.bottom-bar {
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.12);
+  background-color: #F2F2F2;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.bottom-bar actionbar > revealer > box {
+  box-shadow: none;
+  border-top: none;
+  background: none;
 }
 
 floating-sheet > dimming {

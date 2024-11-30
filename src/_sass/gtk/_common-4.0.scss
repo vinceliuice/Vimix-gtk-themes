@@ -3608,16 +3608,16 @@ actionbar {
   background: none;
   border: none;
 
-  > revealer >  box {
+  > revealer > box {
     padding: $space_size;
     border-spacing: 0;
     border-top: 1px solid $border;
     box-shadow: none;
     background-color: $background;
     color: $text;
-  
+
     button:not(.suggested-action):not(.destructive-action):not(.server-list-button) { @extend %flat_button; }
-  
+
     entry, button, menubutton, splitbutton, spinbutton {
       margin: 0;
     }
@@ -3805,6 +3805,16 @@ row {
       background-color: lighten($primary, 5%);
     }
   }
+
+  &.spin {
+    spinbutton {
+      min-height: 0;
+
+      > button {
+        margin: 0;
+      }
+    }
+  }
 }
 
 //
@@ -3906,8 +3916,9 @@ row.expander {
 //
 
 // Deprecated: use .boxed-list instead
-list.content,
 list.boxed-list {
+  > .dim-label { padding: $space_size * 3; }
+
   > row {
     // Regular rows and expander header rows background
     &, &.expander row.header {
@@ -4600,6 +4611,18 @@ $tabbar_shadow_dark: inset 0 2px 3px -2px rgba(black, 0.2),
 
   > windowhandle:backdrop {
     filder: none;
+  }
+}
+
+.bottom-bar {
+  box-shadow: inset 0 1px $border;
+  background-color: $background;
+  color: $text;
+
+  actionbar > revealer > box {
+    box-shadow: none;
+    border-top: none;
+    background: none;
   }
 }
 

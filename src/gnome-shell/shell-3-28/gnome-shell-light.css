@@ -2268,10 +2268,7 @@ StEntry StLabel.hint-text {
   border-radius: 0;
   text-shadow: none;
   border: none;
-}
-
-#panel .panel-button.clock-display {
-  border: none;
+  border-bottom: 2px solid transparent !important;
 }
 
 #panel .panel-button.clock-display .clock {
@@ -2291,7 +2288,8 @@ StEntry StLabel.hint-text {
 #panel .panel-button.clock-display:active, #panel .panel-button.clock-display:overview, #panel .panel-button.clock-display:focus, #panel .panel-button.clock-display:checked {
   color: rgba(0, 0, 0, 0.87);
   background-color: rgba(0, 0, 0, 0.15) !important;
-  box-shadow: inset 0 -2px #4285F4 !important;
+  box-shadow: none !important;
+  border-color: #4285F4 !important;
 }
 
 #panel .panel-button:hover {
@@ -2303,8 +2301,8 @@ StEntry StLabel.hint-text {
 #panel .panel-button:active, #panel .panel-button:overview, #panel .panel-button:focus, #panel .panel-button:checked {
   color: rgba(0, 0, 0, 0.87);
   background-color: rgba(0, 0, 0, 0.15);
-  box-shadow: inset 0 -2px #4285F4;
-  border: none;
+  box-shadow: none;
+  border-color: #4285F4 !important;
 }
 
 .unlock-screen #panel .panel-button, .login-screen #panel .panel-button, .lock-screen #panel .panel-button {
@@ -2371,6 +2369,7 @@ StEntry StLabel.hint-text {
 
 #panel:overview .panel-button, #panel.unlock-screen .panel-button, #panel.login-screen .panel-button, #panel.lock-screen .panel-button {
   border-radius: 3px;
+  border: none !important;
 }
 
 #panel:overview .panel-button:hover, #panel.unlock-screen .panel-button:hover, #panel.login-screen .panel-button:hover, #panel.lock-screen .panel-button:hover {

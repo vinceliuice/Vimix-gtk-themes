@@ -22,6 +22,22 @@ $ref_size: 13.33;
   font-size: round( $size * 72 / 96 * 10 ) / 10 + pt;
 }
 
+// function to convert px to em
+@function to_em($input, $base: 16px) {
+  // multiplied and divided by 1000 to make up for round() shortcoming
+  $em_value: ($input / $base) * 1.091 * 1000;
+  @return round($em_value) / 1000 * 1em;
+}
+
+// Mixin to convert provided font size in pt to em units
+@mixin fontsize($size, $base: 16px, $unit: pt) {
+  // if pt, convert into unitless value with the assumption: 1pt = 1.091px
+  $adjusted_size: if($unit == pt, $size * 1.091, $size) * 1000;
+  $rounded_size: round($adjusted_size / $base) / 1000;
+  font-size: $rounded_size * 1em;
+  // font-size: round($size) + pt;
+}
+
 
 //
 // shadows
@@ -164,6 +180,18 @@ $duration_short: 0.1s;
     text-shadow: none;
     icon-shadow: none;
   }
+  @else if $t == checked {
+  //
+  // checked button
+  //
+    border-color: transparent;
+    border-top: 1px solid $highlight;
+    color: on($primary);
+    background-color: $primary;
+    box-shadow: $z-depth-2;
+    text-shadow: none;
+    icon-shadow: none;
+  }
   @else if $t == insensitive {
   //
   // insensitive button
@@ -192,7 +220,7 @@ $duration_short: 0.1s;
   //
   // focused flat button
   //
-    color: $text;
+    color: $tc;
     box-shadow: none;
     text-shadow: none;
     icon-shadow: none;
@@ -203,8 +231,8 @@ $duration_short: 0.1s;
   // hovered flat button
   //
     border-color: transparent;
-    color: if($tc!=$text, $tc, $text);
-    background-color: if($c!=$background, $c, $divider);
+    color: $tc;
+    background-color: rgba($tc, 0.1);
     box-shadow: none;
     text-shadow: none;
     icon-shadow: none;
@@ -215,8 +243,19 @@ $duration_short: 0.1s;
   // pushed flat button
   //
     border-color: transparent;
-    color: if($tc!=$text, $tc, on($primary));
-    background-color: if($c!=$background, $c, $track);
+    color: $tc;
+    background-color: rgba($tc, 0.16);
+    box-shadow: none;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+  @else if $t == flat-checked {
+  //
+  // checked button
+  //
+    border-color: transparent;
+    color: on($primary);
+    background-color: $primary;
     box-shadow: none;
     text-shadow: none;
     icon-shadow: none;

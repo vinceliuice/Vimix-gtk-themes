@@ -3093,7 +3093,7 @@ messagedialog { // Message Dialog styling
     entry { @extend %flat_entry; }
 
     .linked:not(.vertical).dialog-action-area > button {
-      padding: 4px 12px;
+      padding: $space_size $space_size * 2;
       border-top: 1px solid $border;
       border-radius: 0;
       @extend %flat_button;

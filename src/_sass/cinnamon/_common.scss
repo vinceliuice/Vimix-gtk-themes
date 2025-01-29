@@ -6,6 +6,52 @@
 //  * Globals *
 //  ***********/
 
+/* General Typography */
+%large_title {
+  font-weight: 300;
+  @include fontsize(24pt);
+}
+
+%title_1 {
+  font-weight: 800;
+  @include fontsize(20pt);
+}
+
+%title_2 {
+  font-weight: 800;
+  @include fontsize(15pt);
+}
+
+%title_3 {
+  font-weight: 700;
+  @include fontsize(15pt);
+}
+
+%title_4 {
+  font-weight: 700;
+  @include fontsize(13pt);
+}
+
+%heading {
+  font-weight: 700;
+  @include fontsize(11pt);
+}
+
+%caption_heading {
+  font-weight: 700;
+  @include fontsize(9pt);
+}
+
+%caption {
+  font-weight: 400;
+  @include fontsize(9pt);
+}
+
+%smaller {
+  font-weight: 400;
+  @include fontsize(8pt);
+}
+
 * {
   transition-timing-function : cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 0.2s;
@@ -29,34 +75,39 @@ stage {
 //  * Buttons *
 //  ***********/
 
+%button_common {
+  border-radius: $button_radius;
+  padding: $base_padding $base_padding * 2;
+  font-weight: normal;
+}
+
 %button {
+  @extend %button_common;
+  @include button(normal);
+  &:focus { @include button(focus); }
+  &:hover { @include button(hover); }
+  &:active { @include button(active); }
+  &:insensitive { @include button(insensitive); }
+}
+
+%flat_button {
+  @extend %button_common;
   @include button(flat-normal);
-  min-height: 2em;
-  padding: 4px 16px 4px;
-  border-width: 2px;
-  font-weight: 500;
   &:focus { @include button(flat-focus); }
   &:hover { @include button(flat-hover); }
-  &:active { @include button(flat-active); }
   &:insensitive { @include button(flat-insensitive); }
-
-  &,
-  &:focus,
-  &:hover,
-  &:hover:focus,
-  &:active,
-  &:active:focus,
-  &:insensitive { border-radius: 2px; }
+  &:selected,
+  &:active { @include button(flat-active); }
+  &:checked { @include button(flat-checked); }
 }
 
 %osd_button {
+  @extend %button_common;
   @include button(osd-normal);
-  min-height: 2.5em;
-  padding: 6px 16px 6px;
-  border-radius: 3px;
   &:focus { @include button(osd-focus); }
   &:hover { @include button(osd-hover); }
   &:active { @include button(osd-active); }
+  &:checked { @include button(flat-checked); }
   &:insensitive { @include button(osd-insensitive); }
 }
 
@@ -69,7 +120,7 @@ stage {
   @include entry(normal);
   min-height: 1.2em;
   padding: 7px 8px 8px;
-  border-radius: 0;
+  border-radius: $button_radius $button_radius 0 0;
   border-width: 0;
   color: $text;
   caret-size: 1px;
@@ -88,10 +139,17 @@ stage {
     background-color: $fill;
   }
 
-  StIcon.capslock-warning {
-    icon-size: 16px;
+  StLabel.hint-text { color: $text-secondary; }
+
+  .capslock-warning {
+    icon-size: $scalable_icon_size;
     padding: 0 2px;
     warning-color: $warning;
+  }
+
+  StIcon.peek-password {
+    icon-size: 16px;
+    color: $text;
   }
 }
 
@@ -291,7 +349,7 @@ StScrollBar {
   @include fontscaling($ref_size * 1.0);
   padding: 7px 8px 8px;
   border-radius: 2px;
-  background-color: rgba($osd, 0.9);
+  background-color: $osd;
   color: on($osd);
   box-shadow: $z-depth-2;
   font-weight: 400;
@@ -389,7 +447,7 @@ StScrollBar {
     border: 1px solid $border;
     border-radius: 2px;
     color: on($osd);
-    background-color: rgba($osd, 0.9);
+    background-color: $osd;
   }
 
   // &-image-menu-item { }
@@ -611,7 +669,7 @@ $icon_size: 16px;
   padding: 7px 8px 8px;
   border-radius: 2px;
   color: on($osd);
-  background-color: rgba($osd, 0.9);
+  background-color: $osd;
   box-shadow: $z-depth-1;
 
   // FIXME: Cinnamon does not have 'window-clone-border'
@@ -710,7 +768,7 @@ $ws_thumb_spacing: 32px;
   padding: 6px;
   border: none;
   border-radius: 2px;
-  background-color: rgba($osd, 0.9);
+  background-color: $osd;
   color: on($osd);
   box-shadow: $z-depth-4;
 }
@@ -737,7 +795,7 @@ $ws_thumb_spacing: 32px;
   &-today-home-button-enabled {
     margin: $space_size 0;
     padding: $space_size;
-    @extend %button;
+    @extend %flat_button;
   }
 
   &-today-day-label {
@@ -1033,7 +1091,7 @@ $ws_thumb_spacing: 32px;
 
     .notification-button,
     .notification-icon-button {
-      @extend %button;
+      @extend %flat_button;
       padding: 5px;
     }
 
@@ -1092,12 +1150,12 @@ $ws_thumb_spacing: 32px;
 }
 
 .switcher-list {
-  padding: 20px;
+  padding: $space_size;
   border: none;
-  border-image: url("assets/misc/osd.svg") 9 9 9 9;
-  border-radius: 2px;
+  border-radius: $modal_radius;
+  background-color: $osd;
+  box-shadow: $z-depth-4;
   color: on($osd);
-  background: none;
 
   > StBoxLayout { padding: 4px; }
 
@@ -1105,14 +1163,16 @@ $ws_thumb_spacing: 32px;
 
   .item-box {
     padding: 8px;
-    border-radius: 2px;
+    border-radius: $button_radius;
+
     &:outlined {
       padding: 6px;
       border: 2px solid on($osd, track);
     }
+
     &:selected {
-      background-color: on($accent, track);
-      color: rgba($accent, 0.65);
+      background-color: $primary;
+      color: on($primary);
     }
   }
 
@@ -1125,7 +1185,7 @@ $ws_thumb_spacing: 32px;
 
   .separator {
     width: 1px;
-    background: $border;;
+    background: $border;
   }
 }
 
@@ -1173,15 +1233,23 @@ $ws_thumb_spacing: 32px;
 //  * Modal Dialogs *
 //  *****************/
 
+.dialog,
 .modal-dialog {
-  padding: 0 5px 6px 5px;
+  padding: $space_size;
   border: none;
-  border-radius: 2px;
-  color: on($osd);
-  background-color: rgba($osd, 0.9);
+  border-radius: $modal_radius;
+  color: $text;
+  background-color: $base;
   box-shadow: $z-depth-4;
 
-  > StBoxLayout:first-child { padding: 20px 10px 10px 10px; }
+  // > StBoxLayout:first-child { padding: 20px 10px 10px 10px; }
+
+  &-content-box {
+    margin-top: $base_margin * 5;
+    margin-bottom: $base_margin;
+    spacing: $base_margin * 8;
+    max-width: 28em;
+  }
 
   &-button-box {
     spacing: 0;
@@ -1189,78 +1257,226 @@ $ws_thumb_spacing: 32px;
     padding: 14px 10px;
     border: none;
     background: none;
+  }
 
-    .modal-dialog-button {
-      @extend %osd_button;
-      height: 30px;
-      padding-top: 0;
-      padding-bottom: 0;
-      color: rgba($accent, 0.85);
-      font-weight: 700;
+  &-button {
+    @extend %flat_button;
+    min-height: 24px;
+    min-width: 100px;
+    padding: $space_size;
+    font-weight: normal;
+
+    &:destructive-action {
+      background-color: $destructive;
+      color: on($destructive);
+
       &:hover {
-        color: rgba($accent, 0.65);
-        background-color: on($accent, divider);
+        background-color: lighten($destructive, 8%);
       }
-      &:focus { color: rgba($accent, 0.65); }
+
       &:active {
-        color: rgba($accent, 0.65);
-        background-color: on($accent, track);
-        box-shadow: none;
+        background-color: darken($destructive, 8%);
       }
-      &:disabled { color: on($osd, disabled); }
+
+      &:insensitive {
+        background-color: rgba($destructive, 0.3);
+        color: on($destructive, disabled);
+      }
+    }
+
+    &:default {
+      background-color: $suggested;
+      color: on($suggested);
+
+      &:hover {
+        background-color: lighten($suggested, 8%);
+      }
+
+      &:active {
+        background-color: darken($suggested, 8%);
+      }
+
+      &:insensitive {
+        background-color: rgba($suggested, 0.3);
+        color: on($suggested, disabled);
+      }
+    }
+  }
+
+  .confirm-dialog-title {
+    @extend %title_2;
+    text-align: center;
+  }
+}
+
+// Lists in dialogs
+
+.dialog-list {
+  spacing: $base_padding * 3;
+
+  .dialog-list-title {
+    @extend %heading;
+    text-align: center;
+  }
+
+  .dialog-list-scrollview { max-height: 200px; }
+  .dialog-list-box {
+    spacing: 1em;
+
+    .dialog-list-item {
+      spacing: 1em;
+
+      .dialog-list-item-title { font-weight: bold; }
+      .dialog-list-item-description {
+        @extend %caption;
+        color: darken($text, 5%);
+      }
     }
   }
 }
 
+
+// End session dialog
+
+.end-session-dialog {
+  min-width: 40em;
+
+  .dialog-content-box { spacing: 0; }
+
+  .dialog-list {
+    spacing: 0;
+
+    .dialog-list-title {
+      color: $warning;
+      background-color: tranparentize($warning, 0.9);
+      padding: $base_padding * 1.5;
+      border-radius: $button_radius;
+      margin: $base_margin 0;
+    }
+  }
+}
+
+// message dialog
+
+.message-dialog-content {
+  spacing: $base_padding * 3;
+
+  .message-dialog-title {
+    text-align: center;
+    @extend %title_2;
+
+    &.lightweight { @extend %title_4; }
+  }
+
+  .message-dialog-description { text-align: center; }
+
+  .message-dialog-caption {
+    @extend %caption; 
+    text-align: center;
+  }
+}
 
 // /***************
 //  * Run Dialogs *
 //  ***************/
 
 .run-dialog {
-  padding: 0 15px 10px 15px;
-  border-image: url("assets/misc/osd.svg") 9 9 9 9;
 
-  > * { padding: 0; }
-
-  &-label {
-    @include fontscaling($ref_size * 0.9);
-    padding-bottom: 0;
-    color: on($osd, disabled);
-    font-weight: 400;
+  .dialog-content-box {
+    margin: $base_margin;
   }
 
-  &-error-label { color: $error; }
+  &-description {
+    @extend %caption;
 
-  &-error-box {
-    @include fontscaling($ref_size * 0.9);
-    padding-top: 15px;
-    spacing: 5px;
-    color: $error;
+    text-align: center;
+    color: darken($text, 20%);
+
+    &.error { color: $error; }
   }
 
   &-completion-box {
-    @include fontscaling($ref_size * 1.0);
-    padding-left: 15px;
+    padding-top: $base_padding;
+    padding-left: $base_padding * 2;
   }
 
   &-entry {
-    @include entry(osd-normal);
-    width: 28em;
-    padding: 7px;
-    border-radius: 0;
-    color: on($osd);
-    caret-color: on($osd);
-    selected-color: on($primary);
-    selection-background-color: $primary;
-    &:focus { @include entry(osd-focus); }
+    @extend %entry;
+
+    width: 20em;
+    height: 1.2em;
+  }
+}
+
+// password or authentication dialog
+
+.prompt-dialog {
+  width: 26em;
+
+  .dialog-content-box {
+    spacing: $base_margin * 4;
+    margin-bottom: $base_margin * 3;
   }
 
-  .modal-dialog-button-box {
-    border: none;
-    background: none;
-    background-gradient-direction: none;
-    box-shadow: none;
+  &-password-entry {
+    @extend %entry;
+    width: 20em;
+  }
+
+  &-password-layout { spacing: $base_margin * 2;}
+
+  &-error-label,
+  &-info-label,
+  &-null-label {
+    text-align: center;
+    @extend %caption;
+  }
+
+  &-error-label { color: $error; }
+}
+
+// polkit dialog
+
+.polkit-dialog {
+
+  &-user-layout {
+    text-align: center;
+    spacing: 2px;
+  }
+
+  &-user-combo {
+    @extend %flat_button;
+    @extend %heading;
+
+    border-radius: $button_radius;
+    padding: $base_padding $base_padding * 6;
+
+    // special case the :insensitive button sinc we want
+    // the label to be the normal color when there are
+    // not multiple users
+    &:insensitive { color: $text; }
+  }
+}
+
+// Audio selection dialog
+
+.audio-device-selection-dialog {
+  min-width: 24em;
+
+  .audio-selection-box {
+    spacing: $base_padding *2;
+
+    .audio-selection-device {
+      @extend %flat_button;
+      border-radius: $button_radius;
+
+      .audio-selection-device-box {
+        padding: $base_padding * 2;
+        spacing: $base_padding * 2;
+      }
+
+      .audio-selection-device-icon { icon-size: 64px; }
+    }
   }
 }
 
@@ -1613,6 +1829,83 @@ $ws_thumb_spacing: 32px;
   }
 }
 
+.media-keys-osd {
+  font-weight: bold;
+  font-size: 1.182em;
+  @extend .info-osd;
+
+  margin-bottom: 1em;
+  border-radius: 9999px;
+  spacing: 12px;
+  padding: 12px 24px;
+
+  > * { spacing: 12px; }
+  StIcon { icon-size: 32px; }
+  StLabel:ltr { margin-right: 6px; }
+  StLabel:rtl { margin-left: 6px; }
+
+  .level {
+    min-width: 160px;
+    -barlevel-height: 6px;
+    -barlevel-background-color: #303030;
+    -barlevel-active-background-color: white;
+    -barlevel-amplify-color: #f8e45c;
+    -barlevel-amplify-separator-width: 3px;
+  }
+
+  .level:ltr { margin-right: 6px; }
+  .level:rtl { margin-left: 6px; }
+
+  .level-bar {
+    border-radius: 8px;
+    background-color: white;
+  }
+}
+
+//
+// Workspace OSD
+//
+
+.workspace-osd {
+  text-shadow: black 5px 5px 5px;
+  font-weight: bold;
+  font-size: 48pt;
+}
+
+.workspace-switch-osd {
+  min-width: 140px;
+  margin-bottom: 1em;
+  border-radius: 9999px;
+  font-weight: bold;
+  padding: 12px 36px 0 36px;
+}
+
+.workspace-switch-osd-indicator-box { spacing: 12px; }
+
+.workspace-switch-osd-indicator {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 3px;
+  margin: 12px;
+  border-radius: 32px;
+
+  &:active {
+    background-color: #3584e4;
+    padding: 6px;
+    margin: 12px;
+  }
+}
+
+.monitor-label {
+  border-radius: 0;
+  color: black;
+  padding: 12px;
+  text-align: center;
+}
+
+.resize-popup {
+  padding: 12px;
+}
+
 
 // /*******************************
 //  * Window list (windowList.js) *
@@ -1925,7 +2218,7 @@ $ws_thumb_spacing: 32px;
     border: 0 solid $osd;
     border-bottom-width: 1px;
     color: on($osd);
-    background: rgba($osd, 0.9);
+    background: $osd;
 
     StButton {
       width: $icon_size * 2;
@@ -2362,7 +2655,7 @@ $ws_thumb_spacing: 32px;
   @include fontscaling($ref_size * 3.0);
   padding: 0.2em 0.8em;
   border-radius: 2px;
-  background-color: rgba($osd, 0.9);
+  background-color: $osd;
   color: on($osd);
   box-shadow: $z-depth-4;
   font-weight: 400;

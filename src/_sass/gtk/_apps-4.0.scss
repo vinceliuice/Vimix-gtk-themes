@@ -571,6 +571,23 @@ preferencesgroup > box {
 }
 
 //
+// Gnome Tweaks
+//
+
+@if $topbar == 'dark' and $variant == 'light' { } @else {
+  .tweak-titlebar-left {
+    background-color: $base;
+    color: $text;
+  }
+  
+  .tweak-titlebar-right {
+    background-color: $background;
+    color: $text;
+  }
+}
+
+
+//
 // Gnome Calculator
 //
 

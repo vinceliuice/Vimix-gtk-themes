@@ -574,14 +574,16 @@ preferencesgroup > box {
 // Gnome Tweaks
 //
 
-.tweak-titlebar-left {
-  background-color: $base;
-  color: $text;
-}
-
-.tweak-titlebar-right {
-  background-color: $background;
-  color: $text;
+@if $topbar == 'dark' and $variant == 'light' { } @else {
+  .tweak-titlebar-left {
+    background-color: $base;
+    color: $text;
+  }
+  
+  .tweak-titlebar-right {
+    background-color: $background;
+    color: $text;
+  }
 }
 
 

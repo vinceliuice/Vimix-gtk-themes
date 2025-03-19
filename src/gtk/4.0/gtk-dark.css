@@ -5769,7 +5769,7 @@ infobar.info > revealer > box button:checked {
 
 infobar.info > revealer > box button:disabled {
   background-color: alpha(currentColor,0.05);
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.3);
 }
 
 infobar.question > revealer > box {
@@ -5825,7 +5825,7 @@ infobar.question > revealer > box button:checked {
 
 infobar.question > revealer > box button:disabled {
   background-color: alpha(currentColor,0.05);
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.3);
 }
 
 infobar.warning > revealer > box {
@@ -5881,7 +5881,7 @@ infobar.warning > revealer > box button:checked {
 
 infobar.warning > revealer > box button:disabled {
   background-color: alpha(currentColor,0.05);
-  color: rgba(0, 0, 0, 0.38);
+  color: rgba(0, 0, 0, 0.26);
 }
 
 infobar.error > revealer > box {
@@ -5937,7 +5937,7 @@ infobar.error > revealer > box button:checked {
 
 infobar.error > revealer > box button:disabled {
   background-color: alpha(currentColor,0.05);
-  color: rgba(0, 0, 0, 0.38);
+  color: rgba(0, 0, 0, 0.26);
 }
 
 tooltip {
@@ -6515,6 +6515,19 @@ window.background.nautilus-window .nautilus-list-view columnview.view {
   background-color: transparent;
 }
 
+window.background.nautilus-window .nautilus-list-view listview.view {
+  padding: 6px;
+}
+
+window.background.nautilus-window .nautilus-list-view listview.view > row > cell {
+  padding: 0 6px 0 3px;
+}
+
+window.background.nautilus-window .nautilus-list-view listview.view > row > cell button.star {
+  padding: 0;
+  margin-right: 12px;
+}
+
 #NautilusViewCell clamp box {
   margin: 0;
   border-spacing: 0;
@@ -6592,24 +6605,27 @@ window.background.nautilus-window .nautilus-list-view columnview.view {
 .floating-bar {
   min-height: 32px;
   padding: 0;
+  margin: 3px;
   border: none;
-  border-radius: 0;
-  background-color: #333539;
+  border-radius: 3px;
+  color: white;
+  background-color: #4285F4;
   background-clip: border-box;
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12);
-}
-
-.floating-bar.bottom.left {
-  border-top-right-radius: 3px;
-}
-
-.floating-bar.bottom.right {
-  border-top-left-radius: 3px;
+  box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.15);
 }
 
 .floating-bar button {
   margin: 8px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.floating-bar button:hover, .floating-bar button:focus, .floating-bar button:active, .floating-bar button:checked {
+  color: white;
+}
+
+.floating-bar button:disabled {
+  color: rgba(255, 255, 255, 0.3);
 }
 
 label.primary-label, label.month-name, label.secondary-label {

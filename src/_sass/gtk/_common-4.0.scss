@@ -543,6 +543,19 @@ $_dot_color: if($variant=='light', $primary, lighten($primary, 15%));
   }
 }
 
+// Buttons on colors
+@mixin button_on($color:$primary) {
+  color: on($color, secondary);
+
+  &:hover, &:focus, &:active, &:checked {
+    color: on($color);
+  }
+
+  &:disabled {
+    color: on($color, secondary-disabled);
+  }
+}
+
 // Buttons on selected backgrounds
 @mixin selected_button($color:$primary) {
   @include ripple(flat);
@@ -572,7 +585,7 @@ $_dot_color: if($variant=='light', $primary, lighten($primary, 15%));
 
   &:disabled {
     background-color: gtkalpha(currentColor, 0.05);
-    color: on($color, disabled);
+    color: on($color, secondary-disabled);
   }
 }
 

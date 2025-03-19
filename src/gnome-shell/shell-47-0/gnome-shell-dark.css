@@ -238,47 +238,6 @@ stage {
   -st-icon-style: symbolic;
 }
 
-/* Check Boxes */
-.check-box StBoxLayout {
-  spacing: .8em;
-}
-
-.check-box StBin {
-  width: 24px;
-  height: 24px;
-  padding: 3px;
-  border-radius: 2px;
-  background-image: url("assets/checkbox-off.svg");
-}
-
-.check-box:focus StBin {
-  background-image: url("assets/checkbox-off.svg");
-}
-
-.check-box:hover StBin {
-  background-color: rgba(255, 255, 255, 0.12);
-}
-
-.check-box:active StBin {
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
-.check-box:checked StBin {
-  background-image: url("assets/checkbox.svg");
-}
-
-.check-box:focus:checked StBin {
-  background-image: url("assets/checkbox.svg");
-}
-
-.check-box:hover:checked StBin {
-  background-color: #7caaf7;
-}
-
-.check-box:active:checked StBin {
-  background-color: #1b6cf2;
-}
-
 /* Activities Ripple */
 .ripple-box {
   background-color: rgba(66, 133, 244, 0.35);
@@ -1789,30 +1748,6 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   color: rgba(255, 255, 255, 0.45);
 }
 
-/* Slider */
-.slider {
-  height: 20px;
-  color: #4285F4;
-  -slider-height: 2px;
-  -slider-background-color: rgba(255, 255, 255, 0.3);
-  -slider-border-color: transparent;
-  -slider-active-background-color: #4285F4;
-  -slider-active-border-color: transparent;
-  -slider-border-width: 0;
-  -slider-handle-radius: 7px;
-  -slider-handle-border-width: 0;
-  -slider-handle-border-color: rgba(255, 255, 255, 0.12);
-  -barlevel-height: 2px;
-  -barlevel-background-color: rgba(255, 255, 255, 0.3);
-  -barlevel-border-color: transparent;
-  -barlevel-active-background-color: #4285F4;
-  -barlevel-active-border-color: transparent;
-  -barlevel-overdrive-color: #FF5252;
-  -barlevel-overdrive-border-color: transparent;
-  -barlevel-overdrive-separator-width: 2px;
-  -barlevel-border-width: 0;
-}
-
 /* App Switcher */
 .switcher-popup {
   padding: 8px;
@@ -2026,7 +1961,9 @@ StWidget.focused .app-grid-running-dot {
 .message .message-header .app-folder-dialog .message-close-button {
   background-color: rgba(255, 255, 255, 0.06);
   color: rgba(255, 255, 255, 0.7);
-  border: none;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
   padding: 0;
   width: 36px;
   height: 36px;
@@ -2514,6 +2451,65 @@ StWidget.focused .app-grid-running-dot {
 
 .weather-button .weather-forecast-temp {
   font-weight: bold;
+}
+
+/* Check Boxes */
+.check-box StBoxLayout {
+  spacing: .8em;
+}
+
+.check-box StBin {
+  width: 24px;
+  height: 24px;
+  padding: 3px;
+  border-radius: 2px;
+  background-image: url("assets/checkbox-off.svg");
+}
+
+.check-box:focus StBin {
+  background-image: url("assets/checkbox-off.svg");
+  box-shadow: none;
+}
+
+.check-box:hover StBin {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.check-box:active StBin {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.check-box:checked StBin {
+  background-image: url("assets/checkbox.svg");
+}
+
+.check-box:focus:checked StBin {
+  background-image: url("assets/checkbox.svg");
+}
+
+.check-box:hover:checked StBin {
+  background-color: #7caaf7;
+}
+
+.check-box:active:checked StBin {
+  background-color: #1b6cf2;
+}
+
+.check-box StIcon {
+  icon-size: 0;
+  padding: 0;
+  color: transparent;
+  border: none !important;
+}
+
+.check-box:hover StIcon, .check-box:active StIcon {
+  border: none !important;
+}
+
+.check-box:checked StIcon, .check-box:checked:hover StIcon, .check-box:checked:active StIcon {
+  background-color: transparent;
+  color: transparent;
+  border: none !important;
 }
 
 /* Dash */
@@ -3284,46 +3280,62 @@ StWidget.focused .app-grid-running-dot {
   color: rgba(255, 255, 255, 0.7);
 }
 
+/* Slider */
+.slider {
+  color: #4285F4;
+  -slider-handle-radius: 7px;
+  -barlevel-height: 2px;
+  -barlevel-background-color: rgba(255, 255, 255, 0.3);
+  -barlevel-active-background-color: #4285F4;
+  -barlevel-overdrive-color: #FF5252;
+  -barlevel-overdrive-separator-width: 2px;
+}
+
+.slider:hover {
+  color: #649bf6;
+}
+
 /* Switches */
 .toggle-switch {
-  width: 46px;
-  border-radius: 9999px;
-  transition-duration: 100ms;
-  color: white;
-  background: rgba(255, 255, 255, 0.25);
+  color: transparent;
   margin: 0 6px;
+  width: 44px;
+  height: 26px;
+  background-size: contain;
+  background-image: url("assets/toggle-off.svg");
+  background-color: transparent;
 }
 
 .toggle-switch StIcon {
-  icon-size: 16px;
+  icon-size: 0;
 }
 
 .toggle-switch .handle {
-  margin: 3px;
-  width: 20px;
-  height: 20px;
-  border-radius: 9999px;
-  background: #383a3e;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  transition-duration: 100ms;
+  margin: 0;
+  width: 0;
+  height: 0;
+  background: none;
+  box-shadow: none;
 }
 
 .toggle-switch:hover {
-  background: rgba(255, 255, 255, 0.35);
+  background-color: transparent;
+  color: transparent;
 }
 
 .toggle-switch:checked {
-  background: #18b8ff;
-  color: white;
+  background-color: transparent;
+  color: transparent;
+  background-image: url("assets/toggle-on.svg");
 }
 
 .toggle-switch:checked:hover {
-  background-color: #32c0ff;
-  color: white;
+  background-color: transparent;
+  color: transparent;
 }
 
 .toggle-switch:checked .handle {
-  background: white;
+  background: none;
 }
 
 .icon-label-button-container {

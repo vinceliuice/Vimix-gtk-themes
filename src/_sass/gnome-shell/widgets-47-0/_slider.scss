@@ -1,0 +1,20 @@
+/* Slider */
+
+$slide_active_color: if($variant == 'dark' and $theme == 'grey', rgba(white, 0.85), $primary);
+$slide_size: if($compact == 'false', 7px, 6px);
+
+.slider {
+//  height: 20px;
+  color: if($variant == 'dark' and $theme == 'grey', white, $primary);
+
+  -slider-handle-radius: $slide_size;
+  -barlevel-height: 2px;
+  -barlevel-background-color: $track;
+  -barlevel-active-background-color: $slide_active_color;
+  -barlevel-overdrive-color: $destructive;
+  -barlevel-overdrive-separator-width: 2px;
+
+  &:hover {
+    color: if($variant == 'dark' and $theme == 'grey', #efefef, lighten($primary, 7%));
+  }
+}

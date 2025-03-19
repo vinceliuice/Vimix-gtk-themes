@@ -66,6 +66,23 @@ window.background.nautilus-window {
   .nautilus-list-view columnview.view {
     background-color: transparent;
   }
+
+  .nautilus-list-view {
+    listview.view {
+      padding: $space_size;
+
+      > row {
+        > cell {
+          padding: 0 $space_size 0 $space_size / 2;
+
+          button.star {
+            padding: 0;
+            margin-right: $space_size * 2;
+          }
+        }
+      }
+    }
+  }
 }
 
 #NautilusViewCell {
@@ -148,26 +165,21 @@ window.background.nautilus-window {
 .floating-bar {
   min-height: $item_size;
   padding: 0;
+  margin: $space_size / 2;
   border: none;
-  border-radius: 0;
-  background-color: $base;
+  border-radius: $button_radius;
+  color: on($primary);
+  background-color: $primary;
   background-clip: $extra_background_clip;
   transition: $shorter_transition;
-  box-shadow: 0 0 0 1px $border;
-
-  &.bottom.left { // axes left border and border radius
-    border-top-right-radius: 3px;
-  }
-
-  &.bottom.right { // axes right border and border radius
-    border-top-left-radius: 3px;
-  }
+  box-shadow: 2px 3px 6px rgba(black, 0.15);
 
   button {
     margin: 8px;
 
     @extend %small_button;
     @extend %simple_flat_button;
+    @include button_on($primary);
   }
 }
 

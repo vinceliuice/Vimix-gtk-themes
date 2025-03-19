@@ -2282,7 +2282,9 @@ StWidget.focused .app-grid-running-dot {
 .message .message-header .app-folder-dialog .message-close-button {
   background-color: rgba(255, 255, 255, 0.06);
   color: rgba(255, 255, 255, 0.7);
-  border: none;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
   padding: 0;
   width: 36px;
   height: 36px;

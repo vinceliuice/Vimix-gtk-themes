@@ -117,7 +117,9 @@ $app_folder_size: 720px;
   .icon-button {
     background-color: overlay($osd);
     color: on($osd, secondary);
-    border: none;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
     padding: 0;
     width: 36px;
     height: 36px;

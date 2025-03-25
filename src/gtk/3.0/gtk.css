@@ -2403,7 +2403,7 @@ popover.background list separator {
   margin: 0;
 }
 
-tabbox > tab, notebook > header tab {
+tabbox > tab, notebook > header > tabs > tab {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
   min-height: 24px;
   min-width: 24px;
@@ -2419,31 +2419,31 @@ tabbox > tab, notebook > header tab {
   font-weight: 500;
 }
 
-tabbox > tab:hover, notebook > header tab:hover {
+tabbox > tab:hover, notebook > header > tabs > tab:hover {
   color: rgba(0, 0, 0, 0.87);
 }
 
-tabbox > tab:hover.reorderable-page, notebook > header tab:hover.reorderable-page {
+tabbox > tab:hover.reorderable-page, notebook > header > tabs > tab:hover.reorderable-page {
   border-color: rgba(0, 0, 0, 0.12);
   background-color: #f9f9f9;
 }
 
-tabbox > tab:disabled, notebook > header tab:disabled {
+tabbox > tab:disabled, notebook > header > tabs > tab:disabled {
   color: rgba(0, 0, 0, 0.26);
 }
 
-tabbox > tab:checked, notebook > header tab:checked {
+tabbox > tab:checked, notebook > header > tabs > tab:checked {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 100ms cubic-bezier(0, 0, 0.2, 1), background-image 400ms cubic-bezier(0, 0, 0.2, 1);
   background-image: radial-gradient(circle farthest-corner at center, transparent 10%, transparent 0%);
   background-size: 1000% 1000%;
   color: rgba(0, 0, 0, 0.87);
 }
 
-tabbox > tab:checked:disabled, notebook > header tab:checked:disabled {
+tabbox > tab:checked:disabled, notebook > header > tabs > tab:checked:disabled {
   color: rgba(0, 0, 0, 0.38);
 }
 
-tabbox > tab:checked.reorderable-page, notebook > header tab:checked.reorderable-page {
+tabbox > tab:checked.reorderable-page, notebook > header > tabs > tab:checked.reorderable-page {
   border-color: rgba(0, 0, 0, 0.12);
   background-color: #FFFFFF;
 }
@@ -2571,7 +2571,22 @@ notebook > header > tabs > arrow {
   border-radius: 0;
 }
 
-notebook > header tab button.flat {
+notebook > header > tabs > tab.reorderable-page {
+  min-height: 36px;
+  min-width: 36px;
+  padding: 6px;
+}
+
+notebook > header > tabs > tab.reorderable-page image {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+notebook > header > tabs > tab.reorderable-page image + label {
+  margin-right: 6px;
+}
+
+notebook > header > tabs > tab button.flat {
   min-height: 24px;
   min-width: 24px;
   padding: 0;
@@ -2579,40 +2594,59 @@ notebook > header tab button.flat {
   -gtk-outline-radius: 9999px;
 }
 
-notebook > header.top tabs, notebook > header.bottom tabs {
+notebook > header.top > tabs, notebook > header.bottom > tabs {
   padding-left: 8px;
   padding-right: 8px;
 }
 
-notebook > header.top tabs:not(:only-child):first-child, notebook > header.bottom tabs:not(:only-child):first-child {
+notebook > header.top > tabs:not(:only-child):first-child, notebook > header.bottom > tabs:not(:only-child):first-child {
   margin-left: 0;
 }
 
-notebook > header.top tabs:not(:only-child):last-child, notebook > header.bottom tabs:not(:only-child):last-child {
+notebook > header.top > tabs:not(:only-child):last-child, notebook > header.bottom > tabs:not(:only-child):last-child {
   margin-right: 0;
 }
 
-notebook > header.top tabs tab.reorderable-page, notebook > header.bottom tabs tab.reorderable-page {
-  margin: 0 -1px;
+notebook > header.top > tabs > tab.reorderable-page, notebook > header.bottom > tabs > tab.reorderable-page {
+  margin-left: 2px;
+  margin-right: 2px;
   border-style: none solid;
 }
 
-notebook > header.left tabs, notebook > header.right tabs {
+notebook > header.top > tabs > tab.reorderable-page > box, notebook > header.bottom > tabs > tab.reorderable-page > box {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+notebook > header.left > tabs, notebook > header.right > tabs {
   padding-top: 8px;
   padding-bottom: 8px;
 }
 
-notebook > header.left tabs:not(:only-child):first-child, notebook > header.right tabs:not(:only-child):first-child {
+notebook > header.left > tabs:not(:only-child):first-child, notebook > header.right > tabs:not(:only-child):first-child {
   margin-top: 0;
 }
 
-notebook > header.left tabs:not(:only-child):last-child, notebook > header.right tabs:not(:only-child):last-child {
+notebook > header.left > tabs:not(:only-child):last-child, notebook > header.right > tabs:not(:only-child):last-child {
   margin-bottom: 0;
 }
 
-notebook > header.left tabs tab.reorderable-page, notebook > header.right tabs tab.reorderable-page {
-  margin: -1px 0;
+notebook > header.left > tabs > tab.reorderable-page, notebook > header.right > tabs > tab.reorderable-page {
+  margin-top: 2px;
+  margin-bottom: 2px;
   border-style: solid none;
+}
+
+notebook > header.left > tabs > tab.reorderable-page > box, notebook > header.right > tabs > tab.reorderable-page > box {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+notebook > header > button.flat {
+  min-height: 24px;
+  min-width: 24px;
+  padding: 0;
+  margin: 6px;
 }
 
 notebook > stack:not(:only-child) {

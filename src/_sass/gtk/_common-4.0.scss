@@ -4114,6 +4114,21 @@ calendar {
 //
 // Dialogs
 //
+window.dialog {
+  list.fr-sidebar {
+    padding: $space_size;
+
+    > row:not(.fr-sidebar-row) {
+      background: none
+    }
+  }
+
+  .extra-widget {
+    padding: $space_size;
+    border-spacing: $space_size;
+  }
+}
+
 window.dialog.message { // Message Dialog styling
   background-color: $surface;
   background-image: none;

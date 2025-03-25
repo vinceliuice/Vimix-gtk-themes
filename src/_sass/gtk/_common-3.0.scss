@@ -2112,8 +2112,21 @@ notebook {
       border-radius: 0;
     }
 
-    tab {
+    > tabs > tab {
       @extend %tabs_tab;
+
+      &.reorderable-page {
+        min-height: $medium_size;
+        min-width: $medium_size;
+        padding: $space_size;
+
+        image {
+          margin-left: $space_size;
+          margin-right: $space_size;
+        }
+
+        image + label { margin-right: $space_size; }
+      }
 
       // close button
       // colors the button like the label, overridden otherwise
@@ -2128,7 +2141,7 @@ notebook {
 
     &.top,
     &.bottom {
-      tabs {
+      > tabs {
         padding-left: 8px;
         padding-right: 8px;
 
@@ -2137,10 +2150,14 @@ notebook {
           &:last-child { margin-right: 0; }
         }
 
-        tab {
-          &.reorderable-page {
-            margin: 0 -1px;
-            border-style: none solid;
+        > tab.reorderable-page {
+          margin-left: 2px;
+          margin-right: 2px;
+          border-style: none solid;
+
+          > box {
+            padding-left: $space_size;
+            padding-right: $space_size;
           }
         }
       }
@@ -2148,7 +2165,7 @@ notebook {
 
     &.left,
     &.right {
-      tabs {
+      > tabs {
         padding-top: 8px;
         padding-bottom: 8px;
 
@@ -2157,13 +2174,24 @@ notebook {
           &:last-child { margin-bottom: 0; }
         }
 
-        tab {
-          &.reorderable-page {
-            margin: -1px 0;
-            border-style: solid none;
+        > tab.reorderable-page {
+          margin-top: 2px;
+          margin-bottom: 2px;
+          border-style: solid none;
+
+          > box {
+            padding-top: $space_size;
+            padding-bottom: $space_size;
           }
         }
       }
+    }
+
+    > button.flat {
+      min-height: 24px;
+      min-width: 24px;
+      padding: 0;
+      margin: $space_size;
     }
   }
 

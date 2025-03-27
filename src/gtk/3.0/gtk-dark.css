@@ -594,7 +594,7 @@ actionbar > revealer > box > button:checked:disabled:not(.server-list-button):no
 }
 
 window.background stack scrolledwindow .linked:not(.stack-switcher) button:not(.combo), button#show_previous_icon_toolbar_togglebutton,
-button#show_show_thumbnails_icon_toolbar_togglebutton, popover.background button:not(.suggested-action):not(.destructive-action):not(.flat), .primary-toolbar button:not(.destructive-action):not(.suggested-action):not(.combo):not(.flat),
+button#show_show_thumbnails_icon_toolbar_togglebutton, popover.background button:not(.suggested-action):not(.destructive-action):not(.combo):not(.flat):not(.up):not(.down), .primary-toolbar button:not(.destructive-action):not(.suggested-action):not(.combo):not(.flat),
 .location-bar button:not(.destructive-action):not(.suggested-action):not(.combo):not(.flat), .linked > button {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 300ms cubic-bezier(0, 0, 0.2, 1), background-image 600ms cubic-bezier(0, 0, 0.2, 1);
   box-shadow: inset 0 0 0 9999px transparent;
@@ -608,7 +608,7 @@ button#show_show_thumbnails_icon_toolbar_togglebutton, popover.background button
 }
 
 window.background stack scrolledwindow .linked:not(.stack-switcher) button:hover:not(.combo), button#show_previous_icon_toolbar_togglebutton:hover,
-button#show_show_thumbnails_icon_toolbar_togglebutton:hover, popover.background button:hover:not(.suggested-action):not(.destructive-action):not(.flat), .primary-toolbar button:hover:not(.destructive-action):not(.suggested-action):not(.combo):not(.flat),
+button#show_show_thumbnails_icon_toolbar_togglebutton:hover, popover.background button:hover:not(.suggested-action):not(.destructive-action):not(.combo):not(.flat):not(.up):not(.down), .primary-toolbar button:hover:not(.destructive-action):not(.suggested-action):not(.combo):not(.flat),
 .location-bar button:hover:not(.destructive-action):not(.suggested-action):not(.combo):not(.flat), .linked > button:hover {
   background-color: transparent;
   box-shadow: inset 0 0 0 9999px alpha(currentColor,0.1);
@@ -616,7 +616,7 @@ button#show_show_thumbnails_icon_toolbar_togglebutton:hover, popover.background 
 }
 
 window.background stack scrolledwindow .linked:not(.stack-switcher) button:active:not(.combo), button#show_previous_icon_toolbar_togglebutton:active,
-button#show_show_thumbnails_icon_toolbar_togglebutton:active, popover.background button:active:not(.suggested-action):not(.destructive-action):not(.flat), .primary-toolbar button:active:not(.destructive-action):not(.suggested-action):not(.combo):not(.flat),
+button#show_show_thumbnails_icon_toolbar_togglebutton:active, popover.background button:active:not(.suggested-action):not(.destructive-action):not(.combo):not(.flat):not(.up):not(.down), .primary-toolbar button:active:not(.destructive-action):not(.suggested-action):not(.combo):not(.flat),
 .location-bar button:active:not(.destructive-action):not(.suggested-action):not(.combo):not(.flat), .linked > button:active {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
   animation: ripple_effect 100ms cubic-bezier(0, 0, 0.2, 1) forwards;
@@ -628,7 +628,7 @@ button#show_show_thumbnails_icon_toolbar_togglebutton:active, popover.background
 }
 
 window.background stack scrolledwindow .linked:not(.stack-switcher) button:disabled:not(.combo), button#show_previous_icon_toolbar_togglebutton:disabled,
-button#show_show_thumbnails_icon_toolbar_togglebutton:disabled, popover.background button:disabled:not(.suggested-action):not(.destructive-action):not(.flat), .primary-toolbar button:disabled:not(.destructive-action):not(.suggested-action):not(.combo):not(.flat),
+button#show_show_thumbnails_icon_toolbar_togglebutton:disabled, popover.background button:disabled:not(.suggested-action):not(.destructive-action):not(.combo):not(.flat):not(.up):not(.down), .primary-toolbar button:disabled:not(.destructive-action):not(.suggested-action):not(.combo):not(.flat),
 .location-bar button:disabled:not(.destructive-action):not(.suggested-action):not(.combo):not(.flat), .linked > button:disabled {
   box-shadow: none;
   background-color: alpha(currentColor,0.06);
@@ -636,17 +636,62 @@ button#show_show_thumbnails_icon_toolbar_togglebutton:disabled, popover.backgrou
 }
 
 window.background stack scrolledwindow .linked:not(.stack-switcher) button:checked:not(.combo), button#show_previous_icon_toolbar_togglebutton:checked,
-button#show_show_thumbnails_icon_toolbar_togglebutton:checked, popover.background button:checked:not(.suggested-action):not(.destructive-action):not(.flat), .primary-toolbar button:checked:not(.destructive-action):not(.suggested-action):not(.combo):not(.flat),
+button#show_show_thumbnails_icon_toolbar_togglebutton:checked, popover.background button:checked:not(.suggested-action):not(.destructive-action):not(.combo):not(.flat):not(.up):not(.down), .primary-toolbar button:checked:not(.destructive-action):not(.suggested-action):not(.combo):not(.flat),
 .location-bar button:checked:not(.destructive-action):not(.suggested-action):not(.combo):not(.flat), .linked > button:checked {
   background-color: #4285F4;
   color: white;
 }
 
 window.background stack scrolledwindow .linked:not(.stack-switcher) button:checked:disabled:not(.combo), button#show_previous_icon_toolbar_togglebutton:checked:disabled,
-button#show_show_thumbnails_icon_toolbar_togglebutton:checked:disabled, popover.background button:checked:disabled:not(.suggested-action):not(.destructive-action):not(.flat), .primary-toolbar button:checked:disabled:not(.destructive-action):not(.suggested-action):not(.combo):not(.flat),
+button#show_show_thumbnails_icon_toolbar_togglebutton:checked:disabled, popover.background button:checked:disabled:not(.suggested-action):not(.destructive-action):not(.combo):not(.flat):not(.up):not(.down), .primary-toolbar button:checked:disabled:not(.destructive-action):not(.suggested-action):not(.combo):not(.flat),
 .location-bar button:checked:disabled:not(.destructive-action):not(.suggested-action):not(.combo):not(.flat), .linked > button:checked:disabled {
   background-color: alpha(#4285F4,0.25);
   color: alpha(#4285F4,0.5);
+}
+
+#login_window #user_combobox button, .background .raven .raven-background button.combo, .background.budgie-popover button.combo, window.background stack scrolledwindow button.combo, dialog.background .dialog-vbox stack button.combo, .tilix-search-frame button.combo, .geary-composer-box button.combo, notebook > stack:not(:only-child) entry ~ button:not(.up):not(.down), popover.background entry ~ button:not(.up):not(.down), button.combo, .linked > button.combo, .linked > entry ~ button:not(.combo) {
+  background-image: none;
+  background-color: transparent;
+  font-weight: normal;
+  border-radius: 0;
+  transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0.4, 0, 0.2, 1);
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), transparent 0%, transparent 0%) 0 0 2/0 0 0px;
+  box-shadow: inset 0 -1px rgba(255, 255, 255, 0.3);
+  background-color: transparent;
+  background-image: none;
+  color: rgba(255, 255, 255, 0.7);
+  border-width: 0;
+}
+
+#login_window #user_combobox button:hover, .background .raven .raven-background button.combo:hover, .background.budgie-popover button.combo:hover, window.background stack scrolledwindow button.combo:hover, dialog.background .dialog-vbox stack button.combo:hover, notebook > stack:not(:only-child) entry ~ button:hover:not(.up):not(.down), popover.background entry ~ button:hover:not(.up):not(.down), button.combo:hover, .linked > entry ~ button:hover:not(.combo) {
+  background-image: none;
+  background-color: transparent;
+  background-image: none;
+  border-width: 0;
+  background-color: transparent;
+  color: white;
+  box-shadow: inset 0 -2px rgba(255, 255, 255, 0.45);
+}
+
+#login_window #user_combobox button:active, .background .raven .raven-background button.combo:active, .background.budgie-popover button.combo:active, window.background stack scrolledwindow button.combo:active, dialog.background .dialog-vbox stack button.combo:active, notebook > stack:not(:only-child) entry ~ button:active:not(.up):not(.down), popover.background entry ~ button:active:not(.up):not(.down), button.combo:active, .linked > entry ~ button:active:not(.combo), #login_window #user_combobox button:checked, .background .raven .raven-background button.combo:checked, .background.budgie-popover button.combo:checked, window.background stack scrolledwindow button.combo:checked, dialog.background .dialog-vbox stack button.combo:checked, notebook > stack:not(:only-child) entry ~ button:checked:not(.up):not(.down), popover.background entry ~ button:checked:not(.up):not(.down), button.combo:checked, .linked > entry ~ button:checked:not(.combo) {
+  background-image: none;
+  background-color: transparent;
+  background-image: none;
+  border-width: 0;
+  background-color: transparent;
+  box-shadow: none;
+  color: white;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 100%, rgba(255, 255, 255, 0.45) 10%) 0 0 2/0 0 2px;
+}
+
+#login_window #user_combobox button:disabled, .background .raven .raven-background button.combo:disabled, .background.budgie-popover button.combo:disabled, window.background stack scrolledwindow button.combo:disabled, dialog.background .dialog-vbox stack button.combo:disabled, notebook > stack:not(:only-child) entry ~ button:disabled:not(.up):not(.down), popover.background entry ~ button:disabled:not(.up):not(.down), button.combo:disabled, .linked > entry ~ button:disabled:not(.combo) {
+  background-image: none;
+  background-color: transparent;
+  border-width: 0;
+  box-shadow: inset 0 -1px rgba(255, 255, 255, 0.12);
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.45);
+  opacity: 1;
 }
 
 button {
@@ -709,7 +754,7 @@ radio, scrollbar button, notebook > header > tabs > arrow, spinbutton.vertical b
 .budgie-polkit-dialog button,
 .budgie-run-dialog button, .budgie-notification-window button.image-button.close, .budgie-switcher-window button.image-button.close, .budgie-osd-window button.image-button.close, .caja-navigation-window button.toggle.image-button, .mate-panel-menu-bar #PanelApplet button:not(.flat), toolbar.primary-toolbar toolitem.raised button, .tilix-search-frame button, .geary-composer-box button:not(.combo), window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle,
 window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:not(.toggle):not(.raised):not(.flat), window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised, window.csd > box.vertical > box.vertical > toolbar.horizontal button,
-window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button, layouttabbar button, messagedialog.background.csd .linked.dialog-action-area:not(.vertical) > button:not(:only-child), messagedialog.background .linked.dialog-action-area:not(.vertical) > button:not(:only-child), .app-notification button, notebook > header > button, notebook > header > button.flat, notebook > header > tabs > tab button, toolbar button:not(.destructive-action):not(.suggested-action), combobox > .linked:not(.vertical) > button.combo:not(:only-child), .linked > spinbutton:not(.vertical) > button.up, .linked > spinbutton:not(.vertical) > button.down, .osd button, button.flat {
+window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button, .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button, layouttabbar button, messagedialog.background.csd .linked.dialog-action-area:not(.vertical) > button:not(:only-child), messagedialog.background .linked.dialog-action-area:not(.vertical) > button:not(:only-child), .app-notification button, notebook > header > button, notebook > header > tabs > tab button, toolbar button:not(.destructive-action):not(.suggested-action), combobox > .linked:not(.vertical) > button.combo:not(:only-child), .linked > spinbutton:not(.vertical) > button.up, .linked > spinbutton:not(.vertical) > button.down, .osd button, button.flat {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1), background-size 300ms cubic-bezier(0, 0, 0.2, 1), background-image 600ms cubic-bezier(0, 0, 0.2, 1);
   box-shadow: inset 0 0 0 9999px transparent;
   background-color: transparent;
@@ -835,51 +880,6 @@ button.text-button.image-button image:not(:only-child):last-child {
 .linked > button.flat.text-button.image-button, .linked.vertical > button.flat.text-button.image-button {
   border-radius: 3px;
   -gtk-outline-radius: 3px;
-}
-
-#login_window #user_combobox button, .background .raven .raven-background button.combo, .background.budgie-popover button.combo, window.background stack scrolledwindow button.combo, dialog.background .dialog-vbox stack button.combo, .tilix-search-frame button.combo, .geary-composer-box button.combo, button.combo, .linked > entry ~ button:not(.combo) {
-  background-image: none;
-  background-color: transparent;
-  font-weight: normal;
-  border-radius: 0;
-  transition: all 100ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0.4, 0, 0.2, 1);
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), transparent 0%, transparent 0%) 0 0 2/0 0 0px;
-  box-shadow: inset 0 -1px rgba(255, 255, 255, 0.3);
-  background-color: transparent;
-  background-image: none;
-  color: rgba(255, 255, 255, 0.7);
-  border-width: 0;
-}
-
-#login_window #user_combobox button:hover, .background .raven .raven-background button.combo:hover, .background.budgie-popover button.combo:hover, window.background stack scrolledwindow button.combo:hover, dialog.background .dialog-vbox stack button.combo:hover, button.combo:hover, .linked > button.combo:hover, .linked > entry ~ button:not(.combo):hover {
-  background-image: none;
-  background-color: transparent;
-  background-image: none;
-  border-width: 0;
-  background-color: transparent;
-  color: white;
-  box-shadow: inset 0 -2px rgba(255, 255, 255, 0.45);
-}
-
-#login_window #user_combobox button:active, .background .raven .raven-background button.combo:active, .background.budgie-popover button.combo:active, window.background stack scrolledwindow button.combo:active, dialog.background .dialog-vbox stack button.combo:active, #login_window #user_combobox button:checked, .background .raven .raven-background button.combo:checked, .background.budgie-popover button.combo:checked, window.background stack scrolledwindow button.combo:checked, dialog.background .dialog-vbox stack button.combo:checked, button.combo:active, button.combo:checked, .linked > button.combo:active, .linked > button.combo:checked, .linked > entry ~ button:not(.combo):active, .linked > entry ~ button:not(.combo):checked {
-  background-image: none;
-  background-color: transparent;
-  background-image: none;
-  border-width: 0;
-  background-color: transparent;
-  box-shadow: none;
-  color: white;
-  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px), #4285F4 100%, rgba(255, 255, 255, 0.45) 10%) 0 0 2/0 0 2px;
-}
-
-#login_window #user_combobox button:disabled, .background .raven .raven-background button.combo:disabled, .background.budgie-popover button.combo:disabled, window.background stack scrolledwindow button.combo:disabled, dialog.background .dialog-vbox stack button.combo:disabled, button.combo:disabled, .linked > button.combo:disabled, .linked > entry ~ button:not(.combo):disabled {
-  background-image: none;
-  background-color: transparent;
-  border-width: 0;
-  box-shadow: inset 0 -1px rgba(255, 255, 255, 0.12);
-  background-color: transparent;
-  color: rgba(255, 255, 255, 0.45);
-  opacity: 1;
 }
 
 button.combo:only-child, button.combo:first-child, button.combo:last-child, .linked > button.combo:only-child, .linked > button.combo:first-child, .linked > button.combo:last-child, .linked > entry ~ button:not(.combo):only-child, .linked > entry ~ button:not(.combo):first-child, .linked > entry ~ button:not(.combo):last-child {
@@ -2572,7 +2572,7 @@ notebook > header > tabs > tab > box > label {
   margin-right: 6px;
 }
 
-notebook > header > tabs > tab button {
+notebook > header > tabs > tab button, notebook > header > tabs > tab button.flat {
   min-height: 24px;
   min-width: 24px;
   padding: 0;
@@ -6666,31 +6666,42 @@ widget > box.terminal-titlebar > button.image-button, widget > box.terminal-titl
 }
 
 #DesktopMainBox notebook > header > tabs > tab > widget > box,
-#DialogWindow notebook > header > tabs > tab > widget > box {
+#DialogNotebook notebook > header > tabs > tab > widget > box {
   padding-left: 6px;
   padding-right: 6px;
 }
 
 #DesktopMainBox notebook > header > tabs > tab > widget > box > button.close-button, #DesktopMainBox notebook > header > tabs > tab > widget > box > button.close-button image,
-#DialogWindow notebook > header > tabs > tab > widget > box > button.close-button,
-#DialogWindow notebook > header > tabs > tab > widget > box > button.close-button image {
+#DialogNotebook notebook > header > tabs > tab > widget > box > button.close-button,
+#DialogNotebook notebook > header > tabs > tab > widget > box > button.close-button image {
   border-radius: 3px;
   -gtk-outline-radius: 3px;
 }
 
 #DesktopMainBox notebook > header > tabs > tab > widget > box > button.close-button:hover image,
-#DialogWindow notebook > header > tabs > tab > widget > box > button.close-button:hover image {
+#DialogNotebook notebook > header > tabs > tab > widget > box > button.close-button:hover image {
   background-image: image(rgba(255, 255, 255, 0.12));
 }
 
 #DesktopMainBox notebook > header > tabs > tab > widget > box > button.close-button:active image,
-#DialogWindow notebook > header > tabs > tab > widget > box > button.close-button:active image {
+#DialogNotebook notebook > header > tabs > tab > widget > box > button.close-button:active image {
   background-image: image(rgba(255, 255, 255, 0.3));
 }
 
 #DesktopMainBox notebook > header > button,
-#DialogWindow notebook > header > button {
+#DialogNotebook notebook > header > button {
   margin: 0;
+}
+
+#DesktopMainBox notebook combobox > box > button,
+#DialogNotebook notebook combobox > box > button {
+  min-height: 0;
+  padding: 0 12px;
+}
+
+#DesktopMainBox notebook entry,
+#DialogNotebook notebook entry {
+  min-height: 0;
 }
 
 #tool-toolbar flowboxchild > button {

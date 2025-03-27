@@ -1986,31 +1986,38 @@ widget > box.terminal-titlebar {
 //
 
 #DesktopMainBox,
-#DialogWindow {
-  notebook > header > tabs > tab {
-    > widget > box {
-      padding-left: $space_size;
-      padding-right: $space_size;
-
-      > button.close-button {
-        &, image {
-          border-radius: $button_radius;
-          -gtk-outline-radius: $button_radius;
-        }
+#DialogNotebook {
+  notebook {
+    > header > tabs > tab {
+      > widget > box {
+        padding-left: $space_size;
+        padding-right: $space_size;
   
-        &:hover image {
-          background-image: image($divider);
-        }
-  
-        &:active image {
-          background-image: image($track);
+        > button.close-button {
+          &, image {
+            border-radius: $button_radius;
+            -gtk-outline-radius: $button_radius;
+          }
+    
+          &:hover image {
+            background-image: image($divider);
+          }
+    
+          &:active image {
+            background-image: image($track);
+          }
         }
       }
     }
-  }
 
-  notebook > header > button {
-    margin: 0;
+    > header > button {
+      margin: 0;
+    }
+
+    combobox > box > button {
+      min-height: 0;
+      padding: 0 $space_size * 2;
+    }
   }
 }
 

@@ -407,6 +407,32 @@ treeview.view entry {
   &:checked:disabled { @include button(checked-disabled); }
 }
 
+%combo_flat {
+  background-image: none;
+  background-color: transparent;
+  font-weight: normal;
+  border-radius: 0;
+  @include entry(flat-normal);
+
+  &:hover {
+    background-image: none;
+    background-color: transparent;
+    @include entry(flat-hover);
+  }
+
+  &:active, &:checked {
+    background-image: none;
+    background-color: transparent;
+    @include entry(flat-focus);
+  }
+
+  &:disabled {
+    background-image: none;
+    background-color: transparent;
+    @include entry(flat-disabled);
+  }
+}
+
 button {
   min-height: 24px;
   min-width: 16px;
@@ -520,31 +546,7 @@ button {
   &.combo,
   .linked > &.combo,
   .linked > entry ~ &:not(.combo) {
-    @at-root %combo_flat, & {
-      background-image: none;
-      background-color: transparent;
-      font-weight: normal;
-      border-radius: 0;
-      @include entry(flat-normal);
-    
-      &:hover {
-        background-image: none;
-        background-color: transparent;
-        @include entry(flat-hover);
-      }
-    
-      &:active, &:checked {
-        background-image: none;
-        background-color: transparent;
-        @include entry(flat-focus);
-      }
-    
-      &:disabled {
-        background-image: none;
-        background-color: transparent;
-        @include entry(flat-disabled);
-      }
-    }
+    @extend %combo_flat;
 
     &:only-child,
     &:first-child,
@@ -1927,9 +1929,11 @@ popover.background {
 
   entry { @extend %flat_entry; }
 
+  entry ~ button:not(.up):not(.down) { @extend %combo_flat; }
+
   .linked button:not(.combo) { border-radius: $button_radius; margin: 0 2px; }
 
-  button:not(.suggested-action):not(.destructive-action):not(.flat) {
+  button:not(.suggested-action):not(.destructive-action):not(.combo):not(.flat):not(.up):not(.down) {
     @extend %flat_theme_button;
   }
 
@@ -2119,14 +2123,15 @@ notebook {
 
       // close button
       // colors the button like the label, overridden otherwise
-      button {
+      button, button.flat {
         min-height: 24px;
         min-width: 24px;
         padding: 0;
         border-radius: $circular_radius;
         -gtk-outline-radius: $circular_radius;
-        @extend %flat_button;
       }
+
+      button { @extend %flat_button; }
     }
 
     &.top,
@@ -2160,8 +2165,9 @@ notebook {
       min-width: 24px;
       padding: 0;
       margin: $space_size;
-      @extend %flat_button;
     }
+
+    > button { @extend %flat_button; }
   }
 
   > stack:not(:only-child) { // the :not(:only-child) is for "hidden" notebooks
@@ -2169,6 +2175,8 @@ notebook {
 
     entry,
     spinbutton:not(.vertical) { @extend %flat_entry; }
+
+    entry ~ button:not(.up):not(.down) { @extend %combo_flat; }
   }
 }
 

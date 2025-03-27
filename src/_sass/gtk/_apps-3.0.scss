@@ -1981,6 +1981,72 @@ widget > box.terminal-titlebar {
   }
 }
 
+//
+// Inkscape
+//
+
+#DesktopMainBox,
+#DialogWindow {
+  notebook > header > tabs > tab {
+    > widget > box {
+      padding-left: $space_size;
+      padding-right: $space_size;
+
+      > button.close-button {
+        &, image {
+          border-radius: $button_radius;
+          -gtk-outline-radius: $button_radius;
+        }
+  
+        &:hover image {
+          background-image: image($divider);
+        }
+  
+        &:active image {
+          background-image: image($track);
+        }
+      }
+    }
+  }
+
+  notebook > header > button {
+    margin: 0;
+  }
+}
+
+#tool-toolbar {
+  flowboxchild > button {
+    min-width: 24px;
+  }
+}
+
+//
+// Gimp
+//
+
+GimpDock {
+  notebook {
+    > header > tabs > tab.reorderable-page {
+      min-height: $medium_size;
+      min-width: $medium_size;
+      padding: 0 $space_size;
+      margin-left: 2px;
+      margin-right: 2px;
+
+      image {
+        margin-left: $space_size;
+        margin-right: $space_size;
+      }
+
+      image + label { margin-right: $space_size; }
+
+      > box {
+        padding-left: $space_size;
+        padding-right: $space_size;
+      }
+    }
+  }
+}
 
 //
 // Xfce4

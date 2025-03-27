@@ -1960,10 +1960,9 @@ popover.background {
               background-image 0;
   min-height: $small_size;
   min-width: $small_size;
-  padding: $space_size 12px;
-  outline-offset: -6px;
-  border-width: 0; // for reorderable tabs
-  border-color: transparent;
+  padding: $space_size;
+  outline-offset: -5px;
+  border: none; // for reorderable tabs
   background-image: radial-gradient(circle farthest-corner at center,
                                     $track-disabled 10%,
                                     transparent 0%);
@@ -1975,11 +1974,6 @@ popover.background {
 
   &:hover {
     color: $text;
-
-    &.reorderable-page {
-      border-color: $border;
-      background-color: $base_alt;
-    }
   }
 
   &:disabled { color: $text-secondary-disabled; }
@@ -1995,11 +1989,6 @@ popover.background {
     color: $text;
 
     &:disabled { color: $text-disabled; }
-
-    &.reorderable-page {
-      border-color: $border;
-      background-color: $base;
-    }
   }
 }
 
@@ -2069,12 +2058,12 @@ notebook {
       padding-right: 4px;
 
       &.down {
-        margin-left: -8px;
+        margin-left: -$space_size - 2px;
         -gtk-icon-source: -gtk-icontheme('pan-start-symbolic');
       }
 
       &.up {
-        margin-right: -8px;
+        margin-right: -$space_size - 2px;
         -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
       }
     }
@@ -2094,19 +2083,18 @@ notebook {
       padding-bottom: 4px;
 
       &.down {
-        margin-top: -8px;
+        margin-top: -$space_size - 2px;
         -gtk-icon-source: -gtk-icontheme('pan-up-symbolic');
       }
 
       &.up {
-        margin-bottom: -8px;
+        margin-bottom: -$space_size - 2px;
         -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
       }
     }
 
     > tabs > arrow {
       @extend %simple_flat_button;
-
       min-height: 16px;
       min-width: 16px;
       border-radius: 0;
@@ -2115,50 +2103,41 @@ notebook {
     > tabs > tab {
       @extend %tabs_tab;
 
-      &.reorderable-page {
-        min-height: $medium_size;
-        min-width: $medium_size;
-        padding: $space_size;
-
-        image {
-          margin-left: $space_size;
-          margin-right: $space_size;
-        }
-
-        image + label { margin-right: $space_size; }
+      > image,
+      > box > image {
+        margin-left: $space_size;
+        margin-right: 0;
       }
+
+      > label,
+      > box > label {
+        margin-left: $space_size;
+        margin-right: $space_size;
+      }
+
+      // &.reorderable-page { }
 
       // close button
       // colors the button like the label, overridden otherwise
-      button.flat {
+      button {
         min-height: 24px;
         min-width: 24px;
         padding: 0;
         border-radius: $circular_radius;
         -gtk-outline-radius: $circular_radius;
+        @extend %flat_button;
       }
     }
 
     &.top,
     &.bottom {
       > tabs {
-        padding-left: 8px;
-        padding-right: 8px;
+        padding-left: $space_size + 2px;
+        padding-right: $space_size + 2px;
 
         &:not(:only-child) {
           &:first-child { margin-left: 0; }
           &:last-child { margin-right: 0; }
-        }
-
-        > tab.reorderable-page {
-          margin-left: 2px;
-          margin-right: 2px;
-          border-style: none solid;
-
-          > box {
-            padding-left: $space_size;
-            padding-right: $space_size;
-          }
         }
       }
     }
@@ -2166,32 +2145,22 @@ notebook {
     &.left,
     &.right {
       > tabs {
-        padding-top: 8px;
-        padding-bottom: 8px;
+        padding-top: $space_size + 2px;
+        padding-bottom: $space_size + 2px;
 
         &:not(:only-child) {
           &:first-child { margin-top: 0; }
           &:last-child { margin-bottom: 0; }
         }
-
-        > tab.reorderable-page {
-          margin-top: 2px;
-          margin-bottom: 2px;
-          border-style: solid none;
-
-          > box {
-            padding-top: $space_size;
-            padding-bottom: $space_size;
-          }
-        }
       }
     }
 
-    > button.flat {
+    > button, > button.flat {
       min-height: 24px;
       min-width: 24px;
       padding: 0;
       margin: $space_size;
+      @extend %flat_button;
     }
   }
 
@@ -2899,8 +2868,10 @@ frame > border,
 
 frame.flat > border,
 frame > border.flat,
-.frame.flat {
-  border-style: none;
+.frame.flat,
+.frame .frame,
+frame .frame {
+  border: none;
 }
 
 frame {
@@ -2941,8 +2912,8 @@ actionbar > revealer >  box {
 }
 
 scrolledwindow {
-  viewport.frame { // avoid double borders when viewport inside scrolled window
-    border-style: none;
+  > viewport.frame { // avoid double borders when viewport inside scrolled window
+    border: none;
   }
 
   // This is used when content is touch-dragged past boundaries.
@@ -3120,7 +3091,7 @@ messagedialog { // Message Dialog styling
 
     entry { @extend %flat_entry; }
 
-    .linked:not(.vertical).dialog-action-area > button {
+    .linked:not(.vertical).dialog-action-area > button:not(:only-child) {
       padding: $space_size $space_size * 2;
       border-top: 1px solid $border;
       border-radius: 0;
@@ -3175,7 +3146,7 @@ messagedialog { // Message Dialog styling
     border-bottom-left-radius: $button_radius;
     border-bottom-right-radius: $button_radius;
 
-    .linked:not(.vertical).dialog-action-area > button {
+    .linked:not(.vertical).dialog-action-area > button:not(:only-child) {
       padding: 8px 16px;
       border-top: 1px solid $border;
       border-radius: 0;
@@ -3289,7 +3260,7 @@ stacksidebar {
 placessidebar {
   background-color: $background;
 
-  > viewport.frame { border-style: none; }
+  > viewport.frame { border: none; }
 
   list { padding: (4px - 3px) 0 4px; }
 

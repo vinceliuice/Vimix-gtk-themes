@@ -5664,7 +5664,7 @@ dialog.background.csd > headerbar.titlebar > label:not(.title):not(.subtitle) {
 window.background.csd > headerbar.titlebar > box.horizontal > separator.sidebar,
 window.background.csd > headerbar.titlebar > hdyleaflet > separator.sidebar,
 window.background.csd > headerbar.titlebar > leaflet > separator.sidebar {
-  border-right-style: none;
+  border-right: none;
   background: none;
   margin: 0;
   box-shadow: inset 0 -1px rgba(0, 0, 0, 0.12);
@@ -6527,15 +6527,16 @@ window#GearyMainWindow.background.csd statusbar frame {
   background-color: transparent;
 }
 
-.geary-main-window.background.csd.unified > deck > overlay > .geary-main-layout > leaflet > separator.sidebar,
+.geary-main-window.background.csd.unified > deck > overlay > .geary-main-layout > leaflet > separator.geary-sidebar-pane-separator,
 .geary-main-window.background.csd.unified > deck > overlay > .geary-main-layout > leaflet > leaflet > separator.sidebar {
-  border-right: none;
-  background-color: #eeeeee;
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.35), inset 0 -1px rgba(0, 0, 0, 0.12);
-}
-
-.geary-main-window.background.csd.unified > deck > overlay > .geary-main-layout > leaflet > leaflet > box.vertical + separator.sidebar {
-  border-right: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: none;
+  min-width: 1px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.12);
+  background-image: image(#eeeeee);
+  background-position: 0 0;
+  background-size: 1px 48px;
+  background-repeat: no-repeat;
 }
 
 .geary-main-window.background.csd.unified > deck > overlay > .geary-main-layout > leaflet > leaflet > box.vertical > .geary-conversation-frame > scrolledwindow {
@@ -6697,11 +6698,6 @@ widget > box.terminal-titlebar > button.image-button, widget > box.terminal-titl
 #DialogNotebook notebook combobox > box > button {
   min-height: 0;
   padding: 0 12px;
-}
-
-#DesktopMainBox notebook entry,
-#DialogNotebook notebook entry {
-  min-height: 0;
 }
 
 #tool-toolbar flowboxchild > button {

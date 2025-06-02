@@ -132,11 +132,11 @@ $theme_background: if($variant == 'light', #F2F2F2, #282828);
 }
 
 @function overlay($color, $state: 'normal') {
-  @if ($state == 'normal') { @return rgba(on($color), 0.06); }
-  @if ($state == 'hover') { @return rgba(on($color), 0.12); }
+  @if ($state == 'normal') { @return rgba(on($color), 0.05); }
+  @if ($state == 'hover') { @return rgba(on($color), 0.1); }
   @if ($state == 'focus') { @return rgba(on($color), 0.08); }
-  @if ($state == 'active') { @return rgba(on($color), 0.20); }
-  @if ($state == 'checked') { @return rgba(on($color), 0.15); }
+  @if ($state == 'active') { @return rgba(on($color), 0.16); }
+  @if ($state == 'checked') { @return rgba(on($color), 0.13); }
   @if ($state == 'selected') { @return rgba(on($color), 0.1); }
 }
 

@@ -19,7 +19,7 @@
   spacing-columns: $base_padding * 2;
 }
 
-.quick-toggle, .quick-menu-toggle {
+.quick-toggle, .quick-toggle-has-menu {
   border-radius: $modal_radius;
   min-width: if($compact == 'true', 11em, 12em);
   min-width: if($compact == 'true', 11em, 12em);
@@ -62,17 +62,20 @@
   &:ltr > StBoxLayout { padding-left: $base_padding * 2.5; }
   &:rtl > StBoxLayout { padding-right: $base_padding * 2.5; }
 
-  .quick-toggle-title { font-weight: bold; }
+  .quick-toggle-title {
+    @extend %heading;
+  }
 
-  & StBoxLayout > .quick-toggle-subtitle {
+  .quick-toggle-subtitle {
+    @extend %caption;
     font-weight: normal;
-    font-size: 12px;
   }
 
   .quick-toggle-icon { icon-size: $base_icon_size; }
 }
 
-.quick-menu-toggle {
+// toggle with a menu button
+.quick-toggle-has-menu {
   & .quick-toggle {
     min-width: auto;
     max-width: auto;
@@ -86,7 +89,7 @@
     &:rtl:last-child { border-radius: $modal_radius; }
   }
 
-  .quick-toggle-arrow {
+  & .quick-toggle-menu-button {
     background-color: $fill !important;
     color: $text-secondary;
     padding: $base_padding;
@@ -127,10 +130,16 @@
       border-right-width: 0;
     }
   }
+  
+  & .quick-toggle-separator {
+    width: 0;
+  }
 }
 
 .quick-slider {
   & > StBoxLayout { spacing: $base_padding; }
+
+  .icon-button { padding: $base_padding; }
 
   .slider-bin {
     &:focus { @include button(focus); }
@@ -277,10 +286,12 @@
     icon-size: $base_icon_size * 2 !important;
     -st-icon-style: regular !important;
   }
-  & .close-button {
+  & .icon-button {
     @extend .icon-button;
     padding: $base_padding;
   }
-
+  & .spinner {
+    padding: $base_padding;
+  }
   &.popup-inactive-menu-item { color: $text; }
 }

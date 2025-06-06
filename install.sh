@@ -216,8 +216,10 @@ install() {
   [[ ${theme} == '' && ${grey} == 'true' ]] && \
   cp -r ${SRC_DIR}/xfwm4/assets${color}-contrast/*.png                                  ${THEME_DIR}/xfwm4
 
-  #  Install labwc theme
-  cp -r ${SRC_DIR}/labwc                                                                ${THEME_DIR}
+  # Install Labwc Theme
+  mkdir -p                                                                              ${THEME_DIR}/labwc
+  cp ${SRC_DIR}/labwc/*.png                                                             ${THEME_DIR}/labwc
+  cp ${SRC_DIR}/labwc/themerc${color}${theme}                                           ${THEME_DIR}/labwc/themerc
 
   #  Install unity theme
   cp -r ${SRC_DIR}/unity                                                                ${THEME_DIR}

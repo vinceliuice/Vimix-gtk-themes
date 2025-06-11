@@ -66,7 +66,7 @@ OPTIONS:
 
   -tweaks, --tweaks       Specify versions for tweaks [flat|grey|mix|translucent] (only nord and dracula can not mix use with!)
                           1. flat         Flat and normal button style for windows control buttons
-                          2. grey         Use grey windows control buttons in grey accent color variants
+                          2. grey         Use grey windows control buttons
                           3. mix          Mix theme color and dark grey color for background color in darkmode variants
                           4. translucent  Translucent panel version
 

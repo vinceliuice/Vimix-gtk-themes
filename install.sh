@@ -213,8 +213,18 @@ install() {
   [[ ${grey} == '' ]] && \
   cp -r ${SRC_DIR}/xfwm4/assets${color}${theme}/*.png                                   ${THEME_DIR}/xfwm4
 
-  [[ ${theme} == '' && ${grey} == 'true' ]] && \
+  [[ ${grey} == 'true' ]] && \
   cp -r ${SRC_DIR}/xfwm4/assets${color}-contrast/*.png                                  ${THEME_DIR}/xfwm4
+
+  # Install Labwc Theme
+  mkdir -p                                                                              ${THEME_DIR}/labwc
+  cp ${SRC_DIR}/labwc/themerc${color}${theme}                                           ${THEME_DIR}/labwc/themerc
+  
+  [[ ${grey} == '' ]] && \
+  cp -r ${SRC_DIR}/labwc/window-assets/*.png                                            ${THEME_DIR}/labwc
+
+  [[ ${grey} == 'true' ]] && \
+  cp -r ${SRC_DIR}/labwc/window-assets-contrast/*.png                                   ${THEME_DIR}/labwc
 
   #  Install unity theme
   cp -r ${SRC_DIR}/unity                                                                ${THEME_DIR}

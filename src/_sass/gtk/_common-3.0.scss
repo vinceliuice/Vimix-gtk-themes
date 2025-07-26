@@ -1830,8 +1830,8 @@ menu,
       background-color: $primary;
     }
 
-   &:disabled, label:disabled { color: on($menu, secondary-disabled); }
-   label { &:dir(rtl), &:dir(ltr) { color: inherit; }}
+    &:disabled, label:disabled { color: on($menu, secondary-disabled); }
+    label { &:dir(rtl), &:dir(ltr) { color: inherit; }}
 
     // submenu indicators
     arrow {

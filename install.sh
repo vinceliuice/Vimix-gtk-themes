@@ -66,7 +66,7 @@ OPTIONS:
 
   -tweaks, --tweaks       Specify versions for tweaks [flat|grey|mix|translucent] (only nord and dracula can not mix use with!)
                           1. flat         Flat and normal button style for windows control buttons
-                          2. grey         Use grey windows control buttons in grey accent color variants
+                          2. grey         Use grey windows control buttons
                           3. mix          Mix theme color and dark grey color for background color in darkmode variants
                           4. translucent  Translucent panel version
 
@@ -213,8 +213,18 @@ install() {
   [[ ${grey} == '' ]] && \
   cp -r ${SRC_DIR}/xfwm4/assets${color}${theme}/*.png                                   ${THEME_DIR}/xfwm4
 
-  [[ ${theme} == '' && ${grey} == 'true' ]] && \
+  [[ ${grey} == 'true' ]] && \
   cp -r ${SRC_DIR}/xfwm4/assets${color}-contrast/*.png                                  ${THEME_DIR}/xfwm4
+
+  # Install Labwc Theme
+  mkdir -p                                                                              ${THEME_DIR}/labwc
+  cp ${SRC_DIR}/labwc/themerc${color}${theme}                                           ${THEME_DIR}/labwc/themerc
+  
+  [[ ${grey} == '' ]] && \
+  cp -r ${SRC_DIR}/labwc/window-assets/*.png                                            ${THEME_DIR}/labwc
+
+  [[ ${grey} == 'true' ]] && \
+  cp -r ${SRC_DIR}/labwc/window-assets-contrast/*.png                                   ${THEME_DIR}/labwc
 
   #  Install unity theme
   cp -r ${SRC_DIR}/unity                                                                ${THEME_DIR}
